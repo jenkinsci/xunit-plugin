@@ -34,6 +34,9 @@ public class Convert2JunitConfig {
 
     public static final Map<String, TypeDescriptor> TOOLS = new HashMap<String, TypeDescriptor>();
 
+
+
+
     public static void addDescriptor(TypeDescriptor t) {
     	TOOLS.put(t.getName(), t);
     }

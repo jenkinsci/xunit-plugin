@@ -31,12 +31,12 @@ public class Messages implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * Log output to the given logger, using the CppUnit identifier
+     * Log output to the given logger
      * @param listener The current listener
      * @param message The message to be outputted
      */
     public static void log(BuildListener listener, final String message) {
-    	listener.getLogger().println("[CppUnit] " + message);
+    	listener.getLogger().println("[XUnit] " + message);
     }
 
 }

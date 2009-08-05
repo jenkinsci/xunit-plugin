@@ -224,7 +224,7 @@ public class Convert2JunitPublisher extends hudson.tasks.Publisher implements Se
 
         @Override
         public String getDisplayName() {
-            return "Convert test results to Junit test results";
+            return "Publish testing tools result report";
         }
         
         @Override

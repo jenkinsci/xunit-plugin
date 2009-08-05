@@ -31,10 +31,27 @@
       <j:set var="config" value="${descriptor.config}"/>
     </j:if>    
 
-   <j:forEach var="inst" items="${config.testTools}">
+  <f:entry help="/plugin/convert2Junit/table-help.html">
+    <table width="100%" border='0' cellspacing='0' padding="0">
+      <tr>
+        <td width="100%" style="${td}">
+          <st:nbsp/>
+          Test report XMLs
+        </td> 
+      </tr>
+    </table>
+  </f:entry>
+
+   <j:forEach var="inst" items="${config.testTools}">       
        <f:entry title="${inst.label}">
-            <f:textbox name="config.${inst.name}.pattern" value="${inst.pattern}"/>  
-      </f:entry>
+         <table width="100%"  border='0'  cellspacing='0' padding="0">
+        	<tr>
+          	  <td width="100%" style="${td}">       
+            	<f:textbox name="config.${inst.name}.pattern" value="${inst.pattern}"/>
+              </td>  
+            </tr>
+      	 </table>
+    	</f:entry>
    </j:forEach>
 
 </j:jelly>
