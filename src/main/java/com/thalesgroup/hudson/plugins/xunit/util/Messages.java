@@ -21,7 +21,7 @@
 * THE SOFTWARE.                                                                *
 *******************************************************************************/
 
-package com.thalesgroup.hudson.plugins.convert2Junit.util;
+package com.thalesgroup.hudson.plugins.xunit.util;
 
 import hudson.model.BuildListener;
 import java.io.Serializable;

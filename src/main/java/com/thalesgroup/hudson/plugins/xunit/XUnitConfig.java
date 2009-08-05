@@ -21,16 +21,16 @@
 * THE SOFTWARE.                                                                *
 *******************************************************************************/
 
-package com.thalesgroup.hudson.plugins.convert2Junit;
+package com.thalesgroup.hudson.plugins.xunit;
 
-import com.thalesgroup.hudson.plugins.convert2Junit.types.*;
+import com.thalesgroup.hudson.plugins.xunit.types.*;
 
 import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Convert2JunitConfig {
+public class XUnitConfig {
 
     public static final Map<String, TypeDescriptor> TOOLS = new HashMap<String, TypeDescriptor>();
 

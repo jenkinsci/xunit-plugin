@@ -21,7 +21,7 @@
 * THE SOFTWARE.                                                                *
 *******************************************************************************/
 
-package com.thalesgroup.hudson.plugins.convert2Junit;
+package com.thalesgroup.hudson.plugins.xunit;
 
 import hudson.FilePath;
 import hudson.Util;
@@ -44,7 +44,7 @@ import org.apache.tools.ant.types.FileSet;
 
 import com.thalesgroup.hudson.plugins.convert2Junit.util.Messages;
 
-public class Convert2JunitTransformer implements FilePath.FileCallable<Boolean>, Serializable {
+public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Serializable {
 
     private static final String JUNIT_FILE_POSTFIX = ".xml";
     private static final String JUNIT_FILE_PREFIX = "TEST-";

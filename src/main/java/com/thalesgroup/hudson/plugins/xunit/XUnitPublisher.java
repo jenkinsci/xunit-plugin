@@ -21,7 +21,7 @@
 * THE SOFTWARE.                                                                *
 *******************************************************************************/
 
-package com.thalesgroup.hudson.plugins.convert2Junit;
+package com.thalesgroup.hudson.plugins.xunit;
 
 import hudson.*;
 import hudson.remoting.VirtualChannel;
@@ -52,7 +52,7 @@ import org.kohsuke.stapler.StaplerRequest;
  * @author Gregory Boissinot
  *   
  */
-public class Convert2JunitPublisher extends hudson.tasks.Publisher implements Serializable {
+public class XUnitPublisher extends hudson.tasks.Publisher implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

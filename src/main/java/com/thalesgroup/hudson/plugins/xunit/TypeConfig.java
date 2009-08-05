@@ -21,7 +21,7 @@
 * THE SOFTWARE.                                                                *
 *******************************************************************************/
 
-package com.thalesgroup.hudson.plugins.convert2Junit;
+package com.thalesgroup.hudson.plugins.xunit;
 
 import java.io.Serializable;
 

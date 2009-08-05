@@ -21,7 +21,7 @@
 * THE SOFTWARE.                                                                *
 *******************************************************************************/
 
-package com.thalesgroup.hudson.plugins.convert2Junit.types;
+package com.thalesgroup.hudson.plugins.xunit.types;
 
 public class CppUnitDescriptor extends TypeDescriptor{
 
