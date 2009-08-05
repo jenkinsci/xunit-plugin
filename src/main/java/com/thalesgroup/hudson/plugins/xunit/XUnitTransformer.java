@@ -42,7 +42,7 @@ import javax.xml.transform.stream.StreamSource;
 import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
 
-import com.thalesgroup.hudson.plugins.convert2Junit.util.Messages;
+import com.thalesgroup.hudson.plugins.xunit.util.Messages;
 
 public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Serializable {
 
@@ -51,10 +51,10 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
 
 
     private BuildListener listener;
-    private Convert2JunitConfig config = new Convert2JunitConfig();
-    private  FilePath junitOutputPath = null;
+    private XUnitConfig config = new XUnitConfig();
+    private FilePath junitOutputPath = null;
 
-    public Convert2JunitTransformer(BuildListener listener, Convert2JunitConfig config, FilePath junitOutputPath) {
+    public XUnitTransformer(BuildListener listener, XUnitConfig config, FilePath junitOutputPath) {
         this.listener = listener;
         this.config = config;
         this.junitOutputPath = junitOutputPath;

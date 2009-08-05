@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.gallio.org/">
+  <testPackageConfig>
+    <assemblyFiles>
+      <assemblyFile>D:\Projets\TU\NUnit\GallioMultiNamespace\bin\Debug\GallioMultiNamespace.dll</assemblyFile>
+    </assemblyFiles>
+    <hintDirectories />
+    <excludedFrameworkIds />
+    <hostSetup enableShadowCopy="false" configurationFileLocation="appBase" processorArchitecture="None">
+      <configuration legacyUnhandledExceptionPolicyEnabled="true" assertUiEnabled="false" remotingCustomErrorsEnabled="false">
+        <assemblyQualifications />
+        <assemblyDependencies />
+        <supportedRuntimeVersions />
+      </configuration>
+    </hostSetup>
+  </testPackageConfig>
+  <testModel>
+    <test id="c2722843734a7a54" name="Root" fullName="" isTestCase="false">
+      <codeReference />
+      <codeLocation />
+      <metadata>
+        <entry key="TestKind">
+          <value>Root</value>
+        </entry>
+      </metadata>
+      <children>
+        <test id="8c2c7b10d85ff7e" name="NUnit v2.4.8.0" fullName="NUnit v2.4.8.0" isTestCase="false">
+          <codeReference />
+          <codeLocation />
+          <metadata>
+            <entry key="TestKind">
+              <value>Framework</value>
+            </entry>
+          </metadata>
+          <children>
+            <test id="965eaf69e58870ae" name="GallioMultiNamespace" fullName="NUnit v2.4.8.0/GallioMultiNamespace" isTestCase="false">
+              <codeReference assembly="GallioMultiNamespace, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+              <codeLocation path="D:\Projets\TU\NUnit\GallioMultiNamespace\bin\Debug\GallioMultiNamespace.DLL" />
+              <metadata>
+                <entry key="TestKind">
+                  <value>Assembly</value>
+                </entry>
+                <entry key="CodeBase">
+                  <value>D:\Projets\TU\NUnit\GallioMultiNamespace\bin\Debug\GallioMultiNamespace.DLL</value>
+                </entry>
+                <entry key="Copyright">
+                  <value>Copyright ©  2009</value>
+                </entry>
+                <entry key="FileVersion">
+                  <value>1.0.0.0</value>
+                </entry>
+                <entry key="Product">
+                  <value>GallioMultiNamespace</value>
+                </entry>
+                <entry key="Title">
+                  <value>GallioMultiNamespace</value>
+                </entry>
+                <entry key="Version">
+                  <value>1.0.0.0</value>
+                </entry>
+              </metadata>
+              <children>
+                <test id="e2371c48acf54493" name="OtherMainClassTest" fullName="NUnit v2.4.8.0/GallioMultiNamespace/OtherMainClassTest" isTestCase="false">
+                  <codeReference assembly="GallioMultiNamespace, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="AnotherNS" type="AnotherNS.OtherMainClassTest" />
+                  <codeLocation path="D:\Projets\TU\NUnit\GallioMultiNamespace\AnotherNS.cs" />
+                  <metadata>
+                    <entry key="TestKind">
+                      <value>Fixture</value>
+                    </entry>
+                  </metadata>
+                  <children>
+                    <test id="e056227ccc53555a" name="TestPropertyValueAgain" fullName="NUnit v2.4.8.0/GallioMultiNamespace/OtherMainClassTest/TestPropertyValueAgain" isTestCase="true">
+                      <codeReference assembly="GallioMultiNamespace, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="AnotherNS" type="AnotherNS.OtherMainClassTest" member="TestPropertyValueAgain" />
+                      <codeLocation path="D:\Projets\TU\NUnit\GallioMultiNamespace\AnotherNS.cs" line="13" />
+                      <metadata>
+                        <entry key="TestKind">
+                          <value>Test</value>
+                        </entry>
+                      </metadata>
+                      <children />
+                      <parameters />
+                    </test>
+                  </children>
+                  <parameters />
+                </test>
+                <test id="fda7438206626398" name="MainClassTest" fullName="NUnit v2.4.8.0/GallioMultiNamespace/MainClassTest" isTestCase="false">
+                  <codeReference assembly="GallioMultiNamespace, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="UnitTests" type="UnitTests.MainClassTest" />
+                  <codeLocation path="D:\Projets\TU\NUnit\GallioMultiNamespace\UnitTests.cs" />
+                  <metadata>
+                    <entry key="TestKind">
+                      <value>Fixture</value>
+                    </entry>
+                  </metadata>
+                  <children>
+                    <test id="d7132ac4e6674f9" name="TestMethodUpdateValue" fullName="NUnit v2.4.8.0/GallioMultiNamespace/MainClassTest/TestMethodUpdateValue" isTestCase="true">
+                      <codeReference assembly="GallioMultiNamespace, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="UnitTests" type="UnitTests.MainClassTest" member="TestMethodUpdateValue" />
+                      <codeLocation path="D:\Projets\TU\NUnit\GallioMultiNamespace\UnitTests.cs" line="18" />
+                      <metadata>
+                        <entry key="TestKind">
+                          <value>Test</value>
+                        </entry>
+                      </metadata>
+                      <children />
+                      <parameters />
+                    </test>
+                    <test id="3783a718804686e" name="TestPropertyValue" fullName="NUnit v2.4.8.0/GallioMultiNamespace/MainClassTest/TestPropertyValue" isTestCase="true">
+                      <codeReference assembly="GallioMultiNamespace, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="UnitTests" type="UnitTests.MainClassTest" member="TestPropertyValue" />
+                      <codeLocation path="D:\Projets\TU\NUnit\GallioMultiNamespace\UnitTests.cs" line="13" />
+                      <metadata>
+                        <entry key="TestKind">
+                          <value>Test</value>
+                        </entry>
+                      </metadata>
+                      <children />
+                      <parameters />
+                    </test>
+                    <test id="249403d2ee1d7e51" name="TestSuccess" fullName="NUnit v2.4.8.0/GallioMultiNamespace/MainClassTest/TestSuccess" isTestCase="true">
+                      <codeReference assembly="GallioMultiNamespace, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="UnitTests" type="UnitTests.MainClassTest" member="TestSuccess" />
+                      <codeLocation path="D:\Projets\TU\NUnit\GallioMultiNamespace\UnitTests.cs" line="23" />
+                      <metadata>
+                        <entry key="TestKind">
+                          <value>Test</value>
+                        </entry>
+                      </metadata>
+                      <children />
+                      <parameters />
+                    </test>
+                  </children>
+                  <parameters />
+                </test>
+              </children>
+              <parameters />
+            </test>
+          </children>
+          <parameters />
+        </test>
+      </children>
+      <parameters />
+    </test>
+    <annotations />
+  </testModel>
+  <testPackageRun startTime="2009-02-27T22:04:49.5093303+01:00" endTime="2009-02-27T22:04:50.4155861+01:00">
+    <testStepRun startTime="2009-02-27T22:04:49.5093303+01:00" endTime="2009-02-27T22:04:50.3843359+01:00">
+      <testStep id="1a386664ac8d7aa6" name="Root" fullName="" testId="c2722843734a7a54" isPrimary="true" isTestCase="false" isDynamic="false">
+        <codeReference />
+        <codeLocation />
+        <metadata>
+          <entry key="TestKind">
+            <value>Root</value>
+          </entry>
+        </metadata>
+      </testStep>
+      <children>
+        <testStepRun startTime="2009-02-27T22:04:49.7437068+01:00" endTime="2009-02-27T22:04:50.3218355+01:00">
+          <testStep id="def0388672f15092" name="NUnit v2.4.8.0" fullName="NUnit v2.4.8.0" testId="8c2c7b10d85ff7e" isPrimary="true" isTestCase="false" isDynamic="false">
+            <codeReference />
+            <codeLocation />
+            <metadata>
+              <entry key="TestKind">
+                <value>Framework</value>
+              </entry>
+            </metadata>
+          </testStep>
+          <children>
+            <testStepRun startTime="2009-02-27T22:04:49.8218323+01:00" endTime="2009-02-27T22:04:50.2124598+01:00">
+              <testStep id="609f3b0091cffcc5" name="GallioMultiNamespace" fullName="NUnit v2.4.8.0/GallioMultiNamespace" testId="965eaf69e58870ae" isPrimary="true" isTestCase="false" isDynamic="false">
+                <codeReference assembly="GallioMultiNamespace, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+                <codeLocation path="D:\Projets\TU\NUnit\GallioMultiNamespace\bin\Debug\GallioMultiNamespace.DLL" />
+                <metadata>
+                  <entry key="TestKind">
+                    <value>Assembly</value>
+                  </entry>
+                  <entry key="CodeBase">
+                    <value>D:\Projets\TU\NUnit\GallioMultiNamespace\bin\Debug\GallioMultiNamespace.DLL</value>
+                  </entry>
+                  <entry key="Copyright">
+                    <value>Copyright ©  2009</value>
+                  </entry>
+                  <entry key="FileVersion">
+                    <value>1.0.0.0</value>
+                  </entry>
+                  <entry key="Product">
+                    <value>GallioMultiNamespace</value>
+                  </entry>
+                  <entry key="Title">
+                    <value>GallioMultiNamespace</value>
+                  </entry>
+                  <entry key="Version">
+                    <value>1.0.0.0</value>
+                  </entry>
+                </metadata>
+              </testStep>
+              <children>
+                <testStepRun startTime="2009-02-27T22:04:49.8218323+01:00" endTime="2009-02-27T22:04:49.9155829+01:00">
+                  <testStep id="f31832f7034d767d" name="OtherMainClassTest" fullName="NUnit v2.4.8.0/GallioMultiNamespace/OtherMainClassTest" testId="e2371c48acf54493" isPrimary="true" isTestCase="false" isDynamic="false">
+                    <codeReference assembly="GallioMultiNamespace, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="AnotherNS" type="AnotherNS.OtherMainClassTest" />
+                    <codeLocation path="D:\Projets\TU\NUnit\GallioMultiNamespace\AnotherNS.cs" />
+                    <metadata>
+                      <entry key="TestKind">
+                        <value>Fixture</value>
+                      </entry>
+                    </metadata>
+                  </testStep>
+                  <children>
+                    <testStepRun startTime="2009-02-27T22:04:49.8374574+01:00" endTime="2009-02-27T22:04:49.8687076+01:00">
+                      <testStep id="a0d24c519af5e0b0" name="TestPropertyValueAgain" fullName="NUnit v2.4.8.0/GallioMultiNamespace/OtherMainClassTest/TestPropertyValueAgain" testId="e056227ccc53555a" isPrimary="true" isTestCase="true" isDynamic="false">
+                        <codeReference assembly="GallioMultiNamespace, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="AnotherNS" type="AnotherNS.OtherMainClassTest" member="TestPropertyValueAgain" />
+                        <codeLocation path="D:\Projets\TU\NUnit\GallioMultiNamespace\AnotherNS.cs" line="13" />
+                        <metadata>
+                          <entry key="TestKind">
+                            <value>Test</value>
+                          </entry>
+                        </metadata>
+                      </testStep>
+                      <children />
+                      <result assertCount="1" duration="0.037926299999999996">
+                        <outcome status="passed" />
+                      </result>
+                      <testLog>
+                        <streams />
+                        <attachments />
+                      </testLog>
+                    </testStepRun>
+                  </children>
+                  <result assertCount="1" duration="0.0984753">
+                    <outcome status="passed" />
+                  </result>
+                  <testLog>
+                    <streams />
+                    <attachments />
+                  </testLog>
+                </testStepRun>
+                <testStepRun startTime="2009-02-27T22:04:49.9468331+01:00" endTime="2009-02-27T22:04:50.1812096+01:00">
+                  <testStep id="9b8cad085a239c1c" name="MainClassTest" fullName="NUnit v2.4.8.0/GallioMultiNamespace/MainClassTest" testId="fda7438206626398" isPrimary="true" isTestCase="false" isDynamic="false">
+                    <codeReference assembly="GallioMultiNamespace, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="UnitTests" type="UnitTests.MainClassTest" />
+                    <codeLocation path="D:\Projets\TU\NUnit\GallioMultiNamespace\UnitTests.cs" />
+                    <metadata>
+                      <entry key="TestKind">
+                        <value>Fixture</value>
+                      </entry>
+                    </metadata>
+                  </testStep>
+                  <children>
+                    <testStepRun startTime="2009-02-27T22:04:49.9624582+01:00" endTime="2009-02-27T22:04:49.9937084+01:00">
+                      <testStep id="5033c68f451f419a" name="TestMethodUpdateValue" fullName="NUnit v2.4.8.0/GallioMultiNamespace/MainClassTest/TestMethodUpdateValue" testId="d7132ac4e6674f9" isPrimary="true" isTestCase="true" isDynamic="false">
+                        <codeReference assembly="GallioMultiNamespace, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="UnitTests" type="UnitTests.MainClassTest" member="TestMethodUpdateValue" />
+                        <codeLocation path="D:\Projets\TU\NUnit\GallioMultiNamespace\UnitTests.cs" line="18" />
+                        <metadata>
+                          <entry key="TestKind">
+                            <value>Test</value>
+                          </entry>
+                        </metadata>
+                      </testStep>
+                      <children />
+                      <result assertCount="1" duration="0.0237105">
+                        <outcome status="passed" />
+                      </result>
+                      <testLog>
+                        <streams />
+                        <attachments />
+                      </testLog>
+                    </testStepRun>
+                    <testStepRun startTime="2009-02-27T22:04:50.0405837+01:00" endTime="2009-02-27T22:04:50.0562088+01:00">
+                      <testStep id="602ffcb64dfa8d4d" name="TestPropertyValue" fullName="NUnit v2.4.8.0/GallioMultiNamespace/MainClassTest/TestPropertyValue" testId="3783a718804686e" isPrimary="true" isTestCase="true" isDynamic="false">
+                        <codeReference assembly="GallioMultiNamespace, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="UnitTests" type="UnitTests.MainClassTest" member="TestPropertyValue" />
+                        <codeLocation path="D:\Projets\TU\NUnit\GallioMultiNamespace\UnitTests.cs" line="13" />
+                        <metadata>
+                          <entry key="TestKind">
+                            <value>Test</value>
+                          </entry>
+                        </metadata>
+                      </testStep>
+                      <children />
+                      <result assertCount="1" duration="0.0170007">
+                        <outcome status="passed" />
+                      </result>
+                      <testLog>
+                        <streams />
+                        <attachments />
+                      </testLog>
+                    </testStepRun>
+                    <testStepRun startTime="2009-02-27T22:04:50.1030841+01:00" endTime="2009-02-27T22:04:50.1187092+01:00">
+                      <testStep id="338712fc202cc325" name="TestSuccess" fullName="NUnit v2.4.8.0/GallioMultiNamespace/MainClassTest/TestSuccess" testId="249403d2ee1d7e51" isPrimary="true" isTestCase="true" isDynamic="false">
+                        <codeReference assembly="GallioMultiNamespace, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="UnitTests" type="UnitTests.MainClassTest" member="TestSuccess" />
+                        <codeLocation path="D:\Projets\TU\NUnit\GallioMultiNamespace\UnitTests.cs" line="23" />
+                        <metadata>
+                          <entry key="TestKind">
+                            <value>Test</value>
+                          </entry>
+                        </metadata>
+                      </testStep>
+                      <children />
+                      <result assertCount="1" duration="0.018262">
+                        <outcome status="passed" />
+                      </result>
+                      <testLog>
+                        <streams />
+                        <attachments />
+                      </testLog>
+                    </testStepRun>
+                  </children>
+                  <result assertCount="3" duration="0.2310581">
+                    <outcome status="passed" />
+                  </result>
+                  <testLog>
+                    <streams />
+                    <attachments />
+                  </testLog>
+                </testStepRun>
+              </children>
+              <result assertCount="4" duration="0.39754629999999996">
+                <outcome status="passed" />
+              </result>
+              <testLog>
+                <streams />
+                <attachments />
+              </testLog>
+            </testStepRun>
+          </children>
+          <result assertCount="4" duration="0.5795367">
+            <outcome status="passed" />
+          </result>
+          <testLog>
+            <streams />
+            <attachments />
+          </testLog>
+        </testStepRun>
+      </children>
+      <result assertCount="4" duration="0.8821702">
+        <outcome status="passed" />
+      </result>
+      <testLog>
+        <streams />
+        <attachments />
+      </testLog>
+    </testStepRun>
+    <statistics assertCount="4" duration="0.9083481" runCount="4" passedCount="4" failedCount="0" inconclusiveCount="0" skippedCount="0" testCount="4" stepCount="9">
+      <outcomeSummaries>
+        <outcomeSummary count="4">
+          <outcome status="passed" />
+        </outcomeSummary>
+      </outcomeSummaries>
+    </statistics>
+  </testPackageRun>
+</report>

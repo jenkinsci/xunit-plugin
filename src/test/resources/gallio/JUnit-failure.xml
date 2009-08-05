@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<testsuites>
+  <testsuite name="UnitTests.MainClassTest" tests="3" time="0.8568407" failures="1" errors="0" skipped="0">
+    <testcase classname="UnitTests.MainClassTest" name="TestFailure" time="0.41357679999999997">
+      <failure message="  Expected: 30&#xa;  But was:  20&#xa;">   at NUnit.Framework.Assert.That(Object actual, Constraint constraint, String message, Object[] args)    at NUnit.Framework.Assert.AreEqual(Int32 expected, Int32 actual, String message, Object[] args)    at NUnit.Framework.Assert.AreEqual(Int32 expected, Int32 actual)    at UnitTests.MainClassTest.TestFailure() in D:\Projets\TU\NUnit\GallioFailure\UnitTests.cs:ligne 24</failure>
+    </testcase>
+    <testcase classname="UnitTests.MainClassTest" name="TestMethodUpdateValue" time="0.093309599999999993"/>
+    <testcase classname="UnitTests.MainClassTest" name="TestPropertyValue" time="0.0477094"/>
+  </testsuite>
+</testsuites>

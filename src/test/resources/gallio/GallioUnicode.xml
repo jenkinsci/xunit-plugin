@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.gallio.org/">
+  <testPackageConfig>
+    <assemblyFiles>
+      <assemblyFile>D:\Projets\TU\NUnit\GallioUnicode\bin\Debug\GallioUnicode.dll</assemblyFile>
+    </assemblyFiles>
+    <hintDirectories />
+    <excludedFrameworkIds />
+    <hostSetup enableShadowCopy="false" configurationFileLocation="appBase" processorArchitecture="None">
+      <configuration legacyUnhandledExceptionPolicyEnabled="true" assertUiEnabled="false" remotingCustomErrorsEnabled="false">
+        <assemblyQualifications />
+        <assemblyDependencies />
+        <supportedRuntimeVersions />
+      </configuration>
+    </hostSetup>
+  </testPackageConfig>
+  <testModel>
+    <test id="c2722843734a7a54" name="Root" fullName="" isTestCase="false">
+      <codeReference />
+      <codeLocation />
+      <metadata>
+        <entry key="TestKind">
+          <value>Root</value>
+        </entry>
+      </metadata>
+      <children>
+        <test id="8c2c7b10d85ff7e" name="NUnit v2.4.8.0" fullName="NUnit v2.4.8.0" isTestCase="false">
+          <codeReference />
+          <codeLocation />
+          <metadata>
+            <entry key="TestKind">
+              <value>Framework</value>
+            </entry>
+          </metadata>
+          <children>
+            <test id="cc730118eaf4e83e" name="GallioUnicode" fullName="NUnit v2.4.8.0/GallioUnicode" isTestCase="false">
+              <codeReference assembly="GallioUnicode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+              <codeLocation path="D:\Projets\TU\NUnit\GallioUnicode\bin\Debug\GallioUnicode.DLL" />
+              <metadata>
+                <entry key="TestKind">
+                  <value>Assembly</value>
+                </entry>
+                <entry key="CodeBase">
+                  <value>D:\Projets\TU\NUnit\GallioUnicode\bin\Debug\GallioUnicode.DLL</value>
+                </entry>
+                <entry key="Copyright">
+                  <value>Copyright ©  2009</value>
+                </entry>
+                <entry key="FileVersion">
+                  <value>1.0.0.0</value>
+                </entry>
+                <entry key="Product">
+                  <value>GallioUnicode</value>
+                </entry>
+                <entry key="Title">
+                  <value>GallioUnicode</value>
+                </entry>
+                <entry key="Version">
+                  <value>1.0.0.0</value>
+                </entry>
+              </metadata>
+              <children>
+                <test id="b6ddec09516cd56a" name="UnicodeClassTest" fullName="NUnit v2.4.8.0/GallioUnicode/UnicodeClassTest" isTestCase="false">
+                  <codeReference assembly="GallioUnicode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="UnitTests" type="UnitTests.UnicodeClassTest" />
+                  <codeLocation path="D:\Projets\TU\NUnit\GallioUnicode\UnitTests.cs" />
+                  <metadata>
+                    <entry key="TestKind">
+                      <value>Fixture</value>
+                    </entry>
+                  </metadata>
+                  <children>
+                    <test id="671498de4f00ba5a" name="TestFailure" fullName="NUnit v2.4.8.0/GallioUnicode/UnicodeClassTest/TestFailure" isTestCase="true">
+                      <codeReference assembly="GallioUnicode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="UnitTests" type="UnitTests.UnicodeClassTest" member="TestFailure" />
+                      <codeLocation path="D:\Projets\TU\NUnit\GallioUnicode\UnitTests.cs" line="13" />
+                      <metadata>
+                        <entry key="TestKind">
+                          <value>Test</value>
+                        </entry>
+                      </metadata>
+                      <children />
+                      <parameters />
+                    </test>
+                  </children>
+                  <parameters />
+                </test>
+              </children>
+              <parameters />
+            </test>
+          </children>
+          <parameters />
+        </test>
+      </children>
+      <parameters />
+    </test>
+    <annotations />
+  </testModel>
+  <testPackageRun startTime="2009-02-27T22:54:36.1534447+01:00" endTime="2009-02-27T22:54:36.7003232+01:00">
+    <testStepRun startTime="2009-02-27T22:54:36.1690698+01:00" endTime="2009-02-27T22:54:36.6846981+01:00">
+      <testStep id="781e281b6a9ad17e" name="Root" fullName="" testId="c2722843734a7a54" isPrimary="true" isTestCase="false" isDynamic="false">
+        <codeReference />
+        <codeLocation />
+        <metadata>
+          <entry key="TestKind">
+            <value>Root</value>
+          </entry>
+        </metadata>
+      </testStep>
+      <children>
+        <testStepRun startTime="2009-02-27T22:54:36.2628204+01:00" endTime="2009-02-27T22:54:36.6534479+01:00">
+          <testStep id="75e4d2ed79b96080" name="NUnit v2.4.8.0" fullName="NUnit v2.4.8.0" testId="8c2c7b10d85ff7e" isPrimary="true" isTestCase="false" isDynamic="false">
+            <codeReference />
+            <codeLocation />
+            <metadata>
+              <entry key="TestKind">
+                <value>Framework</value>
+              </entry>
+            </metadata>
+          </testStep>
+          <children>
+            <testStepRun startTime="2009-02-27T22:54:36.3096957+01:00" endTime="2009-02-27T22:54:36.6221977+01:00">
+              <testStep id="e2904a7011f655eb" name="GallioUnicode" fullName="NUnit v2.4.8.0/GallioUnicode" testId="cc730118eaf4e83e" isPrimary="true" isTestCase="false" isDynamic="false">
+                <codeReference assembly="GallioUnicode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+                <codeLocation path="D:\Projets\TU\NUnit\GallioUnicode\bin\Debug\GallioUnicode.DLL" />
+                <metadata>
+                  <entry key="TestKind">
+                    <value>Assembly</value>
+                  </entry>
+                  <entry key="CodeBase">
+                    <value>D:\Projets\TU\NUnit\GallioUnicode\bin\Debug\GallioUnicode.DLL</value>
+                  </entry>
+                  <entry key="Copyright">
+                    <value>Copyright ©  2009</value>
+                  </entry>
+                  <entry key="FileVersion">
+                    <value>1.0.0.0</value>
+                  </entry>
+                  <entry key="Product">
+                    <value>GallioUnicode</value>
+                  </entry>
+                  <entry key="Title">
+                    <value>GallioUnicode</value>
+                  </entry>
+                  <entry key="Version">
+                    <value>1.0.0.0</value>
+                  </entry>
+                </metadata>
+              </testStep>
+              <children>
+                <testStepRun startTime="2009-02-27T22:54:36.3253208+01:00" endTime="2009-02-27T22:54:36.5753224+01:00">
+                  <testStep id="11c8d90766f1d7ae" name="UnicodeClassTest" fullName="NUnit v2.4.8.0/GallioUnicode/UnicodeClassTest" testId="b6ddec09516cd56a" isPrimary="true" isTestCase="false" isDynamic="false">
+                    <codeReference assembly="GallioUnicode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="UnitTests" type="UnitTests.UnicodeClassTest" />
+                    <codeLocation path="D:\Projets\TU\NUnit\GallioUnicode\UnitTests.cs" />
+                    <metadata>
+                      <entry key="TestKind">
+                        <value>Fixture</value>
+                      </entry>
+                    </metadata>
+                  </testStep>
+                  <children>
+                    <testStepRun startTime="2009-02-27T22:54:36.3409459+01:00" endTime="2009-02-27T22:54:36.5284471+01:00">
+                      <testStep id="e922d8d36d7b36f3" name="TestFailure" fullName="NUnit v2.4.8.0/GallioUnicode/UnicodeClassTest/TestFailure" testId="671498de4f00ba5a" isPrimary="true" isTestCase="true" isDynamic="false">
+                        <codeReference assembly="GallioUnicode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="UnitTests" type="UnitTests.UnicodeClassTest" member="TestFailure" />
+                        <codeLocation path="D:\Projets\TU\NUnit\GallioUnicode\UnitTests.cs" line="13" />
+                        <metadata>
+                          <entry key="TestKind">
+                            <value>Test</value>
+                          </entry>
+                        </metadata>
+                      </testStep>
+                      <children />
+                      <result assertCount="1" duration="0.1864024">
+                        <outcome status="failed" />
+                      </result>
+                      <testLog>
+                        <streams>
+                          <stream name="Failures">
+                            <body>
+                              <contents>
+                                <section name="Message">
+                                  <contents>
+                                    <text><![CDATA[  String lengths are both 1. Strings differ at index 0.
+  Expected: "ü"
+  But was:  "â"
+  -----------^
+]]></text>
+                                  </contents>
+                                </section>
+                                <section name="Stack Trace">
+                                  <contents>
+                                    <marker class="StackTrace">
+                                      <contents>
+                                        <text><![CDATA[   à NUnit.Framework.Assert.That(Object actual, Constraint constraint, String message, Object[] args)
+   à NUnit.Framework.Assert.AreEqual(Object expected, Object actual, String message, Object[] args)
+   à NUnit.Framework.Assert.AreEqual(Object expected, Object actual)
+   à UnitTests.UnicodeClassTest.TestFailure() dans D:\Projets\TU\NUnit\GallioUnicode\UnitTests.cs:ligne 14]]></text>
+                                      </contents>
+                                      <attributes />
+                                    </marker>
+                                  </contents>
+                                </section>
+                              </contents>
+                            </body>
+                          </stream>
+                        </streams>
+                        <attachments />
+                      </testLog>
+                    </testStepRun>
+                  </children>
+                  <result assertCount="1" duration="0.2462885">
+                    <outcome status="failed" />
+                  </result>
+                  <testLog>
+                    <streams>
+                      <stream name="Failures">
+                        <body>
+                          <contents>
+                            <section name="Message">
+                              <contents>
+                                <text>Child test failed</text>
+                              </contents>
+                            </section>
+                          </contents>
+                        </body>
+                      </stream>
+                    </streams>
+                    <attachments />
+                  </testLog>
+                </testStepRun>
+              </children>
+              <result assertCount="1" duration="0.3048339">
+                <outcome status="failed" />
+              </result>
+              <testLog>
+                <streams>
+                  <stream name="Failures">
+                    <body>
+                      <contents>
+                        <section name="Message">
+                          <contents>
+                            <text>Child test failed</text>
+                          </contents>
+                        </section>
+                      </contents>
+                    </body>
+                  </stream>
+                </streams>
+                <attachments />
+              </testLog>
+            </testStepRun>
+          </children>
+          <result assertCount="1" duration="0.3801497">
+            <outcome status="failed" />
+          </result>
+          <testLog>
+            <streams />
+            <attachments />
+          </testLog>
+        </testStepRun>
+      </children>
+      <result assertCount="1" duration="0.5256774">
+        <outcome status="failed" />
+      </result>
+      <testLog>
+        <streams />
+        <attachments />
+      </testLog>
+    </testStepRun>
+    <statistics assertCount="1" duration="0.5492941" runCount="1" passedCount="0" failedCount="1" inconclusiveCount="0" skippedCount="0" testCount="1" stepCount="5">
+      <outcomeSummaries>
+        <outcomeSummary count="1">
+          <outcome status="failed" />
+        </outcomeSummary>
+      </outcomeSummaries>
+    </statistics>
+  </testPackageRun>
+</report>

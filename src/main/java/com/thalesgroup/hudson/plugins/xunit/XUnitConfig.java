@@ -51,7 +51,7 @@ public class XUnitConfig {
 
     private List<TypeConfig> testTools = new ArrayList<TypeConfig>();
 
-    public Convert2JunitConfig() {    	
+    public XUnitConfig() {    	
     	for (TypeDescriptor typeDescriptor:TOOLS.values()){
     		testTools.add(new TypeConfig(typeDescriptor.getName(), typeDescriptor.getLabel()));
     	}

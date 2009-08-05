@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.gallio.org/">
+  <testPackageConfig>
+    <assemblyFiles>
+      <assemblyFile>D:\Projets\TU\NUnit\GallioSimple\bin\Debug\GallioSimple.dll</assemblyFile>
+    </assemblyFiles>
+    <hintDirectories />
+    <excludedFrameworkIds />
+    <hostSetup enableShadowCopy="false" configurationFileLocation="appBase" processorArchitecture="None">
+      <configuration legacyUnhandledExceptionPolicyEnabled="true" assertUiEnabled="false" remotingCustomErrorsEnabled="false">
+        <assemblyQualifications />
+        <assemblyDependencies />
+        <supportedRuntimeVersions />
+      </configuration>
+    </hostSetup>
+  </testPackageConfig>
+  <testModel>
+    <test id="c2722843734a7a54" name="Root" fullName="" isTestCase="false">
+      <codeReference />
+      <codeLocation />
+      <metadata>
+        <entry key="TestKind">
+          <value>Root</value>
+        </entry>
+      </metadata>
+      <children>
+        <test id="8c2c7b10d85ff7e" name="NUnit v2.4.8.0" fullName="NUnit v2.4.8.0" isTestCase="false">
+          <codeReference />
+          <codeLocation />
+          <metadata>
+            <entry key="TestKind">
+              <value>Framework</value>
+            </entry>
+          </metadata>
+          <children>
+            <test id="9b4bd8bdef1f6a6e" name="NUnit" fullName="NUnit v2.4.8.0/NUnit" isTestCase="false">
+              <codeReference assembly="NUnit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+              <codeLocation path="D:\Projets\TU\NUnit\NUnit\bin\Debug\NUnit.DLL" />
+              <metadata>
+                <entry key="TestKind">
+                  <value>Assembly</value>
+                </entry>
+                <entry key="CodeBase">
+                  <value>D:\Projets\TU\NUnit\NUnit\bin\Debug\NUnit.DLL</value>
+                </entry>
+                <entry key="Copyright">
+                  <value>Copyright ©  2009</value>
+                </entry>
+                <entry key="FileVersion">
+                  <value>1.0.0.0</value>
+                </entry>
+                <entry key="Product">
+                  <value>NUnit</value>
+                </entry>
+                <entry key="Title">
+                  <value>NUnit</value>
+                </entry>
+                <entry key="Version">
+                  <value>1.0.0.0</value>
+                </entry>
+              </metadata>
+              <children>
+                <test id="d552dfadfca9c657" name="TestNUnit" fullName="NUnit v2.4.8.0/NUnit/TestNUnit" isTestCase="false">
+                  <codeReference assembly="NUnit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="NUnit" type="NUnit.TestNUnit" />
+                  <codeLocation path="D:\Projets\TU\NUnit\NUnit\TestNUnit.cs" />
+                  <metadata>
+                    <entry key="TestKind">
+                      <value>Fixture</value>
+                    </entry>
+                  </metadata>
+                  <children>
+                    <test id="493738238e41466f" name="TestNunit1" fullName="NUnit v2.4.8.0/NUnit/TestNUnit/TestNunit1" isTestCase="true">
+                      <codeReference assembly="NUnit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="NUnit" type="NUnit.TestNUnit" member="TestNunit1" />
+                      <codeLocation path="D:\Projets\TU\NUnit\NUnit\TestNUnit.cs" line="13" />
+                      <metadata>
+                        <entry key="TestKind">
+                          <value>Test</value>
+                        </entry>
+                      </metadata>
+                      <children />
+                      <parameters />
+                    </test>
+                    <test id="1a5a4299caa19a38" name="TestNunit2" fullName="NUnit v2.4.8.0/NUnit/TestNUnit/TestNunit2" isTestCase="true">
+                      <codeReference assembly="NUnit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="NUnit" type="NUnit.TestNUnit" member="TestNunit2" />
+                      <codeLocation path="D:\Projets\TU\NUnit\NUnit\TestNUnit.cs" line="18" />
+                      <metadata>
+                        <entry key="TestKind">
+                          <value>Test</value>
+                        </entry>
+                      </metadata>
+                      <children />
+                      <parameters />
+                    </test>
+                    <test id="cbf3f8fc852b3439" name="TestNunitFaile" fullName="NUnit v2.4.8.0/NUnit/TestNUnit/TestNunitFaile" isTestCase="true">
+                      <codeReference assembly="NUnit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="NUnit" type="NUnit.TestNUnit" member="TestNunitFaile" />
+                      <codeLocation path="D:\Projets\TU\NUnit\NUnit\TestNUnit.cs" line="23" />
+                      <metadata>
+                        <entry key="TestKind">
+                          <value>Test</value>
+                        </entry>
+                      </metadata>
+                      <children />
+                      <parameters />
+                    </test>
+                  </children>
+                  <parameters />
+                </test>
+              </children>
+              <parameters />
+            </test>
+            <test id="ebf2117db87b7838" name="GallioSimple" fullName="NUnit v2.4.8.0/GallioSimple" isTestCase="false">
+              <codeReference assembly="GallioSimple, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+              <codeLocation path="D:\Projets\TU\NUnit\GallioSimple\bin\Debug\GallioSimple.DLL" />
+              <metadata>
+                <entry key="TestKind">
+                  <value>Assembly</value>
+                </entry>
+                <entry key="CodeBase">
+                  <value>D:\Projets\TU\NUnit\GallioSimple\bin\Debug\GallioSimple.DLL</value>
+                </entry>
+                <entry key="Copyright">
+                  <value>Copyright ©  2009</value>
+                </entry>
+                <entry key="FileVersion">
+                  <value>1.0.0.0</value>
+                </entry>
+                <entry key="Product">
+                  <value>GallioSimple</value>
+                </entry>
+                <entry key="Title">
+                  <value>GallioSimple</value>
+                </entry>
+                <entry key="Version">
+                  <value>1.0.0.0</value>
+                </entry>
+              </metadata>
+              <children>
+                <test id="2aabb89296c458af" name="MainClassTest" fullName="NUnit v2.4.8.0/GallioSimple/MainClassTest" isTestCase="false">
+                  <codeReference assembly="GallioSimple, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="UnitTests" type="UnitTests.MainClassTest" />
+                  <codeLocation path="D:\Projets\TU\NUnit\GallioSimple\UnitTests.cs" />
+                  <metadata>
+                    <entry key="TestKind">
+                      <value>Fixture</value>
+                    </entry>
+                  </metadata>
+                  <children>
+                    <test id="e46e0d6fdb862526" name="TestMethodUpdateValue" fullName="NUnit v2.4.8.0/GallioSimple/MainClassTest/TestMethodUpdateValue" isTestCase="true">
+                      <codeReference assembly="GallioSimple, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="UnitTests" type="UnitTests.MainClassTest" member="TestMethodUpdateValue" />
+                      <codeLocation path="D:\Projets\TU\NUnit\GallioSimple\UnitTests.cs" line="18" />
+                      <metadata>
+                        <entry key="TestKind">
+                          <value>Test</value>
+                        </entry>
+                      </metadata>
+                      <children />
+                      <parameters />
+                    </test>
+                    <test id="cf7c395893a59db0" name="TestPropertyValue" fullName="NUnit v2.4.8.0/GallioSimple/MainClassTest/TestPropertyValue" isTestCase="true">
+                      <codeReference assembly="GallioSimple, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="UnitTests" type="UnitTests.MainClassTest" member="TestPropertyValue" />
+                      <codeLocation path="D:\Projets\TU\NUnit\GallioSimple\UnitTests.cs" line="13" />
+                      <metadata>
+                        <entry key="TestKind">
+                          <value>Test</value>
+                        </entry>
+                      </metadata>
+                      <children />
+                      <parameters />
+                    </test>
+                  </children>
+                  <parameters />
+                </test>
+              </children>
+              <parameters />
+            </test>
+          </children>
+          <parameters />
+        </test>
+      </children>
+      <parameters />
+    </test>
+    <annotations />
+  </testModel>
+  <testPackageRun startTime="2009-02-27T16:59:47.0087535+01:00" endTime="2009-02-27T16:59:50.0869376+01:00">
+    <testStepRun startTime="2009-02-27T16:59:47.0243788+01:00" endTime="2009-02-27T16:59:49.9150593+01:00">
+      <testStep id="43e24f1155699636" name="Root" fullName="" testId="c2722843734a7a54" isPrimary="true" isTestCase="false" isDynamic="false">
+        <codeReference />
+        <codeLocation />
+        <metadata>
+          <entry key="TestKind">
+            <value>Root</value>
+          </entry>
+        </metadata>
+      </testStep>
+      <children>
+        <testStepRun startTime="2009-02-27T16:59:47.2900089+01:00" endTime="2009-02-27T16:59:48.7275365+01:00">
+          <testStep id="86fb58267507c138" name="NUnit v2.4.8.0" fullName="NUnit v2.4.8.0" testId="8c2c7b10d85ff7e" isPrimary="true" isTestCase="false" isDynamic="false">
+            <codeReference />
+            <codeLocation />
+            <metadata>
+              <entry key="TestKind">
+                <value>Framework</value>
+              </entry>
+            </metadata>
+          </testStep>
+          <children>
+            <testStepRun startTime="2009-02-27T16:59:47.4150113+01:00" endTime="2009-02-27T16:59:48.6806606+01:00">
+              <testStep id="f21f2962a0b3f7a7" name="GallioSimple" fullName="NUnit v2.4.8.0/GallioSimple" testId="ebf2117db87b7838" isPrimary="true" isTestCase="false" isDynamic="false">
+                <codeReference assembly="GallioSimple, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+                <codeLocation path="D:\Projets\TU\NUnit\GallioSimple\bin\Debug\GallioSimple.DLL" />
+                <metadata>
+                  <entry key="TestKind">
+                    <value>Assembly</value>
+                  </entry>
+                  <entry key="CodeBase">
+                    <value>D:\Projets\TU\NUnit\GallioSimple\bin\Debug\GallioSimple.DLL</value>
+                  </entry>
+                  <entry key="Copyright">
+                    <value>Copyright ©  2009</value>
+                  </entry>
+                  <entry key="FileVersion">
+                    <value>1.0.0.0</value>
+                  </entry>
+                  <entry key="Product">
+                    <value>GallioSimple</value>
+                  </entry>
+                  <entry key="Title">
+                    <value>GallioSimple</value>
+                  </entry>
+                  <entry key="Version">
+                    <value>1.0.0.0</value>
+                  </entry>
+                </metadata>
+              </testStep>
+              <children>
+                <testStepRun startTime="2009-02-27T16:59:47.6025149+01:00" endTime="2009-02-27T16:59:48.64941+01:00">
+                  <testStep id="4157038b574ab0d" name="MainClassTest" fullName="NUnit v2.4.8.0/GallioSimple/MainClassTest" testId="2aabb89296c458af" isPrimary="true" isTestCase="false" isDynamic="false">
+                    <codeReference assembly="GallioSimple, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="UnitTests" type="UnitTests.MainClassTest" />
+                    <codeLocation path="D:\Projets\TU\NUnit\GallioSimple\UnitTests.cs" />
+                    <metadata>
+                      <entry key="TestKind">
+                        <value>Fixture</value>
+                      </entry>
+                    </metadata>
+                  </testStep>
+                  <children>
+                    <testStepRun startTime="2009-02-27T16:59:47.7743932+01:00" endTime="2009-02-27T16:59:47.9462715+01:00">
+                      <testStep id="fa5368042b7f444c" name="TestMethodUpdateValue" fullName="NUnit v2.4.8.0/GallioSimple/MainClassTest/TestMethodUpdateValue" testId="e46e0d6fdb862526" isPrimary="true" isTestCase="true" isDynamic="false">
+                        <codeReference assembly="GallioSimple, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="UnitTests" type="UnitTests.MainClassTest" member="TestMethodUpdateValue" />
+                        <codeLocation path="D:\Projets\TU\NUnit\GallioSimple\UnitTests.cs" line="18" />
+                        <metadata>
+                          <entry key="TestKind">
+                            <value>Test</value>
+                          </entry>
+                        </metadata>
+                      </testStep>
+                      <children />
+                      <result assertCount="1" duration="0.182298">
+                        <outcome status="passed" />
+                      </result>
+                      <testLog>
+                        <streams />
+                        <attachments />
+                      </testLog>
+                    </testStepRun>
+                    <testStepRun startTime="2009-02-27T16:59:48.5869088+01:00" endTime="2009-02-27T16:59:48.6025341+01:00">
+                      <testStep id="75b4d94c835c2baf" name="TestPropertyValue" fullName="NUnit v2.4.8.0/GallioSimple/MainClassTest/TestPropertyValue" testId="cf7c395893a59db0" isPrimary="true" isTestCase="true" isDynamic="false">
+                        <codeReference assembly="GallioSimple, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" namespace="UnitTests" type="UnitTests.MainClassTest" member="TestPropertyValue" />
+                        <codeLocation path="D:\Projets\TU\NUnit\GallioSimple\UnitTests.cs" line="13" />
+                        <metadata>
+                          <entry key="TestKind">
+                            <value>Test</value>
+                          </entry>
+                        </metadata>
+                      </testStep>
+                      <children />
+                      <result assertCount="1" duration="0.0142761">
+                        <outcome status="passed" />
+                      </result>
+                      <testLog>
+                        <streams />
+                        <attachments />
+                      </testLog>
+                    </testStepRun>
+                  </children>
+                  <result assertCount="2" duration="1.064119">
+                    <outcome status="passed" />
+                  </result>
+                  <testLog>
+                    <streams />
+                    <attachments />
+                  </testLog>
+                </testStepRun>
+              </children>
+              <result assertCount="2" duration="1.3544977999999999">
+                <outcome status="passed" />
+              </result>
+              <testLog>
+                <streams />
+                <attachments />
+              </testLog>
+            </testStepRun>
+          </children>
+          <result assertCount="2" duration="1.4486226">
+            <outcome status="passed" />
+          </result>
+          <testLog>
+            <streams />
+            <attachments />
+          </testLog>
+        </testStepRun>
+      </children>
+      <result assertCount="2" duration="2.8997509">
+        <outcome status="passed" />
+      </result>
+      <testLog>
+        <streams />
+        <attachments />
+      </testLog>
+    </testStepRun>
+    <statistics assertCount="2" duration="3.0665442" runCount="2" passedCount="2" failedCount="0" inconclusiveCount="0" skippedCount="0" testCount="2" stepCount="6">
+      <outcomeSummaries>
+        <outcomeSummary count="2">
+          <outcome status="passed" />
+        </outcomeSummary>
+      </outcomeSummaries>
+    </statistics>
+  </testPackageRun>
+</report>

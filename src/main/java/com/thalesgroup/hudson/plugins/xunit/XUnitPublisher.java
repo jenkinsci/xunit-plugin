@@ -56,17 +56,17 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
 
     private static final long serialVersionUID = 1L;
 
-    private Convert2JunitConfig config = new Convert2JunitConfig();
+    private XUnitConfig config = new XUnitConfig();
 
     @Extension
-    public static final Convert2JunitDescriptor DESCRIPTOR = new Convert2JunitDescriptor();
+    public static final XUnitDescriptor DESCRIPTOR = new XUnitDescriptor();
 
 	@Override
     public Action getProjectAction(hudson.model.Project project) {
          return new TestResultProjectAction(project);
     }
 
-    public Convert2JunitConfig getConfig() {
+    public XUnitConfig getConfig() {
         return config;
     }
 
@@ -92,7 +92,7 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
         final FilePath moduleRoot= multipleModuleRoots ? build.getProject().getWorkspace() : build.getProject().getModuleRoot();
 
         // Archiving tools report files into Junit files
-        Convert2JunitTransformer transformer = new Convert2JunitTransformer(listener,  this.config, junitTargetFilePath);
+        XUnitTransformer transformer = new XUnitTransformer(listener,  this.config, junitTargetFilePath);
         result = moduleRoot.act(transformer);
         if (!result) {
             build.setResult(Result.FAILURE);
@@ -108,7 +108,7 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
     }
 
     @Override
-    public Convert2JunitDescriptor getDescriptor() {
+    public XUnitDescriptor getDescriptor() {
         return DESCRIPTOR;        
     }
 
@@ -215,10 +215,10 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
     }
 
 
-    public static final class Convert2JunitDescriptor extends BuildStepDescriptor<Publisher> {
+    public static final class XUnitDescriptor extends BuildStepDescriptor<Publisher> {
 
-        public Convert2JunitDescriptor() {
-            super(Convert2JunitPublisher.class);
+        public XUnitDescriptor() {
+            super(XUnitPublisher.class);
             load();            
         }
 
@@ -234,12 +234,12 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
 
         @Override
         public String getHelpFile() {
-            return "/plugin/convert2Junit/help.html";
+            return "/plugin/xunit/help.html";
         }
 
         @Override
         public Publisher newInstance(StaplerRequest req) throws FormException {
-            Convert2JunitPublisher pub = new Convert2JunitPublisher();
+            XUnitPublisher pub = new XUnitPublisher();
 
             List<TypeConfig> tools = pub.getConfig().getTestTools();
             for (TypeConfig typeConfig:tools){
@@ -250,8 +250,8 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
         }
 
 
-        public Convert2JunitConfig getConfig() {
-            return new Convert2JunitConfig();
+        public XUnitConfig getConfig() {
+            return new XUnitConfig();
         }
     }
 }

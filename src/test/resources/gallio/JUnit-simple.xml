@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<testsuites>
+  <testsuite name="UnitTests.MainClassTest" tests="2" time="1.064119" failures="0" errors="0" skipped="0">
+    <testcase classname="UnitTests.MainClassTest" name="TestMethodUpdateValue" time="0.182298"/>
+    <testcase classname="UnitTests.MainClassTest" name="TestPropertyValue" time="0.0142761"/>
+  </testsuite>
+</testsuites>
