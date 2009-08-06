@@ -21,32 +21,60 @@
 * THE SOFTWARE.                                                                *
 *******************************************************************************/
 
-package com.thalesgroup.hudson.plugins.xunit.util;
+package com.thalesgroup.hudson.plugins.xunit.model;
 
-import hudson.model.BuildListener;
 import java.io.Serializable;
 
-import org.jvnet.localizer.ResourceBundleHolder;
-
-public class Messages implements Serializable {
+public class TypeConfig implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private final static ResourceBundleHolder holder = ResourceBundleHolder.get(Messages.class);
+    private String name;  // The test tool name
 
-    /**
-     * Log output to the given logger
-     * @param listener The current listener
-     * @param message The message to be outputted
-     */
-    public static void log(BuildListener listener, final String message) {
-    	listener.getLogger().println("[xUnit] " + message);
+    private String label; // The label tool name
+
+    private String stylesheet; // The stylesheet path for processing the result report
+
+    private String pattern; // File name pattern
+
+    public TypeConfig() {
     }
 
-    public static String XUnit_Publiser_Name() {
-        return holder.format("xUnit.Publisher.Name");
+    public TypeConfig(String name, String label, String stylesheet) {
+        this.name = name;
+        this.label=label;
+        this.stylesheet=stylesheet;
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public String getStylesheet() {
+        return stylesheet;
+    }
+
+    public void setStylesheet(String stylesheet) {
+        this.stylesheet = stylesheet;
+    }
+
+    public String getPattern() {
+        return pattern;
+    }
+
+    public void setPattern(String pattern) {
+        this.pattern = pattern;
+    }
 }

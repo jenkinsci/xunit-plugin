@@ -20,51 +20,14 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN    *
 * THE SOFTWARE.                                                                *
 *******************************************************************************/
+package com.thalesgroup.hudson.plugins.xunit.types;
 
-package com.thalesgroup.hudson.plugins.xunit;
 
-import java.io.Serializable;
+public class MSTestDescriptor extends TypeDescriptor {
 
-public class TypeConfig implements Serializable {
+    public static final MSTestDescriptor DESCRIPTOR = new MSTestDescriptor();
 
-    private static final long serialVersionUID = 1L;
-
-    private final String name;  // The test tool name
-
-    private final String label; // The label tool name
-    
-    private String pattern = null; // File name pattern
-
-    public TypeConfig(String name, String label) {
-        this.name = name;
-        this.label=label;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getPattern() {
-        return pattern;
-    }
-    
-    public String getLabel() {
-        return label;
-    }
-
-    public void setPattern(String pattern) {
-        this.pattern = pattern;
-    }
-
-    public boolean isFill() {
-        if (pattern== null){
-            return false;
-        }
-
-        if (pattern.isEmpty()){
-            return false;
-        }
-
-        return pattern.trim().length()!=0;        
+    public MSTestDescriptor() {
+        super("mstest", "MSTest",  "mstest-to-junit.xsl");
     }
 }

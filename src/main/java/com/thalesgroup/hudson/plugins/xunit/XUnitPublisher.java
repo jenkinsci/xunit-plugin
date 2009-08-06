@@ -45,6 +45,7 @@ import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
 import org.kohsuke.stapler.StaplerRequest;
 
+import com.thalesgroup.hudson.plugins.xunit.model.TypeConfig;
 
 /**
  * Class that converting custom reports to Junit reports and records them
@@ -53,6 +54,7 @@ import org.kohsuke.stapler.StaplerRequest;
  *   
  */
 public class XUnitPublisher extends hudson.tasks.Publisher implements Serializable {
+  
 
     private static final long serialVersionUID = 1L;
 
@@ -224,7 +226,7 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
 
         @Override
         public String getDisplayName() {
-            return "Publish testing tools result report";
+            return com.thalesgroup.hudson.plugins.xunit.util.Messages.XUnit_Publiser_Name();
         }
         
         @Override
@@ -246,6 +248,9 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
                 String value = req.getParameter("config."+typeConfig.getName()+".pattern");
                 typeConfig.setPattern(value);
             }
+
+            pub.getConfig().getCustomTools().addAll(req.bindParametersToList(TypeConfig.class, "xunit.customentry."));
+
             return pub;
         }
 

@@ -8,11 +8,11 @@
       <relativePath>../pom.xml</relativePath>
    </parent>
 
-   <artifactId>convert2Junit</artifactId>
+   <artifactId>xunit</artifactId>
    <version>0.1-SNAPSHOT</version>
    <packaging>hpi</packaging>
-   <name>Hudson convert2Junit plugin</name>
-   <url>http://wiki.hudson-ci.org/display/HUDSON/Convert2Junit+Plugin</url>
+   <name>Hudson xUnit plugin</name>
+   <url>http://wiki.hudson-ci.org/display/HUDSON/XUnit+Plugin</url>
 
    <dependencies>
       <dependency>
@@ -25,14 +25,14 @@
       <dependency>
          <groupId>org.mockito</groupId>
          <artifactId>mockito-core</artifactId>
-         <version>1.7</version>
+         <version>1.8.0</version>
          <scope>test</scope>
       </dependency>
 
       <dependency>
          <groupId>org.mockito</groupId>
          <artifactId>mockito-all</artifactId>
-         <version>1.7</version>
+         <version>1.8.0</version>
          <scope>test</scope>
       </dependency>
    </dependencies>

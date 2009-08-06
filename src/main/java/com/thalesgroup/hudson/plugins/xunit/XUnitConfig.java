@@ -24,6 +24,7 @@
 package com.thalesgroup.hudson.plugins.xunit;
 
 import com.thalesgroup.hudson.plugins.xunit.types.*;
+import com.thalesgroup.hudson.plugins.xunit.model.TypeConfig;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -34,9 +35,6 @@ public class XUnitConfig {
 
     public static final Map<String, TypeDescriptor> TOOLS = new HashMap<String, TypeDescriptor>();
 
-
-
-
     public static void addDescriptor(TypeDescriptor t) {
     	TOOLS.put(t.getName(), t);
     }
@@ -46,18 +44,27 @@ public class XUnitConfig {
         addDescriptor(BoostTestDescriptor.DESCRIPTOR);
         addDescriptor(AUnitDescriptor.DESCRIPTOR);
         addDescriptor(UnitTestDescriptor.DESCRIPTOR);
+        addDescriptor(GallioDescriptor.DESCRIPTOR);
+        addDescriptor(MSTestDescriptor.DESCRIPTOR);
     }
 
 
     private List<TypeConfig> testTools = new ArrayList<TypeConfig>();
 
+    private List<TypeConfig> customTools = new ArrayList<TypeConfig>();
+
+
     public XUnitConfig() {    	
     	for (TypeDescriptor typeDescriptor:TOOLS.values()){
-    		testTools.add(new TypeConfig(typeDescriptor.getName(), typeDescriptor.getLabel()));
+    		testTools.add(new TypeConfig(typeDescriptor.getName(), typeDescriptor.getLabel(),null));
     	}
     }
 
     public List<TypeConfig> getTestTools() {
         return testTools;
+    }
+
+    public List<TypeConfig> getCustomTools() {
+        return customTools;
     }
 }
