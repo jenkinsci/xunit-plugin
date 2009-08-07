@@ -46,6 +46,7 @@ import org.apache.tools.ant.types.FileSet;
 import org.kohsuke.stapler.StaplerRequest;
 
 import com.thalesgroup.hudson.plugins.xunit.model.TypeConfig;
+import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitTransformer;
 
 /**
  * Class that converting custom reports to Junit reports and records them

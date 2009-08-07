@@ -46,6 +46,7 @@ public class XUnitConfig {
         addDescriptor(UnitTestDescriptor.DESCRIPTOR);
         addDescriptor(GallioDescriptor.DESCRIPTOR);
         addDescriptor(MSTestDescriptor.DESCRIPTOR);
+        addDescriptor(NUnitDescriptor.DESCRIPTOR);
     }
 
 
