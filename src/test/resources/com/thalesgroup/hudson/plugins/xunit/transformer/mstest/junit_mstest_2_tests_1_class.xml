@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites xmlns:a="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+<testsuite name="MSTestSuite" tests="2" time="0" failures="1" errors="0" skipped="0">
+<testcase classname="FunctionsTest.FibonacciTest" name="CalculaFibonacci" time="00.0157226"/>
+<testcase classname="FunctionsTest.FibonacciTest" name="CalculaFibonacci_2" time="00.1007273">
+<failure>
+MESSAGE:
+Assert.AreEqual failed. Expected:&lt;2&gt;. Actual:&lt;1&gt;. 
++++++++++++++++++++
+STACK TRACE:
+   at FunctionsTest.FibonacciTest.CalculaFibonacci_2() in E:\Koiti\Dev\GitHudsonTest\FunctionsTest\FibonacciTest.cs:line 72
+</failure>
+</testcase>
+</testsuite>
+</testsuites>

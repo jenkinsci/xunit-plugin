@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite tests="2" errors="0" failures="1" name="boostest" skipped="0">
+<testcase classname="test" name="test_1" time="0" />
+<testcase classname="test" name="test_2" time="0">
+<failure>check i == j failed [1 != 2]
+            	File:test.cpp
+            	Line:16</failure>
+</testcase>
+</testsuite>

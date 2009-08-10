@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite tests="3" errors="1" failures="1" name="boostest" skipped="0">
+<testcase classname="test" name="test1" time="0" />
+<testcase classname="test" name="test2" time="0">
+<failure>check add( 2,3 ) == 4 failed
+            	File:test.cpp
+            	Line:12</failure>
+</testcase>
+<testcase classname="test" name="test3" time="0">
+<error>un test failed
+            	File:test.cpp
+            	Line:16</error>
+</testcase>
+</testsuite>
