@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite errors="1" failures="1" tests="3" name="unittest">
+<testcase classname="SuiteOne" name="TestOne" time="0"></testcase>
+<testcase classname="SuiteOne" name="TestTwo" time="0">
+<failure message="utpp.cpp(14) : false" />
+</testcase>
+<testcase classname="SuiteTwo" name="TestOne" time="0"></testcase>
+</testsuite>

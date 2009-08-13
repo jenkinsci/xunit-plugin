@@ -23,50 +23,34 @@
 
 package com.thalesgroup.hudson.plugins.xunit.transformer;
 
-import static org.junit.Assert.assertTrue;
+import org.junit.Test;
 
-import java.io.IOException;
+import com.thalesgroup.hudson.plugins.xunit.types.CppUnitDescriptor;
 
-import javax.xml.transform.TransformerException;
+public class CppUnitTestXSLTest extends AbstractXUnitXSLTest{
 
-import org.custommonkey.xmlunit.Diff;
-import org.custommonkey.xmlunit.Transform;
-import org.custommonkey.xmlunit.XMLUnit;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
+	public CppUnitTestXSLTest(){
+		super(CppUnitDescriptor.DESCRIPTOR);
+	}
 
-import com.thalesgroup.hudson.plugins.xunit.XUnitConfig;
-import com.thalesgroup.hudson.plugins.xunit.types.TypeDescriptor;
-
-public class AbstractXUnitXSLTest {
-
-	private TypeDescriptor descriptor;
-	
-	protected AbstractXUnitXSLTest(TypeDescriptor descriptor){
-		this.descriptor=descriptor;
-		setUp();
+	@Test
+   	public void testcase1() throws Exception {
+        processTransformation("cppunit/testcase1/cppunit-successAndFailure.xml","cppunit/testcase1/junit-result.xml");
 	}
 	
-	public void setUp() {
-		XMLUnit.setIgnoreWhitespace(true);
-		XMLUnit.setNormalizeWhitespace(true);
-		XMLUnit.setIgnoreComments(true);
+	@Test
+   	public void testcase2() throws Exception {
+        processTransformation("cppunit/testcase2/cppunit-zeroFailure.xml","cppunit/testcase2/junit-result.xml");
 	}
 
-	protected InputSource getInputSource(TypeDescriptor descriptor) {
-		return new InputSource(this.getClass().getResourceAsStream(
-				XUnitConfig.TOOLS.get(descriptor.getName()).getXslPath()));
+	@Test
+   	public void testcase3() throws Exception {
+        processTransformation("cppunit/testcase3/cppunit-zeroFailureAndSuccess.xml","cppunit/testcase3/junit-result.xml");
 	}
-
-	protected void processTransformation(String source, String target)
-			throws IOException, TransformerException, SAXException {
-		
-		Transform myTransform = new Transform(new InputSource(this.getClass()
-				.getResourceAsStream(source)),getInputSource(descriptor));
-		Diff myDiff = new Diff(XUnitXSLUtil.readXmlAsString(target), myTransform);
-		assertTrue("XSL transformation did not work" + myDiff, myDiff.similar());
-	}
-
-
-
+	
+	@Test
+   	public void testcase4() throws Exception {
+        processTransformation("cppunit/testcase4/cppunit-zeroSuccess.xml","cppunit/testcase4/junit-result.xml");
+	}	
+	
 }

@@ -23,50 +23,18 @@
 
 package com.thalesgroup.hudson.plugins.xunit.transformer;
 
-import static org.junit.Assert.assertTrue;
+import org.junit.Test;
 
-import java.io.IOException;
+import com.thalesgroup.hudson.plugins.xunit.types.AUnitDescriptor;
 
-import javax.xml.transform.TransformerException;
+public class AUnitTestXSLTest extends AbstractXUnitXSLTest{
 
-import org.custommonkey.xmlunit.Diff;
-import org.custommonkey.xmlunit.Transform;
-import org.custommonkey.xmlunit.XMLUnit;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
-
-import com.thalesgroup.hudson.plugins.xunit.XUnitConfig;
-import com.thalesgroup.hudson.plugins.xunit.types.TypeDescriptor;
-
-public class AbstractXUnitXSLTest {
-
-	private TypeDescriptor descriptor;
-	
-	protected AbstractXUnitXSLTest(TypeDescriptor descriptor){
-		this.descriptor=descriptor;
-		setUp();
-	}
-	
-	public void setUp() {
-		XMLUnit.setIgnoreWhitespace(true);
-		XMLUnit.setNormalizeWhitespace(true);
-		XMLUnit.setIgnoreComments(true);
+	public AUnitTestXSLTest(){
+		super(AUnitDescriptor.DESCRIPTOR);
 	}
 
-	protected InputSource getInputSource(TypeDescriptor descriptor) {
-		return new InputSource(this.getClass().getResourceAsStream(
-				XUnitConfig.TOOLS.get(descriptor.getName()).getXslPath()));
+	@Test
+   	public void testcase1() throws Exception {
+        processTransformation("aunit/testcase1/testresult.xml","aunit/testcase1/junit-result.xml");
 	}
-
-	protected void processTransformation(String source, String target)
-			throws IOException, TransformerException, SAXException {
-		
-		Transform myTransform = new Transform(new InputSource(this.getClass()
-				.getResourceAsStream(source)),getInputSource(descriptor));
-		Diff myDiff = new Diff(XUnitXSLUtil.readXmlAsString(target), myTransform);
-		assertTrue("XSL transformation did not work" + myDiff, myDiff.similar());
-	}
-
-
-
 }

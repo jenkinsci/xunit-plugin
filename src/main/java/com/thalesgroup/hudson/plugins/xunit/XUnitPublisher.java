@@ -82,8 +82,7 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
 
 
         //Create the temporary target junit dir
-        File parentTargetJunitFile = Util.createTempDir();
-        FilePath junitTargetFilePath = new FilePath(parentTargetJunitFile);
+		FilePath junitTargetFilePath = new FilePath(build.getProject().getWorkspace(),"xunitTemp");        
         if (junitTargetFilePath.exists()) {
             junitTargetFilePath.deleteRecursive();
         }

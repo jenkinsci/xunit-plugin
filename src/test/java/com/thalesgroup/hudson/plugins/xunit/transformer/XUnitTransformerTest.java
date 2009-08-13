@@ -144,8 +144,8 @@ public class XUnitTransformerTest extends AbstractWorkspaceTest{
 	
 	@Test
 	public void testCppUnitTool()throws Exception{
-		//wrongPattern(CppUnitDescriptor.DESCRIPTOR);
-		//oneMatchWithWrongContent(CppUnitDescriptor.DESCRIPTOR);
+		wrongPattern(CppUnitDescriptor.DESCRIPTOR);
+		oneMatchWithWrongContent(CppUnitDescriptor.DESCRIPTOR);
 		oneMatchWithValidContent(CppUnitDescriptor.DESCRIPTOR);
 	}
 	@Test
