@@ -21,52 +21,13 @@
 * THE SOFTWARE.                                                                *
 *******************************************************************************/
 
-package com.thalesgroup.hudson.plugins.xunit;
+package com.thalesgroup.hudson.plugins.xunit.types;
 
-import com.thalesgroup.hudson.plugins.xunit.types.*;
-import com.thalesgroup.hudson.plugins.xunit.model.TypeConfig;
+public class PHPUnitDescriptor extends TypeDescriptor{
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+    public static final PHPUnitDescriptor DESCRIPTOR = new PHPUnitDescriptor();
 
-public class XUnitConfig {
-
-    public static final Map<String, TypeDescriptor> TOOLS = new HashMap<String, TypeDescriptor>();
-
-    public static void addDescriptor(TypeDescriptor t) {
-    	TOOLS.put(t.getName(), t);
-    }
-
-    static {
-        addDescriptor(CppUnitDescriptor.DESCRIPTOR);
-        addDescriptor(BoostTestDescriptor.DESCRIPTOR);
-        addDescriptor(AUnitDescriptor.DESCRIPTOR);
-        addDescriptor(UnitTestDescriptor.DESCRIPTOR);
-        addDescriptor(GallioDescriptor.DESCRIPTOR);
-        addDescriptor(MSTestDescriptor.DESCRIPTOR);
-        addDescriptor(NUnitDescriptor.DESCRIPTOR);
-        addDescriptor(PHPUnitDescriptor.DESCRIPTOR);
-    }
-
-
-    private List<TypeConfig> testTools = new ArrayList<TypeConfig>();
-
-    private List<TypeConfig> customTools = new ArrayList<TypeConfig>();
-
-
-    public XUnitConfig() {    	
-    	for (TypeDescriptor typeDescriptor:TOOLS.values()){
-    		testTools.add(new TypeConfig(typeDescriptor.getName(), typeDescriptor.getLabel(),null));
-    	}
-    }
-
-    public List<TypeConfig> getTestTools() {
-        return testTools;
-    }
-
-    public List<TypeConfig> getCustomTools() {
-        return customTools;
-    }
+    public PHPUnitDescriptor() {
+        super("phpunit", "PHPUnit",  "phpunit-to-junit.xsl");
+    }    
 }

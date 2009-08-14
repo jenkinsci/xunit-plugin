@@ -21,52 +21,20 @@
 * THE SOFTWARE.                                                                *
 *******************************************************************************/
 
-package com.thalesgroup.hudson.plugins.xunit;
+package com.thalesgroup.hudson.plugins.xunit.transformer;
 
-import com.thalesgroup.hudson.plugins.xunit.types.*;
-import com.thalesgroup.hudson.plugins.xunit.model.TypeConfig;
+import org.junit.Test;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import com.thalesgroup.hudson.plugins.xunit.types.PHPUnitDescriptor;
 
-public class XUnitConfig {
+public class PHPUnitTestXSLTest extends AbstractXUnitXSLTest{
 
-    public static final Map<String, TypeDescriptor> TOOLS = new HashMap<String, TypeDescriptor>();
+	public PHPUnitTestXSLTest(){
+		super(PHPUnitDescriptor.DESCRIPTOR);
+	}
 
-    public static void addDescriptor(TypeDescriptor t) {
-    	TOOLS.put(t.getName(), t);
-    }
-
-    static {
-        addDescriptor(CppUnitDescriptor.DESCRIPTOR);
-        addDescriptor(BoostTestDescriptor.DESCRIPTOR);
-        addDescriptor(AUnitDescriptor.DESCRIPTOR);
-        addDescriptor(UnitTestDescriptor.DESCRIPTOR);
-        addDescriptor(GallioDescriptor.DESCRIPTOR);
-        addDescriptor(MSTestDescriptor.DESCRIPTOR);
-        addDescriptor(NUnitDescriptor.DESCRIPTOR);
-        addDescriptor(PHPUnitDescriptor.DESCRIPTOR);
-    }
-
-
-    private List<TypeConfig> testTools = new ArrayList<TypeConfig>();
-
-    private List<TypeConfig> customTools = new ArrayList<TypeConfig>();
-
-
-    public XUnitConfig() {    	
-    	for (TypeDescriptor typeDescriptor:TOOLS.values()){
-    		testTools.add(new TypeConfig(typeDescriptor.getName(), typeDescriptor.getLabel(),null));
-    	}
-    }
-
-    public List<TypeConfig> getTestTools() {
-        return testTools;
-    }
-
-    public List<TypeConfig> getCustomTools() {
-        return customTools;
-    }
+	@Test
+   	public void testcase1() throws Exception {
+        processTransformation("phpunit/testcase1/testresult.xml","phpunit/testcase1/junit-result.xml");
+	}
 }
