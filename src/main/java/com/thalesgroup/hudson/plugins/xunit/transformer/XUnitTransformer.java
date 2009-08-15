@@ -216,6 +216,13 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
         for (String resultFile: resultFiles){
         
         	File resultFilePathFile  = new File(moduleRoot, resultFile);
+        	if (resultFilePathFile.length()==0){
+        		//Ignore the empty result file (some reason)
+        		String msg = "[WARNING] - The file '"+resultFilePathFile.getPath()+"' is empty. This file has been ignored.";
+                Messages.log(listener,msg);
+        		continue;
+        	}        	        	
+        	
             FilePath junitTargetFile = new FilePath(junitOutputPath,  "file"+resultFilePathFile.hashCode() + ".xml");
         	try{
 	            toolXMLTransformer.transform(new StreamSource(resultFilePathFile), new StreamResult(new File(junitTargetFile.toURI())));
