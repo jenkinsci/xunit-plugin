@@ -23,22 +23,25 @@
 
 package com.thalesgroup.hudson.plugins.xunit;
 
-import hudson.*;
-import hudson.remoting.VirtualChannel;
-import hudson.tasks.test.TestResultProjectAction;
-import hudson.tasks.Publisher;
-import hudson.tasks.BuildStepDescriptor;
-import hudson.tasks.junit.TestResultAction;
-import hudson.tasks.junit.TestResult;
-import hudson.model.Action;
+import hudson.AbortException;
+import hudson.FilePath;
+import hudson.Launcher;
+import hudson.Util;
 import hudson.model.AbstractBuild;
+import hudson.model.Action;
 import hudson.model.BuildListener;
 import hudson.model.Result;
+import hudson.remoting.VirtualChannel;
+import hudson.tasks.BuildStepDescriptor;
+import hudson.tasks.Publisher;
+import hudson.tasks.junit.TestResult;
+import hudson.tasks.junit.TestResultAction;
+import hudson.tasks.test.TestResultProjectAction;
+import hudson.util.IOException2;
 
-import java.io.Serializable;
-import java.io.IOException;
-import java.io.PrintStream;
 import java.io.File;
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.List;
 
 import org.apache.tools.ant.DirectoryScanner;
@@ -61,10 +64,9 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
 
     private XUnitConfig config = new XUnitConfig();
 
-    @Extension
     public static final XUnitDescriptor DESCRIPTOR = new XUnitDescriptor();
 
-	@Override
+    @Override
     public Action getProjectAction(hudson.model.Project project) {
          return new TestResultProjectAction(project);
     }
@@ -78,8 +80,6 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
             throws InterruptedException, IOException {
     	
         boolean result=false;
-        PrintStream logger = listener.getLogger();
-
 
         //Create the temporary target junit dir
 		FilePath junitTargetFilePath = new FilePath(build.getProject().getWorkspace(),"xunitTemp");        
@@ -93,17 +93,31 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
         final boolean multipleModuleRoots= moduleRoots != null && moduleRoots.length > 1;
         final FilePath moduleRoot= multipleModuleRoots ? build.getProject().getWorkspace() : build.getProject().getModuleRoot();
 
-        // Archiving tools report files into Junit files
-        XUnitTransformer transformer = new XUnitTransformer(listener,  this.config, junitTargetFilePath);
-        result = moduleRoot.act(transformer);
-        if (!result) {
-            build.setResult(Result.FAILURE);
-        } else {
-            result = recordTestResult(build, listener, junitTargetFilePath, "TEST-*.xml");
+        try{
+        	// Archiving tools report files into Junit files
+        	XUnitTransformer transformer = new XUnitTransformer(listener,  this.config, junitTargetFilePath);
+        	result = moduleRoot.act(transformer);
+        	if (!result) {
+        		build.setResult(Result.FAILURE);
+        	} else {
+        		result = recordTestResult(build, listener, junitTargetFilePath, "TEST-*.xml");
+        	}
         }
-
-        //Detroy temporary target junit dir
-        junitTargetFilePath.deleteRecursive();
+        catch (IOException2 ioe){
+        	throw new IOException("xUnithasn't been perfomed correctly.", ioe);
+        }
+        finally{
+            //Detroy temporary target junit dir
+            try{
+            	junitTargetFilePath.deleteRecursive();        	
+            }
+            catch (IOException ioe){
+            	//ignore            	
+            }
+            catch (InterruptedException ie){
+            	//ignore
+            }
+        }
 
 
         return result;
