@@ -4,7 +4,7 @@
    <parent>
       <groupId>org.jvnet.hudson.plugins</groupId>
       <artifactId>plugin</artifactId>
-      <version>1.317</version>
+      <version>1.318</version>
       <relativePath>../pom.xml</relativePath>
    </parent>
 
@@ -12,7 +12,7 @@
    <version>0.1-SNAPSHOT</version>
    <packaging>hpi</packaging>
    <name>Hudson xUnit plugin</name>
-   <url>http://wiki.hudson-ci.org/display/HUDSON/XUnit+Plugin</url>
+   <url>http://wiki.hudson-ci.org/display/HUDSON/xUnit+Plugin</url>
 
    <dependencies>
       <dependency>
