@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+	<testsuite failures="0" time="0.289" errors="0" tests="3" skipped="0" name="UnitTests.MainClassTest">
+		<testcase time="0.146" name="TestPropertyValue" classname="UnitTests.MainClassTest"/>
+		<testcase time="0.001" name="TestMethodUpdateValue" classname="UnitTests.MainClassTest"/>
+		<testcase time="0.092" name="TestFailure" classname="UnitTests.MainClassTest"/>
+	</testsuite>
+	<testsuite failures="0" time="0.001" errors="0" tests="1" name="AnotherNS.OtherMainClassTest" skipped="0">
+		<testcase time="0.001" name="TestPropertyValueAgain" classname="AnotherNS.OtherMainClassTest"/>
+	</testsuite>
+</testsuites>

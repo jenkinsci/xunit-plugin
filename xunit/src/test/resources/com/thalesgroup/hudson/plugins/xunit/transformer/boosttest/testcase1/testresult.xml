@@ -1,0 +1,15 @@
+<TestResult>
+   <TestSuite name="Master Test Suite" result="failed" assertions_passed="1" assertions_failed="2" expected_failures="0" test_cases_passed="1" test_cases_failed="2" test_cases_skipped="0" test_cases_aborted="1">
+      <TestSuite name="array test" result="failed" assertions_passed="1" assertions_failed="2" expected_failures="0" test_cases_passed="1" test_cases_failed="2" test_cases_skipped="0" test_cases_aborted="1">
+         <TestCase name="test1" result="passed" assertions_passed="1" assertions_failed="0" expected_failures="0">
+         </TestCase>
+
+         <TestCase name="test2" result="failed" assertions_passed="0" assertions_failed="1" expected_failures="0">
+         </TestCase>
+
+         <TestCase name="test3" result="aborted" assertions_passed="0" assertions_failed="1" expected_failures="0">
+         </TestCase>
+      </TestSuite>
+   </TestSuite>
+</TestResult>
+

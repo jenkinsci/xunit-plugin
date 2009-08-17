@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <parent>
+      <groupId>org.jvnet.hudson.plugins</groupId>
+      <artifactId>plugin</artifactId>
+      <version>1.318</version>
+      <relativePath>../pom.xml</relativePath>
+   </parent>
+
+   <artifactId>xunit</artifactId>
+   <version>0.1</version>
+   <packaging>hpi</packaging>
+   <name>Hudson xUnit plugin</name>
+   <url>http://wiki.hudson-ci.org/display/HUDSON/xUnit+Plugin</url>
+
+   <dependencies>
+      <dependency>
+         <groupId>xmlunit</groupId>
+         <artifactId>xmlunit</artifactId>
+         <version>1.1</version>
+         <scope>test</scope>
+      </dependency>
+
+      <dependency>
+         <groupId>org.mockito</groupId>
+         <artifactId>mockito-core</artifactId>
+         <version>1.8.0</version>
+         <scope>test</scope>
+      </dependency>
+
+      <dependency>
+         <groupId>org.mockito</groupId>
+         <artifactId>mockito-all</artifactId>
+         <version>1.8.0</version>
+         <scope>test</scope>
+      </dependency>
+   </dependencies>
+
+   <build>
+      <plugins>
+         <plugin>
+	    <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+	          <includes>
+        	    <include>Abstract*.java</include>
+	          </includes>		
+	    </configuration>	
+	 </plugin>
+      </plugins>
+   </build>
+
+  <scm>
+    <connection>scm:svn:https://guest@svn.dev.java.net/svn/hudson/tags/xunit-0.1</connection>
+    <developerConnection>scm:svn:https://svn.dev.java.net/svn/hudson/tags/xunit-0.1</developerConnection>
+    <url>https://hudson.dev.java.net/source/browse/hudson/hudson/plugins/xunit/tags/xunit-0.1</url>
+  </scm>
+</project>

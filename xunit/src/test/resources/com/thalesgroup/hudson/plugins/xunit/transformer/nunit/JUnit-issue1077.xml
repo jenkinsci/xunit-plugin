@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<testsuites>
+	<testsuite name="AdministrationPasswordTest" tests="6" time="35.396" failures="0" errors="0" skipped="0">
+		 <testcase classname="AdministrationPasswordTest" name="testChangePasswordFailEmptyForm" time="5.065"/>
+		 <testcase classname="AdministrationPasswordTest" name="testChangePasswordFailOldPasswordKO" time="5.066"/>
+		 <testcase classname="AdministrationPasswordTest" name="testChangePasswordFailNewPasswordTooShort" time="5.049"/>
+		 <testcase classname="AdministrationPasswordTest" name="testChangePasswordFailNewPasswordNotRepeated" time="5.05"/>
+		 <testcase classname="AdministrationPasswordTest" name="testChangePasswordFailNewPasswordKO" time="5.066"/>
+		 <testcase classname="AdministrationPasswordTest" name="testChangePassword" time="10.1"/>
+	</testsuite>
+</testsuites>
