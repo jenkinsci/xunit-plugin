@@ -29,7 +29,7 @@
    <j:set var="config" value="${instance.config}"/>
    <j:if test="${config == null}">
       <j:set var="config" value="${descriptor.config}"/>
-    </j:if>    
+   </j:if>    
  
 
    <f:entry help="/plugin/xunit/table-help.html">
