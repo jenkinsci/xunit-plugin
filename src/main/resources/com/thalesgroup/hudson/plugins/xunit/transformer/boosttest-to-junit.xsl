@@ -122,11 +122,8 @@
       
       <testcase>
          <xsl:variable name="elt" select="(child::*[position()=1])" />
-
- 		 <!--<xsl:variable name="time" select="TestingTime[last()]" />-->
- 		 <xsl:variable name="time" select="TestingTime" />
+ 	 <xsl:variable name="time" select="TestingTime" />
  		 
-
          <xsl:attribute name="classname">
             <xsl:value-of select="substring-before(($elt)/@file, '.')" /> 
          </xsl:attribute>
@@ -137,7 +134,7 @@
 
 
          <xsl:attribute name="time">
-            <xsl:value-of select="($time)" />
+            <xsl:value-of select="$time div 1000000" />
          </xsl:attribute>
          
          <xsl:variable name="nbErrors" select="count(Error)" />
