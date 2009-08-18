@@ -53,7 +53,7 @@ import org.xml.sax.SAXException;
 
 import com.thalesgroup.hudson.plugins.xunit.XUnitConfig;
 import com.thalesgroup.hudson.plugins.xunit.model.TypeConfig;
-import com.thalesgroup.hudson.plugins.xunit.util.Messages;
+import com.thalesgroup.hudson.plugins.xunit.util.XUnitLog;
 
 public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Serializable {
 
@@ -114,7 +114,7 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
         File stylesheetFile = new File(moduleRoot, testTool.getStylesheet());
         if (result && !stylesheetFile.exists()){
            String msg = "The custom stylesheet '" + testTool.getStylesheet() +"' for the tool '"+ testTool.getLabel()+"' doesn't exist.";
-           Messages.log(listener,msg);
+           XUnitLog.log(listener,msg);
            return  false;
         }
 
@@ -163,14 +163,14 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
            else if ( isNotCompleteCustomConfigEntry(testTool)){
                String msg = "[ERROR] - There is an invalid configuration for the following entries '"
                     + testTool.getLabel() + "':'"+ testTool.getPattern() + "':'"+ testTool.getStylesheet() + "' into the custom testing frameworks section.";
-               Messages.log(listener,msg);
+               XUnitLog.log(listener,msg);
                return false;
            }
         }
         
         if (!isInvoked){
             String msg = "[ERROR] - No test report files were found. Configuration error?";
-            Messages.log(listener,msg);
+            XUnitLog.log(listener,msg);
             return false;
         }
         
@@ -208,18 +208,18 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
                 + testTool.getPattern() + "' relative to '"+ moduleRoot + "' for the testing framework '"+ testTool.getLabel() + "'."
                 + "  Did you enter a pattern relative to the correct directory?"
                 + "  Did you generate the result report(s) for '"+ testTool.getLabel() + "'?";
-            Messages.log(listener,msg);
+            XUnitLog.log(listener,msg);
             return false;            
         }
 
-        Messages.log(listener,"["+ testTool.getLabel()+ "] - Processing "+resultFiles.length+ " files with the pattern '"  + testTool.getPattern() + "' relative to '"+ moduleRoot + "'.");
+        XUnitLog.log(listener,"["+ testTool.getLabel()+ "] - Processing "+resultFiles.length+ " files with the pattern '"  + testTool.getPattern() + "' relative to '"+ moduleRoot + "'.");
         for (String resultFile: resultFiles){
         
         	File resultFilePathFile  = new File(moduleRoot, resultFile);
         	if (resultFilePathFile.length()==0){
         		//Ignore the empty result file (some reason)
         		String msg = "[WARNING] - The file '"+resultFilePathFile.getPath()+"' is empty. This file has been ignored.";
-                Messages.log(listener,msg);
+                XUnitLog.log(listener,msg);
         		continue;
         	}        	        	
         	
@@ -230,12 +230,12 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
         	}
         	catch (TransformerException te){
                 String msg = "[ERROR] - Couldn't convert the file '"+resultFilePathFile.getPath()+"' into a JUnit file.";
-        		Messages.log(listener,msg);
+        		XUnitLog.log(listener,msg);
                 return false;
         	}
         	catch (SAXException te){
         		String msg = "[ERROR] - Couldn't split JUnit testsuites for the file '"+resultFile+"' into JUnit files with one testsuite.";
-        		Messages.log(listener,msg);
+        		XUnitLog.log(listener,msg);
                 return false;
         	}
        }

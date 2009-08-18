@@ -48,6 +48,7 @@ import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
 import org.kohsuke.stapler.StaplerRequest;
 
+import com.thalesgroup.hudson.plugins.xunit.Messages;
 import com.thalesgroup.hudson.plugins.xunit.model.TypeConfig;
 import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitTransformer;
 
@@ -240,7 +241,7 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
 
         @Override
         public String getDisplayName() {
-            return com.thalesgroup.hudson.plugins.xunit.util.Messages.XUnit_Publiser_Name();
+            return Messages.xUnit_PublisherName();
         }
         
         @Override

@@ -28,11 +28,11 @@ import java.io.Serializable;
 
 import org.jvnet.localizer.ResourceBundleHolder;
 
-public class Messages implements Serializable {
+public class XUnitLog implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private final static ResourceBundleHolder holder = ResourceBundleHolder.get(Messages.class);
+    private final static ResourceBundleHolder holder = ResourceBundleHolder.get(XUnitLog.class);
 
     /**
      * Log output to the given logger
