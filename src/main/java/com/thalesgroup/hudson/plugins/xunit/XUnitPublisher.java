@@ -33,6 +33,7 @@ import hudson.model.BuildListener;
 import hudson.model.Result;
 import hudson.remoting.VirtualChannel;
 import hudson.tasks.BuildStepDescriptor;
+import hudson.tasks.BuildStepMonitor;
 import hudson.tasks.Publisher;
 import hudson.tasks.junit.TestResult;
 import hudson.tasks.junit.TestResultAction;
@@ -105,7 +106,7 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
         	}
         }
         catch (IOException2 ioe){
-        	throw new IOException("xUnithasn't been perfomed correctly.", ioe);
+        	throw new IOException("xUnit hasn't been perfomed correctly.", ioe);
         }
         finally{
             //Detroy temporary target junit dir
@@ -132,9 +133,9 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
 
     /**
      * Record the test results into the current build.
-     * @param junitFilePattern
      * @param build
      * @param listener
+     * @param junitFilePattern
      * @return
      * @throws InterruptedException
      * @throws IOException
@@ -236,7 +237,7 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
 
         public XUnitDescriptor() {
             super(XUnitPublisher.class);
-            load();            
+            //load();            
         }
 
         @Override
@@ -274,4 +275,9 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
             return new XUnitConfig();
         }
     }
+
+
+	public BuildStepMonitor getRequiredMonitorService() {
+		return BuildStepMonitor.STEP;
+	}
 }

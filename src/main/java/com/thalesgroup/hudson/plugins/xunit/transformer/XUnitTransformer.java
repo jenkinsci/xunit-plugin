@@ -82,7 +82,7 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
             return true;
         }
 
-        if (field.trim().isEmpty()){
+        if (field.trim().length()==0){
             return true;
         }
 

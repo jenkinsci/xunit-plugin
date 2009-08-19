@@ -23,17 +23,29 @@
 
 package com.thalesgroup.hudson.plugins.xunit;
 
-import com.thalesgroup.hudson.plugins.xunit.types.*;
-import com.thalesgroup.hudson.plugins.xunit.model.TypeConfig;
-
-import java.util.List;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-public class XUnitConfig {
+import com.thalesgroup.hudson.plugins.xunit.model.TypeConfig;
+import com.thalesgroup.hudson.plugins.xunit.types.AUnitDescriptor;
+import com.thalesgroup.hudson.plugins.xunit.types.BoostTestDescriptor;
+import com.thalesgroup.hudson.plugins.xunit.types.CppUnitDescriptor;
+import com.thalesgroup.hudson.plugins.xunit.types.GallioDescriptor;
+import com.thalesgroup.hudson.plugins.xunit.types.MSTestDescriptor;
+import com.thalesgroup.hudson.plugins.xunit.types.NUnitDescriptor;
+import com.thalesgroup.hudson.plugins.xunit.types.PHPUnitDescriptor;
+import com.thalesgroup.hudson.plugins.xunit.types.TypeDescriptor;
+import com.thalesgroup.hudson.plugins.xunit.types.UnitTestDescriptor;
 
-    public static final Map<String, TypeDescriptor> TOOLS = new HashMap<String, TypeDescriptor>();
+public class XUnitConfig implements Serializable{
+
+
+	private static final long serialVersionUID = 1L;
+
+	public static final Map<String, TypeDescriptor> TOOLS = new HashMap<String, TypeDescriptor>();
 
     public static void addDescriptor(TypeDescriptor t) {
     	TOOLS.put(t.getName(), t);
