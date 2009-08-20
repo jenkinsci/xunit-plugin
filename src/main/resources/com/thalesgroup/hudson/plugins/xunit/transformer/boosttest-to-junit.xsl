@@ -13,6 +13,8 @@
 			      	<xsl:with-param name="nbErrors">0</xsl:with-param>
 			      	<xsl:with-param name="nbFailures">0</xsl:with-param>
 			      	<xsl:with-param name="nbTests">0</xsl:with-param>      		
+			      	<xsl:with-param name="suiteName" select="/TestLog/TestSuite/TestSuite/@name" />
+			      	<xsl:with-param name="masterSuiteName" select="/TestLog/TestSuite/@name" />
 	      		</xsl:call-template>
       		
       		</xsl:when>
@@ -24,6 +26,7 @@
 			      	<xsl:with-param name="nbErrors">0</xsl:with-param>
 			      	<xsl:with-param name="nbFailures">0</xsl:with-param>
 			      	<xsl:with-param name="nbTests">0</xsl:with-param>      		
+			      	<xsl:with-param name="masterSuiteName" select="/TestLog/TestSuite/@name" />
 	      		</xsl:call-template>
 		 	
 		 	</xsl:otherwise>
@@ -49,6 +52,8 @@
 
 		 <xsl:param name="childs"/>
 		 
+		 <xsl:param name="masterSuiteName"/>
+		 
          <xsl:choose>
             <xsl:when test="count($childs) &gt; 0">
 
@@ -61,9 +66,8 @@
 		 			<xsl:with-param name="nbErrors" select="$nbErrors + $errors"/>
 		 			<xsl:with-param name="nbFailures" select="$nbFailures + $failures"/>
 		 			<xsl:with-param name="nbTests" select="$nbTests + 1"/>
-		 		</xsl:call-template>
- 			 		
-		 
+		 			<xsl:with-param name="masterSuiteName" select="$masterSuiteName"/>
+		 		</xsl:call-template> 			 				 
 		 
 		 	</xsl:when>
 		 	
@@ -83,7 +87,10 @@
 		            <xsl:value-of select="$nbFailures" />
 		         </xsl:attribute>
 
-		         <xsl:attribute name="name">boostest</xsl:attribute>
+		         <xsl:attribute name="name">
+		         	<xsl:value-of select="$masterSuiteName" />
+		         </xsl:attribute>
+		          
 		
 		         <xsl:attribute name="skipped">0</xsl:attribute>
 		
@@ -120,12 +127,16 @@
 
     <xsl:template name="testCase">
       
+       <xsl:variable name="curElt" select="."/>
+       <xsl:variable name="suiteName" select="($curElt/parent::*)[1]/@name"/>
+       <xsl:variable name="packageName" select="concat($suiteName, '.')"/>
+      
       <testcase>
          <xsl:variable name="elt" select="(child::*[position()=1])" />
- 	 <xsl:variable name="time" select="TestingTime" />
+ 	 	 <xsl:variable name="time" select="TestingTime" />
  		 
          <xsl:attribute name="classname">
-            <xsl:value-of select="substring-before(($elt)/@file, '.')" /> 
+            <xsl:value-of select="concat($packageName,  substring-before(($elt)/@file, '.'))" /> 
          </xsl:attribute>
 
          <xsl:attribute name="name">

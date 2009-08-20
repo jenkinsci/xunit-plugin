@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite tests="1" errors="0" failures="0" name="boostest" skipped="0">
-<testcase classname="test" name="MyTestCase" time="0" />
+<testsuite tests="1" errors="0" failures="0" name="MyTest" skipped="0">
+<testcase classname="MyTest.test" name="MyTestCase" time="0" />
 </testsuite>
