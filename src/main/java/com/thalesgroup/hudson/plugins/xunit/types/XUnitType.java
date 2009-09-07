@@ -21,26 +21,44 @@
  * THE SOFTWARE.                                                                *
  *******************************************************************************/
 
-package com.thalesgroup.hudson.plugins.xunit.transformer;
+package com.thalesgroup.hudson.plugins.xunit.types;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import hudson.ExtensionPoint;
+import hudson.ExtensionList;
+import hudson.model.Hudson;
 
-public class XUnitXSLUtil {
+import java.io.Serializable;
 
-    public static String readXmlAsString(String resourceName)
-            throws IOException {
-        String xmlString = "";
+public abstract class XUnitType implements ExtensionPoint, Serializable {
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(XUnitXSLUtil.class.getResourceAsStream(resourceName)));
-        String line = reader.readLine();
-        while (line != null) {
-            xmlString += line + "\n";
-            line = reader.readLine();
-        }
-        reader.close();
+    private final String name;
 
-        return xmlString;
+    private final String label;
+
+    private final String xslPath;
+
+    protected XUnitType(String name, String label, String xslPath) {
+        this.name = name;
+        this.label = label;
+        this.xslPath = xslPath;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public String getXslPath() {
+        return xslPath;
+    }
+
+    /**
+     * All regsitered instances.
+     */
+    public static ExtensionList<XUnitType> all() {
+        return Hudson.getInstance().getExtensionList(XUnitType.class);
     }
 }

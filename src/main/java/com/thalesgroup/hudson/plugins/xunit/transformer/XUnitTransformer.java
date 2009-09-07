@@ -1,31 +1,33 @@
 /*******************************************************************************
-* Copyright (c) 2009 Thales Corporate Services SAS                             *
-* Author : Gregory Boissinot                                                   *
-*                                                                              *
-* Permission is hereby granted, free of charge, to any person obtaining a copy *
-* of this software and associated documentation files (the "Software"), to deal*
-* in the Software without restriction, including without limitation the rights *
-* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell    *
-* copies of the Software, and to permit persons to whom the Software is        *
-* furnished to do so, subject to the following conditions:                     *
-*                                                                              *
-* The above copyright notice and this permission notice shall be included in   *
-* all copies or substantial portions of the Software.                          *
-*                                                                              *
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR   *
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,     *
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE  *
-* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER       *
-* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,*
-* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN    *
-* THE SOFTWARE.                                                                *
-*******************************************************************************/
+ * Copyright (c) 2009 Thales Corporate Services SAS                             *
+ * Author : Gregory Boissinot                                                   *
+ *                                                                              *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy *
+ * of this software and associated documentation files (the "Software"), to deal*
+ * in the Software without restriction, including without limitation the rights *
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell    *
+ * copies of the Software, and to permit persons to whom the Software is        *
+ * furnished to do so, subject to the following conditions:                     *
+ *                                                                              *
+ * The above copyright notice and this permission notice shall be included in   *
+ * all copies or substantial portions of the Software.                          *
+ *                                                                              *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR   *
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,     *
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE  *
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER       *
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,*
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN    *
+ * THE SOFTWARE.                                                                *
+ *******************************************************************************/
 
 package com.thalesgroup.hudson.plugins.xunit.transformer;
 
 import hudson.FilePath;
 import hudson.Util;
 import hudson.model.BuildListener;
+import hudson.model.Result;
+import hudson.model.AbstractBuild;
 import hudson.remoting.VirtualChannel;
 import hudson.util.IOException2;
 
@@ -37,6 +39,7 @@ import java.io.Serializable;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.FactoryConfigurationError;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
@@ -62,11 +65,13 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
 
 
     private BuildListener listener;
+    private AbstractBuild<?, ?> owner;
     private XUnitConfig config = new XUnitConfig();
     private FilePath junitOutputPath = null;
 
-    public XUnitTransformer(BuildListener listener, XUnitConfig config, FilePath junitOutputPath) {
+    public XUnitTransformer(BuildListener listener, AbstractBuild<?, ?> owner, XUnitConfig config, FilePath junitOutputPath) {
         this.listener = listener;
+        this.owner=owner;
         this.config = config;
         this.junitOutputPath = junitOutputPath;
     }
@@ -74,15 +79,16 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
 
     /**
      * Test if the field is empty
+     *
      * @param field
      * @return
      */
     private boolean isEmpty(String field) {
-        if (field== null){
+        if (field == null) {
             return true;
         }
 
-        if (field.trim().length()==0){
+        if (field.trim().length() == 0) {
             return true;
         }
 
@@ -91,10 +97,11 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
 
     /**
      * Determines if the current custom test tool entries are not empty or blank
+     *
      * @param testTool
      * @return
      */
-    private boolean isNotCompleteCustomConfigEntry(TypeConfig testTool){
+    private boolean isNotCompleteCustomConfigEntry(TypeConfig testTool) {
         boolean result = isEmpty(testTool.getPattern());
         result = result || isEmpty(testTool.getLabel());
         result = result || isEmpty(testTool.getStylesheet());
@@ -103,19 +110,20 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
 
     /**
      * Valid the current custom test tool entries
+     *
      * @param moduleRoot
      * @param testTool
      * @return
      */
-    private boolean isValidCustomConfigEntry(File moduleRoot, TypeConfig testTool){
+    private boolean isValidCustomConfigEntry(File moduleRoot, TypeConfig testTool) {
 
         boolean result = !isNotCompleteCustomConfigEntry(testTool);
 
         File stylesheetFile = new File(moduleRoot, testTool.getStylesheet());
-        if (result && !stylesheetFile.exists()){
-           String msg = "The custom stylesheet '" + testTool.getStylesheet() +"' for the tool '"+ testTool.getLabel()+"' doesn't exist.";
-           XUnitLog.log(listener,msg);
-           return  false;
+        if (result && !stylesheetFile.exists()) {
+            String msg = "The custom stylesheet '" + testTool.getStylesheet() + "' for the tool '" + testTool.getLabel() + "' doesn't exist.";
+            XUnitLog.log(listener, msg);
+            return false;
         }
 
         return result;
@@ -124,67 +132,83 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
 
     /**
      * Invocation
+     *
      * @param moduleRoot
      * @param channel
-     * @return
+     * @return the Result
      * @throws IOException
      */
     public Boolean invoke(File moduleRoot, VirtualChannel channel) throws IOException {
 
-       try{
+        try {
 
-    	boolean isInvoked=false;   
-    	   
-        TransformerFactory transformerFactory = TransformerFactory.newInstance();
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder xmlDocumentBuilder = factory.newDocumentBuilder();
-        Transformer writerTransformer = transformerFactory.newTransformer();
+            boolean isInvoked = false;
 
-        //Supported tools
-        for (TypeConfig testTool:config.getTestTools()){
-            if (!isEmpty(testTool.getPattern())){
-                isInvoked=true;
-            	boolean result=processTool(moduleRoot, transformerFactory, xmlDocumentBuilder, writerTransformer, testTool, new StreamSource(this.getClass().getResourceAsStream(config.TOOLS.get(testTool.getName()).getXslPath())));
-                if (!result){
-                	return false;
-            	}
-            }            
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder xmlDocumentBuilder = factory.newDocumentBuilder();
+            Transformer writerTransformer = transformerFactory.newTransformer();
+
+            //Supported tools
+            for (TypeConfig testTool : config.getTestTools()) {
+                if (!isEmpty(testTool.getPattern())) {
+                    isInvoked = true;
+                    boolean result = processTool(moduleRoot,
+                                    transformerFactory, xmlDocumentBuilder, writerTransformer, testTool,
+                                    new StreamSource(this.getClass().getResourceAsStream(config.TOOLS.get(testTool.getName()).getXslPath())));
+                    if (!result) {
+                        return result;
+                    }
+                }
+            }
+
+            //Custom tools
+            for (TypeConfig testTool : config.getCustomTools()) {
+                if (isValidCustomConfigEntry(moduleRoot, testTool)) {
+                    isInvoked = true;
+                    boolean result = processTool(moduleRoot, transformerFactory, xmlDocumentBuilder, writerTransformer, testTool, new StreamSource(new File(moduleRoot, testTool.getStylesheet())));
+                    if (!result) {
+                        return result;
+                    }
+                } else if (isNotCompleteCustomConfigEntry(testTool)) {
+                    String msg = "[ERROR] - There is an invalid configuration for the following entries '"
+                            + testTool.getLabel() + "':'" + testTool.getPattern() + "':'" + testTool.getStylesheet() + "' into the custom testing frameworks section.";
+                    XUnitLog.log(listener, msg);
+                    return false;
+                }
+            }
+
+            if (!isInvoked) {
+                String msg = "[ERROR] - No test report files were found. Configuration error?";
+                XUnitLog.log(listener, msg);
+                return false;
+            }
+
+        }
+        catch (Exception e) {
+            throw new IOException2("Problem on converting into JUnit reports.", e);
         }
 
-        //Custom tools
-        for (TypeConfig testTool:config.getCustomTools()){
-           if (isValidCustomConfigEntry(moduleRoot, testTool)){
-               isInvoked=true;
-        	   boolean result=processTool(moduleRoot, transformerFactory, xmlDocumentBuilder, writerTransformer, testTool, new StreamSource(new File(moduleRoot, testTool.getStylesheet())));
-	           if (!result){
-	           		return false;
-	       	   }	           
-           }
-           else if ( isNotCompleteCustomConfigEntry(testTool)){
-               String msg = "[ERROR] - There is an invalid configuration for the following entries '"
-                    + testTool.getLabel() + "':'"+ testTool.getPattern() + "':'"+ testTool.getStylesheet() + "' into the custom testing frameworks section.";
-               XUnitLog.log(listener,msg);
-               return false;
-           }
+        return true;
+
+    }
+
+
+    private boolean validateXUnitResultFile(File fileXUnitReportFile)
+            throws FactoryConfigurationError {
+        try {
+            DocumentBuilder parser = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+            parser.parse(fileXUnitReportFile);
+            return true;
         }
-        
-        if (!isInvoked){
-            String msg = "[ERROR] - No test report files were found. Configuration error?";
-            XUnitLog.log(listener,msg);
+        catch (Exception e) {
             return false;
         }
-        
-     }
-     catch (Exception e){
-    	throw new IOException2("Problem on converting into JUnit reports.", e);
-     }
-
-     return true;
-
     }
 
     /**
      * Processing the current test tool
+     *
      * @param moduleRoot
      * @param transformerFactory
      * @param xmlDocumentBuilder
@@ -198,49 +222,67 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
      * @throws ParserConfigurationException
      */
     private boolean processTool(File moduleRoot, TransformerFactory transformerFactory, DocumentBuilder xmlDocumentBuilder, Transformer writerTransformer, TypeConfig testTool, StreamSource stylesheet)
-            throws TransformerException, IOException, InterruptedException  {
+            throws TransformerException, IOException, InterruptedException {
 
         Transformer toolXMLTransformer = transformerFactory.newTransformer(stylesheet);
 
         String[] resultFiles = findtReports(moduleRoot, testTool.getPattern());
-        if (resultFiles.length==0){
+        if (resultFiles.length == 0) {
             String msg = "[ERROR] - No test report file(s) were found with the pattern '"
-                + testTool.getPattern() + "' relative to '"+ moduleRoot + "' for the testing framework '"+ testTool.getLabel() + "'."
-                + "  Did you enter a pattern relative to the correct directory?"
-                + "  Did you generate the result report(s) for '"+ testTool.getLabel() + "'?";
-            XUnitLog.log(listener,msg);
-            return false;            
+                    + testTool.getPattern() + "' relative to '" + moduleRoot + "' for the testing framework '" + testTool.getLabel() + "'."
+                    + "  Did you enter a pattern relative to the correct directory?"
+                    + "  Did you generate the result report(s) for '" + testTool.getLabel() + "'?";
+            XUnitLog.log(listener, msg);
+            return false;
         }
 
-        XUnitLog.log(listener,"["+ testTool.getLabel()+ "] - Processing "+resultFiles.length+ " files with the pattern '"  + testTool.getPattern() + "' relative to '"+ moduleRoot + "'.");
-        for (String resultFile: resultFiles){
-        
-        	File resultFilePathFile  = new File(moduleRoot, resultFile);
-        	if (resultFilePathFile.length()==0){
-        		//Ignore the empty result file (some reason)
-        		String msg = "[WARNING] - The file '"+resultFilePathFile.getPath()+"' is empty. This file has been ignored.";
-                XUnitLog.log(listener,msg);
-        		continue;
-        	}        	        	
-        	
-            FilePath junitTargetFile = new FilePath(junitOutputPath,  "file"+resultFilePathFile.hashCode() + ".xml");
-        	try{
-	            toolXMLTransformer.transform(new StreamSource(resultFilePathFile), new StreamResult(new File(junitTargetFile.toURI())));
-	            processJUnitFile(xmlDocumentBuilder, writerTransformer, junitTargetFile, junitOutputPath);
-        	}
-        	catch (TransformerException te){
-                String msg = "[ERROR] - Couldn't convert the file '"+resultFilePathFile.getPath()+"' into a JUnit file.";
-        		XUnitLog.log(listener,msg);
+        XUnitLog.log(listener, "[" + testTool.getLabel() + "] - Processing " + resultFiles.length + " files with the pattern '" + testTool.getPattern() + "' relative to '" + moduleRoot + "'.");
+
+        boolean hasInvalidateFiles = false;
+        for (String resultFile : resultFiles) {
+
+            File resultFilePathFile = new File(moduleRoot, resultFile);
+            if (resultFilePathFile.length() == 0) {
+                //Ignore the empty result file (some reason)
+                String msg = "[WARNING] - The file '" + resultFilePathFile.getPath() + "' is empty. This file has been ignored.";
+                XUnitLog.log(listener, msg);
+                continue;
+            }
+
+
+            if (!validateXUnitResultFile(resultFilePathFile)) {
+
+                //register there are unvalid files
+                hasInvalidateFiles = true;
+
+                //Ignore unvalid files
+                XUnitLog.log(listener, "[WARNING] - The file '" + resultFilePathFile + "' is an invalid file. It has been ignored.");
+                continue;
+            }
+
+
+            FilePath junitTargetFile = new FilePath(junitOutputPath, "file" + resultFilePathFile.hashCode() + ".xml");
+            try {
+                toolXMLTransformer.transform(new StreamSource(resultFilePathFile), new StreamResult(new File(junitTargetFile.toURI())));
+                processJUnitFile(xmlDocumentBuilder, writerTransformer, junitTargetFile, junitOutputPath);
+            }
+            catch (TransformerException te) {
+                String msg = "[ERROR] - Couldn't convert the file '" + resultFilePathFile.getPath() + "' into a JUnit file.";
+                XUnitLog.log(listener, msg);
                 return false;
-        	}
-        	catch (SAXException te){
-        		String msg = "[ERROR] - Couldn't split JUnit testsuites for the file '"+resultFile+"' into JUnit files with one testsuite.";
-        		XUnitLog.log(listener,msg);
+            }
+            catch (SAXException te) {
+                String msg = "[ERROR] - Couldn't split JUnit testsuites for the file '" + resultFile + "' into JUnit files with one testsuite.";
+                XUnitLog.log(listener, msg);
                 return false;
-        	}
-       }
-        
-       return true;
+            }
+        }
+
+        if (hasInvalidateFiles) {
+            owner.setResult(Result.UNSTABLE);
+        }
+
+        return true;
     }
 
 
@@ -248,10 +290,10 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
      * Return all report files
      *
      * @param parentPath parent
-     * @param pattern pattern to seach files
+     * @param pattern    pattern to seach files
      * @return an array of strings
      */
-    private String[] findtReports(File parentPath, String pattern)  {
+    private String[] findtReports(File parentPath, String pattern) {
         FileSet fs = Util.createFileSet(parentPath, pattern);
         DirectoryScanner ds = fs.getDirectoryScanner();
         String[] xunitFiles = ds.getIncludedFiles();
@@ -261,6 +303,7 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
 
     /**
      * Processing the current junit file
+     *
      * @param xmlDocumentBuilder
      * @param writerTransformer
      * @param junitFile
@@ -272,12 +315,12 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
      * @throws ParserConfigurationException
      */
     private void processJUnitFile(DocumentBuilder xmlDocumentBuilder, Transformer writerTransformer, FilePath junitFile, FilePath junitOutputPath)
-                throws SAXException, IOException, TransformerException, InterruptedException {
+            throws SAXException, IOException, TransformerException, InterruptedException {
 
         Document document = xmlDocumentBuilder.parse(new File(junitFile.toURI()));
-        NodeList testsuitesNodeList =  document.getElementsByTagName("testsuites");
-        if (testsuitesNodeList == null || testsuitesNodeList.getLength()==0){
-            junitFile.renameTo(new FilePath(junitFile.getParent(), JUNIT_FILE_PREFIX+junitFile.getName()+JUNIT_FILE_POSTFIX));
+        NodeList testsuitesNodeList = document.getElementsByTagName("testsuites");
+        if (testsuitesNodeList == null || testsuitesNodeList.getLength() == 0) {
+            junitFile.renameTo(new FilePath(junitFile.getParent(), JUNIT_FILE_PREFIX + junitFile.getName() + JUNIT_FILE_POSTFIX));
             return;
         }
         splitJunitFile(writerTransformer, testsuitesNodeList, junitOutputPath);
@@ -285,6 +328,7 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
 
     /**
      * Segragate the current junit file
+     *
      * @param writerTransformer
      * @param testsuitesNodeList
      * @param junitOutputPath

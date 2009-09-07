@@ -21,26 +21,16 @@
  * THE SOFTWARE.                                                                *
  *******************************************************************************/
 
-package com.thalesgroup.hudson.plugins.xunit.transformer;
+package com.thalesgroup.hudson.plugins.xunit.types;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import hudson.Extension;
 
-public class XUnitXSLUtil {
+public class NUnitType extends XUnitType {
 
-    public static String readXmlAsString(String resourceName)
-            throws IOException {
-        String xmlString = "";
+    @Extension
+    public static final NUnitType TYPE = new NUnitType();
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(XUnitXSLUtil.class.getResourceAsStream(resourceName)));
-        String line = reader.readLine();
-        while (line != null) {
-            xmlString += line + "\n";
-            line = reader.readLine();
-        }
-        reader.close();
-
-        return xmlString;
+    public NUnitType() {
+        super("nunit", "NUnit", "nunit-to-junit.xsl");
     }
 }

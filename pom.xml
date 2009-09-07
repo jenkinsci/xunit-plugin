@@ -4,7 +4,7 @@
    <parent>
       <groupId>org.jvnet.hudson.plugins</groupId>
       <artifactId>plugin</artifactId>
-      <version>1.319</version>
+      <version>1.322</version>
       <relativePath>../pom.xml</relativePath>
    </parent>
 
@@ -37,16 +37,23 @@
       </dependency>
    </dependencies>
 
+   <developers>
+      <developer>
+         <id>gbois</id>
+         <name>Gregory Boissinot</name>
+      </developer>
+   </developers>
+
    <build>
       <plugins>
          <plugin>
-	    <artifactId>maven-surefire-plugin</artifactId>
+            <artifactId>maven-surefire-plugin</artifactId>
             <configuration>
-	          <includes>
-        	    <include>Abstract*.java</include>
-	          </includes>		
-	    </configuration>	
-	 </plugin>
+               <includes>
+                  <include>Abstract*.java</include>
+               </includes>
+            </configuration>
+         </plugin>
       </plugins>
    </build>
 </project>

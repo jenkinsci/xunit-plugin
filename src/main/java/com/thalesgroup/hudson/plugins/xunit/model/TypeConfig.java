@@ -50,24 +50,12 @@ public class TypeConfig implements Serializable {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getLabel() {
         return label;
     }
 
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
     public String getStylesheet() {
         return stylesheet;
-    }
-
-    public void setStylesheet(String stylesheet) {
-        this.stylesheet = stylesheet;
     }
 
     public String getPattern() {

@@ -108,21 +108,29 @@
          <xsl:variable name="currEltName" select="name(.)" />         
          <xsl:choose>
             <xsl:when test="$currEltName='Error'">
-            	<xsl:value-of select="($currElt)" />
-            	File:<xsl:value-of select="($currElt)/@file" />
-            	Line:<xsl:value-of select="($currElt)/@line" />
+=== <xsl:value-of select="($currElt)" />
+File:<xsl:value-of select="($currElt)/@file" />
+Line:<xsl:value-of select="($currElt)/@line" />
             </xsl:when>
 
             <xsl:when test="$currEltName='FatalError'">
-            	<xsl:value-of select="($currElt)" />
-            	File:<xsl:value-of select="($currElt)/@file" />
-            	Line:<xsl:value-of select="($currElt)/@line" />
-
+<xsl:text/>
+=== <xsl:value-of select="($currElt)" />
+File:<xsl:value-of select="($currElt)/@file" />
+Line:<xsl:value-of select="($currElt)/@line" />
             </xsl:when>
          </xsl:choose>
       </xsl:for-each>
    </xsl:template>
 
+
+
+   <xsl:template name="testCaseMessageContent">
+      <xsl:for-each select="child::Message">      	
+         <xsl:variable name="currElt" select="." />
+=== [Message] - <xsl:value-of select="($currElt)/@file" />:<xsl:value-of select="($currElt)/@line" />:<xsl:value-of select="($currElt)" />
+      </xsl:for-each>
+   </xsl:template>
 
 
     <xsl:template name="testCase">
@@ -154,9 +162,7 @@
          <xsl:choose>
             <xsl:when test="$nbFatalErrors&gt;0">
                <error>
-                  <xsl:call-template name="testCaseContent">
-
-                  </xsl:call-template>
+                  <xsl:call-template name="testCaseContent" />
                </error>
             </xsl:when>
 
@@ -167,6 +173,13 @@
             </xsl:when>
          </xsl:choose>
 
+		 <xsl:variable name="nbMessages" select="count(Message)" />
+		 
+		 <xsl:if test="$nbMessages&gt;0">
+			<system-out>
+				<xsl:call-template name="testCaseMessageContent" />
+			</system-out>		 	
+		 </xsl:if>
 
       </testcase>
    </xsl:template>

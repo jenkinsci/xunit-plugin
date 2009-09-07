@@ -30,38 +30,15 @@ import java.util.List;
 import java.util.Map;
 
 import com.thalesgroup.hudson.plugins.xunit.model.TypeConfig;
-import com.thalesgroup.hudson.plugins.xunit.types.AUnitDescriptor;
-import com.thalesgroup.hudson.plugins.xunit.types.BoostTestDescriptor;
-import com.thalesgroup.hudson.plugins.xunit.types.CppUnitDescriptor;
-import com.thalesgroup.hudson.plugins.xunit.types.GallioDescriptor;
-import com.thalesgroup.hudson.plugins.xunit.types.MSTestDescriptor;
-import com.thalesgroup.hudson.plugins.xunit.types.NUnitDescriptor;
-import com.thalesgroup.hudson.plugins.xunit.types.PHPUnitDescriptor;
-import com.thalesgroup.hudson.plugins.xunit.types.TypeDescriptor;
-import com.thalesgroup.hudson.plugins.xunit.types.UnitTestDescriptor;
+import com.thalesgroup.hudson.plugins.xunit.types.CppUnitType;
+import com.thalesgroup.hudson.plugins.xunit.types.*;
 
 public class XUnitConfig implements Serializable{
 
 
 	private static final long serialVersionUID = 1L;
 
-	public static final Map<String, TypeDescriptor> TOOLS = new HashMap<String, TypeDescriptor>();
-
-    public static void addDescriptor(TypeDescriptor t) {
-    	TOOLS.put(t.getName(), t);
-    }
-
-    static {
-        addDescriptor(CppUnitDescriptor.DESCRIPTOR);
-        addDescriptor(BoostTestDescriptor.DESCRIPTOR);
-        addDescriptor(AUnitDescriptor.DESCRIPTOR);
-        addDescriptor(UnitTestDescriptor.DESCRIPTOR);
-        addDescriptor(GallioDescriptor.DESCRIPTOR);
-        addDescriptor(MSTestDescriptor.DESCRIPTOR);
-        addDescriptor(NUnitDescriptor.DESCRIPTOR);
-        addDescriptor(PHPUnitDescriptor.DESCRIPTOR);
-    }
-
+	public static final Map<String, XUnitType> TOOLS = new HashMap<String, XUnitType>();
 
     private List<TypeConfig> testTools = new ArrayList<TypeConfig>();
 
@@ -69,8 +46,9 @@ public class XUnitConfig implements Serializable{
 
 
     public XUnitConfig() {    	
-    	for (TypeDescriptor typeDescriptor:TOOLS.values()){
-    		testTools.add(new TypeConfig(typeDescriptor.getName(), typeDescriptor.getLabel(),null));
+    	for (XUnitType type:XUnitType.all()){
+    		testTools.add(new TypeConfig(type.getName(), type.getLabel(),null));
+            TOOLS.put(type.getName(), type);
     	}
     }
 

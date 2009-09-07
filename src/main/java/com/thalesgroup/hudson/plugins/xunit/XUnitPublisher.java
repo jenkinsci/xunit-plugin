@@ -24,6 +24,7 @@
 package com.thalesgroup.hudson.plugins.xunit;
 
 import hudson.AbortException;
+import hudson.Extension;
 import hudson.FilePath;
 import hudson.Launcher;
 import hudson.Util;
@@ -66,7 +67,6 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
 
     private XUnitConfig config = new XUnitConfig();
 
-    public static final XUnitDescriptor DESCRIPTOR = new XUnitDescriptor();
 
     @Override
     public Action getProjectAction(hudson.model.Project project) {
@@ -81,7 +81,7 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
     public boolean perform(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener)
             throws InterruptedException, IOException {
     	
-        boolean result=false;
+
 
         //Create the temporary target junit dir
 		FilePath junitTargetFilePath = new FilePath(build.getProject().getWorkspace(),"xunitTemp");        
@@ -97,8 +97,8 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
 
         try{
         	// Archiving tools report files into Junit files
-        	XUnitTransformer transformer = new XUnitTransformer(listener,  this.config, junitTargetFilePath);
-        	result = moduleRoot.act(transformer);
+        	XUnitTransformer transformer = new XUnitTransformer(listener, build, this.config, junitTargetFilePath);
+        	boolean result = moduleRoot.act(transformer);
         	if (!result) {
         		build.setResult(Result.FAILURE);
         	} else {
@@ -106,7 +106,7 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
         	}
         }
         catch (IOException2 ioe){
-        	throw new IOException("xUnit hasn't been perfomed correctly.", ioe);
+        	throw new IOException2("xUnit hasn't been performed correctly.", ioe);
         }
         finally{
             //Detroy temporary target junit dir
@@ -122,14 +122,8 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
         }
 
 
-        return result;
+        return true;
     }
-
-    @Override
-    public XUnitDescriptor getDescriptor() {
-        return DESCRIPTOR;        
-    }
-
 
     /**
      * Record the test results into the current build.
@@ -233,6 +227,7 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
     }
 
 
+    @Extension
     public static final class XUnitDescriptor extends BuildStepDescriptor<Publisher> {
 
         public XUnitDescriptor() {
