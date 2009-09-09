@@ -1,25 +1,25 @@
 /*******************************************************************************
-* Copyright (c) 2009 Thales Corporate Services SAS                             *
-* Author : Gregory Boissinot                                                   *
-*                                                                              *
-* Permission is hereby granted, free of charge, to any person obtaining a copy *
-* of this software and associated documentation files (the "Software"), to deal*
-* in the Software without restriction, including without limitation the rights *
-* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell    *
-* copies of the Software, and to permit persons to whom the Software is        *
-* furnished to do so, subject to the following conditions:                     *
-*                                                                              *
-* The above copyright notice and this permission notice shall be included in   *
-* all copies or substantial portions of the Software.                          *
-*                                                                              *
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR   *
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,     *
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE  *
-* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER       *
-* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,*
-* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN    *
-* THE SOFTWARE.                                                                *
-*******************************************************************************/
+ * Copyright (c) 2009 Thales Corporate Services SAS                             *
+ * Author : Gregory Boissinot                                                   *
+ *                                                                              *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy *
+ * of this software and associated documentation files (the "Software"), to deal*
+ * in the Software without restriction, including without limitation the rights *
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell    *
+ * copies of the Software, and to permit persons to whom the Software is        *
+ * furnished to do so, subject to the following conditions:                     *
+ *                                                                              *
+ * The above copyright notice and this permission notice shall be included in   *
+ * all copies or substantial portions of the Software.                          *
+ *                                                                              *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR   *
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,     *
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE  *
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER       *
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,*
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN    *
+ * THE SOFTWARE.                                                                *
+ *******************************************************************************/
 
 package com.thalesgroup.hudson.plugins.xunit;
 
@@ -51,17 +51,17 @@ import org.apache.tools.ant.types.FileSet;
 import org.kohsuke.stapler.StaplerRequest;
 
 import com.thalesgroup.hudson.plugins.xunit.Messages;
+import com.thalesgroup.hudson.plugins.xunit.util.XUnitLog;
 import com.thalesgroup.hudson.plugins.xunit.model.TypeConfig;
 import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitTransformer;
 
 /**
  * Class that converting custom reports to Junit reports and records them
- * 
+ *
  * @author Gregory Boissinot
- *   
  */
 public class XUnitPublisher extends hudson.tasks.Publisher implements Serializable {
-  
+
 
     private static final long serialVersionUID = 1L;
 
@@ -70,7 +70,7 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
 
     @Override
     public Action getProjectAction(hudson.model.Project project) {
-         return new TestResultProjectAction(project);
+        return new TestResultProjectAction(project);
     }
 
     public XUnitConfig getConfig() {
@@ -80,45 +80,45 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
     @Override
     public boolean perform(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener)
             throws InterruptedException, IOException {
-    	
 
+        if ((build.getResult().equals(Result.SUCCESS))
+                || (build.getResult().equals(Result.UNSTABLE))) {
 
-        //Create the temporary target junit dir
-		FilePath junitTargetFilePath = new FilePath(build.getProject().getWorkspace(),"xunitTemp");        
-        if (junitTargetFilePath.exists()) {
-            junitTargetFilePath.deleteRecursive();
-        }
-        junitTargetFilePath.mkdirs();
-
-        //Compute module roots
-        final FilePath[] moduleRoots= build.getProject().getModuleRoots();
-        final boolean multipleModuleRoots= moduleRoots != null && moduleRoots.length > 1;
-        final FilePath moduleRoot= multipleModuleRoots ? build.getProject().getWorkspace() : build.getProject().getModuleRoot();
-
-        try{
-        	// Archiving tools report files into Junit files
-        	XUnitTransformer transformer = new XUnitTransformer(listener, build, this.config, junitTargetFilePath);
-        	boolean result = moduleRoot.act(transformer);
-        	if (!result) {
-        		build.setResult(Result.FAILURE);
-        	} else {
-        		result = recordTestResult(build, listener, junitTargetFilePath, "TEST-*.xml");
-        	}
-        }
-        catch (IOException2 ioe){
-        	throw new IOException2("xUnit hasn't been performed correctly.", ioe);
-        }
-        finally{
-            //Detroy temporary target junit dir
-            try{
-            	junitTargetFilePath.deleteRecursive();        	
+            //Create the temporary target junit dir
+            FilePath junitTargetFilePath = new FilePath(build.getProject().getWorkspace(), "xunitTemp");
+            if (junitTargetFilePath.exists()) {
+                junitTargetFilePath.deleteRecursive();
             }
-            catch (IOException ioe){
-            	//ignore            	
+            junitTargetFilePath.mkdirs();
+
+            try {
+                // Archiving tools report files into Junit files
+                XUnitTransformer transformer = new XUnitTransformer(listener, build, this.config, junitTargetFilePath);
+                boolean result = build.getWorkspace().act(transformer);
+                if (!result) {
+                    build.setResult(Result.FAILURE);
+                } else {
+                    result = recordTestResult(build, listener, junitTargetFilePath, "TEST-*.xml");
+                }
             }
-            catch (InterruptedException ie){
-            	//ignore
+            catch (IOException2 ioe) {
+                throw new IOException2("xUnit hasn't been performed correctly.", ioe);
             }
+            finally {
+                //Detroy temporary target junit dir
+                try {
+                    junitTargetFilePath.deleteRecursive();
+                }
+                catch (IOException ioe) {
+                    //ignore
+                }
+                catch (InterruptedException ie) {
+                    //ignore
+                }
+            }
+
+        } else {
+            XUnitLog.log(listener, "Build failed. Publishing xUnit skipped.");
         }
 
 
@@ -127,6 +127,7 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
 
     /**
      * Record the test results into the current build.
+     *
      * @param build
      * @param listener
      * @param junitFilePattern
@@ -134,10 +135,10 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
      * @throws InterruptedException
      * @throws IOException
      */
-    private boolean recordTestResult(final AbstractBuild<?,?> build,
-    								 final BuildListener listener,
-    								 final FilePath junitTargetFilePath,
-    								 final String junitFilePattern)
+    private boolean recordTestResult(final AbstractBuild<?, ?> build,
+                                     final BuildListener listener,
+                                     final FilePath junitTargetFilePath,
+                                     final String junitFilePattern)
             throws InterruptedException, IOException {
 
 
@@ -160,12 +161,12 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
                 action.setResult(result, listener);
             }
 
-            if(result.getPassCount()==0 && result.getFailCount()==0){
-            	throw new AbortException("None of the test reports contained any result");
+            if (result.getPassCount() == 0 && result.getFailCount() == 0) {
+                throw new AbortException("None of the test reports contained any result");
             }
 
         } catch (AbortException e) {
-            if(build.getResult()==Result.FAILURE)
+            if (build.getResult() == Result.FAILURE)
                 // most likely a build failed before it gets to the test phase.
                 // don't report confusing error message.
                 return true;
@@ -176,17 +177,18 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
         }
 
         if (existingAction == null) {
-        	build.getActions().add(action);
+            build.getActions().add(action);
         }
 
-        if(action.getResult().getFailCount()>0)
-        	build.setResult(Result.UNSTABLE);
+        if (action.getResult().getFailCount() > 0)
+            build.setResult(Result.UNSTABLE);
 
         return true;
     }
 
     /**
      * Collect the test results from the files
+     *
      * @param junitFilePattern
      * @param build
      * @param existingTestResults existing test results to add results to
@@ -196,14 +198,14 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
      * @throws InterruptedException
      */
     private TestResult getTestResult(final FilePath temporaryJunitFilePath,
-    								 final String junitFilePattern,
-    								 final AbstractBuild<?, ?> build,
-    								 final TestResult existingTestResults,
-    								 final long buildTime)
-    				throws IOException, InterruptedException {
+                                     final String junitFilePattern,
+                                     final AbstractBuild<?, ?> build,
+                                     final TestResult existingTestResults,
+                                     final long buildTime)
+            throws IOException, InterruptedException {
 
 
-    	final File temporaryJunitDirFile = new File(temporaryJunitFilePath.toURI());
+        final File temporaryJunitDirFile = new File(temporaryJunitFilePath.toURI());
 
         TestResult result = build.getProject().getWorkspace().act(new FilePath.FileCallable<TestResult>() {
             public TestResult invoke(File ws, VirtualChannel channel) throws IOException {
@@ -211,7 +213,7 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
                 FileSet fs = Util.createFileSet(temporaryJunitDirFile, junitFilePattern);
                 DirectoryScanner ds = fs.getDirectoryScanner();
                 String[] files = ds.getIncludedFiles();
-                if(files.length==0) {
+                if (files.length == 0) {
                     // no test result. Most likely a configuration error or fatal problem
                     throw new AbortException("No test report files were found. Configuration error?");
                 }
@@ -239,11 +241,11 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
         public String getDisplayName() {
             return Messages.xUnit_PublisherName();
         }
-        
+
         @Override
         public boolean isApplicable(Class type) {
             return true;
-        }        
+        }
 
         @Override
         public String getHelpFile() {
@@ -255,8 +257,8 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
             XUnitPublisher pub = new XUnitPublisher();
 
             List<TypeConfig> tools = pub.getConfig().getTestTools();
-            for (TypeConfig typeConfig:tools){
-                String value = req.getParameter("config."+typeConfig.getName()+".pattern");
+            for (TypeConfig typeConfig : tools) {
+                String value = req.getParameter("config." + typeConfig.getName() + ".pattern");
                 typeConfig.setPattern(value);
             }
 
@@ -272,7 +274,7 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
     }
 
 
-	public BuildStepMonitor getRequiredMonitorService() {
-		return BuildStepMonitor.STEP;
-	}
+    public BuildStepMonitor getRequiredMonitorService() {
+        return BuildStepMonitor.STEP;
+    }
 }
