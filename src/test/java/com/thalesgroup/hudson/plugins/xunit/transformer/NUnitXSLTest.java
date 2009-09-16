@@ -30,7 +30,7 @@ import com.thalesgroup.hudson.plugins.xunit.types.NUnitType;
 public class NUnitXSLTest extends AbstractXUnitXSLTest {
 
     public NUnitXSLTest() {
-        super(NUnitType.TYPE);
+        super(NUnitType.class);
     }
 
     @Test

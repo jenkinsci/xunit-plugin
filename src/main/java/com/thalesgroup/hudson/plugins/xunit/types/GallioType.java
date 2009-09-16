@@ -24,13 +24,41 @@
 package com.thalesgroup.hudson.plugins.xunit.types;
 
 import hudson.Extension;
+import org.kohsuke.stapler.StaplerRequest;
+import net.sf.json.JSONObject;
 
 public class GallioType extends XUnitType {
 
-    @Extension
-    public static final GallioType TYPE = new GallioType();
+    private GallioType(String pattern) {
+        super(pattern);
+    }
 
-    public GallioType() {
-        super("gallio", "Gallio", "gallio-to-junit.xsl");
+    public String getXsl() {
+        return "gallio-to-junit.xsl";
+    }
+
+    public XUnitTypeDescriptor<?> getDescriptor() {
+        return new GallioType.DescriptorImpl();
+    }
+
+    @Extension
+    public static class DescriptorImpl extends XUnitTypeDescriptor<GallioType> {
+
+        public DescriptorImpl() {
+            super(GallioType.class);
+        }
+
+        @Override
+        public String getDisplayName() {
+            return "Gallio";
+        }
+
+        public String getHelpFile() {
+            return "";
+        }
+
+        public GallioType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
+            return new GallioType(formData.getString("pattern"));
+        }
     }
 }

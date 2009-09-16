@@ -26,6 +26,8 @@ package com.thalesgroup.hudson.plugins.xunit.transformer;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import hudson.FilePath;
+import hudson.EnvVars;
+import hudson.Extension;
 import hudson.model.BuildListener;
 import hudson.model.AbstractBuild;
 import hudson.remoting.VirtualChannel;
@@ -40,12 +42,12 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.kohsuke.stapler.StaplerRequest;
 
 import com.thalesgroup.hudson.plugins.xunit.AbstractWorkspaceTest;
-import com.thalesgroup.hudson.plugins.xunit.XUnitConfig;
-import com.thalesgroup.hudson.plugins.xunit.model.TypeConfig;
 import com.thalesgroup.hudson.plugins.xunit.types.BoostTestType;
 import com.thalesgroup.hudson.plugins.xunit.types.*;
+import net.sf.json.JSONObject;
 
 public class XUnitTransformerTest extends AbstractWorkspaceTest {
 
@@ -76,46 +78,64 @@ public class XUnitTransformerTest extends AbstractWorkspaceTest {
 
     @Test
     public void testEmptyConfig() throws Exception {
-        XUnitConfig xUnitConfig = new XUnitConfig();
-        xUnitTransformer = new XUnitTransformer(listener, owner, xUnitConfig, junitOutputPath);
+        xUnitTransformer = new XUnitTransformer(listener, 0, mock(EnvVars.class), new XUnitType[0], junitOutputPath);
         Boolean result = xUnitTransformer.invoke(new File(workspace.toURI()), channel);
         Assert.assertFalse("With an empty configuration, there is an error.", result);
     }
 
 
-    private boolean processTransformer(XUnitConfig xUnitConfig) throws Exception {
-        xUnitTransformer = new XUnitTransformer(listener, owner, xUnitConfig, junitOutputPath);
+    private boolean processTransformer(XUnitType[] types) throws Exception {
+        xUnitTransformer = new XUnitTransformer(listener, 0, mock(EnvVars.class), types, junitOutputPath);
         return xUnitTransformer.invoke(new File(workspace.toURI()), channel);
     }
 
-    private TypeConfig getTypeConfig(XUnitConfig xUnitConfig, XUnitType type) {
-        for (TypeConfig config : xUnitConfig.getTestTools()) {
-            if (config.getName() == CppUnitType.TYPE.getName()) {
-                return config;
-            }
+
+    class TextXUnit extends XUnitType {
+
+        private String xsl;
+
+        TextXUnit(String pattern, String xsl) {
+            super(pattern);
+            this.xsl = xsl;
         }
-        return null;
+
+
+        public String getXsl() {
+            return xsl;
+        }
+
+        public XUnitTypeDescriptor<?> getDescriptor() {
+            return new DescriptorImpl();
+        }
+
+        public class DescriptorImpl extends XUnitTypeDescriptor<PHPUnitType> {
+
+            public DescriptorImpl() {
+                super(PHPUnitType.class);
+            }
+
+            @Override
+            public String getDisplayName() {
+                return "Test Tool";
+            }
+
+        }
+
     }
 
-    private XUnitConfig setupXUnitConfiWithPattern(XUnitType type, String pattern) {
-        XUnitConfig xUnitConfig = new XUnitConfig();
-        TypeConfig config = getTypeConfig(xUnitConfig, type);
-        config.setPattern(pattern);
-        return xUnitConfig;
+    ;
+
+    private void wrongPattern() throws Exception {
+        XUnitType[] types = new XUnitType[]{new TextXUnit("*.txt", "cppunit-to-junit.xsl")};
+        workspace.createTextTempFile("report", ".xml", "content");
+        Assert.assertFalse("With a wrong pattern, it have to be false", processTransformer(types));
     }
 
-
-    private void wrongPattern(XUnitType type) throws Exception {
-        XUnitConfig xUnitConfig = setupXUnitConfiWithPattern(type, "*.txt");
-        workspace.createTextTempFile("cppunit-report", ".xml", "content");
-        Assert.assertFalse("With a wrong pattern, it have to be false", processTransformer(xUnitConfig));
-    }
-
-    private void oneMatchWithWrongContent(XUnitType type) throws Exception {
-        XUnitConfig xUnitConfig = setupXUnitConfiWithPattern(type, "*.xml");
+    private void oneMatchWithWrongContent() throws Exception {
+        XUnitType[] types = new XUnitType[]{new TextXUnit("*.xml", "cppunit-to-junit.xsl")};
         workspace.createTextTempFile("report", ".xml", "content");
         try {
-            processTransformer(xUnitConfig);
+            processTransformer(types);
             Assert.assertFalse("With a wrong content, there is an exception", false);
         }
         catch (IOException2 ioe) {
@@ -123,63 +143,24 @@ public class XUnitTransformerTest extends AbstractWorkspaceTest {
         }
     }
 
-    private void oneMatchWithValidContent(XUnitType type) throws Exception {
-        XUnitConfig xUnitConfig = setupXUnitConfiWithPattern(type, "*.xml");
-
-        String content = XUnitXSLUtil.readXmlAsString("cppunit/source-cppunit.xml");
-
-
+    private void oneMatchWithValidContent() throws Exception {
+        XUnitType[] types = new XUnitType[]{new TextXUnit("*.xml", "cppunit-to-junit.xsl")};
+        String content = XUnitXSLUtil.readXmlAsString("cppunit/testcase1/cppunit-successAndFailure.xml");
         File reportFile = new File(new File(workspace.toURI()), "report.xml");
         FileWriter fw = new FileWriter(reportFile);
         fw.write(content);
         fw.close();
-
-        processTransformer(xUnitConfig);
-
+        processTransformer(types);
         Assert.assertTrue(true);
     }
 
-    @Test
-    public void testCppUnitTool() throws Exception {
-        wrongPattern(CppUnitType.TYPE);
-        oneMatchWithWrongContent(CppUnitType.TYPE);
-        oneMatchWithValidContent(CppUnitType.TYPE);
-    }
 
     @Test
-    public void testBoostTestTool() throws Exception {
-        wrongPattern(BoostTestType.TYPE);
-        oneMatchWithWrongContent(BoostTestType.TYPE);
+    public void testTool() throws Exception {
+        wrongPattern();
+        oneMatchWithWrongContent();
+        oneMatchWithValidContent();
     }
 
-    @Test
-    public void testUnitTestTool() throws Exception {
-        wrongPattern(UnitTestType.TYPE);
-        oneMatchWithWrongContent(UnitTestType.TYPE);
-    }
-
-    @Test
-    public void testMSTestTool() throws Exception {
-        wrongPattern(MSTestType.TYPE);
-        oneMatchWithWrongContent(MSTestType.TYPE);
-    }
-
-    @Test
-    public void testGallioTool() throws Exception {
-        wrongPattern(GallioType.TYPE);
-        oneMatchWithWrongContent(GallioType.TYPE);
-    }
-
-    @Test
-    public void testNUnitTool() throws Exception {
-        wrongPattern(NUnitType.TYPE);
-        oneMatchWithWrongContent(NUnitType.TYPE);
-    }
-
-    @Test
-    public void testAUnitTool() throws Exception {
-        wrongPattern(AUnitType.TYPE);
-        oneMatchWithWrongContent(AUnitType.TYPE);
-    }
 
 }

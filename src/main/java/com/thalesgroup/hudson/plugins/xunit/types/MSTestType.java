@@ -23,14 +23,43 @@
 package com.thalesgroup.hudson.plugins.xunit.types;
 
 import hudson.Extension;
+import org.kohsuke.stapler.StaplerRequest;
+import net.sf.json.JSONObject;
 
 
 public class MSTestType extends XUnitType {
 
-    @Extension
-    public static final MSTestType TYPE = new MSTestType();
-
-    public MSTestType() {
-        super("mstest", "MSTest", "mstest-to-junit.xsl");
+    private MSTestType(String pattern) {
+        super(pattern);
     }
+
+    public String getXsl() {
+        return "mstest-to-junit.xsl";
+    }
+
+    public XUnitTypeDescriptor<?> getDescriptor() {
+        return new MSTestType.DescriptorImpl();
+    }
+
+    @Extension
+    public static class DescriptorImpl extends XUnitTypeDescriptor<MSTestType> {
+
+        public DescriptorImpl() {
+            super(MSTestType.class);
+        }
+
+        @Override
+        public String getDisplayName() {
+            return "MSTest";
+        }
+
+        public  String getHelpFile(){
+    		return "";
+    	}
+
+        public MSTestType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
+            return new MSTestType(formData.getString("pattern"));
+        }
+    }
+
 }

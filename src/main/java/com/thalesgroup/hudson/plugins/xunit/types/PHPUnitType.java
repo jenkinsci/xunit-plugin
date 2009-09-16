@@ -24,13 +24,42 @@
 package com.thalesgroup.hudson.plugins.xunit.types;
 
 import hudson.Extension;
+import org.kohsuke.stapler.StaplerRequest;
+import net.sf.json.JSONObject;
 
 public class PHPUnitType extends XUnitType {
 
-    @Extension
-    public static final PHPUnitType TYPE = new PHPUnitType();
 
-    public PHPUnitType() {
-        super("phpunit", "PHPUnit", "phpunit-to-junit.xsl");
+    private PHPUnitType(String pattern) {
+        super(pattern);
+    }
+
+    public String getXsl() {
+        return "php-to-junit.xsl";
+    }
+
+    public XUnitTypeDescriptor<?> getDescriptor() {
+        return new PHPUnitType.DescriptorImpl();
+    }
+
+    @Extension
+    public static class DescriptorImpl extends XUnitTypeDescriptor<PHPUnitType> {
+
+        public DescriptorImpl() {
+            super(PHPUnitType.class);
+        }
+
+        @Override
+        public String getDisplayName() {
+            return "PHPUnit";
+        }
+
+        public String getHelpFile() {
+            return "";
+        }
+
+        public PHPUnitType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
+            return new PHPUnitType(formData.getString("pattern"));
+        }
     }
 }

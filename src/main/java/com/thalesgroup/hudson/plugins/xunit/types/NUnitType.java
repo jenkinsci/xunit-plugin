@@ -24,13 +24,42 @@
 package com.thalesgroup.hudson.plugins.xunit.types;
 
 import hudson.Extension;
+import org.kohsuke.stapler.StaplerRequest;
+import net.sf.json.JSONObject;
 
 public class NUnitType extends XUnitType {
 
-    @Extension
-    public static final NUnitType TYPE = new NUnitType();
 
-    public NUnitType() {
-        super("nunit", "NUnit", "nunit-to-junit.xsl");
+    private NUnitType(String pattern) {
+        super(pattern);
+    }
+
+    public String getXsl() {
+        return "nunit-to-junit.xsl";
+    }
+
+    public XUnitTypeDescriptor<?> getDescriptor() {
+        return new NUnitType.DescriptorImpl();
+    }
+
+    @Extension
+    public static class DescriptorImpl extends XUnitTypeDescriptor<NUnitType> {
+
+        public DescriptorImpl() {
+            super(NUnitType.class);
+        }
+
+        @Override
+        public String getDisplayName() {
+            return "NUnit";
+        }
+
+        public  String getHelpFile(){
+    		return "";
+    	}
+
+        public NUnitType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
+            return new NUnitType(formData.getString("pattern"));
+        }
     }
 }

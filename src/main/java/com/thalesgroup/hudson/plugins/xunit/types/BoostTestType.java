@@ -24,13 +24,41 @@
 package com.thalesgroup.hudson.plugins.xunit.types;
 
 import hudson.Extension;
+import org.kohsuke.stapler.StaplerRequest;
+import net.sf.json.JSONObject;
 
 public class BoostTestType extends XUnitType {
 
-    @Extension
-    public static final BoostTestType TYPE = new BoostTestType();
+    private BoostTestType(String pattern) {
+        super(pattern);
+    }
 
-    public BoostTestType() {
-        super("boosttest", "Boost Test Library", "boosttest-to-junit.xsl");
+    public String getXsl() {
+        return "boosttest-to-junit.xsl";
+    }
+
+    public XUnitTypeDescriptor<?> getDescriptor() {
+        return new BoostTestType.DescriptorImpl();
+    }
+
+    @Extension
+    public static class DescriptorImpl extends XUnitTypeDescriptor<BoostTestType> {
+
+        public DescriptorImpl() {
+            super(BoostTestType.class);
+        }
+
+        @Override
+        public String getDisplayName() {
+            return "Boost Test Library";
+        }
+
+        public BoostTestType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
+            return new BoostTestType(formData.getString("pattern"));
+        }
+
+        public String getHelpFile() {
+            return "";
+        }
     }
 }

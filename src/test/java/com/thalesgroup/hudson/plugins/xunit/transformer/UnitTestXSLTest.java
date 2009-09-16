@@ -29,7 +29,7 @@ import com.thalesgroup.hudson.plugins.xunit.types.UnitTestType;
 public class UnitTestXSLTest extends AbstractXUnitXSLTest {
 
     public UnitTestXSLTest() {
-        super(UnitTestType.TYPE);
+        super(UnitTestType.class);
     }
 
     @Test

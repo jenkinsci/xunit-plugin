@@ -30,7 +30,7 @@ import com.thalesgroup.hudson.plugins.xunit.types.MSTestType;
 public class MSTestXSLTest extends AbstractXUnitXSLTest {
 
     public MSTestXSLTest() {
-        super(MSTestType.TYPE);
+        super(MSTestType.class);
     }
 
     @Test

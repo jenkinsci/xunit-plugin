@@ -30,7 +30,7 @@ import com.thalesgroup.hudson.plugins.xunit.types.BoostTestType;
 public class BoostTestXSLTest extends AbstractXUnitXSLTest {
 
     public BoostTestXSLTest() {
-        super(BoostTestType.TYPE);
+        super(BoostTestType.class);
     }
 
     @Test

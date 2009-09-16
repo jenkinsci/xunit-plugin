@@ -35,14 +35,13 @@ import org.custommonkey.xmlunit.XMLUnit;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import com.thalesgroup.hudson.plugins.xunit.XUnitConfig;
 import com.thalesgroup.hudson.plugins.xunit.types.XUnitType;
 
 public class AbstractXUnitXSLTest {
 
-    private XUnitType type;
+    private Class<? extends XUnitType> type;
 
-    protected AbstractXUnitXSLTest(XUnitType type) {
+    protected AbstractXUnitXSLTest(Class<? extends XUnitType> type) {
         this.type = type;
         setUp();
     }
@@ -53,16 +52,12 @@ public class AbstractXUnitXSLTest {
         XMLUnit.setIgnoreComments(true);
     }
 
-    protected InputSource getInputSource(XUnitType type) {
-        return new InputSource(this.getClass().getResourceAsStream(
-                XUnitConfig.TOOLS.get(type.getName()).getXslPath()));
-    }
 
     protected void processTransformation(String source, String target)
-            throws IOException, TransformerException, SAXException {
+            throws IllegalAccessException, InstantiationException, IOException, TransformerException, SAXException {
 
         Transform myTransform = new Transform(new InputSource(this.getClass()
-                .getResourceAsStream(source)), getInputSource(type));
+                .getResourceAsStream(source)), new InputSource(type.newInstance().getXsl()));
         Diff myDiff = new Diff(XUnitXSLUtil.readXmlAsString(target), myTransform);
         assertTrue("XSL transformation did not work" + myDiff, myDiff.similar());
     }

@@ -21,43 +21,30 @@
  * THE SOFTWARE.                                                                *
  *******************************************************************************/
 
-package com.thalesgroup.hudson.plugins.xunit.transformer;
+package com.thalesgroup.hudson.plugins.xunit.types;
 
-import org.junit.Test;
+import hudson.model.Descriptor;
+import hudson.model.Hudson;
+import hudson.DescriptorExtensionList;
 
-import com.thalesgroup.hudson.plugins.xunit.types.GallioType;
 
+public abstract class XUnitTypeDescriptor<T extends XUnitType> extends Descriptor<XUnitType> {
 
-public class GallioXSLTest extends AbstractXUnitXSLTest {
+    private T type;
 
-    public GallioXSLTest() {
-        super(GallioType.class);
+    protected XUnitTypeDescriptor(Class<T> clazz) {
+        super(clazz);
     }
 
-    @Test
-    public void testTransformation() throws Exception {
-        processTransformation("gallio/Gallio-simple.xml", "gallio/JUnit-simple.xml");
+    public static DescriptorExtensionList<XUnitType, XUnitTypeDescriptor<?>> all() {
+        return Hudson.getInstance().getDescriptorList(XUnitType.class);
     }
 
-    @Test
-    public void testTransformationFailure() throws Exception {
-        processTransformation("gallio/Gallio-failure.xml", "gallio/JUnit-failure.xml");
+    public T getType() {
+        return type;
     }
 
-    @Test
-    public void testTransformationMultiNamespace() throws Exception {
-        processTransformation("gallio/Gallio-multinamespace.xml", "gallio/JUnit-multinamespace.xml");
+    public void setType(T type) {
+        this.type = type;
     }
-
-    @Test
-    public void testTransformedIgnored() throws Exception {
-        processTransformation("gallio/Gallio-ignored.xml", "gallio/JUnit-ignored.xml");
-    }
-
-    @Test
-    public void testTransformedIssue1077() throws Exception {
-        processTransformation("gallio/Gallio-issue1077.xml", "gallio/JUnit-issue1077.xml");
-    }
-
-
 }

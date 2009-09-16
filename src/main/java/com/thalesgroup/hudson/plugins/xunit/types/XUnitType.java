@@ -26,33 +26,22 @@ package com.thalesgroup.hudson.plugins.xunit.types;
 import hudson.ExtensionPoint;
 import hudson.ExtensionList;
 import hudson.model.Hudson;
+import hudson.model.Describable;
+import hudson.model.Descriptor;
 
 import java.io.Serializable;
 
-public abstract class XUnitType implements ExtensionPoint, Serializable {
 
-    private final String name;
+public abstract class XUnitType implements ExtensionPoint, Describable<XUnitType>, Serializable {
 
-    private final String label;
+    private final String pattern;
 
-    private final String xslPath;
-
-    protected XUnitType(String name, String label, String xslPath) {
-        this.name = name;
-        this.label = label;
-        this.xslPath = xslPath;
+    protected XUnitType(String pattern) {
+        this.pattern = pattern;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getLabel() {
-        return label;
-    }
-
-    public String getXslPath() {
-        return xslPath;
+    public String getPattern() {
+        return pattern;
     }
 
     /**
@@ -61,4 +50,17 @@ public abstract class XUnitType implements ExtensionPoint, Serializable {
     public static ExtensionList<XUnitType> all() {
         return Hudson.getInstance().getExtensionList(XUnitType.class);
     }
+
+    @SuppressWarnings("unchecked")
+    public Descriptor<XUnitType> getDescriptor() {
+        return Hudson.getInstance().getDescriptor(getClass());
+    }
+
+
+    /**
+     * Gets the associated Xsl to the type
+     * @return
+     */
+    public abstract String getXsl();
+    
 }

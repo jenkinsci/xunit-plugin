@@ -24,13 +24,42 @@
 package com.thalesgroup.hudson.plugins.xunit.types;
 
 import hudson.Extension;
+import org.kohsuke.stapler.StaplerRequest;
+import net.sf.json.JSONObject;
 
 public class CppUnitType extends XUnitType {
 
-    @Extension
-    public static final CppUnitType TYPE = new CppUnitType();
+    public XUnitTypeDescriptor<?> getDescriptor() {
+        return new CppUnitType.DescriptorImpl();
+    }
 
-    public CppUnitType() {
-        super("cppunit", "CppUnit", "cppunit-to-junit.xsl");
+    private CppUnitType(String pattern){
+        super(pattern);
+    }
+
+    public String getXsl(){
+         return "cppunit-to-junit.xsl";
+    }
+
+    @Extension
+    public static class DescriptorImpl extends XUnitTypeDescriptor<CppUnitType> {
+
+        public DescriptorImpl() {
+            super(CppUnitType.class);
+        }
+
+        @Override
+        public String getDisplayName() {
+            return "CppUnit";
+        }
+
+        public String getHelpFile() {
+            return "";
+        }
+
+        public CppUnitType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
+            return new CppUnitType(formData.getString("pattern"));
+        }
+
     }
 }

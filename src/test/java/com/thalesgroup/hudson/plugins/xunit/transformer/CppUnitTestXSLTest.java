@@ -30,7 +30,7 @@ import com.thalesgroup.hudson.plugins.xunit.types.CppUnitType;
 public class CppUnitTestXSLTest extends AbstractXUnitXSLTest {
 
     public CppUnitTestXSLTest() {
-        super(CppUnitType.TYPE);
+        super(CppUnitType.class);
     }
 
     @Test

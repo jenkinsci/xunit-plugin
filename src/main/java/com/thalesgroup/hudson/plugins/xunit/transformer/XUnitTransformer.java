@@ -25,16 +25,18 @@ package com.thalesgroup.hudson.plugins.xunit.transformer;
 
 import hudson.FilePath;
 import hudson.Util;
-import hudson.model.BuildListener;
-import hudson.model.Result;
-import hudson.model.AbstractBuild;
-import hudson.remoting.VirtualChannel;
+import hudson.EnvVars;
+import hudson.AbortException;
 import hudson.util.IOException2;
+import hudson.model.BuildListener;
+import hudson.remoting.VirtualChannel;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.List;
+import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -54,8 +56,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import com.thalesgroup.hudson.plugins.xunit.XUnitConfig;
-import com.thalesgroup.hudson.plugins.xunit.model.TypeConfig;
+import com.thalesgroup.hudson.plugins.xunit.types.XUnitType;
 import com.thalesgroup.hudson.plugins.xunit.util.XUnitLog;
 
 public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Serializable {
@@ -65,14 +66,16 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
 
 
     private BuildListener listener;
-    private AbstractBuild<?, ?> owner;
-    private XUnitConfig config = new XUnitConfig();
+    private long buildTime;
+    private EnvVars env;
+    private XUnitType[] types;
     private FilePath junitOutputPath = null;
 
-    public XUnitTransformer(BuildListener listener, AbstractBuild<?, ?> owner, XUnitConfig config, FilePath junitOutputPath) {
+    public XUnitTransformer(BuildListener listener, long buildTime, EnvVars env, XUnitType[] types, FilePath junitOutputPath) {
         this.listener = listener;
-        this.owner=owner;
-        this.config = config;
+        this.buildTime = buildTime;
+        this.env = env;
+        this.types = types;
         this.junitOutputPath = junitOutputPath;
     }
 
@@ -101,12 +104,14 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
      * @param testTool
      * @return
      */
+    /*
     private boolean isNotCompleteCustomConfigEntry(TypeConfig testTool) {
         boolean result = isEmpty(testTool.getPattern());
         result = result || isEmpty(testTool.getLabel());
         result = result || isEmpty(testTool.getStylesheet());
         return result;
     }
+    */
 
     /**
      * Valid the current custom test tool entries
@@ -115,6 +120,7 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
      * @param testTool
      * @return
      */
+    /*
     private boolean isValidCustomConfigEntry(File moduleRoot, TypeConfig testTool) {
 
         boolean result = !isNotCompleteCustomConfigEntry(testTool);
@@ -128,17 +134,18 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
 
         return result;
     }
+    */
 
 
     /**
      * Invocation
      *
-     * @param moduleRoot
+     * @param ws
      * @param channel
      * @return the Result
      * @throws IOException
      */
-    public Boolean invoke(File moduleRoot, VirtualChannel channel) throws IOException {
+    public Boolean invoke(File ws, VirtualChannel channel) throws IOException {
 
         try {
 
@@ -149,40 +156,63 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
             DocumentBuilder xmlDocumentBuilder = factory.newDocumentBuilder();
             Transformer writerTransformer = transformerFactory.newTransformer();
 
+            for (XUnitType tool : types) {
+                if (!isEmpty(tool.getPattern())) {
+                    isInvoked = true;
+                    boolean result = processTool(ws,
+                            transformerFactory, xmlDocumentBuilder, writerTransformer, tool,
+                            new StreamSource(this.getClass().getResourceAsStream(tool.getXsl())));
+                    if (!result) {
+                        return result;
+                    }
+                }
+            }
+
             //Supported tools
+
+            /*
             for (TypeConfig testTool : config.getTestTools()) {
-                if (!isEmpty(testTool.getPattern())) {
+c
+            }
+            */
+
+            /*
+            for (XUnitType type : XUnitType.all()) {
+                if (!isEmpty(type.getPattern())) {
                     isInvoked = true;
                     boolean result = processTool(moduleRoot,
-                                    transformerFactory, xmlDocumentBuilder, writerTransformer, testTool,
-                                    new StreamSource(this.getClass().getResourceAsStream(config.TOOLS.get(testTool.getName()).getXslPath())));
+                            transformerFactory, xmlDocumentBuilder, writerTransformer, testTool,
+                            new StreamSource(this.getClass().getResourceAsStream(config.TOOLS.get(testTool.getName()).getXslPath())));
                     if (!result) {
                         return result;
                     }
                 }
-            }
+            }   */
 
-            //Custom tools
-            for (TypeConfig testTool : config.getCustomTools()) {
-                if (isValidCustomConfigEntry(moduleRoot, testTool)) {
-                    isInvoked = true;
-                    boolean result = processTool(moduleRoot, transformerFactory, xmlDocumentBuilder, writerTransformer, testTool, new StreamSource(new File(moduleRoot, testTool.getStylesheet())));
-                    if (!result) {
-                        return result;
-                    }
-                } else if (isNotCompleteCustomConfigEntry(testTool)) {
-                    String msg = "[ERROR] - There is an invalid configuration for the following entries '"
-                            + testTool.getLabel() + "':'" + testTool.getPattern() + "':'" + testTool.getStylesheet() + "' into the custom testing frameworks section.";
-                    XUnitLog.log(listener, msg);
-                    return false;
-                }
-            }
 
+            /*
+//Custom tools
+for (TypeConfig testTool : config.getCustomTools()) {
+ if (isValidCustomConfigEntry(ws, testTool)) {
+     isInvoked = true;
+     boolean result = processTool(ws, transformerFactory, xmlDocumentBuilder, writerTransformer, testTool, new StreamSource(new File(ws, testTool.getStylesheet())));
+     if (!result) {
+         return result;
+     }
+ } else if (isNotCompleteCustomConfigEntry(testTool)) {
+     String msg = "[ERROR] - There is an invalid configuration for the following entries '"
+             + testTool.getLabel() + "':'" + testTool.getPattern() + "':'" + testTool.getStylesheet() + "' into the custom testing frameworks section.";
+     XUnitLog.log(listener, msg);
+     return false;
+ }
+}
+            */
             if (!isInvoked) {
                 String msg = "[ERROR] - No test report files were found. Configuration error?";
                 XUnitLog.log(listener, msg);
                 return false;
             }
+
 
         }
         catch (Exception e) {
@@ -206,6 +236,70 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
         }
     }
 
+
+    /**
+     * /**
+     * Collect reports from the given parentpath and the pattern, while
+     * filtering out all files that were created before the given time.
+     *
+     * @param buildTime  the build time
+     * @param parentPath parent
+     * @param pattern    pattern to seach files
+     * @return an array of strings
+     */
+    private List<String> findtReports(XUnitType testTool, long buildTime, File parentPath, String pattern) throws AbortException {
+
+        FileSet fs = Util.createFileSet(parentPath, pattern);
+        DirectoryScanner ds = fs.getDirectoryScanner();
+        File baseDir = ds.getBasedir();
+        String[] xunitFiles = ds.getIncludedFiles();
+
+        if (xunitFiles.length == 0) {
+            String msg = "[ERROR] - No test report file(s) were found with the pattern '"
+                    + pattern + "' relative to '" + parentPath + "' for the testing framework '" + testTool.getDescriptor().getDisplayName() + "'."
+                    + "  Did you enter a pattern relative to the correct directory?"
+                    + "  Did you generate the result report(s) for '" + testTool.getDescriptor().getDisplayName() + "'?";
+            XUnitLog.log(listener, msg);
+            return null;
+        }
+
+        boolean parsed = false;
+        List<String> resultFiles = new ArrayList<String>();
+        for (String value : xunitFiles) {
+            File reportFile = new File(baseDir, value);
+            //only count files that were actually updated during this build
+            if (buildTime - 3000 <= reportFile.lastModified()) {
+                resultFiles.add(value);
+                parsed = true;
+            }
+        }
+
+        if (!parsed) {
+            long localTime = System.currentTimeMillis();
+            if (localTime < buildTime - 1000) {
+                // build time is in the the future. clock on this slave must be running behind
+                String msg = "[ERROR] - Clock on this slave is out of sync with the master, and therefore \n" +
+                        "I can't figure out what test results are new and what are old.\n" +
+                        "Please keep the slave clock in sync with the master.";
+                XUnitLog.log(listener, msg);
+                return null;
+            }
+
+            File f = new File(baseDir, xunitFiles[0]);
+            String msg = "[ERROR] - " + String.format(
+                    "Test reports were found but none of them are new. Did tests run? \n" +
+                            "For example, %s is %s old\n", f,
+                    Util.getTimeSpanString(buildTime - f.lastModified()));
+            XUnitLog.log(listener, msg);
+
+            return null;
+
+        }
+
+        return resultFiles;
+
+    }
+
     /**
      * Processing the current test tool
      *
@@ -221,27 +315,29 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
      * @throws SAXException
      * @throws ParserConfigurationException
      */
-    private boolean processTool(File moduleRoot, TransformerFactory transformerFactory, DocumentBuilder xmlDocumentBuilder, Transformer writerTransformer, TypeConfig testTool, StreamSource stylesheet)
+    private boolean processTool(File moduleRoot, TransformerFactory transformerFactory, DocumentBuilder xmlDocumentBuilder, Transformer writerTransformer, XUnitType testTool, StreamSource stylesheet)
             throws TransformerException, IOException, InterruptedException {
 
         Transformer toolXMLTransformer = transformerFactory.newTransformer(stylesheet);
 
-        String[] resultFiles = findtReports(moduleRoot, testTool.getPattern());
-        if (resultFiles.length == 0) {
-            String msg = "[ERROR] - No test report file(s) were found with the pattern '"
-                    + testTool.getPattern() + "' relative to '" + moduleRoot + "' for the testing framework '" + testTool.getLabel() + "'."
-                    + "  Did you enter a pattern relative to the correct directory?"
-                    + "  Did you generate the result report(s) for '" + testTool.getLabel() + "'?";
-            XUnitLog.log(listener, msg);
+        String curPattern = testTool.getPattern();
+        curPattern = curPattern.replaceAll("[\t\r\n]+", " ");
+        curPattern = Util.replaceMacro(curPattern, this.env);
+
+        List<String> resultFiles = findtReports(testTool, this.buildTime, moduleRoot, curPattern);
+
+
+        if (resultFiles == null) {
             return false;
         }
 
-        XUnitLog.log(listener, "[" + testTool.getLabel() + "] - Processing " + resultFiles.length + " files with the pattern '" + testTool.getPattern() + "' relative to '" + moduleRoot + "'.");
+        XUnitLog.log(listener, "[" + testTool.getDescriptor().getDisplayName() + "] - Processing " + resultFiles.size() + " files with the pattern '" + testTool.getPattern() + "' relative to '" + moduleRoot + "'.");
 
         boolean hasInvalidateFiles = false;
         for (String resultFile : resultFiles) {
 
             File resultFilePathFile = new File(moduleRoot, resultFile);
+
             if (resultFilePathFile.length() == 0) {
                 //Ignore the empty result file (some reason)
                 String msg = "[WARNING] - The file '" + resultFilePathFile.getPath() + "' is empty. This file has been ignored.";
@@ -277,27 +373,7 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
                 return false;
             }
         }
-
-        if (hasInvalidateFiles) {
-            owner.setResult(Result.UNSTABLE);
-        }
-
         return true;
-    }
-
-
-    /**
-     * Return all report files
-     *
-     * @param parentPath parent
-     * @param pattern    pattern to seach files
-     * @return an array of strings
-     */
-    private String[] findtReports(File parentPath, String pattern) {
-        FileSet fs = Util.createFileSet(parentPath, pattern);
-        DirectoryScanner ds = fs.getDirectoryScanner();
-        String[] xunitFiles = ds.getIncludedFiles();
-        return xunitFiles;
     }
 
 

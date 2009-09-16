@@ -24,13 +24,41 @@
 package com.thalesgroup.hudson.plugins.xunit.types;
 
 import hudson.Extension;
+import org.kohsuke.stapler.StaplerRequest;
+import net.sf.json.JSONObject;
 
 public class UnitTestType extends XUnitType {
 
-    @Extension
-    public static final UnitTestType TYPE = new UnitTestType();
+    private UnitTestType(String pattern) {
+        super(pattern);
+    }
 
-    public UnitTestType() {
-        super("unittest", "UnitTest++", "unittest-to-junit.xsl");
+    public String getXsl() {
+        return "unittest-to-junit.xsl";
+    }
+
+    public XUnitTypeDescriptor<?> getDescriptor() {
+        return new UnitTestType.DescriptorImpl();
+    }
+
+    @Extension
+    public static class DescriptorImpl extends XUnitTypeDescriptor<UnitTestType> {
+
+        public DescriptorImpl() {
+            super(UnitTestType.class);
+        }
+
+        @Override
+        public String getDisplayName() {
+            return "UnitTest";
+        }
+
+        public String getHelpFile() {
+            return "";
+        }
+
+        public UnitTestType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
+            return new UnitTestType(formData.getString("pattern"));
+        }
     }
 }

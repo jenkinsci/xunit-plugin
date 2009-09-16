@@ -30,7 +30,7 @@ import com.thalesgroup.hudson.plugins.xunit.types.PHPUnitType;
 public class PHPUnitTestXSLTest extends AbstractXUnitXSLTest {
 
     public PHPUnitTestXSLTest() {
-        super(PHPUnitType.TYPE);
+        super(PHPUnitType.class);
     }
 
     @Test
