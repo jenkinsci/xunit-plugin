@@ -35,7 +35,7 @@ public class PHPUnitType extends XUnitType {
     }
 
     public String getXsl() {
-        return "php-to-junit.xsl";
+        return "phpunit-to-junit.xsl";
     }
 
     public XUnitTypeDescriptor<?> getDescriptor() {
