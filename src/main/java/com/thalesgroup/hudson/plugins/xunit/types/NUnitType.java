@@ -54,10 +54,6 @@ public class NUnitType extends XUnitType {
             return "NUnit";
         }
 
-        public  String getHelpFile(){
-    		return "";
-    	}
-
         public NUnitType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
             return new NUnitType(formData.getString("pattern"));
         }

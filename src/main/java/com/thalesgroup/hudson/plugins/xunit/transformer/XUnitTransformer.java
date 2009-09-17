@@ -99,45 +99,6 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
     }
 
     /**
-     * Determines if the current custom test tool entries are not empty or blank
-     *
-     * @param testTool
-     * @return
-     */
-    /*
-    private boolean isNotCompleteCustomConfigEntry(TypeConfig testTool) {
-        boolean result = isEmpty(testTool.getPattern());
-        result = result || isEmpty(testTool.getLabel());
-        result = result || isEmpty(testTool.getStylesheet());
-        return result;
-    }
-    */
-
-    /**
-     * Valid the current custom test tool entries
-     *
-     * @param moduleRoot
-     * @param testTool
-     * @return
-     */
-    /*
-    private boolean isValidCustomConfigEntry(File moduleRoot, TypeConfig testTool) {
-
-        boolean result = !isNotCompleteCustomConfigEntry(testTool);
-
-        File stylesheetFile = new File(moduleRoot, testTool.getStylesheet());
-        if (result && !stylesheetFile.exists()) {
-            String msg = "The custom stylesheet '" + testTool.getStylesheet() + "' for the tool '" + testTool.getLabel() + "' doesn't exist.";
-            XUnitLog.log(listener, msg);
-            return false;
-        }
-
-        return result;
-    }
-    */
-
-
-    /**
      * Invocation
      *
      * @param ws
@@ -168,45 +129,6 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
                 }
             }
 
-            //Supported tools
-
-            /*
-            for (TypeConfig testTool : config.getTestTools()) {
-c
-            }
-            */
-
-            /*
-            for (XUnitType type : XUnitType.all()) {
-                if (!isEmpty(type.getPattern())) {
-                    isInvoked = true;
-                    boolean result = processTool(moduleRoot,
-                            transformerFactory, xmlDocumentBuilder, writerTransformer, testTool,
-                            new StreamSource(this.getClass().getResourceAsStream(config.TOOLS.get(testTool.getName()).getXslPath())));
-                    if (!result) {
-                        return result;
-                    }
-                }
-            }   */
-
-
-            /*
-//Custom tools
-for (TypeConfig testTool : config.getCustomTools()) {
- if (isValidCustomConfigEntry(ws, testTool)) {
-     isInvoked = true;
-     boolean result = processTool(ws, transformerFactory, xmlDocumentBuilder, writerTransformer, testTool, new StreamSource(new File(ws, testTool.getStylesheet())));
-     if (!result) {
-         return result;
-     }
- } else if (isNotCompleteCustomConfigEntry(testTool)) {
-     String msg = "[ERROR] - There is an invalid configuration for the following entries '"
-             + testTool.getLabel() + "':'" + testTool.getPattern() + "':'" + testTool.getStylesheet() + "' into the custom testing frameworks section.";
-     XUnitLog.log(listener, msg);
-     return false;
- }
-}
-            */
             if (!isInvoked) {
                 String msg = "[ERROR] - No test report files were found. Configuration error?";
                 XUnitLog.log(listener, msg);

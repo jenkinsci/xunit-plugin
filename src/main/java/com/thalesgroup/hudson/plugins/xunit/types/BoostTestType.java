@@ -57,8 +57,5 @@ public class BoostTestType extends XUnitType {
             return new BoostTestType(formData.getString("pattern"));
         }
 
-        public String getHelpFile() {
-            return "";
-        }
     }
 }

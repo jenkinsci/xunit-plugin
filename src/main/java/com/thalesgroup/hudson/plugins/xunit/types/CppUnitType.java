@@ -53,10 +53,6 @@ public class CppUnitType extends XUnitType {
             return "CppUnit";
         }
 
-        public String getHelpFile() {
-            return "";
-        }
-
         public CppUnitType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
             return new CppUnitType(formData.getString("pattern"));
         }

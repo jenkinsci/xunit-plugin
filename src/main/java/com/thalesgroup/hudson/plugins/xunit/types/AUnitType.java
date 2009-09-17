@@ -57,8 +57,5 @@ public class AUnitType extends XUnitType {
             return "AUnit";
         }
 
-        public  String getHelpFile(){
-    		return "";
-    	}
     }
 }

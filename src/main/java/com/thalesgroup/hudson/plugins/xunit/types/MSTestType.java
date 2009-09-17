@@ -53,10 +53,6 @@ public class MSTestType extends XUnitType {
             return "MSTest";
         }
 
-        public  String getHelpFile(){
-    		return "";
-    	}
-
         public MSTestType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
             return new MSTestType(formData.getString("pattern"));
         }

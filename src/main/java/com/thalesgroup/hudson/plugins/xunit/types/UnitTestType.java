@@ -53,10 +53,6 @@ public class UnitTestType extends XUnitType {
             return "UnitTest";
         }
 
-        public String getHelpFile() {
-            return "";
-        }
-
         public UnitTestType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
             return new UnitTestType(formData.getString("pattern"));
         }

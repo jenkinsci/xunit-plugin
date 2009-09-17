@@ -52,11 +52,7 @@ public class GallioType extends XUnitType {
         public String getDisplayName() {
             return "Gallio";
         }
-
-        public String getHelpFile() {
-            return "";
-        }
-
+        
         public GallioType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
             return new GallioType(formData.getString("pattern"));
         }
