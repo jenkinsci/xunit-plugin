@@ -339,7 +339,8 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
         for (int i = 0; i < elementsByTagName.getLength(); i++) {
             Element element = (Element) elementsByTagName.item(i);
             DOMSource source = new DOMSource(element);
-            FilePath junitOutputFile = new FilePath(junitOutputPath, JUNIT_FILE_PREFIX + element.getAttribute("name") + JUNIT_FILE_POSTFIX);
+            String suiteName = element.getAttribute("name");
+            FilePath junitOutputFile = new FilePath(junitOutputPath, JUNIT_FILE_PREFIX + suiteName.hashCode() + JUNIT_FILE_POSTFIX);
             FileOutputStream fileOutputStream = new FileOutputStream(new File(junitOutputFile.toURI()));
             try {
                 StreamResult result = new StreamResult(fileOutputStream);
