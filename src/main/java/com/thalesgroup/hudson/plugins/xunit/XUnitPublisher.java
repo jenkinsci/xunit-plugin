@@ -336,7 +336,7 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
     private Object readResolve() {
 
         try {
-            
+
             if (config != null) {
                 HashMap<String, Class> map = new HashMap<String, Class>();
                 map.put("phpunit", PHPUnitType.class);
@@ -353,9 +353,9 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
 
                 for (TypeConfig typeConfig : config.getTestTools()) {
                     String pattern = typeConfig.getPattern();
-                    if (pattern != null && pattern.trim().length()!=0) {
+                    if (pattern != null && pattern.trim().length() != 0) {
                         //xunitTypeList.add((XUnitType) (map.get(typeConfig.getName()).newInstance()));
-                        Constructor<XUnitType> constructor= map.get(typeConfig.getName()).getConstructor(String.class);
+                        Constructor<XUnitType> constructor = map.get(typeConfig.getName()).getConstructor(String.class);
                         XUnitType xunitType = constructor.newInstance(pattern);
                         xunitTypeList.add(xunitType);
                     }

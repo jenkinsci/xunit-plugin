@@ -23,45 +23,33 @@
 
 package com.thalesgroup.hudson.plugins.xunit.types;
 
-import hudson.ExtensionPoint;
-import hudson.ExtensionList;
-import hudson.model.Hudson;
-import hudson.model.Describable;
-import hudson.model.Descriptor;
+// Backward compatibility. Do not remove.
 
-import java.io.Serializable;
+// CPPCHECK:OFF
+@Deprecated
+public class TypeDescriptor {
 
+    private final String name;
 
-public abstract class XUnitType implements ExtensionPoint, Describable<XUnitType>, Serializable {
+    private final String label;
 
-    private final String pattern;
+    private final String xslPath;
 
-    protected XUnitType(String pattern) {
-        this.pattern = pattern;
+    protected TypeDescriptor(String name, String label, String xslPath) {
+        this.name = name;
+        this.label = label;
+        this.xslPath = xslPath;
     }
 
-    public String getPattern() {
-        return pattern;
+    public String getName() {
+        return name;
     }
 
-    /**
-     * All regsitered instances.
-     */
-    public static ExtensionList<XUnitType> all() {
-        return Hudson.getInstance().getExtensionList(XUnitType.class);
+    public String getLabel() {
+        return label;
     }
 
-    @SuppressWarnings("unchecked")
-    public Descriptor<XUnitType> getDescriptor() {
-        return Hudson.getInstance().getDescriptor(getClass());
+    public String getXslPath() {
+        return xslPath;
     }
-
-
-    /**
-     * Gets the associated Xsl to the type
-     *
-     * @return
-     */
-    public abstract String getXsl();
-
 }

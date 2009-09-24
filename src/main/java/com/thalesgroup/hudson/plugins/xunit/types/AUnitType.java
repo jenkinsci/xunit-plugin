@@ -29,12 +29,12 @@ import net.sf.json.JSONObject;
 
 public class AUnitType extends XUnitType {
 
-    public AUnitType(String pattern){
+    public AUnitType(String pattern) {
         super(pattern);
     }
 
-    public String getXsl(){
-         return "aunit-to-junit.xsl";
+    public String getXsl() {
+        return "aunit-to-junit.xsl";
     }
 
     public XUnitTypeDescriptor<?> getDescriptor() {

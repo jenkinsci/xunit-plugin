@@ -33,12 +33,12 @@ public class CppUnitType extends XUnitType {
         return new CppUnitType.DescriptorImpl();
     }
 
-    public CppUnitType(String pattern){
+    public CppUnitType(String pattern) {
         super(pattern);
     }
 
-    public String getXsl(){
-         return "cppunit-to-junit.xsl";
+    public String getXsl() {
+        return "cppunit-to-junit.xsl";
     }
 
     @Extension

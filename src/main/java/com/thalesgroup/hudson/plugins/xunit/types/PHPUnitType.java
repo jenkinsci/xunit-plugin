@@ -52,7 +52,7 @@ public class PHPUnitType extends XUnitType {
         public String getDisplayName() {
             return "PHPUnit";
         }
-        
+
         public PHPUnitType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
             return new PHPUnitType(formData.getString("pattern"));
         }

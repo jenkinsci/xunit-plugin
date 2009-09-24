@@ -121,9 +121,9 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
             for (XUnitType tool : types) {
                 if (!isEmpty(tool.getPattern())) {
                     isInvoked = true;
-                    
+
                     InputStream is = tool.getClass().getResourceAsStream(tool.getXsl());
-                    
+
                     boolean result = processTool(ws,
                             transformerFactory, xmlDocumentBuilder, writerTransformer, tool,
                             new StreamSource(is));
