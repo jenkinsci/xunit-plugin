@@ -23,25 +23,26 @@
 
 package com.thalesgroup.hudson.plugins.xunit.transformer;
 
+import hudson.AbortException;
+import hudson.EnvVars;
 import hudson.FilePath;
 import hudson.Util;
-import hudson.EnvVars;
-import hudson.AbortException;
-import hudson.util.IOException2;
 import hudson.model.BuildListener;
 import hudson.remoting.VirtualChannel;
+import hudson.util.IOException2;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.FactoryConfigurationError;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
@@ -120,9 +121,12 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
             for (XUnitType tool : types) {
                 if (!isEmpty(tool.getPattern())) {
                     isInvoked = true;
+                    
+                    InputStream is = tool.getClass().getResourceAsStream(tool.getXsl());
+                    
                     boolean result = processTool(ws,
                             transformerFactory, xmlDocumentBuilder, writerTransformer, tool,
-                            new StreamSource(this.getClass().getResourceAsStream(tool.getXsl())));
+                            new StreamSource(is));
                     if (!result) {
                         return result;
                     }

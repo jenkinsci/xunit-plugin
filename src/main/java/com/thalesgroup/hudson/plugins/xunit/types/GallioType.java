@@ -29,7 +29,7 @@ import net.sf.json.JSONObject;
 
 public class GallioType extends XUnitType {
 
-    private GallioType(String pattern) {
+    public GallioType(String pattern) {
         super(pattern);
     }
 

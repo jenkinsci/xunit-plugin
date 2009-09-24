@@ -29,7 +29,7 @@ import net.sf.json.JSONObject;
 
 public class AUnitType extends XUnitType {
 
-    private AUnitType(String pattern){
+    public AUnitType(String pattern){
         super(pattern);
     }
 

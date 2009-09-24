@@ -29,8 +29,7 @@ import net.sf.json.JSONObject;
 
 public class PHPUnitType extends XUnitType {
 
-
-    private PHPUnitType(String pattern) {
+    public PHPUnitType(String pattern) {
         super(pattern);
     }
 

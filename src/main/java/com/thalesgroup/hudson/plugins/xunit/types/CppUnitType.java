@@ -33,7 +33,7 @@ public class CppUnitType extends XUnitType {
         return new CppUnitType.DescriptorImpl();
     }
 
-    private CppUnitType(String pattern){
+    public CppUnitType(String pattern){
         super(pattern);
     }
 

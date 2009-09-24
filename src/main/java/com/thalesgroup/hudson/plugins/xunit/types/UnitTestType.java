@@ -29,7 +29,7 @@ import net.sf.json.JSONObject;
 
 public class UnitTestType extends XUnitType {
 
-    private UnitTestType(String pattern) {
+    public UnitTestType(String pattern) {
         super(pattern);
     }
 

@@ -39,6 +39,10 @@ import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
+import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.lang.reflect.Constructor;
 
 import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
@@ -46,8 +50,8 @@ import org.kohsuke.stapler.StaplerRequest;
 
 import com.thalesgroup.hudson.plugins.xunit.util.XUnitLog;
 import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitTransformer;
-import com.thalesgroup.hudson.plugins.xunit.types.XUnitTypeDescriptor;
-import com.thalesgroup.hudson.plugins.xunit.types.XUnitType;
+import com.thalesgroup.hudson.plugins.xunit.types.*;
+import com.thalesgroup.hudson.plugins.xunit.model.TypeConfig;
 import net.sf.json.JSONObject;
 
 /**
@@ -60,7 +64,7 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
 
     private static final long serialVersionUID = 1L;
 
-    public final XUnitType[] types;
+    public XUnitType[] types;
 
     private XUnitPublisher(XUnitType[] types) {
         this.types = types;
@@ -322,4 +326,59 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
     public BuildStepMonitor getRequiredMonitorService() {
         return BuildStepMonitor.NONE;
     }
+
+
+    /**
+     * Initializes members that were not present in previous versions of this plug-in.
+     *
+     * @return the created object
+     */
+    private Object readResolve() {
+
+        try {
+            
+            if (config != null) {
+                HashMap<String, Class> map = new HashMap<String, Class>();
+                map.put("phpunit", PHPUnitType.class);
+                map.put("aunit", AUnitType.class);
+                map.put("cppunit", CppUnitType.class);
+                map.put("unittest", UnitTestType.class);
+                map.put("nunit", NUnitType.class);
+                map.put("mstest", MSTestType.class);
+                map.put("boosttest", BoostTestType.class);
+
+                List<XUnitType> xunitTypeList = new ArrayList<XUnitType>();
+
+                types = new XUnitType[0];
+
+                for (TypeConfig typeConfig : config.getTestTools()) {
+                    String pattern = typeConfig.getPattern();
+                    if (pattern != null && pattern.trim().length()!=0) {
+                        //xunitTypeList.add((XUnitType) (map.get(typeConfig.getName()).newInstance()));
+                        Constructor<XUnitType> constructor= map.get(typeConfig.getName()).getConstructor(String.class);
+                        XUnitType xunitType = constructor.newInstance(pattern);
+                        xunitTypeList.add(xunitType);
+                    }
+                }
+                types = xunitTypeList.toArray(new XUnitType[xunitTypeList.size()]);
+            }
+        }
+        catch (Exception e) {
+
+        }
+
+        return this;
+    }
+
+
+    // Backward compatibility. Do not remove.
+    // CPPCHECK:OFF
+    @Deprecated
+    private transient XUnitConfig config;
+
+
 }
+
+
+
+

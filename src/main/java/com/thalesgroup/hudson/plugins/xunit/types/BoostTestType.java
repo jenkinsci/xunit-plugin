@@ -29,7 +29,7 @@ import net.sf.json.JSONObject;
 
 public class BoostTestType extends XUnitType {
 
-    private BoostTestType(String pattern) {
+    public BoostTestType(String pattern) {
         super(pattern);
     }
 
