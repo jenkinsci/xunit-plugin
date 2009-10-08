@@ -41,7 +41,6 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.HashMap;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.lang.reflect.Constructor;
 
 import org.apache.tools.ant.DirectoryScanner;
@@ -52,6 +51,7 @@ import com.thalesgroup.hudson.plugins.xunit.util.XUnitLog;
 import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitTransformer;
 import com.thalesgroup.hudson.plugins.xunit.types.*;
 import com.thalesgroup.hudson.plugins.xunit.model.TypeConfig;
+import hudson.tasks.Recorder;
 import net.sf.json.JSONObject;
 
 /**
@@ -59,7 +59,7 @@ import net.sf.json.JSONObject;
  *
  * @author Gregory Boissinot
  */
-public class XUnitPublisher extends hudson.tasks.Publisher implements Serializable {
+public class XUnitPublisher extends Recorder implements Serializable {
 
 
     private static final long serialVersionUID = 1L;
@@ -72,7 +72,7 @@ public class XUnitPublisher extends hudson.tasks.Publisher implements Serializab
 
 
     @Override
-    public Action getProjectAction(hudson.model.Project project) {
+    public Action getProjectAction(AbstractProject<?, ?> project) {
         return new TestResultProjectAction(project);
     }
 
