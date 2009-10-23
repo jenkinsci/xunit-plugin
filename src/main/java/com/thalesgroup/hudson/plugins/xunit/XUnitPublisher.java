@@ -47,10 +47,10 @@ import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
 import org.kohsuke.stapler.StaplerRequest;
 
-import com.thalesgroup.hudson.plugins.xunit.util.XUnitLog;
 import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitTransformer;
 import com.thalesgroup.hudson.plugins.xunit.types.*;
 import com.thalesgroup.hudson.plugins.xunit.model.TypeConfig;
+import com.thalesgroup.hudson.plugins.xunit.util.XUnitLog;
 import hudson.tasks.Recorder;
 import net.sf.json.JSONObject;
 
@@ -80,51 +80,67 @@ public class XUnitPublisher extends Recorder implements Serializable {
     public boolean perform(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener)
             throws InterruptedException, IOException {
 
-        if ((build.getResult().equals(Result.SUCCESS))
-                || (build.getResult().equals(Result.UNSTABLE))) {
+        XUnitLog.log(listener, "Start xUnit recording.");
 
-            //Create the temporary target junit dir
-            FilePath junitTargetFilePath = new FilePath(build.getWorkspace(), "xunitTemp");
-            if (junitTargetFilePath.exists()) {
+        Result previousResult = build.getResult();
+
+        //Create the temporary target junit dir
+        FilePath junitTargetFilePath = new FilePath(build.getWorkspace(), "xunitTemp");
+        if (junitTargetFilePath.exists()) {
+            junitTargetFilePath.deleteRecursive();
+        }
+        junitTargetFilePath.mkdirs();
+
+        try {
+
+            // Archiving tools report files into Junit files
+            XUnitTransformer transformer = new XUnitTransformer(listener, build.getTimestamp().getTimeInMillis(), build.getEnvironment(listener), types, junitTargetFilePath);
+            boolean result = build.getWorkspace().act(transformer);
+            if (!result) {
+                build.setResult(Result.FAILURE);
+
+                XUnitLog.log(listener, "Stop xUnit recording.");
+                return true;
+            }
+
+            Result curResult = recordTestResult(build, listener, junitTargetFilePath, "TEST-*.xml");
+
+            //Change the status result
+            if (previousResult.isWorseOrEqualTo(curResult)) {
+                build.setResult(previousResult);
+
+                XUnitLog.log(listener, "Stop xUnit recording.");
+                return true;
+            }
+
+            XUnitLog.log(listener, "Set the build status to "+ curResult);
+            build.setResult(curResult);
+
+
+            XUnitLog.log(listener, "Stop xUnit recording.");
+            return true;
+
+        }
+        catch (IOException2 ioe) {
+            throw new IOException2("xUnit hasn't been performed correctly.", ioe);
+        }
+
+        finally {
+            try {
+                //Detroy temporary target junit dir
                 junitTargetFilePath.deleteRecursive();
             }
-            junitTargetFilePath.mkdirs();
-
-            try {
-
-                // Archiving tools report files into Junit files
-                XUnitTransformer transformer = new XUnitTransformer(listener, build.getTimestamp().getTimeInMillis(), build.getEnvironment(listener), types, junitTargetFilePath);
-                boolean result = build.getWorkspace().act(transformer);
-                if (!result) {
-                    build.setResult(Result.FAILURE);
-                } else {
-                    result = recordTestResult(build, listener, junitTargetFilePath, "TEST-*.xml");
-                }
-
+            catch (IOException ioe) {
+                XUnitLog.log(listener, "xUnit hasn't been performed correctly: " + ioe.getMessage());
+                return false;
             }
-            catch (IOException2 ioe) {
-                throw new IOException2("xUnit hasn't been performed correctly.", ioe);
+            catch (InterruptedException ie) {
+                XUnitLog.log(listener, "xUnit hasn't been performed correctly: " + ie.getMessage());
+                return false;
             }
-
-            finally {
-                //Detroy temporary target junit dir
-                try {
-                    junitTargetFilePath.deleteRecursive();
-                }
-                catch (IOException ioe) {
-                    //ignore
-                }
-                catch (InterruptedException ie) {
-                    //ignore
-                }
-            }
-
-        } else {
-            XUnitLog.log(listener, "Build failed. Publishing xUnit skipped.");
         }
 
 
-        return true;
     }
 
     /**
@@ -137,10 +153,10 @@ public class XUnitPublisher extends Recorder implements Serializable {
      * @throws InterruptedException
      * @throws IOException
      */
-    private boolean recordTestResult(final AbstractBuild<?, ?> build,
-                                     final BuildListener listener,
-                                     final FilePath junitTargetFilePath,
-                                     final String junitFilePattern)
+    private Result recordTestResult(final AbstractBuild<?, ?> build,
+                                    final BuildListener listener,
+                                    final FilePath junitTargetFilePath,
+                                    final String junitFilePattern)
             throws InterruptedException, IOException {
 
 
@@ -156,7 +172,6 @@ public class XUnitPublisher extends Recorder implements Serializable {
                 existingTestResults = existingAction.getResult();
             }
 
-            //TestResult result = getTestResult(junitTargetFilePath, junitFilePattern, build, existingTestResults, buildTime);
             TestResult result = build.getWorkspace().act(
                     new ParseResultCallable(junitTargetFilePath, junitFilePattern, existingTestResults, buildTime, nowMaster));
 
@@ -173,14 +188,8 @@ public class XUnitPublisher extends Recorder implements Serializable {
             }
 
         } catch (AbortException e) {
-            if (build.getResult() == Result.FAILURE)
-                // most likely a build failed before it gets to the test phase.
-                // don't report confusing error message.
-                return true;
-
             listener.getLogger().println(e.getMessage());
-            build.setResult(Result.FAILURE);
-            return true;
+            return Result.FAILURE;
         }
 
         if (existingAction == null) {
@@ -188,53 +197,10 @@ public class XUnitPublisher extends Recorder implements Serializable {
         }
 
         if (action.getResult().getFailCount() > 0)
-            build.setResult(Result.UNSTABLE);
+            return Result.UNSTABLE;
 
-        return true;
+        return Result.SUCCESS;
     }
-
-    /**
-     * Collect the test results from the files
-     *
-     * @param junitFilePattern
-     * @param build
-     * @param existingTestResults existing test results to add results to
-     * @param buildTime
-     * @return a test result
-     * @throws IOException
-     * @throws InterruptedException
-     */
-    private TestResult getTestResult(final FilePath temporaryJunitFilePath,
-                                     final String junitFilePattern,
-                                     final AbstractBuild<?, ?> build,
-                                     final TestResult existingTestResults,
-                                     final long buildTime)
-            throws IOException, InterruptedException {
-
-
-        final File temporaryJunitDirFile = new File(temporaryJunitFilePath.toURI());
-
-        TestResult result = build.getWorkspace().act(new FilePath.FileCallable<TestResult>() {
-            public TestResult invoke(File ws, VirtualChannel channel) throws IOException {
-
-                FileSet fs = Util.createFileSet(temporaryJunitDirFile, junitFilePattern);
-                DirectoryScanner ds = fs.getDirectoryScanner();
-                String[] files = ds.getIncludedFiles();
-                if (files.length == 0) {
-                    // no test result. Most likely a configuration error or fatal problem
-                    throw new AbortException("No test report files were found. Configuration error?");
-                }
-                if (existingTestResults == null) {
-                    return new TestResult(buildTime, ds);
-                } else {
-                    existingTestResults.parse(buildTime, ds);
-                    return existingTestResults;
-                }
-            }
-        });
-        return result;
-    }
-
 
     private static final class ParseResultCallable implements
             FilePath.FileCallable<TestResult> {
