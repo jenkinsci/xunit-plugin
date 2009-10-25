@@ -36,6 +36,7 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import com.thalesgroup.hudson.plugins.xunit.types.XUnitType;
+import com.thalesgroup.hudson.plugins.xunit.types.XUnitXSLUtil;
 
 public class AbstractXUnitXSLTest {
 
@@ -56,8 +57,8 @@ public class AbstractXUnitXSLTest {
     protected void processTransformation(String source, String target)
             throws IllegalAccessException, InstantiationException, IOException, TransformerException, SAXException {
 
-        Transform myTransform = new Transform(new InputSource(this.getClass()
-                .getResourceAsStream(source)), new InputSource(type.newInstance().getXsl()));
+        Transform myTransform = new Transform(new InputSource(
+                type.getResourceAsStream(source)), new InputSource(type.getResourceAsStream(type.newInstance().getXsl())));
         Diff myDiff = new Diff(XUnitXSLUtil.readXmlAsString(target), myTransform);
         assertTrue("XSL transformation did not work" + myDiff, myDiff.similar());
     }

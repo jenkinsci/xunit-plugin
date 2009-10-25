@@ -29,6 +29,10 @@ import net.sf.json.JSONObject;
 
 public class MSTestType extends XUnitType {
 
+    public MSTestType() {
+        super();
+    }
+
     public MSTestType(String pattern) {
         super(pattern);
     }
@@ -50,7 +54,7 @@ public class MSTestType extends XUnitType {
 
         @Override
         public String getDisplayName() {
-            return "MSTest";
+            return Messages.xUnit_mstestType_label();
         }
 
         public MSTestType newInstance(StaplerRequest req, JSONObject formData) throws FormException {

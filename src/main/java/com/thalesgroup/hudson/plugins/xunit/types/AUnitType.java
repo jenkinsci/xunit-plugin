@@ -29,6 +29,10 @@ import net.sf.json.JSONObject;
 
 public class AUnitType extends XUnitType {
 
+    public AUnitType() {
+        super();
+    }
+
     public AUnitType(String pattern) {
         super(pattern);
     }
@@ -54,7 +58,7 @@ public class AUnitType extends XUnitType {
 
         @Override
         public String getDisplayName() {
-            return "AUnit";
+            return Messages.xUnit_aunitType_label();
         }
 
     }

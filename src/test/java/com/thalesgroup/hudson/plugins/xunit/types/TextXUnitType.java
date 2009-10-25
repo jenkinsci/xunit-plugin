@@ -21,26 +21,37 @@
  * THE SOFTWARE.                                                                *
  *******************************************************************************/
 
-package com.thalesgroup.hudson.plugins.xunit.transformer;
+package com.thalesgroup.hudson.plugins.xunit.types;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 
-public class XUnitXSLUtil {
+public class TextXUnitType extends XUnitType {
 
-    public static String readXmlAsString(String resourceName)
-            throws IOException {
-        String xmlString = "";
+    private String xsl;
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(XUnitXSLUtil.class.getResourceAsStream(resourceName)));
-        String line = reader.readLine();
-        while (line != null) {
-            xmlString += line + "\n";
-            line = reader.readLine();
+    public TextXUnitType(String pattern, String xsl) {
+        super(pattern);
+        this.xsl = xsl;
+    }
+
+
+    public String getXsl() {
+        return xsl;
+    }
+
+    public XUnitTypeDescriptor<?> getDescriptor() {
+        return new DescriptorImpl();
+    }
+
+    public class DescriptorImpl extends XUnitTypeDescriptor<PHPUnitType> {
+
+        public DescriptorImpl() {
+            super(PHPUnitType.class);
         }
-        reader.close();
 
-        return xmlString;
+        @Override
+        public String getDisplayName() {
+            return "Test Tool";
+        }
+
     }
 }

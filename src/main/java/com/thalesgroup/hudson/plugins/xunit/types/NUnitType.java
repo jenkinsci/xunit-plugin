@@ -29,6 +29,10 @@ import net.sf.json.JSONObject;
 
 public class NUnitType extends XUnitType {
 
+    public NUnitType() {
+        super();
+    }
+
     public NUnitType(String pattern) {
         super(pattern);
     }
@@ -50,7 +54,7 @@ public class NUnitType extends XUnitType {
 
         @Override
         public String getDisplayName() {
-            return "NUnit";
+            return Messages.xUnit_nunitType_label();
         }
 
         public NUnitType newInstance(StaplerRequest req, JSONObject formData) throws FormException {

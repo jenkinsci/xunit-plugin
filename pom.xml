@@ -4,7 +4,7 @@
    <parent>
       <groupId>org.jvnet.hudson.plugins</groupId>
       <artifactId>plugin</artifactId>
-      <version>1.324</version>
+      <version>1.330</version>
       <relativePath>../pom.xml</relativePath>
    </parent>
 
@@ -14,7 +14,30 @@
    <name>Hudson xUnit plugin</name>
    <url>http://wiki.hudson-ci.org/display/HUDSON/xUnit+Plugin</url>
 
+   <licenses>
+      <license>
+         <name>MIT license</name>
+         <comments>All source code is under the MIT license.</comments>
+      </license>
+   </licenses>
+
+   <developers>
+      <developer>
+         <id>gbois</id>
+         <name>Gregory Boissinot</name>
+         <email>gregory.boissinot@gmail.com</email>
+         <timezone>+1</timezone>
+      </developer>
+   </developers>
+
    <dependencies>
+      <dependency>
+         <groupId>junit</groupId>
+         <artifactId>junit</artifactId>
+         <version>4.7</version>
+         <scope>test</scope>
+      </dependency>
+
       <dependency>
          <groupId>xmlunit</groupId>
          <artifactId>xmlunit</artifactId>
@@ -37,21 +60,24 @@
       </dependency>
    </dependencies>
 
-   <developers>
-      <developer>
-         <id>gbois</id>
-         <name>Gregory Boissinot</name>
-      </developer>
-   </developers>
-
    <build>
       <plugins>
+
+         <plugin>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+               <showDeprecation>true</showDeprecation>
+               <showWarnings>true</showWarnings>
+               <optimize>true</optimize>
+            </configuration>
+         </plugin>
+
          <plugin>
             <artifactId>maven-surefire-plugin</artifactId>
             <configuration>
-               <includes>
-                  <include>Abstract*.java</include>
-               </includes>
+               <excludes>
+                  <exclude>**/*Abstract*</exclude>
+               </excludes>
             </configuration>
          </plugin>
 
@@ -63,7 +89,51 @@
                <compatibleSinceVersion>0.2</compatibleSinceVersion>
             </configuration>
          </plugin>
-
       </plugins>
    </build>
+
+   <profiles>
+      <profile>
+         <id>it</id>
+         <build>
+            <resources>
+               <directory>src/ittest/resources</directory>
+            </resources>
+
+            <testResources>
+               <testResource>
+                  <directory>${basedir}/src/test/resources</directory>
+               </testResource>
+
+               <testResource>
+                  <directory>${basedir}/src/ittest/resources</directory>
+               </testResource>
+            </testResources>
+
+            <plugins>
+               <plugin>
+                  <groupId>org.codehaus.mojo</groupId>
+                  <artifactId>build-helper-maven-plugin</artifactId>
+                  <version>1.3</version>
+                  <executions>
+                     <execution>
+                        <id>add-test-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                           <goal>add-test-source</goal>
+                        </goals>
+                        <configuration>
+                           <sources>
+                              <source>${basedir}/src/ittest/java</source>
+                           </sources>
+                        </configuration>
+                     </execution>
+                  </executions>
+               </plugin>
+            </plugins>
+         </build>
+      </profile>
+   </profiles>
+   
 </project>
+

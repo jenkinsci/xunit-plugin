@@ -245,6 +245,9 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
             throws TransformerException, IOException, InterruptedException {
 
         Transformer toolXMLTransformer = transformerFactory.newTransformer(stylesheet);
+        if (toolXMLTransformer==null){
+           throw new InterruptedException("Problem on making the tool transformer."); 
+        }
 
         String curPattern = testTool.getPattern();
         curPattern = curPattern.replaceAll("[\t\r\n]+", " ");

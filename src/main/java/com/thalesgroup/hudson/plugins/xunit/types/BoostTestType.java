@@ -29,6 +29,10 @@ import net.sf.json.JSONObject;
 
 public class BoostTestType extends XUnitType {
 
+    public BoostTestType() {
+        super();
+    }
+
     public BoostTestType(String pattern) {
         super(pattern);
     }
@@ -50,7 +54,7 @@ public class BoostTestType extends XUnitType {
 
         @Override
         public String getDisplayName() {
-            return "Boost Test Library";
+            return Messages.xUnit_boosttestType_label();
         }
 
         public BoostTestType newInstance(StaplerRequest req, JSONObject formData) throws FormException {

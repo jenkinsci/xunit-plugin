@@ -37,24 +37,30 @@ public class XUnitConfig implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @SuppressWarnings("deprecation")
     public static final Map<String, TypeDescriptor> TOOLS = new HashMap<String, TypeDescriptor>();
 
+    @SuppressWarnings("deprecation")
     public static void addDescriptor(TypeDescriptor t) {
         TOOLS.put(t.getName(), t);
     }
 
+    @SuppressWarnings("deprecation")
     private List<TypeConfig> testTools = new ArrayList<TypeConfig>();
 
+    @SuppressWarnings("deprecation")
     private List<TypeConfig> customTools = new ArrayList<TypeConfig>();
 
 
     public XUnitConfig() {
     }
 
+    @SuppressWarnings("deprecation")
     public List<TypeConfig> getTestTools() {
         return testTools;
     }
 
+    @SuppressWarnings("deprecation")
     public List<TypeConfig> getCustomTools() {
         return customTools;
     }

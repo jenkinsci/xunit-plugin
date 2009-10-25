@@ -23,42 +23,24 @@
 
 package com.thalesgroup.hudson.plugins.xunit.types;
 
-import hudson.Extension;
-import org.kohsuke.stapler.StaplerRequest;
-import net.sf.json.JSONObject;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
-public class GallioType extends XUnitType {
+public class XUnitXSLUtil {
 
-    public GallioType() {
-        super();
-    }
+    public static String readXmlAsString(String resourceName)
+            throws IOException {
+        String xmlString = "";
 
-    public GallioType(String pattern) {
-        super(pattern);
-    }
-
-    public String getXsl() {
-        return "gallio-to-junit.xsl";
-    }
-
-    public XUnitTypeDescriptor<?> getDescriptor() {
-        return new GallioType.DescriptorImpl();
-    }
-
-    @Extension
-    public static class DescriptorImpl extends XUnitTypeDescriptor<GallioType> {
-
-        public DescriptorImpl() {
-            super(GallioType.class);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(XUnitXSLUtil.class.getResourceAsStream(resourceName)));
+        String line = reader.readLine();
+        while (line != null) {
+            xmlString += line + "\n";
+            line = reader.readLine();
         }
+        reader.close();
 
-        @Override
-        public String getDisplayName() {
-            return Messages.xUnit_gallioType_label();
-        }
-
-        public GallioType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
-            return new GallioType(formData.getString("pattern"));
-        }
+        return xmlString;
     }
 }

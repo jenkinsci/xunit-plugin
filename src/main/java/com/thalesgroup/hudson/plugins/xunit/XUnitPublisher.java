@@ -59,6 +59,7 @@ import net.sf.json.JSONObject;
  *
  * @author Gregory Boissinot
  */
+@SuppressWarnings("unchecked")
 public class XUnitPublisher extends Recorder implements Serializable {
 
 
@@ -66,7 +67,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
 
     public XUnitType[] types;
 
-    private XUnitPublisher(XUnitType[] types) {
+    public XUnitPublisher(XUnitType[] types) {
         this.types = types;
     }
 
@@ -80,7 +81,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
     public boolean perform(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener)
             throws InterruptedException, IOException {
 
-        XUnitLog.log(listener, "Start xUnit recording.");
+        XUnitLog.log(listener, "Starting to record.");
 
         Result previousResult = build.getResult();
 
@@ -99,7 +100,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
             if (!result) {
                 build.setResult(Result.FAILURE);
 
-                XUnitLog.log(listener, "Stop xUnit recording.");
+                XUnitLog.log(listener, "Stopping recording.");
                 return true;
             }
 
@@ -109,20 +110,20 @@ public class XUnitPublisher extends Recorder implements Serializable {
             if (previousResult.isWorseOrEqualTo(curResult)) {
                 build.setResult(previousResult);
 
-                XUnitLog.log(listener, "Stop xUnit recording.");
+                XUnitLog.log(listener, "Stopping recording.");
                 return true;
             }
 
-            XUnitLog.log(listener, "Set the build status to "+ curResult);
+            XUnitLog.log(listener, "Setting the build status to " + curResult);
             build.setResult(curResult);
 
 
-            XUnitLog.log(listener, "Stop xUnit recording.");
+            XUnitLog.log(listener, "Stopping recording.");
             return true;
 
         }
         catch (IOException2 ioe) {
-            throw new IOException2("xUnit hasn't been performed correctly.", ioe);
+            throw new IOException2("The plugin hasn't been performed correctly.", ioe);
         }
 
         finally {
@@ -131,11 +132,11 @@ public class XUnitPublisher extends Recorder implements Serializable {
                 junitTargetFilePath.deleteRecursive();
             }
             catch (IOException ioe) {
-                XUnitLog.log(listener, "xUnit hasn't been performed correctly: " + ioe.getMessage());
+                XUnitLog.log(listener, "The plugin hasn't been performed correctly: " + ioe.getMessage());
                 return false;
             }
             catch (InterruptedException ie) {
-                XUnitLog.log(listener, "xUnit hasn't been performed correctly: " + ie.getMessage());
+                XUnitLog.log(listener, "The plugin hasn't been performed correctly: " + ie.getMessage());
                 return false;
             }
         }
@@ -299,6 +300,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
      *
      * @return the created object
      */
+    @SuppressWarnings("deprecation")
     private Object readResolve() {
 
         try {
@@ -320,7 +322,6 @@ public class XUnitPublisher extends Recorder implements Serializable {
                 for (TypeConfig typeConfig : config.getTestTools()) {
                     String pattern = typeConfig.getPattern();
                     if (pattern != null && pattern.trim().length() != 0) {
-                        //xunitTypeList.add((XUnitType) (map.get(typeConfig.getName()).newInstance()));
                         Constructor<XUnitType> constructor = map.get(typeConfig.getName()).getConstructor(String.class);
                         XUnitType xunitType = constructor.newInstance(pattern);
                         xunitTypeList.add(xunitType);

@@ -36,6 +36,10 @@ public abstract class XUnitType implements ExtensionPoint, Describable<XUnitType
 
     private final String pattern;
 
+    protected XUnitType() {
+        this.pattern = null;
+    }
+
     protected XUnitType(String pattern) {
         this.pattern = pattern;
     }

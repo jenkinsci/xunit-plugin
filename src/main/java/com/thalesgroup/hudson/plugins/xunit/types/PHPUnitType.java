@@ -29,6 +29,10 @@ import net.sf.json.JSONObject;
 
 public class PHPUnitType extends XUnitType {
 
+    public PHPUnitType() {
+        super();
+    }
+
     public PHPUnitType(String pattern) {
         super(pattern);
     }
@@ -50,7 +54,7 @@ public class PHPUnitType extends XUnitType {
 
         @Override
         public String getDisplayName() {
-            return "PHPUnit";
+            return Messages.xUnit_phpunitType_label();
         }
 
         public PHPUnitType newInstance(StaplerRequest req, JSONObject formData) throws FormException {

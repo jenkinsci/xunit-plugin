@@ -27,7 +27,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import hudson.FilePath;
 import hudson.EnvVars;
-import hudson.Extension;
 import hudson.model.BuildListener;
 import hudson.model.AbstractBuild;
 import hudson.remoting.VirtualChannel;
@@ -42,12 +41,9 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.kohsuke.stapler.StaplerRequest;
 
 import com.thalesgroup.hudson.plugins.xunit.AbstractWorkspaceTest;
-import com.thalesgroup.hudson.plugins.xunit.types.BoostTestType;
 import com.thalesgroup.hudson.plugins.xunit.types.*;
-import net.sf.json.JSONObject;
 
 public class XUnitTransformerTest extends AbstractWorkspaceTest {
 
@@ -56,6 +52,11 @@ public class XUnitTransformerTest extends AbstractWorkspaceTest {
     private AbstractBuild<?, ?> owner;
     private FilePath junitOutputPath;
     private VirtualChannel channel;
+
+    private boolean processTransformer(XUnitType[] types) throws Exception {
+        xUnitTransformer = new XUnitTransformer(listener, 0, mock(EnvVars.class), types, junitOutputPath);
+        return xUnitTransformer.invoke(new File(workspace.toURI()), channel);
+    }    
 
     @Before
     public void initialize() throws Exception {
@@ -83,56 +84,16 @@ public class XUnitTransformerTest extends AbstractWorkspaceTest {
         Assert.assertFalse("With an empty configuration, there is an error.", result);
     }
 
-
-    private boolean processTransformer(XUnitType[] types) throws Exception {
-        xUnitTransformer = new XUnitTransformer(listener, 0, mock(EnvVars.class), types, junitOutputPath);
-        return xUnitTransformer.invoke(new File(workspace.toURI()), channel);
-    }
-
-
-    class TextXUnit extends XUnitType {
-
-        private String xsl;
-
-        TextXUnit(String pattern, String xsl) {
-            super(pattern);
-            this.xsl = xsl;
-        }
-
-
-        public String getXsl() {
-            return xsl;
-        }
-
-        public XUnitTypeDescriptor<?> getDescriptor() {
-            return new DescriptorImpl();
-        }
-
-        public class DescriptorImpl extends XUnitTypeDescriptor<PHPUnitType> {
-
-            public DescriptorImpl() {
-                super(PHPUnitType.class);
-            }
-
-            @Override
-            public String getDisplayName() {
-                return "Test Tool";
-            }
-
-        }
-
-    }
-
-    ;
-
-    private void wrongPattern() throws Exception {
-        XUnitType[] types = new XUnitType[]{new TextXUnit("*.txt", "cppunit-to-junit.xsl")};
+    @Test
+    public void wrongPattern() throws Exception {
+        XUnitType[] types = new XUnitType[]{new TextXUnitType("*.txt", "cppunit-to-junit.xsl")};
         workspace.createTextTempFile("report", ".xml", "content");
         Assert.assertFalse("With a wrong pattern, it have to be false", processTransformer(types));
     }
 
-    private void oneMatchWithWrongContent() throws Exception {
-        XUnitType[] types = new XUnitType[]{new TextXUnit("*.xml", "cppunit-to-junit.xsl")};
+    @Test
+    public void oneMatchWithWrongContent() throws Exception {
+        XUnitType[] types = new XUnitType[]{new TextXUnitType("*.xml", "cppunit-to-junit.xsl")};
         workspace.createTextTempFile("report", ".xml", "content");
         try {
             processTransformer(types);
@@ -143,8 +104,9 @@ public class XUnitTransformerTest extends AbstractWorkspaceTest {
         }
     }
 
-    private void oneMatchWithValidContent() throws Exception {
-        XUnitType[] types = new XUnitType[]{new TextXUnit("*.xml", "cppunit-to-junit.xsl")};
+    @Test
+    public void oneMatchWithValidContent() throws Exception {
+        XUnitType[] types = new XUnitType[]{new TextXUnitType("*.xml", "cppunit-to-junit.xsl")};
         String content = XUnitXSLUtil.readXmlAsString("cppunit/testcase1/cppunit-successAndFailure.xml");
         File reportFile = new File(new File(workspace.toURI()), "report.xml");
         FileWriter fw = new FileWriter(reportFile);
@@ -153,14 +115,5 @@ public class XUnitTransformerTest extends AbstractWorkspaceTest {
         processTransformer(types);
         Assert.assertTrue(true);
     }
-
-
-    @Test
-    public void testTool() throws Exception {
-        wrongPattern();
-        oneMatchWithWrongContent();
-        oneMatchWithValidContent();
-    }
-
 
 }

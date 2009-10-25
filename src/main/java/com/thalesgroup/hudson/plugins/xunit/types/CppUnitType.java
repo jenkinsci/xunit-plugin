@@ -29,6 +29,10 @@ import net.sf.json.JSONObject;
 
 public class CppUnitType extends XUnitType {
 
+    public CppUnitType() {
+        super();
+    }
+
     public XUnitTypeDescriptor<?> getDescriptor() {
         return new CppUnitType.DescriptorImpl();
     }
@@ -50,7 +54,7 @@ public class CppUnitType extends XUnitType {
 
         @Override
         public String getDisplayName() {
-            return "CppUnit";
+            return Messages.xUnit_cppUnitType_label();
         }
 
         public CppUnitType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
