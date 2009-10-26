@@ -24,15 +24,11 @@
 package com.thalesgroup.hudson.plugins.xunit.types;
 
 import hudson.Extension;
-import org.kohsuke.stapler.StaplerRequest;
 import net.sf.json.JSONObject;
+import org.kohsuke.stapler.StaplerRequest;
 
 public class UnitTestType extends XUnitType {
 
-    public UnitTestType() {
-        super();
-    }
-        
     public UnitTestType(String pattern) {
         super(pattern);
     }

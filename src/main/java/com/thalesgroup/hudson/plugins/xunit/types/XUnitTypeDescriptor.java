@@ -23,28 +23,26 @@
 
 package com.thalesgroup.hudson.plugins.xunit.types;
 
+import hudson.DescriptorExtensionList;
 import hudson.model.Descriptor;
 import hudson.model.Hudson;
-import hudson.DescriptorExtensionList;
 
 
 public abstract class XUnitTypeDescriptor<T extends XUnitType> extends Descriptor<XUnitType> {
 
-    private T type;
+    Class<? extends XUnitType> type;
 
     protected XUnitTypeDescriptor(Class<T> clazz) {
         super(clazz);
+        type = clazz;
     }
 
     public static DescriptorExtensionList<XUnitType, XUnitTypeDescriptor<?>> all() {
         return Hudson.getInstance().getDescriptorList(XUnitType.class);
     }
 
-    public T getType() {
-        return type;
-    }
-
-    public void setType(T type) {
-        this.type = type;
+    @SuppressWarnings("unused")
+    public boolean isCustomType() {
+        return type == CustomType.class;
     }
 }

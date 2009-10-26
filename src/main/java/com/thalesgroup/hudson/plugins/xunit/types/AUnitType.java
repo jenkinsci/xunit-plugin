@@ -24,14 +24,10 @@
 package com.thalesgroup.hudson.plugins.xunit.types;
 
 import hudson.Extension;
-import org.kohsuke.stapler.StaplerRequest;
 import net.sf.json.JSONObject;
+import org.kohsuke.stapler.StaplerRequest;
 
 public class AUnitType extends XUnitType {
-
-    public AUnitType() {
-        super();
-    }
 
     public AUnitType(String pattern) {
         super(pattern);

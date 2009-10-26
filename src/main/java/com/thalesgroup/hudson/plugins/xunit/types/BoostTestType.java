@@ -24,14 +24,10 @@
 package com.thalesgroup.hudson.plugins.xunit.types;
 
 import hudson.Extension;
-import org.kohsuke.stapler.StaplerRequest;
 import net.sf.json.JSONObject;
+import org.kohsuke.stapler.StaplerRequest;
 
 public class BoostTestType extends XUnitType {
-
-    public BoostTestType() {
-        super();
-    }
 
     public BoostTestType(String pattern) {
         super(pattern);

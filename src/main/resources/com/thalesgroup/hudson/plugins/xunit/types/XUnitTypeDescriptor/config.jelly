@@ -1,11 +1,27 @@
 <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
 
    <f:entry title="${descriptor.displayName}">
+
+
      <table width="100%"  border='0'  cellspacing='0' padding="0">
          <tr>
-             <td width="100%" style="${td}">
-                    <f:textbox name="xunitType.pattern" value="${instance.pattern}"/>
-             </td>
+            <j:if test="${descriptor.isCustomType()}">
+                 <td width="50%" style="${td}">
+                      <label>Pattern</label>
+                      <f:textbox name="xunitType.pattern" value="${instance.pattern}"/>
+                 </td>
+                 <td width="50%" style="${td}">
+                     <label>Custom stylesheet</label>
+                     <f:textbox name="xunitType.customXSL" value="${instance.customXSL}"/>
+                 </td>
+            </j:if>
+
+            <j:if test="${not descriptor.isCustomType()}">
+                 <td width="100%" style="${td}">
+                     <label>Pattern</label>
+                     <f:textbox name="xunitType.pattern" value="${instance.pattern}"/>
+                 </td>
+            </j:if>
          </tr>
      </table>
     </f:entry>

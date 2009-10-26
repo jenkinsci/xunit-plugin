@@ -21,56 +21,42 @@
  * THE SOFTWARE.                                                                *
  *******************************************************************************/
 
-package com.thalesgroup.hudson.plugins.xunit.transformer;
+package com.thalesgroup.hudson.plugins.xunit.types;
 
-import static org.junit.Assert.assertTrue;
+import hudson.Extension;
+import net.sf.json.JSONObject;
+import org.kohsuke.stapler.StaplerRequest;
 
-import java.io.IOException;
-import java.lang.reflect.Constructor;
 
-import javax.xml.transform.TransformerException;
+public class CustomType extends XUnitType {
 
-import org.custommonkey.xmlunit.Diff;
-import org.custommonkey.xmlunit.Transform;
-import org.custommonkey.xmlunit.XMLUnit;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
-
-import com.thalesgroup.hudson.plugins.xunit.types.XUnitType;
-import com.thalesgroup.hudson.plugins.xunit.types.XUnitXSLUtil;
-
-public class AbstractXUnitXSLTest {
-
-    private Class<? extends XUnitType> type;
-
-    protected AbstractXUnitXSLTest(Class<? extends XUnitType> type) {
-        this.type = type;
-        setUp();
+    public CustomType(String pattern, String customXSL) {
+        super(pattern, customXSL);
     }
 
-    public void setUp() {
-        XMLUnit.setIgnoreWhitespace(true);
-        XMLUnit.setNormalizeWhitespace(true);
-        XMLUnit.setIgnoreComments(true);
+    public String getXsl() {
+        return customXSL;
     }
 
+    public XUnitTypeDescriptor<?> getDescriptor() {
+        return new CustomType.DescriptorImpl();
+    }
 
-    protected void processTransformation(String source, String target)
-            throws IllegalAccessException, InstantiationException, IOException, TransformerException, SAXException {
+    @Extension
+    public static class DescriptorImpl extends XUnitTypeDescriptor<CustomType> {
 
-
-        try {
-            Constructor typeContructor = type.getConstructors()[0];
-            Transform myTransform = new Transform(new InputSource(
-                    type.getResourceAsStream(source)), new InputSource(type.getResourceAsStream(((XUnitType)typeContructor.newInstance("default")).getXsl())));
-            Diff myDiff = new Diff(XUnitXSLUtil.readXmlAsString(target), myTransform);
-            assertTrue("XSL transformation did not work" + myDiff, myDiff.similar());
-
-        } catch (Exception e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-             assertTrue(false);
+        public DescriptorImpl() {
+            super(CustomType.class);
         }
+
+        public CustomType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
+            return new CustomType(formData.getString("pattern"), formData.getString("customXSL"));
+        }
+
+        @Override
+        public String getDisplayName() {
+            return Messages.xUnit_customType_label();
+        }
+
     }
-
-
 }

@@ -23,11 +23,11 @@
 
 package com.thalesgroup.hudson.plugins.xunit.types;
 
-import hudson.ExtensionPoint;
 import hudson.ExtensionList;
-import hudson.model.Hudson;
+import hudson.ExtensionPoint;
 import hudson.model.Describable;
 import hudson.model.Descriptor;
+import hudson.model.Hudson;
 
 import java.io.Serializable;
 
@@ -36,16 +36,25 @@ public abstract class XUnitType implements ExtensionPoint, Describable<XUnitType
 
     private final String pattern;
 
-    protected XUnitType() {
-        this.pattern = null;
-    }
+    protected final String customXSL;
 
     protected XUnitType(String pattern) {
         this.pattern = pattern;
+        customXSL = null;
+    }
+
+    protected XUnitType(String pattern, String customXSL) {
+        this.pattern = pattern;
+        this.customXSL = customXSL;
     }
 
     public String getPattern() {
         return pattern;
+    }
+
+    @SuppressWarnings("unused")
+    public String getCustomXSL() {
+        return customXSL;
     }
 
     /**

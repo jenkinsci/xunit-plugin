@@ -34,6 +34,7 @@ import com.thalesgroup.hudson.plugins.xunit.XUnitPublisher;
 import com.thalesgroup.hudson.plugins.xunit.types.AUnitType;
 import com.thalesgroup.hudson.plugins.xunit.types.XUnitType;
 import com.thalesgroup.hudson.plugins.xunit.types.BoostTestType;
+import com.thalesgroup.hudson.plugins.xunit.types.CustomType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +63,38 @@ public class XUnitPublisherIntegrationTest extends HudsonTestCase {
         //Build log
         StringBuffer expectedLog = new StringBuffer();
         expectedLog.append("[xUnit] Starting to record.\r\n");
+        expectedLog.append("[xUnit] [AUnit] - Use the embedded style sheet.\r\n");
         expectedLog.append("[xUnit] [AUnit] - Processing 1 files with the pattern '" + pattern + "' relative to '" + build.getWorkspace().getRemote() + "'.\r\n");
+        expectedLog.append("[xUnit] Setting the build status to UNSTABLE\r\n");
+        expectedLog.append("[xUnit] Stopping recording.");
+        assertLogContains(expectedLog.toString(), build);
+    }
+
+   public void testCustomToolWithCustomStyleSheet() throws Exception {
+
+        FreeStyleProject project = createFreeStyleProject();
+
+        List<SingleFileSCM> files = new ArrayList<SingleFileSCM>(2);
+        String cpptestResultFileName= "cpptestresult.xml";
+        files.add(new SingleFileSCM(cpptestResultFileName, getClass().getResource(cpptestResultFileName)));
+        String cpptestStyleSheet = "cpptest-to-junit.xsl";
+        files.add(new SingleFileSCM(cpptestStyleSheet, getClass().getResource(cpptestStyleSheet)));
+        project.setScm(new MultiFileSCM(files));
+
+        project.getBuildersList().add(new Shell("touch "+cpptestResultFileName));
+        String pattern = cpptestResultFileName;
+        project.getPublishersList().add(new XUnitPublisher(new XUnitType[]{new CustomType(pattern, cpptestStyleSheet)}));
+
+        FreeStyleBuild build = project.scheduleBuild2(0).get();
+
+        //Build status
+        assertBuildStatus(Result.UNSTABLE,build);
+
+        //Build log
+        StringBuffer expectedLog = new StringBuffer();
+        expectedLog.append("[xUnit] Starting to record.\r\n");
+        expectedLog.append("[xUnit] [Custom Tool] - Use the style sheet found into the workspace.\r\n");
+        expectedLog.append("[xUnit] [Custom Tool] - Processing 1 files with the pattern '" + pattern + "' relative to '" + build.getWorkspace().getRemote() + "'.\r\n");
         expectedLog.append("[xUnit] Setting the build status to UNSTABLE\r\n");
         expectedLog.append("[xUnit] Stopping recording.");
         assertLogContains(expectedLog.toString(), build);

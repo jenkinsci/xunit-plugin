@@ -31,11 +31,7 @@ import hudson.model.BuildListener;
 import hudson.remoting.VirtualChannel;
 import hudson.util.IOException2;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.Serializable;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -122,11 +118,26 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
                 if (!isEmpty(tool.getPattern())) {
                     isInvoked = true;
 
-                    InputStream is = tool.getClass().getResourceAsStream(tool.getXsl());
+                    InputStream is = null;
+                    File f = new File(ws, tool.getXsl());
+                    if (!f.exists()) {
+                        XUnitLog.log(listener, "[" + tool.getDescriptor().getDisplayName() + "] - Use the embedded style sheet.");
+                        is = tool.getClass().getResourceAsStream(tool.getXsl());
+                    } else {
+                        XUnitLog.log(listener, "[" + tool.getDescriptor().getDisplayName() + "] - Use the style sheet found into the workspace.");
+                        is = new FileInputStream(f);
+                    }
+
+                    if (is == null) {
+                        XUnitLog.log(listener, "The style sheet '" + tool.getXsl() + "' is not found for the xUnit tool '" + tool.getDescriptor().getDisplayName() + "'");
+                        return false;
+                    }
 
                     boolean result = processTool(ws,
                             transformerFactory, xmlDocumentBuilder, writerTransformer, tool,
                             new StreamSource(is));
+                    is.close();
+
                     if (!result) {
                         return result;
                     }
@@ -245,8 +256,8 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
             throws TransformerException, IOException, InterruptedException {
 
         Transformer toolXMLTransformer = transformerFactory.newTransformer(stylesheet);
-        if (toolXMLTransformer==null){
-           throw new InterruptedException("Problem on making the tool transformer."); 
+        if (toolXMLTransformer == null) {
+            throw new InterruptedException("Problem on making the tool transformer.");
         }
 
         String curPattern = testTool.getPattern();
