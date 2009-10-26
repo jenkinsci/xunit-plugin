@@ -97,7 +97,9 @@
          <id>it</id>
          <build>
             <resources>
-               <directory>src/ittest/resources</directory>
+	             <resource>
+		              <directory>${basedir}/src/ittest/resources</directory>
+	             </resource>
             </resources>
 
             <testResources>
