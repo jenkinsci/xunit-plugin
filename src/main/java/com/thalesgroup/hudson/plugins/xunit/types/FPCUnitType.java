@@ -39,7 +39,7 @@ public class FPCUnitType extends XUnitType {
      }
 
      public XUnitTypeDescriptor<?> getDescriptor() {
-         return new GallioType.DescriptorImpl();
+         return new FPCUnitType.DescriptorImpl();
      }
 
      @Extension
