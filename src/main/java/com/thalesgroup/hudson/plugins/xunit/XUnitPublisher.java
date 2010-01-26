@@ -244,7 +244,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
             if (existingTestResults == null) {
                 return new TestResult(buildTime + (nowSlave - nowMaster), ds);
             } else {
-                existingTestResults.parse(buildTime, ds);
+                existingTestResults.parse(buildTime+ (nowSlave - nowMaster), ds);
                 return existingTestResults;
             }
 
