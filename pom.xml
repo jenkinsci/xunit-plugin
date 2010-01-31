@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.jvnet.hudson.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>1.342</version>
+        <version>1.343</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -25,7 +25,7 @@
         <developer>
             <id>gbois</id>
             <name>Gregory Boissinot</name>
-            <email>gregory.boissinot@gmail.com</email>
+            <email>gbois@dev.java.net</email>
             <timezone>+1</timezone>
             <roles>
                 <role>Project owner</role>
