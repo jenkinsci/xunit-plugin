@@ -23,36 +23,34 @@
 
 package com.thalesgroup.hudson.plugins.xunit;
 
+import com.thalesgroup.hudson.plugins.xunit.model.TypeConfig;
+import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitTransformer;
+import com.thalesgroup.hudson.plugins.xunit.types.*;
+import com.thalesgroup.hudson.plugins.xunit.util.XUnitLog;
 import hudson.*;
 import hudson.model.*;
 import hudson.remoting.VirtualChannel;
 import hudson.tasks.BuildStepDescriptor;
 import hudson.tasks.BuildStepMonitor;
 import hudson.tasks.Publisher;
+import hudson.tasks.Recorder;
+import hudson.tasks.junit.JUnitResultArchiver;
 import hudson.tasks.junit.TestResult;
 import hudson.tasks.junit.TestResultAction;
 import hudson.tasks.test.TestResultProjectAction;
 import hudson.util.IOException2;
-import hudson.Extension;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.Serializable;
-import java.util.List;
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.lang.reflect.Constructor;
-
+import net.sf.json.JSONObject;
 import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
 import org.kohsuke.stapler.StaplerRequest;
 
-import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitTransformer;
-import com.thalesgroup.hudson.plugins.xunit.types.*;
-import com.thalesgroup.hudson.plugins.xunit.model.TypeConfig;
-import com.thalesgroup.hudson.plugins.xunit.util.XUnitLog;
-import hudson.tasks.Recorder;
-import net.sf.json.JSONObject;
+import java.io.File;
+import java.io.IOException;
+import java.io.Serializable;
+import java.lang.reflect.Constructor;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * Class that converting custom reports to Junit reports and records them
@@ -74,7 +72,11 @@ public class XUnitPublisher extends Recorder implements Serializable {
 
     @Override
     public Action getProjectAction(AbstractProject<?, ?> project) {
-        return new TestResultProjectAction(project);
+        JUnitResultArchiver jUnitResultArchiver = project.getPublishersList().get(JUnitResultArchiver.class);
+        if (jUnitResultArchiver == null) {
+            return new TestResultProjectAction(project);
+        }
+        return null;
     }
 
     @Override
@@ -244,7 +246,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
             if (existingTestResults == null) {
                 return new TestResult(buildTime + (nowSlave - nowMaster), ds);
             } else {
-                existingTestResults.parse(buildTime+ (nowSlave - nowMaster), ds);
+                existingTestResults.parse(buildTime + (nowSlave - nowMaster), ds);
                 return existingTestResults;
             }
 
