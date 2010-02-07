@@ -36,20 +36,43 @@ public abstract class XUnitType implements ExtensionPoint, Describable<XUnitType
 
     private final String pattern;
 
+    private final Boolean faildedIfNotNew;
+
     protected final String customXSL;
 
+
+    @Deprecated
     protected XUnitType(String pattern) {
         this.pattern = pattern;
         customXSL = null;
+        faildedIfNotNew=true;
     }
 
+    @Deprecated
     protected XUnitType(String pattern, String customXSL) {
         this.pattern = pattern;
         this.customXSL = customXSL;
+        this.faildedIfNotNew=true;
+    }
+
+    protected XUnitType(String pattern, String customXSL, boolean faildedIfNotNew) {
+        this.pattern = pattern;
+        this.customXSL = customXSL;
+        this.faildedIfNotNew = faildedIfNotNew;
+    }
+
+    protected XUnitType(String pattern, boolean faildedIfNotNew) {
+        this.pattern = pattern;
+        customXSL = null;
+        this.faildedIfNotNew = faildedIfNotNew;
     }
 
     public String getPattern() {
         return pattern;
+    }
+
+    public boolean isFaildedIfNotNew() {
+        return faildedIfNotNew;
     }
 
     @SuppressWarnings("unused")

@@ -33,8 +33,13 @@ public class CppUnitType extends XUnitType {
         return new CppUnitType.DescriptorImpl();
     }
 
+    @Deprecated
     public CppUnitType(String pattern) {
         super(pattern);
+    }
+
+    public CppUnitType(String pattern, boolean faildedIfNotNew) {
+        super(pattern, faildedIfNotNew);
     }
 
     public String getXsl() {
@@ -54,7 +59,7 @@ public class CppUnitType extends XUnitType {
         }
 
         public CppUnitType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
-            return new CppUnitType(formData.getString("pattern"));
+            return new CppUnitType(formData.getString("pattern"), formData.getBoolean("faildedIfNotNew"));
         }
 
     }

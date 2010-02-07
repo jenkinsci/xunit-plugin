@@ -30,8 +30,13 @@ import org.kohsuke.stapler.StaplerRequest;
 
 public class CustomType extends XUnitType {
 
+    @Deprecated
     public CustomType(String pattern, String customXSL) {
         super(pattern, customXSL);
+    }
+
+    public CustomType(String pattern, String customXSL, boolean faildedIfNotNew) {
+        super(pattern, customXSL, faildedIfNotNew);
     }
 
     public String getXsl() {
@@ -50,7 +55,7 @@ public class CustomType extends XUnitType {
         }
 
         public CustomType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
-            return new CustomType(formData.getString("pattern"), formData.getString("customXSL"));
+            return new CustomType(formData.getString("pattern"), formData.getString("customXSL"), formData.getBoolean("faildedIfNotNew"));
         }
 
         @Override

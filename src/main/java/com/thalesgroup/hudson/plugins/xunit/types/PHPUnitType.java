@@ -29,8 +29,13 @@ import org.kohsuke.stapler.StaplerRequest;
 
 public class PHPUnitType extends XUnitType {
 
+    @Deprecated
     public PHPUnitType(String pattern) {
         super(pattern);
+    }
+
+    public PHPUnitType(String pattern, boolean faildedIfNotNew) {
+        super(pattern, faildedIfNotNew);
     }
 
     public String getXsl() {
@@ -54,7 +59,7 @@ public class PHPUnitType extends XUnitType {
         }
 
         public PHPUnitType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
-            return new PHPUnitType(formData.getString("pattern"));
+            return new PHPUnitType(formData.getString("pattern"), formData.getBoolean("faildedIfNotNew"));
         }
     }
 }

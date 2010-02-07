@@ -29,8 +29,13 @@ import org.kohsuke.stapler.StaplerRequest;
 
 public class BoostTestType extends XUnitType {
 
+    @Deprecated
     public BoostTestType(String pattern) {
         super(pattern);
+    }
+
+    public BoostTestType(String pattern, boolean faildedIfNotNew) {
+        super(pattern, faildedIfNotNew);
     }
 
     public String getXsl() {
@@ -54,7 +59,7 @@ public class BoostTestType extends XUnitType {
         }
 
         public BoostTestType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
-            return new BoostTestType(formData.getString("pattern"));
+            return new BoostTestType(formData.getString("pattern"), formData.getBoolean("faildedIfNotNew"));
         }
 
     }

@@ -24,39 +24,44 @@
 package com.thalesgroup.hudson.plugins.xunit.types;
 
 import hudson.Extension;
-import org.kohsuke.stapler.StaplerRequest;
 import net.sf.json.JSONObject;
+import org.kohsuke.stapler.StaplerRequest;
 
 
 public class FPCUnitType extends XUnitType {
 
+    @Deprecated
     public FPCUnitType(String pattern) {
-         super(pattern);
-     }
+        super(pattern);
+    }
+
+    public FPCUnitType(String pattern, boolean faildedIfNotNew) {
+        super(pattern, faildedIfNotNew);
+    }
 
     public String getXsl() {
-         return "fpcunit-to-junit.xsl";
-     }
+        return "fpcunit-to-junit.xsl";
+    }
 
-     public XUnitTypeDescriptor<?> getDescriptor() {
-         return new FPCUnitType.DescriptorImpl();
-     }
+    public XUnitTypeDescriptor<?> getDescriptor() {
+        return new FPCUnitType.DescriptorImpl();
+    }
 
-     @Extension
-     public static class DescriptorImpl extends XUnitTypeDescriptor<FPCUnitType> {
+    @Extension
+    public static class DescriptorImpl extends XUnitTypeDescriptor<FPCUnitType> {
 
-         public DescriptorImpl() {
-             super(FPCUnitType.class);
-         }
+        public DescriptorImpl() {
+            super(FPCUnitType.class);
+        }
 
-         @Override
-         public String getDisplayName() {
-             return Messages.xUnit_fpcunitType_label();
-         }
+        @Override
+        public String getDisplayName() {
+            return Messages.xUnit_fpcunitType_label();
+        }
 
-         public FPCUnitType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
-             return new FPCUnitType(formData.getString("pattern"));
-         }
-     }
+        public FPCUnitType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
+            return new FPCUnitType(formData.getString("pattern"), formData.getBoolean("faildedIfNotNew"));
+        }
+    }
 
 }

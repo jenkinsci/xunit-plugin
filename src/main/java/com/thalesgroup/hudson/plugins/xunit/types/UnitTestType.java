@@ -29,8 +29,13 @@ import org.kohsuke.stapler.StaplerRequest;
 
 public class UnitTestType extends XUnitType {
 
+    @Deprecated
     public UnitTestType(String pattern) {
         super(pattern);
+    }
+
+    public UnitTestType(String pattern, boolean faildedIfNotNew) {
+        super(pattern, faildedIfNotNew);
     }
 
     public String getXsl() {
@@ -54,7 +59,7 @@ public class UnitTestType extends XUnitType {
         }
 
         public UnitTestType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
-            return new UnitTestType(formData.getString("pattern"));
+            return new UnitTestType(formData.getString("pattern"), formData.getBoolean("faildedIfNotNew"));
         }
     }
 }

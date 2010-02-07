@@ -29,8 +29,13 @@ import org.kohsuke.stapler.StaplerRequest;
 
 public class NUnitType extends XUnitType {
 
+    @Deprecated
     public NUnitType(String pattern) {
         super(pattern);
+    }
+
+    public NUnitType(String pattern, boolean faildedIfNotNew) {
+        super(pattern, faildedIfNotNew);
     }
 
     public String getXsl() {
@@ -54,7 +59,7 @@ public class NUnitType extends XUnitType {
         }
 
         public NUnitType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
-            return new NUnitType(formData.getString("pattern"));
+            return new NUnitType(formData.getString("pattern"), formData.getBoolean("faildedIfNotNew"));
         }
     }
 }

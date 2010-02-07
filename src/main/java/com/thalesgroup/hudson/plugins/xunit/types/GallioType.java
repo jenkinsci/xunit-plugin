@@ -29,8 +29,13 @@ import org.kohsuke.stapler.StaplerRequest;
 
 public class GallioType extends XUnitType {
 
+    @Deprecated
     public GallioType(String pattern) {
         super(pattern);
+    }
+
+    public GallioType(String pattern, boolean faildedIfNotNew) {
+        super(pattern, faildedIfNotNew);
     }
 
     public String getXsl() {
@@ -54,7 +59,7 @@ public class GallioType extends XUnitType {
         }
 
         public GallioType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
-            return new GallioType(formData.getString("pattern"));
+            return new GallioType(formData.getString("pattern"), formData.getBoolean("faildedIfNotNew"));
         }
     }
 }

@@ -23,6 +23,13 @@
                  </td>
             </j:if>
          </tr>
+         
+         <tr>
+             <td width="100%" style="${td}">
+                 <label>Fail the build if test results were not updated this run</label>
+                 <f:checkbox name="xunitType.faildedIfNotNew" checked="${h.defaultToTrue(instance.faildedIfNotNew)}"/>
+              </td>
+         </tr>
      </table>
     </f:entry>
 
