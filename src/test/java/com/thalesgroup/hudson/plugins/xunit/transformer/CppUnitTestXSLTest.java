@@ -23,9 +23,8 @@
 
 package com.thalesgroup.hudson.plugins.xunit.transformer;
 
-import org.junit.Test;
-
 import com.thalesgroup.hudson.plugins.xunit.types.CppUnitType;
+import org.junit.Test;
 
 public class CppUnitTestXSLTest extends AbstractXUnitXSLTest {
 

@@ -23,8 +23,8 @@
 
 package com.thalesgroup.hudson.plugins.xunit.transformer;
 
-import org.junit.Test;
 import com.thalesgroup.hudson.plugins.xunit.types.UnitTestType;
+import org.junit.Test;
 
 public class UnitTestXSLTest extends AbstractXUnitXSLTest {
 

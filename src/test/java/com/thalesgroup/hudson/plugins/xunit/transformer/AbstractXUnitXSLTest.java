@@ -23,21 +23,18 @@
 
 package com.thalesgroup.hudson.plugins.xunit.transformer;
 
-import static org.junit.Assert.assertTrue;
-
-import java.io.IOException;
-import java.lang.reflect.Constructor;
-
-import javax.xml.transform.TransformerException;
-
+import com.thalesgroup.hudson.plugins.xunit.types.XUnitType;
+import com.thalesgroup.hudson.plugins.xunit.types.XUnitXSLUtil;
 import org.custommonkey.xmlunit.Diff;
 import org.custommonkey.xmlunit.Transform;
 import org.custommonkey.xmlunit.XMLUnit;
+import static org.junit.Assert.assertTrue;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import com.thalesgroup.hudson.plugins.xunit.types.XUnitType;
-import com.thalesgroup.hudson.plugins.xunit.types.XUnitXSLUtil;
+import javax.xml.transform.TransformerException;
+import java.io.IOException;
+import java.lang.reflect.Constructor;
 
 public class AbstractXUnitXSLTest {
 
@@ -62,13 +59,13 @@ public class AbstractXUnitXSLTest {
         try {
             Constructor typeContructor = type.getConstructors()[0];
             Transform myTransform = new Transform(new InputSource(
-                    type.getResourceAsStream(source)), new InputSource(type.getResourceAsStream(((XUnitType)typeContructor.newInstance("default")).getXsl())));
+                    type.getResourceAsStream(source)), new InputSource(type.getResourceAsStream(((XUnitType) typeContructor.newInstance("default")).getXsl())));
             Diff myDiff = new Diff(XUnitXSLUtil.readXmlAsString(target), myTransform);
             assertTrue("XSL transformation did not work" + myDiff, myDiff.similar());
 
         } catch (Exception e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-             assertTrue(false);
+            assertTrue(false);
         }
     }
 

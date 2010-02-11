@@ -23,27 +23,27 @@
 
 package com.thalesgroup.hudson.plugins.xunit.transformer;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-import hudson.FilePath;
+import com.thalesgroup.hudson.plugins.xunit.AbstractWorkspaceTest;
+import com.thalesgroup.hudson.plugins.xunit.types.TextXUnitType;
+import com.thalesgroup.hudson.plugins.xunit.types.XUnitType;
+import com.thalesgroup.hudson.plugins.xunit.types.XUnitXSLUtil;
 import hudson.EnvVars;
-import hudson.model.BuildListener;
+import hudson.FilePath;
 import hudson.model.AbstractBuild;
+import hudson.model.BuildListener;
 import hudson.remoting.VirtualChannel;
 import hudson.util.IOException2;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintStream;
-
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-
-import com.thalesgroup.hudson.plugins.xunit.AbstractWorkspaceTest;
-import com.thalesgroup.hudson.plugins.xunit.types.*;
 
 public class XUnitTransformerTest extends AbstractWorkspaceTest {
 
@@ -56,7 +56,7 @@ public class XUnitTransformerTest extends AbstractWorkspaceTest {
     private boolean processTransformer(XUnitType[] types) throws Exception {
         xUnitTransformer = new XUnitTransformer(listener, 0, mock(EnvVars.class), types, junitOutputPath);
         return xUnitTransformer.invoke(new File(workspace.toURI()), channel);
-    }    
+    }
 
     @Before
     public void initialize() throws Exception {

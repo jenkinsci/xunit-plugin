@@ -23,9 +23,8 @@
 
 package com.thalesgroup.hudson.plugins.xunit.transformer;
 
-import org.junit.Test;
-
 import com.thalesgroup.hudson.plugins.xunit.types.NUnitType;
+import org.junit.Test;
 
 public class NUnitXSLTest extends AbstractXUnitXSLTest {
 

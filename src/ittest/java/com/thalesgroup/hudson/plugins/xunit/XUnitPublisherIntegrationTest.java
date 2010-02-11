@@ -36,9 +36,79 @@ import org.jvnet.hudson.test.SingleFileSCM;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Calendar;
+import java.io.File;
 
 
 public class XUnitPublisherIntegrationTest extends HudsonTestCase {
+
+
+    /**
+     * Must be failed because the file timestamp is not up-to-date
+     */
+    public void testPeformAnUnstableFailedIfNotNewTest1() throws Exception {
+
+        //Creating a first checkout project and run it
+        FreeStyleProject project1 = createFreeStyleProject();
+        List<SingleFileSCM> files = new ArrayList<SingleFileSCM>(1);
+        String boostFileName = "boosttestsuccess.xml";
+        files.add(new SingleFileSCM(boostFileName, getClass().getResource(boostFileName)));
+        project1.setScm(new MultiFileSCM(files));
+        FreeStyleBuild buildProject1 = project1.scheduleBuild2(0).get();
+
+        //Creating a second project
+        //Using the workspace of the first buidl of the the first project
+        FreeStyleProject project2 = createFreeStyleProject();
+        project2.setCustomWorkspace(buildProject1.getWorkspace().getRemote());
+
+        //Adding an xUnit publisher
+        String pattern = boostFileName;
+        project2.getPublishersList().add(new XUnitPublisher(new XUnitType[]{new BoostTestType(pattern, true)}));
+
+        //Made it old
+        File boostTestFile=new File(buildProject1.getWorkspace().getRemote(), boostFileName);
+        boostTestFile.setLastModified(0);
+
+        //Launch the build
+        FreeStyleBuild buildProject2 = project2.scheduleBuild2(0).get();
+
+        //The test must failed due to an out of date of the test result file
+        assertBuildStatus(Result.FAILURE, buildProject2);
+    }
+
+    /**
+     * Must be success because the file timestamo is not checked and all tests are OK
+     */
+    public void testPeformAnUnstableFailedIfNotNewTest2() throws Exception {
+
+        //Creating a first checkout project and run it
+        FreeStyleProject project1 = createFreeStyleProject();
+        List<SingleFileSCM> files = new ArrayList<SingleFileSCM>(1);
+        String boostFileName = "boosttestsuccess.xml";
+        files.add(new SingleFileSCM(boostFileName, getClass().getResource(boostFileName)));
+        project1.setScm(new MultiFileSCM(files));
+        FreeStyleBuild buildProject1 = project1.scheduleBuild2(0).get();
+
+        //Creating a second project
+        //Using the workspace of the first buidl of the the first project
+        FreeStyleProject project2 = createFreeStyleProject();
+        project2.setCustomWorkspace(buildProject1.getWorkspace().getRemote());
+
+        //Adding an xUnit publisher
+        String pattern = boostFileName;
+        project2.getPublishersList().add(new XUnitPublisher(new XUnitType[]{new BoostTestType(pattern, false)}));
+
+        //Made it old
+        File boostTestFile=new File(buildProject1.getWorkspace().getRemote(), boostFileName);
+        boostTestFile.setLastModified(0);
+
+        //Launch the build
+        FreeStyleBuild buildProject2 = project2.scheduleBuild2(0).get();
+
+        //The test must success even if there is an out of date of the test result file
+        assertBuildStatus(Result.SUCCESS, buildProject2);
+    }
+
 
     public void testPeformAnUnstableTest() throws Exception {
 
@@ -60,10 +130,10 @@ public class XUnitPublisherIntegrationTest extends HudsonTestCase {
 
         //Build log
         StringBuffer expectedLog = new StringBuffer();
-        expectedLog.append("[xUnit] Starting to record.\r\n");
-        expectedLog.append("[xUnit] [Boost Test Library] - Use the embedded style sheet.\r\n");
-        expectedLog.append("[xUnit] [Boost Test Library] - Processing 1 files with the pattern '" + pattern + "' relative to '" + build.getWorkspace().getRemote() + "'.\r\n");
-        expectedLog.append("[xUnit] Setting the build status to UNSTABLE\r\n");
+        expectedLog.append("[xUnit] Starting to record.\n");
+        expectedLog.append("[xUnit] [Boost Test Library] - Use the embedded style sheet.\n");
+        expectedLog.append("[xUnit] [Boost Test Library] - Processing 1 files with the pattern '" + pattern + "' relative to '" + build.getWorkspace().getRemote() + "'.\n");
+        expectedLog.append("[xUnit] Setting the build status to UNSTABLE\n");
         expectedLog.append("[xUnit] Stopping recording.");
         assertLogContains(expectedLog.toString(), build);
     }
@@ -90,10 +160,10 @@ public class XUnitPublisherIntegrationTest extends HudsonTestCase {
 
         //Build log
         StringBuffer expectedLog = new StringBuffer();
-        expectedLog.append("[xUnit] Starting to record.\r\n");
-        expectedLog.append("[xUnit] [Custom Tool] - Use the style sheet found into the workspace.\r\n");
-        expectedLog.append("[xUnit] [Custom Tool] - Processing 1 files with the pattern '" + pattern + "' relative to '" + build.getWorkspace().getRemote() + "'.\r\n");
-        expectedLog.append("[xUnit] Setting the build status to UNSTABLE\r\n");
+        expectedLog.append("[xUnit] Starting to record.\n");
+        expectedLog.append("[xUnit] [Custom Tool] - Use the style sheet found into the workspace.\n");
+        expectedLog.append("[xUnit] [Custom Tool] - Processing 1 files with the pattern '" + pattern + "' relative to '" + build.getWorkspace().getRemote() + "'.\n");
+        expectedLog.append("[xUnit] Setting the build status to UNSTABLE\n");
         expectedLog.append("[xUnit] Stopping recording.");
         assertLogContains(expectedLog.toString(), build);
     }

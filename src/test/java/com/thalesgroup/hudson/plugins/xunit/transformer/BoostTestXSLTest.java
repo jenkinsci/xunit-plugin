@@ -23,9 +23,8 @@
 
 package com.thalesgroup.hudson.plugins.xunit.transformer;
 
-import org.junit.Test;
-
 import com.thalesgroup.hudson.plugins.xunit.types.BoostTestType;
+import org.junit.Test;
 
 public class BoostTestXSLTest extends AbstractXUnitXSLTest {
 

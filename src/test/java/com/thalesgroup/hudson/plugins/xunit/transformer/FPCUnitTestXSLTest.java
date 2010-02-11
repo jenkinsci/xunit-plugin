@@ -23,10 +23,8 @@
 
 package com.thalesgroup.hudson.plugins.xunit.transformer;
 
-import org.junit.Test;
-
-import com.thalesgroup.hudson.plugins.xunit.types.CppUnitType;
 import com.thalesgroup.hudson.plugins.xunit.types.FPCUnitType;
+import org.junit.Test;
 
 public class FPCUnitTestXSLTest extends AbstractXUnitXSLTest {
 
