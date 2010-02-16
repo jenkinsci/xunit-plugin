@@ -72,7 +72,7 @@ public abstract class XUnitType implements ExtensionPoint, Describable<XUnitType
     }
 
     public boolean isFaildedIfNotNew() {
-        return faildedIfNotNew;
+        return (faildedIfNotNew==null?true:faildedIfNotNew.booleanValue());
     }
 
     @SuppressWarnings("unused")
