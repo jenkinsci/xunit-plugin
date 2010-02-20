@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.jvnet.hudson.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>1.341</version>
+        <version>1.346</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -29,6 +29,7 @@
             <timezone>+1</timezone>
             <roles>
                 <role>Project owner</role>
+                <role>Project developer</role>
             </roles>
         </developer>
     </developers>
