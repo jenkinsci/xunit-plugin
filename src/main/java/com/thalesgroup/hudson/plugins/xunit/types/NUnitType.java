@@ -24,18 +24,14 @@
 package com.thalesgroup.hudson.plugins.xunit.types;
 
 import hudson.Extension;
-import net.sf.json.JSONObject;
-import org.kohsuke.stapler.StaplerRequest;
+import org.kohsuke.stapler.DataBoundConstructor;
 
 public class NUnitType extends XUnitType {
 
-    @Deprecated
-    public NUnitType(String pattern) {
-        super(pattern);
-    }
 
-    public NUnitType(String pattern, boolean faildedIfNotNew) {
-        super(pattern, faildedIfNotNew);
+    @DataBoundConstructor
+    public NUnitType(String pattern, boolean faildedIfNotNew, boolean deleteJUnitFiles) {
+        super(pattern, faildedIfNotNew, deleteJUnitFiles);
     }
 
     public String getXsl() {
@@ -58,8 +54,5 @@ public class NUnitType extends XUnitType {
             return Messages.xUnit_nunitType_label();
         }
 
-        public NUnitType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
-            return new NUnitType(formData.getString("pattern"), formData.getBoolean("faildedIfNotNew"));
-        }
     }
 }

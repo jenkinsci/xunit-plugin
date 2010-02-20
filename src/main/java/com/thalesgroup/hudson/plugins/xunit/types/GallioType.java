@@ -24,18 +24,14 @@
 package com.thalesgroup.hudson.plugins.xunit.types;
 
 import hudson.Extension;
-import net.sf.json.JSONObject;
-import org.kohsuke.stapler.StaplerRequest;
+import org.kohsuke.stapler.DataBoundConstructor;
 
 public class GallioType extends XUnitType {
 
-    @Deprecated
-    public GallioType(String pattern) {
-        super(pattern);
-    }
 
-    public GallioType(String pattern, boolean faildedIfNotNew) {
-        super(pattern, faildedIfNotNew);
+    @DataBoundConstructor
+    public GallioType(String pattern, boolean faildedIfNotNew, boolean deleteJUnitFiles) {
+        super(pattern, faildedIfNotNew, deleteJUnitFiles);
     }
 
     public String getXsl() {
@@ -58,8 +54,5 @@ public class GallioType extends XUnitType {
             return Messages.xUnit_gallioType_label();
         }
 
-        public GallioType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
-            return new GallioType(formData.getString("pattern"), formData.getBoolean("faildedIfNotNew"));
-        }
     }
 }

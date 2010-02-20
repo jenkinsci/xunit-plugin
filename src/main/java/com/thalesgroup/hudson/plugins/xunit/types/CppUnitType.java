@@ -24,26 +24,22 @@
 package com.thalesgroup.hudson.plugins.xunit.types;
 
 import hudson.Extension;
-import net.sf.json.JSONObject;
-import org.kohsuke.stapler.StaplerRequest;
+import org.kohsuke.stapler.DataBoundConstructor;
 
 public class CppUnitType extends XUnitType {
 
-    public XUnitTypeDescriptor<?> getDescriptor() {
-        return new CppUnitType.DescriptorImpl();
-    }
 
-    @Deprecated
-    public CppUnitType(String pattern) {
-        super(pattern);
-    }
-
-    public CppUnitType(String pattern, boolean faildedIfNotNew) {
-        super(pattern, faildedIfNotNew);
+    @DataBoundConstructor
+    public CppUnitType(String pattern, boolean faildedIfNotNew, boolean deleteJUnitFiles) {
+        super(pattern, faildedIfNotNew, deleteJUnitFiles);
     }
 
     public String getXsl() {
         return "cppunit-to-junit.xsl";
+    }
+
+    public XUnitTypeDescriptor<?> getDescriptor() {
+        return new CppUnitType.DescriptorImpl();
     }
 
     @Extension
@@ -56,10 +52,6 @@ public class CppUnitType extends XUnitType {
         @Override
         public String getDisplayName() {
             return Messages.xUnit_cppUnitType_label();
-        }
-
-        public CppUnitType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
-            return new CppUnitType(formData.getString("pattern"), formData.getBoolean("faildedIfNotNew"));
         }
 
     }

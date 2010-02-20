@@ -59,7 +59,7 @@ public class AbstractXUnitXSLTest {
         try {
             Constructor typeContructor = type.getConstructors()[0];
             Transform myTransform = new Transform(new InputSource(
-                    type.getResourceAsStream(source)), new InputSource(type.getResourceAsStream(((XUnitType) typeContructor.newInstance("default")).getXsl())));
+                    type.getResourceAsStream(source)), new InputSource(type.getResourceAsStream(((XUnitType) typeContructor.newInstance("default", true, true)).getXsl())));
             Diff myDiff = new Diff(XUnitXSLUtil.readXmlAsString(target), myTransform);
             assertTrue("XSL transformation did not work" + myDiff, myDiff.similar());
 

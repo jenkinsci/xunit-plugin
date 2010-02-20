@@ -302,10 +302,11 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
             }
 
 
-            FilePath junitTargetFile = new FilePath(junitOutputPath, "file" + resultFilePathFile.hashCode() + ".xml");
+            FilePath currentOutputDir = new FilePath(junitOutputPath, testTool.getDescriptor().getDisplayName());
+            FilePath junitTargetFile = new FilePath(currentOutputDir, "file" + resultFilePathFile.hashCode());
             try {
                 toolXMLTransformer.transform(new StreamSource(resultFilePathFile), new StreamResult(new File(junitTargetFile.toURI())));
-                processJUnitFile(xmlDocumentBuilder, writerTransformer, junitTargetFile, junitOutputPath);
+                processJUnitFile(xmlDocumentBuilder, writerTransformer, junitTargetFile, currentOutputDir);
             }
             catch (TransformerException te) {
                 String msg = "[ERROR] - Couldn't convert the file '" + resultFilePathFile.getPath() + "' into a JUnit file.";

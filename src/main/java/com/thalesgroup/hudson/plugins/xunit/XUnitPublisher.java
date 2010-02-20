@@ -87,12 +87,10 @@ public class XUnitPublisher extends Recorder implements Serializable {
 
         Result previousResult = build.getResult();
 
-        //Create the temporary target junit dir
-        FilePath junitTargetFilePath = new FilePath(build.getWorkspace(), "xunitTemp");
-        if (junitTargetFilePath.exists()) {
-            junitTargetFilePath.deleteRecursive();
-        }
-        junitTargetFilePath.mkdirs();
+        FilePath junitTargetFilePath = new FilePath(build.getWorkspace(), "genratedJUnitFiles");
+
+        //Create a directory sharing temporary JUnit files
+        createTemporaryDirectory(junitTargetFilePath);
 
         try {
 
@@ -106,7 +104,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
                 return true;
             }
 
-            Result curResult = recordTestResult(build, listener, junitTargetFilePath, "TEST-*.xml");
+            Result curResult = recordTestResult(build, listener, junitTargetFilePath, "**/TEST-*.xml");
 
             //Change the status result
             if (previousResult.isWorseOrEqualTo(curResult)) {
@@ -131,7 +129,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
         finally {
             try {
                 //Detroy temporary target junit dir
-                junitTargetFilePath.deleteRecursive();
+                deleteTemporaryDirectory(junitTargetFilePath);
             }
             catch (IOException ioe) {
                 XUnitLog.log(listener, "The plugin hasn't been performed correctly: " + ioe.getMessage());
@@ -145,6 +143,33 @@ public class XUnitPublisher extends Recorder implements Serializable {
 
 
     }
+
+    private void createTemporaryDirectory(FilePath parentFilePath) throws IOException, InterruptedException {
+        for (XUnitType tool : types) {
+            FilePath junitTargetFilePath = new FilePath(parentFilePath, tool.getDescriptor().getDisplayName());
+            if (junitTargetFilePath.exists()) {
+                junitTargetFilePath.deleteRecursive();
+            }
+            junitTargetFilePath.mkdirs();
+        }
+    }
+
+    private void deleteTemporaryDirectory(FilePath parentFilePath) throws IOException, InterruptedException {
+        boolean keep = false;
+        for (XUnitType tool : types) {
+            FilePath junitTargetFilePath = new FilePath(parentFilePath, tool.getDescriptor().getDisplayName());
+            if (tool.isDeleteJUnitFiles()) {
+                junitTargetFilePath.deleteRecursive();
+            }
+            else {
+                keep=true;
+            }
+        }
+        if (!keep){
+            parentFilePath.delete();
+        }
+    }
+
 
     /**
      * Record the test results into the current build.

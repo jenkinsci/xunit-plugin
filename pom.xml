@@ -4,12 +4,12 @@
     <parent>
         <groupId>org.jvnet.hudson.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>1.346</version>
+        <version>1.341</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>xunit</artifactId>
-    <version>0.5.2.2-SNAPSHOT</version>
+    <version>0.5.3-SNAPSHOT</version>
     <packaging>hpi</packaging>
     <name>Hudson xUnit plugin</name>
     <url>http://wiki.hudson-ci.org/display/HUDSON/xUnit+Plugin</url>

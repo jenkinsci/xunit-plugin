@@ -24,19 +24,15 @@
 package com.thalesgroup.hudson.plugins.xunit.types;
 
 import hudson.Extension;
-import net.sf.json.JSONObject;
-import org.kohsuke.stapler.StaplerRequest;
+import org.kohsuke.stapler.DataBoundConstructor;
 
 
 public class FPCUnitType extends XUnitType {
 
-    @Deprecated
-    public FPCUnitType(String pattern) {
-        super(pattern);
-    }
 
-    public FPCUnitType(String pattern, boolean faildedIfNotNew) {
-        super(pattern, faildedIfNotNew);
+    @DataBoundConstructor
+    public FPCUnitType(String pattern, boolean faildedIfNotNew, boolean deleteJUnitFiles) {
+        super(pattern, faildedIfNotNew, deleteJUnitFiles);
     }
 
     public String getXsl() {
@@ -57,10 +53,6 @@ public class FPCUnitType extends XUnitType {
         @Override
         public String getDisplayName() {
             return Messages.xUnit_fpcunitType_label();
-        }
-
-        public FPCUnitType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
-            return new FPCUnitType(formData.getString("pattern"), formData.getBoolean("faildedIfNotNew"));
         }
     }
 

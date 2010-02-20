@@ -23,19 +23,15 @@
 package com.thalesgroup.hudson.plugins.xunit.types;
 
 import hudson.Extension;
-import net.sf.json.JSONObject;
-import org.kohsuke.stapler.StaplerRequest;
+import org.kohsuke.stapler.DataBoundConstructor;
 
 
 public class MSTestType extends XUnitType {
 
-    @Deprecated
-    public MSTestType(String pattern) {
-        super(pattern);
-    }
 
-    public MSTestType(String pattern, boolean faildedIfNotNew) {
-        super(pattern, faildedIfNotNew);
+    @DataBoundConstructor
+    public MSTestType(String pattern, boolean faildedIfNotNew, boolean deleteJUnitFiles) {
+        super(pattern, faildedIfNotNew, deleteJUnitFiles);
     }
 
     public String getXsl() {
@@ -56,10 +52,6 @@ public class MSTestType extends XUnitType {
         @Override
         public String getDisplayName() {
             return Messages.xUnit_mstestType_label();
-        }
-
-        public MSTestType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
-            return new MSTestType(formData.getString("pattern"), formData.getBoolean("faildedIfNotNew"));
         }
     }
 

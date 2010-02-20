@@ -32,17 +32,23 @@
             <tr>
                  <td width="50%" style="${td}">
                       <label>Pattern</label>
-                      <f:textbox name="xunitType.pattern" value="${instance.pattern}"/>
+                      <f:textbox field="pattern"/>
                  </td>
                  <td width="50%" style="${td}">
                      <label>Custom stylesheet</label>
-                     <f:textbox name="xunitType.customXSL" value="${instance.customXSL}"/>
+                     <f:textbox field="customXSL" />
                  </td>
             </tr>
             <tr>
                  <td width="100%" style="${td}" colspan="2">
                      <label>Fail the build if test results were not updated this run</label>
-                     <f:checkbox name="xunitType.faildedIfNotNew" checked="${h.defaultToTrue(instance.faildedIfNotNew)}"/>
+                     <f:checkbox field="faildedIfNotNew" checked="${h.defaultToTrue(instance.faildedIfNotNew)}"/>
+                  </td>
+            </tr>
+            <tr>
+                 <td width="100%" style="${td}" colspan="2">
+                     <label>Delete temporary JUnit files</label>
+                     <f:checkbox field="deleteJUnitFiles" checked="${h.defaultToTrue(instance.deleteJUnitFiles)}"/>
                   </td>
             </tr>
          </j:if>
@@ -51,17 +57,22 @@
             <tr>
                  <td width="100%" style="${td}">
                      <label>Pattern</label>
-                     <f:textbox name="xunitType.pattern" value="${instance.pattern}"/>
+                     <f:textbox field="pattern"/>
                  </td>
             </tr>
             <tr>
                  <td width="100%" style="${td}">
                   <label>Fail the build if test results were not updated this run</label>
-                  <f:checkbox name="xunitType.faildedIfNotNew" checked="${h.defaultToTrue(instance.faildedIfNotNew)}"/>
+                  <f:checkbox field="faildedIfNotNew" checked="${h.defaultToTrue(instance.faildedIfNotNew)}"/>
                  </td>
             </tr>
+            <tr>
+                 <td width="100%" style="${td}">
+                     <label>Delete temporary JUnit files</label>
+                     <f:checkbox field="deleteJUnitFiles" checked="${h.defaultToTrue(instance.deleteJUnitFiles)}"/>
+                  </td>
+            </tr>
          </j:if>
-
      </table>
      
     </f:entry>

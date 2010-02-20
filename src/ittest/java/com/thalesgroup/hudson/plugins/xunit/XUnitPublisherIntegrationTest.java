@@ -23,6 +23,7 @@
 
 package com.thalesgroup.hudson.plugins.xunit;
 
+import com.thalesgroup.hudson.plugins.xunit.MultiFileSCM;
 import com.thalesgroup.hudson.plugins.xunit.types.BoostTestType;
 import com.thalesgroup.hudson.plugins.xunit.types.CustomType;
 import com.thalesgroup.hudson.plugins.xunit.types.XUnitType;
@@ -63,10 +64,10 @@ public class XUnitPublisherIntegrationTest extends HudsonTestCase {
 
         //Adding an xUnit publisher
         String pattern = boostFileName;
-        project2.getPublishersList().add(new XUnitPublisher(new XUnitType[]{new BoostTestType(pattern, true)}));
+        project2.getPublishersList().add(new XUnitPublisher(new XUnitType[]{new BoostTestType(pattern, true, true)}));
 
         //Made it old
-        File boostTestFile=new File(buildProject1.getWorkspace().getRemote(), boostFileName);
+        File boostTestFile = new File(buildProject1.getWorkspace().getRemote(), boostFileName);
         boostTestFile.setLastModified(0);
 
         //Launch the build
@@ -96,10 +97,10 @@ public class XUnitPublisherIntegrationTest extends HudsonTestCase {
 
         //Adding an xUnit publisher
         String pattern = boostFileName;
-        project2.getPublishersList().add(new XUnitPublisher(new XUnitType[]{new BoostTestType(pattern, false)}));
+        project2.getPublishersList().add(new XUnitPublisher(new XUnitType[]{new BoostTestType(pattern, false, true)}));
 
         //Made it old
-        File boostTestFile=new File(buildProject1.getWorkspace().getRemote(), boostFileName);
+        File boostTestFile = new File(buildProject1.getWorkspace().getRemote(), boostFileName);
         boostTestFile.setLastModified(0);
 
         //Launch the build
@@ -121,7 +122,7 @@ public class XUnitPublisherIntegrationTest extends HudsonTestCase {
         project.setScm(new MultiFileSCM(files));
         project.getBuildersList().add(new Shell("touch " + boostFileName));
         String pattern = boostFileName;
-        project.getPublishersList().add(new XUnitPublisher(new XUnitType[]{new BoostTestType(pattern)}));
+        project.getPublishersList().add(new XUnitPublisher(new XUnitType[]{new BoostTestType(pattern, true, true)}));
 
         FreeStyleBuild build = project.scheduleBuild2(0).get();
 
@@ -151,7 +152,7 @@ public class XUnitPublisherIntegrationTest extends HudsonTestCase {
 
         project.getBuildersList().add(new Shell("touch " + cpptestResultFileName));
         String pattern = cpptestResultFileName;
-        project.getPublishersList().add(new XUnitPublisher(new XUnitType[]{new CustomType(pattern, cpptestStyleSheet)}));
+        project.getPublishersList().add(new XUnitPublisher(new XUnitType[]{new CustomType(pattern, cpptestStyleSheet, true, true)}));
 
         FreeStyleBuild build = project.scheduleBuild2(0).get();
 
@@ -178,7 +179,7 @@ public class XUnitPublisherIntegrationTest extends HudsonTestCase {
         project.getBuildersList().add(new Shell("wrong command"));
         project.getBuildersList().add(new Shell("touch " + boostFileName));
         String pattern = boostFileName;
-        project.getPublishersList().add(new XUnitPublisher(new XUnitType[]{new BoostTestType(pattern)}));
+        project.getPublishersList().add(new XUnitPublisher(new XUnitType[]{new BoostTestType(pattern, true, true)}));
         FreeStyleBuild build = project.scheduleBuild2(0).get();
         //Build status must propagated the FAILURE
         assertBuildStatus(Result.FAILURE, build);
@@ -197,7 +198,7 @@ public class XUnitPublisherIntegrationTest extends HudsonTestCase {
         project.getBuildersList().add(new Shell("wrong command"));
         project.getBuildersList().add(new Shell("touch " + boostFileName));
         String pattern = boostFileName;
-        project.getPublishersList().add(new XUnitPublisher(new XUnitType[]{new BoostTestType(pattern)}));
+        project.getPublishersList().add(new XUnitPublisher(new XUnitType[]{new BoostTestType(pattern, true, true)}));
         FreeStyleBuild build = project.scheduleBuild2(0).get();
         //Build status must propagated the FAILURE
         assertBuildStatus(Result.FAILURE, build);
@@ -216,7 +217,7 @@ public class XUnitPublisherIntegrationTest extends HudsonTestCase {
         project.getBuildersList().add(new Shell("wrong command"));
         project.getBuildersList().add(new Shell("touch " + boosttesterror));
         String pattern = boosttesterror;
-        project.getPublishersList().add(new XUnitPublisher(new XUnitType[]{new BoostTestType(pattern)}));
+        project.getPublishersList().add(new XUnitPublisher(new XUnitType[]{new BoostTestType(pattern, true, true)}));
         FreeStyleBuild build = project.scheduleBuild2(0).get();
         //Build status must propagated the FAILURE
         assertBuildStatus(Result.FAILURE, build);
@@ -234,7 +235,7 @@ public class XUnitPublisherIntegrationTest extends HudsonTestCase {
         project.getBuildersList().add(new Shell("echo SUCCESS"));
         project.getBuildersList().add(new Shell("touch " + boostFileName));
         String pattern = boostFileName;
-        project.getPublishersList().add(new XUnitPublisher(new XUnitType[]{new BoostTestType(pattern)}));
+        project.getPublishersList().add(new XUnitPublisher(new XUnitType[]{new BoostTestType(pattern, true, true)}));
         FreeStyleBuild build = project.scheduleBuild2(0).get();
         assertBuildStatus(Result.SUCCESS, build);
         TestResultAction result = build.getAction(hudson.tasks.junit.TestResultAction.class);
@@ -251,7 +252,7 @@ public class XUnitPublisherIntegrationTest extends HudsonTestCase {
         project.getBuildersList().add(new Shell("echo SUCCESS"));
         project.getBuildersList().add(new Shell("touch " + boostFileName));
         String pattern = boostFileName;
-        project.getPublishersList().add(new XUnitPublisher(new XUnitType[]{new BoostTestType(pattern)}));
+        project.getPublishersList().add(new XUnitPublisher(new XUnitType[]{new BoostTestType(pattern, true, true)}));
         FreeStyleBuild build = project.scheduleBuild2(0).get();
         //Build status must propagated the FAILURE
         assertBuildStatus(Result.UNSTABLE, build);
@@ -269,7 +270,7 @@ public class XUnitPublisherIntegrationTest extends HudsonTestCase {
         project.getBuildersList().add(new Shell("echo SUCCESS"));
         project.getBuildersList().add(new Shell("touch " + boosttesterror));
         String pattern = boosttesterror;
-        project.getPublishersList().add(new XUnitPublisher(new XUnitType[]{new BoostTestType(pattern)}));
+        project.getPublishersList().add(new XUnitPublisher(new XUnitType[]{new BoostTestType(pattern, true, true)}));
         FreeStyleBuild build = project.scheduleBuild2(0).get();
         assertBuildStatus(Result.UNSTABLE, build);
         TestResultAction result = build.getAction(hudson.tasks.junit.TestResultAction.class);

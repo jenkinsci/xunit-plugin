@@ -24,19 +24,15 @@
 package com.thalesgroup.hudson.plugins.xunit.types;
 
 import hudson.Extension;
-import net.sf.json.JSONObject;
-import org.kohsuke.stapler.StaplerRequest;
+import org.kohsuke.stapler.DataBoundConstructor;
 
 
 public class CustomType extends XUnitType {
 
-    @Deprecated
-    public CustomType(String pattern, String customXSL) {
-        super(pattern, customXSL);
-    }
 
-    public CustomType(String pattern, String customXSL, boolean faildedIfNotNew) {
-        super(pattern, customXSL, faildedIfNotNew);
+    @DataBoundConstructor
+    public CustomType(String pattern, String customXSL, boolean faildedIfNotNew, boolean deleteJUnitFiles) {
+        super(pattern, customXSL, faildedIfNotNew, deleteJUnitFiles);
     }
 
     public String getXsl() {
@@ -52,10 +48,6 @@ public class CustomType extends XUnitType {
 
         public DescriptorImpl() {
             super(CustomType.class);
-        }
-
-        public CustomType newInstance(StaplerRequest req, JSONObject formData) throws FormException {
-            return new CustomType(formData.getString("pattern"), formData.getString("customXSL"), formData.getBoolean("faildedIfNotNew"));
         }
 
         @Override

@@ -38,33 +38,56 @@ public abstract class XUnitType implements ExtensionPoint, Describable<XUnitType
 
     private final Boolean faildedIfNotNew;
 
+    private final Boolean deleteJUnitFiles;
+
     protected final String customXSL;
 
 
     @Deprecated
     protected XUnitType(String pattern) {
         this.pattern = pattern;
-        customXSL = null;
-        faildedIfNotNew=true;
+        this.customXSL = null;
+        this.faildedIfNotNew = true;
+        this.deleteJUnitFiles = true;
     }
 
     @Deprecated
     protected XUnitType(String pattern, String customXSL) {
         this.pattern = pattern;
         this.customXSL = customXSL;
-        this.faildedIfNotNew=true;
+        this.faildedIfNotNew = true;
+        this.deleteJUnitFiles = true;
     }
 
+    @Deprecated
     protected XUnitType(String pattern, String customXSL, boolean faildedIfNotNew) {
         this.pattern = pattern;
         this.customXSL = customXSL;
         this.faildedIfNotNew = faildedIfNotNew;
+        this.deleteJUnitFiles = true;
     }
 
+    @Deprecated
     protected XUnitType(String pattern, boolean faildedIfNotNew) {
         this.pattern = pattern;
-        customXSL = null;
+        this.customXSL = null;
         this.faildedIfNotNew = faildedIfNotNew;
+        this.deleteJUnitFiles = true;
+    }
+
+
+    protected XUnitType(String pattern, String customXSL, Boolean faildedIfNotNew, Boolean deleteJUnitFiles) {
+        this.pattern = pattern;
+        this.faildedIfNotNew = faildedIfNotNew;
+        this.deleteJUnitFiles = deleteJUnitFiles;
+        this.customXSL = customXSL;
+    }
+
+    protected XUnitType(String pattern, Boolean faildedIfNotNew, Boolean deleteJUnitFiles) {
+        this.pattern = pattern;
+        this.customXSL = null;
+        this.faildedIfNotNew = faildedIfNotNew;
+        this.deleteJUnitFiles = deleteJUnitFiles;
     }
 
     public String getPattern() {
@@ -72,7 +95,11 @@ public abstract class XUnitType implements ExtensionPoint, Describable<XUnitType
     }
 
     public boolean isFaildedIfNotNew() {
-        return (faildedIfNotNew==null?true:faildedIfNotNew.booleanValue());
+        return (faildedIfNotNew == null ? true : faildedIfNotNew.booleanValue());
+    }
+
+    public boolean isDeleteJUnitFiles() {
+        return (deleteJUnitFiles == null ? true : deleteJUnitFiles.booleanValue());
     }
 
     @SuppressWarnings("unused")
