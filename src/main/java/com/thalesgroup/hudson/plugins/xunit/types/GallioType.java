@@ -54,5 +54,9 @@ public class GallioType extends XUnitType {
             return Messages.xUnit_gallioType_label();
         }
 
+        public String getId() {
+            return "gallio";
+        }
+
     }
 }

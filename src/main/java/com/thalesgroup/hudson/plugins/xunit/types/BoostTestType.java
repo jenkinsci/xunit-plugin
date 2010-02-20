@@ -54,6 +54,10 @@ public class BoostTestType extends XUnitType {
             return Messages.xUnit_boosttestType_label();
         }
 
+        public String getId() {
+            return "boosttest";
+        }
+
 
     }
 }

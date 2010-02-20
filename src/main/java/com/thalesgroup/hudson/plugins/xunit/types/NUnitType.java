@@ -54,5 +54,9 @@ public class NUnitType extends XUnitType {
             return Messages.xUnit_nunitType_label();
         }
 
+        public String getId() {
+            return "nunit";
+        }
+
     }
 }

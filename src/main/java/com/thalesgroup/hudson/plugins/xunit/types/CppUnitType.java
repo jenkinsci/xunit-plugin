@@ -54,5 +54,9 @@ public class CppUnitType extends XUnitType {
             return Messages.xUnit_cppUnitType_label();
         }
 
+        public String getId() {
+            return "cppunit";
+        }
+
     }
 }

@@ -26,7 +26,6 @@ package com.thalesgroup.hudson.plugins.xunit.types;
 import hudson.ExtensionList;
 import hudson.ExtensionPoint;
 import hudson.model.Describable;
-import hudson.model.Descriptor;
 import hudson.model.Hudson;
 
 import java.io.Serializable;
@@ -76,14 +75,14 @@ public abstract class XUnitType implements ExtensionPoint, Describable<XUnitType
     }
 
 
-    protected XUnitType(String pattern, String customXSL, Boolean faildedIfNotNew, Boolean deleteJUnitFiles) {
+    protected XUnitType(String pattern, String customXSL, boolean faildedIfNotNew, boolean deleteJUnitFiles) {
         this.pattern = pattern;
         this.faildedIfNotNew = faildedIfNotNew;
         this.deleteJUnitFiles = deleteJUnitFiles;
         this.customXSL = customXSL;
     }
 
-    protected XUnitType(String pattern, Boolean faildedIfNotNew, Boolean deleteJUnitFiles) {
+    protected XUnitType(String pattern, boolean faildedIfNotNew, boolean deleteJUnitFiles) {
         this.pattern = pattern;
         this.customXSL = null;
         this.faildedIfNotNew = faildedIfNotNew;
@@ -115,8 +114,8 @@ public abstract class XUnitType implements ExtensionPoint, Describable<XUnitType
     }
 
     @SuppressWarnings("unchecked")
-    public Descriptor<XUnitType> getDescriptor() {
-        return Hudson.getInstance().getDescriptor(getClass());
+    public XUnitTypeDescriptor<?> getDescriptor() {
+        return (XUnitTypeDescriptor<?>) Hudson.getInstance().getDescriptor(getClass());
     }
 
 

@@ -53,5 +53,9 @@ public class PHPUnitType extends XUnitType {
             return Messages.xUnit_phpunitType_label();
         }
 
+        public String getId() {
+            return "phpunit";
+        }
+
     }
 }

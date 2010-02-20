@@ -55,5 +55,9 @@ public class CustomType extends XUnitType {
             return Messages.xUnit_customType_label();
         }
 
+        public String getId() {
+            return "customType";
+        }
+
     }
 }

@@ -87,15 +87,15 @@ public class XUnitPublisher extends Recorder implements Serializable {
 
         Result previousResult = build.getResult();
 
-        FilePath junitTargetFilePath = new FilePath(build.getWorkspace(), "genratedJUnitFiles");
+        FilePath parentFilePath = new FilePath(build.getWorkspace(), "genratedJUnitFiles");
 
         //Create a directory sharing temporary JUnit files
-        createTemporaryDirectory(junitTargetFilePath);
+        createTemporaryDirectory(parentFilePath);
 
         try {
 
             // Archiving tools report files into Junit files
-            XUnitTransformer transformer = new XUnitTransformer(listener, build.getTimestamp().getTimeInMillis(), build.getEnvironment(listener), types, junitTargetFilePath);
+            XUnitTransformer transformer = new XUnitTransformer(listener, build.getTimestamp().getTimeInMillis(), build.getEnvironment(listener), types, parentFilePath);
             boolean result = build.getWorkspace().act(transformer);
             if (!result) {
                 build.setResult(Result.FAILURE);
@@ -104,7 +104,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
                 return true;
             }
 
-            Result curResult = recordTestResult(build, listener, junitTargetFilePath, "**/TEST-*.xml");
+            Result curResult = recordTestResult(build, listener, parentFilePath, "**/TEST-*.xml");
 
             //Change the status result
             if (previousResult.isWorseOrEqualTo(curResult)) {
@@ -129,7 +129,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
         finally {
             try {
                 //Detroy temporary target junit dir
-                deleteTemporaryDirectory(junitTargetFilePath);
+                deleteTemporaryDirectory(parentFilePath);
             }
             catch (IOException ioe) {
                 XUnitLog.log(listener, "The plugin hasn't been performed correctly: " + ioe.getMessage());
@@ -146,7 +146,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
 
     private void createTemporaryDirectory(FilePath parentFilePath) throws IOException, InterruptedException {
         for (XUnitType tool : types) {
-            FilePath junitTargetFilePath = new FilePath(parentFilePath, tool.getDescriptor().getDisplayName());
+            FilePath junitTargetFilePath = new FilePath(parentFilePath, tool.getDescriptor().getShortName());
             if (junitTargetFilePath.exists()) {
                 junitTargetFilePath.deleteRecursive();
             }
@@ -157,7 +157,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
     private void deleteTemporaryDirectory(FilePath parentFilePath) throws IOException, InterruptedException {
         boolean keep = false;
         for (XUnitType tool : types) {
-            FilePath junitTargetFilePath = new FilePath(parentFilePath, tool.getDescriptor().getDisplayName());
+            FilePath junitTargetFilePath = new FilePath(parentFilePath, tool.getDescriptor().getShortName());
             if (tool.isDeleteJUnitFiles()) {
                 junitTargetFilePath.deleteRecursive();
             }

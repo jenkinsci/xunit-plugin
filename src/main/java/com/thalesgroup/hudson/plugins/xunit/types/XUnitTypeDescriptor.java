@@ -45,4 +45,17 @@ public abstract class XUnitTypeDescriptor<T extends XUnitType> extends Descripto
     public boolean isCustomType() {
         return type == CustomType.class;
     }
+
+    //Not abstract for backeard compatibility
+    public String getId() {
+        return null;
+    }
+
+
+    public String getShortName() {
+        String s;
+        return ((s = this.getId()) != null) ? s : getDisplayName();
+    }
+
+
 }

@@ -302,7 +302,7 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
             }
 
 
-            FilePath currentOutputDir = new FilePath(junitOutputPath, testTool.getDescriptor().getDisplayName());
+            FilePath currentOutputDir = new FilePath(junitOutputPath, testTool.getDescriptor().getShortName());
             FilePath junitTargetFile = new FilePath(currentOutputDir, "file" + resultFilePathFile.hashCode());
             try {
                 toolXMLTransformer.transform(new StreamSource(resultFilePathFile), new StreamResult(new File(junitTargetFile.toURI())));

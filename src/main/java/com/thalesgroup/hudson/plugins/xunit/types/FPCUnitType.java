@@ -54,6 +54,10 @@ public class FPCUnitType extends XUnitType {
         public String getDisplayName() {
             return Messages.xUnit_fpcunitType_label();
         }
+
+        public String getId() {
+            return "fpcunit";
+        }
     }
 
 }

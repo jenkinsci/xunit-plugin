@@ -53,6 +53,10 @@ public class MSTestType extends XUnitType {
         public String getDisplayName() {
             return Messages.xUnit_mstestType_label();
         }
+
+        public String getId() {
+            return "mstest";
+        }
     }
 
 }

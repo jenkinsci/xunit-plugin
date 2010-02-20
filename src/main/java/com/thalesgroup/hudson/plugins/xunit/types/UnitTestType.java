@@ -54,5 +54,9 @@ public class UnitTestType extends XUnitType {
             return Messages.xUnit_unittestType_label();
         }
 
+        public String getId() {
+            return "unittest";
+        }
+
     }
 }
