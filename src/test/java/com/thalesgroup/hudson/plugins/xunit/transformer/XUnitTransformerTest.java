@@ -106,8 +106,8 @@ public class XUnitTransformerTest extends AbstractWorkspaceTest {
 
     @Test
     public void oneMatchWithValidContent() throws Exception {
-        XUnitType[] types = new XUnitType[]{new TextXUnitType("*.xml", "cppunit-to-junit.xsl")};
-        String content = XUnitXSLUtil.readXmlAsString("cppunit/testcase1/cppunit-successAndFailure.xml");
+        XUnitType[] types = new XUnitType[]{new TextXUnitType("*.xml", "boostest-to-junit.xsl")};
+        String content = XUnitXSLUtil.readXmlAsString("boosttest/autotest/testlog.xml");
         File reportFile = new File(new File(workspace.toURI()), "report.xml");
         FileWriter fw = new FileWriter(reportFile);
         fw.write(content);

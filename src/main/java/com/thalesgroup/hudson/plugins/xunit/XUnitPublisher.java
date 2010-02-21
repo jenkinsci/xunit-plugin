@@ -335,7 +335,6 @@ public class XUnitPublisher extends Recorder implements Serializable {
             if (config != null) {
                 HashMap<String, Class> map = new HashMap<String, Class>();
                 map.put("phpunit", PHPUnitType.class);
-                map.put("cppunit", CppUnitType.class);
                 map.put("unittest", UnitTestType.class);
                 map.put("nunit", NUnitType.class);
                 map.put("mstest", MSTestType.class);
