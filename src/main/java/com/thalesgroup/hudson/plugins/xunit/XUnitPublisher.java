@@ -87,7 +87,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
 
         Result previousResult = build.getResult();
 
-        FilePath parentFilePath = new FilePath(build.getWorkspace(), "genratedJUnitFiles");
+        FilePath parentFilePath = new FilePath(build.getWorkspace(), "generatedJUnitFiles");
 
         //Create a directory sharing temporary JUnit files
         createTemporaryDirectory(parentFilePath);

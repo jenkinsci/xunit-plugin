@@ -23,7 +23,6 @@
 
 package com.thalesgroup.hudson.plugins.xunit;
 
-import com.thalesgroup.hudson.plugins.xunit.MultiFileSCM;
 import com.thalesgroup.hudson.plugins.xunit.types.BoostTestType;
 import com.thalesgroup.hudson.plugins.xunit.types.CustomType;
 import com.thalesgroup.hudson.plugins.xunit.types.XUnitType;
@@ -35,10 +34,9 @@ import hudson.tasks.junit.TestResultAction;
 import org.jvnet.hudson.test.HudsonTestCase;
 import org.jvnet.hudson.test.SingleFileSCM;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Calendar;
-import java.io.File;
 
 
 public class XUnitPublisherIntegrationTest extends HudsonTestCase {
