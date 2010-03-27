@@ -46,4 +46,15 @@ public class MSTestXSLTest extends AbstractXUnitXSLTest {
     public void testTransformationCase3() throws Exception {
         processTransformation("mstest/mstest_4_tests_2_classes.trx", "mstest/junit_mstest_4_tests_2_classes.xml");
     }
+
+    @Test
+    public void testTransformationCase4() throws Exception {
+        processTransformation("mstest/mstest_vs_2010.trx", "mstest/junit_mstest_vs_2010.xml");
+    }
+
+    @Test
+    public void testTransformationCase5() throws Exception {
+        processTransformation("mstest/mstest_more_than_one_minute_test.trx", "mstest/junit_mstest_more_than-one_minute_test.xml");
+    }
+
 }

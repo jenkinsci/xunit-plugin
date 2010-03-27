@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites xmlns:a="http://microsoft.com/schemas/VisualStudio/TeamTest/2006" xmlns:b="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+<testsuite name="MSTestSuite" tests="2" time="0" failures="1" errors="0" skipped="0">
+<testcase classname="TestProject1.UnitTest1" name="TestMethod1" time="0.018195" />
+<testcase classname="TestProject1.UnitTest1" name="TestMethod2" time="0.1018105">
+<failure>
+MESSAGE:
+Assert.Fail failed. 
++++++++++++++++++++
+STACK TRACE:
+   at TestProject1.UnitTest1.TestMethod2() in c:\users\carlos\documents\visual studio 2010\Projects\TestProject1\TestProject1\UnitTest1.cs:line 71
+</failure>
+</testcase>
+</testsuite>
+</testsuites>
