@@ -1,3 +1,5 @@
+g++ test.cpp
+
 ./a.exe --report_format=XML --report_level=detailed
 -->produces testresult.xml
 
