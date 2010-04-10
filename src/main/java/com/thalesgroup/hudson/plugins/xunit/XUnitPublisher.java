@@ -128,7 +128,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
 
         finally {
             try {
-                //Detroy temporary target junit dir
+                //Destroy temporary target junit dir
                 deleteTemporaryDirectory(parentFilePath);
             }
             catch (IOException ioe) {
@@ -356,8 +356,10 @@ public class XUnitPublisher extends Recorder implements Serializable {
             }
         }
         catch (Exception e) {
-
+           System.err.println("[xUnit] - Error occurs during migration from previous version of xUnit plugin" + e);
         }
+
+
 
         return this;
     }

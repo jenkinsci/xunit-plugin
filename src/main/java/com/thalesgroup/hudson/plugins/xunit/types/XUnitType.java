@@ -107,7 +107,7 @@ public abstract class XUnitType implements ExtensionPoint, Describable<XUnitType
     }
 
     /**
-     * All regsitered instances.
+     * All registered instances.
      */
     public static ExtensionList<XUnitType> all() {
         return Hudson.getInstance().getExtensionList(XUnitType.class);
@@ -120,7 +120,7 @@ public abstract class XUnitType implements ExtensionPoint, Describable<XUnitType
 
 
     /**
-     * Gets the associated Xsl to the type
+     * Get the associated Xsl to the type
      *
      * @return
      */
