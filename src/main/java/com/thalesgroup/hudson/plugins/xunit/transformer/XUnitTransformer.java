@@ -198,23 +198,20 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
             XUnitLog.log(listener, msg);
             return null;
         }
-
+                 
 
         //Check the timestamp for each test file if the UI option is checked (true by default)
         if (faildedIfNotNew) {
-
-            boolean parsed = false;
-            List<String> resultFiles = new ArrayList<String>();
+            ArrayList<File> oldResults = new ArrayList<File>();
             for (String value : xunitFiles) {
                 File reportFile = new File(baseDir, value);
-                //only count files that were actually updated during this build
-                if (buildTime - 3000 <= reportFile.lastModified()) {
-                    resultFiles.add(value);
-                    parsed = true;
+                // if the file was not updated this build, that is a problem
+                if (buildTime - 3000 > reportFile.lastModified()) {
+                    oldResults.add(reportFile);
                 }
             }
 
-            if (!parsed) {
+            if (!oldResults.isEmpty()) {
                 long localTime = System.currentTimeMillis();
                 if (localTime < buildTime - 1000) {
                     // build time is in the the future. clock on this slave must be running behind
@@ -225,18 +222,13 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
                     return null;
                 }
 
-                File f = new File(baseDir, xunitFiles[0]);
-                String msg = "[ERROR] - " + String.format(
-                        "Test reports were found but none of them are new. Did tests run? \n" +
-                                "For example, %s is %s old\n", f,
-                        Util.getTimeSpanString(buildTime - f.lastModified()));
+                String msg = "[ERROR] Test reports were found but not all of them are new. Did all the tests run?\n";
+                for (File f : oldResults) {
+                    msg += String.format("  * %s is %s old\n", f, Util.getTimeSpanString(buildTime - f.lastModified()));
+                }
                 XUnitLog.log(listener, msg);
-
                 return null;
-
             }
-
-            return resultFiles;
         }
 
         return Arrays.asList(xunitFiles);
