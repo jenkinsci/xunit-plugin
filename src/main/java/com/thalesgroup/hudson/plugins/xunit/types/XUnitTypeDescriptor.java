@@ -30,7 +30,7 @@ import hudson.model.Hudson;
 
 public abstract class XUnitTypeDescriptor<T extends XUnitType> extends Descriptor<XUnitType> {
 
-    Class<? extends XUnitType> type;
+    private Class<? extends XUnitType> type;
 
     protected XUnitTypeDescriptor(Class<T> clazz) {
         super(clazz);
@@ -51,6 +51,7 @@ public abstract class XUnitTypeDescriptor<T extends XUnitType> extends Descripto
         return null;
     }
 
+    public abstract String getDisplayName();
 
     public String getShortName() {
         String s;

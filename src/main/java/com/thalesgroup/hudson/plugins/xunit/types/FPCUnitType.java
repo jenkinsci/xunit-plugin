@@ -23,6 +23,7 @@
 
 package com.thalesgroup.hudson.plugins.xunit.types;
 
+import com.thalesgroup.hudson.library.tusarconversion.TestsTools;
 import hudson.Extension;
 import org.kohsuke.stapler.DataBoundConstructor;
 
@@ -32,11 +33,7 @@ public class FPCUnitType extends XUnitType {
 
     @DataBoundConstructor
     public FPCUnitType(String pattern, boolean faildedIfNotNew, boolean deleteJUnitFiles) {
-        super(pattern, faildedIfNotNew, deleteJUnitFiles);
-    }
-
-    public String getXsl() {
-        return "fpcunit-to-junit.xsl";
+        super(TestsTools.FPCUNIT, pattern, faildedIfNotNew, deleteJUnitFiles);
     }
 
     public XUnitTypeDescriptor<?> getDescriptor() {
@@ -50,11 +47,11 @@ public class FPCUnitType extends XUnitType {
             super(FPCUnitType.class);
         }
 
-        @Override
         public String getDisplayName() {
-            return Messages.xUnit_fpcunitType_label();
+            return TestsTools.FPCUNIT.getLabel();
         }
 
+        //Not use inputType object for backeard compatibility
         public String getId() {
             return "fpcunit";
         }

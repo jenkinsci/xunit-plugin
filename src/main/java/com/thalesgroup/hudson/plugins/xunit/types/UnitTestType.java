@@ -23,6 +23,7 @@
 
 package com.thalesgroup.hudson.plugins.xunit.types;
 
+import com.thalesgroup.hudson.library.tusarconversion.TestsTools;
 import hudson.Extension;
 import org.kohsuke.stapler.DataBoundConstructor;
 
@@ -31,11 +32,7 @@ public class UnitTestType extends XUnitType {
 
     @DataBoundConstructor
     public UnitTestType(String pattern, boolean faildedIfNotNew, boolean deleteJUnitFiles) {
-        super(pattern, faildedIfNotNew, deleteJUnitFiles);
-    }
-
-    public String getXsl() {
-        return "unittest-to-junit.xsl";
+        super(TestsTools.UNITTEST, pattern, faildedIfNotNew, deleteJUnitFiles);
     }
 
     public XUnitTypeDescriptor<?> getDescriptor() {
@@ -51,7 +48,7 @@ public class UnitTestType extends XUnitType {
 
         @Override
         public String getDisplayName() {
-            return Messages.xUnit_unittestType_label();
+            return TestsTools.UNITTEST.getLabel();
         }
 
         public String getId() {

@@ -23,6 +23,7 @@
 
 package com.thalesgroup.hudson.plugins.xunit.types;
 
+import com.thalesgroup.hudson.library.tusarconversion.TestsTools;
 import hudson.Extension;
 import org.kohsuke.stapler.DataBoundConstructor;
 
@@ -31,11 +32,7 @@ public class NUnitType extends XUnitType {
 
     @DataBoundConstructor
     public NUnitType(String pattern, boolean faildedIfNotNew, boolean deleteJUnitFiles) {
-        super(pattern, faildedIfNotNew, deleteJUnitFiles);
-    }
-
-    public String getXsl() {
-        return "nunit-to-junit.xsl";
+        super(TestsTools.NUNIT, pattern, faildedIfNotNew, deleteJUnitFiles);
     }
 
     public XUnitTypeDescriptor<?> getDescriptor() {
@@ -51,7 +48,7 @@ public class NUnitType extends XUnitType {
 
         @Override
         public String getDisplayName() {
-            return Messages.xUnit_nunitType_label();
+            return TestsTools.NUNIT.getLabel();
         }
 
         public String getId() {

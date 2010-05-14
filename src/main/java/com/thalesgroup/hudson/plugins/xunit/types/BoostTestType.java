@@ -23,6 +23,7 @@
 
 package com.thalesgroup.hudson.plugins.xunit.types;
 
+import com.thalesgroup.hudson.library.tusarconversion.TestsTools;
 import hudson.Extension;
 import org.kohsuke.stapler.DataBoundConstructor;
 
@@ -31,7 +32,7 @@ public class BoostTestType extends XUnitType {
 
     @DataBoundConstructor
     public BoostTestType(String pattern, boolean faildedIfNotNew, boolean deleteJUnitFiles) {
-        super(pattern, faildedIfNotNew, deleteJUnitFiles);
+        super(TestsTools.BOOSTTEST, pattern, faildedIfNotNew, deleteJUnitFiles);
     }
 
     public String getXsl() {
@@ -51,7 +52,7 @@ public class BoostTestType extends XUnitType {
 
         @Override
         public String getDisplayName() {
-            return Messages.xUnit_boosttestType_label();
+            return TestsTools.BOOSTTEST.getLabel();
         }
 
         public String getId() {

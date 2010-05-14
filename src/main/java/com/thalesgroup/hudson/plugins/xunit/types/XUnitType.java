@@ -23,6 +23,7 @@
 
 package com.thalesgroup.hudson.plugins.xunit.types;
 
+import com.thalesgroup.hudson.library.tusarconversion.model.InputType;
 import hudson.ExtensionList;
 import hudson.ExtensionPoint;
 import hudson.model.Describable;
@@ -41,9 +42,11 @@ public abstract class XUnitType implements ExtensionPoint, Describable<XUnitType
 
     protected final String customXSL;
 
+    private final InputType inputType;
 
     @Deprecated
     protected XUnitType(String pattern) {
+        this.inputType = null;
         this.pattern = pattern;
         this.customXSL = null;
         this.faildedIfNotNew = true;
@@ -52,6 +55,7 @@ public abstract class XUnitType implements ExtensionPoint, Describable<XUnitType
 
     @Deprecated
     protected XUnitType(String pattern, String customXSL) {
+        this.inputType = null;
         this.pattern = pattern;
         this.customXSL = customXSL;
         this.faildedIfNotNew = true;
@@ -60,6 +64,7 @@ public abstract class XUnitType implements ExtensionPoint, Describable<XUnitType
 
     @Deprecated
     protected XUnitType(String pattern, String customXSL, boolean faildedIfNotNew) {
+        this.inputType = null;
         this.pattern = pattern;
         this.customXSL = customXSL;
         this.faildedIfNotNew = faildedIfNotNew;
@@ -68,6 +73,7 @@ public abstract class XUnitType implements ExtensionPoint, Describable<XUnitType
 
     @Deprecated
     protected XUnitType(String pattern, boolean faildedIfNotNew) {
+        this.inputType = null;
         this.pattern = pattern;
         this.customXSL = null;
         this.faildedIfNotNew = faildedIfNotNew;
@@ -76,13 +82,32 @@ public abstract class XUnitType implements ExtensionPoint, Describable<XUnitType
 
 
     protected XUnitType(String pattern, String customXSL, boolean faildedIfNotNew, boolean deleteJUnitFiles) {
+        this.inputType = null;
         this.pattern = pattern;
         this.faildedIfNotNew = faildedIfNotNew;
         this.deleteJUnitFiles = deleteJUnitFiles;
         this.customXSL = customXSL;
     }
 
+    @Deprecated
     protected XUnitType(String pattern, boolean faildedIfNotNew, boolean deleteJUnitFiles) {
+        this.inputType = null;
+        this.pattern = pattern;
+        this.customXSL = null;
+        this.faildedIfNotNew = faildedIfNotNew;
+        this.deleteJUnitFiles = deleteJUnitFiles;
+    }
+
+    protected XUnitType(InputType inputType, String pattern, String customXSL, boolean faildedIfNotNew, boolean deleteJUnitFiles) {
+        this.inputType = inputType;
+        this.pattern = pattern;
+        this.faildedIfNotNew = faildedIfNotNew;
+        this.deleteJUnitFiles = deleteJUnitFiles;
+        this.customXSL = customXSL;
+    }
+
+    protected XUnitType(InputType inputType, String pattern, boolean faildedIfNotNew, boolean deleteJUnitFiles) {
+        this.inputType = inputType;
         this.pattern = pattern;
         this.customXSL = null;
         this.faildedIfNotNew = faildedIfNotNew;
@@ -118,12 +143,16 @@ public abstract class XUnitType implements ExtensionPoint, Describable<XUnitType
         return (XUnitTypeDescriptor<?>) Hudson.getInstance().getDescriptor(getClass());
     }
 
-
     /**
      * Get the associated Xsl to the type
      *
      * @return
      */
-    public abstract String getXsl();
+    public String getXsl() {
+        if (inputType != null) {
+            return inputType.getXsl();
+        }
+        return null;
+    }
 
 }
