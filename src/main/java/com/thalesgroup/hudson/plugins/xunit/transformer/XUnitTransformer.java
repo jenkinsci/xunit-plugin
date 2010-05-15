@@ -24,6 +24,7 @@
 package com.thalesgroup.hudson.plugins.xunit.transformer;
 
 import com.thalesgroup.hudson.library.tusarconversion.ConversionUtil;
+import com.thalesgroup.hudson.plugins.xunit.types.PHPUnitType;
 import com.thalesgroup.hudson.plugins.xunit.types.XUnitType;
 import com.thalesgroup.hudson.plugins.xunit.util.XUnitLog;
 import hudson.AbortException;
@@ -308,7 +309,7 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
         Document document = xmlDocumentBuilder.parse(inputFile);
         NodeList testsuitesNodeList = document.getElementsByTagName("testsuites");
 
-        if (testsuitesNodeList == null || testsuitesNodeList.getLength() == 0) {
+        if ((testTool.getClass() == PHPUnitType.class || testsuitesNodeList == null) || testsuitesNodeList.getLength() == 0) {
             File fTargetFile = new File(junitTargetFilePath.toURI());
             fTargetFile.createNewFile();
             ConversionUtil.convert(testTool.getXsl(), new FileInputStream(inputFile), new FileOutputStream(fTargetFile));

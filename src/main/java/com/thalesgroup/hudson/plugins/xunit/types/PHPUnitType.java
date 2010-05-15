@@ -34,10 +34,6 @@ public class PHPUnitType extends XUnitType {
         super(TestsTools.PHPUNIT, pattern, faildedIfNotNew, deleteJUnitFiles);
     }
 
-    public String getXsl() {
-        return "phpunit-to-junit.xsl";
-    }
-
     public XUnitTypeDescriptor<?> getDescriptor() {
         return new PHPUnitType.DescriptorImpl();
     }

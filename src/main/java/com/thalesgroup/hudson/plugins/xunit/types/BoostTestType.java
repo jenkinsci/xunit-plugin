@@ -35,10 +35,6 @@ public class BoostTestType extends XUnitType {
         super(TestsTools.BOOSTTEST, pattern, faildedIfNotNew, deleteJUnitFiles);
     }
 
-    public String getXsl() {
-        return "boosttest-to-junit.xsl";
-    }
-
     public XUnitTypeDescriptor<?> getDescriptor() {
         return new BoostTestType.DescriptorImpl();
     }
