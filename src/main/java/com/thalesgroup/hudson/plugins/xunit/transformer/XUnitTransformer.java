@@ -24,6 +24,7 @@
 package com.thalesgroup.hudson.plugins.xunit.transformer;
 
 import com.thalesgroup.hudson.library.tusarconversion.ConversionUtil;
+import com.thalesgroup.hudson.library.tusarconversion.exception.ConversionException;
 import com.thalesgroup.hudson.plugins.xunit.types.PHPUnitType;
 import com.thalesgroup.hudson.plugins.xunit.types.XUnitType;
 import com.thalesgroup.hudson.plugins.xunit.util.XUnitLog;
@@ -302,7 +303,7 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
      * @throws ParserConfigurationException
      */
     private void processJUnitFile(XUnitType testTool, File inputFile, FilePath junitTargetFilePath, FilePath junitOutputPath)
-            throws IOException, SaxonApiException, ParserConfigurationException, SAXException, InterruptedException {
+            throws IOException, ConversionException, ParserConfigurationException, SAXException, InterruptedException {
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder xmlDocumentBuilder = factory.newDocumentBuilder();
@@ -330,7 +331,7 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
      * @throws SaxonApiException
      */
     private void splitJunitFile(XUnitType testTool, NodeList testsuitesNodeList, FilePath junitOutputPath)
-            throws IOException, InterruptedException, SaxonApiException {
+            throws IOException, InterruptedException, ConversionException {
         NodeList elementsByTagName = ((Element) testsuitesNodeList.item(0)).getElementsByTagName("testsuite");
         for (int i = 0; i < elementsByTagName.getLength(); i++) {
             Element element = (Element) elementsByTagName.item(i);
