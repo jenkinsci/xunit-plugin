@@ -1,0 +1,81 @@
+<!--
+/*******************************************************************************
+* Copyright (c) 2009 Thales Corporate Services SAS                             *
+* Author : Gregory Boissinot                                                   *
+*                                                                              *
+* Permission is hereby granted, free of charge, to any person obtaining a copy *
+* of this software and associated documentation files (the "Software"), to deal*
+* in the Software without restriction, including without limitation the rights *
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell    *
+* copies of the Software, and to permit persons to whom the Software is        *
+* furnished to do so, subject to the following conditions:                     *
+*                                                                              *
+* The above copyright notice and this permission notice shall be included in   *
+* all copies or substantial portions of the Software.                          *
+*                                                                              *
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR   *
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,     *
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE  *
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER       *
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,*
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN    *
+* THE SOFTWARE.                                                                *
+*******************************************************************************/
+-->
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+
+   <f:entry title="${descriptor.displayName}">
+
+     <table width="100%"  border='0'  cellspacing='0' padding="0">
+
+         <j:if test="${descriptor.isCustomType()}">
+            <tr>
+                 <td width="50%" style="${td}">
+                      <label>Pattern</label>
+                      <f:textbox field="pattern"/>
+                 </td>
+                 <td width="50%" style="${td}">
+                     <label>Custom stylesheet</label>
+                     <f:textbox field="customXSL" />
+                 </td>
+            </tr>
+            <tr>
+                 <td width="100%" style="${td}" colspan="2">
+                     <label>Fail the build if test results were not updated this run</label>
+                     <f:checkbox field="faildedIfNotNew" checked="${h.defaultToTrue(instance.faildedIfNotNew)}"/>
+                  </td>
+            </tr>
+            <tr>
+                 <td width="100%" style="${td}" colspan="2">
+                     <label>Delete temporary JUnit files</label>
+                     <f:checkbox field="deleteOutputFiles" checked="${h.defaultToTrue(instance.deleteOutputFiles)}"/>
+                  </td>
+            </tr>
+         </j:if>
+
+         <j:if test="${not descriptor.isCustomType()}">
+            <tr>
+                 <td width="100%" style="${td}">
+                     <label>Pattern</label>
+                     <f:textbox field="pattern"/>
+                 </td>
+            </tr>
+            <tr>
+                 <td width="100%" style="${td}">
+                  <label>Fail the build if test results were not updated this run</label>
+                  <f:checkbox field="faildedIfNotNew" checked="${h.defaultToTrue(instance.faildedIfNotNew)}"/>
+                 </td>
+            </tr>
+            <tr>
+                 <td width="100%" style="${td}">
+                     <label>Delete temporary JUnit files</label>
+                     <f:checkbox field="deleteOutputFiles" checked="${h.defaultToTrue(instance.deleteOutputFiles)}"/>
+                  </td>
+            </tr>
+         </j:if>
+
+     </table>
+
+  </f:entry>
+  
+</j:jelly>
