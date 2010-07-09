@@ -83,14 +83,14 @@ public class XUnitPublisher extends Recorder implements Serializable {
     /**
      * Gets a Test result object (a new one if any)
      *
-     * @param build   the current build
-     * @param junitFileDir   the parent output JUnit directory
-     * @param junitFilePattern  the JUnit search pattern
+     * @param build               the current build
+     * @param junitFileDir        the parent output JUnit directory
+     * @param junitFilePattern    the JUnit search pattern
      * @param existingTestResults the existing test result
-     * @param buildTime   the build time
-     * @param nowMaster   the time on master
-     * @return  the test result object
-     * @throws XUnitException  the plugin exception
+     * @param buildTime           the build time
+     * @param nowMaster           the time on master
+     * @return the test result object
+     * @throws XUnitException the plugin exception
      */
     private TestResult getTestResult(final AbstractBuild<?, ?> build,
                                      final File junitFileDir,
@@ -132,7 +132,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
             throw new XUnitException(ioe);
         }
         catch (InterruptedException ie) {
-             throw new XUnitException(ie);
+            throw new XUnitException(ie);
         }
 
 
@@ -141,8 +141,8 @@ public class XUnitPublisher extends Recorder implements Serializable {
     /**
      * Record the test results into the current build and return the number of tests
      *
-     * @param build the current build object
-     * @param listener the current listener object
+     * @param build                the current build object
+     * @param listener             the current listener object
      * @param junitTargetDirectory the parent JUnit directory
      * @throws com.thalesgroup.hudson.plugins.xunit.exception.XUnitException
      *          the plugin exception if an error occurs
@@ -181,7 +181,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
 
 
     @Override
-    public boolean perform(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener)
+    public boolean perform(final AbstractBuild<?, ?> build, Launcher launcher, final BuildListener listener)
             throws InterruptedException, IOException {
 
         XUnitLog.log(listener, "Starting to record.");
@@ -218,15 +218,35 @@ public class XUnitPublisher extends Recorder implements Serializable {
 
 
             //Delete generated files if triggered
-            build.getWorkspace().act(new FilePath.FileCallable<Boolean>() {
+            boolean resultDeletionOK = build.getWorkspace().act(new FilePath.FileCallable<Boolean>() {
                 public Boolean invoke(File ws, VirtualChannel channel) throws IOException {
-                    boolean keep = false;
+
+                    boolean keepJUnitDirectory = false;
                     for (TestType tool : types) {
+                        boolean keepDirectoryTool = false;
                         InputMetric inputMetric = tool.getInputMetric();
-                        File parent = new File(junitOuputDir, inputMetric.getToolName());
-                        parent.delete();
+                        //All the files will be under a directory the toolName
+                        File toolFileParant = new File(junitOuputDir, inputMetric.getToolName());
+                        if (tool.isDeleteOutputFiles()) {
+                            File[] files = toolFileParant.listFiles();
+                            for (File f : files) {
+                                if (!f.delete()) {
+                                    XUnitLog.log(listener, "[WARNING] - Can't delete the file: " + f);
+                                }
+                            }
+                        } else {
+                            //Mark the tool file parent directory to no deletion
+                            keepDirectoryTool = true;
+                        }
+                        if (!keepDirectoryTool) {
+                            //Delete the tool parent directory
+                            toolFileParant.delete();
+                        } else {
+                            //Mark the parent JUnit directory to set to true
+                            keepJUnitDirectory = true;
+                        }
                     }
-                    if (!keep) {
+                    if (!keepJUnitDirectory) {
                         junitOuputDir.delete();
                     }
 
@@ -234,6 +254,11 @@ public class XUnitPublisher extends Recorder implements Serializable {
                     return true;
                 }
             });
+            if (!resultDeletionOK) {
+                build.setResult(Result.FAILURE);
+                XUnitLog.log(listener, "Stopping recording.");
+                return true;
+            }
 
             //Keep the previous status result if worse or equal
             if (previousResult.isWorseOrEqualTo(curResult)) {
@@ -249,11 +274,15 @@ public class XUnitPublisher extends Recorder implements Serializable {
             return true;
 
         }
+        catch (IOException ie) {
+            XUnitLog.log(listener, "The plugin hasn't been performed correctly: " + ie.getMessage());
+            build.setResult(Result.FAILURE);
+            return false;
+        }
         catch (XUnitException xe) {
             XUnitLog.log(listener, "The plugin hasn't been performed correctly: " + xe.getMessage());
             build.setResult(Result.FAILURE);
             return false;
-
         }
     }
 
