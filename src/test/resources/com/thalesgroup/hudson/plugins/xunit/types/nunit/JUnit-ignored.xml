@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<testsuites>
-<testsuite failures="0" time="0.001" errors="0" skipped="2" tests="3" name="UnitTests.OtherMainClassTest">
-  <testcase time="0.001" name="TestPropertyValue" classname="UnitTests.OtherMainClassTest"/>
-</testsuite>
-</testsuites>

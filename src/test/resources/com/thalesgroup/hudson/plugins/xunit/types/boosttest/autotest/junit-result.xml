@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-16"?>
-<testsuite tests="1" errors="0" failures="0" name="MyTest" skipped="0">
-<testcase classname="MyTest.test" name="my_test" time="0">
-<system-out>
-=== [Info] - test.cpp:11:check add( 2,2 ) == 4 passed</system-out>
-<system-err />
-</testcase>
-</testsuite>
