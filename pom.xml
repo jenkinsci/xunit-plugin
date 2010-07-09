@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>xunit</artifactId>
-    <version>1.0</version>
+    <version>1.0-SNAPSHOT</version>
     <packaging>hpi</packaging>
     <name>Hudson xUnit plugin</name>
     <url>http://wiki.hudson-ci.org/display/HUDSON/xUnit+Plugin</url>
@@ -48,21 +48,19 @@
         </dependency>
 
         <dependency>
-    <groupId>org.jvnet.hudson.dtkit</groupId>
+	    <groupId>org.jvnet.hudson.dtkit</groupId>
             <artifactId>dtkit-metrics-api</artifactId>
             <version>${dtkit.version}</version>
         </dependency>
 
         <dependency>
-    <groupId>org.jvnet.hudson.dtkit</groupId>
-
+	    <groupId>org.jvnet.hudson.dtkit</groupId>
             <artifactId>dtkit-metrics-hudson-api</artifactId>
             <version>${dtkit.version}</version>
         </dependency>
 
         <dependency>
-
-    <groupId>org.jvnet.hudson.dtkit</groupId>
+	    <groupId>org.jvnet.hudson.dtkit</groupId>
             <artifactId>dtkit-default-junit</artifactId>
             <version>${dtkit.version}</version>
             <classifier>hudson</classifier>
