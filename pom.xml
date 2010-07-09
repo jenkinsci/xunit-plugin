@@ -36,7 +36,8 @@
     </developers>
 
     <properties>
-        <dtkit.version>0.1-SNAPSHOT</dtkit.version>
+        <dtkit.frmk.version>0.1</dtkit.frmk.version>
+        <dtkit.default.version>0.1</dtkit.default.version>
     </properties>
 
     <dependencies>
@@ -50,19 +51,19 @@
         <dependency>
 	    <groupId>org.jvnet.hudson.dtkit</groupId>
             <artifactId>dtkit-metrics-api</artifactId>
-            <version>${dtkit.version}</version>
+            <version>${dtkit.frmk.version}</version>
         </dependency>
 
         <dependency>
 	    <groupId>org.jvnet.hudson.dtkit</groupId>
             <artifactId>dtkit-metrics-hudson-api</artifactId>
-            <version>${dtkit.version}</version>
+            <version>${dtkit.frmk.version}</version>
         </dependency>
 
         <dependency>
 	    <groupId>org.jvnet.hudson.dtkit</groupId>
             <artifactId>dtkit-default-junit</artifactId>
-            <version>${dtkit.version}</version>
+            <version>${dtkit.default.version}</version>
             <classifier>hudson</classifier>
         </dependency>
 
