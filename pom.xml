@@ -36,7 +36,7 @@
 
     <properties>
         <dtkit.frmk.version>0.1</dtkit.frmk.version>
-        <dtkit.default.version>0.1</dtkit.default.version>
+        <dtkit.default.junit.version>0.1</dtkit.default.junit.version>
     </properties>
 
     <dependencies>
@@ -62,7 +62,7 @@
         <dependency>
 	    <groupId>org.jvnet.hudson.dtkit</groupId>
             <artifactId>dtkit-default-junit</artifactId>
-            <version>${dtkit.default.version}</version>
+            <version>${dtkit.default.junit.version}</version>
             <classifier>hudson</classifier>
         </dependency>
 
