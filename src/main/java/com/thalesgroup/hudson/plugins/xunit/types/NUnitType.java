@@ -27,7 +27,7 @@ import com.thalesgroup.dtkit.metrics.hudson.api.descriptor.TestTypeDescriptor;
 import com.thalesgroup.dtkit.metrics.hudson.model.NUnitHudsonTestType;
 
 @SuppressWarnings("unused")
-public abstract class NUnitType extends XUnitType {
+public class NUnitType extends XUnitType {
 
     public NUnitType(String pattern, boolean faildedIfNotNew, boolean deleteJUnitFiles) {
         super(pattern, faildedIfNotNew, deleteJUnitFiles);

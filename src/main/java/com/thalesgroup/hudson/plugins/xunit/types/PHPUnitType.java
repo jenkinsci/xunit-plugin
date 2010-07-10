@@ -27,7 +27,7 @@ import com.thalesgroup.dtkit.metrics.hudson.api.descriptor.TestTypeDescriptor;
 import com.thalesgroup.dtkit.metrics.hudson.model.PHPUnitHudsonTestType;
 
 @SuppressWarnings("unused")
-public abstract class PHPUnitType extends XUnitType {
+public class PHPUnitType extends XUnitType {
 
     public PHPUnitType(String pattern, boolean faildedIfNotNew, boolean deleteJUnitFiles) {
         super(pattern, faildedIfNotNew, deleteJUnitFiles);

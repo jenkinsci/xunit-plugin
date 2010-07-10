@@ -27,7 +27,7 @@ import com.thalesgroup.dtkit.metrics.hudson.api.descriptor.TestTypeDescriptor;
 import com.thalesgroup.dtkit.metrics.hudson.model.FPCUnitHudsonTestType;
 
 @SuppressWarnings("unused")
-public abstract class FPCUnitType extends XUnitType {
+public class FPCUnitType extends XUnitType {
 
     public FPCUnitType(String pattern, boolean faildedIfNotNew, boolean deleteJUnitFiles) {
         super(pattern, faildedIfNotNew, deleteJUnitFiles);
