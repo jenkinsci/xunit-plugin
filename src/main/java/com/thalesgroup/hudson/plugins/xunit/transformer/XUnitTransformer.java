@@ -214,9 +214,6 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
                     //Ignore the empty result file (some reason)
                     String msg = "[WARNING] - The file '" + resultFile.getPath() + "' is empty. This file has been ignored.";
                     XUnitLog.log(listener, msg);
-                    for (ValidatorError validatorError : inputMetric.getInputValidationErrors()) {
-                        XUnitLog.log(listener, "[WARNING] " + validatorError.toString());
-                    }
                     continue;
                 }
 
@@ -224,7 +221,11 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
                 if (!inputMetric.validateInputFile(resultFile)) {
 
                     //Ignores invalid files
-                    XUnitLog.log(listener, "[WARNING] - The file '" + resultFile + "' is an invalid file. It has been ignored.");
+                    XUnitLog.log(listener, "[WARNING] - The file '" + resultFile + "' is an invalid file.");
+                    for (ValidatorError validatorError : inputMetric.getInputValidationErrors()) {
+                        XUnitLog.log(listener, "[WARNING] " + validatorError.toString());
+                    }
+                    XUnitLog.log(listener, "[WARNING] - The file '" + resultFile + "' has been ignored.");
                     continue;
                 }
 
