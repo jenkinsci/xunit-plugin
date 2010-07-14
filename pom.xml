@@ -35,8 +35,8 @@
     </developers>
 
     <properties>
-        <dtkit.frmk.version>0.1</dtkit.frmk.version>
-        <dtkit.default.junit.version>0.3</dtkit.default.junit.version>
+        <dtkit.frmk.version>0.2</dtkit.frmk.version>
+        <dtkit.default.junit.version>0.4</dtkit.default.junit.version>
     </properties>
 
     <dependencies>
