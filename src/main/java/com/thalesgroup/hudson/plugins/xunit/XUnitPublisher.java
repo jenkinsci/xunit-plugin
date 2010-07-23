@@ -27,6 +27,8 @@ import com.thalesgroup.dtkit.metrics.api.InputMetric;
 import com.thalesgroup.dtkit.metrics.hudson.api.descriptor.TestTypeDescriptor;
 import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
 import com.thalesgroup.hudson.plugins.xunit.exception.XUnitException;
+import com.thalesgroup.hudson.plugins.xunit.service.XUnitService;
+import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitToolInfo;
 import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitTransformer;
 import com.thalesgroup.hudson.plugins.xunit.util.XUnitLog;
 import hudson.*;
@@ -184,7 +186,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
     public boolean perform(final AbstractBuild<?, ?> build, Launcher launcher, final BuildListener listener)
             throws InterruptedException, IOException {
 
-        XUnitLog.log(listener, "Starting to record.");
+        XUnitLog.log(listener, "[INFO] - Starting to record.");
 
         Result previousResult = build.getResult();
 
@@ -193,17 +195,44 @@ public class XUnitPublisher extends Recorder implements Serializable {
             //Creation of the output JUnit directory
             final File junitOuputDir = new File(new FilePath(build.getWorkspace(), "generatedJUnitFiles").toURI());
             if (!junitOuputDir.mkdirs()) {
-                XUnitLog.log(listener, "Can't create the path " + junitOuputDir + ". Maybe the directory already exists.");
+                XUnitLog.log(listener, "[WARNING] - Can't create the path " + junitOuputDir + ". Maybe the directory already exists.");
             }
 
-            // Archiving tools reports into JUnit files
-            XUnitTransformer xUnitTransformer = new XUnitTransformer(listener, junitOuputDir, build.getTimeInMillis(), types);
-            boolean resultTransformation = build.getWorkspace().act(xUnitTransformer);
-            if (!resultTransformation) {
+            XUnitService xUnitService = new XUnitService(listener);
+
+            boolean isInvoked = false;
+            for (TestType tool : types) {
+
+                XUnitLog.log(listener, "[INFO] - Processing " + tool.getDescriptor().getDisplayName());                
+
+                if (!xUnitService.isEmptyPattern(tool.getPattern())) {
+
+                    //Retrieves the pattern
+                    String newExpandedPattern = tool.getPattern();
+                    newExpandedPattern = newExpandedPattern.replaceAll("[\t\r\n]+", " ");
+                    newExpandedPattern = Util.replaceMacro(newExpandedPattern, build.getEnvironment(listener));
+
+                    //Build a new build info
+                    XUnitToolInfo xUnitToolInfo = new XUnitToolInfo(tool, junitOuputDir, newExpandedPattern, build.getTimeInMillis());
+
+                    // Archiving tool reports into JUnit files
+                    XUnitTransformer xUnitTransformer = new XUnitTransformer(xUnitService, listener, xUnitToolInfo);
+                    boolean resultTransformation = build.getWorkspace().act(xUnitTransformer);
+                    if (!resultTransformation) {
+                        build.setResult(Result.FAILURE);
+                        XUnitLog.log(listener, "[INFO] - Stopping recording.");
+                        return true;
+                    }
+
+                    isInvoked = true;
+                }
+            }
+            if (!isInvoked) {
                 build.setResult(Result.FAILURE);
-                XUnitLog.log(listener, "Stopping recording.");
+                XUnitLog.log(listener, "[ERROR] - No test reports found. Configuration erro?");
                 return true;
             }
+
 
             // Process the record of xUnit
             recordTestResult(build, listener, junitOuputDir);
@@ -256,31 +285,31 @@ public class XUnitPublisher extends Recorder implements Serializable {
             });
             if (!resultDeletionOK) {
                 build.setResult(Result.FAILURE);
-                XUnitLog.log(listener, "Stopping recording.");
+                XUnitLog.log(listener, "[INFO] - Stopping recording.");
                 return true;
             }
 
             //Keep the previous status result if worse or equal
             if (previousResult.isWorseOrEqualTo(curResult)) {
                 build.setResult(previousResult);
-                XUnitLog.log(listener, "Stopping recording.");
+                XUnitLog.log(listener, "[INFO] - Stopping recording.");
                 return true;
             }
 
             // Fall back case: Set the build status to new build calculated build status
-            XUnitLog.log(listener, "Setting the build status to " + curResult);
+            XUnitLog.log(listener, " [INFO] - Setting the build status to " + curResult);
             build.setResult(curResult);
-            XUnitLog.log(listener, "Stopping recording.");
+            XUnitLog.log(listener, "[INFO] - Stopping recording.");
             return true;
 
         }
         catch (IOException ie) {
-            XUnitLog.log(listener, "The plugin hasn't been performed correctly: " + ie.getMessage());
+            XUnitLog.log(listener, "[ERROR - The plugin hasn't been performed correctly: " + ie.getMessage());
             build.setResult(Result.FAILURE);
             return false;
         }
         catch (XUnitException xe) {
-            XUnitLog.log(listener, "The plugin hasn't been performed correctly: " + xe.getMessage());
+            XUnitLog.log(listener, "[ERROR] - The plugin hasn't been performed correctly: " + xe.getMessage());
             build.setResult(Result.FAILURE);
             return false;
         }

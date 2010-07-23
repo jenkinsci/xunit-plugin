@@ -39,6 +39,7 @@ public abstract class XUnitType extends TestType {
         super(pattern, faildedIfNotNew, deleteOutputFiles);
     }
 
+    @SuppressWarnings("unused")
     protected XUnitType(String pattern) {
         super(pattern);
     }
