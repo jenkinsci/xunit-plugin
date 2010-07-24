@@ -33,17 +33,23 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import static org.mockito.Mockito.anyBoolean;
 import static org.mockito.Mockito.anyString;
 
 
 public class xUnitTypeTest {
 
+    private <X extends XUnitType, H extends TestType> void processTestNewReturnObjectAllCases(Class<X> classXUnitType, Class<H> classNewHudsonType) throws Exception {
+        processTestNewReturnObject(classXUnitType, classNewHudsonType, anyString(), true, true);
+        processTestNewReturnObject(classXUnitType, classNewHudsonType, anyString(), true, false);
+        processTestNewReturnObject(classXUnitType, classNewHudsonType, anyString(), false, true);
+        processTestNewReturnObject(classXUnitType, classNewHudsonType, anyString(), false, false);
+    }
+
 
     @SuppressWarnings("unchecked")
-    private <X extends XUnitType, H extends TestType> void processTestNewReturnObject(Class<X> classXUnitType, Class<H> classNewHudsonType) throws IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
+    private <X extends XUnitType, H extends TestType> void processTestNewReturnObject(Class<X> classXUnitType, Class<H> classNewHudsonType, String pattern, boolean faildedIfNotNew, boolean deleteJUnitFiles) throws IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
         Constructor c = classXUnitType.getConstructor(String.class, boolean.class, boolean.class);
-        X xUnitType = (X) c.newInstance(anyString(), anyBoolean(), anyBoolean());
+        X xUnitType = (X) c.newInstance(pattern, faildedIfNotNew, deleteJUnitFiles);
 
         //Test new descriptor
         Assert.assertNull(xUnitType.getDescriptor());
@@ -55,7 +61,7 @@ public class xUnitTypeTest {
 
         H hudsonTestType = (H) object;
         Assert.assertNotNull(hudsonTestType.getDescriptor());
-        
+
         Assert.assertEquals(xUnitType.getPattern(), hudsonTestType.getPattern());
         Assert.assertEquals(xUnitType.isDeleteJUnitFiles(), hudsonTestType.isDeleteOutputFiles());
         Assert.assertEquals(xUnitType.isFaildedIfNotNew(), hudsonTestType.isFaildedIfNotNew());
@@ -66,32 +72,32 @@ public class xUnitTypeTest {
 
     @Test
     public void testMSTestType() throws Exception {
-        processTestNewReturnObject(MSTestType.class, MSTestHudsonTestType.class);
+        processTestNewReturnObjectAllCases(MSTestType.class, MSTestHudsonTestType.class);
     }
 
     @Test
     public void testBoostTestType() throws Exception {
-        processTestNewReturnObject(BoostTestType.class, BoostTestHudsonTestType.class);
+        processTestNewReturnObjectAllCases(BoostTestType.class, BoostTestHudsonTestType.class);
     }
 
     @Test
     public void testFPCUnitType() throws Exception {
-        processTestNewReturnObject(FPCUnitType.class, FPCUnitHudsonTestType.class);
+        processTestNewReturnObjectAllCases(FPCUnitType.class, FPCUnitHudsonTestType.class);
     }
 
     @Test
     public void testNUnitType() throws Exception {
-        processTestNewReturnObject(NUnitType.class, NUnitHudsonTestType.class);
+        processTestNewReturnObjectAllCases(NUnitType.class, NUnitHudsonTestType.class);
     }
 
     @Test
     public void testPHPUnitType() throws Exception {
-        processTestNewReturnObject(PHPUnitType.class, PHPUnitHudsonTestType.class);
+        processTestNewReturnObjectAllCases(PHPUnitType.class, PHPUnitHudsonTestType.class);
     }
 
     @Test
     public void testUnitTestType() throws Exception {
-        processTestNewReturnObject(UnitTestType.class, UnitTestHudsonTestType.class);
+        processTestNewReturnObjectAllCases(UnitTestType.class, UnitTestHudsonTestType.class);
     }
 
 }
