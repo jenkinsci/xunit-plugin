@@ -33,17 +33,20 @@ import com.thalesgroup.dtkit.metrics.api.OutputMetric;
 import com.thalesgroup.dtkit.metrics.hudson.api.descriptor.TestTypeDescriptor;
 import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
 import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitToolInfo;
-import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitTransformer;
 import hudson.Util;
 import hudson.model.BuildListener;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintStream;
 import java.util.List;
 
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class XUnitReportProcessingServiceTest {
 
@@ -111,7 +114,6 @@ public class XUnitReportProcessingServiceTest {
     }
 
 
-
     @BeforeClass
     public static void init() {
         final BuildListener listenerMock = mock(BuildListener.class);
@@ -154,5 +156,5 @@ public class XUnitReportProcessingServiceTest {
             dir.delete();
         }
     }
-    
+
 }

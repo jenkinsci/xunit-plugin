@@ -8,8 +8,13 @@ import com.thalesgroup.hudson.plugins.xunit.service.XUnitValidationService;
 import hudson.Util;
 import hudson.model.BuildListener;
 import hudson.remoting.VirtualChannel;
-import org.junit.*;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 import org.mockito.InOrder;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 import java.io.*;
 import java.util.Arrays;
@@ -20,31 +25,28 @@ import static org.mockito.Mockito.*;
 
 public class XUnitTransformerTest {
 
-    private static BuildListener buildListenerMock;
+    @Mock
+    private BuildListener buildListenerMock;
+
+    @Mock
+    private XUnitReportProcessingService xUnitReportProcessingServiceMock;
+
+    @Mock
+    private XUnitConversionService xUnitConversionServiceMock;
+
+    @Mock
+    private XUnitValidationService xUnitValidationServiceMock;
+
+
     private File workspace;
+
     private XUnitTransformer xUnitTransformer;
-
-    private static XUnitReportProcessingService xUnitReportProcessingServiceMock;
-    private static XUnitConversionService xUnitConversionServiceMock;
-    private static XUnitValidationService xUnitValidationServiceMock;
-
-
-    @BeforeClass
-    public static void beforeAllTests() {
-        buildListenerMock = mock(BuildListener.class);
-        xUnitReportProcessingServiceMock = mock(XUnitReportProcessingService.class);
-        xUnitConversionServiceMock = mock(XUnitConversionService.class);
-        xUnitValidationServiceMock = mock(XUnitValidationService.class);
-
-    }
 
 
     @Before
     public void beforeTest() throws IOException {
-        reset(buildListenerMock);
-        reset(xUnitReportProcessingServiceMock);
-        reset(xUnitConversionServiceMock);
-        reset(xUnitValidationServiceMock);
+
+        MockitoAnnotations.initMocks(this);
 
         workspace = Util.createTempDir();
 
@@ -211,7 +213,7 @@ public class XUnitTransformerTest {
 
     @Test
     public void twoFilesNotEmpty() throws Exception {
- //One result file
+        //One result file
         List<String> resultFiles = Arrays.asList("a.txt", "b.txt");
         when(xUnitReportProcessingServiceMock.findReports(any(XUnitToolInfo.class), any(File.class), anyString())).thenReturn(resultFiles);
 
