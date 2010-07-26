@@ -42,7 +42,6 @@ public class BoostTestType extends XUnitType {
      *
      * @return an new hudson object
      */
-    @SuppressWarnings("unused")
     public Object readResolve() {
         return new BoostTestHudsonTestType(this.getPattern(), this.isFaildedIfNotNew(), this.isDeleteJUnitFiles());
     }

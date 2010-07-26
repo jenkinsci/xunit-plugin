@@ -42,7 +42,6 @@ public class MSTestType extends XUnitType {
      *
      * @return an new hudson object
      */
-    @SuppressWarnings("unused")
     public Object readResolve() {
         return new MSTestHudsonTestType(this.getPattern(), this.isFaildedIfNotNew(), this.isDeleteJUnitFiles());
     }

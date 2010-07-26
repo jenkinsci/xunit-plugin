@@ -42,7 +42,6 @@ public class PHPUnitType extends XUnitType {
      *
      * @return an new hudson object
      */
-    @SuppressWarnings("unused")
     public Object readResolve() {
         return new PHPUnitHudsonTestType(this.getPattern(), this.isFaildedIfNotNew(), this.isDeleteJUnitFiles());
     }

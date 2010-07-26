@@ -42,7 +42,6 @@ public class NUnitType extends XUnitType {
      *
      * @return an new hudson object
      */
-    @SuppressWarnings("unused")
     public Object readResolve() {
         return new NUnitHudsonTestType(this.getPattern(), this.isFaildedIfNotNew(), this.isDeleteJUnitFiles());
     }

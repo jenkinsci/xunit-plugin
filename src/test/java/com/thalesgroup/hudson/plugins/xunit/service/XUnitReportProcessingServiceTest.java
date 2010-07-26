@@ -23,6 +23,8 @@
 
 package com.thalesgroup.hudson.plugins.xunit.service;
 
+import com.google.inject.AbstractModule;
+import com.google.inject.Guice;
 import com.thalesgroup.dtkit.junit.model.JUnitModel;
 import com.thalesgroup.dtkit.metrics.api.InputMetricType;
 import com.thalesgroup.dtkit.metrics.api.InputMetricXSL;
@@ -31,6 +33,7 @@ import com.thalesgroup.dtkit.metrics.api.OutputMetric;
 import com.thalesgroup.dtkit.metrics.hudson.api.descriptor.TestTypeDescriptor;
 import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
 import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitToolInfo;
+import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitTransformer;
 import hudson.Util;
 import hudson.model.BuildListener;
 import org.junit.Assert;
@@ -42,9 +45,9 @@ import java.util.List;
 
 import static org.mockito.Mockito.*;
 
-public class XUnitServicelTest {
+public class XUnitReportProcessingServiceTest {
 
-    private static XUnitService xUnitService;
+    private static XUnitReportProcessingService xUnitReportProcessingService;
 
 
     public static class MyInputMetric extends InputMetricXSL {
@@ -111,16 +114,23 @@ public class XUnitServicelTest {
 
     @BeforeClass
     public static void init() {
-        BuildListener listener = mock(BuildListener.class);
-        when(listener.getLogger()).thenReturn(new PrintStream(new ByteArrayOutputStream()));
-        xUnitService = new XUnitService(listener);
+        final BuildListener listenerMock = mock(BuildListener.class);
+        when(listenerMock.getLogger()).thenReturn(new PrintStream(new ByteArrayOutputStream()));
+        xUnitReportProcessingService = Guice.createInjector(new AbstractModule() {
+            @Override
+            protected void configure() {
+                bind(BuildListener.class).toInstance(listenerMock);
+            }
+        }).getInstance(XUnitReportProcessingService.class);
+
+
     }
 
     @Test
     public void isEmptyPattern() {
-        Assert.assertTrue(xUnitService.isEmptyPattern(null));
-        Assert.assertTrue(xUnitService.isEmptyPattern(""));
-        Assert.assertFalse(xUnitService.isEmptyPattern("abc"));
+        Assert.assertTrue(xUnitReportProcessingService.isEmptyPattern(null));
+        Assert.assertTrue(xUnitReportProcessingService.isEmptyPattern(""));
+        Assert.assertFalse(xUnitReportProcessingService.isEmptyPattern("abc"));
     }
 
 
@@ -134,7 +144,7 @@ public class XUnitServicelTest {
             XUnitToolInfo xUnitToolInfoMock = mock(XUnitToolInfo.class);
             when(xUnitToolInfoMock.getTestType()).thenReturn(new MyTestType("", true, true));
 
-            List<String> xUnitFiles = xUnitService.findReports(xUnitToolInfoMock, dir, "*.txt");
+            List<String> xUnitFiles = xUnitReportProcessingService.findReports(xUnitToolInfoMock, dir, "*.txt");
             Assert.assertFalse(xUnitFiles.isEmpty());
             Assert.assertEquals(1, xUnitFiles.size());
             Assert.assertEquals(f1.getName(), xUnitFiles.get(0));

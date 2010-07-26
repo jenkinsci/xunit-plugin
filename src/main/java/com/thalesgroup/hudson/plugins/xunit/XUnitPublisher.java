@@ -23,11 +23,15 @@
 
 package com.thalesgroup.hudson.plugins.xunit;
 
+import com.google.inject.AbstractModule;
+import com.google.inject.Guice;
 import com.thalesgroup.dtkit.metrics.api.InputMetric;
 import com.thalesgroup.dtkit.metrics.hudson.api.descriptor.TestTypeDescriptor;
 import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
 import com.thalesgroup.hudson.plugins.xunit.exception.XUnitException;
-import com.thalesgroup.hudson.plugins.xunit.service.XUnitService;
+import com.thalesgroup.hudson.plugins.xunit.service.XUnitConversionService;
+import com.thalesgroup.hudson.plugins.xunit.service.XUnitReportProcessingService;
+import com.thalesgroup.hudson.plugins.xunit.service.XUnitValidationService;
 import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitToolInfo;
 import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitTransformer;
 import com.thalesgroup.hudson.plugins.xunit.util.XUnitLog;
@@ -59,11 +63,6 @@ import java.util.List;
  */
 @SuppressWarnings("unchecked")
 public class XUnitPublisher extends Recorder implements Serializable {
-
-
-    private static final long serialVersionUID = 1L;
-    private static final String JUNIT_FILE_PATTERN = "**/TEST-*.xml";
-
 
     public TestType[] types;
 
@@ -141,7 +140,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
     }
 
     /**
-     * Record the test results into the current build and return the number of tests
+     * Records the test results into the current build and return the number of tests
      *
      * @param build                the current build object
      * @param listener             the current listener object
@@ -161,7 +160,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
             existingTestResults = existingAction.getResult();
         }
 
-        TestResult result = getTestResult(build, junitTargetDirectory, JUNIT_FILE_PATTERN, existingTestResults, buildTime, nowMaster);
+        TestResult result = getTestResult(build, junitTargetDirectory, "**/TEST-*.xml", existingTestResults, buildTime, nowMaster);
 
         TestResultAction action;
         if (existingAction == null) {
@@ -188,8 +187,6 @@ public class XUnitPublisher extends Recorder implements Serializable {
 
         XUnitLog.log(listener, "[INFO] - Starting to record.");
 
-        Result previousResult = build.getResult();
-
         try {
 
             //Creation of the output JUnit directory
@@ -198,14 +195,19 @@ public class XUnitPublisher extends Recorder implements Serializable {
                 XUnitLog.log(listener, "[WARNING] - Can't create the path " + junitOuputDir + ". Maybe the directory already exists.");
             }
 
-            XUnitService xUnitService = new XUnitService(listener);
+            XUnitReportProcessingService xUnitReportService = Guice.createInjector(new AbstractModule() {
+                @Override
+                protected void configure() {
+                    bind(BuildListener.class).toInstance(listener);
+                }
+            }).getInstance(XUnitReportProcessingService.class);
 
             boolean isInvoked = false;
             for (TestType tool : types) {
 
-                XUnitLog.log(listener, "[INFO] - Processing " + tool.getDescriptor().getDisplayName());                
+                XUnitLog.log(listener, "[INFO] - Processing " + tool.getDescriptor().getDisplayName());
 
-                if (!xUnitService.isEmptyPattern(tool.getPattern())) {
+                if (!xUnitReportService.isEmptyPattern(tool.getPattern())) {
 
                     //Retrieves the pattern
                     String newExpandedPattern = tool.getPattern();
@@ -213,10 +215,22 @@ public class XUnitPublisher extends Recorder implements Serializable {
                     newExpandedPattern = Util.replaceMacro(newExpandedPattern, build.getEnvironment(listener));
 
                     //Build a new build info
-                    XUnitToolInfo xUnitToolInfo = new XUnitToolInfo(tool, junitOuputDir, newExpandedPattern, build.getTimeInMillis());
+                    final XUnitToolInfo xUnitToolInfo = new XUnitToolInfo(tool, junitOuputDir, newExpandedPattern, build.getTimeInMillis());
 
                     // Archiving tool reports into JUnit files
-                    XUnitTransformer xUnitTransformer = new XUnitTransformer(xUnitService, listener, xUnitToolInfo);
+                    //XUnitTransformer xUnitTransformer = new XUnitTransformer(listener, xUnitToolInfo);
+                    XUnitTransformer xUnitTransformer = Guice.createInjector(new AbstractModule() {
+                        @Override
+                        protected void configure() {
+                            bind(BuildListener.class).toInstance(listener);
+                            bind(XUnitToolInfo.class).toInstance(xUnitToolInfo);
+                            bind(XUnitConversionService.class);
+                            bind(XUnitValidationService.class);
+                            bind(XUnitReportProcessingService.class);
+                        }
+                    }).getInstance(XUnitTransformer.class);
+
+  
                     boolean resultTransformation = build.getWorkspace().act(xUnitTransformer);
                     if (!resultTransformation) {
                         build.setResult(Result.FAILURE);
@@ -248,6 +262,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
 
             //Delete generated files if triggered
             boolean resultDeletionOK = build.getWorkspace().act(new FilePath.FileCallable<Boolean>() {
+                @SuppressWarnings({"ResultOfMethodCallIgnored"})
                 public Boolean invoke(File ws, VirtualChannel channel) throws IOException {
 
                     boolean keepJUnitDirectory = false;
@@ -290,6 +305,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
             }
 
             //Keep the previous status result if worse or equal
+            Result previousResult = build.getResult();
             if (previousResult.isWorseOrEqualTo(curResult)) {
                 build.setResult(previousResult);
                 XUnitLog.log(listener, "[INFO] - Stopping recording.");
@@ -297,7 +313,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
             }
 
             // Fall back case: Set the build status to new build calculated build status
-            XUnitLog.log(listener, " [INFO] - Setting the build status to " + curResult);
+            XUnitLog.log(listener, "[INFO] - Setting the build status to " + curResult);
             build.setResult(curResult);
             XUnitLog.log(listener, "[INFO] - Stopping recording.");
             return true;

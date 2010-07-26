@@ -23,10 +23,11 @@
 
 package com.thalesgroup.hudson.plugins.xunit.transformer;
 
-import com.thalesgroup.dtkit.metrics.api.InputMetric;
-import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
+import com.google.inject.Inject;
 import com.thalesgroup.hudson.plugins.xunit.exception.XUnitException;
-import com.thalesgroup.hudson.plugins.xunit.service.XUnitService;
+import com.thalesgroup.hudson.plugins.xunit.service.XUnitConversionService;
+import com.thalesgroup.hudson.plugins.xunit.service.XUnitReportProcessingService;
+import com.thalesgroup.hudson.plugins.xunit.service.XUnitValidationService;
 import com.thalesgroup.hudson.plugins.xunit.util.XUnitLog;
 import hudson.FilePath;
 import hudson.model.BuildListener;
@@ -40,17 +41,20 @@ import java.util.List;
 
 public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Serializable {
 
-    private transient XUnitService xUnitService;
+    @Inject
+    private XUnitReportProcessingService xUnitReportProcessingService;
 
-    private final BuildListener listener;
+    @Inject
+    private XUnitConversionService xUnitConversionService;
 
-    private final XUnitToolInfo xUnitToolInfo;
+    @Inject
+    private XUnitValidationService xUnitValidationService;
 
-    public XUnitTransformer(XUnitService xUnitService, BuildListener listener, XUnitToolInfo xUnitToolInfo) {
-        this.xUnitService = xUnitService;
-        this.listener = listener;
-        this.xUnitToolInfo= xUnitToolInfo;
-    }
+    @Inject
+    private BuildListener listener;
+
+    @Inject
+    private XUnitToolInfo xUnitToolInfo;
 
 
     /**
@@ -65,19 +69,19 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
         try {
 
             //Gets all input files matching the user pattern
-            List<String> resultFiles = xUnitService.findReports(xUnitToolInfo, ws, xUnitToolInfo.getExpandedPattern());
+            List<String> resultFiles = xUnitReportProcessingService.findReports(xUnitToolInfo, ws, xUnitToolInfo.getExpandedPattern());
             if (resultFiles.size() == 0) {
                 return false;
             }
 
             //Checks the timestamp for each test file if the UI option is checked (true by default)
-            if (!xUnitService.checkIfFindsFilesNewFiles(xUnitToolInfo, resultFiles, ws)) {
+            if (!xUnitReportProcessingService.checkIfFindsFilesNewFiles(xUnitToolInfo, resultFiles, ws)) {
                 return false;
             }
 
             for (String curFileName : resultFiles) {
 
-                File curFile = xUnitService.getCurrentFile(ws, curFileName);
+                File curFile = xUnitReportProcessingService.getCurrentReport(ws, curFileName);
 
                 if (curFile.length() == 0) {
                     //Ignore the empty result file (some reason)
@@ -87,17 +91,17 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
                 }
 
                 //Validates Input file
-                if (!xUnitService.validateInputFile(xUnitToolInfo , curFile)) {
+                if (!xUnitValidationService.validateInputFile(xUnitToolInfo, curFile)) {
                     XUnitLog.log(listener, "[WARNING] - The file '" + curFile + "' has been ignored.");
                     continue;
                 }
 
                 //Convert the input file
-                File junitTargetFile = xUnitService.convert(xUnitToolInfo, curFile, xUnitToolInfo.getJunitOutputDir());
+                File junitTargetFile = xUnitConversionService.convert(xUnitToolInfo, curFile, xUnitToolInfo.getJunitOutputDir());
 
 
                 //Validates converted file
-                boolean result = xUnitService.validateOutputFile(xUnitToolInfo, curFile, junitTargetFile);
+                boolean result = xUnitValidationService.validateOutputFile(xUnitToolInfo, curFile, junitTargetFile);
                 if (!result) {
                     return false;
                 }

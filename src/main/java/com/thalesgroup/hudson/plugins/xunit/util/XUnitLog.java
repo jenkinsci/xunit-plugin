@@ -44,9 +44,4 @@ public class XUnitLog implements Serializable {
         listener.getLogger().println("[xUnit] " + message);
     }
 
-    public static String XUnit_Publiser_Name() {
-        return holder.format("xUnit.Publisher.Name");
-    }
-
-
 }

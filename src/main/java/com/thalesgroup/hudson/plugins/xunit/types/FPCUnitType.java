@@ -42,7 +42,6 @@ public class FPCUnitType extends XUnitType {
      *
      * @return an new hudson object
      */
-    @SuppressWarnings("unused")
     public Object readResolve() {
         return new FPCUnitHudsonTestType(this.getPattern(), this.isFaildedIfNotNew(), this.isDeleteJUnitFiles());
     }

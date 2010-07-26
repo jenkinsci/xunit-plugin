@@ -40,7 +40,22 @@
         <dtkit.default.junit.version>0.4</dtkit.default.junit.version>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>guice-maven</id>
+            <name>guice maven</name>
+            <url>http://guice-maven.googlecode.com/svn/trunk</url>
+        </repository>
+    </repositories>
+
     <dependencies>
+
+        <dependency>
+            <groupId>com.google.code.guice</groupId>
+            <artifactId>guice</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+
 
         <dependency>
             <groupId>xerces</groupId>
@@ -73,7 +88,7 @@
             <version>4.8.1</version>
             <scope>test</scope>
         </dependency>
-        
+
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-all</artifactId>

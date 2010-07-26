@@ -23,12 +23,8 @@
 
 package com.thalesgroup.hudson.plugins.xunit.service;
 
-import com.thalesgroup.dtkit.metrics.api.InputMetric;
+import com.google.inject.Inject;
 import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
-import com.thalesgroup.dtkit.util.converter.ConvertException;
-import com.thalesgroup.dtkit.util.validator.ValidatorError;
-import com.thalesgroup.dtkit.util.validator.ValidatorException;
-import com.thalesgroup.hudson.plugins.xunit.exception.XUnitException;
 import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitToolInfo;
 import com.thalesgroup.hudson.plugins.xunit.util.XUnitLog;
 import hudson.Util;
@@ -42,13 +38,10 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class XUnitService {
+public class XUnitReportProcessingService {
 
+    @Inject
     private BuildListener buildListener;
-
-    public XUnitService(BuildListener buildListener) {
-        this.buildListener = buildListener;
-    }
 
     /**
      * Tests if the pattern is empty.
@@ -63,7 +56,7 @@ public class XUnitService {
     /**
      * Gets all reports from the given parent path and the pattern.
      *
-     * @param xUnitToolInfo
+     * @param xUnitToolInfo the xunit tool wrapper
      * @param parentPath    parent
      * @param pattern       pattern to search files
      * @return an array of strings
@@ -83,7 +76,7 @@ public class XUnitService {
                     + "  Did you generate the result report(s) for '" + toolName + "'?";
             XUnitLog.log(buildListener, msg);
         } else {
-            String msg = "[" + toolName + "] - [INFO] - " + xunitFiles.length  + " test report file(s) were found with the pattern '"
+            String msg = "[" + toolName + "] - [INFO] - " + xunitFiles.length + " test report file(s) were found with the pattern '"
                     + pattern + "' relative to '" + parentPath + "' for the testing framework '" + toolName + "'.";
             XUnitLog.log(buildListener, msg);
         }
@@ -92,107 +85,12 @@ public class XUnitService {
 
 
     /**
-     * Validates an input file
-     *
-     * @param xUnitToolInfo the xUnit tool info wrapper
-     * @param inputFile     the current input file
-     * @return true if the validation is success, false otherwise
-     * @throws XUnitException an XUnitException when there are validation exceptions
-     */
-    public boolean validateInputFile(XUnitToolInfo xUnitToolInfo, File inputFile) throws XUnitException {
-
-        InputMetric inputMetric = xUnitToolInfo.getTestType().getInputMetric();
-
-        //Validates the input file (nom empty)
-        try {
-            if (!inputMetric.validateInputFile(inputFile)) {
-
-                //Ignores invalid files
-                XUnitLog.log(buildListener, "[WARNING] - The file '" + inputFile + "' is an invalid file.");
-                for (ValidatorError validatorError : inputMetric.getInputValidationErrors()) {
-                    XUnitLog.log(buildListener, "[WARNING] " + validatorError.toString());
-                }
-
-                return false;
-            }
-        } catch (ValidatorException ve) {
-            throw new XUnitException("Validation error on input", ve);
-        }
-        return true;
-    }
-
-
-    /**
-     * Validates the converted file against a JUnit format
-     *
-     * @param xUnitToolInfo   the xUnit info wrapper object
-     * @param inputFile       the input metric from the conversion
-     * @param junitTargetFile the converted input file
-     * @return true if the validation is success, false otherwise
-     * @throws XUnitException an XUnitException when there are validation exceptions
-     */
-    public boolean validateOutputFile(XUnitToolInfo xUnitToolInfo, File inputFile, File junitTargetFile) throws XUnitException {
-        InputMetric inputMetric = xUnitToolInfo.getTestType().getInputMetric();
-
-        try {
-            //Validates the output
-            boolean validateOutput = inputMetric.validateOutputFile(junitTargetFile);
-            if (!validateOutput) {
-                XUnitLog.log(buildListener, "[ERROR] - The converted file for the input file '" + inputFile + "' doesn't match the JUnit format");
-                for (ValidatorError validatorError : inputMetric.getOutputValidationErrors()) {
-                    XUnitLog.log(buildListener, "[ERROR] " + validatorError.toString());
-                }
-                return false;
-            }
-
-        }
-        catch (ValidatorException ve) {
-            throw new XUnitException("Validation error on output", ve);
-        }
-
-        return true;
-    }
-
-
-    /**
-     * Convert the inputFile into a JUnit output file
-     *
-     * @param xUnitToolInfo        the xUnit info wrapper object
-     * @param inputFile            the input file to be converted
-     * @param junitOutputDirectory the output parent directory that contains the JUnit output file
-     * @return the converted file
-     * @throws XUnitException an XUnitException is thrown if there is a convertion error.
-     */
-    public File convert(XUnitToolInfo xUnitToolInfo, File inputFile, File junitOutputDirectory) throws XUnitException {
-
-        InputMetric inputMetric = xUnitToolInfo.getTestType().getInputMetric();
-
-        final String JUNIT_FILE_POSTFIX = ".xml";
-        final String JUNIT_FILE_PREFIX = "TEST-";
-        File parent = new File(junitOutputDirectory, inputMetric.getToolName());
-        parent.mkdirs();
-        if (!parent.exists()) {
-            throw new XUnitException("Can't create " + parent);
-        }
-        File junitTargetFile = new File(parent, JUNIT_FILE_PREFIX + inputFile.hashCode() + JUNIT_FILE_POSTFIX);
-        XUnitLog.log(buildListener, "[INFO] - Converting '" + inputFile + "' .");
-        try {
-            inputMetric.convert(inputFile, junitTargetFile);
-        } catch (ConvertException ce) {
-            throw new XUnitException("Convertion error", ce);
-        }
-
-        return junitTargetFile;
-    }
-
-
-    /**
-     * Check if all the finds files are new file
+     * Checks if all the finds files are new file
      *
      * @param xUnitToolInfo the wrapped object
-     * @param files
-     * @param workspace
-     * @return
+     * @param files         the file list
+     * @param workspace     the root location of the file list
+     * @return true if all files are new, false otherwise
      */
     public boolean checkIfFindsFilesNewFiles(XUnitToolInfo xUnitToolInfo, List<String> files, File workspace) {
 
@@ -232,14 +130,13 @@ public class XUnitService {
     }
 
     /**
-     * Get a file with the combinason of a root and a name
+     * Gets a file from a root file and a name
      *
      * @param root the root path
      * @param name the filename
      * @return the current file
      */
-    public File getCurrentFile(File root, String name) {
+    public File getCurrentReport(File root, String name) {
         return new File(root, name);
     }
-
 }
