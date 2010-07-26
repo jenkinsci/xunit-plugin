@@ -26,22 +26,26 @@ package com.thalesgroup.hudson.plugins.xunit.service;
 import com.google.inject.Inject;
 import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
 import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitToolInfo;
-import com.thalesgroup.hudson.plugins.xunit.util.XUnitLog;
 import hudson.Util;
-import hudson.model.BuildListener;
 import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 
-public class XUnitReportProcessingService {
+public class XUnitReportProcessingService implements Serializable {
+
+    private XUnitLog xUnitLog;
 
     @Inject
-    private BuildListener buildListener;
+    @SuppressWarnings("unused")
+    public void setxUnitLog(XUnitLog xUnitLog) {
+        this.xUnitLog = xUnitLog;
+    }
 
     /**
      * Tests if the pattern is empty.
@@ -70,15 +74,15 @@ public class XUnitReportProcessingService {
         String[] xunitFiles = ds.getIncludedFiles();
 
         if (xunitFiles.length == 0) {
-            String msg = "[" + toolName + "] - [ERROR] - No test report file(s) were found with the pattern '"
+            String msg = "[" + toolName + "] - No test report file(s) were found with the pattern '"
                     + pattern + "' relative to '" + parentPath + "' for the testing framework '" + toolName + "'."
                     + "  Did you enter a pattern relative to the correct directory?"
                     + "  Did you generate the result report(s) for '" + toolName + "'?";
-            XUnitLog.log(buildListener, msg);
+            xUnitLog.error(msg);
         } else {
-            String msg = "[" + toolName + "] - [INFO] - " + xunitFiles.length + " test report file(s) were found with the pattern '"
+            String msg = "[" + toolName + "] - " + xunitFiles.length + " test report file(s) were found with the pattern '"
                     + pattern + "' relative to '" + parentPath + "' for the testing framework '" + toolName + "'.";
-            XUnitLog.log(buildListener, msg);
+            xUnitLog.info(msg);
         }
         return Arrays.asList(xunitFiles);
     }
@@ -110,18 +114,18 @@ public class XUnitReportProcessingService {
                 long localTime = System.currentTimeMillis();
                 if (localTime < xUnitToolInfo.getBuildTime() - 1000) {
                     // build time is in the the future. clock on this slave must be running behind
-                    String msg = "[ERROR] - Clock on this slave is out of sync with the master, and therefore \n" +
+                    String msg = "Clock on this slave is out of sync with the master, and therefore \n" +
                             "I can't figure out what test results are new and what are old.\n" +
                             "Please keep the slave clock in sync with the master.";
-                    XUnitLog.log(buildListener, msg);
+                    xUnitLog.error(msg);
                     return false;
                 }
 
-                String msg = "[ERROR] Test reports were found but not all of them are new. Did all the tests run?\n";
+                String msg = "Test reports were found but not all of them are new. Did all the tests run?\n";
                 for (File f : oldResults) {
                     msg += String.format("  * %s is %s old\n", f, Util.getTimeSpanString(xUnitToolInfo.getBuildTime() - f.lastModified()));
                 }
-                XUnitLog.log(buildListener, msg);
+                xUnitLog.error(msg);
                 return false;
             }
         }

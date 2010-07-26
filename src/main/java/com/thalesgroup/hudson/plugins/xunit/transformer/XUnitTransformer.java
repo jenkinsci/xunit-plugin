@@ -26,11 +26,10 @@ package com.thalesgroup.hudson.plugins.xunit.transformer;
 import com.google.inject.Inject;
 import com.thalesgroup.hudson.plugins.xunit.exception.XUnitException;
 import com.thalesgroup.hudson.plugins.xunit.service.XUnitConversionService;
+import com.thalesgroup.hudson.plugins.xunit.service.XUnitLog;
 import com.thalesgroup.hudson.plugins.xunit.service.XUnitReportProcessingService;
 import com.thalesgroup.hudson.plugins.xunit.service.XUnitValidationService;
-import com.thalesgroup.hudson.plugins.xunit.util.XUnitLog;
 import hudson.FilePath;
-import hudson.model.BuildListener;
 import hudson.remoting.VirtualChannel;
 import hudson.util.IOException2;
 
@@ -41,21 +40,45 @@ import java.util.List;
 
 public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Serializable {
 
-    @Inject
     private XUnitReportProcessingService xUnitReportProcessingService;
 
-    @Inject
     private XUnitConversionService xUnitConversionService;
 
-    @Inject
     private XUnitValidationService xUnitValidationService;
 
-    @Inject
-    private BuildListener listener;
-
-    @Inject
     private XUnitToolInfo xUnitToolInfo;
 
+    private XUnitLog xUnitLog;
+
+    @Inject
+    @SuppressWarnings("unused")
+    public void setXUnitReportProcessingService(XUnitReportProcessingService xUnitReportProcessingService) {
+        this.xUnitReportProcessingService = xUnitReportProcessingService;
+    }
+
+    @Inject
+    @SuppressWarnings("unused")
+    public void setXUnitConversionService(XUnitConversionService xUnitConversionService) {
+        this.xUnitConversionService = xUnitConversionService;
+    }
+
+    @Inject
+    @SuppressWarnings("unused")
+    public void setXUnitValidationService(XUnitValidationService xUnitValidationService) {
+        this.xUnitValidationService = xUnitValidationService;
+    }
+
+    @Inject
+    @SuppressWarnings("unused")
+    public void setXUnitToolInfo(XUnitToolInfo xUnitToolInfo) {
+        this.xUnitToolInfo = xUnitToolInfo;
+    }
+
+    @Inject
+    @SuppressWarnings("unused")
+    public void setXUnitLog(XUnitLog xUnitLog) {
+        this.xUnitLog = xUnitLog;
+    }
 
     /**
      * Invocation
@@ -83,17 +106,17 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
 
                 File curFile = xUnitReportProcessingService.getCurrentReport(ws, curFileName);
 
-                if (curFile.length() == 0) {
+                if (!xUnitValidationService.checkFileIsNotEmpty(curFile)) {
                     //Ignore the empty result file (some reason)
-                    String msg = "[WARNING] - The file '" + curFile.getPath() + "' is empty. This file has been ignored.";
-                    XUnitLog.log(listener, msg);
-                    continue;
+                    String msg = "The file '" + curFile.getPath() + "' is empty. This file has been ignored.";
+                    xUnitLog.warning(msg);
+                    return false;
                 }
 
                 //Validates Input file
                 if (!xUnitValidationService.validateInputFile(xUnitToolInfo, curFile)) {
-                    XUnitLog.log(listener, "[WARNING] - The file '" + curFile + "' has been ignored.");
-                    continue;
+                    xUnitLog.warning("The file '" + curFile + "' has been ignored.");
+                    return false;
                 }
 
                 //Convert the input file

@@ -25,16 +25,17 @@ package com.thalesgroup.hudson.plugins.xunit;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
+import com.google.inject.Singleton;
 import com.thalesgroup.dtkit.metrics.api.InputMetric;
 import com.thalesgroup.dtkit.metrics.hudson.api.descriptor.TestTypeDescriptor;
 import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
 import com.thalesgroup.hudson.plugins.xunit.exception.XUnitException;
 import com.thalesgroup.hudson.plugins.xunit.service.XUnitConversionService;
+import com.thalesgroup.hudson.plugins.xunit.service.XUnitLog;
 import com.thalesgroup.hudson.plugins.xunit.service.XUnitReportProcessingService;
 import com.thalesgroup.hudson.plugins.xunit.service.XUnitValidationService;
 import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitToolInfo;
 import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitTransformer;
-import com.thalesgroup.hudson.plugins.xunit.util.XUnitLog;
 import hudson.*;
 import hudson.model.*;
 import hudson.remoting.VirtualChannel;
@@ -61,15 +62,20 @@ import java.util.List;
  *
  * @author Gregory Boissinot
  */
-@SuppressWarnings("unchecked")
+@SuppressWarnings({"unchecked", "unused"})
 public class XUnitPublisher extends Recorder implements Serializable {
 
-    public TestType[] types;
+    private TestType[] types;
+
+    private transient XUnitLog xUnitLog;
 
     public XUnitPublisher(TestType[] types) {
         this.types = types;
     }
 
+    public TestType[] getTypes() {
+        return types;
+    }
 
     @Override
     public Action getProjectAction(AbstractProject<?, ?> project) {
@@ -185,14 +191,23 @@ public class XUnitPublisher extends Recorder implements Serializable {
     public boolean perform(final AbstractBuild<?, ?> build, Launcher launcher, final BuildListener listener)
             throws InterruptedException, IOException {
 
-        XUnitLog.log(listener, "[INFO] - Starting to record.");
+
+        xUnitLog = Guice.createInjector(new AbstractModule() {
+            @Override
+            protected void configure() {
+                bind(BuildListener.class).toInstance(listener);
+            }
+        }).getInstance(XUnitLog.class);
+
+
+        xUnitLog.info("Starting to record.");
 
         try {
 
             //Creation of the output JUnit directory
             final File junitOuputDir = new File(new FilePath(build.getWorkspace(), "generatedJUnitFiles").toURI());
             if (!junitOuputDir.mkdirs()) {
-                XUnitLog.log(listener, "[WARNING] - Can't create the path " + junitOuputDir + ". Maybe the directory already exists.");
+                xUnitLog.warning("Can't create the path " + junitOuputDir + ". Maybe the directory already exists.");
             }
 
             XUnitReportProcessingService xUnitReportService = Guice.createInjector(new AbstractModule() {
@@ -205,7 +220,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
             boolean isInvoked = false;
             for (TestType tool : types) {
 
-                XUnitLog.log(listener, "[INFO] - Processing " + tool.getDescriptor().getDisplayName());
+                xUnitLog.info("Processing " + tool.getDescriptor().getDisplayName());
 
                 if (!xUnitReportService.isEmptyPattern(tool.getPattern())) {
 
@@ -218,23 +233,24 @@ public class XUnitPublisher extends Recorder implements Serializable {
                     final XUnitToolInfo xUnitToolInfo = new XUnitToolInfo(tool, junitOuputDir, newExpandedPattern, build.getTimeInMillis());
 
                     // Archiving tool reports into JUnit files
-                    //XUnitTransformer xUnitTransformer = new XUnitTransformer(listener, xUnitToolInfo);
                     XUnitTransformer xUnitTransformer = Guice.createInjector(new AbstractModule() {
                         @Override
                         protected void configure() {
                             bind(BuildListener.class).toInstance(listener);
                             bind(XUnitToolInfo.class).toInstance(xUnitToolInfo);
-                            bind(XUnitConversionService.class);
-                            bind(XUnitValidationService.class);
-                            bind(XUnitReportProcessingService.class);
+                            bind(XUnitConversionService.class).in(Singleton.class);
+                            bind(XUnitValidationService.class).in(Singleton.class);
+                            bind(XUnitLog.class).in(Singleton.class);
+                            bind(XUnitReportProcessingService.class).in(Singleton.class);
+
                         }
                     }).getInstance(XUnitTransformer.class);
 
-  
+
                     boolean resultTransformation = build.getWorkspace().act(xUnitTransformer);
                     if (!resultTransformation) {
                         build.setResult(Result.FAILURE);
-                        XUnitLog.log(listener, "[INFO] - Stopping recording.");
+                        xUnitLog.info("Stopping recording.");
                         return true;
                     }
 
@@ -243,7 +259,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
             }
             if (!isInvoked) {
                 build.setResult(Result.FAILURE);
-                XUnitLog.log(listener, "[ERROR] - No test reports found. Configuration erro?");
+                xUnitLog.error("No test reports found. Configuration error?");
                 return true;
             }
 
@@ -275,7 +291,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
                             File[] files = toolFileParant.listFiles();
                             for (File f : files) {
                                 if (!f.delete()) {
-                                    XUnitLog.log(listener, "[WARNING] - Can't delete the file: " + f);
+                                    xUnitLog.warning("Can't delete the file: " + f);
                                 }
                             }
                         } else {
@@ -300,7 +316,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
             });
             if (!resultDeletionOK) {
                 build.setResult(Result.FAILURE);
-                XUnitLog.log(listener, "[INFO] - Stopping recording.");
+                xUnitLog.info("Stopping recording.");
                 return true;
             }
 
@@ -308,24 +324,24 @@ public class XUnitPublisher extends Recorder implements Serializable {
             Result previousResult = build.getResult();
             if (previousResult.isWorseOrEqualTo(curResult)) {
                 build.setResult(previousResult);
-                XUnitLog.log(listener, "[INFO] - Stopping recording.");
+                xUnitLog.info("Stopping recording.");
                 return true;
             }
 
             // Fall back case: Set the build status to new build calculated build status
-            XUnitLog.log(listener, "[INFO] - Setting the build status to " + curResult);
+            xUnitLog.info("Setting the build status to " + curResult);
             build.setResult(curResult);
-            XUnitLog.log(listener, "[INFO] - Stopping recording.");
+            xUnitLog.info("Stopping recording.");
             return true;
 
         }
         catch (IOException ie) {
-            XUnitLog.log(listener, "[ERROR - The plugin hasn't been performed correctly: " + ie.getMessage());
+            xUnitLog.error("The plugin hasn't been performed correctly: " + ie.getMessage());
             build.setResult(Result.FAILURE);
             return false;
         }
         catch (XUnitException xe) {
-            XUnitLog.log(listener, "[ERROR] - The plugin hasn't been performed correctly: " + xe.getMessage());
+            xUnitLog.error("The plugin hasn't been performed correctly: " + xe.getMessage());
             build.setResult(Result.FAILURE);
             return false;
         }

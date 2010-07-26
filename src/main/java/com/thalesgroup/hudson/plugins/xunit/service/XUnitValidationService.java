@@ -29,17 +29,30 @@ import com.thalesgroup.dtkit.util.validator.ValidatorError;
 import com.thalesgroup.dtkit.util.validator.ValidatorException;
 import com.thalesgroup.hudson.plugins.xunit.exception.XUnitException;
 import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitToolInfo;
-import com.thalesgroup.hudson.plugins.xunit.util.XUnitLog;
-import hudson.model.BuildListener;
 
 import java.io.File;
+import java.io.Serializable;
 
 
-public class XUnitValidationService {
+public class XUnitValidationService implements Serializable {
+
+    private XUnitLog xUnitLog;
 
     @Inject
-    private BuildListener buildListener;
+    @SuppressWarnings("unused")
+    public void setxUnitLog(XUnitLog xUnitLog) {
+        this.xUnitLog = xUnitLog;
+    }
 
+    /**
+     * Checks if the current input file is not empty
+     *
+     * @param inputFile the input file
+     * @return true if not empty, false otherwise
+     */
+    public boolean checkFileIsNotEmpty(File inputFile) {
+        return inputFile.length() != 0;
+    }
 
     /**
      * Validates an input file
@@ -59,9 +72,9 @@ public class XUnitValidationService {
             if (!inputMetric.validateInputFile(inputFile)) {
 
                 //Ignores invalid files
-                XUnitLog.log(buildListener, "[WARNING] - The file '" + inputFile + "' is an invalid file.");
+                xUnitLog.warning("The file '" + inputFile + "' is an invalid file.");
                 for (ValidatorError validatorError : inputMetric.getInputValidationErrors()) {
-                    XUnitLog.log(buildListener, "[WARNING] " + validatorError.toString());
+                    xUnitLog.warning(validatorError.toString());
                 }
 
                 return false;
@@ -89,9 +102,9 @@ public class XUnitValidationService {
             //Validates the output
             boolean validateOutput = inputMetric.validateOutputFile(junitTargetFile);
             if (!validateOutput) {
-                XUnitLog.log(buildListener, "[ERROR] - The converted file for the input file '" + inputFile + "' doesn't match the JUnit format");
+                xUnitLog.error("The converted file for the input file '" + inputFile + "' doesn't match the JUnit format");
                 for (ValidatorError validatorError : inputMetric.getOutputValidationErrors()) {
-                    XUnitLog.log(buildListener, "[ERROR] " + validatorError.toString());
+                    xUnitLog.error(validatorError.toString());
                 }
                 return false;
             }

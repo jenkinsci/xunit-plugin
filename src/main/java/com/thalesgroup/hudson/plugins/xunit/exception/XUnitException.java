@@ -26,6 +26,7 @@ package com.thalesgroup.hudson.plugins.xunit.exception;
 
 public class XUnitException extends Exception {
 
+    @SuppressWarnings("unused")
     public XUnitException() {
     }
 

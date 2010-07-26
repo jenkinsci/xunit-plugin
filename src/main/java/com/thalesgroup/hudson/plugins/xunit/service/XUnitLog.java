@@ -21,27 +21,49 @@
  * THE SOFTWARE.                                                                *
  *******************************************************************************/
 
-package com.thalesgroup.hudson.plugins.xunit.util;
+package com.thalesgroup.hudson.plugins.xunit.service;
 
+import com.google.inject.Inject;
 import hudson.model.BuildListener;
-import org.jvnet.localizer.ResourceBundleHolder;
 
 import java.io.Serializable;
 
 public class XUnitLog implements Serializable {
+   
+    private BuildListener buildListener;
 
-    private static final long serialVersionUID = 1L;
-
-    private final static ResourceBundleHolder holder = ResourceBundleHolder.get(XUnitLog.class);
+    @Inject
+    @SuppressWarnings("unused")
+    public void setBuildListener(BuildListener buildListener) {
+        this.buildListener = buildListener;
+    }
 
     /**
-     * Log output to the given logger
+     * Log an info output to the given logger
      *
-     * @param listener The current listener
-     * @param message  The message to be outputted
+     * @param message The message to be outputted
      */
-    public static void log(BuildListener listener, final String message) {
-        listener.getLogger().println("[xUnit] " + message);
+    public void info(String message) {
+        buildListener.getLogger().println("[xUnit] [INFO] - " + message);
+    }
+
+
+    /**
+     * Log an error output to the given logger
+     *
+     * @param message The message to be outputted
+     */
+    public void error(String message) {
+        buildListener.getLogger().println("[xUnit] [ERROR] - " + message);
+    }
+
+    /**
+     * Log a warning output to the given logger
+     *
+     * @param message The message to be outputted
+     */
+    public void warning(String message) {
+        buildListener.getLogger().println("[xUnit] [WARNING] - " + message);
     }
 
 }

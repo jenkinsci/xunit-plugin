@@ -25,6 +25,7 @@ package com.thalesgroup.hudson.plugins.xunit.service;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
+import com.google.inject.Singleton;
 import com.thalesgroup.dtkit.junit.model.JUnitModel;
 import com.thalesgroup.dtkit.metrics.api.InputMetricType;
 import com.thalesgroup.dtkit.metrics.api.InputMetricXSL;
@@ -94,11 +95,11 @@ public class XUnitReportProcessingServiceTest {
     public static class MyTestTypeDescriptor extends TestTypeDescriptor<MyTestType> {
 
         public MyTestTypeDescriptor() {
-            super(MyTestType.class, new MyInputMetric().getClass());
+            super(MyTestType.class, MyInputMetric.class);
         }
 
         public String getId() {
-            return new MyInputMetric().getClass().toString();
+            return MyInputMetric.class.toString();
         }
     }
 
@@ -121,6 +122,7 @@ public class XUnitReportProcessingServiceTest {
         xUnitReportProcessingService = Guice.createInjector(new AbstractModule() {
             @Override
             protected void configure() {
+                bind(XUnitLog.class).in(Singleton.class);
                 bind(BuildListener.class).toInstance(listenerMock);
             }
         }).getInstance(XUnitReportProcessingService.class);
@@ -137,6 +139,7 @@ public class XUnitReportProcessingServiceTest {
 
 
     @Test
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     public void findReportsOneFile() throws IOException {
         File dir = Util.createTempDir();
         File f1 = new File(dir, "a.txt");

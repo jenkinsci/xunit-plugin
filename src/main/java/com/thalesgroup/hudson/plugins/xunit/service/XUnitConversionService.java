@@ -28,16 +28,20 @@ import com.thalesgroup.dtkit.metrics.api.InputMetric;
 import com.thalesgroup.dtkit.util.converter.ConvertException;
 import com.thalesgroup.hudson.plugins.xunit.exception.XUnitException;
 import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitToolInfo;
-import com.thalesgroup.hudson.plugins.xunit.util.XUnitLog;
-import hudson.model.BuildListener;
 
 import java.io.File;
+import java.io.Serializable;
 
 
-public class XUnitConversionService {
+public class XUnitConversionService implements Serializable {
+
+    private XUnitLog xUnitLog;
 
     @Inject
-    private BuildListener buildListener;
+    @SuppressWarnings("unused")
+    public void setxUnitLog(XUnitLog xUnitLog) {
+        this.xUnitLog = xUnitLog;
+    }
 
     /**
      * Converts the inputFile into a JUnit output file
@@ -62,7 +66,7 @@ public class XUnitConversionService {
             throw new XUnitException("Can't create " + parent);
         }
         File junitTargetFile = new File(parent, JUNIT_FILE_PREFIX + inputFile.hashCode() + JUNIT_FILE_POSTFIX);
-        XUnitLog.log(buildListener, "[INFO] - Converting '" + inputFile + "' .");
+        xUnitLog.info("Converting '" + inputFile + "' .");
         try {
             inputMetric.convert(inputFile, junitTargetFile);
         } catch (ConvertException ce) {
