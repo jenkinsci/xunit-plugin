@@ -34,7 +34,7 @@ public class XUnitLog implements Serializable {
 
     @Inject
     @SuppressWarnings("unused")
-    public void setBuildListener(BuildListener buildListener) {
+    void set(BuildListener buildListener) {
         this.buildListener = buildListener;
     }
 

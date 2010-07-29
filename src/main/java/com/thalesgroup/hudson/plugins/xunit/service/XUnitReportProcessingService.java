@@ -43,7 +43,7 @@ public class XUnitReportProcessingService implements Serializable {
 
     @Inject
     @SuppressWarnings("unused")
-    public void setxUnitLog(XUnitLog xUnitLog) {
+    void set(XUnitLog xUnitLog) {
         this.xUnitLog = xUnitLog;
     }
 

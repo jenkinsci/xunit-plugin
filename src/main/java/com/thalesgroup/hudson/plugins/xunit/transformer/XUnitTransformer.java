@@ -52,31 +52,16 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
 
     @Inject
     @SuppressWarnings("unused")
-    public void setXUnitReportProcessingService(XUnitReportProcessingService xUnitReportProcessingService) {
+    void load(
+            XUnitReportProcessingService xUnitReportProcessingService,
+            XUnitConversionService xUnitConversionService,
+            XUnitValidationService xUnitValidationService,
+            XUnitToolInfo xUnitToolInfo,
+            XUnitLog xUnitLog) {
         this.xUnitReportProcessingService = xUnitReportProcessingService;
-    }
-
-    @Inject
-    @SuppressWarnings("unused")
-    public void setXUnitConversionService(XUnitConversionService xUnitConversionService) {
-        this.xUnitConversionService = xUnitConversionService;
-    }
-
-    @Inject
-    @SuppressWarnings("unused")
-    public void setXUnitValidationService(XUnitValidationService xUnitValidationService) {
         this.xUnitValidationService = xUnitValidationService;
-    }
-
-    @Inject
-    @SuppressWarnings("unused")
-    public void setXUnitToolInfo(XUnitToolInfo xUnitToolInfo) {
+        this.xUnitConversionService = xUnitConversionService;
         this.xUnitToolInfo = xUnitToolInfo;
-    }
-
-    @Inject
-    @SuppressWarnings("unused")
-    public void setXUnitLog(XUnitLog xUnitLog) {
         this.xUnitLog = xUnitLog;
     }
 

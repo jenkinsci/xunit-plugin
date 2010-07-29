@@ -2,11 +2,11 @@ package com.thalesgroup.hudson.plugins.xunit.transformer;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
-import com.google.inject.Singleton;
+import com.google.inject.Stage;
 import com.thalesgroup.hudson.plugins.xunit.service.XUnitConversionService;
+import com.thalesgroup.hudson.plugins.xunit.service.XUnitLog;
 import com.thalesgroup.hudson.plugins.xunit.service.XUnitReportProcessingService;
 import com.thalesgroup.hudson.plugins.xunit.service.XUnitValidationService;
-import com.thalesgroup.hudson.plugins.xunit.service.XUnitLog;
 import hudson.Util;
 import hudson.model.BuildListener;
 import hudson.remoting.VirtualChannel;
@@ -58,18 +58,16 @@ public class XUnitTransformerTest {
 
         when(buildListenerMock.getLogger()).thenReturn(new PrintStream(new ByteArrayOutputStream()));
 
-        xUnitTransformer = Guice.createInjector(new AbstractModule() {
+        xUnitTransformer = Guice.createInjector(Stage.DEVELOPMENT, new AbstractModule() {
             @Override
             protected void configure() {
-                bind(XUnitLog.class).in(Singleton.class);
                 bind(BuildListener.class).toInstance(buildListenerMock);
                 bind(XUnitToolInfo.class).toInstance(mock(XUnitToolInfo.class));
                 bind(XUnitConversionService.class).toInstance(xUnitConversionServiceMock);
                 bind(XUnitValidationService.class).toInstance(xUnitValidationServiceMock);
                 bind(XUnitReportProcessingService.class).toInstance(xUnitReportProcessingServiceMock);
             }
-        }).getInstance(XUnitTransformer.class);
-
+        }).getInstance(XUnitTransformer.class);        
     }
 
     @After
@@ -392,7 +390,7 @@ public class XUnitTransformerTest {
         //Check OK
         when(xUnitReportProcessingServiceMock.checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class))).thenReturn(true);
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
-        
+
         //Create a non empty file
         File myInputFile = new File(workspace, "dummyFile");
         FileOutputStream fos = new FileOutputStream(myInputFile);

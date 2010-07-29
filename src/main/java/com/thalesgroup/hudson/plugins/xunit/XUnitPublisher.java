@@ -191,7 +191,6 @@ public class XUnitPublisher extends Recorder implements Serializable {
     public boolean perform(final AbstractBuild<?, ?> build, Launcher launcher, final BuildListener listener)
             throws InterruptedException, IOException {
 
-
         xUnitLog = Guice.createInjector(new AbstractModule() {
             @Override
             protected void configure() {
@@ -238,14 +237,12 @@ public class XUnitPublisher extends Recorder implements Serializable {
                         protected void configure() {
                             bind(BuildListener.class).toInstance(listener);
                             bind(XUnitToolInfo.class).toInstance(xUnitToolInfo);
-                            bind(XUnitConversionService.class).in(Singleton.class);
                             bind(XUnitValidationService.class).in(Singleton.class);
+                            bind(XUnitConversionService.class).in(Singleton.class);
                             bind(XUnitLog.class).in(Singleton.class);
                             bind(XUnitReportProcessingService.class).in(Singleton.class);
-
                         }
                     }).getInstance(XUnitTransformer.class);
-
 
                     boolean resultTransformation = build.getWorkspace().act(xUnitTransformer);
                     if (!resultTransformation) {
