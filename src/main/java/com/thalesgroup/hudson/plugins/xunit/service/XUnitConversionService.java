@@ -25,7 +25,7 @@ package com.thalesgroup.hudson.plugins.xunit.service;
 
 import com.google.inject.Inject;
 import com.thalesgroup.dtkit.metrics.api.InputMetric;
-import com.thalesgroup.dtkit.util.converter.ConvertException;
+import com.thalesgroup.dtkit.util.converter.ConversionException;
 import com.thalesgroup.hudson.plugins.xunit.exception.XUnitException;
 import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitToolInfo;
 
@@ -69,7 +69,7 @@ public class XUnitConversionService implements Serializable {
         xUnitLog.info("Converting '" + inputFile + "' .");
         try {
             inputMetric.convert(inputFile, junitTargetFile);
-        } catch (ConvertException ce) {
+        } catch (ConversionException ce) {
             throw new XUnitException("Conversion error", ce);
         }
 

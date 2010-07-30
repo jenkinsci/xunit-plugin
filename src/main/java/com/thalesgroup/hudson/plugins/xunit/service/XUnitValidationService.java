@@ -25,8 +25,8 @@ package com.thalesgroup.hudson.plugins.xunit.service;
 
 import com.google.inject.Inject;
 import com.thalesgroup.dtkit.metrics.api.InputMetric;
-import com.thalesgroup.dtkit.util.validator.ValidatorError;
-import com.thalesgroup.dtkit.util.validator.ValidatorException;
+import com.thalesgroup.dtkit.util.validator.ValidationError;
+import com.thalesgroup.dtkit.util.validator.ValidationException;
 import com.thalesgroup.hudson.plugins.xunit.exception.XUnitException;
 import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitToolInfo;
 
@@ -73,13 +73,13 @@ public class XUnitValidationService implements Serializable {
 
                 //Ignores invalid files
                 xUnitLog.warning("The file '" + inputFile + "' is an invalid file.");
-                for (ValidatorError validatorError : inputMetric.getInputValidationErrors()) {
+                for (ValidationError validatorError : inputMetric.getInputValidationErrors()) {
                     xUnitLog.warning(validatorError.toString());
                 }
 
                 return false;
             }
-        } catch (ValidatorException ve) {
+        } catch (ValidationException ve) {
             throw new XUnitException("Validation error on input", ve);
         }
         return true;
@@ -103,14 +103,14 @@ public class XUnitValidationService implements Serializable {
             boolean validateOutput = inputMetric.validateOutputFile(junitTargetFile);
             if (!validateOutput) {
                 xUnitLog.error("The converted file for the input file '" + inputFile + "' doesn't match the JUnit format");
-                for (ValidatorError validatorError : inputMetric.getOutputValidationErrors()) {
+                for (ValidationError validatorError : inputMetric.getOutputValidationErrors()) {
                     xUnitLog.error(validatorError.toString());
                 }
                 return false;
             }
 
         }
-        catch (ValidatorException ve) {
+        catch (ValidationException ve) {
             throw new XUnitException("Validation error on output", ve);
         }
 

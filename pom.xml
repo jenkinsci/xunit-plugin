@@ -36,8 +36,8 @@
     </developers>
 
     <properties>
-        <dtkit.frmk.version>0.2</dtkit.frmk.version>
-        <dtkit.default.junit.version>0.4</dtkit.default.junit.version>
+        <dtkit.frmk.version>0.3-SNAPSHOT</dtkit.frmk.version>
+        <dtkit.default.junit.version>0.5-SNAPSHOT</dtkit.default.junit.version>
     </properties>
 
     <repositories>
@@ -60,12 +60,6 @@
             <groupId>xerces</groupId>
             <artifactId>xercesImpl</artifactId>
             <version>2.6.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.jvnet.hudson.dtkit</groupId>
-            <artifactId>dtkit-metrics-api</artifactId>
-            <version>${dtkit.frmk.version}</version>
         </dependency>
 
         <dependency>

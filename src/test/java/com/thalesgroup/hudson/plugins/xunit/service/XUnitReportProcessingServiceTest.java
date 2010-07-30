@@ -109,7 +109,7 @@ public class XUnitReportProcessingServiceTest {
             super(pattern, faildedIfNotNew, deleteOutputFiles);
         }
 
-        public TestTypeDescriptor<?> getDescriptor() {
+        public TestTypeDescriptor<? extends TestType> getDescriptor() {
             return new MyTestTypeDescriptor();
         }
     }
