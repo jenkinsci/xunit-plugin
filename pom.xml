@@ -36,8 +36,8 @@
     </developers>
 
     <properties>
-        <dtkit.frmk.version>0.3-SNAPSHOT</dtkit.frmk.version>
-        <dtkit.default.junit.version>0.5-SNAPSHOT</dtkit.default.junit.version>
+        <dtkit.frmk.version>0.4</dtkit.frmk.version>
+        <dtkit.default.junit.version>0.5</dtkit.default.junit.version>
     </properties>
 
     <repositories>
