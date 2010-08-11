@@ -4,7 +4,6 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Stage;
 import com.thalesgroup.hudson.plugins.xunit.service.XUnitConversionService;
-import com.thalesgroup.hudson.plugins.xunit.service.XUnitLog;
 import com.thalesgroup.hudson.plugins.xunit.service.XUnitReportProcessingService;
 import com.thalesgroup.hudson.plugins.xunit.service.XUnitValidationService;
 import hudson.Util;
@@ -67,7 +66,7 @@ public class XUnitTransformerTest {
                 bind(XUnitValidationService.class).toInstance(xUnitValidationServiceMock);
                 bind(XUnitReportProcessingService.class).toInstance(xUnitReportProcessingServiceMock);
             }
-        }).getInstance(XUnitTransformer.class);        
+        }).getInstance(XUnitTransformer.class);
     }
 
     @After
