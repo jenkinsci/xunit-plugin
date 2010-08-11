@@ -47,17 +47,42 @@ public class XUnitConversionService implements Serializable {
     }
 
     /**
+     * Prepares the conversion by adding specific behavior for the CustomType
+     *
+     * @param xUnitToolInfo the xUnit info wrapper object
+     * @param workspace     the current workspace
+     * @throws com.thalesgroup.hudson.plugins.xunit.exception.XUnitException
+     *          an XUnitException is thrown if there is a preparation error.
+     */
+    private void prepareConversion(XUnitToolInfo xUnitToolInfo, File workspace) throws XUnitException {
+        TestType testType = xUnitToolInfo.getTestType();
+        if (testType.getClass() == CustomType.class) {
+            String xsl = ((CustomType) testType).getCustomXSL();
+            File xslFile = new File(workspace, xsl);
+            if (!xslFile.exists()) {
+                throw new XUnitException("The input xsl '" + xsl + "' relative to the workspace '" + workspace + "'doesn't exist.");
+            }
+            xUnitToolInfo.setCusXSLFile(xslFile);
+        }
+    }
+
+
+    /**
      * Converts the inputFile into a JUnit output file
      *
      * @param xUnitToolInfo        the xUnit info wrapper object
      * @param inputFile            the input file to be converted
+     * @param workspace            the workspace
      * @param junitOutputDirectory the output parent directory that contains the JUnit output file
      * @return the converted file
      * @throws com.thalesgroup.hudson.plugins.xunit.exception.XUnitException
-     *          an XUnitException is thrown if there is a convertion error.
+     *          an XUnitException is thrown if there is a conversion error.
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")
-    public File convert(XUnitToolInfo xUnitToolInfo, File inputFile, File junitOutputDirectory) throws XUnitException {
+    public File convert(XUnitToolInfo xUnitToolInfo, File inputFile, File workspace, File junitOutputDirectory) throws XUnitException {
+
+        //Prepare the conversion when there is a custom type
+        prepareConversion(xUnitToolInfo, workspace);
 
         TestType testType = xUnitToolInfo.getTestType();
 

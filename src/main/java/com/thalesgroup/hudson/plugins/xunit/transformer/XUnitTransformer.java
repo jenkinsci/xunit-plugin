@@ -24,13 +24,11 @@
 package com.thalesgroup.hudson.plugins.xunit.transformer;
 
 import com.google.inject.Inject;
-import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
 import com.thalesgroup.hudson.plugins.xunit.exception.XUnitException;
 import com.thalesgroup.hudson.plugins.xunit.service.XUnitConversionService;
 import com.thalesgroup.hudson.plugins.xunit.service.XUnitLog;
 import com.thalesgroup.hudson.plugins.xunit.service.XUnitReportProcessingService;
 import com.thalesgroup.hudson.plugins.xunit.service.XUnitValidationService;
-import com.thalesgroup.hudson.plugins.xunit.types.CustomType;
 import hudson.FilePath;
 import hudson.remoting.VirtualChannel;
 import hudson.util.IOException2;
@@ -78,17 +76,6 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
     public Boolean invoke(File ws, VirtualChannel channel) throws IOException {
         try {
 
-            //Manage the XUnit CustomType
-            TestType testType = xUnitToolInfo.getTestType();
-            if (testType.getClass() == CustomType.class) {
-                String xsl = ((CustomType) testType).getCustomXSL();
-                File xslFile = new File(ws, xsl);
-                if (!xslFile.exists()) {
-                    throw new XUnitException("The input xsl '" + xsl + "' relative to the workspace '" + ws + "'doesn't exist.");
-                }
-                xUnitToolInfo.setCusXSLFile(xslFile);
-            }
-
             //Gets all input files matching the user pattern
             List<String> resultFiles = xUnitReportProcessingService.findReports(xUnitToolInfo, ws, xUnitToolInfo.getExpandedPattern());
             if (resultFiles.size() == 0) {
@@ -118,7 +105,7 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
                 }
 
                 //Convert the input file
-                File junitTargetFile = xUnitConversionService.convert(xUnitToolInfo, curFile, xUnitToolInfo.getJunitOutputDir());
+                File junitTargetFile = xUnitConversionService.convert(xUnitToolInfo, curFile, ws, xUnitToolInfo.getJunitOutputDir());
 
 
                 //Validates converted file
