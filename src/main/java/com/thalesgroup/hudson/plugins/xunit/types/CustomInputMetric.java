@@ -21,54 +21,62 @@
  * THE SOFTWARE.                                                                *
  *******************************************************************************/
 
-package com.thalesgroup.hudson.plugins.xunit.transformer;
+package com.thalesgroup.hudson.plugins.xunit.types;
 
-import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
+import com.thalesgroup.dtkit.junit.model.JUnitModel;
+import com.thalesgroup.dtkit.metrics.api.InputMetricXSL;
+import com.thalesgroup.dtkit.metrics.api.InputType;
+import com.thalesgroup.dtkit.metrics.api.OutputMetric;
 
 import java.io.File;
-import java.io.Serializable;
 
 
-public class XUnitToolInfo implements Serializable {
+public class CustomInputMetric extends InputMetricXSL {
 
-    private File cusXSLFile;
+    private File customXSLFile;
 
-    private final TestType testType;
-
-    private final File junitOutputDir;
-
-    private final String expandedPattern;
-
-    private final long buildTime;
-
-    public XUnitToolInfo(TestType testType, File junitOutputDir, String expandedPattern, long buildTime) {
-        this.testType = testType;
-        this.junitOutputDir = junitOutputDir;
-        this.expandedPattern = expandedPattern;
-        this.buildTime = buildTime;
+    
+    public void setCustomXSLFile(File customXSLFile) {
+        this.customXSLFile = customXSLFile;
     }
 
-    public void setCusXSLFile(File cusXSLFile) {
-        this.cusXSLFile = cusXSLFile;
+    @Override
+    public InputType getToolType() {
+        return InputType.TEST;
     }
 
-    public File getCusXSLFile() {
-        return cusXSLFile;
+    @Override
+    public String getToolVersion() {
+        return null;
     }
 
-    public TestType getTestType() {
-        return testType;
+    @Override
+    public String getToolName() {
+        return "Custom Tool";
     }
 
-    public File getJunitOutputDir() {
-        return junitOutputDir;
+    @Override
+    public File getXSLFile() {
+        return customXSLFile;
     }
 
-    public String getExpandedPattern() {
-        return expandedPattern;
+    @Override
+    public Class getXSLResourceClass() {
+        return null;
     }
 
-    public long getBuildTime() {
-        return buildTime;
+    @Override
+    public String getXslName() {
+        return null;
+    }
+
+    @Override
+    public String getInputXsd() {
+        return null;
+    }
+
+    @Override
+    public OutputMetric getOutputFormatType() {
+        return JUnitModel.OUTPUT_JUNIT_1_0;
     }
 }

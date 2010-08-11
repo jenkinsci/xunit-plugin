@@ -25,9 +25,12 @@ package com.thalesgroup.hudson.plugins.xunit.service;
 
 import com.google.inject.Inject;
 import com.thalesgroup.dtkit.metrics.api.InputMetric;
+import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
 import com.thalesgroup.dtkit.util.converter.ConversionException;
 import com.thalesgroup.hudson.plugins.xunit.exception.XUnitException;
 import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitToolInfo;
+import com.thalesgroup.hudson.plugins.xunit.types.CustomInputMetric;
+import com.thalesgroup.hudson.plugins.xunit.types.CustomType;
 
 import java.io.File;
 import java.io.Serializable;
@@ -56,7 +59,9 @@ public class XUnitConversionService implements Serializable {
     @SuppressWarnings("ResultOfMethodCallIgnored")
     public File convert(XUnitToolInfo xUnitToolInfo, File inputFile, File junitOutputDirectory) throws XUnitException {
 
-        InputMetric inputMetric = xUnitToolInfo.getTestType().getInputMetric();
+        TestType testType = xUnitToolInfo.getTestType();
+
+        InputMetric inputMetric = testType.getInputMetric();
 
         final String JUNIT_FILE_POSTFIX = ".xml";
         final String JUNIT_FILE_PREFIX = "TEST-";
@@ -68,6 +73,12 @@ public class XUnitConversionService implements Serializable {
         File junitTargetFile = new File(parent, JUNIT_FILE_PREFIX + inputFile.hashCode() + JUNIT_FILE_POSTFIX);
         xUnitLog.info("Converting '" + inputFile + "' .");
         try {
+
+            //Set the XSL for custom type
+            if (testType.getClass() == CustomType.class) {
+                ((CustomInputMetric) inputMetric).setCustomXSLFile(xUnitToolInfo.getCusXSLFile());
+            }
+
             inputMetric.convert(inputFile, junitTargetFile);
         } catch (ConversionException ce) {
             throw new XUnitException("Conversion error", ce);

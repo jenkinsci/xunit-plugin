@@ -21,54 +21,62 @@
  * THE SOFTWARE.                                                                *
  *******************************************************************************/
 
-package com.thalesgroup.hudson.plugins.xunit.transformer;
+package com.thalesgroup.hudson.plugins.xunit.types;
 
+import com.thalesgroup.dtkit.metrics.api.InputMetric;
+import com.thalesgroup.dtkit.metrics.api.InputMetricException;
+import com.thalesgroup.dtkit.metrics.api.InputMetricFactory;
+import com.thalesgroup.dtkit.metrics.hudson.api.descriptor.TestTypeDescriptor;
 import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
+import hudson.Extension;
+import org.kohsuke.stapler.DataBoundConstructor;
 
-import java.io.File;
-import java.io.Serializable;
+@SuppressWarnings("unused")
+public class CustomType extends TestType {
 
+    private static CustomInputMetricDescriptor DESCRIPTOR = new CustomInputMetricDescriptor();
 
-public class XUnitToolInfo implements Serializable {
+    private String customXSL;
 
-    private File cusXSLFile;
-
-    private final TestType testType;
-
-    private final File junitOutputDir;
-
-    private final String expandedPattern;
-
-    private final long buildTime;
-
-    public XUnitToolInfo(TestType testType, File junitOutputDir, String expandedPattern, long buildTime) {
-        this.testType = testType;
-        this.junitOutputDir = junitOutputDir;
-        this.expandedPattern = expandedPattern;
-        this.buildTime = buildTime;
+    @DataBoundConstructor
+    @SuppressWarnings("unused")
+    public CustomType(String pattern, String customXSL, boolean faildedIfNotNew, boolean deleteOutputFiles) {
+        super(pattern, faildedIfNotNew, deleteOutputFiles);
+        this.customXSL = customXSL;
     }
 
-    public void setCusXSLFile(File cusXSLFile) {
-        this.cusXSLFile = cusXSLFile;
+    public TestTypeDescriptor<? extends TestType> getDescriptor() {
+        return DESCRIPTOR;
     }
 
-    public File getCusXSLFile() {
-        return cusXSLFile;
+    @SuppressWarnings("unused")
+    public String getCustomXSL() {
+        return customXSL;
     }
 
-    public TestType getTestType() {
-        return testType;
-    }
+    @Extension
+    public static class CustomInputMetricDescriptor extends TestTypeDescriptor<CustomType> {
 
-    public File getJunitOutputDir() {
-        return junitOutputDir;
-    }
+        public CustomInputMetricDescriptor() {
+            super(CustomType.class, null);
+        }
 
-    public String getExpandedPattern() {
-        return expandedPattern;
-    }
+        @Override
+        public String getId() {
+            throw new UnsupportedOperationException("getId() is not used. The descriptor redefines its own getInputMetric() method.");
+        }
 
-    public long getBuildTime() {
-        return buildTime;
+        @Override
+        public InputMetric getInputMetric() {
+            try {
+                return InputMetricFactory.getInstance(CustomInputMetric.class);
+            } catch (InputMetricException e) {
+                throw new RuntimeException("Can't create the inputMetric object for the class " + CustomInputMetric.class);
+            }
+        }
+
+        public boolean isCustomType() {
+            return true;
+        }
     }
 }

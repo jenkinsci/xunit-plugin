@@ -333,7 +333,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
 
         }
         catch (IOException ie) {
-            xUnitLog.error("The plugin hasn't been performed correctly: " + ie.getMessage());
+            xUnitLog.error("The plugin hasn't been performed correctly: " + ie.getCause().getMessage());
             build.setResult(Result.FAILURE);
             return false;
         }
