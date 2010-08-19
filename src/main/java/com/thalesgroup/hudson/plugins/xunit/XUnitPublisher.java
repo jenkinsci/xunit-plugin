@@ -67,8 +67,6 @@ public class XUnitPublisher extends Recorder implements Serializable {
 
     private TestType[] types;
 
-    private transient XUnitLog xUnitLog;
-
     public XUnitPublisher(TestType[] types) {
         this.types = types;
     }
@@ -191,7 +189,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
     public boolean perform(final AbstractBuild<?, ?> build, Launcher launcher, final BuildListener listener)
             throws InterruptedException, IOException {
 
-        xUnitLog = Guice.createInjector(new AbstractModule() {
+        final XUnitLog xUnitLog = Guice.createInjector(new AbstractModule() {
             @Override
             protected void configure() {
                 bind(BuildListener.class).toInstance(listener);

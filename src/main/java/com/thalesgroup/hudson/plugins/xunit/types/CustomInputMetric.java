@@ -56,12 +56,12 @@ public class CustomInputMetric extends InputMetricXSL {
     }
 
     @Override
-    public File getXSLFile() {
+    public File getXslFile() {
         return customXSLFile;
     }
 
     @Override
-    public Class getXSLResourceClass() {
+    public Class getXslResourceClass() {
         return null;
     }
 
