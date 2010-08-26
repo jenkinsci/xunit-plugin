@@ -70,10 +70,16 @@
 
         <dependency>
             <groupId>org.jvnet.hudson.dtkit</groupId>
-            <artifactId>dtkit-default-junit</artifactId>
+            <artifactId>dtkit-default-junit-hudson</artifactId>
             <version>${dtkit.default.junit.version}</version>
-            <classifier>hudson</classifier>
         </dependency>
+
+            <dependency>
+                <groupId>org.jvnet.hudson.dtkit</groupId>
+                <artifactId>dtkit-junit-model</artifactId>
+                <version>${dtkit.frmk.version}</version>
+            </dependency>
+
 
         <dependency>
             <groupId>junit</groupId>
