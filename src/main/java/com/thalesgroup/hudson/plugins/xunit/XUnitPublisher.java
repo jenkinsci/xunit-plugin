@@ -214,7 +214,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
                 }
             }).getInstance(XUnitReportProcessingService.class);
 
-            boolean isInvoked = false;
+            boolean atLeastOneWarningOrErrorProcess = false;
             for (TestType tool : types) {
 
                 xUnitLog.info("Processing " + tool.getDescriptor().getDisplayName());
@@ -244,20 +244,16 @@ public class XUnitPublisher extends Recorder implements Serializable {
 
                     boolean resultTransformation = build.getWorkspace().act(xUnitTransformer);
                     if (!resultTransformation) {
-                        build.setResult(Result.FAILURE);
-                        xUnitLog.info("Stopping recording.");
-                        return true;
+                        atLeastOneWarningOrErrorProcess = true;
                     }
-
-                    isInvoked = true;
                 }
             }
-            if (!isInvoked) {
+
+            if (atLeastOneWarningOrErrorProcess) {
                 build.setResult(Result.FAILURE);
-                xUnitLog.error("No test reports found. Configuration error?");
+                xUnitLog.info("Stopping recording.");
                 return true;
             }
-
 
             // Process the record of xUnit
             recordTestResult(build, listener, junitOuputDir);

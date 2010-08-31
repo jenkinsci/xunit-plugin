@@ -70,15 +70,18 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
      *
      * @param ws      the Hudson workspace
      * @param channel the Hudson chanel
-     * @return true or false if the convertion fails
+     * @return true or false if the conversion fails
      * @throws IOException
      */
     public Boolean invoke(File ws, VirtualChannel channel) throws IOException {
         try {
 
+            String metricName = xUnitToolInfo.getToolName();
+
             //Gets all input files matching the user pattern
             List<String> resultFiles = xUnitReportProcessingService.findReports(xUnitToolInfo, ws, xUnitToolInfo.getExpandedPattern());
             if (resultFiles.size() == 0) {
+                xUnitLog.warning("No test reports found for the metric '" + metricName + "' with the resolved pattern '" + xUnitToolInfo.getExpandedPattern() + "'. Configuration error?.");
                 return false;
             }
 
@@ -93,24 +96,23 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
 
                 if (!xUnitValidationService.checkFileIsNotEmpty(curFile)) {
                     //Ignore the empty result file (some reason)
-                    String msg = "The file '" + curFile.getPath() + "' is empty. This file has been ignored.";
+                    String msg = "The result file '" + curFile.getPath() + "' for the metric '" + metricName + "' is empty. The result file has been skipped.";
                     xUnitLog.warning(msg);
                     return false;
                 }
 
                 //Validates Input file
                 if (!xUnitValidationService.validateInputFile(xUnitToolInfo, curFile)) {
-                    xUnitLog.warning("The file '" + curFile + "' has been ignored.");
+                    xUnitLog.warning("The result file '" + curFile + "' for the metric '" + metricName + "' is not valid. The result file has been skipped.");
                     return false;
                 }
 
                 //Convert the input file
                 File junitTargetFile = xUnitConversionService.convert(xUnitToolInfo, curFile, ws, xUnitToolInfo.getJunitOutputDir());
 
-
                 //Validates converted file
-                boolean result = xUnitValidationService.validateOutputFile(xUnitToolInfo, curFile, junitTargetFile);
-                if (!result) {
+                if (!xUnitValidationService.validateOutputFile(xUnitToolInfo, curFile, junitTargetFile)) {
+                    xUnitLog.warning("The converted file for the result file '" + curFile + "' (during conversion process for the metric '" + metricName + "') is not valid. The report file has been skipped.");
                     return false;
                 }
             }

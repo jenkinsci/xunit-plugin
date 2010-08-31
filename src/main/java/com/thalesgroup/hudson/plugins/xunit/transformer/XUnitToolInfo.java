@@ -71,4 +71,8 @@ public class XUnitToolInfo implements Serializable {
     public long getBuildTime() {
         return buildTime;
     }
+
+    public String getToolName(){
+        return testType.getDescriptor().getDisplayName();
+    }
 }
