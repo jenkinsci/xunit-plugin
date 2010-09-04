@@ -26,7 +26,7 @@ package com.thalesgroup.hudson.plugins.xunit;
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Singleton;
-import com.thalesgroup.dtkit.metrics.api.InputMetric;
+import com.thalesgroup.dtkit.metrics.model.InputMetric;
 import com.thalesgroup.dtkit.metrics.hudson.api.descriptor.TestTypeDescriptor;
 import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
 import com.thalesgroup.hudson.plugins.xunit.exception.XUnitException;

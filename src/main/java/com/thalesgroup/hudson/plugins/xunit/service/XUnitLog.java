@@ -29,7 +29,7 @@ import hudson.model.BuildListener;
 import java.io.Serializable;
 
 public class XUnitLog implements Serializable {
-   
+
     private BuildListener buildListener;
 
     @Inject

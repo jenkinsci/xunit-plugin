@@ -23,7 +23,7 @@
 
 package com.thalesgroup.hudson.plugins.xunit.types;
 
-import com.thalesgroup.dtkit.metrics.api.InputMetric;
+import com.thalesgroup.dtkit.metrics.model.InputMetric;
 import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
 import com.thalesgroup.dtkit.metrics.hudson.model.*;
 import org.junit.Assert;
