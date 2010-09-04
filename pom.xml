@@ -56,9 +56,15 @@
         </dependency>
 
         <dependency>
-            <groupId>xerces</groupId>
-            <artifactId>xercesImpl</artifactId>
-            <version>2.6.2</version>
+	    <groupId>org.jvnet.hudson.dtkit</groupId>
+            <artifactId>dtkit-metrics-model</artifactId>
+            <version>${dtkit.frmk.version}</version>
+        </dependency>
+
+        <dependency>
+	    <groupId>org.jvnet.hudson.dtkit</groupId>
+            <artifactId>dtkit-metrics-util</artifactId>
+            <version>${dtkit.frmk.version}</version>
         </dependency>
 
         <dependency>
@@ -69,16 +75,15 @@
 
         <dependency>
             <groupId>org.jvnet.hudson.dtkit</groupId>
+            <artifactId>dtkit-junit-model</artifactId>
+            <version>${dtkit.frmk.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jvnet.hudson.dtkit</groupId>
             <artifactId>dtkit-default-junit-hudson</artifactId>
             <version>${dtkit.default.junit.version}</version>
         </dependency>
-
-            <dependency>
-                <groupId>org.jvnet.hudson.dtkit</groupId>
-                <artifactId>dtkit-junit-model</artifactId>
-                <version>${dtkit.frmk.version}</version>
-            </dependency>
-
 
         <dependency>
             <groupId>junit</groupId>
