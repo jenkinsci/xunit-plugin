@@ -29,6 +29,7 @@ import com.thalesgroup.hudson.plugins.xunit.service.XUnitConversionService;
 import com.thalesgroup.hudson.plugins.xunit.service.XUnitLog;
 import com.thalesgroup.hudson.plugins.xunit.service.XUnitReportProcessingService;
 import com.thalesgroup.hudson.plugins.xunit.service.XUnitValidationService;
+import com.thalesgroup.hudson.plugins.xunit.XUnitPublisher;
 import hudson.FilePath;
 import hudson.remoting.VirtualChannel;
 import hudson.util.IOException2;
@@ -76,6 +77,11 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
     public Boolean invoke(File ws, VirtualChannel channel) throws IOException {
         try {
 
+            File junitOuputDir = new File(ws, XUnitPublisher.GENERATED_JUNIT_DIR);
+            if (!junitOuputDir.mkdirs()) {
+                xUnitLog.warning("Can't create the path " + junitOuputDir + ". Maybe the directory already exists.");
+            }
+
             String metricName = xUnitToolInfo.getToolName();
 
             //Gets all input files matching the user pattern
@@ -93,6 +99,7 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
             for (String curFileName : resultFiles) {
 
                 File curFile = xUnitReportProcessingService.getCurrentReport(ws, curFileName);
+                
 
                 if (!xUnitValidationService.checkFileIsNotEmpty(curFile)) {
                     //Ignore the empty result file (some reason)
@@ -108,7 +115,7 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
                 }
 
                 //Convert the input file
-                File junitTargetFile = xUnitConversionService.convert(xUnitToolInfo, curFile, ws, xUnitToolInfo.getJunitOutputDir());
+                File junitTargetFile = xUnitConversionService.convert(xUnitToolInfo, curFile, ws, junitOuputDir);
 
                 //Validates converted file
                 if (!xUnitValidationService.validateOutputFile(xUnitToolInfo, curFile, junitTargetFile)) {
@@ -118,7 +125,7 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
             }
 
         }
-        catch (XUnitException xe) {
+        catch (Exception xe) {
             throw new IOException2("There are some problems during the conversion into JUnit reports: " + xe.getMessage(), xe);
         }
 

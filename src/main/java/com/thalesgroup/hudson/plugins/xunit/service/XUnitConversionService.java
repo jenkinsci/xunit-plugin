@@ -106,7 +106,7 @@ public class XUnitConversionService implements Serializable {
 
             inputMetric.convert(inputFile, junitTargetFile);
         } catch (ConversionException ce) {
-            throw new XUnitException("Conversion error", ce);
+            throw new XUnitException("Conversion error " + ce.getMessage(), ce);
         }
 
         return junitTargetFile;

@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -35,8 +36,8 @@
     </developers>
 
     <properties>
-        <dtkit.frmk.version>0.6</dtkit.frmk.version>
-        <dtkit.default.junit.version>0.7</dtkit.default.junit.version>
+        <dtkit.frmk.version>0.7-SNAPSHOT</dtkit.frmk.version>
+        <dtkit.default.junit.version>0.8-SNAPSHOT</dtkit.default.junit.version>
     </properties>
 
     <repositories>
@@ -56,13 +57,13 @@
         </dependency>
 
         <dependency>
-	    <groupId>org.jvnet.hudson.dtkit</groupId>
+            <groupId>org.jvnet.hudson.dtkit</groupId>
             <artifactId>dtkit-metrics-model</artifactId>
             <version>${dtkit.frmk.version}</version>
         </dependency>
 
         <dependency>
-	    <groupId>org.jvnet.hudson.dtkit</groupId>
+            <groupId>org.jvnet.hudson.dtkit</groupId>
             <artifactId>dtkit-metrics-util</artifactId>
             <version>${dtkit.frmk.version}</version>
         </dependency>
@@ -83,6 +84,12 @@
             <groupId>org.jvnet.hudson.dtkit</groupId>
             <artifactId>dtkit-default-junit-hudson</artifactId>
             <version>${dtkit.default.junit.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>xerces</groupId>
+            <artifactId>xercesImpl</artifactId>
+            <version>2.6.2</version>
         </dependency>
 
         <dependency>

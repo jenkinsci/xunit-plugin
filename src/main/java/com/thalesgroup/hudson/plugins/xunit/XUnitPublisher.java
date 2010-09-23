@@ -26,9 +26,9 @@ package com.thalesgroup.hudson.plugins.xunit;
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Singleton;
-import com.thalesgroup.dtkit.metrics.model.InputMetric;
 import com.thalesgroup.dtkit.metrics.hudson.api.descriptor.TestTypeDescriptor;
 import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
+import com.thalesgroup.dtkit.metrics.model.InputMetric;
 import com.thalesgroup.hudson.plugins.xunit.exception.XUnitException;
 import com.thalesgroup.hudson.plugins.xunit.service.XUnitConversionService;
 import com.thalesgroup.hudson.plugins.xunit.service.XUnitLog;
@@ -65,6 +65,8 @@ import java.util.List;
 @SuppressWarnings({"unchecked", "unused"})
 public class XUnitPublisher extends Recorder implements Serializable {
 
+    public static final String GENERATED_JUNIT_DIR = "generatedJUnitFiles";
+
     private TestType[] types;
 
     public XUnitPublisher(TestType[] types) {
@@ -89,7 +91,6 @@ public class XUnitPublisher extends Recorder implements Serializable {
      * Gets a Test result object (a new one if any)
      *
      * @param build               the current build
-     * @param junitFileDir        the parent output JUnit directory
      * @param junitFilePattern    the JUnit search pattern
      * @param existingTestResults the existing test result
      * @param buildTime           the build time
@@ -98,7 +99,6 @@ public class XUnitPublisher extends Recorder implements Serializable {
      * @throws XUnitException the plugin exception
      */
     private TestResult getTestResult(final AbstractBuild<?, ?> build,
-                                     final File junitFileDir,
                                      final String junitFilePattern,
                                      final TestResult existingTestResults,
                                      final long buildTime, final long nowMaster)
@@ -109,13 +109,14 @@ public class XUnitPublisher extends Recorder implements Serializable {
 
                 public TestResult invoke(File ws, VirtualChannel channel) throws IOException {
                     final long nowSlave = System.currentTimeMillis();
-                    FileSet fs = Util.createFileSet(junitFileDir, junitFilePattern);
+                    FileSet fs = Util.createFileSet(new File(ws,GENERATED_JUNIT_DIR), junitFilePattern);
                     DirectoryScanner ds = fs.getDirectoryScanner();
                     String[] files = ds.getIncludedFiles();
 
                     if (files.length == 0) {
                         // no test result. Most likely a configuration error or fatal problem
-                        throw new IOException("No test report files were found. Configuration error?");
+                        //throw new IOException("No test report files were found. Configuration error?");
+                       
                     }
                     try {
                         if (existingTestResults == null) {
@@ -134,10 +135,10 @@ public class XUnitPublisher extends Recorder implements Serializable {
 
         }
         catch (IOException ioe) {
-            throw new XUnitException(ioe);
+            throw new XUnitException(ioe.getMessage(), ioe);
         }
         catch (InterruptedException ie) {
-            throw new XUnitException(ie);
+            throw new XUnitException(ie.getMessage(), ie);
         }
 
 
@@ -146,14 +147,13 @@ public class XUnitPublisher extends Recorder implements Serializable {
     /**
      * Records the test results into the current build and return the number of tests
      *
-     * @param build                the current build object
-     * @param listener             the current listener object
-     * @param junitTargetDirectory the parent JUnit directory
+     * @param build    the current build object
+     * @param listener the current listener object
      * @throws com.thalesgroup.hudson.plugins.xunit.exception.XUnitException
      *          the plugin exception if an error occurs
      */
 
-    private void recordTestResult(AbstractBuild<?, ?> build, BuildListener listener, final File junitTargetDirectory) throws XUnitException {
+    private void recordTestResult(AbstractBuild<?, ?> build, BuildListener listener) throws XUnitException {
 
         TestResultAction existingAction = build.getAction(TestResultAction.class);
         final long buildTime = build.getTimestamp().getTimeInMillis();
@@ -164,7 +164,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
             existingTestResults = existingAction.getResult();
         }
 
-        TestResult result = getTestResult(build, junitTargetDirectory, "**/TEST-*.xml", existingTestResults, buildTime, nowMaster);
+        TestResult result = getTestResult(build,   "**/TEST-*.xml", existingTestResults, buildTime, nowMaster);
 
         TestResultAction action;
         if (existingAction == null) {
@@ -201,11 +201,13 @@ public class XUnitPublisher extends Recorder implements Serializable {
 
         try {
 
-            //Creation of the output JUnit directory
-            final File junitOuputDir = new File(new FilePath(build.getWorkspace(), "generatedJUnitFiles").toURI());
-            if (!junitOuputDir.mkdirs()) {
-                xUnitLog.warning("Can't create the path " + junitOuputDir + ". Maybe the directory already exists.");
-            }
+           //build.getWorkspace().child(GENERATED_JUNIT_DIR).mkdirs();
+
+//            Creation of the output JUnit directory
+//            final File junitOuputDir = new File(new FilePath(build.getWorkspace(), GENERATED_JUNIT_DIR).toURI());
+//            if (!junitOuputDir.mkdirs()) {
+//                xUnitLog.warning("Can't create the path " + junitOuputDir + ". Maybe the directory already exists.");
+//            }
 
             XUnitReportProcessingService xUnitReportService = Guice.createInjector(new AbstractModule() {
                 @Override
@@ -227,7 +229,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
                     newExpandedPattern = Util.replaceMacro(newExpandedPattern, build.getEnvironment(listener));
 
                     //Build a new build info
-                    final XUnitToolInfo xUnitToolInfo = new XUnitToolInfo(tool, junitOuputDir, newExpandedPattern, build.getTimeInMillis());
+                    final XUnitToolInfo xUnitToolInfo = new XUnitToolInfo(tool, newExpandedPattern, build.getTimeInMillis());
 
                     // Archiving tool reports into JUnit files
                     XUnitTransformer xUnitTransformer = Guice.createInjector(new AbstractModule() {
@@ -256,8 +258,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
             }
 
             // Process the record of xUnit
-            recordTestResult(build, listener, junitOuputDir);
-
+            recordTestResult(build, listener);
 
             //Set the mew build status indicator to unstable if there are failded tests
             TestResultAction testResultAction = build.getAction(TestResultAction.class);
@@ -267,6 +268,32 @@ public class XUnitPublisher extends Recorder implements Serializable {
             }
 
 
+            boolean resultDeletionOK = true;
+            try {
+                boolean keepJUnitDirectory = false;
+                for (TestType tool : types) {
+                    InputMetric inputMetric = tool.getInputMetric();
+
+                    if (tool.isDeleteOutputFiles()) {
+                        build.getWorkspace().child(GENERATED_JUNIT_DIR + "/" + inputMetric.getToolName()).deleteRecursive();
+                    } else {
+                        //Mark the tool file parent directory to no deletion
+                        keepJUnitDirectory = true;
+                    }
+                }
+                if (!keepJUnitDirectory) {
+                    build.getWorkspace().child(GENERATED_JUNIT_DIR).deleteRecursive();
+                }
+            }
+            catch (IOException ioe) {
+                resultDeletionOK = false;
+            }
+            catch (InterruptedException ie) {
+                resultDeletionOK = false;
+            }
+
+
+            /*
             //Delete generated files if triggered
             boolean resultDeletionOK = build.getWorkspace().act(new FilePath.FileCallable<Boolean>() {
                 @SuppressWarnings({"ResultOfMethodCallIgnored"})
@@ -276,6 +303,9 @@ public class XUnitPublisher extends Recorder implements Serializable {
                     for (TestType tool : types) {
                         boolean keepDirectoryTool = false;
                         InputMetric inputMetric = tool.getInputMetric();
+
+                        build.getWorkspace().child(GENERATED_JUNIT_DIR+ "/" + inputMetric.getToolName()).deleteRecursive();
+
                         //All the files will be under a directory the toolName
                         File toolFileParant = new File(junitOuputDir, inputMetric.getToolName());
                         if (tool.isDeleteOutputFiles()) {
@@ -305,6 +335,8 @@ public class XUnitPublisher extends Recorder implements Serializable {
                     return true;
                 }
             });
+            */
+
             if (!resultDeletionOK) {
                 build.setResult(Result.FAILURE);
                 xUnitLog.info("Stopping recording.");
@@ -326,12 +358,14 @@ public class XUnitPublisher extends Recorder implements Serializable {
             return true;
 
         }
-        catch (IOException ie) {
+        catch (IOException
+                ie) {
             xUnitLog.error("The plugin hasn't been performed correctly: " + ie.getCause().getMessage());
             build.setResult(Result.FAILURE);
             return false;
         }
-        catch (XUnitException xe) {
+        catch (XUnitException
+                xe) {
             xUnitLog.error("The plugin hasn't been performed correctly: " + xe.getMessage());
             build.setResult(Result.FAILURE);
             return false;
