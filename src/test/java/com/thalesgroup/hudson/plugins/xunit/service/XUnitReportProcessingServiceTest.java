@@ -81,7 +81,7 @@ public class XUnitReportProcessingServiceTest {
         }
 
         @Override
-        public String getInputXsdName() {
+        public String[] getInputXsdNameList() {
             return null;
         }
 

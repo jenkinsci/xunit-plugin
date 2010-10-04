@@ -63,7 +63,7 @@ public class CustomType extends TestType {
 
         @Override
         public String getId() {
-            throw new UnsupportedOperationException("getId() is not used. The descriptor redefines its own getInputMetric() method.");
+            throw new UnsupportedOperationException("The descriptor registry with the called getId() method is not used. The descriptor redefines its own getInputMetric() method.");
         }
 
         @Override

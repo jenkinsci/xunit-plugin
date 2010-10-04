@@ -71,7 +71,7 @@ public class CustomInputMetric extends InputMetricXSL {
     }
 
     @Override
-    public String getInputXsdName() {
+    public String[] getInputXsdNameList() {
         return null;
     }
 
