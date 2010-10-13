@@ -35,7 +35,8 @@
     </developers>
 
     <properties>
-        <dtkit.frmk.version>0.8</dtkit.frmk.version>
+        <dtkit.frmk.version>0.9-SNAPSHOT</dtkit.frmk.version>
+        <dtkit.junit.format>0.9-SNAPSHOT</dtkit.junit.format>
         <dtkit.default.junit.version>0.9</dtkit.default.junit.version>
     </properties>
 
@@ -76,7 +77,7 @@
         <dependency>
             <groupId>org.jvnet.hudson.dtkit</groupId>
             <artifactId>dtkit-junit-model</artifactId>
-            <version>${dtkit.frmk.version}</version>
+            <version>${dtkit.junit.format}</version>
         </dependency>
 
         <dependency>
