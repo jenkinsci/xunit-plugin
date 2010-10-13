@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>xunit</artifactId>
-    <version>1.10</version>
+    <version>1.10-SNAPSHOT</version>
     <packaging>hpi</packaging>
     <name>Hudson xUnit plugin</name>
     <url>http://wiki.hudson-ci.org/display/HUDSON/xUnit+Plugin</url>
@@ -168,10 +168,4 @@
             </plugin>
         </plugins>
     </build>
-
-  <scm>
-    <connection>scm:svn:https://guest@svn.dev.java.net/svn/hudson/tags/xunit-1.10</connection>
-    <developerConnection>scm:svn:https://svn.dev.java.net/svn/hudson/tags/xunit-1.10</developerConnection>
-    <url>https://hudson.dev.java.net/source/browse/hudson/tags/xunit-1.10</url>
-  </scm>
 </project>
