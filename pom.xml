@@ -35,9 +35,9 @@
     </developers>
 
     <properties>
-        <dtkit.frmk.version>0.9</dtkit.frmk.version>
-        <dtkit.junit.format>0.9</dtkit.junit.format>
-        <dtkit.default.junit.version>0.9</dtkit.default.junit.version>
+        <dtkit.frmk.version>0.10</dtkit.frmk.version>
+        <dtkit.junit.format>0.10</dtkit.junit.format>
+        <dtkit.default.junit.version>0.10</dtkit.default.junit.version>
     </properties>
 
     <repositories>
@@ -95,7 +95,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.8.1</version>
+            <version>4.8.2</version>
             <scope>test</scope>
         </dependency>
 
