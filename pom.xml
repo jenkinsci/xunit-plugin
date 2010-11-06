@@ -36,8 +36,8 @@
 
     <properties>
         <dtkit.frmk.version>0.10</dtkit.frmk.version>
-        <dtkit.junit.format>0.10</dtkit.junit.format>
-        <dtkit.default.junit.version>0.10</dtkit.default.junit.version>
+        <dtkit.junit.format>0.12-SNAPSHOT</dtkit.junit.format>
+        <dtkit.default.junit.version>0.12-SNAPSHOT</dtkit.default.junit.version>
     </properties>
 
     <repositories>
