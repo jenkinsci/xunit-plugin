@@ -35,9 +35,9 @@
     </developers>
 
     <properties>
-        <dtkit.frmk.version>0.10</dtkit.frmk.version>
+        <dtkit.frmk.version>0.11</dtkit.frmk.version>
         <dtkit.junit.format>0.12</dtkit.junit.format>
-        <dtkit.default.junit.version>0.12</dtkit.default.junit.version>
+        <dtkit.default.junit.version>0.13</dtkit.default.junit.version>
     </properties>
 
     <repositories>
@@ -108,6 +108,10 @@
 
     </dependencies>
 
+    <scm>
+        <connection>scm:svn:https://gbois@svn.java.net/svn/hudson~svn/trunk/hudson/plugins/xunit</connection>
+        <developerConnection>scm:svn:https://svn.java.net/svn/hudson~svn/trunk/hudson/plugins/xunit</developerConnection>
+    </scm>
 
     <build>
         <pluginManagement>
@@ -166,6 +170,14 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <goals>deploy</goals>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 </project>
