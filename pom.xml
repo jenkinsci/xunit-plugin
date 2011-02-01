@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.jvnet.hudson.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>1.355</version>
+        <version>1.395</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -36,8 +36,8 @@
 
     <properties>
         <dtkit.frmk.version>0.11</dtkit.frmk.version>
-        <dtkit.junit.format>0.12</dtkit.junit.format>
-        <dtkit.default.junit.version>0.13</dtkit.default.junit.version>
+        <dtkit.junit.format>0.13-SNAPSHOT</dtkit.junit.format>
+        <dtkit.default.junit.version>0.15-SNAPSHOT</dtkit.default.junit.version>
     </properties>
 
     <repositories>
@@ -111,8 +111,8 @@
     <scm>
         <connection>scm:svn:https://gbois@svn.java.net/svn/hudson~svn/trunk/hudson/plugins/xunit</connection>
         <developerConnection>scm:svn:https://svn.java.net/svn/hudson~svn/trunk/hudson/plugins/xunit</developerConnection>
-      <url>https://hudson.dev.java.net/source/browse/hudson/trunk/hudson/plugins/xunit</url>
-  </scm>
+        <url>https://hudson.dev.java.net/source/browse/hudson/trunk/hudson/plugins/xunit</url>
+    </scm>
 
     <build>
         <pluginManagement>
