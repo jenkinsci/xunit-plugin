@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite errors="1" failures="2" tests="1" name="unittest">
-    <testcase classname="MyTestSuite" name="TestSomeStuff" time="0">
-        <failure message="/data/test.cpp(14) : MyFun()"/>
-        <failure message="/data/test.cpp(15) : MyFun()"/>
-    </testcase>
-</testsuite>
