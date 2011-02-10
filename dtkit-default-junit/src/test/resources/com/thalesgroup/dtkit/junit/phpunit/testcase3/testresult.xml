@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="tests" tests="75" assertions="252" failures="0" errors="0" time="59.682852">
+        <testsuite name="ConfigInc" file="/var/lib/hudson/jobs/LibBooks/workspace/tests/config/configTest.php" tests="2"
+                   assertions="2" failures="0" errors="0" time="0.121141">
+            <testcase name="testPHP_debug_exception_handler" class="ConfigInc"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/config/configTest.php" line="10"
+                      assertions="1" time="0.105187"/>
+            <testcase name="testPHP_release_exception_handler" class="ConfigInc"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/config/configTest.php" line="21"
+                      assertions="1" time="0.015954"/>
+        </testsuite>
+        <testsuite name="CheckedFieldTest"
+                   file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CheckedFieldTest.php" tests="7"
+                   assertions="14" failures="0" errors="0" time="0.162852">
+            <testcase name="testInvalidRegExpRaisesException" class="CheckedFieldTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CheckedFieldTest.php" line="24"
+                      assertions="1" time="0.055898"/>
+            <testcase name="testDefaultValue" class="CheckedFieldTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CheckedFieldTest.php" line="30"
+                      assertions="2" time="0.016653"/>
+            <testcase name="testIsValid" class="CheckedFieldTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CheckedFieldTest.php" line="38"
+                      assertions="2" time="0.017821"/>
+            <testcase name="testBlankAllowsNullOrEmptyStringValue" class="CheckedFieldTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CheckedFieldTest.php" line="47"
+                      assertions="5" time="0.022956"/>
+            <testcase name="testNonBlankDoesNotAllowBlankValue" class="CheckedFieldTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CheckedFieldTest.php" line="60"
+                      assertions="1" time="0.016232"/>
+            <testcase name="testNumericValueIsValid" class="CheckedFieldTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CheckedFieldTest.php" line="66"
+                      assertions="2" time="0.017847"/>
+            <testcase name="testToStringReturnsValue" class="CheckedFieldTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CheckedFieldTest.php" line="75"
+                      assertions="1" time="0.015445"/>
+        </testsuite>
+        <testsuite name="UrlRouterTest" file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/UrlRouterTest.php"
+                   tests="5" assertions="24" failures="0" errors="0" time="0.182027">
+            <testcase name="testMatches" class="UrlRouterTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/UrlRouterTest.php" line="27"
+                      assertions="10" time="0.045129"/>
+            <testcase name="testRequest200" class="UrlRouterTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/UrlRouterTest.php" line="45"
+                      assertions="6" time="0.058587"/>
+            <testcase name="testRequest303" class="UrlRouterTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/UrlRouterTest.php" line="61"
+                      assertions="1" time="0.022488"/>
+            <testcase name="testRequest404" class="UrlRouterTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/UrlRouterTest.php" line="70"
+                      assertions="2" time="0.025465"/>
+            <testcase name="testReverse" class="UrlRouterTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/UrlRouterTest.php" line="76"
+                      assertions="5" time="0.030358"/>
+        </testsuite>
+        <testsuite name="CartTest" file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CartTest.php" tests="18"
+                   assertions="118" failures="0" errors="0" time="1.580369">
+            <testcase name="testIsEmpty" class="CartTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CartTest.php" line="93" assertions="7"
+                      time="0.084199"/>
+            <testcase name="testGetItemsCount" class="CartTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CartTest.php" line="105"
+                      assertions="9" time="0.088089"/>
+            <testcase name="testAddItem" class="CartTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CartTest.php" line="121"
+                      assertions="7" time="0.089820"/>
+            <testcase name="testRemoveItem" class="CartTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CartTest.php" line="139"
+                      assertions="6" time="0.076205"/>
+            <testcase name="testSetItemQuantity" class="CartTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CartTest.php" line="150"
+                      assertions="8" time="0.081930"/>
+            <testcase name="testGetSubTotal" class="CartTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CartTest.php" line="174"
+                      assertions="5" time="0.081482"/>
+            <testcase name="testGetTotalWeight" class="CartTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CartTest.php" line="188"
+                      assertions="5" time="0.076498"/>
+            <testcase name="testGetShippingArea" class="CartTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CartTest.php" line="202"
+                      assertions="5" time="0.070969"/>
+            <testcase name="testSetShippingArea" class="CartTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CartTest.php" line="211"
+                      assertions="6" time="0.092910"/>
+            <testcase name="testShippingCostToVariousAreas" class="CartTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CartTest.php" line="228"
+                      assertions="6" time="0.101609"/>
+            <testcase name="testFreeShippingToFrance" class="CartTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CartTest.php" line="247"
+                      assertions="8" time="0.120849"/>
+            <testcase name="testHasInsurance" class="CartTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CartTest.php" line="272"
+                      assertions="6" time="0.072455"/>
+            <testcase name="testEnableInsurance" class="CartTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CartTest.php" line="282"
+                      assertions="4" time="0.068715"/>
+            <testcase name="testGetInsuranceAmount" class="CartTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CartTest.php" line="290"
+                      assertions="6" time="0.083461"/>
+            <testcase name="testGetGiftCode" class="CartTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CartTest.php" line="303"
+                      assertions="5" time="0.071068"/>
+            <testcase name="testUseGiftCode" class="CartTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CartTest.php" line="311"
+                      assertions="11" time="0.084831"/>
+            <testcase name="testGetGiftReduction" class="CartTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CartTest.php" line="325"
+                      assertions="5" time="0.075292"/>
+            <testcase name="testGetTotal" class="CartTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CartTest.php" line="338"
+                      assertions="9" time="0.159988"/>
+        </testsuite>
+        <testsuite name="SogenactifRequestTest"
+                   file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/SogenactifRequestTest.php" tests="5"
+                   assertions="12" failures="0" errors="0" time="2.359418">
+            <testcase name="testFetch" class="SogenactifRequestTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/SogenactifRequestTest.php" line="25"
+                      assertions="8" time="2.159326"/>
+            <testcase name="testRequiredFields" class="SogenactifRequestTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/SogenactifRequestTest.php" line="45"
+                      assertions="1" time="0.108032"/>
+            <testsuite name="SogenactifRequestTest::testAmountIsInSmallestUnitOfTheCurrency" tests="3" assertions="3"
+                       failures="0" errors="0" time="0.092060">
+                <testcase name="testAmountIsInSmallestUnitOfTheCurrency with data set #0" assertions="1"
+                          time="0.034627"/>
+                <testcase name="testAmountIsInSmallestUnitOfTheCurrency with data set #1" assertions="1"
+                          time="0.028589"/>
+                <testcase name="testAmountIsInSmallestUnitOfTheCurrency with data set #2" assertions="1"
+                          time="0.028844"/>
+            </testsuite>
+        </testsuite>
+        <testsuite name="MoneyTest" file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/MoneyTest.php"
+                   tests="12" assertions="36" failures="0" errors="0" time="0.332242">
+            <testcase name="testConstructorIntAmountInSmallestCurrencyUnit" class="MoneyTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/MoneyTest.php" line="37"
+                      assertions="5" time="0.033242"/>
+            <testcase name="testConstructorRoundingFloatAmount" class="MoneyTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/MoneyTest.php" line="55"
+                      assertions="6" time="0.058315"/>
+            <testcase name="testConstructorSmartStringAmountInput" class="MoneyTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/MoneyTest.php" line="76"
+                      assertions="10" time="0.057520"/>
+            <testcase name="test__get" class="MoneyTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/MoneyTest.php" line="110"
+                      assertions="1" time="0.018547"/>
+            <testcase name="test__set" class="MoneyTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/MoneyTest.php" line="115"
+                      assertions="1" time="0.018662"/>
+            <testcase name="testGetAmountString" class="MoneyTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/MoneyTest.php" line="121"
+                      assertions="1" time="0.017507"/>
+            <testcase name="testGetAmountInSmallestCurrencyUnit" class="MoneyTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/MoneyTest.php" line="126"
+                      assertions="2" time="0.019917"/>
+            <testcase name="testAdd" class="MoneyTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/MoneyTest.php" line="135"
+                      assertions="3" time="0.024406"/>
+            <testcase name="testMultiply" class="MoneyTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/MoneyTest.php" line="155"
+                      assertions="1" time="0.019126"/>
+            <testcase name="testConvertTo" class="MoneyTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/MoneyTest.php" line="164"
+                      assertions="2" time="0.021736"/>
+            <testcase name="test__toString" class="MoneyTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/MoneyTest.php" line="171"
+                      assertions="3" time="0.025761"/>
+            <testcase name="testToHtml" class="MoneyTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/MoneyTest.php" line="183"
+                      assertions="1" time="0.017503"/>
+        </testsuite>
+        <testsuite name="ItemCategoryTest"
+                   file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/ItemCategoryTest.php" tests="1"
+                   assertions="4" failures="0" errors="0" time="0.113725">
+            <testcase name="testIterateThroughValidItemsOnly" class="ItemCategoryTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/ItemCategoryTest.php" line="37"
+                      assertions="4" time="0.113725"/>
+        </testsuite>
+        <testsuite name="PaymentFormTest"
+                   file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/PaymentFormTest.php" tests="17"
+                   assertions="24" failures="0" errors="0" time="3.703991">
+            <testcase name="testMinimalValidForm" class="PaymentFormTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/PaymentFormTest.php" line="40"
+                      assertions="2" time="0.096977"/>
+            <testcase name="testNonPostedFormHasNoError" class="PaymentFormTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/PaymentFormTest.php" line="46"
+                      assertions="2" time="0.097768"/>
+            <testcase name="testAmountIsRequired" class="PaymentFormTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/PaymentFormTest.php" line="56"
+                      assertions="1" time="0.148348"/>
+            <testsuite name="PaymentFormTest::testTinyAndLargeAmountsAreInvalid" tests="12" assertions="12" failures="0"
+                       errors="0" time="1.808887">
+                <testcase name="testTinyAndLargeAmountsAreInvalid with data set #0" assertions="1" time="0.149337"/>
+                <testcase name="testTinyAndLargeAmountsAreInvalid with data set #1" assertions="1" time="0.150180"/>
+                <testcase name="testTinyAndLargeAmountsAreInvalid with data set #2" assertions="1" time="0.149618"/>
+                <testcase name="testTinyAndLargeAmountsAreInvalid with data set #3" assertions="1" time="0.148940"/>
+                <testcase name="testTinyAndLargeAmountsAreInvalid with data set #4" assertions="1" time="0.148503"/>
+                <testcase name="testTinyAndLargeAmountsAreInvalid with data set #5" assertions="1" time="0.150423"/>
+                <testcase name="testTinyAndLargeAmountsAreInvalid with data set #6" assertions="1" time="0.149443"/>
+                <testcase name="testTinyAndLargeAmountsAreInvalid with data set #7" assertions="1" time="0.149222"/>
+                <testcase name="testTinyAndLargeAmountsAreInvalid with data set #8" assertions="1" time="0.149207"/>
+                <testcase name="testTinyAndLargeAmountsAreInvalid with data set #9" assertions="1" time="0.164674"/>
+                <testcase name="testTinyAndLargeAmountsAreInvalid with data set #10" assertions="1" time="0.149853"/>
+                <testcase name="testTinyAndLargeAmountsAreInvalid with data set #11" assertions="1" time="0.149486"/>
+            </testsuite>
+            <testcase name="testValidFormGeneratePayPalArray" class="PaymentFormTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/PaymentFormTest.php" line="99"
+                      assertions="3" time="0.089645"/>
+            <testcase name="testValidFormGeneratSogenactifForm" class="PaymentFormTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/PaymentFormTest.php" line="111"
+                      assertions="4" time="1.462367"/>
+        </testsuite>
+        <testsuite name="ItemTest" file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/ItemTest.php" tests="2"
+                   assertions="7" failures="0" errors="0" time="0.096552">
+            <testcase name="testUrlSlugifiesTheTitle" class="ItemTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/ItemTest.php" line="36" assertions="4"
+                      time="0.065689"/>
+            <testcase name="testIsOutOfStock" class="ItemTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/ItemTest.php" line="54" assertions="3"
+                      time="0.030863"/>
+        </testsuite>
+        <testsuite name="DocumentTest" file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/DocumentTest.php"
+                   tests="1" assertions="1" failures="0" errors="0" time="17.321052">
+            <testcase name="testFetch" class="DocumentTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/DocumentTest.php" line="16"
+                      assertions="1" time="17.321052"/>
+        </testsuite>
+        <testsuite name="CategoryDocumentTest"
+                   file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CategoryDocumentTest.php" tests="1"
+                   assertions="2" failures="0" errors="0" time="33.602269">
+            <testcase name="testFetch" class="CategoryDocumentTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/CategoryDocumentTest.php" line="22"
+                      assertions="2" time="33.602269"/>
+        </testsuite>
+        <testsuite name="PayPalPaymentTest"
+                   file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/PayPalPaymentTest.php" tests="4"
+                   assertions="8" failures="0" errors="0" time="0.107214">
+            <testcase name="testValidateNvpFields" class="PayPalPaymentTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/PayPalPaymentTest.php" line="46"
+                      assertions="5" time="0.057228"/>
+            <testcase name="testGetExpressCheckoutDetails" class="PayPalPaymentTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/PayPalPaymentTest.php" line="94"
+                      assertions="1" time="0.015959"/>
+            <testcase name="testDoExpressCheckoutPayment" class="PayPalPaymentTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/PayPalPaymentTest.php" line="102"
+                      assertions="1" time="0.016120"/>
+            <testcase name="testGetLastPaymentDetails" class="PayPalPaymentTest"
+                      file="/var/lib/hudson/jobs/LibBooks/workspace/tests/lib/PHP/PayPalPaymentTest.php" line="107"
+                      assertions="1" time="0.017907"/>
+        </testsuite>
+    </testsuite>
+</testsuites>

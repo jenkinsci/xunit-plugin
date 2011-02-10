@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<unittest-results tests="3" failedtests="1"
+                  failures="1" time="0">
+    <test suite="SuiteOne" name="TestOne" time="0"/>
+    <test suite="SuiteOne" name="TestTwo" time="0">
+        <failure message="utpp.cpp(14) : false"/>
+    </test>
+    <test suite="SuiteTwo" name="TestOne" time="0"/>
+</unittest-results>

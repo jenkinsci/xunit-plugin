@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding='ISO-8859-1' standalone='yes' ?>
+<TestRun>
+    <FailedTests>
+        <FailedTest id="3">
+            <Name>MathTest::testSum</Name>
+            <FailureType>Assertion</FailureType>
+            <Location>
+                <File>mathTest.cpp</File>
+                <Line>56</Line>
+            </Location>
+            <Message>equality assertion failed
+                - Expected: 141496748
+                - Actual : 16777217
+            </Message>
+        </FailedTest>
+    </FailedTests>
+    <SuccessfulTests>
+        <Test id="1">
+            <Name>MathTest::testConstructor</Name>
+        </Test>
+        <Test id="2">
+            <Name>MathTest::testPush</Name>
+        </Test>
+        <Test id="4">
+            <Name>ExpressionTest::testConstructor</Name>
+        </Test>
+        <Test id="5">
+            <Name>ExpressionTest::testPush</Name>
+        </Test>
+    </SuccessfulTests>
+    <Statistics>
+        <Tests>5</Tests>
+        <FailuresTotal>1</FailuresTotal>
+        <Errors>0</Errors>
+        <Failures>1</Failures>
+    </Statistics>
+</TestRun>

@@ -1,0 +1,30 @@
+<TestLog>
+    <TestSuite name="Master Test Suite">
+        <TestSuite name="test_suite">
+            <TestCase name="test_1">
+                <Info file="test.cpp" line="9">check i == j passed</Info>
+
+                <FatalError file="test.cpp" line="10">un test failed</FatalError>
+
+                <TestingTime>15999</TestingTime>
+            </TestCase>
+
+            <TestCase name="test_2">
+                <Info file="test.cpp" line="19">check i == k passed</Info>
+
+                <Error file="test.cpp" line="21">check i == j failed [1 != 2]</Error>
+
+                <Error file="test.cpp" line="23">check j == k failed [2 != 1]</Error>
+
+                <TestingTime>0</TestingTime>
+            </TestCase>
+        </TestSuite>
+    </TestSuite>
+</TestLog>
+
+<TestResult>
+<TestSuite name="Master Test Suite" result="failed" assertions_passed="2" assertions_failed="3" expected_failures="0"
+           test_cases_passed="0" test_cases_failed="2" test_cases_skipped="0" test_cases_aborted="1">
+</TestSuite>
+</TestResult>
+
