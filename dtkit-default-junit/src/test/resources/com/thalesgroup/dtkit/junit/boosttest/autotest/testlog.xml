@@ -1,0 +1,9 @@
+<TestLog>
+    <TestSuite name="MyTest">
+        <TestCase name="my_test">
+            <Info file="test.cpp" line="11">check add( 2,2 ) == 4 passed</Info>
+
+            <TestingTime>0</TestingTime>
+        </TestCase>
+    </TestSuite>
+</TestLog>

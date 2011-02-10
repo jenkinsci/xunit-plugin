@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\svn\...UnitTests.dll" total="0" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2011-01-13" time="13:38:12">
+  <environment nunit-version="2.5.8.10295" clr-version="4.0.30319.1" os-version="Microsoft Windows NT 5.1.2600 Service Pack 3" platform="Win32NT" cwd="C:\svn\...\bin" machine-name="THE_MACHINE" user="Administrator" user-domain="THE_DOMAIN" />
+  <culture-info current-culture="de-DE" current-uiculture="de-DE" />
+  <test-suite type="Assembly" name="C:\svn\...\UnitTests.dll" executed="True" result="Success" success="True" time="3.766" asserts="0">
+    <properties>
+      <property name="APARTMENT_STATE" value="STA" />
+    </properties>
+  </test-suite>
+</test-results>

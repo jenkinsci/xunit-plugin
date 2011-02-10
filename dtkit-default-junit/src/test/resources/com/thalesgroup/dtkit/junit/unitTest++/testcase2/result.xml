@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<unittest-results tests="1" failedtests="1" failures="2" time="0">
+    <test suite="MyTestSuite" name="TestSomeStuff" time="0">
+        <failure message="/data/test.cpp(14) : MyFun()"/>
+        <failure message="/data/test.cpp(15) : MyFun()"/>
+    </test>
+</unittest-results>

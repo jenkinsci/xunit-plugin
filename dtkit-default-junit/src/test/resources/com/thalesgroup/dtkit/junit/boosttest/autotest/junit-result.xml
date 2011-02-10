@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite tests="1" errors="0" failures="0" name="MergedTestSuite" skipped="0">
+    <testcase classname="MyTest.test" name="my_test" time="0">
+        <system-out>
+            [Info] - check add( 2,2 ) == 4 passed
+            == [File] - test.cpp
+            == [Line] - 11
+        </system-out>
+    </testcase>
+</testsuite>

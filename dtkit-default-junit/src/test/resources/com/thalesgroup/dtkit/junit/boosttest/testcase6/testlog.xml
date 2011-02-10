@@ -1,0 +1,729 @@
+<TestLog>
+    <TestSuite name="All Test Suite">
+        <TestSuite name="Object_Type_Model_And_Property_Views_Binder_Test_Suite">
+            <TestCase name="Bind_Model_And_Views_When_List_Has_Several_Valid_Objects_Valid_Model_True_Predicate">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelviewbinder/objectmodelviewbinderverificationmethod/objectmodelviewbinderverificationmethod.cpp"
+                      line="42">
+                    <![CDATA[check testFixture.expectedObjectTypeModel == actualFirstObjectTypeModel passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelviewbinder/objectmodelviewbinderverificationmethod/objectmodelviewbinderverificationmethod.cpp"
+                      line="45">
+                    <![CDATA[check testFixture.expectedObjectTypeModel == actualSecondObjectTypeModel passed]]></Info>
+                <TestingTime>310000</TestingTime>
+            </TestCase>
+            <TestCase name="Bind_Model_And_Views_When_List_Has_Several_Valid_Objects_Invalid_Model_True_Predicate">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelviewbinder/objectmodelviewbinderverificationmethod/objectmodelviewbinderverificationmethod.cpp"
+                      line="42">
+                    <![CDATA[check testFixture.expectedObjectTypeModel == actualFirstObjectTypeModel passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelviewbinder/objectmodelviewbinderverificationmethod/objectmodelviewbinderverificationmethod.cpp"
+                      line="45">
+                    <![CDATA[check testFixture.expectedObjectTypeModel == actualSecondObjectTypeModel passed]]></Info>
+                <TestingTime>30000</TestingTime>
+            </TestCase>
+            <TestCase name="Bind_Model_And_Views_When_List_Has_Several_Valid_Objects_Valid_Model_False_Predicate">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelviewbinder/objectmodelviewbinderverificationmethod/objectmodelviewbinderverificationmethod.cpp"
+                      line="42">
+                    <![CDATA[check testFixture.expectedObjectTypeModel == actualFirstObjectTypeModel passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelviewbinder/objectmodelviewbinderverificationmethod/objectmodelviewbinderverificationmethod.cpp"
+                      line="45">
+                    <![CDATA[check testFixture.expectedObjectTypeModel == actualSecondObjectTypeModel passed]]></Info>
+                <TestingTime>30000</TestingTime>
+            </TestCase>
+            <TestCase name="Bind_Model_And_Views_When_List_Has_Several_Invalid_Objects_Valid_Model_True_Predicate">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelviewbinder/objectmodelviewbinderverificationmethod/objectmodelviewbinderverificationmethod.cpp"
+                      line="42">
+                    <![CDATA[check testFixture.expectedObjectTypeModel == actualFirstObjectTypeModel passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelviewbinder/objectmodelviewbinderverificationmethod/objectmodelviewbinderverificationmethod.cpp"
+                      line="45">
+                    <![CDATA[check testFixture.expectedObjectTypeModel == actualSecondObjectTypeModel passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+        </TestSuite>
+        <TestSuite name="Object_Type_Model_View_Registry_Test_Suite">
+            <TestCase name="Object_Type_View_When_Registry_Is_Empty">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelviewregistry/objectmodelviewregistrytest.cpp"
+                      line="102"><![CDATA[check expectedObjectTypeView == actualObjectTypeView passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase name="Object_Type_View_When_Registry_Contains_Corresponding_Binder">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelviewregistry/objectmodelviewregistrytest.cpp"
+                      line="118"><![CDATA[check expectedObjectTypeView == actualObjectTypeView passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase name="Object_Type_View_When_Registry_Contains_Corresponding_View">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelviewregistry/objectmodelviewregistrytest.cpp"
+                      line="133"><![CDATA[check expectedObjectTypeView == actualObjectTypeView passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase name="Object_Type_Model_Query_Binder_List_When_Registry_Is_Empty">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelviewregistry/objectmodelviewregistrytest.cpp"
+                      line="152">
+                    <![CDATA[check { expectedBinderList.begin(), expectedBinderList.end() } == { actualBinderList.begin(), actualBinderList.end() } passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase name="Object_Type_Model_Query_Binder_List_When_Registry_Contains_Corresponding_View">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelviewregistry/objectmodelviewregistrytest.cpp"
+                      line="174">
+                    <![CDATA[check { expectedBinderList.begin(), expectedBinderList.end() } == { actualBinderList.begin(), actualBinderList.end() } passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase name="Object_Type_Model_Query_Binder_List_When_Registry_Contains_Corresponding_Binder">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelviewregistry/objectmodelviewregistrytest.cpp"
+                      line="198">
+                    <![CDATA[check { expectedModelList.begin(), expectedModelList.end() } == { actualModelList.begin(), actualModelList.end() } passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase name="Remove_Object_TypeModels_When_Registry_Contains_Corresponding_Models">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelviewregistry/objectmodelviewregistrytest.cpp"
+                      line="218"><![CDATA[check actualBinderList.isEmpty() passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+        </TestSuite>
+        <TestSuite name="Object_Type_View_Model_Factory_Test_Suite">
+            <TestCase name="Build_Model_When_Object_List_Has_One_STreeViewBase_View&lt;16SClassicTreeView&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelfactory/objectmodelfactorytest.cpp"
+                      line="115"><![CDATA[check !actualSqlModel passed]]></Info>
+                <TestingTime>100000</TestingTime>
+            </TestCase>
+            <TestCase name="Build_Model_When_Object_List_Has_One_STreeViewBase_View&lt;18SRelationTreeTable&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelfactory/objectmodelfactorytest.cpp"
+                      line="115"><![CDATA[check !actualSqlModel passed]]></Info>
+                <TestingTime>20000</TestingTime>
+            </TestCase>
+            <TestCase name="Build_Model_When_Object_List_Has_One_STreeViewBase_View&lt;10STreeTable&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelfactory/objectmodelfactorytest.cpp"
+                      line="115"><![CDATA[check !actualSqlModel passed]]></Info>
+                <TestingTime>10000</TestingTime>
+            </TestCase>
+            <TestCase name="Build_Model_When_Object_List_Has_Several_Property_Editors">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelfactory/objectmodelfactorytest.cpp"
+                      line="137"><![CDATA[check actualSqlModel != 0 passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelfactory/objectmodelfactorytest.cpp"
+                      line="139"><![CDATA[check expectedColumnNumber == actualSqlModel->numCols() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelfactory/objectmodelfactorytest.cpp"
+                      line="142">
+                    <![CDATA[check SColumn::Bool == actualSqlModel->column( "test_bool_property" )->type() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelfactory/objectmodelfactorytest.cpp"
+                      line="145">
+                    <![CDATA[check SColumn::Int == actualSqlModel->column( "test_int_property" )->type() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelfactory/objectmodelfactorytest.cpp"
+                      line="148">
+                    <![CDATA[check SColumn::Text == actualSqlModel->column( "test_text_property" )->type() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelfactory/objectmodelfactorytest.cpp"
+                      line="151">
+                    <![CDATA[check SColumn::ReadOnly == actualSqlModel->column( Utility::InstanceIdAlias )->type() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelfactory/objectmodelfactorytest.cpp"
+                      line="153"><![CDATA[check expectedModelQuery == actualSqlModel->query() passed]]></Info>
+                <TestingTime>30000</TestingTime>
+            </TestCase>
+            <TestCase name="Build_Model_When_Object_List_Has_Several_Property_Editors_And_False_Predicate">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelfactory/objectmodelfactorytest.cpp"
+                      line="177"><![CDATA[check actualSqlModel == 0 passed]]></Info>
+                <TestingTime>30000</TestingTime>
+            </TestCase>
+            <TestCase name="Build_Model_When_Object_List_Has_Several_Table_Views">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelfactory/objectmodelfactorytest.cpp"
+                      line="200"><![CDATA[check 'exception std::domain_error is caught' passed]]></Info>
+                <TestingTime>70000</TestingTime>
+            </TestCase>
+            <TestCase name="Build_Model_When_Object_List_Has_Property_Editor_And_Table_View">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelfactory/objectmodelfactorytest.cpp"
+                      line="226"><![CDATA[check 'exception std::domain_error is caught' passed]]></Info>
+                <TestingTime>40000</TestingTime>
+            </TestCase>
+            <TestCase name="Build_Model_When_Object_List_Has_Table_View_And_Property_Editor">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodelfactory/objectmodelfactorytest.cpp"
+                      line="248"><![CDATA[check 'exception std::domain_error is caught' passed]]></Info>
+                <TestingTime>20000</TestingTime>
+            </TestCase>
+        </TestSuite>
+        <TestSuite name="Object_Type_Name_Unary_Predicate_Test_Suite">
+            <TestCase name="QObject_Unary_Predicate_When_Object_Property_Is_Invalid">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="34"><![CDATA[check QtObjectParser::objectName( object ).isEmpty() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="39"><![CDATA[check !validPropertyViewNameEqualToUnaryPredicate( object ) passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase name="QObject_Unary_Predicate_When_Object_Property_Is_Valid_And_Not_Equal_With_Etalon_Name">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="54"><![CDATA[check !QtObjectParser::objectName( object ).isEmpty() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="58">
+                    <![CDATA[check QtObjectParser::objectName( object ) != etalonObjectTypeName passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="63"><![CDATA[check !validPropertyViewNameEqualToUnaryPredicate( object ) passed]]></Info>
+                <TestingTime>20000</TestingTime>
+            </TestCase>
+            <TestCase
+                    name="QObject_Unary_Predicate_When_Object_Property_Is_Equal_With_Etalon_Name&lt;11SBoolEditor&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="81"><![CDATA[check !QtObjectParser::objectName( object ).isEmpty() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="85">
+                    <![CDATA[check QtObjectParser::objectName( object ) == etalonObjectTypeName passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="90"><![CDATA[check validPropertyViewNameEqualToUnaryPredicate( object ) passed]]></Info>
+                <TestingTime>10000</TestingTime>
+            </TestCase>
+            <TestCase
+                    name="QObject_Unary_Predicate_When_Object_Property_Is_Equal_With_Etalon_Name&lt;11SDateEditor&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="81"><![CDATA[check !QtObjectParser::objectName( object ).isEmpty() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="85">
+                    <![CDATA[check QtObjectParser::objectName( object ) == etalonObjectTypeName passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="90"><![CDATA[check validPropertyViewNameEqualToUnaryPredicate( object ) passed]]></Info>
+                <TestingTime>20000</TestingTime>
+            </TestCase>
+            <TestCase name="QObject_Unary_Predicate_When_Object_Property_Is_Equal_With_Etalon_Name&lt;10SIntEditor&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="81"><![CDATA[check !QtObjectParser::objectName( object ).isEmpty() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="85">
+                    <![CDATA[check QtObjectParser::objectName( object ) == etalonObjectTypeName passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="90"><![CDATA[check validPropertyViewNameEqualToUnaryPredicate( object ) passed]]></Info>
+                <TestingTime>20000</TestingTime>
+            </TestCase>
+            <TestCase
+                    name="QObject_Unary_Predicate_When_Object_Property_Is_Equal_With_Etalon_Name&lt;11SLineEditor&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="81"><![CDATA[check !QtObjectParser::objectName( object ).isEmpty() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="85">
+                    <![CDATA[check QtObjectParser::objectName( object ) == etalonObjectTypeName passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="90"><![CDATA[check validPropertyViewNameEqualToUnaryPredicate( object ) passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase
+                    name="QObject_Unary_Predicate_When_Object_Property_Is_Equal_With_Etalon_Name&lt;13SPixmapEditor&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="81"><![CDATA[check !QtObjectParser::objectName( object ).isEmpty() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="85">
+                    <![CDATA[check QtObjectParser::objectName( object ) == etalonObjectTypeName passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="90"><![CDATA[check validPropertyViewNameEqualToUnaryPredicate( object ) passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase
+                    name="QObject_Unary_Predicate_When_Object_Property_Is_Equal_With_Etalon_Name&lt;15SSqlComboEditor&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="81"><![CDATA[check !QtObjectParser::objectName( object ).isEmpty() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="85">
+                    <![CDATA[check QtObjectParser::objectName( object ) == etalonObjectTypeName passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="90"><![CDATA[check validPropertyViewNameEqualToUnaryPredicate( object ) passed]]></Info>
+                <TestingTime>30000</TestingTime>
+            </TestCase>
+            <TestCase
+                    name="QObject_Unary_Predicate_When_Object_Property_Is_Equal_With_Etalon_Name&lt;11STextEditor&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="81"><![CDATA[check !QtObjectParser::objectName( object ).isEmpty() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="85">
+                    <![CDATA[check QtObjectParser::objectName( object ) == etalonObjectTypeName passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="90"><![CDATA[check validPropertyViewNameEqualToUnaryPredicate( object ) passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase
+                    name="QObject_Unary_Predicate_When_Object_Property_Is_Equal_With_Etalon_Name&lt;11STimeEditor&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="81"><![CDATA[check !QtObjectParser::objectName( object ).isEmpty() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="85">
+                    <![CDATA[check QtObjectParser::objectName( object ) == etalonObjectTypeName passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="90"><![CDATA[check validPropertyViewNameEqualToUnaryPredicate( object ) passed]]></Info>
+                <TestingTime>20000</TestingTime>
+            </TestCase>
+            <TestCase name="QObject_Unary_Predicate_When_Object_Property_Is_Equal_With_Etalon_Name&lt;9SCellView&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="81"><![CDATA[check !QtObjectParser::objectName( object ).isEmpty() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="85">
+                    <![CDATA[check QtObjectParser::objectName( object ) == etalonObjectTypeName passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="90"><![CDATA[check validPropertyViewNameEqualToUnaryPredicate( object ) passed]]></Info>
+                <TestingTime>10000</TestingTime>
+            </TestCase>
+            <TestCase name="QObject_Unary_Predicate_When_Object_Property_Is_Equal_With_Etalon_Name&lt;10STableView&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="81"><![CDATA[check !QtObjectParser::objectName( object ).isEmpty() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="85">
+                    <![CDATA[check QtObjectParser::objectName( object ) == etalonObjectTypeName passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="90"><![CDATA[check validPropertyViewNameEqualToUnaryPredicate( object ) passed]]></Info>
+                <TestingTime>10000</TestingTime>
+            </TestCase>
+            <TestCase
+                    name="QObject_Unary_Predicate_When_Object_Property_Is_Equal_With_Etalon_Name&lt;16SClassicTreeView&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="81"><![CDATA[check !QtObjectParser::objectName( object ).isEmpty() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="85">
+                    <![CDATA[check QtObjectParser::objectName( object ) == etalonObjectTypeName passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="90"><![CDATA[check validPropertyViewNameEqualToUnaryPredicate( object ) passed]]></Info>
+                <TestingTime>30000</TestingTime>
+            </TestCase>
+            <TestCase
+                    name="QObject_Unary_Predicate_When_Object_Property_Is_Equal_With_Etalon_Name&lt;18SRelationTreeTable&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="81"><![CDATA[check !QtObjectParser::objectName( object ).isEmpty() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="85">
+                    <![CDATA[check QtObjectParser::objectName( object ) == etalonObjectTypeName passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="90"><![CDATA[check validPropertyViewNameEqualToUnaryPredicate( object ) passed]]></Info>
+                <TestingTime>10000</TestingTime>
+            </TestCase>
+            <TestCase name="QObject_Unary_Predicate_When_Object_Property_Is_Equal_With_Etalon_Name&lt;10STreeTable&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="81"><![CDATA[check !QtObjectParser::objectName( object ).isEmpty() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="85">
+                    <![CDATA[check QtObjectParser::objectName( object ) == etalonObjectTypeName passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="90"><![CDATA[check validPropertyViewNameEqualToUnaryPredicate( object ) passed]]></Info>
+                <TestingTime>20000</TestingTime>
+            </TestCase>
+            <TestCase name="QObject_Unary_Predicate_When_Object_Has_Not_Valid_Type">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="102"><![CDATA[check QtObjectParser::objectName( object ).isEmpty() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="103"><![CDATA[check !etalonObjectTypeName.isEmpty() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectunarypredicate/validpropertyviewnameequaltotest.cpp"
+                      line="108"><![CDATA[check !validPropertyViewNameEqualToUnaryPredicate( object ) passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+        </TestSuite>
+        <TestSuite name="Object_Type_Model_Variable_Query_Binder_Test_Suite">
+            <TestCase name="Bind_Object_Id_Value_When_Query_Has_Object_Id_Placeholder">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodel/objectmodeltest.cpp"
+                      line="92">
+                    <![CDATA[check expectedObjectTypeModelQuery == actualObjectTypeModelQuery passed]]></Info>
+                <TestingTime>50000</TestingTime>
+            </TestCase>
+            <TestCase name="Bind_Object_Id_Value_When_Query_Has_Not_Object_Id_Placeholder">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/objectmodel/objectmodeltest.cpp"
+                      line="106"><![CDATA[check 'exception SException is caught' passed]]></Info>
+                <TestingTime>10000</TestingTime>
+            </TestCase>
+        </TestSuite>
+        <TestSuite name="Object_Type_Name_Parser_Test_Suite">
+            <TestCase name="Object_Type_Name_When_Object_Has_Not_Corresponding_Property">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="78"><![CDATA[check expectedObjectTypeName == actualObjectTypeName passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase name="Object_Type_Name_When_Object_Has_Corresponding_Property&lt;11SBoolEditor&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="96"><![CDATA[check fixture.expectedObjectTypeName == actualObjectTypeName passed]]></Info>
+                <TestingTime>10000</TestingTime>
+            </TestCase>
+            <TestCase name="Object_Type_Name_When_Object_Has_Corresponding_Property&lt;11SDateEditor&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="96"><![CDATA[check fixture.expectedObjectTypeName == actualObjectTypeName passed]]></Info>
+                <TestingTime>10000</TestingTime>
+            </TestCase>
+            <TestCase name="Object_Type_Name_When_Object_Has_Corresponding_Property&lt;10SIntEditor&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="96"><![CDATA[check fixture.expectedObjectTypeName == actualObjectTypeName passed]]></Info>
+                <TestingTime>10000</TestingTime>
+            </TestCase>
+            <TestCase name="Object_Type_Name_When_Object_Has_Corresponding_Property&lt;11SLineEditor&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="96"><![CDATA[check fixture.expectedObjectTypeName == actualObjectTypeName passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase name="Object_Type_Name_When_Object_Has_Corresponding_Property&lt;13SPixmapEditor&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="96"><![CDATA[check fixture.expectedObjectTypeName == actualObjectTypeName passed]]></Info>
+                <TestingTime>10000</TestingTime>
+            </TestCase>
+            <TestCase name="Object_Type_Name_When_Object_Has_Corresponding_Property&lt;15SSqlComboEditor&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="96"><![CDATA[check fixture.expectedObjectTypeName == actualObjectTypeName passed]]></Info>
+                <TestingTime>10000</TestingTime>
+            </TestCase>
+            <TestCase name="Object_Type_Name_When_Object_Has_Corresponding_Property&lt;11STextEditor&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="96"><![CDATA[check fixture.expectedObjectTypeName == actualObjectTypeName passed]]></Info>
+                <TestingTime>20000</TestingTime>
+            </TestCase>
+            <TestCase name="Object_Type_Name_When_Object_Has_Corresponding_Property&lt;11STimeEditor&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="96"><![CDATA[check fixture.expectedObjectTypeName == actualObjectTypeName passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase name="Object_Type_Name_When_Object_Has_Corresponding_Property&lt;9SCellView&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="96"><![CDATA[check fixture.expectedObjectTypeName == actualObjectTypeName passed]]></Info>
+                <TestingTime>10000</TestingTime>
+            </TestCase>
+            <TestCase name="Object_Type_Name_When_Object_Has_Corresponding_Property&lt;10STableView&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="96"><![CDATA[check fixture.expectedObjectTypeName == actualObjectTypeName passed]]></Info>
+                <TestingTime>20000</TestingTime>
+            </TestCase>
+            <TestCase name="Object_Type_Name_When_Object_Has_Corresponding_Property&lt;16SClassicTreeView&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="96"><![CDATA[check fixture.expectedObjectTypeName == actualObjectTypeName passed]]></Info>
+                <TestingTime>20000</TestingTime>
+            </TestCase>
+            <TestCase name="Object_Type_Name_When_Object_Has_Corresponding_Property&lt;18SRelationTreeTable&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="96"><![CDATA[check fixture.expectedObjectTypeName == actualObjectTypeName passed]]></Info>
+                <TestingTime>20000</TestingTime>
+            </TestCase>
+            <TestCase name="Object_Type_Name_When_Object_Has_Corresponding_Property&lt;10STreeTable&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="96"><![CDATA[check fixture.expectedObjectTypeName == actualObjectTypeName passed]]></Info>
+                <TestingTime>10000</TestingTime>
+            </TestCase>
+            <TestCase name="Object_Type_Name_List_When_Object_Has_Not_Childrens_And_Not_Corresponding_Property">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="115">
+                    <![CDATA[check { expectedObjectTypeNameList.begin(), expectedObjectTypeNameList.end() } == { actualObjectTypeNameList.begin(), actualObjectTypeNameList.end() } passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase
+                    name="Object_Type_Name_List_When_Object_Has_Not_Childrens_And_Has_Corresponding_Property&lt;11SBoolEditor&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="138">
+                    <![CDATA[check { expectedObjectTypeNameList.begin(), expectedObjectTypeNameList.end() } == { actualObjectTypeNameList.begin(), actualObjectTypeNameList.end() } passed]]></Info>
+                <TestingTime>10000</TestingTime>
+            </TestCase>
+            <TestCase
+                    name="Object_Type_Name_List_When_Object_Has_Not_Childrens_And_Has_Corresponding_Property&lt;11SDateEditor&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="138">
+                    <![CDATA[check { expectedObjectTypeNameList.begin(), expectedObjectTypeNameList.end() } == { actualObjectTypeNameList.begin(), actualObjectTypeNameList.end() } passed]]></Info>
+                <TestingTime>10000</TestingTime>
+            </TestCase>
+            <TestCase
+                    name="Object_Type_Name_List_When_Object_Has_Not_Childrens_And_Has_Corresponding_Property&lt;10SIntEditor&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="138">
+                    <![CDATA[check { expectedObjectTypeNameList.begin(), expectedObjectTypeNameList.end() } == { actualObjectTypeNameList.begin(), actualObjectTypeNameList.end() } passed]]></Info>
+                <TestingTime>20000</TestingTime>
+            </TestCase>
+            <TestCase
+                    name="Object_Type_Name_List_When_Object_Has_Not_Childrens_And_Has_Corresponding_Property&lt;11SLineEditor&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="138">
+                    <![CDATA[check { expectedObjectTypeNameList.begin(), expectedObjectTypeNameList.end() } == { actualObjectTypeNameList.begin(), actualObjectTypeNameList.end() } passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase
+                    name="Object_Type_Name_List_When_Object_Has_Not_Childrens_And_Has_Corresponding_Property&lt;13SPixmapEditor&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="138">
+                    <![CDATA[check { expectedObjectTypeNameList.begin(), expectedObjectTypeNameList.end() } == { actualObjectTypeNameList.begin(), actualObjectTypeNameList.end() } passed]]></Info>
+                <TestingTime>10000</TestingTime>
+            </TestCase>
+            <TestCase
+                    name="Object_Type_Name_List_When_Object_Has_Not_Childrens_And_Has_Corresponding_Property&lt;15SSqlComboEditor&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="138">
+                    <![CDATA[check { expectedObjectTypeNameList.begin(), expectedObjectTypeNameList.end() } == { actualObjectTypeNameList.begin(), actualObjectTypeNameList.end() } passed]]></Info>
+                <TestingTime>20000</TestingTime>
+            </TestCase>
+            <TestCase
+                    name="Object_Type_Name_List_When_Object_Has_Not_Childrens_And_Has_Corresponding_Property&lt;11STextEditor&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="138">
+                    <![CDATA[check { expectedObjectTypeNameList.begin(), expectedObjectTypeNameList.end() } == { actualObjectTypeNameList.begin(), actualObjectTypeNameList.end() } passed]]></Info>
+                <TestingTime>10000</TestingTime>
+            </TestCase>
+            <TestCase
+                    name="Object_Type_Name_List_When_Object_Has_Not_Childrens_And_Has_Corresponding_Property&lt;11STimeEditor&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="138">
+                    <![CDATA[check { expectedObjectTypeNameList.begin(), expectedObjectTypeNameList.end() } == { actualObjectTypeNameList.begin(), actualObjectTypeNameList.end() } passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase
+                    name="Object_Type_Name_List_When_Object_Has_Not_Childrens_And_Has_Corresponding_Property&lt;9SCellView&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="138">
+                    <![CDATA[check { expectedObjectTypeNameList.begin(), expectedObjectTypeNameList.end() } == { actualObjectTypeNameList.begin(), actualObjectTypeNameList.end() } passed]]></Info>
+                <TestingTime>10000</TestingTime>
+            </TestCase>
+            <TestCase
+                    name="Object_Type_Name_List_When_Object_Has_Not_Childrens_And_Has_Corresponding_Property&lt;10STableView&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="138">
+                    <![CDATA[check { expectedObjectTypeNameList.begin(), expectedObjectTypeNameList.end() } == { actualObjectTypeNameList.begin(), actualObjectTypeNameList.end() } passed]]></Info>
+                <TestingTime>20000</TestingTime>
+            </TestCase>
+            <TestCase
+                    name="Object_Type_Name_List_When_Object_Has_Not_Childrens_And_Has_Corresponding_Property&lt;16SClassicTreeView&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="138">
+                    <![CDATA[check { expectedObjectTypeNameList.begin(), expectedObjectTypeNameList.end() } == { actualObjectTypeNameList.begin(), actualObjectTypeNameList.end() } passed]]></Info>
+                <TestingTime>10000</TestingTime>
+            </TestCase>
+            <TestCase
+                    name="Object_Type_Name_List_When_Object_Has_Not_Childrens_And_Has_Corresponding_Property&lt;18SRelationTreeTable&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="138">
+                    <![CDATA[check { expectedObjectTypeNameList.begin(), expectedObjectTypeNameList.end() } == { actualObjectTypeNameList.begin(), actualObjectTypeNameList.end() } passed]]></Info>
+                <TestingTime>20000</TestingTime>
+            </TestCase>
+            <TestCase
+                    name="Object_Type_Name_List_When_Object_Has_Not_Childrens_And_Has_Corresponding_Property&lt;10STreeTable&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="138">
+                    <![CDATA[check { expectedObjectTypeNameList.begin(), expectedObjectTypeNameList.end() } == { actualObjectTypeNameList.begin(), actualObjectTypeNameList.end() } passed]]></Info>
+                <TestingTime>10000</TestingTime>
+            </TestCase>
+            <TestCase name="Object_Type_Name_List_When_Object_Has_Childrens_And_Corresponding_Property">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/qtobjectparser/qtobjectparsertest.cpp"
+                      line="175">
+                    <![CDATA[check { expectedObjectTypeNameList.begin(), expectedObjectTypeNameList.end() } == { actualObjectTypeNameList.begin(), actualObjectTypeNameList.end() } passed]]></Info>
+                <TestingTime>29120000</TestingTime>
+            </TestCase>
+        </TestSuite>
+        <TestSuite name="Ui_Form_Factory_Test_Suite">
+            <TestCase name="Build_View_When_Ui_Files_Path_Is_Not_Defined">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/uiformfactory/uiformfactorytest.cpp"
+                      line="59"><![CDATA[check expectedView == actualView passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase name="Build_View_When_Ui_Files_Path_Is_Invalid_Defined">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/uiformfactory/uiformfactorytest.cpp"
+                      line="73"><![CDATA[check expectedView == actualView passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase name="Build_View_When_Valid_Defined_Path_Is_Not_Contains_Required_Ui_File">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/uiformfactory/uiformfactorytest.cpp"
+                      line="87"><![CDATA[check expectedView == actualView passed]]></Info>
+                <TestingTime>20000</TestingTime>
+            </TestCase>
+            <TestCase name="Build_View_When_Valid_Defined_Path_Is_Contains_Required_Ui_File_With_Simple_Name">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/uiformfactory/uiformfactorytest.cpp"
+                      line="102"><![CDATA[check actualView != 0 passed]]></Info>
+                <TestingTime>26790000</TestingTime>
+            </TestCase>
+            <TestCase name="Build_View_When_Valid_Defined_Path_Is_Contains_Required_Ui_File_With_Invalid_Name">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/uiformfactory/uiformfactorytest.cpp"
+                      line="119"><![CDATA[check expectedView == actualView passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+        </TestSuite>
+        <TestSuite name="Object_Type_List_With_User_Defined_View_Test_Suite">
+            <TestCase name="String_List_Getter_And_Implicit_Type_Cast_Operator_Equality">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/uiformidlist/uiformidlisttest.cpp"
+                      line="97">
+                    <![CDATA[check { implicitCastResult.begin(), implicitCastResult.end() } == { getterFunctionResult.begin(), getterFunctionResult.end() } passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase name="String_List_When_Task_Ui_Files_Path_Was_Not_Defined">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/uiformidlist/uiformidlisttest.cpp"
+                      line="115">
+                    <![CDATA[check { expectedList.begin(), expectedList.end() } == { actualList.begin(), actualList.end() } passed]]></Info>
+                <TestingTime>10000</TestingTime>
+            </TestCase>
+            <TestCase name="String_List_When_Task_Ui_Files_Path_Was_Invalid_Defined">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/uiformidlist/uiformidlisttest.cpp"
+                      line="133">
+                    <![CDATA[check { expectedList.begin(), expectedList.end() } == { actualList.begin(), actualList.end() } passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase name="String_List_When_Task_Ui_Files_Dir_Is_Not_Contains_Required_Ui_Files">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/uiformidlist/uiformidlisttest.cpp"
+                      line="151">
+                    <![CDATA[check { expectedList.begin(), expectedList.end() } == { actualList.begin(), actualList.end() } passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase name="Value_List_When_Task_Ui_Files_Dir_Is_Contains_Required_Ui_Files">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/uiformidlist/uiformidlisttest.cpp"
+                      line="172">
+                    <![CDATA[check { expectedList.begin(), expectedList.end() } == { actualList.begin(), actualList.end() } passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase name="Directory_Contains_Conflicting_Ui_Files_With_Create_And_Dlg_Contexts">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/uiformidlist/uiformidlisttest.cpp"
+                      line="184"><![CDATA[check 'exception SException is caught' passed]]></Info>
+                <TestingTime>10000</TestingTime>
+            </TestCase>
+            <TestCase name="Directory_Contains_Conflicting_Ui_Files_With_Modify_And_Dlg_Contexts">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/uiformidlist/uiformidlisttest.cpp"
+                      line="196"><![CDATA[check 'exception SException is caught' passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+        </TestSuite>
+        <TestSuite name="Task_Ui_Files_Observer_Test_Suite">
+            <TestCase name="Task_Ui_Files_Path_Is_Same_With_Defined_Path">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/detail/taskuifilesobserver/taskuifilesobservertestutility/taskuifilesobservertestutility.cpp"
+                      line="32"><![CDATA[check expectedPath == actualPath passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase name="Task_Ui_Files_Path_Is_Different_With_Defined_Path">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/detail/taskuifilesobserver/taskuifilesobservertestutility/taskuifilesobservertestutility.cpp"
+                      line="32"><![CDATA[check expectedPath == actualPath passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase name="Task_Ui_Files_Path_Is_Empty">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/detail/taskuifilesobserver/taskuifilesobservertestutility/taskuifilesobservertestutility.cpp"
+                      line="32"><![CDATA[check expectedPath == actualPath passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase name="Ui_Files_List_When_Ui_Files_Path_Is_Invalid_Defined">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/detail/taskuifilesobserver/taskuifilesobservertestutility/taskuifilesobservertestutility.cpp"
+                      line="52">
+                    <![CDATA[check { expectedUiFilesList.begin(), expectedUiFilesList.end() } == { actualUiFilesList.begin(), actualUiFilesList.end() } passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase name="Ui_Files_List_When_Ui_Files_Directory_Is_Empty">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/detail/taskuifilesobserver/taskuifilesobservertestutility/taskuifilesobservertestutility.cpp"
+                      line="52">
+                    <![CDATA[check { expectedUiFilesList.begin(), expectedUiFilesList.end() } == { actualUiFilesList.begin(), actualUiFilesList.end() } passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase name="Ui_Files_List_When_Ui_Files_Directory_Is_Not_Empty">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/domainlayer/uiformbuilder/detail/taskuifilesobserver/taskuifilesobservertestutility/taskuifilesobservertestutility.cpp"
+                      line="52">
+                    <![CDATA[check { expectedUiFilesList.begin(), expectedUiFilesList.end() } == { actualUiFilesList.begin(), actualUiFilesList.end() } passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+        </TestSuite>
+        <TestSuite name="QObject_Utility_Test_Suite">
+            <TestCase name="Module_Index_With_Direct_Valid_Parent">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/utilitytest/qobjectutility/qobjectutilitytest.cpp"
+                      line="62"><![CDATA[check expectedModuleIndex == actualModuleIndex passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase name="Module_Index_With_Direct_Valid_Parent_With_Invalid_Name">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/utilitytest/qobjectutility/qobjectutilitytest.cpp"
+                      line="79"><![CDATA[check expectedModuleIndex == actualModuleIndex passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase name="Module_Index_With_Indirect_Valid_Parent">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/utilitytest/qobjectutility/qobjectutilitytest.cpp"
+                      line="98"><![CDATA[check expectedModuleIndex == actualModuleIndex passed]]></Info>
+                <TestingTime>10000</TestingTime>
+            </TestCase>
+            <TestCase name="Module_Index_With_Indirect_Valid_Parent_With_Invalid_Name">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/utilitytest/qobjectutility/qobjectutilitytest.cpp"
+                      line="117"><![CDATA[check expectedModuleIndex == actualModuleIndex passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase name="Module_Index_With_Indirect_Valid_Parent_With_Valid_Name_With_Layouts">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/utilitytest/qobjectutility/qobjectutilitytest.cpp"
+                      line="143"><![CDATA[check expectedModuleIndex == actualModuleIndex passed]]></Info>
+                <TestingTime>20000</TestingTime>
+            </TestCase>
+        </TestSuite>
+        <TestSuite name="Database_Dependent_Test_Suite">
+            <TestSuite name="Task_Dispatcher_Test_Suite">
+                <TestCase name="Task_Interface_Instance_Resource_Management_Requirements_Checking">
+                    <Message file="./boost/test/impl/results_collector.ipp" line="220">
+                        <![CDATA[Test case Task_Interface_Instance_Resource_Management_Requirements_Checking did not check any assertions]]></Message>
+                    <TestingTime>10000</TestingTime>
+                </TestCase>
+            </TestSuite>
+        </TestSuite>
+        <TestSuite name="Property_Editor_Model_Initializer_Test_Suite">
+            <TestCase name="Initialize_Property_Editor_Model&lt;N5boost3mpl4pairI11SBoolEditor10ColumnTypeILi7EEEE&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/datasourcelayer/propertyeditormodelinitializer/propertyeditormodelinitializertest.cpp"
+                      line="87"><![CDATA[check 2 == propertyEditorModel->numCols() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/datasourcelayer/propertyeditormodelinitializer/propertyeditormodelinitializertest.cpp"
+                      line="91">
+                    <![CDATA[check static_cast<int>( SColumn::ReadOnly ) == static_cast<int>( propertyEditorModel-> column( propertyName )->type() ) passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/datasourcelayer/propertyeditormodelinitializer/propertyeditormodelinitializertest.cpp"
+                      line="95">
+                    <![CDATA[check static_cast<int>( SColumn::ReadOnly ) == static_cast<int>( propertyEditorModel-> column( keyColumnName )->type() ) passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/datasourcelayer/propertyeditormodelinitializer/propertyeditormodelinitializertest.cpp"
+                      line="97"><![CDATA[check expectedModelQuery == propertyEditorModel->query() passed]]></Info>
+                <TestingTime>10000</TestingTime>
+            </TestCase>
+            <TestCase name="Initialize_Property_Editor_Model&lt;N5boost3mpl4pairI11SDateEditor10ColumnTypeILi3EEEE&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/datasourcelayer/propertyeditormodelinitializer/propertyeditormodelinitializertest.cpp"
+                      line="87"><![CDATA[check 2 == propertyEditorModel->numCols() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/datasourcelayer/propertyeditormodelinitializer/propertyeditormodelinitializertest.cpp"
+                      line="91">
+                    <![CDATA[check static_cast<int>( SColumn::ReadOnly ) == static_cast<int>( propertyEditorModel-> column( propertyName )->type() ) passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/datasourcelayer/propertyeditormodelinitializer/propertyeditormodelinitializertest.cpp"
+                      line="95">
+                    <![CDATA[check static_cast<int>( SColumn::ReadOnly ) == static_cast<int>( propertyEditorModel-> column( keyColumnName )->type() ) passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/datasourcelayer/propertyeditormodelinitializer/propertyeditormodelinitializertest.cpp"
+                      line="97"><![CDATA[check expectedModelQuery == propertyEditorModel->query() passed]]></Info>
+                <TestingTime>30000</TestingTime>
+            </TestCase>
+            <TestCase name="Initialize_Property_Editor_Model&lt;N5boost3mpl4pairI10SIntEditor10ColumnTypeILi2EEEE&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/datasourcelayer/propertyeditormodelinitializer/propertyeditormodelinitializertest.cpp"
+                      line="87"><![CDATA[check 2 == propertyEditorModel->numCols() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/datasourcelayer/propertyeditormodelinitializer/propertyeditormodelinitializertest.cpp"
+                      line="91">
+                    <![CDATA[check static_cast<int>( SColumn::ReadOnly ) == static_cast<int>( propertyEditorModel-> column( propertyName )->type() ) passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/datasourcelayer/propertyeditormodelinitializer/propertyeditormodelinitializertest.cpp"
+                      line="95">
+                    <![CDATA[check static_cast<int>( SColumn::ReadOnly ) == static_cast<int>( propertyEditorModel-> column( keyColumnName )->type() ) passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/datasourcelayer/propertyeditormodelinitializer/propertyeditormodelinitializertest.cpp"
+                      line="97"><![CDATA[check expectedModelQuery == propertyEditorModel->query() passed]]></Info>
+                <TestingTime>10000</TestingTime>
+            </TestCase>
+            <TestCase name="Initialize_Property_Editor_Model&lt;N5boost3mpl4pairI11SLineEditor10ColumnTypeILi1EEEE&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/datasourcelayer/propertyeditormodelinitializer/propertyeditormodelinitializertest.cpp"
+                      line="87"><![CDATA[check 2 == propertyEditorModel->numCols() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/datasourcelayer/propertyeditormodelinitializer/propertyeditormodelinitializertest.cpp"
+                      line="91">
+                    <![CDATA[check static_cast<int>( SColumn::ReadOnly ) == static_cast<int>( propertyEditorModel-> column( propertyName )->type() ) passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/datasourcelayer/propertyeditormodelinitializer/propertyeditormodelinitializertest.cpp"
+                      line="95">
+                    <![CDATA[check static_cast<int>( SColumn::ReadOnly ) == static_cast<int>( propertyEditorModel-> column( keyColumnName )->type() ) passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/datasourcelayer/propertyeditormodelinitializer/propertyeditormodelinitializertest.cpp"
+                      line="97"><![CDATA[check expectedModelQuery == propertyEditorModel->query() passed]]></Info>
+                <TestingTime>10000</TestingTime>
+            </TestCase>
+            <TestCase
+                    name="Initialize_Property_Editor_Model&lt;N5boost3mpl4pairI13SPixmapEditor10ColumnTypeILi6EEEE&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/datasourcelayer/propertyeditormodelinitializer/propertyeditormodelinitializertest.cpp"
+                      line="87"><![CDATA[check 2 == propertyEditorModel->numCols() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/datasourcelayer/propertyeditormodelinitializer/propertyeditormodelinitializertest.cpp"
+                      line="91">
+                    <![CDATA[check static_cast<int>( SColumn::ReadOnly ) == static_cast<int>( propertyEditorModel-> column( propertyName )->type() ) passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/datasourcelayer/propertyeditormodelinitializer/propertyeditormodelinitializertest.cpp"
+                      line="95">
+                    <![CDATA[check static_cast<int>( SColumn::ReadOnly ) == static_cast<int>( propertyEditorModel-> column( keyColumnName )->type() ) passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/datasourcelayer/propertyeditormodelinitializer/propertyeditormodelinitializertest.cpp"
+                      line="97"><![CDATA[check expectedModelQuery == propertyEditorModel->query() passed]]></Info>
+                <TestingTime>20000</TestingTime>
+            </TestCase>
+            <TestCase name="Initialize_Property_Editor_Model&lt;N5boost3mpl4pairI11STextEditor10ColumnTypeILi1EEEE&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/datasourcelayer/propertyeditormodelinitializer/propertyeditormodelinitializertest.cpp"
+                      line="87"><![CDATA[check 2 == propertyEditorModel->numCols() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/datasourcelayer/propertyeditormodelinitializer/propertyeditormodelinitializertest.cpp"
+                      line="91">
+                    <![CDATA[check static_cast<int>( SColumn::ReadOnly ) == static_cast<int>( propertyEditorModel-> column( propertyName )->type() ) passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/datasourcelayer/propertyeditormodelinitializer/propertyeditormodelinitializertest.cpp"
+                      line="95">
+                    <![CDATA[check static_cast<int>( SColumn::ReadOnly ) == static_cast<int>( propertyEditorModel-> column( keyColumnName )->type() ) passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/datasourcelayer/propertyeditormodelinitializer/propertyeditormodelinitializertest.cpp"
+                      line="97"><![CDATA[check expectedModelQuery == propertyEditorModel->query() passed]]></Info>
+                <TestingTime>20000</TestingTime>
+            </TestCase>
+            <TestCase name="Initialize_Property_Editor_Model&lt;N5boost3mpl4pairI11STimeEditor10ColumnTypeILi1EEEE&gt;">
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/datasourcelayer/propertyeditormodelinitializer/propertyeditormodelinitializertest.cpp"
+                      line="87"><![CDATA[check 2 == propertyEditorModel->numCols() passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/datasourcelayer/propertyeditormodelinitializer/propertyeditormodelinitializertest.cpp"
+                      line="91">
+                    <![CDATA[check static_cast<int>( SColumn::ReadOnly ) == static_cast<int>( propertyEditorModel-> column( propertyName )->type() ) passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/datasourcelayer/propertyeditormodelinitializer/propertyeditormodelinitializertest.cpp"
+                      line="95">
+                    <![CDATA[check static_cast<int>( SColumn::ReadOnly ) == static_cast<int>( propertyEditorModel-> column( keyColumnName )->type() ) passed]]></Info>
+                <Info file="/tmp/hudson/workspace/sistema-taskcomponents-ubuntu-acs-po-16/trunk/libs/taskcomponentstest/datasourcelayer/propertyeditormodelinitializer/propertyeditormodelinitializertest.cpp"
+                      line="97"><![CDATA[check expectedModelQuery == propertyEditorModel->query() passed]]></Info>
+                <TestingTime>10000</TestingTime>
+            </TestCase>
+        </TestSuite>
+    </TestSuite>
+</TestLog>

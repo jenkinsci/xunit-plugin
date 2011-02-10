@@ -1,0 +1,22 @@
+<TestLog>
+    <TestSuite name="MyTest">
+        <TestCase name="MyTestCase">
+            <Info file="test.cpp" line="14">check x != 0.0f passed</Info>
+
+            <Info file="test.cpp" line="15">check int)x == 9 passed</Info>
+
+            <Info file="test.cpp" line="16">difference between x{9.5} and 9.5f{9.5} doesn&amp;apos;t exceed
+                0.0001%&gt;</Info>
+
+            <TestingTime>0</TestingTime>
+        </TestCase>
+    </TestSuite>
+</TestLog>
+
+<TestResult>
+<TestSuite name="MyTest" result="passed" assertions_passed="3" assertions_failed="0" expected_failures="0"
+           test_cases_passed="1" test_cases_failed="0" test_cases_skipped="0" test_cases_aborted="0">
+    <TestCase name="MyTestCase" result="passed" assertions_passed="3" assertions_failed="0"
+              expected_failures="0"></TestCase>
+</TestSuite>
+</TestResult>
