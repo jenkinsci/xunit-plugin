@@ -1,13 +1,15 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.jvnet.hudson.plugins</groupId>
+        <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>1.395</version>
+        <version>1.396</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
+    <groupId>com.thalesgroup.jenkins.plugins</groupId>
     <artifactId>xunit</artifactId>
     <version>1.14-SNAPSHOT</version>
     <packaging>hpi</packaging>
@@ -35,9 +37,9 @@
     </developers>
 
     <properties>
-        <dtkit.frmk.version>0.11</dtkit.frmk.version>
-        <dtkit.junit.format>0.13-SNAPSHOT</dtkit.junit.format>
-        <dtkit.default.junit.version>0.15-SNAPSHOT</dtkit.default.junit.version>
+        <dtkit.frmk.version>0.12</dtkit.frmk.version>
+        <dtkit.junit.format>0.13</dtkit.junit.format>
+        <dtkit.default.junit.version>0.15</dtkit.default.junit.version>
     </properties>
 
     <repositories>
@@ -57,35 +59,35 @@
         </dependency>
 
         <dependency>
-            <groupId>org.jvnet.hudson.dtkit</groupId>
+            <groupId>com.thalesgroup.dtkit</groupId>
             <artifactId>dtkit-metrics-model</artifactId>
             <version>${dtkit.frmk.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>org.jvnet.hudson.dtkit</groupId>
+            <groupId>com.thalesgroup.dtkit</groupId>
             <artifactId>dtkit-metrics-util</artifactId>
             <version>${dtkit.frmk.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>org.jvnet.hudson.dtkit</groupId>
+            <groupId>com.thalesgroup.dtkit</groupId>
             <artifactId>dtkit-metrics-hudson-api</artifactId>
             <version>${dtkit.frmk.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>org.jvnet.hudson.dtkit</groupId>
+            <groupId>com.thalesgroup.dtkit</groupId>
             <artifactId>dtkit-junit-model</artifactId>
             <version>${dtkit.junit.format}</version>
         </dependency>
 
         <dependency>
-            <groupId>org.jvnet.hudson.dtkit</groupId>
-            <artifactId>dtkit-default-junit-hudson</artifactId>
+            <groupId>com.thalesgroup.dtkit</groupId>
+            <artifactId>dtkit-default-junit-jenkins</artifactId>
             <version>${dtkit.default.junit.version}</version>
         </dependency>
-        
+
         <dependency>
             <groupId>xerces</groupId>
             <artifactId>xercesImpl</artifactId>
@@ -109,9 +111,9 @@
     </dependencies>
 
     <scm>
-        <connection>scm:svn:https://gbois@svn.java.net/svn/hudson~svn/trunk/hudson/plugins/xunit</connection>
-        <developerConnection>scm:svn:https://svn.java.net/svn/hudson~svn/trunk/hudson/plugins/xunit</developerConnection>
-        <url>https://hudson.dev.java.net/source/browse/hudson/trunk/hudson/plugins/xunit</url>
+        <connection>scm:svn:https://svn.jenkins-ci.org/trunk/hudson/plugins/xunit/</connection>
+        <developerConnection>scm:svn:https://svn.jenkins-ci.org/trunk/hudson/plugins/xunit/</developerConnection>
+        <url>https://svn.jenkins-ci.org/trunk/hudson/plugins/xunit/</url>
     </scm>
 
     <build>
@@ -120,6 +122,8 @@
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <configuration>
+                        <source>1.6</source>
+                        <target>1.6</target>
                         <encoding>UTF-8</encoding>
                     </configuration>
                 </plugin>
@@ -171,14 +175,6 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <plugin>
-                <artifactId>maven-release-plugin</artifactId>
-                <configuration>
-                    <goals>deploy</goals>
-                </configuration>
-            </plugin>
-
         </plugins>
     </build>
 </project>
