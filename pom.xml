@@ -9,7 +9,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.thalesgroup.jenkins.plugins</groupId>
+    <groupId>com.thalesgroup.jenkins-ci.plugins</groupId>
     <artifactId>xunit</artifactId>
     <version>1.14-SNAPSHOT</version>
     <packaging>hpi</packaging>
