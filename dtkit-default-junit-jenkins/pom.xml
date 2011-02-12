@@ -33,7 +33,7 @@
     </parent>
 
     <artifactId>dtkit-default-junit-jenkins</artifactId>
-    <packaging>dtkit-hudson-jar</packaging>
+    <packaging>dtkit-jenkins-jar</packaging>
     <name>DTKit Default JUnit Jenkins</name>
 
     <dependencies>
