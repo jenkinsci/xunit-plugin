@@ -32,9 +32,13 @@ import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitToolInfo;
 
 import java.io.File;
 import java.io.Serializable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class XUnitValidationService implements Serializable {
+
+    private static final Logger LOGGER = Logger.getLogger(XUnitValidationService.class.getName());
 
     private XUnitLog xUnitLog;
 
@@ -72,9 +76,9 @@ public class XUnitValidationService implements Serializable {
             if (!inputMetric.validateInputFile(inputFile)) {
 
                 //Ignores invalid files
-                xUnitLog.warning("The file '" + inputFile + "' is an invalid file.");
+                LOGGER.warning("The file '" + inputFile + "' is an invalid file.");
                 for (ValidationError validatorError : inputMetric.getInputValidationErrors()) {
-                    xUnitLog.warning(validatorError.toString());
+                    LOGGER.warning(validatorError.toString());
                 }
 
                 return false;
@@ -102,9 +106,9 @@ public class XUnitValidationService implements Serializable {
             //Validates the output
             boolean validateOutput = inputMetric.validateOutputFile(junitTargetFile);
             if (!validateOutput) {
-                xUnitLog.error("The converted file for the input file '" + inputFile + "' doesn't match the JUnit format");
+                LOGGER.log(Level.WARNING, "The converted file for the input file '" + inputFile + "' doesn't match the JUnit format");
                 for (ValidationError validatorError : inputMetric.getOutputValidationErrors()) {
-                    xUnitLog.error(validatorError.toString());
+                    LOGGER.info(validatorError.toString());
                 }
                 return false;
             }

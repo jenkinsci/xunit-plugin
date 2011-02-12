@@ -1,3 +1,26 @@
+/*******************************************************************************
+ * Copyright (c) 2010 Thales Corporate Services SAS                             *
+ * Author : Gregory Boissinot                                                   *
+ *                                                                              *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy *
+ * of this software and associated documentation files (the "Software"), to deal*
+ * in the Software without restriction, including without limitation the rights *
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell    *
+ * copies of the Software, and to permit persons to whom the Software is        *
+ * furnished to do so, subject to the following conditions:                     *
+ *                                                                              *
+ * The above copyright notice and this permission notice shall be included in   *
+ * all copies or substantial portions of the Software.                          *
+ *                                                                              *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR   *
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,     *
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE  *
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER       *
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,*
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN    *
+ * THE SOFTWARE.                                                                *
+ *******************************************************************************/
+
 package com.thalesgroup.hudson.plugins.xunit.transformer;
 
 import com.google.inject.AbstractModule;
@@ -6,22 +29,20 @@ import com.google.inject.Stage;
 import com.thalesgroup.hudson.plugins.xunit.service.XUnitConversionService;
 import com.thalesgroup.hudson.plugins.xunit.service.XUnitReportProcessingService;
 import com.thalesgroup.hudson.plugins.xunit.service.XUnitValidationService;
-import hudson.Util;
 import hudson.model.BuildListener;
 import hudson.remoting.VirtualChannel;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.mockito.InOrder;
 import org.mockito.Mock;
+import static org.mockito.Mockito.*;
 import org.mockito.MockitoAnnotations;
 
 import java.io.*;
 import java.util.Arrays;
 import java.util.List;
-
-import static org.mockito.Mockito.*;
 
 
 public class XUnitTransformerTest {
@@ -42,18 +63,15 @@ public class XUnitTransformerTest {
     @SuppressWarnings("unused")
     private XUnitValidationService xUnitValidationServiceMock;
 
-
-    private File workspace;
+    @Rule
+    public TempWorkspace tempWorkspace = new TempWorkspace();
 
     private XUnitTransformer xUnitTransformer;
-
 
     @Before
     public void beforeTest() throws IOException {
 
         MockitoAnnotations.initMocks(this);
-
-        workspace = Util.createTempDir();
 
         when(buildListenerMock.getLogger()).thenReturn(new PrintStream(new ByteArrayOutputStream()));
 
@@ -69,18 +87,11 @@ public class XUnitTransformerTest {
         }).getInstance(XUnitTransformer.class);
     }
 
-    @After
-    @SuppressWarnings("ResultOfMethodCallIgnored")
-    public void afterTest() {
-        workspace.delete();
-    }
-
-
     @Test
     public void emptyResultFiles() throws Exception {
 
         //Test result
-        Assert.assertFalse(xUnitTransformer.invoke(workspace, mock(VirtualChannel.class)));
+        Assert.assertFalse(xUnitTransformer.invoke(tempWorkspace.getDir(), mock(VirtualChannel.class)));
 
         //Verifying mock interactions
         verify(xUnitReportProcessingServiceMock).findReports(any(XUnitToolInfo.class), any(File.class), anyString());
@@ -99,7 +110,7 @@ public class XUnitTransformerTest {
         when(xUnitReportProcessingServiceMock.checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class))).thenReturn(false);
 
         //Test result
-        Assert.assertFalse(xUnitTransformer.invoke(workspace, mock(VirtualChannel.class)));
+        Assert.assertFalse(xUnitTransformer.invoke(tempWorkspace.getDir(), mock(VirtualChannel.class)));
 
         //Verifying
         verify(xUnitValidationServiceMock, never()).validateInputFile(any(XUnitToolInfo.class), any(File.class));
@@ -126,11 +137,11 @@ public class XUnitTransformerTest {
 
         //Create a empty file
         //Test the process continues and prints a message
-        File myInputFile = new File(workspace, "a.txt");
+        File myInputFile = new File(tempWorkspace.getDir(), "a.txt");
         when(xUnitReportProcessingServiceMock.getCurrentReport(any(File.class), anyString())).thenReturn(myInputFile);
 
         //The process exits on false
-        Assert.assertFalse(xUnitTransformer.invoke(workspace, mock(VirtualChannel.class)));
+        Assert.assertFalse(xUnitTransformer.invoke(tempWorkspace.getDir(), mock(VirtualChannel.class)));
 
         //Verifying mock interactions
         InOrder inOrder = inOrder(xUnitReportProcessingServiceMock);
@@ -157,7 +168,7 @@ public class XUnitTransformerTest {
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Create a non empty file
-        File myInputFile = new File(workspace, "a.txt");
+        File myInputFile = new File(tempWorkspace.getDir(), "a.txt");
         FileOutputStream fos = new FileOutputStream(myInputFile);
         fos.write("bidon".getBytes());
         fos.close();
@@ -165,11 +176,11 @@ public class XUnitTransformerTest {
 
         //Case: Right input validation, conversion and right output validation
         when(xUnitValidationServiceMock.validateInputFile(any(XUnitToolInfo.class), any(File.class))).thenReturn(true);
-        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class))).thenReturn(new File(workspace, "output"));
+        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class))).thenReturn(new File(tempWorkspace.getDir(), "output"));
         when(xUnitValidationServiceMock.validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(true);
 
         //The process exits on true
-        Assert.assertTrue(xUnitTransformer.invoke(workspace, mock(VirtualChannel.class)));
+        Assert.assertTrue(xUnitTransformer.invoke(tempWorkspace.getDir(), mock(VirtualChannel.class)));
 
         //Verifying mock interactions
         InOrder inOrderReport = inOrder(xUnitReportProcessingServiceMock);
@@ -197,21 +208,21 @@ public class XUnitTransformerTest {
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenCallRealMethod();
 
         //Create a non empty file
-        File myInputFileNotEmpty = new File(workspace, "dummyFile");
+        File myInputFileNotEmpty = new File(tempWorkspace.getDir(), "dummyFile");
         FileOutputStream fos = new FileOutputStream(myInputFileNotEmpty);
         fos.write("bidon".getBytes());
         fos.close();
-        File myInputFileEmpty = new File(workspace, "b.txt");
+        File myInputFileEmpty = new File(tempWorkspace.getDir(), "b.txt");
         when(xUnitReportProcessingServiceMock.getCurrentReport(any(File.class), eq("a.txt"))).thenReturn(myInputFileNotEmpty);
         when(xUnitReportProcessingServiceMock.getCurrentReport(any(File.class), eq("b.txt"))).thenReturn(myInputFileEmpty);
 
         //Case: Right input validation, conversion and right output validation
         when(xUnitValidationServiceMock.validateInputFile(any(XUnitToolInfo.class), any(File.class))).thenReturn(true);
-        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class))).thenReturn(new File(workspace, "output"));
+        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class))).thenReturn(new File(tempWorkspace.getDir(), "output"));
         when(xUnitValidationServiceMock.validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(true);
 
         //The process exits on false
-        Assert.assertFalse(xUnitTransformer.invoke(workspace, mock(VirtualChannel.class)));
+        Assert.assertFalse(xUnitTransformer.invoke(tempWorkspace.getDir(), mock(VirtualChannel.class)));
 
         //Verifying mock interactions
         verify(xUnitReportProcessingServiceMock).findReports(any(XUnitToolInfo.class), any(File.class), anyString());
@@ -234,7 +245,7 @@ public class XUnitTransformerTest {
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Create a dummy non empty file
-        File myInputFile = new File(workspace, "dummyFile");
+        File myInputFile = new File(tempWorkspace.getDir(), "dummyFile");
         FileOutputStream fos = new FileOutputStream(myInputFile);
         fos.write("bidon".getBytes());
         fos.close();
@@ -242,11 +253,11 @@ public class XUnitTransformerTest {
 
         //Case: Right input validation, conversion and right output validation
         when(xUnitValidationServiceMock.validateInputFile(any(XUnitToolInfo.class), any(File.class))).thenReturn(true);
-        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class))).thenReturn(new File(workspace, "output"));
+        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class))).thenReturn(new File(tempWorkspace.getDir(), "output"));
         when(xUnitValidationServiceMock.validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(true);
 
         //The process exits on true
-        Assert.assertTrue(xUnitTransformer.invoke(workspace, mock(VirtualChannel.class)));
+        Assert.assertTrue(xUnitTransformer.invoke(tempWorkspace.getDir(), mock(VirtualChannel.class)));
 
         //Verifying mock interactions
         InOrder inOrder = inOrder(xUnitReportProcessingServiceMock);
@@ -272,7 +283,7 @@ public class XUnitTransformerTest {
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Create a non empty file
-        File myInputFile = new File(workspace, "dummyFile");
+        File myInputFile = new File(tempWorkspace.getDir(), "dummyFile");
         FileOutputStream fos = new FileOutputStream(myInputFile);
         fos.write("bidon".getBytes());
         fos.close();
@@ -282,7 +293,7 @@ public class XUnitTransformerTest {
         when(xUnitValidationServiceMock.validateInputFile(any(XUnitToolInfo.class), any(File.class))).thenReturn(false);
 
         //The process must exit on false
-        Assert.assertFalse(xUnitTransformer.invoke(workspace, mock(VirtualChannel.class)));
+        Assert.assertFalse(xUnitTransformer.invoke(tempWorkspace.getDir(), mock(VirtualChannel.class)));
 
         //Verifying mock interactions
         InOrder inOrder = inOrder(xUnitReportProcessingServiceMock);
@@ -307,11 +318,11 @@ public class XUnitTransformerTest {
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Create a non empty file
-        File myInputFile1 = new File(workspace, "a.txt");
+        File myInputFile1 = new File(tempWorkspace.getDir(), "a.txt");
         FileOutputStream fos1 = new FileOutputStream(myInputFile1);
         fos1.write("bidon1".getBytes());
         fos1.close();
-        File myInputFile2 = new File(workspace, "b.txt");
+        File myInputFile2 = new File(tempWorkspace.getDir(), "b.txt");
         FileOutputStream fos2 = new FileOutputStream(myInputFile2);
         fos2.write("bidon2".getBytes());
         fos2.close();
@@ -323,12 +334,12 @@ public class XUnitTransformerTest {
         when(xUnitValidationServiceMock.validateInputFile(any(XUnitToolInfo.class), eq(myInputFile2))).thenReturn(true);
 
         //Right conversion and output validation
-        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class))).thenReturn(new File(workspace, "output"));
+        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class))).thenReturn(new File(tempWorkspace.getDir(), "output"));
         when(xUnitValidationServiceMock.validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(true);
 
 
         //The process must exit on false
-        Assert.assertFalse(xUnitTransformer.invoke(workspace, mock(VirtualChannel.class)));
+        Assert.assertFalse(xUnitTransformer.invoke(tempWorkspace.getDir(), mock(VirtualChannel.class)));
 
         //Verifying mock interactions
         // The method for the second must never be called
@@ -352,7 +363,7 @@ public class XUnitTransformerTest {
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Create a non empty file
-        File myInputFile = new File(workspace, "dummyFile");
+        File myInputFile = new File(tempWorkspace.getDir(), "dummyFile");
         FileOutputStream fos = new FileOutputStream(myInputFile);
         fos.write("bidon".getBytes());
         fos.close();
@@ -360,13 +371,13 @@ public class XUnitTransformerTest {
 
         //Case: Right input validation and conversion
         when(xUnitValidationServiceMock.validateInputFile(any(XUnitToolInfo.class), any(File.class))).thenReturn(true);
-        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class))).thenReturn(new File(workspace, "output"));
+        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class))).thenReturn(new File(tempWorkspace.getDir(), "output"));
 
         //Wrong output validation
         when(xUnitValidationServiceMock.validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(false);
 
         //The process exits on false
-        Assert.assertFalse(xUnitTransformer.invoke(workspace, mock(VirtualChannel.class)));
+        Assert.assertFalse(xUnitTransformer.invoke(tempWorkspace.getDir(), mock(VirtualChannel.class)));
 
         //Verifying mock interactions
         InOrder inOrder = inOrder(xUnitReportProcessingServiceMock);
@@ -391,7 +402,7 @@ public class XUnitTransformerTest {
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Create a non empty file
-        File myInputFile = new File(workspace, "dummyFile");
+        File myInputFile = new File(tempWorkspace.getDir(), "dummyFile");
         FileOutputStream fos = new FileOutputStream(myInputFile);
         fos.write("bidon".getBytes());
         fos.close();
@@ -399,13 +410,13 @@ public class XUnitTransformerTest {
 
         //Case: Right input validation and conversion
         when(xUnitValidationServiceMock.validateInputFile(any(XUnitToolInfo.class), any(File.class))).thenReturn(true);
-        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class))).thenReturn(new File(workspace, "output"));
+        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class))).thenReturn(new File(tempWorkspace.getDir(), "output"));
 
         //Wrong output validation
         when(xUnitValidationServiceMock.validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(false);
 
         //The process exits on false
-        Assert.assertFalse(xUnitTransformer.invoke(workspace, mock(VirtualChannel.class)));
+        Assert.assertFalse(xUnitTransformer.invoke(tempWorkspace.getDir(), mock(VirtualChannel.class)));
 
         //Verifying mock interactions
         //Exit at the first validation output error        

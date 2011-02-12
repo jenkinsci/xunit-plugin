@@ -34,11 +34,13 @@ import com.thalesgroup.hudson.plugins.xunit.types.CustomType;
 
 import java.io.File;
 import java.io.Serializable;
+import java.util.logging.Logger;
 
 
 public class XUnitConversionService implements Serializable {
 
     private XUnitLog xUnitLog;
+    private static final Logger LOGGER = Logger.getLogger(XUnitConversionService.class.getName());
 
     @Inject
     @SuppressWarnings("unused")
@@ -96,7 +98,7 @@ public class XUnitConversionService implements Serializable {
             throw new XUnitException("Can't create " + parent);
         }
         File junitTargetFile = new File(parent, JUNIT_FILE_PREFIX + inputFile.hashCode() + JUNIT_FILE_POSTFIX);
-        xUnitLog.info("Converting '" + inputFile + "' .");
+        LOGGER.info("Converting '" + inputFile + "' .");
         try {
 
             //Set the XSL for custom type
