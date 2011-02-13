@@ -37,18 +37,7 @@ public class BoostTestHudsonTestType extends TestType {
         return null;
     }
 
-//    public static class DescriptorImpl extends TestTypeDescriptor<BoostTestHudsonTestType> {
-//
-//        public DescriptorImpl() {
-//            super(BoostTestHudsonTestType.class, com.thalesgroup.dtkit.junit.BoostTest.class);
-//        }
-//
-//        public String getId() {
-//            return "class com.thalesgroup.dtkit.junit.BoostTest";
-//        }
-//    }
-
     public Object readResolve() {
-        return new BoostTestJunitHudsonTestType(this.getPattern(), this.isFaildedIfNotNew(), this.isDeleteOutputFiles());
+        return new BoostTestJunitHudsonTestType(this.getPattern(), this.isFaildedIfNotNew(), this.isDeleteOutputFiles(), this.isStopProcessingIfError());
     }
 }

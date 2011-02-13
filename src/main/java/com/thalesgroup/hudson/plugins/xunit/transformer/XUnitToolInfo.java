@@ -35,15 +35,12 @@ public class XUnitToolInfo implements Serializable {
 
     private final TestType testType;
 
-//    private final File junitOutputDir;
-
     private final String expandedPattern;
 
     private final long buildTime;
 
     public XUnitToolInfo(TestType testType, String expandedPattern, long buildTime) {
         this.testType = testType;
-//        this.junitOutputDir = junitOutputDir;
         this.expandedPattern = expandedPattern;
         this.buildTime = buildTime;
     }
@@ -59,10 +56,6 @@ public class XUnitToolInfo implements Serializable {
     public TestType getTestType() {
         return testType;
     }
-
-//    public File getJunitOutputDir() {
-//        return junitOutputDir;
-//    }
 
     public String getExpandedPattern() {
         return expandedPattern;

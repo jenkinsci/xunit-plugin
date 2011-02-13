@@ -23,7 +23,6 @@
 
 package com.thalesgroup.hudson.plugins.xunit.service;
 
-import com.google.inject.Inject;
 import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
 import com.thalesgroup.dtkit.metrics.model.InputMetric;
 import com.thalesgroup.dtkit.util.converter.ConversionException;
@@ -39,14 +38,7 @@ import java.util.logging.Logger;
 
 public class XUnitConversionService implements Serializable {
 
-    private XUnitLog xUnitLog;
     private static final Logger LOGGER = Logger.getLogger(XUnitConversionService.class.getName());
-
-    @Inject
-    @SuppressWarnings("unused")
-    void set(XUnitLog xUnitLog) {
-        this.xUnitLog = xUnitLog;
-    }
 
     /**
      * Prepares the conversion by adding specific behavior for the CustomType

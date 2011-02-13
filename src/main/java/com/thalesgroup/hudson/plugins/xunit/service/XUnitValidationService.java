@@ -23,7 +23,6 @@
 
 package com.thalesgroup.hudson.plugins.xunit.service;
 
-import com.google.inject.Inject;
 import com.thalesgroup.dtkit.metrics.model.InputMetric;
 import com.thalesgroup.dtkit.util.validator.ValidationError;
 import com.thalesgroup.dtkit.util.validator.ValidationException;
@@ -39,14 +38,6 @@ import java.util.logging.Logger;
 public class XUnitValidationService implements Serializable {
 
     private static final Logger LOGGER = Logger.getLogger(XUnitValidationService.class.getName());
-
-    private XUnitLog xUnitLog;
-
-    @Inject
-    @SuppressWarnings("unused")
-    void set(XUnitLog xUnitLog) {
-        this.xUnitLog = xUnitLog;
-    }
 
     /**
      * Checks if the current input file is not empty
@@ -71,7 +62,7 @@ public class XUnitValidationService implements Serializable {
 
         InputMetric inputMetric = xUnitToolInfo.getTestType().getInputMetric();
 
-        //Validates the input file (nom empty)
+        //Validates the input file (not empty)
         try {
             if (!inputMetric.validateInputFile(inputFile)) {
 
@@ -106,15 +97,14 @@ public class XUnitValidationService implements Serializable {
             //Validates the output
             boolean validateOutput = inputMetric.validateOutputFile(junitTargetFile);
             if (!validateOutput) {
-                LOGGER.log(Level.WARNING, "The converted file for the input file '" + inputFile + "' doesn't match the JUnit format");
+                LOGGER.warning("The converted file for the input file '" + inputFile + "' doesn't match the JUnit format");
                 for (ValidationError validatorError : inputMetric.getOutputValidationErrors()) {
                     LOGGER.info(validatorError.toString());
                 }
                 return false;
             }
 
-        }
-        catch (ValidationException ve) {
+        } catch (ValidationException ve) {
             throw new XUnitException("Validation error on output", ve);
         }
 

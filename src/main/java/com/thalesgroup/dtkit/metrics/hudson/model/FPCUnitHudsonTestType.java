@@ -37,19 +37,8 @@ public class FPCUnitHudsonTestType extends TestType {
         return null;
     }
 
-//    public static class DescriptorImpl extends TestTypeDescriptor<FPCUnitHudsonTestType> {
-//
-//        public DescriptorImpl() {
-//            super(FPCUnitHudsonTestType.class, com.thalesgroup.dtkit.junit.FPCUnit.class);
-//        }
-//
-//        public String getId() {
-//            return "class com.thalesgroup.dtkit.junit.FPCUnit";
-//        }
-//    }
-
     public Object readResolve() {
-        return new FPCUnitJunitHudsonTestType(this.getPattern(), this.isFaildedIfNotNew(), this.isDeleteOutputFiles());
+        return new FPCUnitJunitHudsonTestType(this.getPattern(), this.isFaildedIfNotNew(), this.isDeleteOutputFiles(), this.isStopProcessingIfError());
     }
 
 }

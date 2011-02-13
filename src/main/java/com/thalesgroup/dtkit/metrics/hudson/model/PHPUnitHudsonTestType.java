@@ -37,19 +37,8 @@ public class PHPUnitHudsonTestType extends TestType {
         return null;
     }
 
-//    public static class DescriptorImpl extends TestTypeDescriptor<PHPUnitHudsonTestType> {
-//
-//        public DescriptorImpl() {
-//            super(PHPUnitHudsonTestType.class, com.thalesgroup.dtkit.junit.PHPUnit.class);
-//        }
-//
-//        public String getId() {
-//            return "class com.thalesgroup.dtkit.junit.PHPUnit";
-//        }
-//    }
-
     public Object readResolve() {
-        return new PHPUnitJunitHudsonTestType(this.getPattern(), this.isFaildedIfNotNew(), this.isDeleteOutputFiles());
+        return new PHPUnitJunitHudsonTestType(this.getPattern(), this.isFaildedIfNotNew(), this.isDeleteOutputFiles(), this.isStopProcessingIfError());
     }
 
 }

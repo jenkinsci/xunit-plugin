@@ -143,4 +143,15 @@ public class XUnitReportProcessingService implements Serializable {
     public File getCurrentReport(File root, String name) {
         return new File(root, name);
     }
+
+    /**
+     * Check if we stop the processing for an error
+     *
+     * @param xUnitToolInfo the wrapped object
+     * @return true if the xUnit must stop at the first error
+     */
+    public boolean stopProcessingIfError(XUnitToolInfo xUnitToolInfo) {
+        TestType testTool = xUnitToolInfo.getTestType();
+        return testTool.isStopProcessingIfError();
+    }
 }

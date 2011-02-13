@@ -84,7 +84,7 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
             //Gets all input files matching the user pattern
             List<String> resultFiles = xUnitReportProcessingService.findReports(xUnitToolInfo, ws, xUnitToolInfo.getExpandedPattern());
             if (resultFiles.size() == 0) {
-                LOGGER.warning("No test reports found for the metric '" + metricName + "' with the resolved pattern '" + xUnitToolInfo.getExpandedPattern() + "'. Configuration error?.");
+                LOGGER.severe("No test reports found for the metric '" + metricName + "' with the resolved pattern '" + xUnitToolInfo.getExpandedPattern() + "'. Configuration error?.");
                 return false;
             }
 
@@ -97,18 +97,27 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
 
                 File curFile = xUnitReportProcessingService.getCurrentReport(ws, curFileName);
 
+                boolean stopProcessingIfError = xUnitReportProcessingService.stopProcessingIfError(xUnitToolInfo);
 
                 if (!xUnitValidationService.checkFileIsNotEmpty(curFile)) {
                     //Ignore the empty result file (some reason)
                     String msg = "The result file '" + curFile.getPath() + "' for the metric '" + metricName + "' is empty. The result file has been skipped.";
-                    LOGGER.warning(msg);
-                    return false;
+                    LOGGER.severe(msg);
+                    if (stopProcessingIfError)
+                        return false;
+                    else {
+                        continue;
+                    }
                 }
 
                 //Validates Input file
                 if (!xUnitValidationService.validateInputFile(xUnitToolInfo, curFile)) {
-                    LOGGER.warning("The result file '" + curFile + "' for the metric '" + metricName + "' is not valid. The result file has been skipped.");
-                    return false;
+                    LOGGER.severe("The result file '" + curFile + "' for the metric '" + metricName + "' is not valid. The result file has been skipped.");
+                    if (stopProcessingIfError)
+                        return false;
+                    else {
+                        continue;
+                    }
                 }
 
                 //Convert the input file
@@ -116,13 +125,16 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
 
                 //Validates converted file
                 if (!xUnitValidationService.validateOutputFile(xUnitToolInfo, curFile, junitTargetFile)) {
-                    LOGGER.warning("The converted file for the result file '" + curFile + "' (during conversion process for the metric '" + metricName + "') is not valid. The report file has been skipped.");
-                    return false;
+                    LOGGER.severe("The converted file for the result file '" + curFile + "' (during conversion process for the metric '" + metricName + "') is not valid. The report file has been skipped.");
+                    if (stopProcessingIfError)
+                        return false;
+                    else {
+                        continue;
+                    }
                 }
             }
 
-        }
-        catch (Exception xe) {
+        } catch (Exception xe) {
             throw new IOException2("There are some problems during the conversion into JUnit reports: " + xe.getMessage(), xe);
         }
 

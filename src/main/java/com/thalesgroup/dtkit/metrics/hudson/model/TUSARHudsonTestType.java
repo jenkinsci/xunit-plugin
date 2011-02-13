@@ -38,18 +38,7 @@ public class TUSARHudsonTestType extends TestType {
         return null;
     }
 
-//    public static class DescriptorImpl extends TestTypeDescriptor<TUSARHudsonTestType> {
-//
-//        public DescriptorImpl() {
-//            super(TUSARHudsonTestType.class, Tusar.class);
-//        }
-//
-//        public String getId() {
-//            return "class com.thalesgroup.dtkit.Tusar.";
-//        }
-//    }
-
     public Object readResolve() {
-        return new CppUnitJunitHudsonTestType(this.getPattern(), this.isFaildedIfNotNew(), this.isDeleteOutputFiles());
+        return new CppUnitJunitHudsonTestType(this.getPattern(), this.isFaildedIfNotNew(), this.isDeleteOutputFiles(), this.isStopProcessingIfError());
     }
 }

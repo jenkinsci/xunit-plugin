@@ -37,18 +37,7 @@ public class MSTestHudsonTestType extends TestType {
         return null;
     }
 
-//    public static class DescriptorImpl extends TestTypeDescriptor<MSTestHudsonTestType> {
-//
-//        public DescriptorImpl() {
-//            super(MSTestHudsonTestType.class, com.thalesgroup.dtkit.junit.MSTest.class);
-//        }
-//
-//        public String getId() {
-//            return "class com.thalesgroup.dtkit.junit.MSTest";
-//        }
-//    }
-
     public Object readResolve() {
-        return new MSTestJunitHudsonTestType(this.getPattern(), this.isFaildedIfNotNew(), this.isDeleteOutputFiles());
+        return new MSTestJunitHudsonTestType(this.getPattern(), this.isFaildedIfNotNew(), this.isDeleteOutputFiles(), this.isStopProcessingIfError());
     }
 }

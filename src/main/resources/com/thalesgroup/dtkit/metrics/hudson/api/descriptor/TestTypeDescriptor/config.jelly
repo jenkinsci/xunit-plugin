@@ -1,6 +1,6 @@
 <!--
 /*******************************************************************************
-* Copyright (c) 2009 Thales Corporate Services SAS                             *
+* Copyright (c) 2011 Thales Corporate Services SAS                             *
 * Author : Gregory Boissinot                                                   *
 *                                                                              *
 * Permission is hereby granted, free of charge, to any person obtaining a copy *
@@ -51,6 +51,12 @@
                      <f:checkbox field="deleteOutputFiles" checked="${h.defaultToTrue(instance.deleteOutputFiles)}"/>
                   </td>
             </tr>
+            <tr>
+                 <td width="100%" style="${td}" colspan="2">
+                     <label>Stop and set the build to 'failed' status if there are errors when processing a result file</label>
+                     <f:checkbox field="stopProcessingIfError" checked="${h.defaultToTrue(instance.stopProcessingIfError)}"/>
+                  </td>
+            </tr>
          </j:if>
 
          <j:if test="${not descriptor.isCustomType()}">
@@ -70,6 +76,12 @@
                  <td width="100%" style="${td}">
                      <label>Delete temporary JUnit files</label>
                      <f:checkbox field="deleteOutputFiles" checked="${h.defaultToTrue(instance.deleteOutputFiles)}"/>
+                  </td>
+            </tr>
+            <tr>
+                 <td width="100%" style="${td}" colspan="2">
+                     <label>Stop and set the build to 'failed' status if there are errors when processing a result file</label>
+                     <f:checkbox field="stopProcessingIfError" checked="${h.defaultToTrue(instance.stopProcessingIfError)}"/>
                   </td>
             </tr>
          </j:if>
