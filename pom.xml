@@ -29,7 +29,7 @@
     <parent>
         <groupId>com.thalesgroup.dtkit</groupId>
         <artifactId>dtkit-metrics-default-parent</artifactId>
-        <version>9-SNAPSHOT</version>
+        <version>9</version>
     </parent>
 
     <artifactId>dtkit-default-junit-parent</artifactId>
@@ -65,7 +65,7 @@
     </modules>
 
     <properties>
-        <dtkit.processor.version>0.2</dtkit.processor.version>
+        <dtkit.processor.version>0.3</dtkit.processor.version>
     </properties>
 
     <dependencyManagement>
@@ -90,6 +90,7 @@
         <connection>scm:svn:https://svn.jenkins-ci.org/trunk/hudson/dtkit/dtkit-default/junit-output</connection>
         <developerConnection>scm:svn:https://svn.jenkins-ci.org/trunk/hudson/dtkit/dtkit-default/junit-output
         </developerConnection>
+	<url>https://svn.jenkins-ci.org/tags/dtkit-metrics-default-parent-0.16</url>  
     </scm>
 
     <build>
