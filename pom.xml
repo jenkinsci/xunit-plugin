@@ -90,7 +90,7 @@
         <connection>scm:svn:https://svn.jenkins-ci.org/trunk/hudson/dtkit/dtkit-default/junit-output</connection>
         <developerConnection>scm:svn:https://svn.jenkins-ci.org/trunk/hudson/dtkit/dtkit-default/junit-output
         </developerConnection>
-	<url>https://svn.jenkins-ci.org/tags/dtkit-metrics-default-parent-0.16</url>  
+	<url>https://svn.jenkins-ci.org/tags/dtkit-default-junit-parent-0.16</url>  
     </scm>
 
     <build>
