@@ -30,7 +30,7 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>1.396</version>
+        <version>1.397</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -62,9 +62,9 @@
     </developers>
 
     <properties>
-        <dtkit.frmk.version>0.13-SNAPSHOT</dtkit.frmk.version>
-        <dtkit.junit.format>0.13</dtkit.junit.format>
-        <dtkit.default.junit.version>0.16-SNAPSHOT</dtkit.default.junit.version>
+        <dtkit.frmk.version>0.14</dtkit.frmk.version>
+        <dtkit.junit.format>0.14</dtkit.junit.format>
+        <dtkit.default.junit.version>0.16</dtkit.default.junit.version>
     </properties>
 
     <repositories>
