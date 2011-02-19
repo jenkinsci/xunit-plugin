@@ -109,14 +109,14 @@ public class XUnitPublisher extends Recorder implements Serializable {
 
                 public TestResult invoke(File ws, VirtualChannel channel) throws IOException {
                     final long nowSlave = System.currentTimeMillis();
-                    FileSet fs = Util.createFileSet(new File(ws,GENERATED_JUNIT_DIR), junitFilePattern);
+                    FileSet fs = Util.createFileSet(new File(ws, GENERATED_JUNIT_DIR), junitFilePattern);
                     DirectoryScanner ds = fs.getDirectoryScanner();
                     String[] files = ds.getIncludedFiles();
 
                     if (files.length == 0) {
                         // no test result. Most likely a configuration error or fatal problem
                         //throw new IOException("No test report files were found. Configuration error?");
-                       
+
                     }
                     try {
                         if (existingTestResults == null) {
@@ -125,19 +125,16 @@ public class XUnitPublisher extends Recorder implements Serializable {
                             existingTestResults.parse(buildTime + (nowSlave - nowMaster), ds);
                             return existingTestResults;
                         }
-                    }
-                    catch (IOException ioe) {
+                    } catch (IOException ioe) {
                         throw new IOException(ioe);
                     }
                 }
 
             });
 
-        }
-        catch (IOException ioe) {
+        } catch (IOException ioe) {
             throw new XUnitException(ioe.getMessage(), ioe);
-        }
-        catch (InterruptedException ie) {
+        } catch (InterruptedException ie) {
             throw new XUnitException(ie.getMessage(), ie);
         }
 
@@ -164,7 +161,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
             existingTestResults = existingAction.getResult();
         }
 
-        TestResult result = getTestResult(build,   "**/TEST-*.xml", existingTestResults, buildTime, nowMaster);
+        TestResult result = getTestResult(build, "**/TEST-*.xml", existingTestResults, buildTime, nowMaster);
 
         TestResultAction action;
         if (existingAction == null) {
@@ -201,7 +198,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
 
         try {
 
-           //build.getWorkspace().child(GENERATED_JUNIT_DIR).mkdirs();
+            //build.getWorkspace().child(GENERATED_JUNIT_DIR).mkdirs();
 
 //            Creation of the output JUnit directory
 //            final File junitOuputDir = new File(new FilePath(build.getWorkspace(), GENERATED_JUNIT_DIR).toURI());
@@ -284,58 +281,11 @@ public class XUnitPublisher extends Recorder implements Serializable {
                 if (!keepJUnitDirectory) {
                     build.getWorkspace().child(GENERATED_JUNIT_DIR).deleteRecursive();
                 }
-            }
-            catch (IOException ioe) {
+            } catch (IOException ioe) {
+                resultDeletionOK = false;
+            } catch (InterruptedException ie) {
                 resultDeletionOK = false;
             }
-            catch (InterruptedException ie) {
-                resultDeletionOK = false;
-            }
-
-
-            /*
-            //Delete generated files if triggered
-            boolean resultDeletionOK = build.getWorkspace().act(new FilePath.FileCallable<Boolean>() {
-                @SuppressWarnings({"ResultOfMethodCallIgnored"})
-                public Boolean invoke(File ws, VirtualChannel channel) throws IOException {
-
-                    boolean keepJUnitDirectory = false;
-                    for (TestType tool : types) {
-                        boolean keepDirectoryTool = false;
-                        InputMetric inputMetric = tool.getInputMetric();
-
-                        build.getWorkspace().child(GENERATED_JUNIT_DIR+ "/" + inputMetric.getToolName()).deleteRecursive();
-
-                        //All the files will be under a directory the toolName
-                        File toolFileParant = new File(junitOuputDir, inputMetric.getToolName());
-                        if (tool.isDeleteOutputFiles()) {
-                            File[] files = toolFileParant.listFiles();
-                            for (File f : files) {
-                                if (!f.delete()) {
-                                    xUnitLog.warning("Can't delete the file: " + f);
-                                }
-                            }
-                        } else {
-                            //Mark the tool file parent directory to no deletion
-                            keepDirectoryTool = true;
-                        }
-                        if (!keepDirectoryTool) {
-                            //Delete the tool parent directory
-                            toolFileParant.delete();
-                        } else {
-                            //Mark the parent JUnit directory to set to true
-                            keepJUnitDirectory = true;
-                        }
-                    }
-                    if (!keepJUnitDirectory) {
-                        junitOuputDir.delete();
-                    }
-
-
-                    return true;
-                }
-            });
-            */
 
             if (!resultDeletionOK) {
                 build.setResult(Result.FAILURE);
@@ -357,14 +307,12 @@ public class XUnitPublisher extends Recorder implements Serializable {
             xUnitLog.info("Stopping recording.");
             return true;
 
-        }
-        catch (IOException
+        } catch (IOException
                 ie) {
             xUnitLog.error("The plugin hasn't been performed correctly: " + ie.getCause().getMessage());
             build.setResult(Result.FAILURE);
             return false;
-        }
-        catch (XUnitException
+        } catch (XUnitException
                 xe) {
             xUnitLog.error("The plugin hasn't been performed correctly: " + xe.getMessage());
             build.setResult(Result.FAILURE);

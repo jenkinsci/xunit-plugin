@@ -23,7 +23,6 @@
 
 package com.thalesgroup.hudson.plugins.xunit.types;
 
-import com.thalesgroup.dtkit.metrics.model.InputMetric;
 import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
 import com.thalesgroup.dtkit.metrics.hudson.model.*;
 import org.junit.Assert;
@@ -45,7 +44,6 @@ public class xUnitTypeTest {
         processTestNewReturnObject(classXUnitType, classNewHudsonType, anyString(), false, false);
     }
 
-
     @SuppressWarnings("unchecked")
     private <X extends XUnitType, H extends TestType> void processTestNewReturnObject(Class<X> classXUnitType, Class<H> classNewHudsonType, String pattern, boolean faildedIfNotNew, boolean deleteJUnitFiles) throws IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
         Constructor c = classXUnitType.getConstructor(String.class, boolean.class, boolean.class);
@@ -58,16 +56,6 @@ public class xUnitTypeTest {
         Method readResolveMethod = classXUnitType.getMethod("readResolve");
         Object object = readResolveMethod.invoke(xUnitType);
         Assert.assertTrue(object.getClass() == classNewHudsonType);
-
-//        H hudsonTestType = (H) object;
-//        Assert.assertNotNull(hudsonTestType.getDescriptor());
-//
-//        Assert.assertEquals(xUnitType.getPattern(), hudsonTestType.getPattern());
-//        Assert.assertEquals(xUnitType.isDeleteJUnitFiles(), hudsonTestType.isDeleteOutputFiles());
-//        Assert.assertEquals(xUnitType.isFaildedIfNotNew(), hudsonTestType.isFaildedIfNotNew());
-//
-//        InputMetric inputMetric = hudsonTestType.getInputMetric();
-//        Assert.assertNotNull(inputMetric);
     }
 
     @Test

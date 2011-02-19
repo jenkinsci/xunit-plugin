@@ -27,12 +27,12 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Singleton;
 import com.thalesgroup.dtkit.junit.model.JUnitModel;
+import com.thalesgroup.dtkit.metrics.hudson.api.descriptor.TestTypeDescriptor;
+import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
 import com.thalesgroup.dtkit.metrics.model.InputMetricType;
 import com.thalesgroup.dtkit.metrics.model.InputMetricXSL;
 import com.thalesgroup.dtkit.metrics.model.InputType;
 import com.thalesgroup.dtkit.metrics.model.OutputMetric;
-import com.thalesgroup.dtkit.metrics.hudson.api.descriptor.TestTypeDescriptor;
-import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
 import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitToolInfo;
 import hudson.Util;
 import hudson.model.BuildListener;
@@ -127,7 +127,6 @@ public class XUnitReportProcessingServiceTest {
             }
         }).getInstance(XUnitReportProcessingService.class);
 
-
     }
 
     @Test
@@ -136,7 +135,6 @@ public class XUnitReportProcessingServiceTest {
         Assert.assertTrue(xUnitReportProcessingService.isEmptyPattern(""));
         Assert.assertFalse(xUnitReportProcessingService.isEmptyPattern("abc"));
     }
-
 
     @Test
     @SuppressWarnings("ResultOfMethodCallIgnored")
@@ -153,8 +151,7 @@ public class XUnitReportProcessingServiceTest {
             Assert.assertFalse(xUnitFiles.isEmpty());
             Assert.assertEquals(1, xUnitFiles.size());
             Assert.assertEquals(f1.getName(), xUnitFiles.get(0));
-        }
-        finally {
+        } finally {
             f1.delete();
             dir.delete();
         }

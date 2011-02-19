@@ -35,7 +35,6 @@ public class CustomInputMetric extends InputMetricXSL {
 
     private File customXSLFile;
 
-    
     public void setCustomXSLFile(File customXSLFile) {
         this.customXSLFile = customXSLFile;
     }

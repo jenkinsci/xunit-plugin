@@ -23,11 +23,11 @@
 
 package com.thalesgroup.hudson.plugins.xunit.types;
 
+import com.thalesgroup.dtkit.metrics.hudson.api.descriptor.TestTypeDescriptor;
+import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
 import com.thalesgroup.dtkit.metrics.model.InputMetric;
 import com.thalesgroup.dtkit.metrics.model.InputMetricException;
 import com.thalesgroup.dtkit.metrics.model.InputMetricFactory;
-import com.thalesgroup.dtkit.metrics.hudson.api.descriptor.TestTypeDescriptor;
-import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
 import hudson.Extension;
 import org.kohsuke.stapler.DataBoundConstructor;
 

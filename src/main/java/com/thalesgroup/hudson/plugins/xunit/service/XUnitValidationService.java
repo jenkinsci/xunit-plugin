@@ -31,7 +31,6 @@ import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitToolInfo;
 
 import java.io.File;
 import java.io.Serializable;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 

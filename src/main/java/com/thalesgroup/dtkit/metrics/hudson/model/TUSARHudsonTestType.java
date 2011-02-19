@@ -23,7 +23,6 @@
 
 package com.thalesgroup.dtkit.metrics.hudson.model;
 
-import com.thalesgroup.dtkit.junit.Tusar;
 import com.thalesgroup.dtkit.metrics.hudson.api.descriptor.TestTypeDescriptor;
 import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
 
