@@ -23,20 +23,25 @@
 
 package com.thalesgroup.hudson.plugins.xunit.service;
 
+import com.google.inject.Inject;
 import com.thalesgroup.dtkit.metrics.model.InputMetric;
 import com.thalesgroup.dtkit.util.validator.ValidationError;
 import com.thalesgroup.dtkit.util.validator.ValidationException;
 import com.thalesgroup.hudson.plugins.xunit.exception.XUnitException;
-import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitToolInfo;
 
 import java.io.File;
 import java.io.Serializable;
-import java.util.logging.Logger;
 
 
 public class XUnitValidationService implements Serializable {
 
-    private static final Logger LOGGER = Logger.getLogger(XUnitValidationService.class.getName());
+    private XUnitLog xUnitLog;
+
+    @Inject
+    @SuppressWarnings("unused")
+    void load(XUnitLog xUnitLog) {
+        this.xUnitLog = xUnitLog;
+    }
 
     /**
      * Checks if the current input file is not empty
@@ -66,9 +71,9 @@ public class XUnitValidationService implements Serializable {
             if (!inputMetric.validateInputFile(inputFile)) {
 
                 //Ignores invalid files
-                LOGGER.warning("The file '" + inputFile + "' is an invalid file.");
+                xUnitLog.warningSystemLogger("The file '" + inputFile + "' is an invalid file.");
                 for (ValidationError validatorError : inputMetric.getInputValidationErrors()) {
-                    LOGGER.warning(validatorError.toString());
+                    xUnitLog.warningSystemLogger(validatorError.toString());
                 }
 
                 return false;
@@ -96,9 +101,9 @@ public class XUnitValidationService implements Serializable {
             //Validates the output
             boolean validateOutput = inputMetric.validateOutputFile(junitTargetFile);
             if (!validateOutput) {
-                LOGGER.warning("The converted file for the input file '" + inputFile + "' doesn't match the JUnit format");
+                xUnitLog.warningSystemLogger("The converted file for the input file '" + inputFile + "' doesn't match the JUnit format");
                 for (ValidationError validatorError : inputMetric.getOutputValidationErrors()) {
-                    LOGGER.info(validatorError.toString());
+                    xUnitLog.warningSystemLogger(validatorError.toString());
                 }
                 return false;
             }

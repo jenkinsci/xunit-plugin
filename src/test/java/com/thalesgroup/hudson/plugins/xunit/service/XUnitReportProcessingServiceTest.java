@@ -33,7 +33,6 @@ import com.thalesgroup.dtkit.metrics.model.InputMetricType;
 import com.thalesgroup.dtkit.metrics.model.InputMetricXSL;
 import com.thalesgroup.dtkit.metrics.model.InputType;
 import com.thalesgroup.dtkit.metrics.model.OutputMetric;
-import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitToolInfo;
 import hudson.Util;
 import hudson.model.BuildListener;
 import org.junit.Assert;

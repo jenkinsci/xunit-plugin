@@ -25,7 +25,6 @@ package com.thalesgroup.hudson.plugins.xunit.service;
 
 import com.google.inject.Inject;
 import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
-import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitToolInfo;
 import hudson.Util;
 import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
@@ -78,11 +77,13 @@ public class XUnitReportProcessingService implements Serializable {
                     + pattern + "' relative to '" + parentPath + "' for the testing framework '" + toolName + "'."
                     + "  Did you enter a pattern relative to the correct directory?"
                     + "  Did you generate the result report(s) for '" + toolName + "'?";
-            xUnitLog.error(msg);
+            xUnitLog.infoConsoleLogger(msg);
+            xUnitLog.infoSystemLogger(msg);
         } else {
             String msg = "[" + toolName + "] - " + xunitFiles.length + " test report file(s) were found with the pattern '"
                     + pattern + "' relative to '" + parentPath + "' for the testing framework '" + toolName + "'.";
-            xUnitLog.info(msg);
+            xUnitLog.infoConsoleLogger(msg);
+            xUnitLog.infoSystemLogger(msg);
         }
         return Arrays.asList(xunitFiles);
     }
@@ -117,7 +118,8 @@ public class XUnitReportProcessingService implements Serializable {
                     String msg = "Clock on this slave is out of sync with the master, and therefore \n" +
                             "I can't figure out what test results are new and what are old.\n" +
                             "Please keep the slave clock in sync with the master.";
-                    xUnitLog.error(msg);
+                    xUnitLog.errorConsoleLogger(msg);
+                    xUnitLog.errorSystemLogger(msg);
                     return false;
                 }
 
@@ -125,7 +127,8 @@ public class XUnitReportProcessingService implements Serializable {
                 for (File f : oldResults) {
                     msg += String.format("  * %s is %s old\n", f, Util.getTimeSpanString(xUnitToolInfo.getBuildTime() - f.lastModified()));
                 }
-                xUnitLog.error(msg);
+                xUnitLog.errorConsoleLogger(msg);
+                xUnitLog.errorSystemLogger(msg);
                 return false;
             }
         }
@@ -150,7 +153,7 @@ public class XUnitReportProcessingService implements Serializable {
      * @param xUnitToolInfo the wrapped object
      * @return true if the xUnit must stop at the first error
      */
-    public boolean stopProcessingIfError(XUnitToolInfo xUnitToolInfo) {
+    public boolean isStopProcessingIfError(XUnitToolInfo xUnitToolInfo) {
         TestType testTool = xUnitToolInfo.getTestType();
         return testTool.isStopProcessingIfError();
     }

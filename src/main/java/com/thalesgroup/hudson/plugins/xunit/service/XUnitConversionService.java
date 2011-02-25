@@ -23,22 +23,27 @@
 
 package com.thalesgroup.hudson.plugins.xunit.service;
 
+import com.google.inject.Inject;
 import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
 import com.thalesgroup.dtkit.metrics.model.InputMetric;
 import com.thalesgroup.dtkit.util.converter.ConversionException;
 import com.thalesgroup.hudson.plugins.xunit.exception.XUnitException;
-import com.thalesgroup.hudson.plugins.xunit.transformer.XUnitToolInfo;
 import com.thalesgroup.hudson.plugins.xunit.types.CustomInputMetric;
 import com.thalesgroup.hudson.plugins.xunit.types.CustomType;
 
 import java.io.File;
 import java.io.Serializable;
-import java.util.logging.Logger;
 
 
 public class XUnitConversionService implements Serializable {
 
-    private static final Logger LOGGER = Logger.getLogger(XUnitConversionService.class.getName());
+    private XUnitLog xUnitLog;
+
+    @Inject
+    @SuppressWarnings("unused")
+    void load(XUnitLog xUnitLog) {
+        this.xUnitLog = xUnitLog;
+    }
 
     /**
      * Prepares the conversion by adding specific behavior for the CustomType
@@ -90,7 +95,7 @@ public class XUnitConversionService implements Serializable {
             throw new XUnitException("Can't create " + parent);
         }
         File junitTargetFile = new File(parent, JUNIT_FILE_PREFIX + inputFile.hashCode() + JUNIT_FILE_POSTFIX);
-        LOGGER.info("Converting '" + inputFile + "' .");
+        xUnitLog.infoSystemLogger("Converting '" + inputFile + "' .");
         try {
 
             //Set the XSL for custom type

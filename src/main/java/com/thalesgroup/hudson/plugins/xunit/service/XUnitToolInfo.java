@@ -21,7 +21,7 @@
  * THE SOFTWARE.                                                                *
  *******************************************************************************/
 
-package com.thalesgroup.hudson.plugins.xunit.transformer;
+package com.thalesgroup.hudson.plugins.xunit.service;
 
 import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
 

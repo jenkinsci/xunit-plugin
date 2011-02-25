@@ -21,13 +21,10 @@
  * THE SOFTWARE.                                                                *
  *******************************************************************************/
 
-package com.thalesgroup.hudson.plugins.xunit.transformer;
+package com.thalesgroup.hudson.plugins.xunit.service;
 
 import com.google.inject.Inject;
 import com.thalesgroup.hudson.plugins.xunit.XUnitPublisher;
-import com.thalesgroup.hudson.plugins.xunit.service.XUnitConversionService;
-import com.thalesgroup.hudson.plugins.xunit.service.XUnitReportProcessingService;
-import com.thalesgroup.hudson.plugins.xunit.service.XUnitValidationService;
 import hudson.FilePath;
 import hudson.remoting.VirtualChannel;
 import hudson.util.IOException2;
@@ -36,7 +33,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Serializable {
 
@@ -48,7 +44,7 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
 
     private XUnitToolInfo xUnitToolInfo;
 
-    private static final Logger LOGGER = Logger.getLogger(XUnitTransformer.class.getName());
+    private XUnitLog xUnitLog;
 
     @Inject
     @SuppressWarnings("unused")
@@ -56,11 +52,13 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
             XUnitReportProcessingService xUnitReportProcessingService,
             XUnitConversionService xUnitConversionService,
             XUnitValidationService xUnitValidationService,
-            XUnitToolInfo xUnitToolInfo) {
+            XUnitToolInfo xUnitToolInfo,
+            XUnitLog xUnitLog) {
         this.xUnitReportProcessingService = xUnitReportProcessingService;
         this.xUnitValidationService = xUnitValidationService;
         this.xUnitConversionService = xUnitConversionService;
         this.xUnitToolInfo = xUnitToolInfo;
+        this.xUnitLog = xUnitLog;
     }
 
     /**
@@ -76,7 +74,9 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
 
             File junitOuputDir = new File(ws, XUnitPublisher.GENERATED_JUNIT_DIR);
             if (!junitOuputDir.mkdirs()) {
-                LOGGER.warning("Can't create the path " + junitOuputDir + ". Maybe the directory already exists.");
+                String msg = "Can't create the path " + junitOuputDir + ". Maybe the directory already exists.";
+                xUnitLog.warningConsoleLogger(msg);
+                xUnitLog.warningSystemLogger(msg);
             }
 
             String metricName = xUnitToolInfo.getToolName();
@@ -84,7 +84,9 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
             //Gets all input files matching the user pattern
             List<String> resultFiles = xUnitReportProcessingService.findReports(xUnitToolInfo, ws, xUnitToolInfo.getExpandedPattern());
             if (resultFiles.size() == 0) {
-                LOGGER.severe("No test reports found for the metric '" + metricName + "' with the resolved pattern '" + xUnitToolInfo.getExpandedPattern() + "'. Configuration error?.");
+                String msg = "No test reports found for the metric '" + metricName + "' with the resolved pattern '" + xUnitToolInfo.getExpandedPattern() + "'. Configuration error?.";
+                xUnitLog.errorConsoleLogger(msg);
+                xUnitLog.errorSystemLogger(msg);
                 return false;
             }
 
@@ -93,29 +95,38 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
                 return false;
             }
 
+
+            boolean atLeastOneWarningOrError = false;
             for (String curFileName : resultFiles) {
 
                 File curFile = xUnitReportProcessingService.getCurrentReport(ws, curFileName);
 
-                boolean stopProcessingIfError = xUnitReportProcessingService.stopProcessingIfError(xUnitToolInfo);
+                boolean stopProcessingIfError = xUnitReportProcessingService.isStopProcessingIfError(xUnitToolInfo);
 
                 if (!xUnitValidationService.checkFileIsNotEmpty(curFile)) {
                     //Ignore the empty result file (some reason)
                     String msg = "The result file '" + curFile.getPath() + "' for the metric '" + metricName + "' is empty. The result file has been skipped.";
-                    LOGGER.severe(msg);
-                    if (stopProcessingIfError)
+                    if (stopProcessingIfError) {
+                        xUnitLog.errorConsoleLogger(msg);
+                        xUnitLog.errorSystemLogger(msg);
                         return false;
-                    else {
+                    } else {
+                        atLeastOneWarningOrError = true;
+                        xUnitLog.errorSystemLogger(msg);
                         continue;
                     }
                 }
 
                 //Validates Input file
                 if (!xUnitValidationService.validateInputFile(xUnitToolInfo, curFile)) {
-                    LOGGER.severe("The result file '" + curFile + "' for the metric '" + metricName + "' is not valid. The result file has been skipped.");
-                    if (stopProcessingIfError)
+                    String msg = "The result file '" + curFile + "' for the metric '" + metricName + "' is not valid. The result file has been skipped.";
+                    if (stopProcessingIfError) {
+                        xUnitLog.errorConsoleLogger(msg);
+                        xUnitLog.errorSystemLogger(msg);
                         return false;
-                    else {
+                    } else {
+                        atLeastOneWarningOrError = true;
+                        xUnitLog.errorSystemLogger(msg);
                         continue;
                     }
                 }
@@ -125,13 +136,23 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
 
                 //Validates converted file
                 if (!xUnitValidationService.validateOutputFile(xUnitToolInfo, curFile, junitTargetFile)) {
-                    LOGGER.severe("The converted file for the result file '" + curFile + "' (during conversion process for the metric '" + metricName + "') is not valid. The report file has been skipped.");
-                    if (stopProcessingIfError)
+                    String msg = "The converted file for the result file '" + curFile + "' (during conversion process for the metric '" + metricName + "') is not valid. The report file has been skipped.";
+                    if (stopProcessingIfError) {
+                        xUnitLog.errorConsoleLogger(msg);
+                        xUnitLog.errorSystemLogger(msg);
                         return false;
-                    else {
+                    } else {
+                        atLeastOneWarningOrError = true;
+                        xUnitLog.errorSystemLogger(msg);
                         continue;
                     }
                 }
+            }
+
+            if (atLeastOneWarningOrError){
+                String msg = "There is at least one problem. Check the Jenkins system log for more information. (if don't have configured yet the system log before, you have to rebuild).";
+                xUnitLog.errorConsoleLogger(msg);
+                return false;
             }
 
         } catch (Exception xe) {
