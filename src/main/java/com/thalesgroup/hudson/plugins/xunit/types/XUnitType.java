@@ -39,8 +39,8 @@ public abstract class XUnitType extends TestType {
         super(pattern, faildedIfNotNew, deleteOutputFiles);
     }
 
-    protected XUnitType(String pattern, boolean faildedIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
-        super(pattern, faildedIfNotNew, deleteOutputFiles, stopProcessingIfError);
+    protected XUnitType(String pattern, boolean faildedIfNotNew, boolean deleteOutputFiles, boolean isStopProcessingIfError) {
+        super(pattern, faildedIfNotNew, deleteOutputFiles, isStopProcessingIfError);
     }
 
     @SuppressWarnings("unused")

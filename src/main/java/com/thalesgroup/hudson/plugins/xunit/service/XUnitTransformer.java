@@ -101,12 +101,12 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
 
                 File curFile = xUnitReportProcessingService.getCurrentReport(ws, curFileName);
 
-                boolean stopProcessingIfError = xUnitReportProcessingService.isStopProcessingIfError(xUnitToolInfo);
+                boolean isStopProcessingIfError = xUnitReportProcessingService.isStopProcessingIfError(xUnitToolInfo);
 
                 if (!xUnitValidationService.checkFileIsNotEmpty(curFile)) {
                     //Ignore the empty result file (some reason)
                     String msg = "The result file '" + curFile.getPath() + "' for the metric '" + metricName + "' is empty. The result file has been skipped.";
-                    if (stopProcessingIfError) {
+                    if (isStopProcessingIfError) {
                         xUnitLog.errorConsoleLogger(msg);
                         xUnitLog.errorSystemLogger(msg);
                         return false;
@@ -120,7 +120,7 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
                 //Validates Input file
                 if (!xUnitValidationService.validateInputFile(xUnitToolInfo, curFile)) {
                     String msg = "The result file '" + curFile + "' for the metric '" + metricName + "' is not valid. The result file has been skipped.";
-                    if (stopProcessingIfError) {
+                    if (isStopProcessingIfError) {
                         xUnitLog.errorConsoleLogger(msg);
                         xUnitLog.errorSystemLogger(msg);
                         return false;
@@ -137,7 +137,7 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
                 //Validates converted file
                 if (!xUnitValidationService.validateOutputFile(xUnitToolInfo, curFile, junitTargetFile)) {
                     String msg = "The converted file for the result file '" + curFile + "' (during conversion process for the metric '" + metricName + "') is not valid. The report file has been skipped.";
-                    if (stopProcessingIfError) {
+                    if (isStopProcessingIfError) {
                         xUnitLog.errorConsoleLogger(msg);
                         xUnitLog.errorSystemLogger(msg);
                         return false;

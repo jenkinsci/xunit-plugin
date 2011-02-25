@@ -129,7 +129,7 @@ public class XUnitTransformerTest {
         when(xUnitReportProcessingServiceMock.findReports(any(XUnitToolInfo.class), any(File.class), anyString())).thenReturn(resultFiles);
 
         //Stop processing when there is an error
-        when(xUnitReportProcessingServiceMock.stopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(true);
+        when(xUnitReportProcessingServiceMock.isStopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(true);
 
         //Check OK
         when(xUnitReportProcessingServiceMock.checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class))).thenReturn(true);
@@ -159,14 +159,14 @@ public class XUnitTransformerTest {
 
 
     @Test
-    public void oneFileEmptyWithStopNoActivated() throws Exception {
+    public void oneFileEmptyWithStopNotActivated() throws Exception {
 
         //One result file
         List<String> resultFiles = Arrays.asList("a.txt");
         when(xUnitReportProcessingServiceMock.findReports(any(XUnitToolInfo.class), any(File.class), anyString())).thenReturn(resultFiles);
 
         //Stop processing when there is an error
-        when(xUnitReportProcessingServiceMock.stopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(false);
+        when(xUnitReportProcessingServiceMock.isStopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(false);
 
         //Check OK
         when(xUnitReportProcessingServiceMock.checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class))).thenReturn(true);
@@ -174,13 +174,13 @@ public class XUnitTransformerTest {
         //Wants to call the real method checkFileIsNotEmpty
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenCallRealMethod();
 
-        //Create a empty file
+        //Create an empty file
         //Test the process continues and prints a message
         File myInputFile = new File(tempWorkspace.getDir(), "a.txt");
         when(xUnitReportProcessingServiceMock.getCurrentReport(any(File.class), anyString())).thenReturn(myInputFile);
 
         //The process exits on true
-        Assert.assertTrue(xUnitTransformer.invoke(tempWorkspace.getDir(), mock(VirtualChannel.class)));
+        Assert.assertFalse(xUnitTransformer.invoke(tempWorkspace.getDir(), mock(VirtualChannel.class)));
 
         //Verifying mock interactions
         InOrder inOrder = inOrder(xUnitReportProcessingServiceMock);
@@ -206,7 +206,7 @@ public class XUnitTransformerTest {
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Stop processing when there is an error
-        when(xUnitReportProcessingServiceMock.stopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(true);
+        when(xUnitReportProcessingServiceMock.isStopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(true);
 
         //Create a non empty file
         File myInputFile = new File(tempWorkspace.getDir(), "a.txt");
@@ -235,7 +235,7 @@ public class XUnitTransformerTest {
     }
 
     @Test
-    public void oneFileNotEmptyStopNoActivated() throws Exception {
+    public void oneFileNotEmptyStopNotActivated() throws Exception {
 
         //One result file
         List<String> resultFiles = Arrays.asList("a.txt");
@@ -243,10 +243,14 @@ public class XUnitTransformerTest {
 
         //Check OK
         when(xUnitReportProcessingServiceMock.checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class))).thenReturn(true);
-        when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(false);
+        when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
+        //Case: Right input validation, conversion and right output validation
+        when(xUnitValidationServiceMock.validateInputFile(any(XUnitToolInfo.class), any(File.class))).thenReturn(true);
+        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class))).thenReturn(new File(tempWorkspace.getDir(), "output"));
+        when(xUnitValidationServiceMock.validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(true);
 
         //Stop processing when there is an error
-        when(xUnitReportProcessingServiceMock.stopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(false);
+        when(xUnitReportProcessingServiceMock.isStopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(false);
 
         //Create a non empty file
         File myInputFile = new File(tempWorkspace.getDir(), "a.txt");
@@ -270,9 +274,9 @@ public class XUnitTransformerTest {
         inOrderReport.verify(xUnitReportProcessingServiceMock).getCurrentReport(any(File.class), anyString());
 
         verify(xUnitValidationServiceMock).checkFileIsNotEmpty(any(File.class));
-        verify(xUnitValidationServiceMock, never()).validateInputFile(any(XUnitToolInfo.class), any(File.class));
-        verify(xUnitConversionServiceMock, never()).convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class));
-        verify(xUnitValidationServiceMock, never()).validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class));
+        verify(xUnitValidationServiceMock).validateInputFile(any(XUnitToolInfo.class), any(File.class));
+        verify(xUnitConversionServiceMock).convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class));
+        verify(xUnitValidationServiceMock).validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class));
     }
 
     @Test
@@ -287,7 +291,7 @@ public class XUnitTransformerTest {
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Stop processing when there is an error
-        when(xUnitReportProcessingServiceMock.stopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(true);
+        when(xUnitReportProcessingServiceMock.isStopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(true);
 
         //Wants to call the real method checkFileIsNotEmpty
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenCallRealMethod();
@@ -320,7 +324,7 @@ public class XUnitTransformerTest {
 
 
     @Test
-    public void oneFileNotEmptyWithOneFileEmptyWithStopNotActivated() throws Exception {
+    public void oneFileNotEmptyAndOneFileEmptyAndStopNotActivated() throws Exception {
 
         //One result file
         List<String> resultFiles = Arrays.asList("a.txt", "b.txt");
@@ -331,7 +335,7 @@ public class XUnitTransformerTest {
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Stop processing when there is an error
-        when(xUnitReportProcessingServiceMock.stopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(false);
+        when(xUnitReportProcessingServiceMock.isStopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(false);
 
         //Wants to call the real method checkFileIsNotEmpty
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenCallRealMethod();
@@ -350,8 +354,8 @@ public class XUnitTransformerTest {
         when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class))).thenReturn(new File(tempWorkspace.getDir(), "output"));
         when(xUnitValidationServiceMock.validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(true);
 
-        //The process exits on true
-        Assert.assertTrue(xUnitTransformer.invoke(tempWorkspace.getDir(), mock(VirtualChannel.class)));
+        //The process exits on false
+        Assert.assertFalse(xUnitTransformer.invoke(tempWorkspace.getDir(), mock(VirtualChannel.class)));
 
         //Verifying mock interactions
         verify(xUnitReportProcessingServiceMock).findReports(any(XUnitToolInfo.class), any(File.class), anyString());
@@ -373,7 +377,7 @@ public class XUnitTransformerTest {
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Stop processing when there is an error
-        when(xUnitReportProcessingServiceMock.stopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(true);
+        when(xUnitReportProcessingServiceMock.isStopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(true);
 
         //Create a dummy non empty file
         File myInputFile = new File(tempWorkspace.getDir(), "dummyFile");
@@ -403,7 +407,7 @@ public class XUnitTransformerTest {
 
 
     @Test
-    public void twoFilesNotEmptyWithStopNoActivated() throws Exception {
+    public void twoFilesNotEmptyWithStopNotActivated() throws Exception {
         //One result file
         List<String> resultFiles = Arrays.asList("a.txt", "b.txt");
         when(xUnitReportProcessingServiceMock.findReports(any(XUnitToolInfo.class), any(File.class), anyString())).thenReturn(resultFiles);
@@ -413,7 +417,7 @@ public class XUnitTransformerTest {
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Stop processing when there is an error
-        when(xUnitReportProcessingServiceMock.stopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(false);
+        when(xUnitReportProcessingServiceMock.isStopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(false);
 
         //Create a dummy non empty file
         File myInputFile = new File(tempWorkspace.getDir(), "dummyFile");
@@ -453,7 +457,7 @@ public class XUnitTransformerTest {
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Stop processing when there is an error
-        when(xUnitReportProcessingServiceMock.stopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(true);
+        when(xUnitReportProcessingServiceMock.isStopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(true);
 
         //Create a non empty file
         File myInputFile = new File(tempWorkspace.getDir(), "dummyFile");
@@ -490,7 +494,7 @@ public class XUnitTransformerTest {
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Stop processing when there is an error
-        when(xUnitReportProcessingServiceMock.stopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(false);
+        when(xUnitReportProcessingServiceMock.isStopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(false);
 
         //Create a non empty file
         File myInputFile = new File(tempWorkspace.getDir(), "dummyFile");
@@ -502,8 +506,8 @@ public class XUnitTransformerTest {
         //Case: Wrong input validation
         when(xUnitValidationServiceMock.validateInputFile(any(XUnitToolInfo.class), any(File.class))).thenReturn(false);
 
-        //The process must exit on true
-        Assert.assertTrue(xUnitTransformer.invoke(tempWorkspace.getDir(), mock(VirtualChannel.class)));
+        //The process must exit on false
+        Assert.assertFalse(xUnitTransformer.invoke(tempWorkspace.getDir(), mock(VirtualChannel.class)));
 
         //Verifying mock interactions
         InOrder inOrder = inOrder(xUnitReportProcessingServiceMock);
@@ -528,7 +532,7 @@ public class XUnitTransformerTest {
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Stop processing when there is an error
-        when(xUnitReportProcessingServiceMock.stopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(true);
+        when(xUnitReportProcessingServiceMock.isStopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(true);
 
         //Create a non empty file
         File myInputFile1 = new File(tempWorkspace.getDir(), "a.txt");
@@ -576,7 +580,7 @@ public class XUnitTransformerTest {
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Stop processing when there is an error
-        when(xUnitReportProcessingServiceMock.stopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(false);
+        when(xUnitReportProcessingServiceMock.isStopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(false);
 
         //Create a non empty file
         File myInputFile1 = new File(tempWorkspace.getDir(), "a.txt");
@@ -598,9 +602,8 @@ public class XUnitTransformerTest {
         when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class))).thenReturn(new File(tempWorkspace.getDir(), "output"));
         when(xUnitValidationServiceMock.validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(true);
 
-
-        //The process must exit on true
-        Assert.assertTrue(xUnitTransformer.invoke(tempWorkspace.getDir(), mock(VirtualChannel.class)));
+        //The process must exit on false
+        Assert.assertFalse(xUnitTransformer.invoke(tempWorkspace.getDir(), mock(VirtualChannel.class)));
 
         //Verifying mock interactions
         // The method for the second must never be called
@@ -624,7 +627,7 @@ public class XUnitTransformerTest {
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Stop processing when there is an error
-        when(xUnitReportProcessingServiceMock.stopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(true);
+        when(xUnitReportProcessingServiceMock.isStopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(true);
 
         //Create a non empty file
         File myInputFile = new File(tempWorkspace.getDir(), "dummyFile");
@@ -665,7 +668,7 @@ public class XUnitTransformerTest {
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Stop processing when there is an error
-        when(xUnitReportProcessingServiceMock.stopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(false);
+        when(xUnitReportProcessingServiceMock.isStopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(false);
 
         //Create a non empty file
         File myInputFile = new File(tempWorkspace.getDir(), "dummyFile");
@@ -681,8 +684,8 @@ public class XUnitTransformerTest {
         //Wrong output validation
         when(xUnitValidationServiceMock.validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(false);
 
-        //The process exits on true
-        Assert.assertTrue(xUnitTransformer.invoke(tempWorkspace.getDir(), mock(VirtualChannel.class)));
+        //The process exits on false
+        Assert.assertFalse(xUnitTransformer.invoke(tempWorkspace.getDir(), mock(VirtualChannel.class)));
 
         //Verifying mock interactions
         InOrder inOrder = inOrder(xUnitReportProcessingServiceMock);
@@ -706,7 +709,7 @@ public class XUnitTransformerTest {
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Stop processing when there is an error
-        when(xUnitReportProcessingServiceMock.stopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(true);
+        when(xUnitReportProcessingServiceMock.isStopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(true);
 
         //Create a non empty file
         File myInputFile = new File(tempWorkspace.getDir(), "dummyFile");
@@ -748,7 +751,7 @@ public class XUnitTransformerTest {
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Stop processing when there is an error
-        when(xUnitReportProcessingServiceMock.stopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(false);
+        when(xUnitReportProcessingServiceMock.isStopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(false);
 
         //Create a non empty file
         File myInputFile = new File(tempWorkspace.getDir(), "dummyFile");
@@ -764,8 +767,8 @@ public class XUnitTransformerTest {
         //Wrong output validation
         when(xUnitValidationServiceMock.validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(false);
 
-        //The process exits on true
-        Assert.assertTrue(xUnitTransformer.invoke(tempWorkspace.getDir(), mock(VirtualChannel.class)));
+        //The process exits on false
+        Assert.assertFalse(xUnitTransformer.invoke(tempWorkspace.getDir(), mock(VirtualChannel.class)));
 
         //Verifying mock interactions
         //Exit at the first validation output error
