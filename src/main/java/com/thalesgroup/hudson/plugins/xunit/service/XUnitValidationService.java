@@ -33,7 +33,7 @@ import java.io.File;
 import java.io.Serializable;
 
 
-public class XUnitValidationService implements Serializable {
+public class XUnitValidationService extends XUnitService implements Serializable {
 
     private XUnitLog xUnitLog;
 
@@ -71,9 +71,9 @@ public class XUnitValidationService implements Serializable {
             if (!inputMetric.validateInputFile(inputFile)) {
 
                 //Ignores invalid files
-                xUnitLog.warningSystemLogger("The file '" + inputFile + "' is an invalid file.");
+                warningSystemLogger("The file '" + inputFile + "' is an invalid file.");
                 for (ValidationError validatorError : inputMetric.getInputValidationErrors()) {
-                    xUnitLog.warningSystemLogger(validatorError.toString());
+                    warningSystemLogger(validatorError.toString());
                 }
 
                 return false;
@@ -101,9 +101,9 @@ public class XUnitValidationService implements Serializable {
             //Validates the output
             boolean validateOutput = inputMetric.validateOutputFile(junitTargetFile);
             if (!validateOutput) {
-                xUnitLog.warningSystemLogger("The converted file for the input file '" + inputFile + "' doesn't match the JUnit format");
+                warningSystemLogger("The converted file for the input file '" + inputFile + "' doesn't match the JUnit format");
                 for (ValidationError validatorError : inputMetric.getOutputValidationErrors()) {
-                    xUnitLog.warningSystemLogger(validatorError.toString());
+                    warningSystemLogger(validatorError.toString());
                 }
                 return false;
             }

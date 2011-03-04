@@ -34,7 +34,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 
-public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Serializable {
+public class XUnitTransformer extends XUnitService implements FilePath.FileCallable<Boolean>, Serializable {
 
     private XUnitReportProcessingService xUnitReportProcessingService;
 
@@ -76,7 +76,7 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
             if (!junitOuputDir.mkdirs()) {
                 String msg = "Can't create the path " + junitOuputDir + ". Maybe the directory already exists.";
                 xUnitLog.warningConsoleLogger(msg);
-                xUnitLog.warningSystemLogger(msg);
+                warningSystemLogger(msg);
             }
 
             String metricName = xUnitToolInfo.getToolName();
@@ -86,7 +86,7 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
             if (resultFiles.size() == 0) {
                 String msg = "No test reports found for the metric '" + metricName + "' with the resolved pattern '" + xUnitToolInfo.getExpandedPattern() + "'. Configuration error?.";
                 xUnitLog.errorConsoleLogger(msg);
-                xUnitLog.errorSystemLogger(msg);
+                errorSystemLogger(msg);
                 return false;
             }
 
@@ -108,11 +108,11 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
                     String msg = "The result file '" + curFile.getPath() + "' for the metric '" + metricName + "' is empty. The result file has been skipped.";
                     if (isStopProcessingIfError) {
                         xUnitLog.errorConsoleLogger(msg);
-                        xUnitLog.errorSystemLogger(msg);
+                        errorSystemLogger(msg);
                         return false;
                     } else {
                         atLeastOneWarningOrError = true;
-                        xUnitLog.errorSystemLogger(msg);
+                        errorSystemLogger(msg);
                         continue;
                     }
                 }
@@ -122,11 +122,11 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
                     String msg = "The result file '" + curFile + "' for the metric '" + metricName + "' is not valid. The result file has been skipped.";
                     if (isStopProcessingIfError) {
                         xUnitLog.errorConsoleLogger(msg);
-                        xUnitLog.errorSystemLogger(msg);
+                        errorSystemLogger(msg);
                         return false;
                     } else {
                         atLeastOneWarningOrError = true;
-                        xUnitLog.errorSystemLogger(msg);
+                        errorSystemLogger(msg);
                         continue;
                     }
                 }
@@ -139,17 +139,17 @@ public class XUnitTransformer implements FilePath.FileCallable<Boolean>, Seriali
                     String msg = "The converted file for the result file '" + curFile + "' (during conversion process for the metric '" + metricName + "') is not valid. The report file has been skipped.";
                     if (isStopProcessingIfError) {
                         xUnitLog.errorConsoleLogger(msg);
-                        xUnitLog.errorSystemLogger(msg);
+                        errorSystemLogger(msg);
                         return false;
                     } else {
                         atLeastOneWarningOrError = true;
-                        xUnitLog.errorSystemLogger(msg);
+                        errorSystemLogger(msg);
                         continue;
                     }
                 }
             }
 
-            if (atLeastOneWarningOrError){
+            if (atLeastOneWarningOrError) {
                 String msg = "There is at least one problem. Check the Jenkins system log for more information. (if don't have configured yet the system log before, you have to rebuild).";
                 xUnitLog.errorConsoleLogger(msg);
                 return false;

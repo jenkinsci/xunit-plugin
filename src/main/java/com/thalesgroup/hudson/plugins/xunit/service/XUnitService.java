@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009 Thales Corporate Services SAS                             *
+ * Copyright (c) 2011 Thales Corporate Services SAS                             *
  * Author : Gregory Boissinot                                                   *
  *                                                                              *
  * Permission is hereby granted, free of charge, to any person obtaining a copy *
@@ -23,46 +23,38 @@
 
 package com.thalesgroup.hudson.plugins.xunit.service;
 
-import com.google.inject.Inject;
-import hudson.model.BuildListener;
 
 import java.io.Serializable;
+import java.util.logging.Logger;
 
-public class XUnitLog implements Serializable {
+public class XUnitService implements Serializable {
 
-    private BuildListener buildListener;
-
-    @Inject
-    @SuppressWarnings("unused")
-    void set(BuildListener buildListener) {
-        this.buildListener = buildListener;
-    }
+    private static final Logger LOGGER = Logger.getLogger("com.thalesgroup.hudson.plugins.xunit.service.XUnitService");
 
     /**
-     * Log an info output to the console logger
+     * Log an info output to the system logger
      *
      * @param message The message to be outputted
      */
-    public void infoConsoleLogger(String message) {
-        buildListener.getLogger().println("[xUnit] [INFO] - " + message);
+    protected void infoSystemLogger(String message) {
+        LOGGER.info("[xUnit] - " + message);
     }
 
     /**
-     * Log an error output to the console logger
+     * Log an error output to the system logger
      *
      * @param message The message to be outputted
      */
-    public void errorConsoleLogger(String message) {
-        buildListener.getLogger().println("[xUnit] [ERROR] - " + message);
+    protected void errorSystemLogger(String message) {
+        LOGGER.severe("[xUnit] - " + message);
     }
 
     /**
-     * Log a warning output to the console logger
+     * Log a warning output to the system logger
      *
      * @param message The message to be outputted
      */
-    public void warningConsoleLogger(String message) {
-        buildListener.getLogger().println("[xUnit] [WARNING] - " + message);
+    public void warningSystemLogger(String message) {
+        LOGGER.warning("[xUnit] - " + message);
     }
-
 }

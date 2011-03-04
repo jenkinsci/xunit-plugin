@@ -35,7 +35,7 @@ import java.io.File;
 import java.io.Serializable;
 
 
-public class XUnitConversionService implements Serializable {
+public class XUnitConversionService extends XUnitService implements Serializable {
 
     private XUnitLog xUnitLog;
 
@@ -95,7 +95,7 @@ public class XUnitConversionService implements Serializable {
             throw new XUnitException("Can't create " + parent);
         }
         File junitTargetFile = new File(parent, JUNIT_FILE_PREFIX + inputFile.hashCode() + JUNIT_FILE_POSTFIX);
-        xUnitLog.infoSystemLogger("Converting '" + inputFile + "' .");
+        infoSystemLogger("Converting '" + inputFile + "' .");
         try {
 
             //Set the XSL for custom type

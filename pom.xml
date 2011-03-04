@@ -29,12 +29,12 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>1.398</version>
+        <version>1.399</version>
     </parent>
 
     <groupId>com.thalesgroup.jenkins-ci.plugins</groupId>
     <artifactId>xunit</artifactId>
-    <version>1.17-SNAPSHOT</version>
+    <version>1.16.1-SNAPSHOT</version>
     <packaging>hpi</packaging>
     <name>Jenkins xUnit plugin</name>
     <url>http://wiki.jenkins-ci.org/display/JENKINS/xUnit+Plugin</url>
@@ -67,7 +67,7 @@
         <dtkit.junit.format>0.14</dtkit.junit.format>
         <dtkit.default.junit.version>0.16</dtkit.default.junit.version>
         <junit.version>4.8.2</junit.version>
-        <xerces.version>2.6.2</xerces.version>
+        <xerces.version>2.9.1</xerces.version>
         <mockito.version>1.8.5</mockito.version>
         <guice.version>2.0.1</guice.version>
     </properties>
@@ -118,12 +118,13 @@
             <version>${dtkit.default.junit.version}</version>
         </dependency>
 
+<!--
         <dependency>
             <groupId>xerces</groupId>
             <artifactId>xercesImpl</artifactId>
             <version>${xerces.version}</version>
         </dependency>
-
+-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

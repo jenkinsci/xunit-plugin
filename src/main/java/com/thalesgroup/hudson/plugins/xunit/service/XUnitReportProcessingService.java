@@ -36,7 +36,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class XUnitReportProcessingService implements Serializable {
+public class XUnitReportProcessingService extends XUnitService implements Serializable {
 
     private XUnitLog xUnitLog;
 
@@ -78,12 +78,12 @@ public class XUnitReportProcessingService implements Serializable {
                     + "  Did you enter a pattern relative to the correct directory?"
                     + "  Did you generate the result report(s) for '" + toolName + "'?";
             xUnitLog.infoConsoleLogger(msg);
-            xUnitLog.infoSystemLogger(msg);
+            infoSystemLogger(msg);
         } else {
             String msg = "[" + toolName + "] - " + xunitFiles.length + " test report file(s) were found with the pattern '"
                     + pattern + "' relative to '" + parentPath + "' for the testing framework '" + toolName + "'.";
             xUnitLog.infoConsoleLogger(msg);
-            xUnitLog.infoSystemLogger(msg);
+            infoSystemLogger(msg);
         }
         return Arrays.asList(xunitFiles);
     }
@@ -119,7 +119,7 @@ public class XUnitReportProcessingService implements Serializable {
                             "I can't figure out what test results are new and what are old.\n" +
                             "Please keep the slave clock in sync with the master.";
                     xUnitLog.errorConsoleLogger(msg);
-                    xUnitLog.errorSystemLogger(msg);
+                    errorSystemLogger(msg);
                     return false;
                 }
 
@@ -128,7 +128,7 @@ public class XUnitReportProcessingService implements Serializable {
                     msg += String.format("  * %s is %s old\n", f, Util.getTimeSpanString(xUnitToolInfo.getBuildTime() - f.lastModified()));
                 }
                 xUnitLog.errorConsoleLogger(msg);
-                xUnitLog.errorSystemLogger(msg);
+                errorSystemLogger(msg);
                 return false;
             }
         }
