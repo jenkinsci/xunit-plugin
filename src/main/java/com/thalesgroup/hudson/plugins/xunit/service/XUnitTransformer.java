@@ -150,7 +150,7 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
             }
 
             if (atLeastOneWarningOrError) {
-                String msg = "There is at least one problem. Check the Jenkins system log for more information. (if don't have configured yet the system log before, you have to rebuild).";
+                String msg = "There is at least one problem. Check the Jenkins system log for more information. (if you don't have configured yet the system log before, you have to rebuild).";
                 xUnitLog.errorConsoleLogger(msg);
                 return false;
             }
