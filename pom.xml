@@ -34,7 +34,7 @@
 
     <groupId>com.thalesgroup.jenkins-ci.plugins</groupId>
     <artifactId>xunit</artifactId>
-    <version>1.16.1</version>
+    <version>1.16.2-SNAPSHOT</version>
     <packaging>hpi</packaging>
     <name>Jenkins xUnit plugin</name>
     <url>http://wiki.jenkins-ci.org/display/JENKINS/xUnit+Plugin</url>
