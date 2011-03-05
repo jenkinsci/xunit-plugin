@@ -54,7 +54,7 @@
             <tr>
                  <td width="100%" style="${td}" colspan="2">
                      <label>Stop and set the build to 'failed' status if there are errors when processing a result file</label>
-                     <f:checkbox field="isStopProcessingIfError" checked="${h.defaultToTrue(instance.isStopProcessingIfError)}"/>
+                     <f:checkbox field="stopProcessingIfError" checked="${h.defaultToTrue(instance.stopProcessingIfError)}"/>
                   </td>
             </tr>
          </j:if>
@@ -81,7 +81,7 @@
             <tr>
                  <td width="100%" style="${td}" colspan="2">
                      <label>Stop and set the build to 'failed' status if there are errors when processing a result file</label>
-                     <f:checkbox field="isStopProcessingIfError" checked="${h.defaultToTrue(instance.isStopProcessingIfError)}"/>
+                     <f:checkbox field="stopProcessingIfError" checked="${h.defaultToTrue(instance.stopProcessingIfError)}"/>
                   </td>
             </tr>
          </j:if>
