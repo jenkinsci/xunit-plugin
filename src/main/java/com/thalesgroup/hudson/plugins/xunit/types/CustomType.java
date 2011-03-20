@@ -40,8 +40,8 @@ public class CustomType extends TestType {
 
     @DataBoundConstructor
     @SuppressWarnings("unused")
-    public CustomType(String pattern, String customXSL, boolean faildedIfNotNew, boolean deleteOutputFiles) {
-        super(pattern, faildedIfNotNew, deleteOutputFiles);
+    public CustomType(String pattern, String customXSL, boolean faildedIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
+        super(pattern, faildedIfNotNew, deleteOutputFiles, stopProcessingIfError);
         this.customXSL = customXSL;
     }
 
