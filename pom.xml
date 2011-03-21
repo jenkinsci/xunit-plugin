@@ -78,6 +78,16 @@
             <name>guice maven</name>
             <url>http://guice-maven.googlecode.com/svn/trunk</url>
         </repository>
+    <repository>
+      <id>jenkins-release-repo</id>
+      <url>http://maven.jenkins-ci.org:8081/content/groups/artifacts/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
     </repositories>
 
     <dependencies>
