@@ -109,6 +109,12 @@
             <groupId>com.thalesgroup.dtkit</groupId>
             <artifactId>dtkit-metrics-util</artifactId>
             <version>${dtkit.frmk.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>net.sourceforge.saxon</groupId>
+                    <artifactId>saxon</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -121,6 +127,29 @@
             <groupId>com.thalesgroup.dtkit</groupId>
             <artifactId>dtkit-junit-model</artifactId>
             <version>${dtkit.junit.format}</version>
+        </dependency>
+
+	<dependency>
+    	    <groupId>net.sourceforge.saxon</groupId>
+            <artifactId>saxon</artifactId>
+            <version>9.1.0.8</version>
+	    <scope>test</scope>
+	</dependency>
+
+        <dependency>
+            <groupId>net.sourceforge.saxon</groupId>
+            <artifactId>saxon</artifactId>
+            <version>9.1.0.8</version>
+            <classifier>s9api</classifier>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sourceforge.saxon</groupId>
+            <artifactId>saxon</artifactId>
+            <version>9.1.0.8</version>
+	    <classifier>dom</classifier>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -172,7 +201,7 @@
                                     <version>9.1.0.8</version>
                                     <type>jar</type>
                                     <overWrite>false</overWrite>
-                                    <outputDirectory>${project.build.directory}/tusarnotifier/WEB-INF/lib
+                                    <outputDirectory>${project.build.directory}/xunit/WEB-INF/lib
                                     </outputDirectory>
                                 </artifactItem>
                                 <artifactItem>
