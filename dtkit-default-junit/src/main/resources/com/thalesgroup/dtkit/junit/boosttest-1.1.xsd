@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
 /*******************************************************************************
-* Copyright (c) 2009 Thales Corporate Services SAS                             *
+* Copyright (c) 2011 Thales Corporate Services SAS                             *
 * Author : Gregory Boissinot                                                   *
 *                                                                              *
 * Permission is hereby granted, free of charge, to any person obtaining a copy *
@@ -88,6 +88,10 @@
                 <xs:element ref="TestingTime" minOccurs="1" maxOccurs="1"/>
             </xs:sequence>
             <xs:attribute name="name" type="xs:string" use="required"/>
+            <xs:attribute name="result" type="xs:string" use="optional"/>
+            <xs:attribute name="assertions_passed" type="xs:integer" use="optional"/>
+            <xs:attribute name="assertions_failed" type="xs:integer" use="optional"/>
+            <xs:attribute name="expected_failures" type="xs:integer" use="optional"/>
         </xs:complexType>
     </xs:element>
 
@@ -111,6 +115,14 @@
                 <xs:element ref="TestSuite" minOccurs="0" maxOccurs="unbounded"/>
             </xs:sequence>
             <xs:attribute name="name" type="xs:string" use="required"/>
+            <xs:attribute name="result" type="xs:string" use="optional"/>
+            <xs:attribute name="assertions_passed" type="xs:integer" use="optional"/>
+            <xs:attribute name="assertions_failed" type="xs:integer" use="optional"/>
+            <xs:attribute name="expected_failures" type="xs:integer" use="optional"/>
+            <xs:attribute name="test_cases_passed" type="xs:integer" use="optional"/>
+            <xs:attribute name="test_cases_failed" type="xs:integer" use="optional"/>
+            <xs:attribute name="test_cases_skipped" type="xs:integer" use="optional"/>
+            <xs:attribute name="test_cases_aborted" type="xs:integer" use="optional"/>
         </xs:complexType>
     </xs:element>
 
