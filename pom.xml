@@ -129,12 +129,12 @@
             <version>${dtkit.junit.format}</version>
         </dependency>
 
-	<dependency>
-    	    <groupId>net.sourceforge.saxon</groupId>
+        <dependency>
+            <groupId>net.sourceforge.saxon</groupId>
             <artifactId>saxon</artifactId>
             <version>9.1.0.8</version>
-	    <scope>test</scope>
-	</dependency>
+            <scope>test</scope>
+        </dependency>
 
         <dependency>
             <groupId>net.sourceforge.saxon</groupId>
@@ -148,7 +148,7 @@
             <groupId>net.sourceforge.saxon</groupId>
             <artifactId>saxon</artifactId>
             <version>9.1.0.8</version>
-	    <classifier>dom</classifier>
+            <classifier>dom</classifier>
             <scope>test</scope>
         </dependency>
 
