@@ -33,7 +33,7 @@
     </parent>
 
     <artifactId>dtkit-default-junit-parent</artifactId>
-    <version>0.17-SNAPSHOT</version>
+    <version>0.17</version>
     <packaging>pom</packaging>
     <name>DTKit Default JUnit Parent</name>
     <url>http://wiki.jenkins-ci.org/display/JENKINS/DTKit</url>
@@ -87,8 +87,8 @@
     </dependencyManagement>
 
     <scm>
-        <connection>scm:svn:https://svn.jenkins-ci.org/trunk/hudson/dtkit/dtkit-default/junit-output</connection>
-        <developerConnection>scm:svn:https://svn.jenkins-ci.org/trunk/hudson/dtkit/dtkit-default/junit-output
+        <connection>scm:svn:https://svn.jenkins-ci.org/tags/dtkit-default-junit-parent-0.17</connection>
+        <developerConnection>scm:svn:https://svn.jenkins-ci.org/tags/dtkit-default-junit-parent-0.17
         </developerConnection>
     </scm>
 
