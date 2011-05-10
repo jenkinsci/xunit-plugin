@@ -23,13 +23,11 @@
 
 package com.thalesgroup.dtkit.junit;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class CppTestUnitTest extends AbstractTest {
 
     @Test
-    @Ignore
     public void cpptestTestcase1() throws Exception {
         convertAndValidate(CppTestUnit.class, "cpptestunit/testcase1/inputcpptest.xml", "cpptestunit/testcase1/junit-result.xml");
     }
