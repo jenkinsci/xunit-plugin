@@ -76,6 +76,6 @@ public class CustomInputMetric extends InputMetricXSL {
 
     @Override
     public OutputMetric getOutputFormatType() {
-        return JUnitModel.OUTPUT_JUNIT_1_0;
+        return JUnitModel.OUTPUT_JUNIT_4;
     }
 }
