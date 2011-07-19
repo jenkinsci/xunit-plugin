@@ -48,7 +48,7 @@ public class BoostTest extends InputMetricXSL {
 
     @Override
     public String getToolVersion() {
-        return "1.37.0";
+        return "1.x";
     }
 
     @Override
@@ -58,16 +58,16 @@ public class BoostTest extends InputMetricXSL {
 
     @Override
     public String getXslName() {
-        return "boosttest-1.1-to-junit-2.xsl";
+        return "boosttest-1.2-to-junit-4.xsl";
     }
 
     @Override
     public String[] getInputXsdNameList() {
-        return new String[]{"boosttest-1.1.xsd"};
+        return new String[]{"boosttest-1.2.xsd"};
     }
 
     @Override
     public OutputMetric getOutputFormatType() {
-        return JUnitModel.OUTPUT_JUNIT_2;
+        return JUnitModel.OUTPUT_JUNIT_4;
     }
 }

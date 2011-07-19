@@ -143,9 +143,10 @@
             </xsl:attribute>
 
 
-          <xsl:choose>
+            <xsl:choose>
 
-                <xsl:when test="((count(child::Exception))=1) and ((count(child::Info)+ count(child::Warning) + count(child::Message))=0)">
+                <xsl:when
+                        test="((count(child::Exception))=1) and ((count(child::Info)+ count(child::Warning) + count(child::Message))=0)">
                     <xsl:variable name="fileName" select="substring-before((./Exception/LastCheckpoint)/@file, '.')"/>
                     <xsl:attribute name="classname">
                         <xsl:value-of select="concat($packageName, $fileName)"/>
