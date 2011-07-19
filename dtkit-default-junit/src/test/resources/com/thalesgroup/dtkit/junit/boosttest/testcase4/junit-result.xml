@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuite tests="5" errors="2" failures="0" name="MergedTestSuite" skipped="0">
     <testcase
-            classname="Master Test Suite.TestDataSelectionServices.d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult"
+            classname="Master.Test.Suite.TestDataSelectionServices.d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult"
             name="TestAnd"
             time="0">
         <system-out>&#xD;[Info] -
@@ -43,7 +43,7 @@
             [Line] - 143&#xD;</system-out>
     </testcase>
     <testcase
-            classname="Master Test Suite.TestDataSelectionServices.NCTstDslsAdmExprResult.d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult"
+            classname="Master.Test.Suite.TestDataSelectionServices.NCTstDslsAdmExprResult.d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult"
             name="TestAnd"
             time="0">
         <system-out>&#xD;[Info] - check CheckResult(vTracks, Dsls::eOutStAllSamples, Dsls::eOutStAllSamples, true,
@@ -83,7 +83,7 @@
             [Line] - 143&#xD;</system-out>
     </testcase>
     <testcase
-            classname="Master Test Suite.TestDataSelectionServices.NCTstDslsAdmExprResult.d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult"
+            classname="Master.Test.Suite.TestDataSelectionServices.NCTstDslsAdmExprResult.d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult"
             name="TestAndNonOverlap"
             time="0">
         <system-out>&#xD;[Info] - check CheckResultSymmetric(vTracks1, Dsls::eOutStAllSamples, vTracks2,
@@ -125,7 +125,7 @@
             [Line] - 166&#xD;</system-out>
     </testcase>
     <testcase
-            classname="Master Test Suite.TestDataSelectionServices.NCTstDslsAdmExprResult.d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult"
+            classname="Master.Test.Suite.TestDataSelectionServices.NCTstDslsAdmExprResult.d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult"
             name="TestOr"
             time="0">
         <error>&#xD;[Exception] - un test failed&#xD; == [File] - test.cpp&#xD; == [Line] -16&#xD;</error>
@@ -166,7 +166,7 @@
             [Line] - 188&#xD;</system-out>
     </testcase>
     <testcase
-            classname="Master Test Suite.TestDataSelectionServices.NCTstDslsAdmExprResult.d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult"
+            classname="Master.Test.Suite.TestDataSelectionServices.NCTstDslsAdmExprResult.d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult"
             name="TestOrNonOverlap"
             time="0">
         <error>&#xD;[Exception] - un test failed&#xD; == [File] - test.cpp&#xD; == [Line] -16&#xD;</error>

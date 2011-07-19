@@ -119,7 +119,8 @@
         <xsl:variable name="curElt" select="."/>
         <xsl:variable name="suiteName">
             <xsl:for-each select="($curElt/ancestor::TestSuite)">
-                <xsl:value-of select="./@name"/><xsl:text>.</xsl:text>
+                <xsl:variable name="nameTrimed" select="replace(./@name,' ','.')"/>
+                <xsl:value-of select="$nameTrimed"/><xsl:text>.</xsl:text>
             </xsl:for-each>
         </xsl:variable>
         <xsl:variable name="packageName" select="($suiteName)"/>
@@ -129,26 +130,43 @@
             <xsl:variable name="time" select="TestingTime"/>
 
             <xsl:attribute name="classname">
-                <xsl:value-of select="concat($packageName, substring-before(($elt)/@file, '.'))"/>
+                <xsl:variable name="packageStr" select="concat($packageName, substring-before(($elt)/@file, '.'))"/>
+                <xsl:choose>
+                    <xsl:when test="ends-with($packageStr, '.')">
+                        <xsl:variable name="packageStr2"
+                                      select="substring($packageStr, 1, string-length($packageStr)-1)"/>
+                        <xsl:value-of select="replace($packageStr2,' ','.')"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:variable name="packageStr2" select="($packageStr)"/>
+                        <xsl:value-of select="replace($packageStr2,' ','.')"/>
+                    </xsl:otherwise>
+                </xsl:choose>
             </xsl:attribute>
 
+            <!-- When there is only Exception with LastCheckpoint, override classname attribute -->
 
-            <xsl:choose>
+            <xsl:if
+                    test="((count(child::Exception))=1) and ((count(child::Info)+ count(child::Warning) + count(child::Message))=0)">
+                <xsl:variable name="fileName" select="substring-before((./Exception/LastCheckpoint)/@file, '.')"/>
+                <xsl:attribute name="classname">
+                    <!-- <xsl:value-of select="concat($packageName, $fileName)"/> -->
+                    <xsl:variable name="packageStr" select="concat($packageName, $fileName)"/>
+                    <xsl:choose>
+                        <xsl:when test="ends-with($packageStr, '.')">
+                            <xsl:variable name="packageStr2"
+                                          select="substring($packageStr, 1, string-length($packageStr)-1)"/>
+                            <xsl:value-of select="replace($packageStr2,' ','.')"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:variable name="packageStr2" select="($packageStr)"/>
+                            <xsl:value-of select="replace($packageStr2,' ','.')"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
 
-                <xsl:when
-                        test="((count(child::Exception))=1) and ((count(child::Info)+ count(child::Warning) + count(child::Message))=0)">
-                    <xsl:variable name="fileName" select="substring-before((./Exception/LastCheckpoint)/@file, '.')"/>
-                    <xsl:attribute name="classname">
-                        <xsl:value-of select="concat($packageName, $fileName)"/>
-                    </xsl:attribute>
-                </xsl:when>
+                </xsl:attribute>
+            </xsl:if>
 
-                <xsl:otherwise>
-                    <xsl:attribute name="classname">
-                        <xsl:value-of select="concat($packageName, substring-before(($elt)/@file, '.'))"/>
-                    </xsl:attribute>
-                </xsl:otherwise>
-            </xsl:choose>
 
             <xsl:attribute name="name">
                 <xsl:value-of select="@name"/>
