@@ -58,7 +58,7 @@ public class UnitTest extends InputMetricXSL {
 
     @Override
     public String getXslName() {
-        return "unittest-1.0-to-junit-1.0.xsl";
+        return "unittest-1.1-to-junit-1.0.xsl";
     }
 
     @Override
