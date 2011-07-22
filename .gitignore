@@ -2,3 +2,7 @@ target
 .classpath
 .project
 .settings
+*.ipr
+*.iws
+*.iml
+work
