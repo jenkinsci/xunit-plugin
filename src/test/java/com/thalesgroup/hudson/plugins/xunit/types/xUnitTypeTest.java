@@ -32,16 +32,21 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import static org.mockito.Mockito.anyString;
-
 
 public class xUnitTypeTest {
 
     private <X extends XUnitType, H extends TestType> void processTestNewReturnObjectAllCases(Class<X> classXUnitType, Class<H> classNewHudsonType) throws Exception {
-        processTestNewReturnObject(classXUnitType, classNewHudsonType, anyString(), true, true);
-        processTestNewReturnObject(classXUnitType, classNewHudsonType, anyString(), true, false);
-        processTestNewReturnObject(classXUnitType, classNewHudsonType, anyString(), false, true);
-        processTestNewReturnObject(classXUnitType, classNewHudsonType, anyString(), false, false);
+        processTestNewReturnObjectAllCases(classXUnitType, classNewHudsonType, null);
+        processTestNewReturnObjectAllCases(classXUnitType, classNewHudsonType, new String());
+        processTestNewReturnObjectAllCases(classXUnitType, classNewHudsonType, new String("NOT EMPTY"));
+    }
+
+
+    private <X extends XUnitType, H extends TestType> void processTestNewReturnObjectAllCases(Class<X> classXUnitType, Class<H> classNewHudsonType, String pattern) throws Exception {
+        processTestNewReturnObject(classXUnitType, classNewHudsonType, pattern, true, true);
+        processTestNewReturnObject(classXUnitType, classNewHudsonType, pattern, true, false);
+        processTestNewReturnObject(classXUnitType, classNewHudsonType, pattern, false, true);
+        processTestNewReturnObject(classXUnitType, classNewHudsonType, pattern, false, false);
     }
 
     @SuppressWarnings("unchecked")
@@ -87,5 +92,4 @@ public class xUnitTypeTest {
     public void testUnitTestType() throws Exception {
         processTestNewReturnObjectAllCases(UnitTestType.class, UnitTestHudsonTestType.class);
     }
-
 }
