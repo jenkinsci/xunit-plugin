@@ -22,7 +22,7 @@ public class CustomTest {
 
     private static Injector injector;
 
-      @BeforeClass
+    @BeforeClass
     public static void initInjector() {
         injector = Guice.createInjector(new AbstractModule() {
             @Override

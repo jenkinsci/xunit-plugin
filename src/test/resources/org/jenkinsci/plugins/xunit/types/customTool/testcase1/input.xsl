@@ -70,7 +70,7 @@
                 </xsl:otherwise>
             </xsl:choose>
 
-            <xsl:element name="skipped" />
+            <xsl:element name="skipped"/>
         </xsl:element>
     </xsl:template>
 
