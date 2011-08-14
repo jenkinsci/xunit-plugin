@@ -29,7 +29,7 @@
     <parent>
         <groupId>com.thalesgroup.dtkit</groupId>
         <artifactId>dtkit-metrics-default-parent</artifactId>
-        <version>13</version>
+        <version>14-SNAPSHOT</version>
     </parent>
 
     <artifactId>dtkit-default-junit-parent</artifactId>
@@ -81,6 +81,7 @@
                 <groupId>com.thalesgroup.dtkit</groupId>
                 <artifactId>dtkit-processor</artifactId>
                 <version>${dtkit.processor.version}</version>
+                <scope>provided</scope>
             </dependency>
 
         </dependencies>
