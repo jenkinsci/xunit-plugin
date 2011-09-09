@@ -4,21 +4,22 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Singleton;
+import com.thalesgroup.dtkit.metrics.model.InputMetric;
 import com.thalesgroup.dtkit.util.converter.ConversionService;
 import com.thalesgroup.dtkit.util.validator.ValidationError;
 import com.thalesgroup.dtkit.util.validator.ValidationService;
 import com.thalesgroup.hudson.plugins.xunit.types.CustomInputMetric;
 import org.custommonkey.xmlunit.Diff;
+import org.custommonkey.xmlunit.XMLUnit;
 import org.junit.Assert;
 import org.junit.BeforeClass;
-import org.junit.Test;
 
 import java.io.*;
 
 /**
  * @author Gregory Boissinot
  */
-public class CustomTest {
+public abstract class AbstractTest {
 
     private static Injector injector;
 
@@ -57,7 +58,36 @@ public class CustomTest {
         return xmlString;
     }
 
-    private void convertAndValidate(String inputXMLPath, String inputXSLPath, String expectedResultPath) throws Exception {
+    protected void convertAndValidate(Class<? extends InputMetric> metricClass, String inputXMLPath, String expectedResultPath) throws Exception {
+        InputMetric inputMetric = injector.getInstance(metricClass);
+
+        File outputXMLFile = File.createTempFile("result", "xml");
+        File inputXMLFile = new File(this.getClass().getResource(inputXMLPath).toURI());
+
+        //The input file must be valid
+        boolean inputResult = inputMetric.validateInputFile(inputXMLFile);
+        for (ValidationError validatorError : inputMetric.getInputValidationErrors()) {
+            System.out.println("[ERROR] " + validatorError.toString());
+        }
+        Assert.assertTrue(inputResult);
+
+        inputMetric.convert(inputXMLFile, outputXMLFile);
+        XMLUnit.setIgnoreWhitespace(true);
+        Diff myDiff = new Diff(readXmlAsString(new File(this.getClass().getResource(expectedResultPath).toURI())), readXmlAsString(outputXMLFile));
+        Assert.assertTrue("XSL transformation did not work" + myDiff, myDiff.similar());
+
+        //The generated output file must be valid
+        boolean outputResult = inputMetric.validateOutputFile(outputXMLFile);
+        for (ValidationError validatorError : inputMetric.getOutputValidationErrors()) {
+            System.out.println(validatorError);
+        }
+        Assert.assertTrue(outputResult);
+
+        outputXMLFile.deleteOnExit();
+
+    }
+
+    protected void convertAndValidate(String inputXMLPath, String inputXSLPath, String expectedResultPath) throws Exception {
 
         CustomInputMetric customInputMetric = injector.getInstance(CustomInputMetric.class);
         customInputMetric.setCustomXSLFile(new File(this.getClass().getResource(inputXSLPath).toURI()));
@@ -86,9 +116,5 @@ public class CustomTest {
         outputXMLFile.deleteOnExit();
     }
 
-    @Test
-    public void testTestcase1() throws Exception {
-        convertAndValidate("customTool/testcase1/input.xml", "customTool/testcase1/input.xsl", "customTool/testcase1/result.xml");
-    }
 
 }

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<testsuites xmlns="http://check.sourceforge.net/ns">
+    <datetime>2011-09-08 09:43:11</datetime>
+    <suite>
+        <title>test_check1.c</title>
+        <test result="failure">
+            <path>.</path>
+            <fn>test_check1.c:19</fn>
+            <id>test_list_3</id>
+            <iteration>0</iteration>
+            <description>Core</description>
+            <message>Should have found 3 hosts</message>
+        </test>
+        <test result="success">
+            <path>.</path>
+            <fn>test_check1.c:33</fn>
+            <id>test_single_entry</id>
+            <iteration>0</iteration>
+            <description>Core</description>
+            <message>Passed</message>
+        </test>
+        <test result="failure">
+            <path>.</path>
+            <fn>test_check1.c:42</fn>
+            <id>test_allow_spaces</id>
+            <iteration>0</iteration>
+            <description>Core</description>
+            <message>Should have found 3 hosts</message>
+        </test>
+        <test result="failure">
+            <path>.</path>
+            <fn>test_check1.c:58</fn>
+            <id>test_only_first_entries</id>
+            <iteration>0</iteration>
+            <description>Core</description>
+            <message>Assertion 'strcmp("bbb", mylist[1]) == 0' failed</message>
+        </test>
+        <test result="success">
+            <path>.</path>
+            <fn>test_check1.c:69</fn>
+            <id>test_empty</id>
+            <iteration>0</iteration>
+            <description>Core</description>
+            <message>Passed</message>
+        </test>
+    </suite>
+    <duration>0.759352</duration>
+</testsuites>
