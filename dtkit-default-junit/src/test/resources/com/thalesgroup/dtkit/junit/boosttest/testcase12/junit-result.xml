@@ -1,0 +1,1536 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite tests="131" errors="0" failures="4" name="MergedTestSuite" skipped="0">
+    <testcase classname="BER" name="TestBERIntegerConstraints" time="0">
+        <failure>&#xD;[Error] -
+            check tr.p_assertions_failed == (std::size_t) 0 failed [2 != 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 410&#xD;</failure>
+    </testcase>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.constrained.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBERIntegerConstraintsWithValue"
+            time="0">
+        <system-out>&#xD;[Message] -
+            BER INTEGER constraints: 0 .. 255, value = 0
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 340&#xD;&#xD;[Message] -
+            Encode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 353&#xD;&#xD;[Message] -
+            Decode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 360&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.constrained.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBERIntegerConstraintsWithValue"
+            time="0">
+        <system-out>&#xD;[Message] -
+            BER INTEGER constraints: 0 .. 255, value = 127
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 340&#xD;&#xD;[Message] -
+            Encode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 353&#xD;&#xD;[Message] -
+            Decode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 360&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.constrained.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBERIntegerConstraintsWithValue"
+            time="0">
+        <failure>&#xD;[Error] -
+            exception thrown by type.read(reader, vToRead)
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 361&#xD;&#xD;[Error] -
+            check vToWrite == vToRead failed [256 != -257]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 363&#xD;</failure>
+        <system-out>&#xD;[Message] -
+            BER INTEGER constraints: 0 .. 255, value = 256
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 340&#xD;&#xD;[Message] -
+            Encode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 353&#xD;&#xD;[Message] -
+            Decode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 360&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.constrained.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBERIntegerConstraintsWithBadValue"
+            time="0">
+        <system-out>&#xD;[Message] -
+            BER INTEGER constraints: 0 .. 255, bad value = -9223372036854775808
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 370&#xD;&#xD;[Message] -
+            Encode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 383&#xD;&#xD;[Message] -
+            Decode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 390&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.constrained.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBERIntegerConstraintsWithBadValue"
+            time="0">
+        <system-out>&#xD;[Message] -
+            BER INTEGER constraints: 0 .. 255, bad value = -1
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 370&#xD;&#xD;[Message] -
+            Encode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 383&#xD;&#xD;[Message] -
+            Decode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 390&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.constrained.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBERIntegerConstraintsWithBadValue"
+            time="0">
+        <system-out>&#xD;[Message] -
+            BER INTEGER constraints: 0 .. 255, bad value = 256
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 370&#xD;&#xD;[Message] -
+            Encode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 383&#xD;&#xD;[Message] -
+            Decode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 390&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.constrained.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBERIntegerConstraintsWithBadValue"
+            time="0">
+        <system-out>&#xD;[Message] -
+            BER INTEGER constraints: 0 .. 255, bad value = 9223372036854775807
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 370&#xD;&#xD;[Message] -
+            Encode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 383&#xD;&#xD;[Message] -
+            Decode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 390&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER" name="TestBERInteger" time="0"/>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBEREmptyIntegerWithValue"
+            time="0">
+        <system-out>&#xD;[Message] -
+            Value = -9223372036854775808
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 30&#xD;&#xD;[Message] -
+            Encode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 39&#xD;&#xD;[Message] -
+            Decode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 46&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBEREmptyIntegerWithValue"
+            time="0">
+        <system-out>&#xD;[Message] -
+            Value = 0
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 30&#xD;&#xD;[Message] -
+            Encode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 39&#xD;&#xD;[Message] -
+            Decode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 46&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBEREmptyIntegerWithValue"
+            time="0">
+        <system-out>&#xD;[Message] -
+            Value = 9223372036854775807
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 30&#xD;&#xD;[Message] -
+            Encode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 39&#xD;&#xD;[Message] -
+            Decode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 46&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBEREmptyIntegerWithTagNumberWithValue"
+            time="0">
+        <system-out>&#xD;[Message] -
+            Value = -9223372036854775808
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 56&#xD;&#xD;[Message] -
+            Encode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 68&#xD;&#xD;[Message] -
+            Decode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 76&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBEREmptyIntegerWithTagNumberWithValue"
+            time="0">
+        <system-out>&#xD;[Message] -
+            Value = 0
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 56&#xD;&#xD;[Message] -
+            Encode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 68&#xD;&#xD;[Message] -
+            Decode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 76&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBEREmptyIntegerWithTagNumberWithValue"
+            time="0">
+        <system-out>&#xD;[Message] -
+            Value = 9223372036854775807
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 56&#xD;&#xD;[Message] -
+            Encode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 68&#xD;&#xD;[Message] -
+            Decode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 76&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBERImplicitIntegerWithTagNumberWithValue"
+            time="0">
+        <system-out>&#xD;[Message] -
+            Value = -9223372036854775808
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 86&#xD;&#xD;[Message] -
+            Encode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 98&#xD;&#xD;[Message] -
+            Decode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 106&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBERImplicitIntegerWithTagNumberWithValue"
+            time="0">
+        <system-out>&#xD;[Message] -
+            Value = 0
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 86&#xD;&#xD;[Message] -
+            Encode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 98&#xD;&#xD;[Message] -
+            Decode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 106&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBERImplicitIntegerWithTagNumberWithValue"
+            time="0">
+        <system-out>&#xD;[Message] -
+            Value = 9223372036854775807
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 86&#xD;&#xD;[Message] -
+            Encode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 98&#xD;&#xD;[Message] -
+            Decode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 106&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBERExplicitIntegerWithTagNumberWithValue"
+            time="0">
+        <system-out>&#xD;[Message] -
+            Value = -9223372036854775808
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 116&#xD;&#xD;[Message] -
+            Encode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 128&#xD;&#xD;[Message] -
+            Decode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 135&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBERExplicitIntegerWithTagNumberWithValue"
+            time="0">
+        <system-out>&#xD;[Message] -
+            Value = 0
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 116&#xD;&#xD;[Message] -
+            Encode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 128&#xD;&#xD;[Message] -
+            Decode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 135&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBERExplicitIntegerWithTagNumberWithValue"
+            time="0">
+        <system-out>&#xD;[Message] -
+            Value = 9223372036854775807
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 116&#xD;&#xD;[Message] -
+            Encode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 128&#xD;&#xD;[Message] -
+            Decode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 135&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBERExplicitIntegerWithTagNumber"
+            time="0">
+        <system-out>&#xD;[Message] -
+            Tag Number = 0
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 145&#xD;&#xD;[Message] -
+            Encode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 157&#xD;&#xD;[Message] -
+            Decode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 164&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBERExplicitIntegerWithTagNumber"
+            time="0">
+        <system-out>&#xD;[Message] -
+            Tag Number = 12345
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 145&#xD;&#xD;[Message] -
+            Encode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 12345]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 157&#xD;&#xD;[Message] -
+            Decode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 12345]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 164&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBERExplicitIntegerWithTagNumber"
+            time="0">
+        <system-out>&#xD;[Message] -
+            Tag Number = 9223372036854775807
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 145&#xD;&#xD;[Message] -
+            Encode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 9223372036854775807]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 157&#xD;&#xD;[Message] -
+            Decode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 9223372036854775807]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 164&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBERImplicitIntegerWithTagNumber"
+            time="0">
+        <system-out>&#xD;[Message] -
+            Tag Number = 0
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 174&#xD;&#xD;[Message] -
+            Encode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 186&#xD;&#xD;[Message] -
+            Decode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 193&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBERImplicitIntegerWithTagNumber"
+            time="0">
+        <system-out>&#xD;[Message] -
+            Tag Number = 12345
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 174&#xD;&#xD;[Message] -
+            Encode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 12345]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 186&#xD;&#xD;[Message] -
+            Decode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 12345]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 193&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBERImplicitIntegerWithTagNumber"
+            time="0">
+        <system-out>&#xD;[Message] -
+            Tag Number = 9223372036854775807
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 174&#xD;&#xD;[Message] -
+            Encode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 9223372036854775807]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 186&#xD;&#xD;[Message] -
+            Decode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 9223372036854775807]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 193&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBERExplicitIntegerWithDifferentTagNumbers"
+            time="0">
+        <system-out>&#xD;[Message] -
+            Tag Number In = 0; Tag Number Out = 1
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 204&#xD;&#xD;[Message] -
+            Encode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 216&#xD;&#xD;[Message] -
+            Decode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 1]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 229&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBERImplicitIntegerWithDifferentTagNumbers"
+            time="0">
+        <system-out>&#xD;[Message] -
+            Tag Number In = 0; Tag Number Out = 1
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 239&#xD;&#xD;[Message] -
+            Encode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 251&#xD;&#xD;[Message] -
+            Decode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 1]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 264&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBadBERImplicitExplicitIntegerEncodingDecoding"
+            time="0">
+        <system-out>&#xD;[Message] -
+            Tag Number = 0, IMPLICIT -&gt; EXPLICIT
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 273&#xD;&#xD;[Message] -
+            Encode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 285&#xD;&#xD;[Message] -
+            Decode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 298&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="BER.Base.BER.INTEGER.encoding/decoding.test.suite./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+            name="TestBadBERExplicitImplicitIntegerEncodingDecoding"
+            time="0">
+        <system-out>&#xD;[Message] -
+            Tag Number = 0, EXPLICIT -&gt; IMPLICIT
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 307&#xD;&#xD;[Message] -
+            Encode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 319&#xD;&#xD;[Message] -
+            Decode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 0]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 332&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="Test_BER_SequenceOf_OctetString_Type1_Huge"
+              time="0.47">
+        <system-out>&#xD;[Message] -
+            Encode SEQUENCE OF [EMPTY, UNIVERSAL] { OCTET STRING [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 472&#xD;&#xD;[Message] -
+            Decode SEQUENCE OF [EMPTY, UNIVERSAL] { OCTET STRING [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 479&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBERSequenceOfInteger"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Testing BER SEQUENCE OF
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 489&#xD;&#xD;[Message] -
+            Encode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 501&#xD;&#xD;[Message] -
+            Decode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 508&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerSequenceOfSequenceOfInteger"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Testing BER SEQUENCE OF SEQUENCE OF INTEGER
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 521&#xD;&#xD;[Message] -
+            Encode SEQUENCE OF [EMPTY, UNIVERSAL] { SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] } }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 543&#xD;&#xD;[Message] -
+            Decode SEQUENCE OF [EMPTY, UNIVERSAL] { SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] } }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 550&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerVisibleStringType1_LongString128"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode VISIBLE STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 686&#xD;&#xD;[Message] -
+            Decode VISIBLE STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 707&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerVisibleStringType1_LongString1024"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode VISIBLE STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 722&#xD;&#xD;[Message] -
+            Decode VISIBLE STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 733&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerVisibleStringType1"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode VISIBLE STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 749&#xD;&#xD;[Message] -
+            Decode VISIBLE STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 760&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerVisibleStringType2"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode VISIBLE STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 776&#xD;&#xD;[Message] -
+            Decode VISIBLE STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 787&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerVisibleStringType3"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode VISIBLE STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 803&#xD;&#xD;[Message] -
+            Decode VISIBLE STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 814&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerVisibleStringType4"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode VISIBLE STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 830&#xD;&#xD;[Message] -
+            Decode VISIBLE STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 841&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerVisibleStringType5"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode VISIBLE STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 857&#xD;&#xD;[Message] -
+            Decode VISIBLE STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 868&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerVisibleStringType6"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode VISIBLE STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 884&#xD;&#xD;[Message] -
+            Decode VISIBLE STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 895&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerVisibleStringType7"
+              time="0">
+        <failure>&#xD;[Error] -
+            check { outbuffer.data(), outbuffer.data() + outbuffer.size() } == { dataToTest, dataToTest +
+            (sizeof(utils::ArraySizeHelper(dataToTest))) } failed. Mismatch in a position 1: != Mismatch in a position
+            2: !=
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 916&#xD;</failure>
+        <system-out>&#xD;[Message] -
+            Encode VISIBLE STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 911&#xD;&#xD;[Message] -
+            Decode VISIBLE STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 922&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerVisibleStringType8"
+              time="0.01">
+        <system-out>&#xD;[Message] -
+            Encode VISIBLE STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 938&#xD;&#xD;[Message] -
+            Decode VISIBLE STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 949&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerVisibleStringType9"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode VISIBLE STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 965&#xD;&#xD;[Message] -
+            Decode VISIBLE STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 976&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerIntegerType1"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1118&#xD;&#xD;[Message] -
+            Decode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1129&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerIntegerType2"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1145&#xD;&#xD;[Message] -
+            Decode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1156&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerIntegerType3"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1172&#xD;&#xD;[Message] -
+            Decode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1183&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerIntegerType4"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1199&#xD;&#xD;[Message] -
+            Decode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1210&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerIntegerType5"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1226&#xD;&#xD;[Message] -
+            Decode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1237&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerIntegerType6"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1253&#xD;&#xD;[Message] -
+            Decode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1264&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerIntegerType7"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1280&#xD;&#xD;[Message] -
+            Decode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1291&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerIntegerType8"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1307&#xD;&#xD;[Message] -
+            Decode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1318&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerIntegerType9"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1334&#xD;&#xD;[Message] -
+            Decode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1345&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerIntegerType10"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1361&#xD;&#xD;[Message] -
+            Decode INTEGER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1372&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER" name="TestObjectIdentifierValue" time="0"/>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerObjectIdentifierType1"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1519&#xD;&#xD;[Message] -
+            Decode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1530&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerObjectIdentifierType2"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1549&#xD;&#xD;[Message] -
+            Decode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1560&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerObjectIdentifierType3"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1579&#xD;&#xD;[Message] -
+            Decode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1590&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerObjectIdentifierType4"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1609&#xD;&#xD;[Message] -
+            Decode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1620&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerObjectIdentifierType5"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1639&#xD;&#xD;[Message] -
+            Decode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1650&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerObjectIdentifierType6"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1669&#xD;&#xD;[Message] -
+            Decode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1680&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerObjectIdentifierType7"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1699&#xD;&#xD;[Message] -
+            Decode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1710&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerObjectIdentifierType8"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1729&#xD;&#xD;[Message] -
+            Decode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1740&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerObjectIdentifierType9"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1759&#xD;&#xD;[Message] -
+            Decode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1770&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerSequenceOfTypeIntegerType1"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1925&#xD;&#xD;[Message] -
+            Decode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1936&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerSequenceOfTypeIntegerType2"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1957&#xD;&#xD;[Message] -
+            Decode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1968&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerSequenceOfTypeIntegerType3"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 1989&#xD;&#xD;[Message] -
+            Decode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2000&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerSequenceOfTypeIntegerType4"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2021&#xD;&#xD;[Message] -
+            Decode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2032&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerSequenceOfTypeIntegerType5"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2053&#xD;&#xD;[Message] -
+            Decode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2064&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerSequenceOfTypeIntegerType6"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2085&#xD;&#xD;[Message] -
+            Decode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2096&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerSequenceOfTypeIntegerType7"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2117&#xD;&#xD;[Message] -
+            Decode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2128&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerSequenceOfTypeIntegerType8"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2149&#xD;&#xD;[Message] -
+            Decode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2160&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerSequenceOfTypeIntegerType9"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2181&#xD;&#xD;[Message] -
+            Decode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2192&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerSequenceOfTypeIntegerType10"
+              time="0.01">
+        <system-out>&#xD;[Message] -
+            Encode SEQUENCE OF [EMPTY, UNIVERSAL] { SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] } }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2223&#xD;&#xD;[Message] -
+            Decode SEQUENCE OF [EMPTY, UNIVERSAL] { SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] } }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2234&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerNullType1"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode NULL [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2363&#xD;&#xD;[Message] -
+            Decode NULL [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2374&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerNullType2"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode NULL [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2388&#xD;&#xD;[Message] -
+            Decode NULL [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2399&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerNullType3"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode NULL [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2413&#xD;&#xD;[Message] -
+            Decode NULL [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2424&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerNullType4"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode NULL [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2438&#xD;&#xD;[Message] -
+            Decode NULL [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2449&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerNullType5"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode NULL [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2463&#xD;&#xD;[Message] -
+            Decode NULL [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2474&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerNullType6"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode NULL [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2488&#xD;&#xD;[Message] -
+            Decode NULL [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2499&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerNullType7"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode NULL [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2513&#xD;&#xD;[Message] -
+            Decode NULL [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2524&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerNullType8"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode NULL [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2538&#xD;&#xD;[Message] -
+            Decode NULL [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2549&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerNullType9"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode NULL [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2563&#xD;&#xD;[Message] -
+            Decode NULL [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2574&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerBooleanType1"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode BOOLEAN [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2696&#xD;&#xD;[Message] -
+            Decode BOOLEAN [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2707&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerBooleanType2"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode BOOLEAN [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2723&#xD;&#xD;[Message] -
+            Decode BOOLEAN [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2734&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerBooleanType3"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode BOOLEAN [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2750&#xD;&#xD;[Message] -
+            Decode BOOLEAN [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2761&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerBooleanType4"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode BOOLEAN [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2777&#xD;&#xD;[Message] -
+            Decode BOOLEAN [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2788&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerBooleanType5"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode BOOLEAN [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2804&#xD;&#xD;[Message] -
+            Decode BOOLEAN [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2815&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerBooleanType6"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode BOOLEAN [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2831&#xD;&#xD;[Message] -
+            Decode BOOLEAN [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2842&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerBooleanType7"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode BOOLEAN [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2858&#xD;&#xD;[Message] -
+            Decode BOOLEAN [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2869&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerBooleanType8"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode BOOLEAN [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2885&#xD;&#xD;[Message] -
+            Decode BOOLEAN [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2896&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerBooleanType9"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode BOOLEAN [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2912&#xD;&#xD;[Message] -
+            Decode BOOLEAN [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 2923&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerChoiceTypeChoice"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode CHOICE [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] | BOOLEAN [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 3131&#xD;&#xD;[Message] -
+            Decode CHOICE [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] | BOOLEAN [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 3142&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerChoiceType3"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode CHOICE [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] | BOOLEAN [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 3168&#xD;&#xD;[Message] -
+            Decode CHOICE [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] | BOOLEAN [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 3179&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerChoiceType4"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode CHOICE [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] | BOOLEAN [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 3205&#xD;&#xD;[Message] -
+            Decode CHOICE [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] | BOOLEAN [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 3216&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerChoiceType6"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode CHOICE [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] | BOOLEAN [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 3242&#xD;&#xD;[Message] -
+            Decode CHOICE [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] | BOOLEAN [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 3253&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerChoiceType7"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode CHOICE [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] | BOOLEAN [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 3279&#xD;&#xD;[Message] -
+            Decode CHOICE [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] | BOOLEAN [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 3290&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerChoiceType8"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode CHOICE [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] | BOOLEAN [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 3316&#xD;&#xD;[Message] -
+            Decode CHOICE [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] | BOOLEAN [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 3327&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerChoiceChoiceType1"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode CHOICE [EMPTY, UNIVERSAL] { CHOICE [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] | BOOLEAN [EMPTY,
+            UNIVERSAL] } }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 3515&#xD;&#xD;[Message] -
+            Decode CHOICE [EMPTY, UNIVERSAL] { CHOICE [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] | BOOLEAN [EMPTY,
+            UNIVERSAL] } }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 3526&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER" name="TestBerTypeSequenceValue" time="0"/>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerSequenceTypeSequence"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode SEQUENCE [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 3773&#xD;&#xD;[Message] -
+            Decode SEQUENCE [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 3784&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerSequenceType1"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode SEQUENCE [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 3807&#xD;&#xD;[Message] -
+            Decode SEQUENCE [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 3818&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerSequenceType2"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode SEQUENCE [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 3841&#xD;&#xD;[Message] -
+            Decode SEQUENCE [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 3852&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerSequenceType3"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode SEQUENCE [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 3875&#xD;&#xD;[Message] -
+            Decode SEQUENCE [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 3886&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerSequenceType4"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode SEQUENCE [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 3909&#xD;&#xD;[Message] -
+            Decode SEQUENCE [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 3920&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerSequenceType5"
+              time="0.01">
+        <system-out>&#xD;[Message] -
+            Encode SEQUENCE [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 3943&#xD;&#xD;[Message] -
+            Decode SEQUENCE [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 3954&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerSequenceType6"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode SEQUENCE [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 3977&#xD;&#xD;[Message] -
+            Decode SEQUENCE [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 3988&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerSequenceType7"
+              time="0.01">
+        <system-out>&#xD;[Message] -
+            Encode SEQUENCE [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4011&#xD;&#xD;[Message] -
+            Decode SEQUENCE [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4022&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerSequenceType8"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode SEQUENCE [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4045&#xD;&#xD;[Message] -
+            Decode SEQUENCE [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4056&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerSequenceType9"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode SEQUENCE [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4080&#xD;&#xD;[Message] -
+            Decode SEQUENCE [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4095&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerSequenceType10"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode SEQUENCE OF [EMPTY, UNIVERSAL] { SEQUENCE [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4129&#xD;&#xD;[Message] -
+            Decode SEQUENCE OF [EMPTY, UNIVERSAL] { SEQUENCE [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4140&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerEnumeratedType1"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode ENUMERATED [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4282&#xD;&#xD;[Message] -
+            Decode ENUMERATED [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4293&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerEnumeratedType2"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode ENUMERATED [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4309&#xD;&#xD;[Message] -
+            Decode ENUMERATED [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4320&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerEnumeratedType3"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode ENUMERATED [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4336&#xD;&#xD;[Message] -
+            Decode ENUMERATED [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4347&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerEnumeratedType4"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode ENUMERATED [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4363&#xD;&#xD;[Message] -
+            Decode ENUMERATED [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4374&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerEnumeratedType5"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode ENUMERATED [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4390&#xD;&#xD;[Message] -
+            Decode ENUMERATED [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4401&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerEnumeratedType6"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode ENUMERATED [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4417&#xD;&#xD;[Message] -
+            Decode ENUMERATED [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4428&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerEnumeratedType7"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode ENUMERATED [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4444&#xD;&#xD;[Message] -
+            Decode ENUMERATED [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4455&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER" name="TestBitStringValue" time="0"/>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerBitStringType1"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode BIT STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4631&#xD;&#xD;[Message] -
+            Decode BIT STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4642&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerBitStringType2"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode BIT STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4652&#xD;&#xD;[Message] -
+            Decode BIT STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4663&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerBitStringType3"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode BIT STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4673&#xD;&#xD;[Message] -
+            Decode BIT STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4684&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerBitStringType4"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode BIT STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4694&#xD;&#xD;[Message] -
+            Decode BIT STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4705&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerBitStringType5"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode BIT STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4715&#xD;&#xD;[Message] -
+            Decode BIT STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4726&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerBitStringType6"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode BIT STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4736&#xD;&#xD;[Message] -
+            Decode BIT STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4747&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerBitStringType7"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode BIT STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4757&#xD;&#xD;[Message] -
+            Decode BIT STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4768&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerBitStringType8"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode BIT STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4778&#xD;&#xD;[Message] -
+            Decode BIT STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4789&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBerBitStringType9"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode BIT STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4799&#xD;&#xD;[Message] -
+            Decode BIT STRING [EMPTY, UNIVERSAL]
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4810&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBERSetOfInteger"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode SET OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4844&#xD;&#xD;[Message] -
+            Decode SET OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4851&#xD;</system-out>
+    </testcase>
+    <testcase classname="BER./var/lib/jenkins/jobs/ASN1.Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER"
+              name="TestBERSetOfSetOfInteger"
+              time="0">
+        <system-out>&#xD;[Message] -
+            Encode SET OF [EMPTY, UNIVERSAL] { SET OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] } }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4896&#xD;&#xD;[Message] -
+            Decode SET OF [EMPTY, UNIVERSAL] { SET OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] } }
+            &#xD; == [File] - /var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc&#xD;
+            == [Line] - 4903&#xD;</system-out>
+    </testcase>
+</testsuite>
