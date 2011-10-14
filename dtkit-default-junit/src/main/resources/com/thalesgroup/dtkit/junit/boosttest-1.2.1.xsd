@@ -61,6 +61,7 @@
         <xs:complexType mixed="true">
             <xs:sequence>
                 <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:element ref="TestSuite" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="Info" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="FatalError" minOccurs="0" maxOccurs="unbounded"/>
