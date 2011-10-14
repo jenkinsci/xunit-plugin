@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -37,11 +38,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
-        <dtkit.frmk.version>0.14.1</dtkit.frmk.version>
+        <dtkit.frmk.version>0.14.2</dtkit.frmk.version>
         <dtkit.junit.format>0.16.1</dtkit.junit.format>
-        <dtkit.default.junit.version>0.20</dtkit.default.junit.version>
+        <dtkit.default.junit.version>0.21</dtkit.default.junit.version>
         <xerces.version>2.9.1</xerces.version>
         <guice.version>2.0.1</guice.version>
+        <saxon.version>9.1.0.8</saxon.version>
         <junit.version>4.8.2</junit.version>
         <xmlunit.version>1.3</xmlunit.version>
         <mockito.version>1.8.5</mockito.version>
@@ -104,7 +106,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.thalesgroup.dtkit</groupId>
+            <groupId>org.jenkins-ci.lib.dtkit</groupId>
             <artifactId>dtkit-default-junit-jenkins</artifactId>
             <version>${dtkit.default.junit.version}</version>
             <exclusions>
@@ -147,14 +149,14 @@
         <dependency>
             <groupId>net.sourceforge.saxon</groupId>
             <artifactId>saxon</artifactId>
-            <version>9.1.0.8</version>
+            <version>${saxon.version}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>net.sourceforge.saxon</groupId>
             <artifactId>saxon</artifactId>
-            <version>9.1.0.8</version>
+            <version>${saxon.version}</version>
             <classifier>s9api</classifier>
             <scope>test</scope>
         </dependency>
@@ -162,7 +164,7 @@
         <dependency>
             <groupId>net.sourceforge.saxon</groupId>
             <artifactId>saxon</artifactId>
-            <version>9.1.0.8</version>
+            <version>${saxon.version}</version>
             <classifier>dom</classifier>
             <scope>test</scope>
         </dependency>
@@ -193,30 +195,30 @@
                                 <artifactItem>
                                     <groupId>net.sourceforge.saxon</groupId>
                                     <artifactId>saxon</artifactId>
-                                    <version>9.1.0.8</version>
+                                    <version>${saxon.version}</version>
                                     <type>jar</type>
                                     <overWrite>false</overWrite>
-                                    <outputDirectory>${project.build.directory}/xunit/WEB-INF/lib
+                                    <outputDirectory>${project.build.directory}/${project.artifactId}/WEB-INF/lib
                                     </outputDirectory>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>net.sourceforge.saxon</groupId>
                                     <artifactId>saxon</artifactId>
-                                    <version>9.1.0.8</version>
+                                    <version>${saxon.version}</version>
                                     <classifier>s9api</classifier>
                                     <type>jar</type>
                                     <overWrite>false</overWrite>
-                                    <outputDirectory>${project.build.directory}/xunit/WEB-INF/lib
+                                    <outputDirectory>${project.build.directory}/${project.artifactId}/WEB-INF/lib
                                     </outputDirectory>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>net.sourceforge.saxon</groupId>
                                     <artifactId>saxon</artifactId>
-                                    <version>9.1.0.8</version>
+                                    <version>${saxon.version}</version>
                                     <classifier>dom</classifier>
                                     <type>jar</type>
                                     <overWrite>false</overWrite>
-                                    <outputDirectory>${project.build.directory}/xunit/WEB-INF/lib
+                                    <outputDirectory>${project.build.directory}/${project.artifactId}/WEB-INF/lib
                                     </outputDirectory>
                                 </artifactItem>
                             </artifactItems>
