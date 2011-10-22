@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -9,7 +10,7 @@
 
     <groupId>org.jenkins-ci.lib.dtkit</groupId>
     <artifactId>dtkit-default-junit-parent</artifactId>
-    <version>0.23-SNAPSHOT</version>
+    <version>0.22-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>DTKit Default JUnit Parent</name>
     <url>http://wiki.jenkins-ci.org/display/JENKINS/DTKit</url>
@@ -66,8 +67,10 @@
         <connection>scm:svn:https://svn.jenkins-ci.org/trunk/hudson/dtkit/dtkit-default/junit-output</connection>
         <developerConnection>scm:svn:https://svn.jenkins-ci.org/trunk/hudson/dtkit/dtkit-default/junit-output
         </developerConnection>
-      <url>https://github.com/jenkinsci/pom/dtkit-metrics-parent/tags/dtkit-metrics-default-parent-11/dtkit-default-junit-parent</url>
-  </scm>
+        <url>
+            https://github.com/jenkinsci/pom/dtkit-metrics-parent/tags/dtkit-metrics-default-parent-11/dtkit-default-junit-parent
+        </url>
+    </scm>
 
     <build>
         <plugins>
@@ -119,6 +122,27 @@
                             <sources>
                                 <source>${project.build.directory}/generated-sources/groovy</source>
                             </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>1.0.1</version>
+                <executions>
+                    <execution>
+                        <id>enforce-versions</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireMavenVersion>
+                                    <version>2.2.1</version>
+                                </requireMavenVersion>
+                            </rules>
                         </configuration>
                     </execution>
                 </executions>
