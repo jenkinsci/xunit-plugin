@@ -9,7 +9,7 @@
 
     <groupId>org.jenkins-ci.lib.dtkit</groupId>
     <artifactId>dtkit-default-junit-parent</artifactId>
-    <version>0.23-SNAPSHOT</version>
+    <version>0.22-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>DTKit Default JUnit Parent</name>
     <url>http://wiki.jenkins-ci.org/display/JENKINS/DTKit</url>
