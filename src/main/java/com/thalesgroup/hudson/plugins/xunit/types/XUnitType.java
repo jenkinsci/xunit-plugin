@@ -23,7 +23,6 @@
 
 package com.thalesgroup.hudson.plugins.xunit.types;
 
-import com.thalesgroup.dtkit.metrics.hudson.api.descriptor.TestTypeDescriptor;
 import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
 
 
@@ -47,9 +46,6 @@ public abstract class XUnitType extends TestType {
     protected XUnitType(String pattern) {
         super(pattern);
     }
-
-    public abstract TestTypeDescriptor getDescriptor();
-
 
     @SuppressWarnings("unused")
     public boolean isDeleteJUnitFiles() {

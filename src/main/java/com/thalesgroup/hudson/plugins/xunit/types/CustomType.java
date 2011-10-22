@@ -34,8 +34,6 @@ import org.kohsuke.stapler.DataBoundConstructor;
 @SuppressWarnings("unused")
 public class CustomType extends TestType {
 
-    private static CustomInputMetricDescriptor DESCRIPTOR = new CustomInputMetricDescriptor();
-
     private String customXSL;
 
     @DataBoundConstructor
@@ -43,10 +41,6 @@ public class CustomType extends TestType {
     public CustomType(String pattern, String customXSL, boolean faildedIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
         super(pattern, faildedIfNotNew, deleteOutputFiles, stopProcessingIfError);
         this.customXSL = customXSL;
-    }
-
-    public TestTypeDescriptor<? extends TestType> getDescriptor() {
-        return DESCRIPTOR;
     }
 
     @SuppressWarnings("unused")
