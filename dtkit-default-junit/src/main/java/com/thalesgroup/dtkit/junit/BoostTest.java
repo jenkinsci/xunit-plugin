@@ -63,7 +63,7 @@ public class BoostTest extends InputMetricXSL {
 
     @Override
     public String[] getInputXsdNameList() {
-        return new String[]{"boosttest-1.2.1.xsd"};
+        return new String[]{"boosttest-1.2.2.xsd"};
     }
 
     @Override

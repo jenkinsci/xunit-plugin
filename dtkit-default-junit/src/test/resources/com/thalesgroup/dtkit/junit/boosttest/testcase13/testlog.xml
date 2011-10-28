@@ -1,0 +1,13 @@
+<TestLog>
+    <TestSuite name="TrialSpaceTestSuite">
+        <TestCase name="testLagrangeSpacesReferencePyramid">
+            <Exception file="unknown location" line="0">
+                <![CDATA[unknown type]]>
+                <LastCheckpoint file="testDiscretization.cpp" line="74">
+                    <![CDATA[Checking shapes at dofs are kronecker delta ... ]]>
+                </LastCheckpoint>
+            </Exception>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+    </TestSuite>
+</TestLog>
