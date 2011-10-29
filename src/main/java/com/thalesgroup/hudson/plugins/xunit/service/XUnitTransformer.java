@@ -156,7 +156,12 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
             }
 
         } catch (Exception xe) {
-            throw new IOException2("There are some problems during the conversion into JUnit reports: " + xe.getMessage(), xe);
+            String msg = xe.getMessage();
+            if (msg != null) {
+                xUnitLog.errorConsoleLogger(msg);
+            }
+            xe.printStackTrace();
+            throw new IOException2("There are some problems during the conversion into JUnit reports: ", xe);
         }
 
         return true;
