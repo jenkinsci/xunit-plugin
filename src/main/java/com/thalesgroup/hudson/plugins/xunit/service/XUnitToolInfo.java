@@ -23,38 +23,48 @@
 
 package com.thalesgroup.hudson.plugins.xunit.service;
 
-import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
+import com.thalesgroup.dtkit.metrics.model.InputMetric;
+import hudson.FilePath;
 
-import java.io.File;
 import java.io.Serializable;
 
 
 public class XUnitToolInfo implements Serializable {
 
-    private File cusXSLFile;
-
-    private final TestType testType;
+    private final InputMetric inputMetric;
 
     private final String expandedPattern;
 
+    private final boolean failIfNotNew;
+
+    private final boolean deleteOutputFiles;
+
+    private boolean stopProcessingIfError;
+
     private final long buildTime;
 
-    public XUnitToolInfo(TestType testType, String expandedPattern, long buildTime) {
-        this.testType = testType;
-        this.expandedPattern = expandedPattern;
-        this.buildTime = buildTime;
-    }
+    private FilePath cusXSLFile;
 
-    public void setCusXSLFile(File cusXSLFile) {
+    public XUnitToolInfo(InputMetric inputMetric, String expandedPattern, Boolean failIfNotNew, Boolean deleteOutputFiles, Boolean stopProcessingIfError, long buildTime, FilePath cusXSLFile) {
+        this.inputMetric = inputMetric;
+        this.expandedPattern = expandedPattern;
+        this.failIfNotNew = failIfNotNew;
+        this.deleteOutputFiles = deleteOutputFiles;
+        this.stopProcessingIfError = stopProcessingIfError;
+        this.buildTime = buildTime;
         this.cusXSLFile = cusXSLFile;
     }
 
-    public File getCusXSLFile() {
+//    public void setCusXSLFile(File cusXSLFile) {
+//        this.cusXSLFile = cusXSLFile;
+//    }
+
+    public FilePath getCusXSLFile() {
         return cusXSLFile;
     }
 
-    public TestType getTestType() {
-        return testType;
+    public InputMetric getInputMetric() {
+        return inputMetric;
     }
 
     public String getExpandedPattern() {
@@ -65,7 +75,15 @@ public class XUnitToolInfo implements Serializable {
         return buildTime;
     }
 
-    public String getToolName() {
-        return testType.getDescriptor().getDisplayName();
+    public boolean isFailIfNotNew() {
+        return failIfNotNew;
+    }
+
+    public boolean isDeleteOutputFiles() {
+        return deleteOutputFiles;
+    }
+
+    public boolean isStopProcessingIfError() {
+        return stopProcessingIfError;
     }
 }

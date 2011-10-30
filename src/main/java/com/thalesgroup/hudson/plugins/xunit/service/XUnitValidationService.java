@@ -64,7 +64,7 @@ public class XUnitValidationService extends XUnitService implements Serializable
      */
     public boolean validateInputFile(XUnitToolInfo xUnitToolInfo, File inputFile) throws XUnitException {
 
-        InputMetric inputMetric = xUnitToolInfo.getTestType().getInputMetric();
+        InputMetric inputMetric = xUnitToolInfo.getInputMetric();
 
         //Validates the input file (not empty)
         try {
@@ -95,7 +95,7 @@ public class XUnitValidationService extends XUnitService implements Serializable
      * @throws XUnitException an XUnitException when there are validation exceptions
      */
     public boolean validateOutputFile(XUnitToolInfo xUnitToolInfo, File inputFile, File junitTargetFile) throws XUnitException {
-        InputMetric inputMetric = xUnitToolInfo.getTestType().getInputMetric();
+        InputMetric inputMetric = xUnitToolInfo.getInputMetric();
 
         try {
             //Validates the output

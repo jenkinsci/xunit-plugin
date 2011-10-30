@@ -24,14 +24,14 @@
 package com.thalesgroup.hudson.plugins.xunit.service;
 
 import com.google.inject.Inject;
-import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
 import com.thalesgroup.dtkit.metrics.model.InputMetric;
 import com.thalesgroup.dtkit.util.converter.ConversionException;
 import com.thalesgroup.hudson.plugins.xunit.exception.XUnitException;
 import com.thalesgroup.hudson.plugins.xunit.types.CustomInputMetric;
-import com.thalesgroup.hudson.plugins.xunit.types.CustomType;
+import hudson.FilePath;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
 
 
@@ -45,25 +45,26 @@ public class XUnitConversionService extends XUnitService implements Serializable
         this.xUnitLog = xUnitLog;
     }
 
-    /**
-     * Prepares the conversion by adding specific behavior for the CustomType
-     *
-     * @param xUnitToolInfo the xUnit info wrapper object
-     * @param workspace     the current workspace
-     * @throws com.thalesgroup.hudson.plugins.xunit.exception.XUnitException
-     *          an XUnitException is thrown if there is a preparation error.
-     */
-    private void prepareConversion(XUnitToolInfo xUnitToolInfo, File workspace) throws XUnitException {
-        TestType testType = xUnitToolInfo.getTestType();
-        if (testType.getClass() == CustomType.class) {
-            String xsl = ((CustomType) testType).getCustomXSL();
-            File xslFile = new File(workspace, xsl);
-            if (!xslFile.exists()) {
-                throw new XUnitException("The input xsl '" + xsl + "' relative to the workspace '" + workspace + "'doesn't exist.");
-            }
-            xUnitToolInfo.setCusXSLFile(xslFile);
-        }
-    }
+//    /**
+//     * Prepares the conversion by adding specific behavior for the CustomType
+//     *
+//     * @param xUnitToolInfo the xUnit info wrapper object
+//     * @param workspace     the current workspace
+//     * @throws com.thalesgroup.hudson.plugins.xunit.exception.XUnitException
+//     *          an XUnitException is thrown if there is a preparation error.
+//     */
+//    private void prepareConversion(XUnitToolInfo xUnitToolInfo, File workspace) throws XUnitException {
+//        TestType testType = xUnitToolInfo.getTestType();
+//        InputMetric inputMetric  = xUnitToolInfo.getInputMetric();
+//        if (testType.getClass() == CustomInputMetric.class) {
+//            String xsl = ((CustomType) testType).getCustomXSL();
+//            File xslFile = new File(workspace, xsl);
+//            if (!xslFile.exists()) {
+//                throw new XUnitException("The input xsl '" + xsl + "' relative to the workspace '" + workspace + "'doesn't exist.");
+//            }
+//            xUnitToolInfo.setCusXSLFile(xslFile);
+//        }
+//    }
 
 
     /**
@@ -80,12 +81,9 @@ public class XUnitConversionService extends XUnitService implements Serializable
     @SuppressWarnings("ResultOfMethodCallIgnored")
     public File convert(XUnitToolInfo xUnitToolInfo, File inputFile, File workspace, File junitOutputDirectory) throws XUnitException {
 
-        //Prepare the conversion when there is a custom type
-        prepareConversion(xUnitToolInfo, workspace);
+        //prepareConversion(xUnitToolInfo, workspace);
 
-        TestType testType = xUnitToolInfo.getTestType();
-
-        InputMetric inputMetric = testType.getInputMetric();
+        InputMetric inputMetric = xUnitToolInfo.getInputMetric();
 
         final String JUNIT_FILE_POSTFIX = ".xml";
         final String JUNIT_FILE_PREFIX = "TEST-";
@@ -98,16 +96,28 @@ public class XUnitConversionService extends XUnitService implements Serializable
         infoSystemLogger("Converting '" + inputFile + "' .");
         try {
 
-            //Set the XSL for custom type
-            if (testType.getClass() == CustomType.class) {
-                ((CustomInputMetric) inputMetric).setCustomXSLFile(xUnitToolInfo.getCusXSLFile());
+
+            if (inputMetric instanceof CustomInputMetric) {
+                CustomInputMetric customInputMetric = (CustomInputMetric) inputMetric;
+                FilePath xslFilePath = xUnitToolInfo.getCusXSLFile();
+                if (!xslFilePath.exists()) {
+                    throw new XUnitException("The input xsl '" + xslFilePath.getName() + "' relative to the workspace '" + workspace + "'doesn't exist.");
+                }
+                customInputMetric.setCustomXSLFile(new File(xUnitToolInfo.getCusXSLFile().getRemote()));
             }
 
             inputMetric.convert(inputFile, junitTargetFile);
+
         } catch (ConversionException ce) {
             throw new XUnitException("Conversion error " + ce.getMessage(), ce);
+        } catch (InterruptedException ie) {
+            throw new XUnitException("Conversion error " + ie.getMessage(), ie);
+        } catch (IOException ie) {
+            throw new XUnitException("Conversion error " + ie.getMessage(), ie);
         }
 
         return junitTargetFile;
     }
+
+
 }

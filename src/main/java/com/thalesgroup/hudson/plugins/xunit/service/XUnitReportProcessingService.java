@@ -24,7 +24,6 @@
 package com.thalesgroup.hudson.plugins.xunit.service;
 
 import com.google.inject.Inject;
-import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
 import hudson.Util;
 import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
@@ -66,7 +65,7 @@ public class XUnitReportProcessingService extends XUnitService implements Serial
      */
     public List<String> findReports(XUnitToolInfo xUnitToolInfo, File parentPath, String pattern) {
 
-        String toolName = xUnitToolInfo.getTestType().getDescriptor().getDisplayName();
+        String toolName = xUnitToolInfo.getInputMetric().getLabel();
 
         FileSet fs = Util.createFileSet(parentPath, pattern);
         DirectoryScanner ds = fs.getDirectoryScanner();
@@ -99,9 +98,7 @@ public class XUnitReportProcessingService extends XUnitService implements Serial
      */
     public boolean checkIfFindsFilesNewFiles(XUnitToolInfo xUnitToolInfo, List<String> files, File workspace) {
 
-        TestType testTool = xUnitToolInfo.getTestType();
-
-        if (testTool.isFaildedIfNotNew()) {
+        if (xUnitToolInfo.isFailIfNotNew()) {
             ArrayList<File> oldResults = new ArrayList<File>();
             for (String value : files) {
                 File reportFile = new File(workspace, value);
@@ -154,7 +151,6 @@ public class XUnitReportProcessingService extends XUnitService implements Serial
      * @return true if the xUnit must stop at the first error
      */
     public boolean isStopProcessingIfError(XUnitToolInfo xUnitToolInfo) {
-        TestType testTool = xUnitToolInfo.getTestType();
-        return testTool.isStopProcessingIfError();
+        return xUnitToolInfo.isStopProcessingIfError();
     }
 }

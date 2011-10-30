@@ -79,7 +79,7 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
                 warningSystemLogger(msg);
             }
 
-            String metricName = xUnitToolInfo.getToolName();
+            String metricName = xUnitToolInfo.getInputMetric().getToolName();
 
             //Gets all input files matching the user pattern
             List<String> resultFiles = xUnitReportProcessingService.findReports(xUnitToolInfo, ws, xUnitToolInfo.getExpandedPattern());

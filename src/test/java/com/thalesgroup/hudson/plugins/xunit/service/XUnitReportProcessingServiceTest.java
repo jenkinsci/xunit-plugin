@@ -88,7 +88,6 @@ public class XUnitReportProcessingServiceTest {
         public OutputMetric getOutputFormatType() {
             return JUnitModel.OUTPUT_JUNIT_1_0;
         }
-
     }
 
     public static class MyTestTypeDescriptor extends TestTypeDescriptor<MyTestType> {
@@ -144,7 +143,7 @@ public class XUnitReportProcessingServiceTest {
             f1.createNewFile();
 
             XUnitToolInfo xUnitToolInfoMock = mock(XUnitToolInfo.class);
-            when(xUnitToolInfoMock.getTestType()).thenReturn(new MyTestType("", true, true));
+            when(xUnitToolInfoMock.getInputMetric()).thenReturn(new MyInputMetric());
 
             List<String> xUnitFiles = xUnitReportProcessingService.findReports(xUnitToolInfoMock, dir, "*.txt");
             Assert.assertFalse(xUnitFiles.isEmpty());

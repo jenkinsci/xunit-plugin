@@ -26,6 +26,11 @@ package com.thalesgroup.hudson.plugins.xunit.transformer;
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Stage;
+import com.thalesgroup.dtkit.junit.model.JUnitModel;
+import com.thalesgroup.dtkit.metrics.model.InputMetricType;
+import com.thalesgroup.dtkit.metrics.model.InputMetricXSL;
+import com.thalesgroup.dtkit.metrics.model.InputType;
+import com.thalesgroup.dtkit.metrics.model.OutputMetric;
 import com.thalesgroup.hudson.plugins.xunit.service.*;
 import hudson.model.BuildListener;
 import hudson.remoting.VirtualChannel;
@@ -62,6 +67,10 @@ public class XUnitTransformerTest {
     @SuppressWarnings("unused")
     private XUnitValidationService xUnitValidationServiceMock;
 
+    @Mock
+    @SuppressWarnings("unused")
+    private XUnitToolInfo xUnitToolInfoMock;
+
     @Rule
     public TempWorkspace tempWorkspace = new TempWorkspace();
 
@@ -73,18 +82,58 @@ public class XUnitTransformerTest {
         MockitoAnnotations.initMocks(this);
 
         when(buildListenerMock.getLogger()).thenReturn(new PrintStream(new ByteArrayOutputStream()));
+        when(xUnitToolInfoMock.getInputMetric()).thenReturn(new MyInputMetric());
 
         xUnitTransformer = Guice.createInjector(Stage.DEVELOPMENT, new AbstractModule() {
             @Override
             protected void configure() {
                 bind(BuildListener.class).toInstance(buildListenerMock);
-                bind(XUnitToolInfo.class).toInstance(mock(XUnitToolInfo.class));
+                bind(XUnitToolInfo.class).toInstance(xUnitToolInfoMock);
                 bind(XUnitConversionService.class).toInstance(xUnitConversionServiceMock);
                 bind(XUnitValidationService.class).toInstance(xUnitValidationServiceMock);
                 bind(XUnitReportProcessingService.class).toInstance(xUnitReportProcessingServiceMock);
             }
         }).getInstance(XUnitTransformer.class);
+
     }
+
+    public static class MyInputMetric extends InputMetricXSL {
+        @Override
+        public String getToolName() {
+            return "testTool";
+        }
+
+        @Override
+        public String getToolVersion() {
+            return "testVersion";
+        }
+
+        @Override
+        public InputMetricType getInputMetricType() {
+            return InputMetricType.XSL;
+        }
+
+        @Override
+        public InputType getToolType() {
+            return InputType.TEST;
+        }
+
+        @Override
+        public String getXslName() {
+            return null;
+        }
+
+        @Override
+        public String[] getInputXsdNameList() {
+            return null;
+        }
+
+        @Override
+        public OutputMetric getOutputFormatType() {
+            return JUnitModel.OUTPUT_JUNIT_1_0;
+        }
+    }
+
 
     @Test
     public void emptyResultFiles() throws Exception {

@@ -31,6 +31,7 @@ import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
 import com.thalesgroup.dtkit.metrics.model.InputMetric;
 import com.thalesgroup.hudson.plugins.xunit.exception.XUnitException;
 import com.thalesgroup.hudson.plugins.xunit.service.*;
+import com.thalesgroup.hudson.plugins.xunit.types.CustomType;
 import hudson.*;
 import hudson.model.*;
 import hudson.remoting.VirtualChannel;
@@ -212,7 +213,13 @@ public class XUnitPublisher extends Recorder implements Serializable {
                     newExpandedPattern = Util.replaceMacro(newExpandedPattern, build.getEnvironment(listener));
 
                     //Build a new build info
-                    final XUnitToolInfo xUnitToolInfo = new XUnitToolInfo(tool, newExpandedPattern, build.getTimeInMillis());
+                    final XUnitToolInfo xUnitToolInfo = new XUnitToolInfo(
+                            tool.getInputMetric(),
+                            newExpandedPattern,
+                            tool.isFaildedIfNotNew(),
+                            tool.isDeleteOutputFiles(), tool.isStopProcessingIfError(),
+                            build.getTimeInMillis(),
+                            (tool instanceof CustomType) ? build.getWorkspace().child(((CustomType) tool).getCustomXSL()) : null);
 
                     // Archiving tool reports into JUnit files
                     XUnitTransformer xUnitTransformer = Guice.createInjector(new AbstractModule() {
