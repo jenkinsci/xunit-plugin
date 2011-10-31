@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -24,7 +25,6 @@
         <developer>
             <id>gbois</id>
             <name>Gregory Boissinot</name>
-            <email>gregory.boissinot@gmail.com</email>
             <timezone>+1</timezone>
             <roles>
                 <role>Project owner</role>
@@ -37,7 +37,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
-        <dtkit.frmk.version>0.14.2</dtkit.frmk.version>
+        <dtkit.frmk.version>0.15</dtkit.frmk.version>
         <dtkit.junit.format>0.16.1</dtkit.junit.format>
         <dtkit.default.junit.version>0.23</dtkit.default.junit.version>
         <xerces.version>2.9.1</xerces.version>
@@ -75,13 +75,19 @@
         </dependency>
 
         <dependency>
-            <groupId>com.thalesgroup.dtkit</groupId>
+            <groupId>org.jenkins-ci.lib.dtkit</groupId>
             <artifactId>dtkit-metrics-model</artifactId>
             <version>${dtkit.frmk.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>net.sourceforge.saxon</groupId>
+                    <artifactId>saxon</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
-            <groupId>com.thalesgroup.dtkit</groupId>
+            <groupId>org.jenkins-ci.lib.dtkit</groupId>
             <artifactId>dtkit-metrics-util</artifactId>
             <version>${dtkit.frmk.version}</version>
             <exclusions>
@@ -93,7 +99,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.thalesgroup.dtkit</groupId>
+            <groupId>org.jenkins-ci.lib.dtkit</groupId>
             <artifactId>dtkit-metrics-hudson-api</artifactId>
             <version>${dtkit.frmk.version}</version>
         </dependency>
@@ -102,6 +108,16 @@
             <groupId>com.thalesgroup.dtkit</groupId>
             <artifactId>dtkit-junit-model</artifactId>
             <version>${dtkit.junit.format}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.thalesgroup.dtkit</groupId>
+                    <artifactId>dtkit-metrics-util</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.thalesgroup.dtkit</groupId>
+                    <artifactId>dtkit-metrics-model</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -120,6 +136,14 @@
                 <exclusion>
                     <groupId>com.thalesgroup.dtkit</groupId>
                     <artifactId>dtkit-processor</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.thalesgroup.dtkit</groupId>
+                    <artifactId>dtkit-metrics-hudson-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.thalesgroup.dtkit</groupId>
+                    <artifactId>dtkit-metrics-model</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
@@ -174,7 +198,6 @@
         <connection>scm:git:git://github.com/jenkinsci/xunit-plugin.git</connection>
         <developerConnection>scm:git:git@github.com:jenkinsci/xunit-plugin.git</developerConnection>
     </scm>
-
 
     <build>
         <plugins>
