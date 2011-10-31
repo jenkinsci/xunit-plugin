@@ -82,6 +82,146 @@ public class XUnitPublisher extends Recorder implements Serializable {
         return null;
     }
 
+    @Override
+    public boolean perform(final AbstractBuild<?, ?> build, Launcher launcher, final BuildListener listener)
+            throws InterruptedException, IOException {
+
+        final XUnitLog xUnitLog = getXUnitLogObject(listener);
+        try {
+
+            xUnitLog.infoConsoleLogger("Starting to record.");
+
+            boolean noProcessingErrors = performTests(xUnitLog, build, listener);
+            if (!noProcessingErrors) {
+                build.setResult(Result.FAILURE);
+                xUnitLog.infoConsoleLogger("Stopping recording.");
+                return true;
+            }
+
+            recordTestResult(build, listener);
+            processDeletion(build, xUnitLog);
+            setBuildStatus(build, xUnitLog);
+
+            xUnitLog.infoConsoleLogger("Stopping recording.");
+            return true;
+
+        } catch (XUnitException xe) {
+            xUnitLog.errorConsoleLogger("The plugin hasn't been performed correctly: " + xe.getMessage());
+            build.setResult(Result.FAILURE);
+            return false;
+        }
+    }
+
+    private XUnitLog getXUnitLogObject(final BuildListener listener) {
+        return Guice.createInjector(new AbstractModule() {
+            @Override
+            protected void configure() {
+                bind(BuildListener.class).toInstance(listener);
+            }
+        }).getInstance(XUnitLog.class);
+    }
+
+    private XUnitReportProcessorService getXUnitReportProcessorServiceObject(final BuildListener listener) {
+        return Guice.createInjector(new AbstractModule() {
+            @Override
+            protected void configure() {
+                bind(BuildListener.class).toInstance(listener);
+            }
+        }).getInstance(XUnitReportProcessorService.class);
+    }
+
+    private boolean performTests(XUnitLog xUnitLog, AbstractBuild<?, ?> build, BuildListener listener) throws IOException, InterruptedException {
+        XUnitReportProcessorService xUnitReportService = getXUnitReportProcessorServiceObject(listener);
+        boolean noProcessingErrors = true;
+        for (TestType tool : types) {
+            xUnitLog.infoConsoleLogger("Processing " + tool.getDescriptor().getDisplayName());
+            if (!isEmptyGivenPattern(xUnitReportService, tool)) {
+                String expandedPattern = getExpandedResolvedPattern(tool, build, listener);
+                XUnitToolInfo xUnitToolInfo = getXUnitToolInfoObject(tool, expandedPattern, build);
+                XUnitTransformer xUnitTransformer = getXUnitTransformerObject(xUnitToolInfo, listener);
+                boolean resultTransformation = build.getWorkspace().act(xUnitTransformer);
+                if (!resultTransformation) {
+                    noProcessingErrors = true;
+                }
+            }
+        }
+        return noProcessingErrors;
+    }
+
+    private boolean isEmptyGivenPattern(XUnitReportProcessorService xUnitReportService, TestType tool) {
+        return xUnitReportService.isEmptyPattern(tool.getPattern());
+    }
+
+    private String getExpandedResolvedPattern(TestType tool, AbstractBuild build, BuildListener listener) throws IOException, InterruptedException {
+        String newExpandedPattern = tool.getPattern();
+        newExpandedPattern = newExpandedPattern.replaceAll("[\t\r\n]+", " ");
+        return Util.replaceMacro(newExpandedPattern, build.getEnvironment(listener));
+    }
+
+    private XUnitToolInfo getXUnitToolInfoObject(TestType tool, String expandedPattern, AbstractBuild build) {
+        return new XUnitToolInfo(
+                new FilePath(new File(Hudson.getInstance().getRootDir(), "userContent")),
+                tool.getInputMetric(),
+                expandedPattern,
+                tool.isFaildedIfNotNew(),
+                tool.isDeleteOutputFiles(), tool.isStopProcessingIfError(),
+                build.getTimeInMillis(),
+                (tool instanceof CustomType) ? build.getWorkspace().child(((CustomType) tool).getCustomXSL()) : null);
+
+    }
+
+    private XUnitTransformer getXUnitTransformerObject(final XUnitToolInfo xUnitToolInfo, final BuildListener listener) {
+        return Guice.createInjector(new AbstractModule() {
+            @Override
+            protected void configure() {
+                bind(BuildListener.class).toInstance(listener);
+                bind(XUnitToolInfo.class).toInstance(xUnitToolInfo);
+                bind(XUnitValidationService.class).in(Singleton.class);
+                bind(XUnitConversionService.class).in(Singleton.class);
+                bind(XUnitLog.class).in(Singleton.class);
+                bind(XUnitReportProcessorService.class).in(Singleton.class);
+            }
+        }).getInstance(XUnitTransformer.class);
+    }
+
+    /**
+     * Records the test results into the current build and return the number of tests
+     *
+     * @param build    the current build object
+     * @param listener the current listener object
+     * @throws com.thalesgroup.hudson.plugins.xunit.exception.XUnitException
+     *          the plugin exception if an error occurs
+     */
+    private void recordTestResult(AbstractBuild<?, ?> build, BuildListener listener) throws XUnitException {
+
+        TestResultAction existingAction = build.getAction(TestResultAction.class);
+        final long buildTime = build.getTimestamp().getTimeInMillis();
+        final long nowMaster = System.currentTimeMillis();
+
+        TestResult existingTestResults = null;
+        if (existingAction != null) {
+            existingTestResults = existingAction.getResult();
+        }
+
+        TestResult result = getTestResult(build, "**/TEST-*.xml", existingTestResults, buildTime, nowMaster);
+        if (result != null) {
+            TestResultAction action;
+            if (existingAction == null) {
+                action = new TestResultAction(build, result, listener);
+            } else {
+                action = existingAction;
+                action.setResult(result, listener);
+            }
+
+            if (result.getPassCount() == 0 && result.getFailCount() == 0) {
+                throw new XUnitException("None of the test reports contained any result");
+            }
+
+            if (existingAction == null) {
+                build.getActions().add(action);
+            }
+        }
+    }
 
     /**
      * Gets a Test result object (a new one if any)
@@ -133,184 +273,51 @@ public class XUnitPublisher extends Recorder implements Serializable {
         } catch (InterruptedException ie) {
             throw new XUnitException(ie.getMessage(), ie);
         }
-
-
     }
 
-    /**
-     * Records the test results into the current build and return the number of tests
-     *
-     * @param build    the current build object
-     * @param listener the current listener object
-     * @throws com.thalesgroup.hudson.plugins.xunit.exception.XUnitException
-     *          the plugin exception if an error occurs
-     */
-
-    private void recordTestResult(AbstractBuild<?, ?> build, BuildListener listener) throws XUnitException {
-
-        TestResultAction existingAction = build.getAction(TestResultAction.class);
-        final long buildTime = build.getTimestamp().getTimeInMillis();
-        final long nowMaster = System.currentTimeMillis();
-
-        TestResult existingTestResults = null;
-        if (existingAction != null) {
-            existingTestResults = existingAction.getResult();
+    private void setBuildStatus(AbstractBuild<?, ?> build, XUnitLog xUnitLog) {
+        Result curResult = getResultForTest(build);
+        Result previousResult = build.getResult();
+        if (previousResult.isWorseOrEqualTo(curResult)) {
+            curResult = previousResult;
         }
-
-        TestResult result = getTestResult(build, "**/TEST-*.xml", existingTestResults, buildTime, nowMaster);
-        if (result != null) {
-            TestResultAction action;
-            if (existingAction == null) {
-                action = new TestResultAction(build, result, listener);
-            } else {
-                action = existingAction;
-                action.setResult(result, listener);
-            }
-
-            if (result.getPassCount() == 0 && result.getFailCount() == 0) {
-                throw new XUnitException("None of the test reports contained any result");
-            }
-
-            if (existingAction == null) {
-                build.getActions().add(action);
-            }
-        }
+        xUnitLog.infoConsoleLogger("Setting the build status to " + curResult);
+        build.setResult(curResult);
     }
 
-
-    @Override
-    public boolean perform(final AbstractBuild<?, ?> build, Launcher launcher, final BuildListener listener)
-            throws InterruptedException, IOException {
-
-        final XUnitLog xUnitLog = Guice.createInjector(new AbstractModule() {
-            @Override
-            protected void configure() {
-                bind(BuildListener.class).toInstance(listener);
+    private Result getResultForTest(AbstractBuild<?, ?> build) {
+        TestResultAction testResultAction = build.getAction(TestResultAction.class);
+        Result curResult = Result.SUCCESS;
+        if (testResultAction == null) {
+            curResult = Result.FAILURE;
+        } else {
+            if (testResultAction.getResult().getFailCount() > 0) {
+                curResult = Result.UNSTABLE;
             }
-        }).getInstance(XUnitLog.class);
+        }
+        return curResult;
+    }
 
-        xUnitLog.infoConsoleLogger("Starting to record.");
-
+    private void processDeletion(AbstractBuild<?, ?> build, XUnitLog xUnitLog) throws XUnitException {
         try {
-
-            XUnitReportProcessingService xUnitReportService = Guice.createInjector(new AbstractModule() {
-                @Override
-                protected void configure() {
-                    bind(BuildListener.class).toInstance(listener);
-                }
-            }).getInstance(XUnitReportProcessingService.class);
-
-            boolean atLeastOneWarningOrErrorProcess = false;
+            boolean keepJUnitDirectory = false;
             for (TestType tool : types) {
+                InputMetric inputMetric = tool.getInputMetric();
 
-                xUnitLog.infoConsoleLogger("Processing " + tool.getDescriptor().getDisplayName());
-
-                if (!xUnitReportService.isEmptyPattern(tool.getPattern())) {
-
-                    //Retrieves the pattern
-                    String newExpandedPattern = tool.getPattern();
-                    newExpandedPattern = newExpandedPattern.replaceAll("[\t\r\n]+", " ");
-                    newExpandedPattern = Util.replaceMacro(newExpandedPattern, build.getEnvironment(listener));
-
-                    //Build a new build info
-                    final XUnitToolInfo xUnitToolInfo = new XUnitToolInfo(
-                            tool.getInputMetric(),
-                            newExpandedPattern,
-                            tool.isFaildedIfNotNew(),
-                            tool.isDeleteOutputFiles(), tool.isStopProcessingIfError(),
-                            build.getTimeInMillis(),
-                            (tool instanceof CustomType) ? build.getWorkspace().child(((CustomType) tool).getCustomXSL()) : null);
-
-                    // Archiving tool reports into JUnit files
-                    XUnitTransformer xUnitTransformer = Guice.createInjector(new AbstractModule() {
-                        @Override
-                        protected void configure() {
-                            bind(BuildListener.class).toInstance(listener);
-                            bind(XUnitToolInfo.class).toInstance(xUnitToolInfo);
-                            bind(XUnitValidationService.class).in(Singleton.class);
-                            bind(XUnitConversionService.class).in(Singleton.class);
-                            bind(XUnitLog.class).in(Singleton.class);
-                            bind(XUnitReportProcessingService.class).in(Singleton.class);
-                        }
-                    }).getInstance(XUnitTransformer.class);
-
-                    boolean resultTransformation = build.getWorkspace().act(xUnitTransformer);
-                    if (!resultTransformation) {
-                        atLeastOneWarningOrErrorProcess = true;
-                    }
+                if (tool.isDeleteOutputFiles()) {
+                    build.getWorkspace().child(GENERATED_JUNIT_DIR + "/" + inputMetric.getToolName()).deleteRecursive();
+                } else {
+                    //Mark the tool file parent directory to no deletion
+                    keepJUnitDirectory = true;
                 }
             }
-
-            if (atLeastOneWarningOrErrorProcess) {
-                build.setResult(Result.FAILURE);
-                xUnitLog.infoConsoleLogger("Stopping recording.");
-                return true;
+            if (!keepJUnitDirectory) {
+                build.getWorkspace().child(GENERATED_JUNIT_DIR).deleteRecursive();
             }
-
-            // Process the record of xUnit
-            recordTestResult(build, listener);
-
-            //Set the mew build status indicator to unstable if there are fail tests
-            TestResultAction testResultAction = build.getAction(TestResultAction.class);
-            Result curResult = Result.SUCCESS;
-            if (testResultAction == null) {
-                curResult = Result.FAILURE;
-            } else {
-                if (testResultAction.getResult().getFailCount() > 0) {
-                    curResult = Result.UNSTABLE;
-                }
-            }
-
-            boolean resultDeletionOK = true;
-            try {
-                boolean keepJUnitDirectory = false;
-                for (TestType tool : types) {
-                    InputMetric inputMetric = tool.getInputMetric();
-
-                    if (tool.isDeleteOutputFiles()) {
-                        build.getWorkspace().child(GENERATED_JUNIT_DIR + "/" + inputMetric.getToolName()).deleteRecursive();
-                    } else {
-                        //Mark the tool file parent directory to no deletion
-                        keepJUnitDirectory = true;
-                    }
-                }
-                if (!keepJUnitDirectory) {
-                    build.getWorkspace().child(GENERATED_JUNIT_DIR).deleteRecursive();
-                }
-            } catch (IOException ioe) {
-                resultDeletionOK = false;
-            } catch (InterruptedException ie) {
-                resultDeletionOK = false;
-            }
-
-            if (!resultDeletionOK) {
-                build.setResult(Result.FAILURE);
-                xUnitLog.infoConsoleLogger("Stopping recording.");
-                return true;
-            }
-
-            //Keep the previous status result if worse or equal
-            Result previousResult = build.getResult();
-            if (previousResult.isWorseOrEqualTo(curResult)) {
-                build.setResult(previousResult);
-                xUnitLog.infoConsoleLogger("Stopping recording.");
-                return true;
-            }
-
-            // Fall back case: Set the build status to new build calculated build status
-            xUnitLog.infoConsoleLogger("Setting the build status to " + curResult);
-            build.setResult(curResult);
-            xUnitLog.infoConsoleLogger("Stopping recording.");
-            return true;
-
-        } catch (IOException ie) {
-            xUnitLog.errorConsoleLogger("The plugin hasn't been performed correctly: " + ie.getCause().getMessage());
-            build.setResult(Result.FAILURE);
-            return false;
-        } catch (XUnitException xe) {
-            xUnitLog.errorConsoleLogger("The plugin hasn't been performed correctly: " + xe.getMessage());
-            build.setResult(Result.FAILURE);
-            return false;
+        } catch (IOException ioe) {
+            throw new XUnitException("Problem on deletion", ioe);
+        } catch (InterruptedException ie) {
+            throw new XUnitException("Problem on deletion", ie);
         }
     }
 

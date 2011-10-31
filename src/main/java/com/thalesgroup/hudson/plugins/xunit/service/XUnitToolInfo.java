@@ -31,6 +31,8 @@ import java.io.Serializable;
 
 public class XUnitToolInfo implements Serializable {
 
+    private FilePath userContentRoot;
+
     private final InputMetric inputMetric;
 
     private final String expandedPattern;
@@ -45,7 +47,8 @@ public class XUnitToolInfo implements Serializable {
 
     private FilePath cusXSLFile;
 
-    public XUnitToolInfo(InputMetric inputMetric, String expandedPattern, Boolean failIfNotNew, Boolean deleteOutputFiles, Boolean stopProcessingIfError, long buildTime, FilePath cusXSLFile) {
+    public XUnitToolInfo(FilePath userContentRoot, InputMetric inputMetric, String expandedPattern, Boolean failIfNotNew, Boolean deleteOutputFiles, Boolean stopProcessingIfError, long buildTime, FilePath cusXSLFile) {
+        this.userContentRoot = userContentRoot;
         this.inputMetric = inputMetric;
         this.expandedPattern = expandedPattern;
         this.failIfNotNew = failIfNotNew;
@@ -54,10 +57,6 @@ public class XUnitToolInfo implements Serializable {
         this.buildTime = buildTime;
         this.cusXSLFile = cusXSLFile;
     }
-
-//    public void setCusXSLFile(File cusXSLFile) {
-//        this.cusXSLFile = cusXSLFile;
-//    }
 
     public FilePath getCusXSLFile() {
         return cusXSLFile;
@@ -85,5 +84,9 @@ public class XUnitToolInfo implements Serializable {
 
     public boolean isStopProcessingIfError() {
         return stopProcessingIfError;
+    }
+
+    public FilePath getUserContentRoot() {
+        return userContentRoot;
     }
 }

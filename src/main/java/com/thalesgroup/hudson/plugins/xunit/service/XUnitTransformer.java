@@ -36,7 +36,7 @@ import java.util.List;
 
 public class XUnitTransformer extends XUnitService implements FilePath.FileCallable<Boolean>, Serializable {
 
-    private XUnitReportProcessingService xUnitReportProcessingService;
+    private XUnitReportProcessorService xUnitReportProcessorService;
 
     private XUnitConversionService xUnitConversionService;
 
@@ -49,12 +49,12 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
     @Inject
     @SuppressWarnings("unused")
     void load(
-            XUnitReportProcessingService xUnitReportProcessingService,
+            XUnitReportProcessorService xUnitReportProcessorService,
             XUnitConversionService xUnitConversionService,
             XUnitValidationService xUnitValidationService,
             XUnitToolInfo xUnitToolInfo,
             XUnitLog xUnitLog) {
-        this.xUnitReportProcessingService = xUnitReportProcessingService;
+        this.xUnitReportProcessorService = xUnitReportProcessorService;
         this.xUnitValidationService = xUnitValidationService;
         this.xUnitConversionService = xUnitConversionService;
         this.xUnitToolInfo = xUnitToolInfo;
@@ -82,7 +82,7 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
             String metricName = xUnitToolInfo.getInputMetric().getToolName();
 
             //Gets all input files matching the user pattern
-            List<String> resultFiles = xUnitReportProcessingService.findReports(xUnitToolInfo, ws, xUnitToolInfo.getExpandedPattern());
+            List<String> resultFiles = xUnitReportProcessorService.findReports(xUnitToolInfo, ws, xUnitToolInfo.getExpandedPattern());
             if (resultFiles.size() == 0) {
                 String msg = "No test reports found for the metric '" + metricName + "' with the resolved pattern '" + xUnitToolInfo.getExpandedPattern() + "'. Configuration error?.";
                 xUnitLog.errorConsoleLogger(msg);
@@ -91,7 +91,7 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
             }
 
             //Checks the timestamp for each test file if the UI option is checked (true by default)
-            if (!xUnitReportProcessingService.checkIfFindsFilesNewFiles(xUnitToolInfo, resultFiles, ws)) {
+            if (!xUnitReportProcessorService.checkIfFindsFilesNewFiles(xUnitToolInfo, resultFiles, ws)) {
                 return false;
             }
 
@@ -99,9 +99,9 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
             boolean atLeastOneWarningOrError = false;
             for (String curFileName : resultFiles) {
 
-                File curFile = xUnitReportProcessingService.getCurrentReport(ws, curFileName);
+                File curFile = xUnitReportProcessorService.getCurrentReport(ws, curFileName);
 
-                boolean isStopProcessingIfError = xUnitReportProcessingService.isStopProcessingIfError(xUnitToolInfo);
+                boolean isStopProcessingIfError = xUnitReportProcessorService.isStopProcessingIfError(xUnitToolInfo);
 
                 if (!xUnitValidationService.checkFileIsNotEmpty(curFile)) {
                     //Ignore the empty result file (some reason)
