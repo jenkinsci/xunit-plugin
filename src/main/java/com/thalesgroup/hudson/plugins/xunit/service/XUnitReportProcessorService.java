@@ -35,7 +35,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class XUnitReportProcessingService extends XUnitService implements Serializable {
+public class XUnitReportProcessorService extends XUnitService implements Serializable {
 
     private XUnitLog xUnitLog;
 

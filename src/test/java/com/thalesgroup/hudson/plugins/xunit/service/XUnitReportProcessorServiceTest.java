@@ -48,9 +48,9 @@ import java.util.List;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class XUnitReportProcessingServiceTest {
+public class XUnitReportProcessorServiceTest {
 
-    private static XUnitReportProcessingService xUnitReportProcessingService;
+    private static XUnitReportProcessorService xUnitReportProcessorService;
 
 
     public static class MyInputMetric extends InputMetricXSL {
@@ -117,21 +117,21 @@ public class XUnitReportProcessingServiceTest {
     public static void init() {
         final BuildListener listenerMock = mock(BuildListener.class);
         when(listenerMock.getLogger()).thenReturn(new PrintStream(new ByteArrayOutputStream()));
-        xUnitReportProcessingService = Guice.createInjector(new AbstractModule() {
+        xUnitReportProcessorService = Guice.createInjector(new AbstractModule() {
             @Override
             protected void configure() {
                 bind(XUnitLog.class).in(Singleton.class);
                 bind(BuildListener.class).toInstance(listenerMock);
             }
-        }).getInstance(XUnitReportProcessingService.class);
+        }).getInstance(XUnitReportProcessorService.class);
 
     }
 
     @Test
     public void isEmptyPattern() {
-        Assert.assertTrue(xUnitReportProcessingService.isEmptyPattern(null));
-        Assert.assertTrue(xUnitReportProcessingService.isEmptyPattern(""));
-        Assert.assertFalse(xUnitReportProcessingService.isEmptyPattern("abc"));
+        Assert.assertTrue(xUnitReportProcessorService.isEmptyPattern(null));
+        Assert.assertTrue(xUnitReportProcessorService.isEmptyPattern(""));
+        Assert.assertFalse(xUnitReportProcessorService.isEmptyPattern("abc"));
     }
 
     @Test
@@ -145,7 +145,7 @@ public class XUnitReportProcessingServiceTest {
             XUnitToolInfo xUnitToolInfoMock = mock(XUnitToolInfo.class);
             when(xUnitToolInfoMock.getInputMetric()).thenReturn(new MyInputMetric());
 
-            List<String> xUnitFiles = xUnitReportProcessingService.findReports(xUnitToolInfoMock, dir, "*.txt");
+            List<String> xUnitFiles = xUnitReportProcessorService.findReports(xUnitToolInfoMock, dir, "*.txt");
             Assert.assertFalse(xUnitFiles.isEmpty());
             Assert.assertEquals(1, xUnitFiles.size());
             Assert.assertEquals(f1.getName(), xUnitFiles.get(0));
