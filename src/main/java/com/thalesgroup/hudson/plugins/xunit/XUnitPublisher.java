@@ -46,6 +46,7 @@ import hudson.tasks.test.TestResultProjectAction;
 import net.sf.json.JSONObject;
 import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
+import org.jenkinsci.lib.dryrun.DryRun;
 import org.kohsuke.stapler.StaplerRequest;
 
 import java.io.File;
@@ -59,7 +60,7 @@ import java.util.List;
  * @author Gregory Boissinot
  */
 @SuppressWarnings({"unchecked", "unused"})
-public class XUnitPublisher extends Recorder implements Serializable {
+public class XUnitPublisher extends Recorder implements DryRun, Serializable {
 
     public static final String GENERATED_JUNIT_DIR = "generatedJUnitFiles";
 
@@ -85,22 +86,43 @@ public class XUnitPublisher extends Recorder implements Serializable {
     @Override
     public boolean perform(final AbstractBuild<?, ?> build, Launcher launcher, final BuildListener listener)
             throws InterruptedException, IOException {
+        return performXUnit(false, build, listener);
+    }
 
+    public boolean performDryRun(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener)
+            throws InterruptedException, IOException {
+        try {
+            performXUnit(true, build, listener);
+        } catch (Throwable t) {
+            listener.getLogger().println("[ERROR] - There is an error: " + t.getCause().getMessage());
+        }
+        //Always exit on success (returned code and status)
+        build.setResult(Result.SUCCESS);
+        return true;
+    }
+
+
+    private boolean performXUnit(boolean dryRun, AbstractBuild<?, ?> build, BuildListener listener)
+            throws IOException, InterruptedException {
         final XUnitLog xUnitLog = getXUnitLogObject(listener);
         try {
 
             xUnitLog.infoConsoleLogger("Starting to record.");
 
-            boolean noProcessingErrors = performTests(xUnitLog, build, listener);
+            boolean noProcessingErrors = performTests(dryRun, xUnitLog, build, listener);
             if (!noProcessingErrors) {
                 build.setResult(Result.FAILURE);
                 xUnitLog.infoConsoleLogger("Stopping recording.");
                 return true;
             }
 
-            recordTestResult(build, listener);
-            processDeletion(build, xUnitLog);
-            setBuildStatus(build, xUnitLog);
+            if (!dryRun) {
+                recordTestResult(build, listener);
+            }
+            processDeletion(dryRun, build, xUnitLog);
+            if (!dryRun) {
+                setBuildStatus(build, xUnitLog);
+            }
 
             xUnitLog.infoConsoleLogger("Stopping recording.");
             return true;
@@ -130,7 +152,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
         }).getInstance(XUnitReportProcessorService.class);
     }
 
-    private boolean performTests(XUnitLog xUnitLog, AbstractBuild<?, ?> build, BuildListener listener) throws IOException, InterruptedException {
+    private boolean performTests(boolean dryRun, XUnitLog xUnitLog, AbstractBuild<?, ?> build, BuildListener listener) throws IOException, InterruptedException {
         XUnitReportProcessorService xUnitReportService = getXUnitReportProcessorServiceObject(listener);
         boolean noProcessingErrors = true;
         for (TestType tool : types) {
@@ -139,7 +161,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
                 String expandedPattern = getExpandedResolvedPattern(tool, build, listener);
                 XUnitToolInfo xUnitToolInfo = getXUnitToolInfoObject(tool, expandedPattern, build);
                 XUnitTransformer xUnitTransformer = getXUnitTransformerObject(xUnitToolInfo, listener);
-                boolean resultTransformation = build.getWorkspace().act(xUnitTransformer);
+                boolean resultTransformation = getWorkspace(build).act(xUnitTransformer);
                 if (!resultTransformation) {
                     noProcessingErrors = true;
                 }
@@ -166,8 +188,15 @@ public class XUnitPublisher extends Recorder implements Serializable {
                 tool.isFaildedIfNotNew(),
                 tool.isDeleteOutputFiles(), tool.isStopProcessingIfError(),
                 build.getTimeInMillis(),
-                (tool instanceof CustomType) ? build.getWorkspace().child(((CustomType) tool).getCustomXSL()) : null);
+                (tool instanceof CustomType) ? getWorkspace(build).child(((CustomType) tool).getCustomXSL()) : null);
+    }
 
+    private FilePath getWorkspace(AbstractBuild build) {
+        FilePath workspace = build.getWorkspace();
+        if (workspace == null) {
+            workspace = build.getProject().getSomeWorkspace();
+        }
+        return workspace;
     }
 
     private XUnitTransformer getXUnitTransformerObject(final XUnitToolInfo xUnitToolInfo, final BuildListener listener) {
@@ -241,7 +270,7 @@ public class XUnitPublisher extends Recorder implements Serializable {
             throws XUnitException {
 
         try {
-            return build.getWorkspace().act(new FilePath.FileCallable<TestResult>() {
+            return getWorkspace(build).act(new FilePath.FileCallable<TestResult>() {
 
                 public TestResult invoke(File ws, VirtualChannel channel) throws IOException {
                     final long nowSlave = System.currentTimeMillis();
@@ -298,21 +327,21 @@ public class XUnitPublisher extends Recorder implements Serializable {
         return curResult;
     }
 
-    private void processDeletion(AbstractBuild<?, ?> build, XUnitLog xUnitLog) throws XUnitException {
+    private void processDeletion(boolean dryRun, AbstractBuild<?, ?> build, XUnitLog xUnitLog) throws XUnitException {
         try {
             boolean keepJUnitDirectory = false;
             for (TestType tool : types) {
                 InputMetric inputMetric = tool.getInputMetric();
 
-                if (tool.isDeleteOutputFiles()) {
-                    build.getWorkspace().child(GENERATED_JUNIT_DIR + "/" + inputMetric.getToolName()).deleteRecursive();
+                if (dryRun || tool.isDeleteOutputFiles()) {
+                    getWorkspace(build).child(GENERATED_JUNIT_DIR + "/" + inputMetric.getToolName()).deleteRecursive();
                 } else {
                     //Mark the tool file parent directory to no deletion
                     keepJUnitDirectory = true;
                 }
             }
             if (!keepJUnitDirectory) {
-                build.getWorkspace().child(GENERATED_JUNIT_DIR).deleteRecursive();
+                getWorkspace(build).child(GENERATED_JUNIT_DIR).deleteRecursive();
             }
         } catch (IOException ioe) {
             throw new XUnitException("Problem on deletion", ioe);
