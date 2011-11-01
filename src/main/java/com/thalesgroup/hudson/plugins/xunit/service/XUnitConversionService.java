@@ -74,7 +74,6 @@ public class XUnitConversionService extends XUnitService implements Serializable
         infoSystemLogger("Converting '" + inputFile + "' .");
         try {
 
-
             if (inputMetric instanceof CustomInputMetric) {
                 return convertCustomInputMetric(xUnitToolInfo, inputFile, workspace, inputMetric, junitTargetFile);
             }
