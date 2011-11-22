@@ -1,0 +1,60 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler"
+         xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson"
+         xmlns:f="/lib/form" xmlns:u="/util">
+
+    <f:entry title="${descriptor.displayName}" description="${descriptor.thresholdHelpMessage}">
+        <table>
+            <thead>
+                <tr>
+                    <td width="80" style="vertical-align:middle">
+                         ${%Build Status}
+                    </td>
+                    <td width="80">
+                        <img src="${rootURL}/images/16x16/yellow.gif"
+                             alt="100%"
+                             title="${descriptor.unstableThresholdImgTitle}"/>
+                        ${%Total}
+                    </td>
+                    <td width="80">
+                        <img src="${rootURL}/images/16x16/yellow.gif"
+                             alt="100%"
+                             title="${descriptor.unstableNewThresholdImgTitle}"/>
+                        ${%New}
+                    </td>
+                    <td width="80">
+                        <img src="${rootURL}/images/16x16/red.gif"
+                             alt="100%"
+                             title="${descriptor.failureThresholdImgTitle}"/>
+                        ${%Total}
+                    </td>
+                    <td width="80">
+                        <img src="${rootURL}/images/16x16/red.gif"
+                             alt="100%"
+                             title="${descriptor.failureNewThresholdImgTitle}"/>
+                        ${%New}
+                    </td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td width="80" style="vertical-align:middle">${%Thresholds:}</td>
+                    <td>
+                        <f:textbox field="unstableThreshold" />
+                    </td>
+                    <td>
+                        <f:textbox field="unstableNewThreshold"/>
+                    </td>
+                    <td>
+                        <f:textbox field="failureThreshold" />
+                    </td>
+                    <td>
+                        <f:textbox field="failureNewThreshold" />
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </f:entry>
+
+</j:jelly>

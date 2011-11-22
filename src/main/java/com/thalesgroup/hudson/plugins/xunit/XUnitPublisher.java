@@ -47,6 +47,10 @@ import net.sf.json.JSONObject;
 import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
 import org.jenkinsci.lib.dryrun.DryRun;
+import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
+import org.jenkinsci.plugins.xunit.threshold.SkippedThreshold;
+import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
+import org.jenkinsci.plugins.xunit.threshold.XUnitThresholdDescriptor;
 import org.kohsuke.stapler.StaplerRequest;
 
 import java.io.File;
@@ -66,12 +70,20 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
 
     private TestType[] types;
 
-    public XUnitPublisher(TestType[] types) {
+    private XUnitThreshold[] thresholds;
+
+
+    public XUnitPublisher(TestType[] types, XUnitThreshold[] thresholds) {
         this.types = types;
+        this.thresholds = thresholds;
     }
 
     public TestType[] getTypes() {
         return types;
+    }
+
+    public XUnitThreshold[] getThresholds() {
+        return thresholds;
     }
 
     @Override
@@ -116,14 +128,9 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
                 return true;
             }
 
-            if (!dryRun) {
-                recordTestResult(build, listener);
-            }
+            recordTestResult(dryRun, build, listener);
             processDeletion(dryRun, build, xUnitLog);
-            if (!dryRun) {
-                setBuildStatus(build, xUnitLog);
-            }
-
+            setBuildStatus(dryRun, build, xUnitLog);
             xUnitLog.infoConsoleLogger("Stopping recording.");
             return true;
 
@@ -213,6 +220,19 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
         }).getInstance(XUnitTransformer.class);
     }
 
+
+    private TestResultAction getTestResultAction(AbstractBuild<?, ?> build) {
+        return build.getAction(TestResultAction.class);
+    }
+
+    private TestResultAction getPreviousTestResultAction(AbstractBuild<?, ?> build) {
+        AbstractBuild previousBuild = build.getPreviousBuild();
+        if (previousBuild == null) {
+            return null;
+        }
+        return getTestResultAction(previousBuild);
+    }
+
     /**
      * Records the test results into the current build and return the number of tests
      *
@@ -221,33 +241,35 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
      * @throws com.thalesgroup.hudson.plugins.xunit.exception.XUnitException
      *          the plugin exception if an error occurs
      */
-    private void recordTestResult(AbstractBuild<?, ?> build, BuildListener listener) throws XUnitException {
+    private void recordTestResult(boolean dryRun, AbstractBuild<?, ?> build, BuildListener listener) throws XUnitException {
 
-        TestResultAction existingAction = build.getAction(TestResultAction.class);
-        final long buildTime = build.getTimestamp().getTimeInMillis();
-        final long nowMaster = System.currentTimeMillis();
+        if (!dryRun) {
+            TestResultAction existingAction = build.getAction(TestResultAction.class);
+            final long buildTime = build.getTimestamp().getTimeInMillis();
+            final long nowMaster = System.currentTimeMillis();
 
-        TestResult existingTestResults = null;
-        if (existingAction != null) {
-            existingTestResults = existingAction.getResult();
-        }
-
-        TestResult result = getTestResult(build, "**/TEST-*.xml", existingTestResults, buildTime, nowMaster);
-        if (result != null) {
-            TestResultAction action;
-            if (existingAction == null) {
-                action = new TestResultAction(build, result, listener);
-            } else {
-                action = existingAction;
-                action.setResult(result, listener);
+            TestResult existingTestResults = null;
+            if (existingAction != null) {
+                existingTestResults = existingAction.getResult();
             }
 
-            if (result.getPassCount() == 0 && result.getFailCount() == 0) {
-                throw new XUnitException("None of the test reports contained any result");
-            }
+            TestResult result = getTestResult(build, "**/TEST-*.xml", existingTestResults, buildTime, nowMaster);
+            if (result != null) {
+                TestResultAction action;
+                if (existingAction == null) {
+                    action = new TestResultAction(build, result, listener);
+                } else {
+                    action = existingAction;
+                    action.setResult(result, listener);
+                }
 
-            if (existingAction == null) {
-                build.getActions().add(action);
+                if (result.getPassCount() == 0 && result.getFailCount() == 0) {
+                    throw new XUnitException("None of the test reports contained any result");
+                }
+
+                if (existingAction == null) {
+                    build.getActions().add(action);
+                }
             }
         }
     }
@@ -304,28 +326,42 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
         }
     }
 
-    private void setBuildStatus(AbstractBuild<?, ?> build, XUnitLog xUnitLog) {
-        Result curResult = getResultForTest(build);
-        Result previousResult = build.getResult();
-        if (previousResult.isWorseOrEqualTo(curResult)) {
-            curResult = previousResult;
+    private void setBuildStatus(boolean dryRun, AbstractBuild<?, ?> build, XUnitLog xUnitLog) {
+        Result curResult = getResultWithThreshold(xUnitLog, build);
+        Result previousResultStep = build.getResult();
+        if (previousResultStep.isWorseOrEqualTo(curResult)) {
+            curResult = previousResultStep;
         }
         xUnitLog.infoConsoleLogger("Setting the build status to " + curResult);
         build.setResult(curResult);
     }
 
-    private Result getResultForTest(AbstractBuild<?, ?> build) {
-        TestResultAction testResultAction = build.getAction(TestResultAction.class);
-        Result curResult = Result.SUCCESS;
+    private Result getResultWithThreshold(XUnitLog log, AbstractBuild<?, ?> build) {
+        TestResultAction testResultAction = getTestResultAction(build);
+        TestResultAction previousTestResultAction = getPreviousTestResultAction(build);
         if (testResultAction == null) {
-            curResult = Result.FAILURE;
+            return Result.FAILURE;
         } else {
-            if (testResultAction.getResult().getFailCount() > 0) {
-                curResult = Result.UNSTABLE;
+            return processResultThreshold(log, build, testResultAction, previousTestResultAction);
+        }
+    }
+
+    private Result processResultThreshold(XUnitLog log,
+                                          AbstractBuild<?, ?> build,
+                                          TestResultAction testResultAction,
+                                          TestResultAction previousTestResultAction) {
+
+        for (XUnitThreshold threshold : thresholds) {
+            log.infoConsoleLogger(String.format("Check '%s' threshold.", threshold.getDescriptor().getDisplayName()));
+            Result result = threshold.getResultThreshold(log, build, testResultAction, previousTestResultAction);
+            if (result.isWorseThan(Result.SUCCESS)) {
+                return result;
             }
         }
-        return curResult;
+
+        return Result.SUCCESS;
     }
+
 
     private void processDeletion(boolean dryRun, AbstractBuild<?, ?> build, XUnitLog xUnitLog) throws XUnitException {
         try {
@@ -382,12 +418,24 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
             return TestTypeDescriptor.all();
         }
 
+        public DescriptorExtensionList<XUnitThreshold, XUnitThresholdDescriptor<?>> getListXUnitThresholdDescriptors() {
+            return XUnitThresholdDescriptor.all();
+        }
+
+        public XUnitThreshold[] getListXUnitThresholdInstance() {
+            return new XUnitThreshold[]{
+                    new FailedThreshold(),
+                    new SkippedThreshold()
+            };
+        }
+
         @Override
         public Publisher newInstance(StaplerRequest req, JSONObject formData) throws FormException {
             List<TestType> types = Descriptor.newInstancesFromHeteroList(
                     req, formData, "tools", getListXUnitTypeDescriptors());
-            return new XUnitPublisher(types.toArray(new TestType[types.size()]));
-
+            List<XUnitThreshold> thresholds = Descriptor.newInstancesFromHeteroList(
+                    req, formData, "thresholds", getListXUnitThresholdDescriptors());
+            return new XUnitPublisher(types.toArray(new TestType[types.size()]), thresholds.toArray(new XUnitThreshold[thresholds.size()]));
         }
     }
 
