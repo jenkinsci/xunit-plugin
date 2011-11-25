@@ -351,11 +351,13 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
                                           TestResultAction testResultAction,
                                           TestResultAction previousTestResultAction) {
 
-        for (XUnitThreshold threshold : thresholds) {
-            log.infoConsoleLogger(String.format("Check '%s' threshold.", threshold.getDescriptor().getDisplayName()));
-            Result result = threshold.getResultThreshold(log, build, testResultAction, previousTestResultAction);
-            if (result.isWorseThan(Result.SUCCESS)) {
-                return result;
+        if (thresholds != null) {
+            for (XUnitThreshold threshold : thresholds) {
+                log.infoConsoleLogger(String.format("Check '%s' threshold.", threshold.getDescriptor().getDisplayName()));
+                Result result = threshold.getResultThreshold(log, build, testResultAction, previousTestResultAction);
+                if (result.isWorseThan(Result.SUCCESS)) {
+                    return result;
+                }
             }
         }
 
