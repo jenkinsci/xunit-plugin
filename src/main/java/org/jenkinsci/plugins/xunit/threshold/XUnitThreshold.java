@@ -56,14 +56,6 @@ public abstract class XUnitThreshold implements ExtensionPoint, Serializable, De
         return failureNewThreshold;
     }
 
-    protected int convertToInteger(String threshold) {
-        return Integer.parseInt(threshold);
-    }
-
-    protected boolean isValid(String threshold) {
-        return true;
-    }
-
     public abstract Result getResultThreshold(XUnitLog log,
                                               AbstractBuild<?, ?> build,
                                               TestResultAction testResultAction,
@@ -99,5 +91,27 @@ public abstract class XUnitThreshold implements ExtensionPoint, Serializable, De
 
         return Result.SUCCESS;
 
+    }
+
+    private int convertToInteger(String threshold) {
+        return Integer.parseInt(threshold);
+    }
+
+    private boolean isValid(String threshold) {
+        if (threshold == null) {
+            return false;
+        }
+
+        if (threshold.trim().length() == 0) {
+            return false;
+        }
+
+        try {
+            Integer.parseInt(threshold);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+
+        return true;
     }
 }
