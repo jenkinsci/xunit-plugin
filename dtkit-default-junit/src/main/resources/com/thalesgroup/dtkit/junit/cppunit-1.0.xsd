@@ -113,9 +113,26 @@
         </xs:complexType>
     </xs:element>
 
+    <xs:element name="SuiteInfo">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Author">
+                    <xs:complexType mixed="true"/>
+                </xs:element>
+                <xs:element name="Project">
+                    <xs:complexType mixed="true"/>
+                </xs:element>
+                <xs:element name="Date">
+                    <xs:complexType mixed="true"/>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
     <xs:element name="TestRun">
         <xs:complexType>
             <xs:sequence>
+                <xs:element ref="SuiteInfo" minOccurs="0" maxOccurs="1"/>
                 <xs:element ref="FailedTests" minOccurs="0" maxOccurs="1"/>
                 <xs:element ref="SuccessfulTests" minOccurs="0" maxOccurs="1"/>
                 <xs:element ref="Statistics" minOccurs="1" maxOccurs="1"/>
