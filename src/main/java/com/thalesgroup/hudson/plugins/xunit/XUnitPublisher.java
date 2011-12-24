@@ -128,7 +128,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
                 return true;
             }
 
-            recordTestResult(dryRun, build, listener);
+            recordTestResult(dryRun, build, listener, xUnitLog);
             processDeletion(dryRun, build, xUnitLog);
             setBuildStatus(dryRun, build, xUnitLog);
             xUnitLog.infoConsoleLogger("Stopping recording.");
@@ -235,13 +235,8 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
 
     /**
      * Records the test results into the current build and return the number of tests
-     *
-     * @param build    the current build object
-     * @param listener the current listener object
-     * @throws com.thalesgroup.hudson.plugins.xunit.exception.XUnitException
-     *          the plugin exception if an error occurs
      */
-    private void recordTestResult(boolean dryRun, AbstractBuild<?, ?> build, BuildListener listener) throws XUnitException {
+    private void recordTestResult(boolean dryRun, AbstractBuild<?, ?> build, BuildListener listener, XUnitLog xUnitLog) throws XUnitException {
 
         if (!dryRun) {
             TestResultAction existingAction = build.getAction(TestResultAction.class);
@@ -264,7 +259,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
                 }
 
                 if (result.getPassCount() == 0 && result.getFailCount() == 0) {
-                    throw new XUnitException("None of the test reports contained any result");
+                    xUnitLog.warningConsoleLogger("All test reports are empty.");
                 }
 
                 if (existingAction == null) {
