@@ -5,7 +5,6 @@ import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
 import com.thalesgroup.dtkit.metrics.model.InputMetric;
 import com.thalesgroup.dtkit.metrics.model.InputMetricException;
 import com.thalesgroup.dtkit.metrics.model.InputMetricFactory;
-import com.thalesgroup.hudson.plugins.xunit.types.CustomInputMetric;
 import hudson.Extension;
 import org.kohsuke.stapler.DataBoundConstructor;
 
@@ -36,7 +35,7 @@ public class CheckType extends TestType {
             try {
                 return InputMetricFactory.getInstance(CheckInputMetric.class);
             } catch (InputMetricException e) {
-                throw new RuntimeException("Can't create the inputMetric object for the class " + CustomInputMetric.class);
+                throw new RuntimeException("Can't create the inputMetric object for the class " + CheckInputMetric.class);
             }
         }
     }
