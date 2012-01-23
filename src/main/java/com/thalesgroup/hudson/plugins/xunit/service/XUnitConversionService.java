@@ -115,7 +115,7 @@ public class XUnitConversionService extends XUnitService implements Serializable
                 return convertInputMetricXSLWithUserXSL(inputFile, junitTargetFile, inputMetricXSL, userXSLFilePath);
             } catch (XUnitException xe) {
                 xUnitLog.errorConsoleLogger("Error occurs on the use of the user stylesheet: " + xe.getMessage());
-                xUnitLog.infoConsoleLogger("Using the native embedded stylesheet.");
+                xUnitLog.infoConsoleLogger("Trying to use the native embedded stylesheet.");
                 inputMetric.convert(inputFile, junitTargetFile);
                 return junitTargetFile;
             }
