@@ -398,7 +398,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
 
         @Override
         public String getDisplayName() {
-            return Messages.xUnit_PublisherName();
+            return null;
         }
 
         @Override
