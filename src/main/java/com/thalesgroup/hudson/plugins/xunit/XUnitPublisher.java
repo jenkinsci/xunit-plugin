@@ -398,7 +398,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
 
         @Override
         public String getDisplayName() {
-            return Messages.xUnit_PublisherName();
+            return null;
         }
 
         @Override
@@ -436,6 +436,10 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
         }
     }
 
+
+    private Object readResolve() {
+        return new org.jenkinsci.plugins.xunit.XUnitPublisher(types, thresholds);
+    }
 }
 
 
