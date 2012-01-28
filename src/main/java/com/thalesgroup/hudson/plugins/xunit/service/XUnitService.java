@@ -29,7 +29,7 @@ import java.util.logging.Logger;
 
 public class XUnitService implements Serializable {
 
-    private static final Logger LOGGER = Logger.getLogger("com.thalesgroup.hudson.plugins.xunit.service.XUnitService");
+    private static final Logger LOGGER = Logger.getLogger("XUnitService");
 
     /**
      * Log an info output to the system logger
