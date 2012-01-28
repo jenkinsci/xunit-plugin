@@ -10,7 +10,7 @@
     <artifactId>xunit</artifactId>
     <version>1.36-SNAPSHOT</version>
     <packaging>hpi</packaging>
-    <name>Jenkins xUnit plugin</name>
+    <name>xUnit plugin</name>
     <url>http://wiki.jenkins-ci.org/display/JENKINS/xUnit+Plugin</url>
 
     <licenses>
