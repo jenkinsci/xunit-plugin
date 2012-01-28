@@ -14,8 +14,8 @@ import org.kohsuke.stapler.DataBoundConstructor;
 public class JUnitType extends TestType {
 
     @DataBoundConstructor
-    public JUnitType(String pattern, boolean failureIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
-        super(pattern, failureIfNotNew, deleteOutputFiles, stopProcessingIfError);
+    public JUnitType(String pattern, boolean faildedIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
+        super(pattern, faildedIfNotNew, deleteOutputFiles, stopProcessingIfError);
     }
 
     @Extension
