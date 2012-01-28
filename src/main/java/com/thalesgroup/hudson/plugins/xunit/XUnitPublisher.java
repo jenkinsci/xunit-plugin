@@ -387,7 +387,6 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
         return BuildStepMonitor.NONE;
     }
 
-    @Extension
     @SuppressWarnings("unused")
     public static final class XUnitDescriptorPublisher extends BuildStepDescriptor<Publisher> {
 
@@ -403,7 +402,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
 
         @Override
         public boolean isApplicable(Class type) {
-            return true;
+            return false;
         }
 
         @Override
