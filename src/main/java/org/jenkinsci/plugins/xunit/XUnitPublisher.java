@@ -98,16 +98,24 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
 
             xUnitLog.infoConsoleLogger("Starting to record.");
 
-            boolean noProcessingErrors = performTests(dryRun, xUnitLog, build, listener);
+            boolean noProcessingErrors = performTests(xUnitLog, build, listener);
             if (!noProcessingErrors) {
                 build.setResult(Result.FAILURE);
                 xUnitLog.infoConsoleLogger("Stopping recording.");
                 return true;
             }
 
-            recordTestResult(dryRun, build, listener, xUnitLog);
+            recordTestResult(build, listener, xUnitLog);
             processDeletion(dryRun, build, xUnitLog);
-            setBuildStatus(dryRun, build, xUnitLog);
+            Result result = getBuildStatus(build, xUnitLog);
+            if (result != null) {
+                if (!dryRun) {
+                    xUnitLog.infoConsoleLogger("Setting the build status to " + result);
+                    build.setResult(result);
+                } else {
+                    xUnitLog.infoConsoleLogger("Through the xUnit plugin, the build status will be set to " + result.toString());
+                }
+            }
             xUnitLog.infoConsoleLogger("Stopping recording.");
             return true;
 
@@ -136,7 +144,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
         }).getInstance(XUnitReportProcessorService.class);
     }
 
-    private boolean performTests(boolean dryRun, XUnitLog xUnitLog, AbstractBuild<?, ?> build, BuildListener listener) throws IOException, InterruptedException {
+    private boolean performTests(XUnitLog xUnitLog, AbstractBuild<?, ?> build, BuildListener listener) throws IOException, InterruptedException {
         XUnitReportProcessorService xUnitReportService = getXUnitReportProcessorServiceObject(listener);
         boolean noProcessingErrors = true;
         for (TestType tool : types) {
@@ -213,35 +221,32 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
     /**
      * Records the test results into the current build and return the number of tests
      */
-    private void recordTestResult(boolean dryRun, AbstractBuild<?, ?> build, BuildListener listener, XUnitLog xUnitLog) throws XUnitException {
+    private void recordTestResult(AbstractBuild<?, ?> build, BuildListener listener, XUnitLog xUnitLog) throws XUnitException {
+        TestResultAction existingAction = build.getAction(TestResultAction.class);
+        final long buildTime = build.getTimestamp().getTimeInMillis();
+        final long nowMaster = System.currentTimeMillis();
 
-        if (!dryRun) {
-            TestResultAction existingAction = build.getAction(TestResultAction.class);
-            final long buildTime = build.getTimestamp().getTimeInMillis();
-            final long nowMaster = System.currentTimeMillis();
+        TestResult existingTestResults = null;
+        if (existingAction != null) {
+            existingTestResults = existingAction.getResult();
+        }
 
-            TestResult existingTestResults = null;
-            if (existingAction != null) {
-                existingTestResults = existingAction.getResult();
+        TestResult result = getTestResult(build, "**/TEST-*.xml", existingTestResults, buildTime, nowMaster);
+        if (result != null) {
+            TestResultAction action;
+            if (existingAction == null) {
+                action = new TestResultAction(build, result, listener);
+            } else {
+                action = existingAction;
+                action.setResult(result, listener);
             }
 
-            TestResult result = getTestResult(build, "**/TEST-*.xml", existingTestResults, buildTime, nowMaster);
-            if (result != null) {
-                TestResultAction action;
-                if (existingAction == null) {
-                    action = new TestResultAction(build, result, listener);
-                } else {
-                    action = existingAction;
-                    action.setResult(result, listener);
-                }
+            if (result.getPassCount() == 0 && result.getFailCount() == 0) {
+                xUnitLog.warningConsoleLogger("All test reports are empty.");
+            }
 
-                if (result.getPassCount() == 0 && result.getFailCount() == 0) {
-                    xUnitLog.warningConsoleLogger("All test reports are empty.");
-                }
-
-                if (existingAction == null) {
-                    build.getActions().add(action);
-                }
+            if (existingAction == null) {
+                build.getActions().add(action);
             }
         }
     }
@@ -298,14 +303,16 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
         }
     }
 
-    private void setBuildStatus(boolean dryRun, AbstractBuild<?, ?> build, XUnitLog xUnitLog) {
+    private Result getBuildStatus(AbstractBuild<?, ?> build, XUnitLog xUnitLog) {
         Result curResult = getResultWithThreshold(xUnitLog, build);
         Result previousResultStep = build.getResult();
-        if (previousResultStep.isWorseOrEqualTo(curResult)) {
-            curResult = previousResultStep;
+        if (curResult != null && previousResultStep != null) {
+            if (previousResultStep.isWorseOrEqualTo(curResult)) {
+                curResult = previousResultStep;
+            }
+            return curResult;
         }
-        xUnitLog.infoConsoleLogger("Setting the build status to " + curResult);
-        build.setResult(curResult);
+        return null;
     }
 
     private Result getResultWithThreshold(XUnitLog log, AbstractBuild<?, ?> build) {
