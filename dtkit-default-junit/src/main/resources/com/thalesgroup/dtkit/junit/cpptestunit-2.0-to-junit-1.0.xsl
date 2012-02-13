@@ -29,7 +29,8 @@
 
 
     <xsl:template match="/">
-        <testsuite name="{ResultsSession/Exec/Summary/Projects/Project/@name}" time="0" tests="{Summary/Projects/Project/@testCases}"
+        <testsuite name="{ResultsSession/Exec/Summary/Projects/Project/@name}" time="0"
+                   tests="{Summary/Projects/Project/@testCases}"
                    failures="{ResultsSession/Exec/Summary/Projects/Project/@fail}">
             <xsl:apply-templates select="ResultsSession/Exec"></xsl:apply-templates>
             <xsl:apply-templates select="ResultsSession/ExecutedTestsDetails"></xsl:apply-templates>
@@ -80,25 +81,26 @@
         <xsl:text>    File :</xsl:text>
         <xsl:value-of select="@fileName"/>
     </xsl:template>
-    
+
     <xsl:template match="ExecutedTestsDetails">
         <xsl:apply-templates select="Total"/>
     </xsl:template>
-    
+
     <xsl:template match="Total">
         <xsl:apply-templates select="Project"/>
     </xsl:template>
-    
+
     <xsl:template match="Project">
         <xsl:apply-templates select="TestSuite"/>
     </xsl:template>
-    
+
     <xsl:template match="TestSuite">
         <xsl:apply-templates select="*"/>
     </xsl:template>
-    
+
     <xsl:template match="Test">
-        <xsl:variable name="fullTestName"><xsl:value-of select="/ResultsSession/Exec/Summary/Projects/Project/@name" />JUnitTestSuite</xsl:variable>
+        <xsl:variable name="fullTestName"><xsl:value-of select="/ResultsSession/Exec/Summary/Projects/Project/@name"/>JUnitTestSuite
+        </xsl:variable>
         <xsl:if test="@pass=1">
             <testcase name="{@name}" classname="{$fullTestName}" time="0"/>
         </xsl:if>

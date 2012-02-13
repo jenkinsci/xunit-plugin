@@ -1,7 +1,7 @@
 package com.thalesgroup.dtkit.junit;
 
-import org.junit.Test;
 import org.junit.Ignore;
+import org.junit.Test;
 
 /**
  * @author Gregory Boissinot
@@ -9,7 +9,7 @@ import org.junit.Ignore;
 public class ValgrindTest extends AbstractTest {
 
     @Test
-    @Ignore	
+    @Ignore
     public void testcase1() throws Exception {
         convertAndValidate(Valgrind.class, "valgrind/testcase1/valgrind-out.xml", "valgrind/testcase1/junit-result.xml");
     }

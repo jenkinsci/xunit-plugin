@@ -88,7 +88,8 @@
 
         <xsl:variable name="curElt" select="."/>
         <xsl:variable name="suiteName">
-          <xsl:for-each select="($curElt/ancestor::TestSuite)"><xsl:value-of select="./@name"/>.</xsl:for-each>
+            <xsl:for-each select="($curElt/ancestor::TestSuite)"><xsl:value-of select="./@name"/>.
+            </xsl:for-each>
         </xsl:variable>
         <xsl:variable name="packageName" select="($suiteName)"/>
 
@@ -170,18 +171,18 @@
             </xsl:if>
 
             <xsl:if test="count(child::Exception)>0">
-         	<xsl:element name="system-err">
+                <xsl:element name="system-err">
                     <xsl:for-each select="child::Exception">
-                    	<xsl:variable name="currElt" select="."/>
-                    	<xsl:text>&#13;</xsl:text>
-                    	<xsl:text>[Exception] - </xsl:text>
-                    	<xsl:value-of select="($currElt)"/>
-                    	<xsl:text>&#13;</xsl:text>
-                    	<xsl:text> == [File] - </xsl:text><xsl:value-of select="($currElt)/@file"/>
-                    	<xsl:text>&#13;</xsl:text>
-                    	<xsl:text> == [Line] - </xsl:text><xsl:value-of select="($currElt)/@line"/>
-                    	<xsl:text>&#13;</xsl:text>
-                   </xsl:for-each>
+                        <xsl:variable name="currElt" select="."/>
+                        <xsl:text>&#13;</xsl:text>
+                        <xsl:text>[Exception] - </xsl:text>
+                        <xsl:value-of select="($currElt)"/>
+                        <xsl:text>&#13;</xsl:text>
+                        <xsl:text> == [File] - </xsl:text><xsl:value-of select="($currElt)/@file"/>
+                        <xsl:text>&#13;</xsl:text>
+                        <xsl:text> == [Line] - </xsl:text><xsl:value-of select="($currElt)/@line"/>
+                        <xsl:text>&#13;</xsl:text>
+                    </xsl:for-each>
                 </xsl:element>
             </xsl:if>
 

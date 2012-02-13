@@ -88,7 +88,8 @@
 
         <xsl:variable name="curElt" select="."/>
         <xsl:variable name="suiteName">
-          <xsl:for-each select="($curElt/ancestor::TestSuite)"><xsl:value-of select="./@name"/>.</xsl:for-each>
+            <xsl:for-each select="($curElt/ancestor::TestSuite)"><xsl:value-of select="./@name"/>.
+            </xsl:for-each>
         </xsl:variable>
         <xsl:variable name="packageName" select="($suiteName)"/>
 

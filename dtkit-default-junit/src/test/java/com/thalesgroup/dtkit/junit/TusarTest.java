@@ -3,7 +3,7 @@ package com.thalesgroup.dtkit.junit;
 import org.junit.Test;
 
 public class TusarTest extends AbstractTest {
-    
+
 
     @Test
     public void testTransformation() throws Exception {

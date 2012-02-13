@@ -56,5 +56,5 @@ public class NUnitTest extends AbstractTest {
     @Test
     public void testTransformedIssue8492() throws Exception {
         convertAndValidate(NUnit.class, "nunit/NUnit-issue8492.xml", "nunit/JUnit-issue8492.xml");
-    }    
+    }
 }

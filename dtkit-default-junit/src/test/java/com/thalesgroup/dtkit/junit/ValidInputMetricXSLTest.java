@@ -67,8 +67,7 @@ public class ValidInputMetricXSLTest {
             try {
                 new File(inputMetricXSL.getClass().getResource(inputMetricXSL.getXslName()).toURI());
                 Assert.assertTrue(true);
-            }
-            catch (NullPointerException npe) {
+            } catch (NullPointerException npe) {
                 Assert.assertTrue(inputMetricXSL.getXslName() + " doesn't exist.", false);
             }
 
@@ -80,8 +79,7 @@ public class ValidInputMetricXSLTest {
                     }
 
                     Assert.assertTrue(true);
-                }
-                catch (NullPointerException npe) {
+                } catch (NullPointerException npe) {
                     Assert.assertTrue("one of" + Arrays.toString(inputMetricXSL.getInputXsdNameList()) + " doesn't exist.", false);
                 }
             }
