@@ -22,7 +22,7 @@ public class AUnit extends InputMetricXSL {
 
     @Override
     public String getToolVersion() {
-        return "3.1.1";
+        return "3.x";
     }
 
     @Override
