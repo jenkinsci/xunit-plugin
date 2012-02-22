@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite errors="0" tests="5" failures="0" name="test_check1.c">
-    <testcase name="test_list_3" classname="test_check1.c" time="0"/>
-    <testcase name="test_single_entry" classname="test_check1.c" time="0"/>
-    <testcase name="test_allow_spaces" classname="test_check1.c" time="0"/>
-    <testcase name="test_only_first_entries" classname="test_check1.c" time="0"/>
-    <testcase name="test_empty" classname="test_check1.c" time="0"/>
-</testsuite>
+<testsuites>
+    <testsuite errors="0" tests="5" failures="0" name="test_check1.c" id="1">
+        <testcase name="test_list_3" classname="test_check1.c" time="0"/>
+        <testcase name="test_single_entry" classname="test_check1.c" time="0"/>
+        <testcase name="test_allow_spaces" classname="test_check1.c" time="0"/>
+        <testcase name="test_only_first_entries" classname="test_check1.c" time="0"/>
+        <testcase name="test_empty" classname="test_check1.c" time="0"/>
+    </testsuite>
+</testsuites>
