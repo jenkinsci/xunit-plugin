@@ -24,10 +24,10 @@
 package com.thalesgroup.hudson.plugins.xunit.service;
 
 import com.google.inject.Inject;
-import com.thalesgroup.hudson.plugins.xunit.XUnitPublisher;
 import hudson.FilePath;
 import hudson.remoting.VirtualChannel;
 import hudson.util.IOException2;
+import org.jenkinsci.plugins.xunit.XUnitPublisher;
 
 import java.io.File;
 import java.io.IOException;

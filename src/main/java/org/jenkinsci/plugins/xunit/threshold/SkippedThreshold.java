@@ -20,7 +20,7 @@ public class SkippedThreshold extends XUnitThreshold {
     }
 
     @Override
-    public Result getResultThreshold(XUnitLog log, AbstractBuild<?, ?> build, TestResultAction testResultAction, TestResultAction previousTestResultAction) {
+    public Result getResultThresholdNumber(XUnitLog log, AbstractBuild<?, ?> build, TestResultAction testResultAction, TestResultAction previousTestResultAction) {
 
         int skipCount = testResultAction.getSkipCount();
 
@@ -30,7 +30,26 @@ public class SkippedThreshold extends XUnitThreshold {
         }
         int newSkipCount = skipCount - previousSkipCount;
 
-        return getResultThreshold(log, skipCount, newSkipCount);
+        return getResultThresholdNumber(log, skipCount, newSkipCount);
+    }
+
+    @Override
+    public Result getResultThresholdPercent(XUnitLog log, AbstractBuild<?, ?> build, TestResultAction testResultAction, TestResultAction previousTestResultAction) {
+
+        int count = testResultAction.getTotalCount();
+
+        int skippedCount = testResultAction.getSkipCount();
+        int percentSkipped = (skippedCount / count) * 100;
+
+        int previousSkippedCount = 0;
+        if (previousTestResultAction != null) {
+            previousSkippedCount = previousTestResultAction.getSkipCount();
+        }
+        int newSkippedCount = skippedCount - previousSkippedCount;
+        int percentNewSkipped = (newSkippedCount / count) * 100;
+
+
+        return getResultThresholdPercent(log, percentSkipped, percentNewSkipped);
     }
 
 }

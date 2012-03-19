@@ -49,10 +49,21 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
 
     private XUnitThreshold[] thresholds;
 
+    private String thresholdMode;
+
+    private static final String MODE_NUMBER = "NUMBER";
+    private static final String MODE_PERCENT = "PERCENT";
 
     public XUnitPublisher(TestType[] types, XUnitThreshold[] thresholds) {
         this.types = types;
         this.thresholds = thresholds;
+    }
+
+
+    public XUnitPublisher(TestType[] types, XUnitThreshold[] thresholds, String thresholdMode) {
+        this.types = types;
+        this.thresholds = thresholds;
+        this.thresholdMode = thresholdMode;
     }
 
     public TestType[] getTypes() {
@@ -61,6 +72,10 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
 
     public XUnitThreshold[] getThresholds() {
         return thresholds;
+    }
+
+    public String getThresholdMode() {
+        return thresholdMode;
     }
 
     @Override
@@ -333,7 +348,12 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
         if (thresholds != null) {
             for (XUnitThreshold threshold : thresholds) {
                 log.infoConsoleLogger(String.format("Check '%s' threshold.", threshold.getDescriptor().getDisplayName()));
-                Result result = threshold.getResultThreshold(log, build, testResultAction, previousTestResultAction);
+                Result result;
+                if (MODE_PERCENT.equals(thresholdMode)) {
+                    result = threshold.getResultThresholdPercent(log, build, testResultAction, previousTestResultAction);
+                } else {
+                    result = threshold.getResultThresholdNumber(log, build, testResultAction, previousTestResultAction);
+                }
                 if (result.isWorseThan(Result.SUCCESS)) {
                     return result;
                 }
@@ -416,7 +436,8 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
                     req, formData, "tools", getListXUnitTypeDescriptors());
             List<XUnitThreshold> thresholds = Descriptor.newInstancesFromHeteroList(
                     req, formData, "thresholds", getListXUnitThresholdDescriptors());
-            return new XUnitPublisher(types.toArray(new TestType[types.size()]), thresholds.toArray(new XUnitThreshold[thresholds.size()]));
+            String thresholdMode = formData.getString("thresholdMode");
+            return new XUnitPublisher(types.toArray(new TestType[types.size()]), thresholds.toArray(new XUnitThreshold[thresholds.size()]), thresholdMode);
         }
     }
 

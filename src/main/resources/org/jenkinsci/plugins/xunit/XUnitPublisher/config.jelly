@@ -14,6 +14,19 @@
         </j:if>
         <u:hetero-list-readonly name="thresholds" descriptors="${descriptor.listXUnitThresholdDescriptors}"
                                 items="${listXUnitThresholdInstance}"/>
+
+        <f:advanced>
+            <f:entry field="thresholdMode" title="${%Choose your threshold mode}">
+                <f:radio name="thresholdMode"
+                         value="NUMBER"
+                         checked="${instance.thresholdMode=='NUMBER' or h.defaultToTrue(instance.thresholdMode)}"/>
+                <label class="attach-previous">Use a number of tests</label>
+                <br/>
+                <f:radio name="thresholdMode" value="PERCENT" checked="${instance.thresholdMode=='PERCENT'}"/>
+                <label class="attach-previous">Use a percent of tests</label>
+            </f:entry>
+        </f:advanced>
+
     </f:block>
 
 </j:jelly>

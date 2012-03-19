@@ -20,17 +20,37 @@ public class FailedThreshold extends XUnitThreshold {
     }
 
     @Override
-    public Result getResultThreshold(XUnitLog log, AbstractBuild<?, ?> build, TestResultAction testResultAction, TestResultAction previousTestResultAction) {
+    public Result getResultThresholdNumber(XUnitLog log, AbstractBuild<?, ?> build, TestResultAction testResultAction, TestResultAction previousTestResultAction) {
 
-        int failCount = testResultAction.getFailCount();
+        int failedCount = testResultAction.getFailCount();
 
-        int previousFailCount = 0;
+        int previousFailedCount = 0;
         if (previousTestResultAction != null) {
-            previousFailCount = previousTestResultAction.getFailCount();
+            previousFailedCount = previousTestResultAction.getFailCount();
         }
-        int newFailCount = failCount - previousFailCount;
+        int newFailedCount = failedCount - previousFailedCount;
 
-        return getResultThreshold(log, failCount, newFailCount);
+
+        return getResultThresholdNumber(log, failedCount, newFailedCount);
+    }
+
+    @Override
+    public Result getResultThresholdPercent(XUnitLog log, AbstractBuild<?, ?> build, TestResultAction testResultAction, TestResultAction previousTestResultAction) {
+
+        int count = testResultAction.getTotalCount();
+
+        int failedCount = testResultAction.getFailCount();
+        int percentFailed = (failedCount / count) * 100;
+
+        int previousFailedCount = 0;
+        if (previousTestResultAction != null) {
+            previousFailedCount = previousTestResultAction.getFailCount();
+        }
+        int newFailedCount = failedCount - previousFailedCount;
+        int percentNewFailed = (newFailedCount / count) * 100;
+
+
+        return getResultThresholdPercent(log, percentFailed, percentNewFailed);
     }
 
 }
