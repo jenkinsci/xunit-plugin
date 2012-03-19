@@ -49,7 +49,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
 
     private XUnitThreshold[] thresholds;
 
-    private String thresholdMode;
+    private transient String thresholdMode;
 
     private static final String MODE_NUMBER = "NUMBER";
     private static final String MODE_PERCENT = "PERCENT";
@@ -58,7 +58,6 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
         this.types = types;
         this.thresholds = thresholds;
     }
-
 
     public XUnitPublisher(TestType[] types, XUnitThreshold[] thresholds, String thresholdMode) {
         this.types = types;
