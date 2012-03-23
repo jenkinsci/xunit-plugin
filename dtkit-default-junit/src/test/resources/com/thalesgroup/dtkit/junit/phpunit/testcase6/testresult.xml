@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="src/unit" tests="1" assertions="2" failures="0" errors="0"
+               time="0.032417">
+        <testsuite name="DbTest" file="src/unit/DbTest.php" tests="1" assertions="2" failures="0"
+                   errors="0" time="0.032417">
+            <testcase name="testConnection" class="DbTest" file="src/unit/DbTest.php" line="4"
+                      assertions="2" time="0.032417"/>
+        </testsuite>
+    </testsuite>
+</testsuites>
