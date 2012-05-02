@@ -99,8 +99,7 @@
     </xsl:template>
 
     <xsl:template match="Test">
-        <xsl:variable name="fullTestName"><xsl:value-of select="/ResultsSession/Exec/Summary/Projects/Project/@name"/>JUnitTestSuite
-        </xsl:variable>
+        <xsl:variable name="fullTestName"><xsl:value-of select="/ResultsSession/Exec/Summary/Projects/Project/@name"/>JUnitTestSuite</xsl:variable>
         <xsl:if test="@pass=1">
             <testcase name="{@name}" classname="{$fullTestName}" time="0"/>
         </xsl:if>
