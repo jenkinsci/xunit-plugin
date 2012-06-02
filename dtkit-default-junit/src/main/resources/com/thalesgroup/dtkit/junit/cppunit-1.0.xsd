@@ -24,6 +24,7 @@
 *******************************************************************************/
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
     <xs:element name="Errors">
         <xs:complexType mixed="true"/>
     </xs:element>
@@ -53,6 +54,14 @@
     </xs:element>
 
     <xs:element name="FailuresTotal">
+        <xs:complexType mixed="true"/>
+    </xs:element>
+
+    <xs:element name="TotalElapsedTime">
+        <xs:complexType mixed="true"/>
+    </xs:element>
+
+    <xs:element name="AverageTestCaseTime">
         <xs:complexType mixed="true"/>
     </xs:element>
 
@@ -92,6 +101,48 @@
                 <xs:element ref="FailuresTotal" minOccurs="1" maxOccurs="1"/>
                 <xs:element ref="Errors" minOccurs="1" maxOccurs="1"/>
                 <xs:element ref="Failures" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="TotalElapsedTime" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="AverageTestCaseTime" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="TestPath">
+        <xs:complexType mixed="true"/>
+    </xs:element>
+
+    <xs:element name="Time">
+        <xs:complexType mixed="true"/>
+    </xs:element>
+
+    <xs:element name="TimedTest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Name" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="TestPath" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="Time" minOccurs="1" maxOccurs="1"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:integer" />
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="TimedSuite">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:element ref="Name" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="TestPath" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="Time" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="TimedSuite" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element ref="TimedTest" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:integer" />
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="TimedTestTree">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:element ref="TimedSuite" minOccurs="1" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -107,7 +158,9 @@
     <xs:element name="Test">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="Name"/>
+                <xs:element ref="Name" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="TestPath" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="Time" minOccurs="0" maxOccurs="1"/>
             </xs:sequence>
             <xs:attribute name="id" type="xs:integer" use="optional"/>
         </xs:complexType>
@@ -136,6 +189,7 @@
                 <xs:element ref="FailedTests" minOccurs="0" maxOccurs="1"/>
                 <xs:element ref="SuccessfulTests" minOccurs="0" maxOccurs="1"/>
                 <xs:element ref="Statistics" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="TimedTestTree" minOccurs="0" maxOccurs="1"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
