@@ -63,8 +63,8 @@
     </dependencyManagement>
 
     <scm>
-        <connection>scm:svn:https://svn.jenkins-ci.org/tags/dtkit-default-junit-parent-0.31</connection>
-        <developerConnection>scm:svn:https://svn.jenkins-ci.org/tags/dtkit-default-junit-parent-0.31
+        <connection>scm:svn:https://svn.jenkins-ci.org/trunk/hudson/dtkit/dtkit-default/junit-output</connection>
+        <developerConnection>scm:svn:https://svn.jenkins-ci.org/trunk/hudson/dtkit/dtkit-default/junit-output
         </developerConnection>
     </scm>
 
