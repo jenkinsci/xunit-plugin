@@ -66,9 +66,6 @@
         <connection>scm:svn:https://svn.jenkins-ci.org/tags/dtkit-default-junit-parent-0.31</connection>
         <developerConnection>scm:svn:https://svn.jenkins-ci.org/tags/dtkit-default-junit-parent-0.31
         </developerConnection>
-        <url>
-            https://github.com/jenkinsci/pom/dtkit-metrics-parent/tags/dtkit-default-junit-parent-0.31
-        </url>
     </scm>
 
     <build>
