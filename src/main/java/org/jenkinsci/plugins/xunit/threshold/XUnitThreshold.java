@@ -77,7 +77,7 @@ public abstract class XUnitThreshold implements ExtensionPoint, Serializable, De
             return Result.FAILURE;
         }
 
-        if (isValid(getUnstableNewThreshold())
+        if (isValid(getFailureNewThreshold())
                 && (convertToInteger(getFailureNewThreshold()) < newTestCount)) {
             log.infoConsoleLogger("The new number of tests for this category exceeds the specified 'new failure' threshold value.");
             return Result.FAILURE;
