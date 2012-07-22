@@ -78,7 +78,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
 
 
     private Object readResolve() {
-        return new org.jenkinsci.plugins.xunit.XUnitPublisher(types, thresholds, null);
+        return new org.jenkinsci.plugins.xunit.XUnitPublisher(types, thresholds, 1);
     }
 }
 

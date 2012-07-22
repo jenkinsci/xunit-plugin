@@ -49,17 +49,17 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
 
     private XUnitThreshold[] thresholds;
 
-    private transient String thresholdMode;
+    private int thresholdMode;
 
-    private static final String MODE_NUMBER = "NUMBER";
-    private static final String MODE_PERCENT = "PERCENT";
+    private static final int MODE_NUMBER = 1;
+    private static final int MODE_PERCENT = 2;
 
     public XUnitPublisher(TestType[] types, XUnitThreshold[] thresholds) {
         this.types = types;
         this.thresholds = thresholds;
     }
 
-    public XUnitPublisher(TestType[] types, XUnitThreshold[] thresholds, String thresholdMode) {
+    public XUnitPublisher(TestType[] types, XUnitThreshold[] thresholds, int thresholdMode) {
         this.types = types;
         this.thresholds = thresholds;
         this.thresholdMode = thresholdMode;
@@ -73,7 +73,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
         return thresholds;
     }
 
-    public String getThresholdMode() {
+    public int getThresholdMode() {
         return thresholdMode;
     }
 
@@ -348,7 +348,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
             for (XUnitThreshold threshold : thresholds) {
                 log.infoConsoleLogger(String.format("Check '%s' threshold.", threshold.getDescriptor().getDisplayName()));
                 Result result;
-                if (MODE_PERCENT.equals(thresholdMode)) {
+                if (MODE_PERCENT == thresholdMode) {
                     result = threshold.getResultThresholdPercent(log, build, testResultAction, previousTestResultAction);
                 } else {
                     result = threshold.getResultThresholdNumber(log, build, testResultAction, previousTestResultAction);
@@ -435,7 +435,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
                     req, formData, "tools", getListXUnitTypeDescriptors());
             List<XUnitThreshold> thresholds = Descriptor.newInstancesFromHeteroList(
                     req, formData, "thresholds", getListXUnitThresholdDescriptors());
-            String thresholdMode = formData.getString("thresholdMode");
+            int thresholdMode = formData.getInt("thresholdMode");
             return new XUnitPublisher(types.toArray(new TestType[types.size()]), thresholds.toArray(new XUnitThreshold[thresholds.size()]), thresholdMode);
         }
     }

@@ -21,7 +21,6 @@ public abstract class XUnitThreshold implements ExtensionPoint, Serializable, De
 
     private String failureNewThreshold;
 
-
     protected XUnitThreshold() {
     }
 

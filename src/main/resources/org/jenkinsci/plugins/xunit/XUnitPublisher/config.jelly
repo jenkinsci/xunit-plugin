@@ -18,11 +18,11 @@
         <f:advanced>
             <f:entry field="thresholdMode" title="${%Choose your threshold mode}">
                 <f:radio name="thresholdMode"
-                         value="NUMBER"
-                         checked="${instance.thresholdMode=='NUMBER' or h.defaultToTrue(instance.thresholdMode)}"/>
+                         value="1"
+                         checked="${instance.thresholdMode==1 or h.defaultToTrue(instance.thresholdMode)}"/>
                 <label class="attach-previous">Use a number of tests</label>
                 <br/>
-                <f:radio name="thresholdMode" value="PERCENT" checked="${instance.thresholdMode=='PERCENT'}"/>
+                <f:radio name="thresholdMode" value="2" checked="${instance.thresholdMode==2}"/>
                 <label class="attach-previous">Use a percent of tests</label>
             </f:entry>
         </f:advanced>
