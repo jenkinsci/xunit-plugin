@@ -1,13 +1,11 @@
-<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler"
-         xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson"
-         xmlns:f="/lib/form" xmlns:u="/util">
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form">
 
     <f:entry title="${descriptor.displayName}" description="${descriptor.thresholdHelpMessage}">
         <table>
             <thead>
                 <tr>
                     <td width="80" style="vertical-align:middle">
-                         ${%Build Status}
+                        ${%Build Status}
                     </td>
                     <td width="80">
                         <img src="${rootURL}/images/16x16/yellow.gif"
@@ -40,16 +38,16 @@
                 <tr>
                     <td width="80" style="vertical-align:middle">${%Thresholds:}</td>
                     <td>
-                        <f:textbox field="unstableThreshold" />
+                        <f:textbox field="unstableThreshold"/>
                     </td>
                     <td>
                         <f:textbox field="unstableNewThreshold"/>
                     </td>
                     <td>
-                        <f:textbox field="failureThreshold" />
+                        <f:textbox field="failureThreshold"/>
                     </td>
                     <td>
-                        <f:textbox field="failureNewThreshold" />
+                        <f:textbox field="failureNewThreshold"/>
                     </td>
                 </tr>
             </tbody>
