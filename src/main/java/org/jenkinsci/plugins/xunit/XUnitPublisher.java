@@ -20,6 +20,7 @@ import hudson.tasks.junit.JUnitResultArchiver;
 import hudson.tasks.junit.TestResult;
 import hudson.tasks.junit.TestResultAction;
 import hudson.tasks.test.TestResultProjectAction;
+import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
 import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
@@ -435,7 +436,13 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
                     req, formData, "tools", getListXUnitTypeDescriptors());
             List<XUnitThreshold> thresholds = Descriptor.newInstancesFromHeteroList(
                     req, formData, "thresholds", getListXUnitThresholdDescriptors());
-            int thresholdMode = formData.getInt("thresholdMode");
+            int thresholdMode = 0;
+            try{
+                thresholdMode = formData.getInt("thresholdMode");
+            }
+            catch (JSONException e){
+                //ignore
+            }
             return new XUnitPublisher(types.toArray(new TestType[types.size()]), thresholds.toArray(new XUnitThreshold[thresholds.size()]), thresholdMode);
         }
     }
