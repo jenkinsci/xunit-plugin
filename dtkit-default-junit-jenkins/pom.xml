@@ -19,7 +19,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.thalesgroup.dtkit</groupId>
+            <groupId>org.jenkins-ci.lib.dtkit</groupId>
             <artifactId>dtkit-metrics-hudson-api</artifactId>
         </dependency>
 
