@@ -43,7 +43,7 @@ public class NUnitType extends XUnitType {
      * @return an new hudson object
      */
     public Object readResolve() {
-        return new NUnitHudsonTestType(this.getPattern(), this.isFaildedIfNotNew(), this.isDeleteJUnitFiles());
+        return new NUnitHudsonTestType(this.getPattern(), this.isFailIfNotNew(), this.isDeleteJUnitFiles());
     }
 
 }

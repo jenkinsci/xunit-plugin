@@ -43,7 +43,7 @@ public class BoostTestType extends XUnitType {
      * @return an new hudson object
      */
     public Object readResolve() {
-        return new BoostTestHudsonTestType(this.getPattern(), this.isFaildedIfNotNew(), this.isDeleteJUnitFiles());
+        return new BoostTestHudsonTestType(this.getPattern(), this.isFailIfNotNew(), this.isDeleteJUnitFiles());
     }
 
 }

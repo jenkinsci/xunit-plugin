@@ -17,7 +17,7 @@ public class CheckInputMetric extends InputMetricXSL {
 
     @Override
     public String getToolVersion() {
-        return "N/A";
+        return "Version N/A";
     }
 
     @Override

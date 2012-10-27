@@ -14,14 +14,14 @@ import org.kohsuke.stapler.DataBoundConstructor;
 public class JUnitType extends TestType {
 
     @DataBoundConstructor
-    public JUnitType(String pattern, boolean faildedIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
-        super(pattern, faildedIfNotNew, deleteOutputFiles, stopProcessingIfError);
+    public JUnitType(String pattern, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
+        super(pattern, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
     }
 
     @Extension
-    public static class JUnitInputMetricDescriptor extends TestTypeDescriptor<JUnitType> {
+    public static class JUnitTypeDescriptor extends TestTypeDescriptor<JUnitType> {
 
-        public JUnitInputMetricDescriptor() {
+        public JUnitTypeDescriptor() {
             super(JUnitType.class, null);
         }
 

@@ -44,6 +44,6 @@ public class UnitTestType extends XUnitType {
      * @return an new hudson object
      */
     public Object readResolve() {
-        return new UnitTestHudsonTestType(this.getPattern(), this.isFaildedIfNotNew(), this.isDeleteJUnitFiles());
+        return new UnitTestHudsonTestType(this.getPattern(), this.isFailIfNotNew(), this.isDeleteJUnitFiles());
     }
 }

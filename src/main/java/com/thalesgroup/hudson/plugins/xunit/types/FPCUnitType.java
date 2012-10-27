@@ -43,6 +43,6 @@ public class FPCUnitType extends XUnitType {
      * @return an new hudson object
      */
     public Object readResolve() {
-        return new FPCUnitHudsonTestType(this.getPattern(), this.isFaildedIfNotNew(), this.isDeleteJUnitFiles());
+        return new FPCUnitHudsonTestType(this.getPattern(), this.isFailIfNotNew(), this.isDeleteJUnitFiles());
     }
 }

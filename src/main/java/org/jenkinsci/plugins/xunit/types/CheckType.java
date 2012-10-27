@@ -14,14 +14,14 @@ import org.kohsuke.stapler.DataBoundConstructor;
 public class CheckType extends TestType {
 
     @DataBoundConstructor
-    public CheckType(String pattern, boolean faildedIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
-        super(pattern, faildedIfNotNew, deleteOutputFiles, stopProcessingIfError);
+    public CheckType(String pattern, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
+        super(pattern, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
     }
 
     @Extension
-    public static class CheckInputMetricDescriptor extends TestTypeDescriptor<CheckType> {
+    public static class CheckTypeDescriptor extends TestTypeDescriptor<CheckType> {
 
-        public CheckInputMetricDescriptor() {
+        public CheckTypeDescriptor() {
             super(CheckType.class, null);
         }
 

@@ -43,7 +43,7 @@ public class PHPUnitType extends XUnitType {
      * @return an new hudson object
      */
     public Object readResolve() {
-        return new PHPUnitHudsonTestType(this.getPattern(), this.isFaildedIfNotNew(), this.isDeleteJUnitFiles());
+        return new PHPUnitHudsonTestType(this.getPattern(), this.isFailIfNotNew(), this.isDeleteJUnitFiles());
     }
 
 }
