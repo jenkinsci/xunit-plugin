@@ -34,12 +34,12 @@ public abstract class XUnitType extends TestType {
     @SuppressWarnings("unused")
     private transient boolean deleteJUnitFiles;
 
-    protected XUnitType(String pattern, boolean faildedIfNotNew, boolean deleteOutputFiles) {
-        super(pattern, faildedIfNotNew, deleteOutputFiles);
+    protected XUnitType(String pattern, boolean failIfNotNew, boolean deleteOutputFiles) {
+        super(pattern, failIfNotNew, deleteOutputFiles);
     }
 
-    protected XUnitType(String pattern, boolean faildedIfNotNew, boolean deleteOutputFiles, boolean isStopProcessingIfError) {
-        super(pattern, faildedIfNotNew, deleteOutputFiles, isStopProcessingIfError);
+    protected XUnitType(String pattern, boolean failIfNotNew, boolean deleteOutputFiles, boolean isStopProcessingIfError) {
+        super(pattern, failIfNotNew, deleteOutputFiles, isStopProcessingIfError);
     }
 
     @SuppressWarnings("unused")
