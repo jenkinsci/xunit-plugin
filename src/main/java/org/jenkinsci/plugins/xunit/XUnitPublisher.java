@@ -192,7 +192,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
                 new FilePath(new File(Hudson.getInstance().getRootDir(), "userContent")),
                 tool.getInputMetric(),
                 expandedPattern,
-                tool.isFaildedIfNotNew(),
+                tool.isFailIfNotNew(),
                 tool.isDeleteOutputFiles(), tool.isStopProcessingIfError(),
                 build.getTimeInMillis(),
                 (tool instanceof CustomType) ? getWorkspace(build).child(((CustomType) tool).getCustomXSL()) : null);
