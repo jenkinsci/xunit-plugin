@@ -5,7 +5,7 @@ import org.junit.Test;
 /**
  * @author Gregory Boissinot
  */
-public class QTestLibTypeTest extends AbstractTest {
+public class QTestlibTypeTest extends AbstractTest {
 
     @Test
     public void testTestCase1() throws Exception {
