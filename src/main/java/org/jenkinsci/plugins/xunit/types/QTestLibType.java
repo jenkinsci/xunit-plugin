@@ -33,7 +33,7 @@ public class QTestLibType extends TestType {
         @Override
         public InputMetric getInputMetric() {
             try {
-                return InputMetricFactory.getInstance(CheckInputMetric.class);
+                return InputMetricFactory.getInstance(QTestLibInputMetric.class);
             } catch (InputMetricException e) {
                 throw new RuntimeException("Can't create the inputMetric object for the class " + CheckInputMetric.class);
             }
