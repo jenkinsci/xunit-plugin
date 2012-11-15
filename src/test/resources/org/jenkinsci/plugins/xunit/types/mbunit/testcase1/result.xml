@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+   <testsuite skipped="0" failures="2" errors="" time="0.007" tests="4"
+              name="Sample.SampleTests">
+      <testcase classname="SampleTests" name="SampleTests.PassingTest" time="0.005"/>
+      <testcase classname="SampleTests" name="SampleTests.FailingTest" time="0.001">
+         <failure type="MbUnit.Core.Exceptions.NotEqualAssertionException"
+                  message="Equal assertion failed: [[0]]!=[[1]]">at MbUnit.Framework.Assert.FailNotEquals(Object expected, Object
+                                            actual, String format, Object[] args)
+                                            at MbUnit.Framework.Assert.AreEqual(Int32 expected, Int32 actual, String
+                                            message)
+                                            at MbUnit.Framework.Assert.AreEqual(Int32 expected, Int32 actual)
+                                            at Sample.SampleTests.FailingTest() in c:\SampleTests\SampleTests.cs:line 22
+                                        </failure>
+      </testcase>
+      <testcase classname="SampleTests" name="SampleTests.RowTest(1)" time="0.001">
+         <failure type="MbUnit.Core.Exceptions.NotEqualAssertionException"
+                  message="Equal assertion failed: [[0]]!=[[1]]">at MbUnit.Framework.Assert.FailNotEquals(Object expected, Object
+                                            actual, String format, Object[] args)
+                                            at MbUnit.Framework.Assert.AreEqual(Int32 expected, Int32 actual, String
+                                            message)
+                                            at MbUnit.Framework.Assert.AreEqual(Int32 expected, Int32 actual)
+                                            at Sample.SampleTests.RowTest(Int32 data) in
+                                            c:\SampleTests\SampleTests.cs:line 30
+                                        </failure>
+      </testcase>
+      <testcase classname="SampleTests" name="SampleTests.RowTest(0)" time="0"/>
+   </testsuite>
+</testsuites>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<report-result xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+               date="2012-11-13T15:05:58.9922051-08:00">
+    <counter duration="0.007" run-count="4" success-count="2" failure-count="2" ignore-count="0" skip-count="0"
+             assert-count="4"/>
+    <assemblies>
+        <assembly name="Sample.Tests" location="file:///C:/SampleTests.EXE"
+                  full-name="Sample.Tests, Version=4.90.0.0, Culture=neutral, PublicKeyToken=null">
+            <counter duration="0.007" run-count="4" success-count="2" failure-count="2" ignore-count="0" skip-count="0"
+                     assert-count="4"/>
+            <version major="4" minor="90" build="0" revision="0"/>
+            <namespaces>
+                <namespace name="Sample">
+                    <counter duration="0.007" run-count="4" success-count="2" failure-count="2" ignore-count="0"
+                             skip-count="0" assert-count="4"/>
+                    <namespaces/>
+                    <fixtures>
+                        <fixture name="SampleTests" type="Sample.SampleTests">
+                            <counter duration="0.007" run-count="4" success-count="2" failure-count="2" ignore-count="0"
+                                     skip-count="0" assert-count="4"/>
+                            <description/>
+                            <runs>
+                                <run name="SampleTests.PassingTest" result="success" assert-count="1" duration="0.005"
+                                     memory="8192">
+                                    <invokers/>
+                                    <warnings/>
+                                    <asserts/>
+                                    <Description/>
+                                    <console-out/>
+                                    <console-error/>
+                                </run>
+                                <run name="SampleTests.FailingTest" result="failure" assert-count="1" duration="0.001"
+                                     memory="16384">
+                                    <invokers/>
+                                    <warnings/>
+                                    <asserts/>
+                                    <Description/>
+                                    <console-out/>
+                                    <console-error/>
+                                    <exception type="MbUnit.Core.Exceptions.NotEqualAssertionException">
+                                        <properties>
+                                            <property name="TargetSite"
+                                                      value="Void FailNotEquals(System.Object, System.Object, System.String, System.Object[])"/>
+                                            <property name="HelpLink" value="null"/>
+                                            <property name="HResult" value="-2146232832"/>
+                                        </properties>
+                                        <message>Equal assertion failed: [[0]]!=[[1]]</message>
+                                        <source>MbUnit.Framework</source>
+                                        <stack-trace>at MbUnit.Framework.Assert.FailNotEquals(Object expected, Object
+                                            actual, String format, Object[] args)
+                                            at MbUnit.Framework.Assert.AreEqual(Int32 expected, Int32 actual, String
+                                            message)
+                                            at MbUnit.Framework.Assert.AreEqual(Int32 expected, Int32 actual)
+                                            at Sample.SampleTests.FailingTest() in c:\SampleTests\SampleTests.cs:line 22
+                                        </stack-trace>
+                                    </exception>
+                                </run>
+                                <run name="SampleTests.RowTest(1)" result="failure" assert-count="1" duration="0.001"
+                                     memory="8192">
+                                    <invokers/>
+                                    <warnings/>
+                                    <asserts/>
+                                    <Description/>
+                                    <console-out/>
+                                    <console-error/>
+                                    <exception type="MbUnit.Core.Exceptions.NotEqualAssertionException">
+                                        <properties>
+                                            <property name="TargetSite"
+                                                      value="Void FailNotEquals(System.Object, System.Object, System.String, System.Object[])"/>
+                                            <property name="HelpLink" value="null"/>
+                                            <property name="HResult" value="-2146232832"/>
+                                        </properties>
+                                        <message>Equal assertion failed: [[0]]!=[[1]]</message>
+                                        <source>MbUnit.Framework</source>
+                                        <stack-trace>at MbUnit.Framework.Assert.FailNotEquals(Object expected, Object
+                                            actual, String format, Object[] args)
+                                            at MbUnit.Framework.Assert.AreEqual(Int32 expected, Int32 actual, String
+                                            message)
+                                            at MbUnit.Framework.Assert.AreEqual(Int32 expected, Int32 actual)
+                                            at Sample.SampleTests.RowTest(Int32 data) in
+                                            c:\SampleTests\SampleTests.cs:line 30
+                                        </stack-trace>
+                                    </exception>
+                                </run>
+                                <run name="SampleTests.RowTest(0)" result="success" assert-count="1" duration="0"
+                                     memory="0">
+                                    <invokers/>
+                                    <warnings/>
+                                    <asserts/>
+                                    <Description/>
+                                    <console-out/>
+                                    <console-error/>
+                                </run>
+                            </runs>
+                        </fixture>
+                    </fixtures>
+                </namespace>
+            </namespaces>
+        </assembly>
+    </assemblies>
+</report-result>
