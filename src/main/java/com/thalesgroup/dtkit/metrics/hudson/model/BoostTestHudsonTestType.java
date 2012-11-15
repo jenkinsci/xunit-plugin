@@ -38,6 +38,6 @@ public class BoostTestHudsonTestType extends TestType {
     }
 
     public Object readResolve() {
-        return new BoostTestJunitHudsonTestType(this.getPattern(), this.isFaildedIfNotNew(), this.isDeleteOutputFiles(), this.isStopProcessingIfError());
+        return new BoostTestJunitHudsonTestType(this.getPattern(), this.isFailIfNotNew(), this.isDeleteOutputFiles(), this.isStopProcessingIfError());
     }
 }

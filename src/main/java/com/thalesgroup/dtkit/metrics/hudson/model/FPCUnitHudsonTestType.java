@@ -38,7 +38,7 @@ public class FPCUnitHudsonTestType extends TestType {
     }
 
     public Object readResolve() {
-        return new FPCUnitJunitHudsonTestType(this.getPattern(), this.isFaildedIfNotNew(), this.isDeleteOutputFiles(), this.isStopProcessingIfError());
+        return new FPCUnitJunitHudsonTestType(this.getPattern(), this.isFailIfNotNew(), this.isDeleteOutputFiles(), this.isStopProcessingIfError());
     }
 
 }
