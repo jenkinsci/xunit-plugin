@@ -38,8 +38,8 @@
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
         <dtkit.frmk.version>0.17</dtkit.frmk.version>
-        <dtkit.junit.format>0.16.1</dtkit.junit.format>
-        <dtkit.default.junit.version>0.32</dtkit.default.junit.version>
+        <dtkit.junit.format>0.17</dtkit.junit.format>
+        <dtkit.default.junit.version>0.33</dtkit.default.junit.version>
         <xerces.version>2.9.1</xerces.version>
         <guice.version>2.0.1</guice.version>
         <saxon.version>9.1.0.8</saxon.version>
@@ -106,7 +106,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.thalesgroup.dtkit</groupId>
+            <groupId>org.jenkins-ci.lib.dtkit</groupId>
             <artifactId>dtkit-junit-model</artifactId>
             <version>${dtkit.junit.format}</version>
             <exclusions>
