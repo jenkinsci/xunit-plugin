@@ -67,6 +67,6 @@ public class NUnit extends InputMetricXSL {
     }
 
     public OutputMetric getOutputFormatType() {
-        return JUnitModel.OUTPUT_JUNIT_2;
+        return JUnitModel.OUTPUT_JUNIT_5;
     }
 }

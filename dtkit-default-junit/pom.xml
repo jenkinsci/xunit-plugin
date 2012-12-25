@@ -13,7 +13,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.thalesgroup.dtkit</groupId>
+            <groupId>org.jenkins-ci.lib.dtkit</groupId>
             <artifactId>dtkit-junit-model</artifactId>
         </dependency>
 
