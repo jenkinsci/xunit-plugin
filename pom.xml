@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>1.410</version>
+        <version>1.499</version>
     </parent>
 
     <artifactId>xunit</artifactId>
@@ -51,21 +51,17 @@
 
     <repositories>
         <repository>
-            <id>guice-maven</id>
-            <name>guice maven</name>
-            <url>http://guice-maven.googlecode.com/svn/trunk</url>
-        </repository>
-        <repository>
-            <id>jenkins-release-repo</id>
-            <url>http://maven.jenkins-ci.org:8081/content/groups/artifacts/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
+            <id>repo.jenkins-ci.org</id>
+            <url>http://repo.jenkins-ci.org/public/</url>
         </repository>
     </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>repo.jenkins-ci.org</id>
+            <url>http://repo.jenkins-ci.org/public/</url>
+        </pluginRepository>
+    </pluginRepositories>
 
     <dependencies>
 
