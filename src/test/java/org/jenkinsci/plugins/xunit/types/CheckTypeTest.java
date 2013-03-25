@@ -16,4 +16,9 @@ public class CheckTypeTest extends AbstractTest {
     public void testTestCase2() throws Exception {
         convertAndValidate(CheckInputMetric.class, "check/testcase2/input.xml", "check/testcase2/result.xml");
     }
+
+        @Test
+    public void testTestCase3() throws Exception {
+        convertAndValidate(CheckInputMetric.class, "check/testcase3/input.xml", "check/testcase3/result.xml");
+    }
 }

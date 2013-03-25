@@ -1,0 +1,15 @@
+<testsuites xmlns="http://check.sourceforge.net/ns">
+  <datetime>2013-02-26 16:42:55</datetime>
+  <suite>
+    <title>Money</title>
+    <test result="success">
+      <path>.</path>
+      <fn>check_money.c:11</fn>
+      <id>test_money_create</id>
+      <iteration>0</iteration>
+      <description>Core</description>
+      <message>Passed</message>
+    </test>
+  </suite>
+  <duration>0.000000</duration>
+</testsuites>
