@@ -288,7 +288,10 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
 
                 public TestResult invoke(File ws, VirtualChannel channel) throws IOException {
                     final long nowSlave = System.currentTimeMillis();
-                    FileSet fs = Util.createFileSet(new File(ws, GENERATED_JUNIT_DIR), junitFilePattern);
+                    File generatedJunitDir = new File(ws, GENERATED_JUNIT_DIR);
+                    //Try to create the file if it was deleted or something was wrong
+                    generatedJunitDir.mkdirs();
+                    FileSet fs = Util.createFileSet(generatedJunitDir, junitFilePattern);
                     DirectoryScanner ds = fs.getDirectoryScanner();
                     String[] files = ds.getIncludedFiles();
 
