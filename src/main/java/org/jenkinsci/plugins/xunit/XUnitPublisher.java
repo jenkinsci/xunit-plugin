@@ -166,7 +166,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
             xUnitLog.infoConsoleLogger("Processing " + tool.getDescriptor().getDisplayName());
             if (!isEmptyGivenPattern(xUnitReportService, tool)) {
                 String expandedPattern = getExpandedResolvedPattern(tool, build, listener);
-                XUnitToolInfo xUnitToolInfo = getXUnitToolInfoObject(tool, expandedPattern, build);
+                XUnitToolInfo xUnitToolInfo = getXUnitToolInfoObject(tool, expandedPattern, build, listener));
                 XUnitTransformer xUnitTransformer = getXUnitTransformerObject(xUnitToolInfo, listener);
                 boolean resultTransformation = getWorkspace(build).act(xUnitTransformer);
                 if (!resultTransformation) {
@@ -187,7 +187,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
         return Util.replaceMacro(newExpandedPattern, build.getEnvironment(listener));
     }
 
-    private XUnitToolInfo getXUnitToolInfoObject(TestType tool, String expandedPattern, AbstractBuild build) {
+private XUnitToolInfo getXUnitToolInfoObject(TestType tool, String expandedPattern, AbstractBuild build, BuildListener listener) {
         return new XUnitToolInfo(
                 new FilePath(new File(Hudson.getInstance().getRootDir(), "userContent")),
                 tool.getInputMetric(),
@@ -195,7 +195,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
                 tool.isFailIfNotNew(),
                 tool.isDeleteOutputFiles(), tool.isStopProcessingIfError(),
                 build.getTimeInMillis(),
-                (tool instanceof CustomType) ? getWorkspace(build).child(((CustomType) tool).getCustomXSL()) : null);
+                (tool instanceof CustomType) ? getWorkspace(build).child(  Util.replaceMacro( ((CustomType) tool).getCustomXSL() , build.getEnvironment(listener)) ) : null);    			
     }
 
     private FilePath getWorkspace(AbstractBuild build) {
