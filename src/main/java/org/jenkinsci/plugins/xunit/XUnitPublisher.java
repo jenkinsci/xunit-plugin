@@ -166,7 +166,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
             xUnitLog.infoConsoleLogger("Processing " + tool.getDescriptor().getDisplayName());
             if (!isEmptyGivenPattern(xUnitReportService, tool)) {
                 String expandedPattern = getExpandedResolvedPattern(tool, build, listener);
-                XUnitToolInfo xUnitToolInfo = getXUnitToolInfoObject(tool, expandedPattern, build, listener));
+                XUnitToolInfo xUnitToolInfo = getXUnitToolInfoObject(tool, expandedPattern, build, listener);
                 XUnitTransformer xUnitTransformer = getXUnitTransformerObject(xUnitToolInfo, listener);
                 boolean resultTransformation = getWorkspace(build).act(xUnitTransformer);
                 if (!resultTransformation) {
