@@ -187,7 +187,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
         return Util.replaceMacro(newExpandedPattern, build.getEnvironment(listener));
     }
 
-private XUnitToolInfo getXUnitToolInfoObject(TestType tool, String expandedPattern, AbstractBuild build, BuildListener listener) {
+private XUnitToolInfo getXUnitToolInfoObject(TestType tool, String expandedPattern, AbstractBuild build, BuildListener listener) throws IOException {
         return new XUnitToolInfo(
                 new FilePath(new File(Hudson.getInstance().getRootDir(), "userContent")),
                 tool.getInputMetric(),
