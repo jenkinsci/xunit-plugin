@@ -14,8 +14,8 @@ import org.kohsuke.stapler.DataBoundConstructor;
 public class MbUnitType extends TestType {
 
     @DataBoundConstructor
-    public MbUnitType(String pattern, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
-        super(pattern, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
+    public MbUnitType(String pattern, boolean ignoreNoResultFiles, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
+        super(pattern, failIfNotNew, ignoreNoResultFiles, deleteOutputFiles, stopProcessingIfError);
     }
 
     @Extension

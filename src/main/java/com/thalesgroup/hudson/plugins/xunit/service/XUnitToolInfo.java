@@ -37,6 +37,8 @@ public class XUnitToolInfo implements Serializable {
 
     private final String expandedPattern;
 
+    private final boolean skipNoTestFiles;
+
     private final boolean failIfNotNew;
 
     private final boolean deleteOutputFiles;
@@ -47,10 +49,11 @@ public class XUnitToolInfo implements Serializable {
 
     private FilePath cusXSLFile;
 
-    public XUnitToolInfo(FilePath userContentRoot, InputMetric inputMetric, String expandedPattern, Boolean failIfNotNew, Boolean deleteOutputFiles, Boolean stopProcessingIfError, long buildTime, FilePath cusXSLFile) {
+    public XUnitToolInfo(FilePath userContentRoot, InputMetric inputMetric, String expandedPattern, Boolean skipNoTestFiles, Boolean failIfNotNew, Boolean deleteOutputFiles, Boolean stopProcessingIfError, long buildTime, FilePath cusXSLFile) {
         this.userContentRoot = userContentRoot;
         this.inputMetric = inputMetric;
         this.expandedPattern = expandedPattern;
+        this.skipNoTestFiles = skipNoTestFiles;
         this.failIfNotNew = failIfNotNew;
         this.deleteOutputFiles = deleteOutputFiles;
         this.stopProcessingIfError = stopProcessingIfError;
@@ -72,6 +75,10 @@ public class XUnitToolInfo implements Serializable {
 
     public long getBuildTime() {
         return buildTime;
+    }
+
+    public boolean isSkipNoTestFiles() {
+        return skipNoTestFiles;
     }
 
     public boolean isFailIfNotNew() {

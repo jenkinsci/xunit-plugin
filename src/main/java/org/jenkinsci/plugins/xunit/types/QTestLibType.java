@@ -14,8 +14,8 @@ import org.kohsuke.stapler.DataBoundConstructor;
 public class QTestLibType extends TestType {
 
     @DataBoundConstructor
-    public QTestLibType(String pattern, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
-        super(pattern, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
+    public QTestLibType(String pattern, boolean ignoreNoResultFiles, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
+        super(pattern, failIfNotNew, ignoreNoResultFiles, deleteOutputFiles, stopProcessingIfError);
     }
 
     @Extension

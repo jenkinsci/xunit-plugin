@@ -1,28 +1,4 @@
-<!--
-/*******************************************************************************
-* Copyright (c) 2011 Thales Corporate Services SAS                             *
-* Author : Gregory Boissinot                                                   *
-*                                                                              *
-* Permission is hereby granted, free of charge, to any person obtaining a copy *
-* of this software and associated documentation files (the "Software"), to deal*
-* in the Software without restriction, including without limitation the rights *
-* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell    *
-* copies of the Software, and to permit persons to whom the Software is        *
-* furnished to do so, subject to the following conditions:                     *
-*                                                                              *
-* The above copyright notice and this permission notice shall be included in   *
-* all copies or substantial portions of the Software.                          *
-*                                                                              *
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR   *
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,     *
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE  *
-* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER       *
-* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,*
-* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN    *
-* THE SOFTWARE.                                                                *
-*******************************************************************************/
--->
-<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form">
 
    <f:entry title="${descriptor.displayName}">
 
@@ -41,6 +17,12 @@
             </tr>
             <tr>
                  <td width="100%" style="${td}" colspan="2">
+                     <label>Skip if there are no test files</label>
+                     <f:checkbox field="skipNoTestFiles" checked="${instance.skipNoTestFiles}"/>
+                  </td>
+            </tr>
+            <tr>
+                 <td width="100%" style="${td}" colspan="2">
                      <label>Fail the build if test results were not updated this run</label>
                      <f:checkbox field="failIfNotNew" checked="${h.defaultToTrue(instance.failIfNotNew)}"/>
                   </td>
@@ -53,7 +35,7 @@
             </tr>
             <tr>
                  <td width="100%" style="${td}" colspan="2">
-                     <label>Stop and set the build to 'failed' status if there are errors when processing a result file</label>
+                     <label>Stop and set the build status to 'failed' if there are errors when processing a result file</label>
                      <f:checkbox field="stopProcessingIfError" checked="${h.defaultToTrue(instance.stopProcessingIfError)}"/>
                   </td>
             </tr>
@@ -65,6 +47,12 @@
                      <label>Pattern</label>
                      <f:textbox field="pattern"/>
                  </td>
+            </tr>
+            <tr>
+                 <td width="100%" style="${td}" colspan="2">
+                     <label>Skip if there are no test files</label>
+                     <f:checkbox field="skipNoTestFiles" checked="${instance.skipNoTestFiles}"/>
+                  </td>
             </tr>
             <tr>
                  <td width="100%" style="${td}">

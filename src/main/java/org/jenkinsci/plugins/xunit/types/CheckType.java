@@ -14,8 +14,8 @@ import org.kohsuke.stapler.DataBoundConstructor;
 public class CheckType extends TestType {
 
     @DataBoundConstructor
-    public CheckType(String pattern, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
-        super(pattern, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
+    public CheckType(String pattern, boolean ignoreNoResultFiles, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
+        super(pattern, failIfNotNew, ignoreNoResultFiles, deleteOutputFiles, stopProcessingIfError);
     }
 
     @Extension

@@ -38,7 +38,7 @@ public class CppUnitHudsonTestType extends TestType {
     }
 
     public Object readResolve() {
-        return new CppUnitJunitHudsonTestType(this.getPattern(), this.isFailIfNotNew(), this.isDeleteOutputFiles(), this.isStopProcessingIfError());
+        return new CppUnitJunitHudsonTestType(this.getPattern(), false, this.isFailIfNotNew(), this.isDeleteOutputFiles(), this.isStopProcessingIfError());
     }
 }
 

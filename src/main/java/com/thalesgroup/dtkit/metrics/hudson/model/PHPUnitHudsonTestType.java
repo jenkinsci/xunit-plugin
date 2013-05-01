@@ -38,7 +38,7 @@ public class PHPUnitHudsonTestType extends TestType {
     }
 
     public Object readResolve() {
-        return new PHPUnitJunitHudsonTestType(this.getPattern(), this.isFailIfNotNew(), this.isDeleteOutputFiles(), this.isStopProcessingIfError());
+        return new PHPUnitJunitHudsonTestType(this.getPattern(), false, this.isFailIfNotNew(), this.isDeleteOutputFiles(), this.isStopProcessingIfError());
     }
 
 }

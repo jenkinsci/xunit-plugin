@@ -38,6 +38,6 @@ public class AUnitHudsonTestType extends TestType {
     }
 
     public Object readResolve() {
-        return new AUnitJunitHudsonTestType(this.getPattern(), this.isFailIfNotNew(), this.isDeleteOutputFiles(), this.isStopProcessingIfError());
+        return new AUnitJunitHudsonTestType(this.getPattern(), false, this.isFailIfNotNew(), this.isDeleteOutputFiles(), this.isStopProcessingIfError());
     }
 }

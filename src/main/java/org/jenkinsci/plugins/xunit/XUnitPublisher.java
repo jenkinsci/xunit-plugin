@@ -192,6 +192,7 @@ private XUnitToolInfo getXUnitToolInfoObject(TestType tool, String expandedPatte
                 new FilePath(new File(Hudson.getInstance().getRootDir(), "userContent")),
                 tool.getInputMetric(),
                 expandedPattern,
+                tool.isSkipNoTestFiles(),
                 tool.isFailIfNotNew(),
                 tool.isDeleteOutputFiles(), tool.isStopProcessingIfError(),
                 build.getTimeInMillis(),

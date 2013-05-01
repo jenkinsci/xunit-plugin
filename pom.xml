@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>1.410</version>
+        <version>1.447</version>
     </parent>
 
     <artifactId>xunit</artifactId>
@@ -37,9 +37,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
-        <dtkit.frmk.version>0.17</dtkit.frmk.version>
+        <dtkit.frmk.version>0.19-SNAPSHOT</dtkit.frmk.version>
         <dtkit.junit.format>0.17</dtkit.junit.format>
-        <dtkit.default.junit.version>0.33</dtkit.default.junit.version>
+        <dtkit.default.junit.version>0.34</dtkit.default.junit.version>
         <xerces.version>2.9.1</xerces.version>
         <guice.version>2.0.1</guice.version>
         <saxon.version>9.1.0.8</saxon.version>
