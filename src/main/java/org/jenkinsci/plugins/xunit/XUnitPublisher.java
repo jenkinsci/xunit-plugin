@@ -113,10 +113,22 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
 
             xUnitLog.infoConsoleLogger("Starting to record.");
 
-            boolean noProcessingErrors = performTests(xUnitLog, build, listener);
-            if (!noProcessingErrors) {
+            boolean continueTestProcessing;
+            try {
+
+                continueTestProcessing = performTests(xUnitLog, build, listener);
+
+            } catch (StopTestProcessingException e) {
                 build.setResult(Result.FAILURE);
-                xUnitLog.infoConsoleLogger("Stopping recording.");
+                xUnitLog.infoConsoleLogger("There are errors when processing test results.");
+                xUnitLog.infoConsoleLogger("Skipping tests recording.");
+                xUnitLog.infoConsoleLogger("Stop build.");
+                return true;
+            }
+
+            if (!continueTestProcessing) {
+                xUnitLog.infoConsoleLogger("There are errors when processing test results.");
+                xUnitLog.infoConsoleLogger("Skipping tests recording.");
                 return true;
             }
 
@@ -159,22 +171,30 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
         }).getInstance(XUnitReportProcessorService.class);
     }
 
-    private boolean performTests(XUnitLog xUnitLog, AbstractBuild<?, ?> build, BuildListener listener) throws IOException, InterruptedException {
+
+    private boolean performTests(XUnitLog xUnitLog, AbstractBuild<?, ?> build, BuildListener listener) throws IOException, InterruptedException, StopTestProcessingException {
         XUnitReportProcessorService xUnitReportService = getXUnitReportProcessorServiceObject(listener);
-        boolean noProcessingErrors = true;
+        boolean continueTestProcessing = true;
         for (TestType tool : types) {
             xUnitLog.infoConsoleLogger("Processing " + tool.getDescriptor().getDisplayName());
             if (!isEmptyGivenPattern(xUnitReportService, tool)) {
                 String expandedPattern = getExpandedResolvedPattern(tool, build, listener);
                 XUnitToolInfo xUnitToolInfo = getXUnitToolInfoObject(tool, expandedPattern, build, listener);
                 XUnitTransformer xUnitTransformer = getXUnitTransformerObject(xUnitToolInfo, listener);
-                boolean resultTransformation = getWorkspace(build).act(xUnitTransformer);
-                if (!resultTransformation) {
-                    noProcessingErrors = true;
+                boolean result = getWorkspace(build).act(xUnitTransformer);
+                if (!result) {
+                    if (xUnitToolInfo.isStopProcessingIfError()) {
+                        xUnitLog.infoConsoleLogger("Fail BUILD because 'set build failed if errors' option is activated.");
+                        throw new StopTestProcessingException();
+                    }
+                    continueTestProcessing = false;
                 }
             }
         }
-        return noProcessingErrors;
+        return continueTestProcessing;
+    }
+
+    private class StopTestProcessingException extends Exception {
     }
 
     private boolean isEmptyGivenPattern(XUnitReportProcessorService xUnitReportService, TestType tool) {
@@ -187,7 +207,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
         return Util.replaceMacro(newExpandedPattern, build.getEnvironment(listener));
     }
 
-private XUnitToolInfo getXUnitToolInfoObject(TestType tool, String expandedPattern, AbstractBuild build, BuildListener listener) throws IOException, InterruptedException {
+    private XUnitToolInfo getXUnitToolInfoObject(TestType tool, String expandedPattern, AbstractBuild build, BuildListener listener) throws IOException, InterruptedException {
         return new XUnitToolInfo(
                 new FilePath(new File(Hudson.getInstance().getRootDir(), "userContent")),
                 tool.getInputMetric(),
@@ -196,7 +216,7 @@ private XUnitToolInfo getXUnitToolInfoObject(TestType tool, String expandedPatte
                 tool.isFailIfNotNew(),
                 tool.isDeleteOutputFiles(), tool.isStopProcessingIfError(),
                 build.getTimeInMillis(),
-                (tool instanceof CustomType) ? getWorkspace(build).child(  Util.replaceMacro( ((CustomType) tool).getCustomXSL() , build.getEnvironment(listener)) ) : null);    			
+                (tool instanceof CustomType) ? getWorkspace(build).child(Util.replaceMacro(((CustomType) tool).getCustomXSL(), build.getEnvironment(listener))) : null);
     }
 
     private FilePath getWorkspace(AbstractBuild build) {
@@ -441,10 +461,9 @@ private XUnitToolInfo getXUnitToolInfoObject(TestType tool, String expandedPatte
             List<XUnitThreshold> thresholds = Descriptor.newInstancesFromHeteroList(
                     req, formData, "thresholds", getListXUnitThresholdDescriptors());
             int thresholdMode = 0;
-            try{
+            try {
                 thresholdMode = formData.getInt("thresholdMode");
-            }
-            catch (JSONException e){
+            } catch (JSONException e) {
                 //ignore
             }
             return new XUnitPublisher(types.toArray(new TestType[types.size()]), thresholds.toArray(new XUnitThreshold[thresholds.size()]), thresholdMode);
