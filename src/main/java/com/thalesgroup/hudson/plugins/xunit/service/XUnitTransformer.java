@@ -84,7 +84,7 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
             //Gets all input files matching the user pattern
             List<String> resultFiles = xUnitReportProcessorService.findReports(xUnitToolInfo, ws, xUnitToolInfo.getExpandedPattern());
             int nbTestFiles = resultFiles.size();
-            if (nbTestFiles == 0 && xUnitToolInfo.isSkipNoTestFiles()){
+            if (nbTestFiles == 0 && xUnitToolInfo.isSkipNoTestFiles()) {
                 String msg = "No test reports found for the metric '" + metricName + "' with the resolved pattern '" + xUnitToolInfo.getExpandedPattern() + "Ignore.";
                 xUnitLog.warningConsoleLogger(msg);
                 return true;

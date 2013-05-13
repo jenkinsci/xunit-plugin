@@ -20,7 +20,7 @@ public class AliasInitializer {
     public static void addAliases() {
         Items.XSTREAM.alias("xunit", XUnitPublisher.class);
         DescriptorExtensionList<TestType, TestTypeDescriptor<TestType>> extensionList = Hudson.getInstance().getDescriptorList(TestType.class);
-        for (Iterator<TestTypeDescriptor<TestType>> it = extensionList.iterator(); it.hasNext();) {
+        for (Iterator<TestTypeDescriptor<TestType>> it = extensionList.iterator(); it.hasNext(); ) {
             Class<? extends TestType> classType = it.next().clazz;
             String className = getClassName(classType);
             Items.XSTREAM.alias(className, classType);
