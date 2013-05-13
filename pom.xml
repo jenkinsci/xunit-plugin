@@ -37,7 +37,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
-        <dtkit.frmk.version>0.20</dtkit.frmk.version>
+        <dtkit.frmk.version>0.20.1</dtkit.frmk.version>
         <dtkit.junit.format>0.17</dtkit.junit.format>
         <dtkit.default.junit.version>0.35</dtkit.default.junit.version>
         <xerces.version>2.9.1</xerces.version>
