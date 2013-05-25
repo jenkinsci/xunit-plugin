@@ -73,7 +73,7 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
         try {
 
             File junitOuputDir = new File(ws, XUnitPublisher.GENERATED_JUNIT_DIR);
-            if (!junitOuputDir.mkdirs()) {
+            if (!junitOuputDir.exists() && !junitOuputDir.mkdirs()) {
                 String msg = "Can't create the path " + junitOuputDir + ". Maybe the directory already exists.";
                 xUnitLog.warningConsoleLogger(msg);
                 warningSystemLogger(msg);
