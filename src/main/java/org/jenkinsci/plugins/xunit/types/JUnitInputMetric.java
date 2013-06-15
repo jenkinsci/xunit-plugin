@@ -37,7 +37,10 @@ public class JUnitInputMetric extends InputMetricOther {
 
     @Override
     public boolean validateInputFile(File inputXMLFile) throws ValidationException {
-        List<ValidationError> errors = JUnitModel.OUTPUT_JUNIT_6.validate(inputXMLFile);
+        List<ValidationError> errors = JUnitModel.OUTPUT_JUNIT_7.validate(inputXMLFile);
+        for (ValidationError error : errors) {
+            System.out.println(error);
+        }
         return errors.isEmpty();
     }
 

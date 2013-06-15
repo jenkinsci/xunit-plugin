@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="FiltersTest" file="/var/lib/jenkins/jobs/zend-grid-module/workspace/test-application/tests/FiltersTest.php" tests="32" assertions="0" failures="0" errors="1" time="452.706041">
+<testsuite name="FiltersTest: chrome" tests="16" assertions="0" failures="0" errors="0" time="208.783030">
+<testcase name="testOnFilterByDateBehavesLikeOr" class="FiltersTest" file="/var/lib/jenkins/jobs/zend-grid-module/workspace/test-application/tests/FiltersTest.php" line="10" assertions="0" time="20.951486"/>
+<testcase name="testFilterByTimestampsDoesntTakeIntoAccountTime" class="FiltersTest" file="/var/lib/jenkins/jobs/zend-grid-module/workspace/test-application/tests/FiltersTest.php" line="52" assertions="0" time="16.042006"/>
+<testsuite name="FiltersTest::testFilterByNull" tests="5" assertions="0" failures="0" errors="0" time="61.921692">
+<testcase name="testFilterByNull with data set #0" assertions="0" time="11.880885"/>
+<testcase name="testFilterByNull with data set #1" assertions="0" time="13.163355"/>
+<testcase name="testFilterByNull with data set #2" assertions="0" time="12.258866"/>
+<testcase name="testFilterByNull with data set #3" assertions="0" time="12.098506"/>
+<testcase name="testFilterByNull with data set #4" assertions="0" time="12.520080"/>
+</testsuite>
+<testsuite name="FiltersTest::testFilterByNotNull" tests="4" assertions="0" failures="0" errors="0" time="50.564510">
+<testcase name="testFilterByNotNull with data set #0" assertions="0" time="12.819211"/>
+<testcase name="testFilterByNotNull with data set #1" assertions="0" time="12.440420"/>
+<testcase name="testFilterByNotNull with data set #2" assertions="0" time="12.710532"/>
+<testcase name="testFilterByNotNull with data set #3" assertions="0" time="12.594347"/>
+</testsuite>
+<testsuite name="FiltersTest::testNotEmptyDisablesOtherItems" tests="4" assertions="0" failures="0" errors="0" time="47.358445">
+<testcase name="testNotEmptyDisablesOtherItems with data set #0" assertions="0" time="11.748273"/>
+<testcase name="testNotEmptyDisablesOtherItems with data set #1" assertions="0" time="11.702997"/>
+<testcase name="testNotEmptyDisablesOtherItems with data set #2" assertions="0" time="11.997253"/>
+<testcase name="testNotEmptyDisablesOtherItems with data set #3" assertions="0" time="11.909922"/>
+</testsuite>
+<testcase name="testMutuallyExclusiveBooleans" class="FiltersTest" file="/var/lib/jenkins/jobs/zend-grid-module/workspace/test-application/tests/FiltersTest.php" line="172" assertions="0" time="11.944891"/>
+</testsuite>
+<testsuite name="FiltersTest: internet explorer" tests="16" assertions="0" failures="0" errors="1" time="243.923011">
+<testcase name="testOnFilterByDateBehavesLikeOr" class="FiltersTest" file="/var/lib/jenkins/jobs/zend-grid-module/workspace/test-application/tests/FiltersTest.php" line="10" assertions="0" time="34.795199"/>
+<testcase name="testFilterByTimestampsDoesntTakeIntoAccountTime" class="FiltersTest" file="/var/lib/jenkins/jobs/zend-grid-module/workspace/test-application/tests/FiltersTest.php" line="52" assertions="0" time="22.823278"/>
+<testsuite name="FiltersTest::testFilterByNull" tests="5" assertions="0" failures="0" errors="1" time="79.679187">
+<testcase name="testFilterByNull with data set #0" assertions="0" time="12.300125"/>
+<testcase name="testFilterByNull with data set #1" assertions="0" time="33.122008">
+<error type="PHPUnit_Extensions_Selenium2TestCase_WebDriverException">
+FiltersTest::testFilterByNull with data set #1 ('publish_date', 1) PHPUnit_Extensions_Selenium2TestCase_WebDriverException: Unable to find element with xpath == //label[contains(@class, "x-toolbar-item")][starts-with(., "1 of")] (WARNING: The server did not provide any stacktrace information) Command duration or timeout: 20.36 seconds For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html Build info: version: '2.33.0', revision: '4e90c97', time: '2013-05-22 15:32:38' System info: os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.7.0_11' Session ID: 17481983-5933-4d37-ba07-17096efdc573 Driver info: org.openqa.selenium.ie.InternetExplorerDriver Capabilities [{platform=WINDOWS, elementScrollBehavior=0, javascriptEnabled=true, enablePersistentHover=true, ignoreZoomSetting=false, browserName=internet explorer, enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss, version=9, cssSelectorsEnabled=true, ignoreProtectedModeSettings=false, requireWindowFocus=false, handlesAlerts=true, initialBrowserUrl=, nativeEvents=true, browserAttachTimeout=0, takesScreenshot=true}] /usr/share/php/PHPUnit/Extensions/Selenium2TestCase/Driver.php:143 /usr/share/php/PHPUnit/Extensions/Selenium2TestCase/CommandsHolder.php:108 /usr/share/php/PHPUnit/Extensions/Selenium2TestCase/Element/Accessor.php:125 /usr/share/php/PHPUnit/Extensions/Selenium2TestCase/Element/Accessor.php:166 /usr/share/php/PHPUnit/Extensions/Selenium2TestCase/Element/Accessor.php:117 /usr/share/php/PHPUnit/Extensions/Selenium2TestCase.php:335 /var/lib/jenkins/jobs/zend-grid-module/workspace/test-application/tests/FiltersTest.php:96 /var/lib/jenkins/jobs/zend-grid-module/workspace/test-application/tests/FiltersTest.php:96 /usr/share/php/PHPUnit/Extensions/Selenium2TestCase.php:292 /usr/share/php/PHPUnit/Extensions/Selenium2TestCase.php:258 /usr/bin/phpunit:46
+</error>
+</testcase>
+<testcase name="testFilterByNull with data set #2" assertions="0" time="11.452066"/>
+<testcase name="testFilterByNull with data set #3" assertions="0" time="10.645194"/>
+<testcase name="testFilterByNull with data set #4" assertions="0" time="12.159794"/>
+</testsuite>
+<testsuite name="FiltersTest::testFilterByNotNull" tests="4" assertions="0" failures="0" errors="0" time="47.550400">
+<testcase name="testFilterByNotNull with data set #0" assertions="0" time="12.138109"/>
+<testcase name="testFilterByNotNull with data set #1" assertions="0" time="11.949402"/>
+<testcase name="testFilterByNotNull with data set #2" assertions="0" time="12.296412"/>
+<testcase name="testFilterByNotNull with data set #3" assertions="0" time="11.166477"/>
+</testsuite>
+<testsuite name="FiltersTest::testNotEmptyDisablesOtherItems" tests="4" assertions="0" failures="0" errors="0" time="44.270910">
+<testcase name="testNotEmptyDisablesOtherItems with data set #0" assertions="0" time="10.235131"/>
+<testcase name="testNotEmptyDisablesOtherItems with data set #1" assertions="0" time="10.975805"/>
+<testcase name="testNotEmptyDisablesOtherItems with data set #2" assertions="0" time="11.049638"/>
+<testcase name="testNotEmptyDisablesOtherItems with data set #3" assertions="0" time="12.010336"/>
+</testsuite>
+<testcase name="testMutuallyExclusiveBooleans" class="FiltersTest" file="/var/lib/jenkins/jobs/zend-grid-module/workspace/test-application/tests/FiltersTest.php" line="172" assertions="0" time="14.804037"/>
+</testsuite>
+</testsuite>

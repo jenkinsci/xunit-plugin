@@ -38,7 +38,7 @@
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
         <dtkit.frmk.version>0.20.1</dtkit.frmk.version>
-        <dtkit.junit.format>0.18</dtkit.junit.format>
+        <dtkit.junit.format>0.19</dtkit.junit.format>
         <dtkit.default.junit.version>0.35</dtkit.default.junit.version>
         <xerces.version>2.9.1</xerces.version>
         <guice.version>2.0.1</guice.version>
