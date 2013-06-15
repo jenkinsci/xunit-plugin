@@ -87,8 +87,11 @@
     <xs:element name="TestLog">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="BuildInfo" minOccurs="0" maxOccurs="1"/>
-                <xs:element ref="TestSuite" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:element ref="BuildInfo" minOccurs="0" maxOccurs="1"/>
+                    <xs:element ref="TestSuite" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="Message" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:choice>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
