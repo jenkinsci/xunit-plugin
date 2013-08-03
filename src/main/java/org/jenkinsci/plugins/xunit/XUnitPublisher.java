@@ -115,9 +115,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
 
             boolean continueTestProcessing;
             try {
-
                 continueTestProcessing = performTests(xUnitLog, build, listener);
-
             } catch (StopTestProcessingException e) {
                 build.setResult(Result.FAILURE);
                 xUnitLog.infoConsoleLogger("There are errors when processing test results.");
@@ -176,12 +174,24 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
         XUnitReportProcessorService xUnitReportService = getXUnitReportProcessorServiceObject(listener);
         boolean continueTestProcessing = true;
         for (TestType tool : types) {
+
+            //Reinitiate the value at the beginning of the next
+            continueTestProcessing = true;
+
             xUnitLog.infoConsoleLogger("Processing " + tool.getDescriptor().getDisplayName());
+
             if (!isEmptyGivenPattern(xUnitReportService, tool)) {
                 String expandedPattern = getExpandedResolvedPattern(tool, build, listener);
                 XUnitToolInfo xUnitToolInfo = getXUnitToolInfoObject(tool, expandedPattern, build, listener);
                 XUnitTransformer xUnitTransformer = getXUnitTransformerObject(xUnitToolInfo, listener);
-                boolean result = getWorkspace(build).act(xUnitTransformer);
+                boolean result = false;
+                try {
+                    result = getWorkspace(build).act(xUnitTransformer);
+                } catch (SkipTestException se) {
+                    xUnitLog.infoConsoleLogger("Skipping the metric tool processing.");
+                    continueTestProcessing = false;
+                }
+
                 if (!result) {
                     if (xUnitToolInfo.isStopProcessingIfError()) {
                         xUnitLog.infoConsoleLogger("Fail BUILD because 'set build failed if errors' option is activated.");
@@ -190,6 +200,8 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
                     continueTestProcessing = false;
                 }
             }
+
+
         }
         return continueTestProcessing;
     }

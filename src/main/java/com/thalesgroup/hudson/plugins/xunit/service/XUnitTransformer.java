@@ -27,6 +27,7 @@ import com.google.inject.Inject;
 import hudson.FilePath;
 import hudson.remoting.VirtualChannel;
 import hudson.util.IOException2;
+import org.jenkinsci.plugins.xunit.SkipTestException;
 import org.jenkinsci.plugins.xunit.XUnitPublisher;
 
 import java.io.File;
@@ -69,7 +70,8 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
      * @return true or false if the conversion fails
      * @throws IOException
      */
-    public Boolean invoke(File ws, VirtualChannel channel) throws IOException {
+    @Override
+    public Boolean invoke(File ws, VirtualChannel channel) throws IOException, InterruptedException {
         try {
 
             File junitOuputDir = new File(ws, XUnitPublisher.GENERATED_JUNIT_DIR);
@@ -85,9 +87,9 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
             List<String> resultFiles = xUnitReportProcessorService.findReports(xUnitToolInfo, ws, xUnitToolInfo.getExpandedPattern());
             int nbTestFiles = resultFiles.size();
             if (nbTestFiles == 0 && xUnitToolInfo.isSkipNoTestFiles()) {
-                String msg = "No test reports found for the metric '" + metricName + "' with the resolved pattern '" + xUnitToolInfo.getExpandedPattern() + "Ignore.";
+                String msg = "No test reports found for the metric '" + metricName + "' with the resolved pattern '" + xUnitToolInfo.getExpandedPattern() + "'.";
                 xUnitLog.warningConsoleLogger(msg);
-                return true;
+                throw new SkipTestException();
             }
 
             if (nbTestFiles == 0) {
@@ -151,7 +153,6 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
                     } else {
                         atLeastOneWarningOrError = true;
                         errorSystemLogger(msg);
-                        continue;
                     }
                 }
             }
@@ -162,6 +163,8 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
                 return false;
             }
 
+        } catch (SkipTestException se) {
+            throw new SkipTestException();
         } catch (Exception xe) {
             String msg = xe.getMessage();
             if (msg != null) {
