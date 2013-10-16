@@ -6,3 +6,4 @@ target
 *.iws
 *.iml
 work
+/bin
