@@ -24,17 +24,17 @@
 package com.thalesgroup.hudson.plugins.xunit.service;
 
 import java.io.*;
-import java.nio.file.*;
-import java.nio.file.FileSystem;
-
+//import java.nio.file.*;
+//import java.nio.file.FileSystem;
 import org.junit.*;
-
 import com.thalesgroup.hudson.plugins.xunit.transformer.TempWorkspace;
 
 /**
  * Unit tests for XUnitValidationService class.
  *
  * @author Maciek Siemczyk
+ * 
+ * @note Two of the unit tests were disabled as they require Java 7 API.
  */
 public class XUnitValidationServiceTest
 {
@@ -50,9 +50,10 @@ public class XUnitValidationServiceTest
     private XUnitValidationService xUnitValidationService = new XUnitValidationService();
 
     @Test
-    public void CheckFileIsNotEmpty_GivenEmptyFile_ReturnsFalse()
+    public void CheckFileIsNotEmpty_GivenEmptyFile_ReturnsFalse() throws Exception
     {
         File testFile = new File(tempWorkspace.getDir(), "empty.txt");
+        testFile.createNewFile();
         
         Assert.assertFalse(
             "CheckFileIsNotEmpty returned true.",
@@ -70,35 +71,47 @@ public class XUnitValidationServiceTest
     }
     
     @Test
+    @Ignore
     public void CheckFileIsNotEmpty_GivenLinkToEmptyFile_ReturnsFalse() throws Exception
     {
+        /**
+         * This unit test is disabled as it required Java 7 API.
+         
         FileSystem filesystem = FileSystems.getDefault();
         
         File targetFile = new File(tempWorkspace.getDir(), "empty.txt");;
+        targetFile.createNewFile();
+        
         Path targetPath = filesystem.getPath(targetFile.getPath());
-        Path linkPath = filesystem.getPath(tempWorkspace.getDir().getPath(), "linkToNotEmpty.txt");
+        Path linkPath = filesystem.getPath(tempWorkspace.getDir().getPath(), "link.txt");
         
         Files.createSymbolicLink(linkPath, targetPath);
         
         Assert.assertFalse(
             "CheckFileIsNotEmpty returned true.",
             xUnitValidationService.checkFileIsNotEmpty(linkPath.toFile()));
+        */
     }
     
     @Test
+    @Ignore
     public void CheckFileIsNotEmpty_GivenLinkToNotEmptyFile_ReturnsTrue() throws Exception
     {
+        /**
+         * This unit test is disabled as it required Java 7 API.
+
         FileSystem filesystem = FileSystems.getDefault();
         
         File targetFile = CreateNotEmtyFile();
         Path targetPath = filesystem.getPath(targetFile.getPath());
-        Path linkPath = filesystem.getPath(tempWorkspace.getDir().getPath(), "linkToNotEmpty.txt");
+        Path linkPath = filesystem.getPath(tempWorkspace.getDir().getPath(), "link.txt");
         
         Files.createSymbolicLink(linkPath, targetPath);
         
         Assert.assertTrue(
             "CheckFileIsNotEmpty returned false.",
             xUnitValidationService.checkFileIsNotEmpty(linkPath.toFile()));
+        */
     }
     
     /**
