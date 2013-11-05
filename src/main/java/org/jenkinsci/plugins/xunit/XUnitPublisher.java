@@ -172,12 +172,8 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
 
     private boolean performTests(XUnitLog xUnitLog, AbstractBuild<?, ?> build, BuildListener listener) throws IOException, InterruptedException, StopTestProcessingException {
         XUnitReportProcessorService xUnitReportService = getXUnitReportProcessorServiceObject(listener);
-        boolean continueTestProcessing = true;
+        boolean findTest = false;
         for (TestType tool : types) {
-
-            //Reinitiate the value at the beginning of the next
-            continueTestProcessing = true;
-
             xUnitLog.infoConsoleLogger("Processing " + tool.getDescriptor().getDisplayName());
 
             if (!isEmptyGivenPattern(xUnitReportService, tool)) {
@@ -187,22 +183,23 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
                 boolean result = false;
                 try {
                     result = getWorkspace(build).act(xUnitTransformer);
+					findTest = true;
                 } catch (SkipTestException se) {
                     xUnitLog.infoConsoleLogger("Skipping the metric tool processing.");
-                    continueTestProcessing = false;
                 }
 
-                if (!result) {
-                    if (xUnitToolInfo.isStopProcessingIfError()) {
-                        xUnitLog.infoConsoleLogger("Fail BUILD because 'set build failed if errors' option is activated.");
-                        throw new StopTestProcessingException();
-                    }
-                    continueTestProcessing = false;
-                }
+				if (!result && xUnitToolInfo.isStopProcessingIfError()) {
+					xUnitLog.infoConsoleLogger("Fail BUILD because 'set build failed if errors' option is activated.");
+					throw new StopTestProcessingException();
+				}
             }
 
 
         }
+		boolean continueTestProcessing = true;
+		if (!findTest) {
+			continueTestProcessing = false;
+		}
         return continueTestProcessing;
     }
 
@@ -483,7 +480,3 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
     }
 
 }
-
-
-
-
