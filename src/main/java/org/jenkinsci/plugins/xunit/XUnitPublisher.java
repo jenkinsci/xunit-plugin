@@ -196,11 +196,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
 
 
         }
-		boolean continueTestProcessing = true;
-		if (!findTest) {
-			continueTestProcessing = false;
-		}
-        return continueTestProcessing;
+        return findTest;
     }
 
     private class StopTestProcessingException extends Exception {
