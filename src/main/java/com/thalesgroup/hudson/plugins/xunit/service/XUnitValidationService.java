@@ -23,7 +23,6 @@
 
 package com.thalesgroup.hudson.plugins.xunit.service;
 
-import com.google.inject.Inject;
 import com.thalesgroup.dtkit.metrics.model.InputMetric;
 import com.thalesgroup.dtkit.util.validator.ValidationError;
 import com.thalesgroup.dtkit.util.validator.ValidationException;
@@ -35,14 +34,6 @@ import java.io.Serializable;
 
 
 public class XUnitValidationService extends XUnitService implements Serializable {
-
-    private XUnitLog xUnitLog;
-
-    @Inject
-    @SuppressWarnings("unused")
-    void load(XUnitLog xUnitLog) {
-        this.xUnitLog = xUnitLog;
-    }
 
     /**
      * Checks if the current input file is not empty
