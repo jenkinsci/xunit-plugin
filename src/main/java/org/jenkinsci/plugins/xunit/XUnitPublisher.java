@@ -183,15 +183,15 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
                 boolean result = false;
                 try {
                     result = getWorkspace(build).act(xUnitTransformer);
-					findTest = true;
+                    findTest = true;
                 } catch (SkipTestException se) {
                     xUnitLog.infoConsoleLogger("Skipping the metric tool processing.");
                 }
 
-				if (!result && xUnitToolInfo.isStopProcessingIfError()) {
-					xUnitLog.infoConsoleLogger("Fail BUILD because 'set build failed if errors' option is activated.");
-					throw new StopTestProcessingException();
-				}
+                if (!result && xUnitToolInfo.isStopProcessingIfError()) {
+                    xUnitLog.infoConsoleLogger("Fail BUILD because 'set build failed if errors' option is activated.");
+                    throw new StopTestProcessingException();
+                }
             }
 
 

@@ -50,14 +50,10 @@ public class XUnitValidationService extends XUnitService implements Serializable
      * @param inputFile the input file
      * @return true if not empty, false otherwise
      */
-    public boolean checkFileIsNotEmpty(File inputFile)
-    {    
-        try
-        {
+    public boolean checkFileIsNotEmpty(File inputFile) {
+        try {
             return inputFile.getCanonicalFile().length() != 0;
-        }
-        catch (IOException ex)
-        {
+        } catch (IOException ex) {
             return inputFile.length() != 0;
         }
     }
