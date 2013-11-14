@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="3" failures="0" disabled="0" errors="0" time="0.042" name="AllTests">
+  <testsuite name="TestAbsTimer" tests="2" failures="0" disabled="0" errors="0" time="0.001">
+    <testcase name="Basic" status="run" time="0.001" classname="TestAbsTimer" />
+    <testcase name="InvalidTime" status="run" time="0.3" classname="TestAbsTimer" />
+  </testsuite>
+  <testsuite name="AppCreator" tests="1" failures="0" disabled="0" errors="0" time="0">
+    <testcase name="Basic" status="run" time="1.42" classname="AppCreator" />
+  </testsuite>
+</testsuites>
