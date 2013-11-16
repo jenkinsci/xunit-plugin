@@ -461,20 +461,6 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
             };
         }
 
-//        @Override
-        public Publisher newInstance_old(StaplerRequest req, JSONObject formData) throws FormException {
-            List<TestType> types = Descriptor.newInstancesFromHeteroList(
-                    req, formData, "tools", getListXUnitTypeDescriptors());
-            List<XUnitThreshold> thresholds = Descriptor.newInstancesFromHeteroList(
-                    req, formData, "thresholds", getListXUnitThresholdDescriptors());
-            int thresholdMode = 0;
-            try {
-                thresholdMode = formData.getInt("thresholdMode");
-            } catch (JSONException e) {
-                //ignore
-            }
-            return new XUnitPublisher(types.toArray(new TestType[types.size()]), thresholds.toArray(new XUnitThreshold[thresholds.size()]), thresholdMode);
-        }
     }
 
 }
