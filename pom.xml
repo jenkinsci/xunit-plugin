@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>1.447</version>
+        <version>1.480</version>
     </parent>
 
     <artifactId>xunit</artifactId>
@@ -251,6 +251,12 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.jenkins-ci.tools</groupId>
+                <artifactId>maven-hpi-plugin</artifactId>
+                <version>1.100</version>
+                <extensions>true</extensions>
             </plugin>
         </plugins>
     </build>
