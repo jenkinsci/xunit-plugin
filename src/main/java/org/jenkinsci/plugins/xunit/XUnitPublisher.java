@@ -29,6 +29,7 @@ import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
 import org.jenkinsci.plugins.xunit.threshold.SkippedThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThresholdDescriptor;
+import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.StaplerRequest;
 
 import java.io.File;
@@ -60,8 +61,9 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
         this.thresholds = thresholds;
     }
 
-    public XUnitPublisher(TestType[] types, XUnitThreshold[] thresholds, int thresholdMode) {
-        this.types = types;
+    @DataBoundConstructor
+    public XUnitPublisher(TestType[] tools, XUnitThreshold[] thresholds, int thresholdMode) {
+        this.types = tools;
         this.thresholds = thresholds;
         this.thresholdMode = thresholdMode;
     }
@@ -459,20 +461,6 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
             };
         }
 
-        @Override
-        public Publisher newInstance(StaplerRequest req, JSONObject formData) throws FormException {
-            List<TestType> types = Descriptor.newInstancesFromHeteroList(
-                    req, formData, "tools", getListXUnitTypeDescriptors());
-            List<XUnitThreshold> thresholds = Descriptor.newInstancesFromHeteroList(
-                    req, formData, "thresholds", getListXUnitThresholdDescriptors());
-            int thresholdMode = 0;
-            try {
-                thresholdMode = formData.getInt("thresholdMode");
-            } catch (JSONException e) {
-                //ignore
-            }
-            return new XUnitPublisher(types.toArray(new TestType[types.size()]), thresholds.toArray(new XUnitThreshold[thresholds.size()]), thresholdMode);
-        }
     }
 
 }
