@@ -48,7 +48,7 @@
                     <xsl:attribute name="name">
                         <xsl:value-of select="substring-after(Name, '::')"/>
                     </xsl:attribute>
-                    <xsl:attribute name="time">0</xsl:attribute>
+                    <xsl:call-template name="set_time_attribute"/>
                 </xsl:when>
 
                 <xsl:when test="contains(Name, '.')">
@@ -58,7 +58,7 @@
                     <xsl:attribute name="name">
                         <xsl:value-of select="substring-after(Name, '.')"/>
                     </xsl:attribute>
-                    <xsl:attribute name="time">0</xsl:attribute>
+                    <xsl:call-template name="set_time_attribute"/>
                 </xsl:when>
 
                 <xsl:otherwise>
@@ -66,7 +66,7 @@
                     <xsl:attribute name="name">
                         <xsl:value-of select="Name"/>
                     </xsl:attribute>
-                    <xsl:attribute name="time">0</xsl:attribute>
+                    <xsl:call-template name="set_time_attribute"/>
                 </xsl:otherwise>
             </xsl:choose>
 
@@ -86,7 +86,7 @@
                     <xsl:attribute name="name">
                         <xsl:value-of select="substring-after(Name, '::')"/>
                     </xsl:attribute>
-                    <xsl:attribute name="time">0</xsl:attribute>
+                    <xsl:call-template name="set_time_attribute"/>
                 </xsl:when>
 
                 <xsl:when test="contains(Name, '.')">
@@ -96,7 +96,7 @@
                     <xsl:attribute name="name">
                         <xsl:value-of select="substring-after(Name, '.')"/>
                     </xsl:attribute>
-                    <xsl:attribute name="time">0</xsl:attribute>
+                    <xsl:call-template name="set_time_attribute"/>
                 </xsl:when>
 
                 <xsl:otherwise>
@@ -104,7 +104,7 @@
                     <xsl:attribute name="name">
                         <xsl:value-of select="Name"/>
                     </xsl:attribute>
-                    <xsl:attribute name="time">0</xsl:attribute>
+                    <xsl:call-template name="set_time_attribute"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:element>
@@ -122,7 +122,7 @@
                     <xsl:attribute name="name">
                         <xsl:value-of select="substring-after(Name, '::')"/>
                     </xsl:attribute>
-                    <xsl:attribute name="time">0</xsl:attribute>
+                    <xsl:call-template name="set_time_attribute"/>
                 </xsl:when>
 
                 <xsl:when test="contains(Name, '.')">
@@ -132,7 +132,7 @@
                     <xsl:attribute name="name">
                         <xsl:value-of select="substring-after(Name, '.')"/>
                     </xsl:attribute>
-                    <xsl:attribute name="time">0</xsl:attribute>
+                    <xsl:call-template name="set_time_attribute"/>
                 </xsl:when>
 
                 <xsl:otherwise>
@@ -140,7 +140,7 @@
                     <xsl:attribute name="name">
                         <xsl:value-of select="Name"/>
                     </xsl:attribute>
-                    <xsl:attribute name="time">0</xsl:attribute>
+                    <xsl:call-template name="set_time_attribute"/>
                 </xsl:otherwise>
             </xsl:choose>
 
@@ -185,6 +185,23 @@
             </xsl:choose>
         </xsl:element>
     </xsl:template>
+    
+    
+    <xsl:template name="set_time_attribute">
+    	<xsl:choose>
+        	
+        	<xsl:when test="Time != ''">
+	        	<xsl:attribute name="time">
+    	        	<xsl:value-of select="Time"/>
+               	</xsl:attribute>        
+            </xsl:when>   
+        	            
+            <xsl:otherwise>
+        		<xsl:attribute name="time">0</xsl:attribute>
+        	</xsl:otherwise>
+        	
+		</xsl:choose>
+    </xsl:template>      
 
     <xsl:template match="text()|@*"/>
 </xsl:stylesheet>
