@@ -14,7 +14,13 @@
   </xsl:template>
 
   <xsl:template match="TestCase">
-    <testsuite name="{$classname}" tests="{$total-tests}" failures="{$total-failures}" errors="0" time="0.0">
+    <xsl:variable name="msecsTest">
+      <xsl:choose>
+        <xsl:when test="Duration"><xsl:value-of select="Duration/@msecs" /></xsl:when>
+        <xsl:otherwise>0</xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <testsuite name="{$classname}" tests="{$total-tests}" failures="{$total-failures}" errors="0" time="{format-number($msecsTest div 1000,'0.000')}">
       <xsl:apply-templates select="Environment"/>
       <xsl:apply-templates select="TestFunction" />
       <xsl:call-template name="display-system-out" />
@@ -31,7 +37,13 @@
   </xsl:template>
 
   <xsl:template match="TestFunction">
-    <testcase classname="{$classname}" name="{@name}" time="0.0">
+    <xsl:variable name="msecsFunction">
+      <xsl:choose>
+        <xsl:when test="Duration"><xsl:value-of select="Duration/@msecs" /></xsl:when>
+        <xsl:otherwise>0</xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <testcase classname="{$classname}" name="{@name}" time="{format-number($msecsFunction div 1000,'0.000')}">
 
       <!-- handle skip -->
       <xsl:if test="Message/@type = 'skip'">
