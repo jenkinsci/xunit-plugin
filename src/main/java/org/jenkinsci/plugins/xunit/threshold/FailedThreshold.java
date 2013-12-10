@@ -1,9 +1,9 @@
 package org.jenkinsci.plugins.xunit.threshold;
 
-import com.thalesgroup.hudson.plugins.xunit.service.XUnitLog;
 import hudson.model.AbstractBuild;
 import hudson.model.Result;
 import hudson.tasks.junit.TestResultAction;
+import org.jenkinsci.plugins.xunit.service.XUnitLog;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 /**

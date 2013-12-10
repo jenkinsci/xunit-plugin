@@ -1,10 +1,10 @@
 package org.jenkinsci.plugins.xunit.threshold;
 
-import com.thalesgroup.hudson.plugins.xunit.service.XUnitLog;
 import hudson.DescriptorExtensionList;
 import hudson.ExtensionPoint;
 import hudson.model.*;
 import hudson.tasks.junit.TestResultAction;
+import org.jenkinsci.plugins.xunit.service.XUnitLog;
 
 import java.io.Serializable;
 

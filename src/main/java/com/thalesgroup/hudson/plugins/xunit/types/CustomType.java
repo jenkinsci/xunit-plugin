@@ -23,12 +23,7 @@
 
 package com.thalesgroup.hudson.plugins.xunit.types;
 
-import com.thalesgroup.dtkit.metrics.hudson.api.descriptor.TestTypeDescriptor;
 import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
-import com.thalesgroup.dtkit.metrics.model.InputMetric;
-import com.thalesgroup.dtkit.metrics.model.InputMetricException;
-import com.thalesgroup.dtkit.metrics.model.InputMetricFactory;
-import hudson.Extension;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 @SuppressWarnings("unused")
@@ -48,29 +43,12 @@ public class CustomType extends TestType {
         return customXSL;
     }
 
-    @Extension
-    public static class CustomInputMetricDescriptor extends TestTypeDescriptor<CustomType> {
-
-        public CustomInputMetricDescriptor() {
-            super(CustomType.class, null);
-        }
-
-        @Override
-        public String getId() {
-            return this.getClass().getName();
-        }
-
-        @Override
-        public InputMetric getInputMetric() {
-            try {
-                return InputMetricFactory.getInstance(CustomInputMetric.class);
-            } catch (InputMetricException e) {
-                throw new RuntimeException("Can't create the inputMetric object for the class " + CustomInputMetric.class);
-            }
-        }
-
-        public boolean isCustomType() {
-            return true;
-        }
+    /**
+     * Call at Hudson startup for backward compatibility
+     *
+     * @return an new hudson object
+     */
+    public Object readResolve() {
+        return new CustomType(this.getPattern(), customXSL, this.isFailIfNotNew(), this.isDeleteOutputFiles(), this.isStopProcessingIfError());
     }
 }

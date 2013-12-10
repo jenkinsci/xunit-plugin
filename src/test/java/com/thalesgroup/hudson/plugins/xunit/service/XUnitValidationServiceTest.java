@@ -24,6 +24,7 @@
 package com.thalesgroup.hudson.plugins.xunit.service;
 
 import com.thalesgroup.hudson.plugins.xunit.transformer.TempWorkspace;
+import org.jenkinsci.plugins.xunit.service.XUnitValidationService;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;

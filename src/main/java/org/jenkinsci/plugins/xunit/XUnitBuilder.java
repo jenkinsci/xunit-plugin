@@ -5,14 +5,11 @@ import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
 import hudson.DescriptorExtensionList;
 import hudson.Extension;
 import hudson.Launcher;
-import hudson.model.*;
+import hudson.model.AbstractBuild;
+import hudson.model.BuildListener;
+import hudson.model.Result;
 import hudson.tasks.BuildStepDescriptor;
-import hudson.tasks.BuildStepMonitor;
-import hudson.tasks.Publisher;
-import hudson.tasks.Recorder;
-import hudson.tasks.junit.JUnitResultArchiver;
-import hudson.tasks.test.TestResultProjectAction;
-import org.jenkinsci.lib.dryrun.DryRun;
+import hudson.tasks.Builder;
 import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
 import org.jenkinsci.plugins.xunit.threshold.SkippedThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
@@ -20,15 +17,11 @@ import org.jenkinsci.plugins.xunit.threshold.XUnitThresholdDescriptor;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 import java.io.IOException;
-import java.io.Serializable;
 
 /**
- * Class that converting custom reports to Junit reports and records them
- *
  * @author Gregory Boissinot
  */
-@SuppressWarnings({"unchecked", "unused"})
-public class XUnitPublisher extends Recorder implements DryRun, Serializable {
+public class XUnitBuilder extends Builder {
 
     private TestType[] types;
     private XUnitThreshold[] thresholds;
@@ -39,14 +32,14 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
      */
     private XUnitProcessor xUnitProcessor;
 
-    public XUnitPublisher(TestType[] types, XUnitThreshold[] thresholds) {
+    public XUnitBuilder(TestType[] types, XUnitThreshold[] thresholds) {
         this.types = types;
         this.thresholds = thresholds;
         xUnitProcessor = new XUnitProcessor(types, thresholds, thresholdMode);
     }
 
     @DataBoundConstructor
-    public XUnitPublisher(TestType[] tools, XUnitThreshold[] thresholds, int thresholdMode) {
+    public XUnitBuilder(TestType[] tools, XUnitThreshold[] thresholds, int thresholdMode) {
         this.types = tools;
         this.thresholds = thresholds;
         this.thresholdMode = thresholdMode;
@@ -63,15 +56,6 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
 
     public int getThresholdMode() {
         return thresholdMode;
-    }
-
-    @Override
-    public Action getProjectAction(AbstractProject<?, ?> project) {
-        JUnitResultArchiver jUnitResultArchiver = project.getPublishersList().get(JUnitResultArchiver.class);
-        if (jUnitResultArchiver == null) {
-            return new TestResultProjectAction(project);
-        }
-        return null;
     }
 
     @Override
@@ -92,23 +76,18 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
         return true;
     }
 
-
-    public BuildStepMonitor getRequiredMonitorService() {
-        return BuildStepMonitor.NONE;
-    }
-
     @Extension
     @SuppressWarnings("unused")
-    public static final class XUnitDescriptorPublisher extends BuildStepDescriptor<Publisher> {
+    public static final class XUnitDescriptorBuilder extends BuildStepDescriptor<Builder> {
 
-        public XUnitDescriptorPublisher() {
-            super(XUnitPublisher.class);
+        public XUnitDescriptorBuilder() {
+            super(XUnitBuilder.class);
             load();
         }
 
         @Override
         public String getDisplayName() {
-            return Messages.xUnit_PublisherName();
+            return Messages.xUnit_BuilderName();
         }
 
         @Override
@@ -135,7 +114,6 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
                     new SkippedThreshold()
             };
         }
-
     }
 
 }
