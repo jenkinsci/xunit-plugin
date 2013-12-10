@@ -298,7 +298,10 @@ public class XUnitProcessor {
     private Result getBuildStatus(AbstractBuild<?, ?> build, XUnitLog xUnitLog) {
         Result curResult = getResultWithThreshold(xUnitLog, build);
         Result previousResultStep = build.getResult();
-        if (curResult != null && previousResultStep != null) {
+        if (curResult != null) {
+            if (previousResultStep == null) {
+                return curResult;
+            }
             if (previousResultStep.isWorseOrEqualTo(curResult)) {
                 curResult = previousResultStep;
             }
