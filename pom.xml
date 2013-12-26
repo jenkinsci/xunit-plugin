@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>1.480</version>
+        <version>1.532.1</version>
     </parent>
 
     <artifactId>xunit</artifactId>
@@ -37,11 +37,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
+        <guice.version>2.0.1</guice.version>
         <dtkit.frmk.version>0.20.1</dtkit.frmk.version>
         <dtkit.junit.format>0.19</dtkit.junit.format>
         <dtkit.default.junit.version>0.35</dtkit.default.junit.version>
         <xerces.version>2.9.1</xerces.version>
-        <guice.version>2.0.1</guice.version>
         <saxon.version>9.1.0.8</saxon.version>
         <dry.run.version>0.1</dry.run.version>
         <junit.version>4.8.2</junit.version>
@@ -151,7 +151,6 @@
             <version>${dry.run.version}</version>
         </dependency>
 
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -177,7 +176,6 @@
             <groupId>net.sourceforge.saxon</groupId>
             <artifactId>saxon</artifactId>
             <version>${saxon.version}</version>
-            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -185,7 +183,6 @@
             <artifactId>saxon</artifactId>
             <version>${saxon.version}</version>
             <classifier>s9api</classifier>
-            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -193,7 +190,6 @@
             <artifactId>saxon</artifactId>
             <version>${saxon.version}</version>
             <classifier>dom</classifier>
-            <scope>test</scope>
         </dependency>
 
     </dependencies>
@@ -223,7 +219,6 @@
                                     <artifactId>saxon</artifactId>
                                     <version>${saxon.version}</version>
                                     <type>jar</type>
-                                    <overWrite>false</overWrite>
                                     <outputDirectory>${project.build.directory}/${project.artifactId}/WEB-INF/lib
                                     </outputDirectory>
                                 </artifactItem>
@@ -233,7 +228,6 @@
                                     <version>${saxon.version}</version>
                                     <classifier>s9api</classifier>
                                     <type>jar</type>
-                                    <overWrite>false</overWrite>
                                     <outputDirectory>${project.build.directory}/${project.artifactId}/WEB-INF/lib
                                     </outputDirectory>
                                 </artifactItem>
@@ -243,7 +237,6 @@
                                     <version>${saxon.version}</version>
                                     <classifier>dom</classifier>
                                     <type>jar</type>
-                                    <overWrite>false</overWrite>
                                     <outputDirectory>${project.build.directory}/${project.artifactId}/WEB-INF/lib
                                     </outputDirectory>
                                 </artifactItem>
@@ -252,12 +245,14 @@
                     </execution>
                 </executions>
             </plugin>
+<!--
             <plugin>
                 <groupId>org.jenkins-ci.tools</groupId>
                 <artifactId>maven-hpi-plugin</artifactId>
                 <version>1.100</version>
                 <extensions>true</extensions>
             </plugin>
+-->
         </plugins>
     </build>
 </project>
