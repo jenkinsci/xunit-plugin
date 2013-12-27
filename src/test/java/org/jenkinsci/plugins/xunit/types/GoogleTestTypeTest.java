@@ -7,11 +7,12 @@ import org.junit.Test;
  */
 public class GoogleTestTypeTest extends AbstractTest {
 
-	@Test
+    @Test
     public void testTestCase1() throws Exception {
         convertAndValidate(GoogleTestInputMetric.class, "googletest/testcase1/input.xml", "googletest/testcase1/result.xml");
     }
-	@Test
+
+    @Test
     public void testTestCase2() throws Exception {
         convertAndValidate(GoogleTestInputMetric.class, "googletest/testcase2/input.xml", "googletest/testcase2/result.xml");
     }
