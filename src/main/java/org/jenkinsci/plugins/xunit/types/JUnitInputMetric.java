@@ -1,12 +1,12 @@
 package org.jenkinsci.plugins.xunit.types;
 
-import com.thalesgroup.dtkit.junit.model.JUnitModel;
 import com.thalesgroup.dtkit.metrics.model.InputMetricOther;
 import com.thalesgroup.dtkit.util.converter.ConversionException;
 import com.thalesgroup.dtkit.util.validator.ValidationError;
 import com.thalesgroup.dtkit.util.validator.ValidationException;
 import hudson.FilePath;
 import org.apache.commons.io.FileUtils;
+import org.jenkinsci.plugins.xunit.types.model.JUnit8;
 
 import java.io.File;
 import java.io.IOException;
@@ -37,7 +37,8 @@ public class JUnitInputMetric extends InputMetricOther {
 
     @Override
     public boolean validateInputFile(File inputXMLFile) throws ValidationException {
-        List<ValidationError> errors = JUnitModel.OUTPUT_JUNIT_7.validate(inputXMLFile);
+        final JUnit8 jUnit = new JUnit8();
+        List<ValidationError> errors = jUnit.validate(inputXMLFile);
         for (ValidationError error : errors) {
             System.out.println(error);
         }
