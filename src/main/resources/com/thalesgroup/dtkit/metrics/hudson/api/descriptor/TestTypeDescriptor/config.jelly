@@ -1,81 +1,87 @@
 <j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form">
 
-   <f:entry title="${descriptor.displayName}">
+    <f:entry title="${descriptor.displayName}">
 
-     <table width="100%"  border='0'  cellspacing='0' padding="0">
+        <table width="100%" border='0' cellspacing='0' padding="0">
 
-         <j:if test="${descriptor.isCustomType()}">
-            <tr>
-                 <td width="50%" style="${td}">
-                      <label>Pattern</label>
-                      <f:textbox field="pattern"/>
-                 </td>
-                 <td width="50%" style="${td}">
-                     <label>Custom stylesheet</label>
-                     <f:textbox field="customXSL" />
-                 </td>
-            </tr>
-            <tr>
-                 <td width="100%" style="${td}" colspan="2">
-                     <label>Skip if there are no test files</label>
-                     <f:checkbox field="skipNoTestFiles" checked="${instance.skipNoTestFiles}"/>
-                  </td>
-            </tr>
-            <tr>
-                 <td width="100%" style="${td}" colspan="2">
-                     <label>Fail the build if test results were not updated this run</label>
-                     <f:checkbox field="failIfNotNew" checked="${h.defaultToTrue(instance.failIfNotNew)}"/>
-                  </td>
-            </tr>
-            <tr>
-                 <td width="100%" style="${td}" colspan="2">
-                     <label>Delete temporary JUnit files</label>
-                     <f:checkbox field="deleteOutputFiles" checked="${h.defaultToTrue(instance.deleteOutputFiles)}"/>
-                  </td>
-            </tr>
-            <tr>
-                 <td width="100%" style="${td}" colspan="2">
-                     <label>Stop and set the build status to 'failed' if there are errors when processing a result file</label>
-                     <f:checkbox field="stopProcessingIfError" checked="${h.defaultToTrue(instance.stopProcessingIfError)}"/>
-                  </td>
-            </tr>
-         </j:if>
+            <j:if test="${descriptor.isCustomType()}">
+                <tr>
+                    <td width="50%" style="${td}">
+                        <label>Pattern</label>
+                        <f:textbox field="pattern"/>
+                    </td>
+                    <td width="50%" style="${td}">
+                        <label>Custom stylesheet</label>
+                        <f:textbox field="customXSL"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" style="${td}" colspan="2">
+                        <label>Skip if there are no test files</label>
+                        <f:checkbox field="ignoreNoResultFiles" checked="${instance.skipNoTestFiles}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" style="${td}" colspan="2">
+                        <label>Fail the build if test results were not updated this run</label>
+                        <f:checkbox field="failIfNotNew" checked="${h.defaultToTrue(instance.failIfNotNew)}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" style="${td}" colspan="2">
+                        <label>Delete temporary JUnit files</label>
+                        <f:checkbox field="deleteOutputFiles" checked="${h.defaultToTrue(instance.deleteOutputFiles)}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" style="${td}" colspan="2">
+                        <label>Stop and set the build status to 'failed' if there are errors when processing a result
+                            file
+                        </label>
+                        <f:checkbox field="stopProcessingIfError"
+                                    checked="${h.defaultToTrue(instance.stopProcessingIfError)}"/>
+                    </td>
+                </tr>
+            </j:if>
 
-         <j:if test="${not descriptor.isCustomType()}">
-            <tr>
-                 <td width="100%" style="${td}">
-                     <label>Pattern</label>
-                     <f:textbox field="pattern"/>
-                 </td>
-            </tr>
-            <tr>
-                 <td width="100%" style="${td}" colspan="2">
-                     <label>Skip if there are no test files</label>
-                     <f:checkbox field="skipNoTestFiles" checked="${instance.skipNoTestFiles}"/>
-                  </td>
-            </tr>
-            <tr>
-                 <td width="100%" style="${td}">
-                  <label>Fail the build if test results were not updated this run</label>
-                  <f:checkbox field="failIfNotNew" checked="${h.defaultToTrue(instance.failIfNotNew)}"/>
-                 </td>
-            </tr>
-            <tr>
-                 <td width="100%" style="${td}">
-                     <label>Delete temporary JUnit files</label>
-                     <f:checkbox field="deleteOutputFiles" checked="${h.defaultToTrue(instance.deleteOutputFiles)}"/>
-                  </td>
-            </tr>
-            <tr>
-                 <td width="100%" style="${td}" colspan="2">
-                     <label>Stop and set the build to 'failed' status if there are errors when processing a result file</label>
-                     <f:checkbox field="stopProcessingIfError" checked="${h.defaultToTrue(instance.stopProcessingIfError)}"/>
-                  </td>
-            </tr>
-         </j:if>
+            <j:if test="${not descriptor.isCustomType()}">
+                <tr>
+                    <td width="100%" style="${td}">
+                        <label>Pattern</label>
+                        <f:textbox field="pattern"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" style="${td}" colspan="2">
+                        <label>Skip if there are no test files</label>
+                        <f:checkbox field="ignoreNoResultFiles" checked="${instance.skipNoTestFiles}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" style="${td}">
+                        <label>Fail the build if test results were not updated this run</label>
+                        <f:checkbox field="failIfNotNew" checked="${h.defaultToTrue(instance.failIfNotNew)}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" style="${td}">
+                        <label>Delete temporary JUnit files</label>
+                        <f:checkbox field="deleteOutputFiles" checked="${h.defaultToTrue(instance.deleteOutputFiles)}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" style="${td}" colspan="2">
+                        <label>Stop and set the build to 'failed' status if there are errors when processing a result
+                            file
+                        </label>
+                        <f:checkbox field="stopProcessingIfError"
+                                    checked="${h.defaultToTrue(instance.stopProcessingIfError)}"/>
+                    </td>
+                </tr>
+            </j:if>
 
-     </table>
+        </table>
 
-  </f:entry>
-  
+    </f:entry>
+
 </j:jelly>
