@@ -1,7 +1,6 @@
 package org.jenkinsci.plugins.xunit.types.model;
 
 import com.thalesgroup.dtkit.metrics.model.AbstractOutputMetric;
-import com.thalesgroup.dtkit.util.validator.ValidationService;
 
 import java.io.Serializable;
 
@@ -9,10 +8,6 @@ import java.io.Serializable;
  * @author Gregory Boissinot
  */
 public class JUnit9 extends AbstractOutputMetric implements Serializable {
-
-    public JUnit9() {
-        set(new ValidationService());
-    }
 
     @Override
     public String getKey() {

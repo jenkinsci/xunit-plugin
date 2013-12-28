@@ -1,17 +1,11 @@
 package org.jenkinsci.plugins.xunit.types;
 
-import com.google.inject.AbstractModule;
-import com.google.inject.Guice;
-import com.google.inject.Injector;
-import com.google.inject.Singleton;
 import com.thalesgroup.dtkit.metrics.model.InputMetric;
-import com.thalesgroup.dtkit.util.converter.ConversionService;
+import com.thalesgroup.dtkit.metrics.model.InputMetricFactory;
 import com.thalesgroup.dtkit.util.validator.ValidationError;
-import com.thalesgroup.dtkit.util.validator.ValidationService;
 import org.custommonkey.xmlunit.Diff;
 import org.custommonkey.xmlunit.XMLUnit;
 import org.junit.Assert;
-import org.junit.BeforeClass;
 
 import java.io.*;
 
@@ -19,20 +13,6 @@ import java.io.*;
  * @author Gregory Boissinot
  */
 public abstract class AbstractTest {
-
-    private static Injector injector;
-
-    @BeforeClass
-    public static void initInjector() {
-        injector = Guice.createInjector(new AbstractModule() {
-            @Override
-            protected void configure() {
-                //Optional binding, provided by default in Guice)
-                bind(ValidationService.class).in(Singleton.class);
-                bind(ConversionService.class).in(Singleton.class);
-            }
-        });
-    }
 
     private String readXmlAsString(File input)
             throws IOException {
@@ -58,7 +38,7 @@ public abstract class AbstractTest {
     }
 
     protected void convertAndValidate(Class<? extends InputMetric> metricClass, String inputXMLPath, String expectedResultPath) throws Exception {
-        InputMetric inputMetric = injector.getInstance(metricClass);
+        InputMetric inputMetric = InputMetricFactory.getInstance(metricClass);
 
         File outputXMLFile = File.createTempFile("result", "xml");
         File inputXMLFile = new File(this.getClass().getResource(inputXMLPath).toURI());
@@ -88,7 +68,7 @@ public abstract class AbstractTest {
 
     protected void convertAndValidate(String inputXMLPath, String inputXSLPath, String expectedResultPath) throws Exception {
 
-        CustomInputMetric customInputMetric = injector.getInstance(CustomInputMetric.class);
+        CustomInputMetric customInputMetric = CustomInputMetric.class.newInstance();
         customInputMetric.setCustomXSLFile(new File(this.getClass().getResource(inputXSLPath).toURI()));
 
         File outputXMLFile = File.createTempFile("result", "xml");

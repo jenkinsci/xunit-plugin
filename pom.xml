@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -37,9 +38,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
-        <guice.version>2.0.1</guice.version>
-        <dtkit.frmk.version>0.20.1</dtkit.frmk.version>
-        <dtkit.junit.format>0.19</dtkit.junit.format>
+        <dtkit.frmk.version>1.0.0</dtkit.frmk.version>
+        <dtkit.junit.format>0.20</dtkit.junit.format>
         <dtkit.default.junit.version>0.35</dtkit.default.junit.version>
         <xerces.version>2.9.1</xerces.version>
         <saxon.version>9.1.0.8</saxon.version>
@@ -64,12 +64,6 @@
     </pluginRepositories>
 
     <dependencies>
-
-        <dependency>
-            <groupId>com.google.code.guice</groupId>
-            <artifactId>guice</artifactId>
-            <version>${guice.version}</version>
-        </dependency>
 
         <dependency>
             <groupId>org.jenkins-ci.lib.dtkit</groupId>
@@ -245,14 +239,14 @@
                     </execution>
                 </executions>
             </plugin>
-<!--
-            <plugin>
-                <groupId>org.jenkins-ci.tools</groupId>
-                <artifactId>maven-hpi-plugin</artifactId>
-                <version>1.100</version>
-                <extensions>true</extensions>
-            </plugin>
--->
+            <!--
+                        <plugin>
+                            <groupId>org.jenkins-ci.tools</groupId>
+                            <artifactId>maven-hpi-plugin</artifactId>
+                            <version>1.100</version>
+                            <extensions>true</extensions>
+                        </plugin>
+            -->
         </plugins>
     </build>
 </project>
