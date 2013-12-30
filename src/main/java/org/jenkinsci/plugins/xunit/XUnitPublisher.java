@@ -34,15 +34,10 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
     private XUnitThreshold[] thresholds;
     private int thresholdMode;
 
-    /**
-     * Computed
-     */
-    private XUnitProcessor xUnitProcessor;
-
     public XUnitPublisher(TestType[] types, XUnitThreshold[] thresholds) {
         this.types = types;
         this.thresholds = thresholds;
-        xUnitProcessor = new XUnitProcessor(types, thresholds, thresholdMode);
+        this.thresholdMode = 1;
     }
 
     @DataBoundConstructor
@@ -50,7 +45,6 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
         this.types = tools;
         this.thresholds = thresholds;
         this.thresholdMode = thresholdMode;
-        xUnitProcessor = new XUnitProcessor(types, thresholds, thresholdMode);
     }
 
     public TestType[] getTypes() {
@@ -77,12 +71,14 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
     @Override
     public boolean perform(final AbstractBuild<?, ?> build, Launcher launcher, final BuildListener listener)
             throws InterruptedException, IOException {
+        XUnitProcessor xUnitProcessor = new XUnitProcessor(types, thresholds, thresholdMode);
         return xUnitProcessor.performXUnit(false, build, listener);
     }
 
     public boolean performDryRun(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener)
             throws InterruptedException, IOException {
         try {
+            XUnitProcessor xUnitProcessor = new XUnitProcessor(types, thresholds, thresholdMode);
             xUnitProcessor.performXUnit(true, build, listener);
         } catch (Throwable t) {
             listener.getLogger().println("[ERROR] - There is an error: " + t.getCause().getMessage());
