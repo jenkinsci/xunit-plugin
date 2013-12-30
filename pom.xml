@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -10,7 +9,7 @@
 
     <groupId>org.jenkins-ci.lib.dtkit</groupId>
     <artifactId>dtkit-default-junit-parent</artifactId>
-    <version>0.37-SNAPSHOT</version>
+    <version>0.37</version>
     <packaging>pom</packaging>
     <name>DTKit Default JUnit Parent</name>
     <url>http://wiki.jenkins-ci.org/display/JENKINS/DTKit</url>
@@ -71,10 +70,10 @@
     </dependencyManagement>
 
     <scm>
-        <connection>scm:svn:https://svn.jenkins-ci.org/trunk/hudson/dtkit/dtkit-default/junit-output</connection>
-        <developerConnection>scm:svn:https://svn.jenkins-ci.org/trunk/hudson/dtkit/dtkit-default/junit-output
+        <connection>scm:svn:https://svn.jenkins-ci.org/tags/dtkit-default-junit-parent-0.37</connection>
+        <developerConnection>scm:svn:https://svn.jenkins-ci.org/tags/dtkit-default-junit-parent-0.37
         </developerConnection>
-        <url>https://github.com/jenkinsci/pom/dtkit-metrics-parent/tags/dtkit-metrics-default-parent-21/dtkit-default-junit-parent</url>
+        <url>https://github.com/jenkinsci/pom/dtkit-metrics-parent/tags/dtkit-default-junit-parent-0.37</url>
     </scm>
 
     <build>
