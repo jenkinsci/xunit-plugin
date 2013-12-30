@@ -88,4 +88,14 @@ public class BoostTestTest extends AbstractTest {
     public void testTestCase15() throws Exception {
         convertAndValidate(BoostTest.class, "boosttest/testcase15/testlog.xml", "boosttest/testcase15/junit-result.xml");
     }
+
+    @Test
+    public void testTestCase16() throws Exception {
+        convertAndValidate(BoostTest.class, "boosttest/testcase16/testlog.xml", "boosttest/testcase16/junit-result.xml");
+    }
+
+    @Test
+    public void testTestCase17() throws Exception {
+        convertAndValidate(BoostTest.class, "boosttest/testcase17/testlog.xml", "boosttest/testcase17/junit-result.xml");
+    }
 }

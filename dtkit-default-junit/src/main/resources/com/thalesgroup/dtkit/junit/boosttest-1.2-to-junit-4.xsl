@@ -56,11 +56,12 @@
                 <xsl:when test="$currEltName='Error'">
                     <xsl:text>&#13;</xsl:text>
                     <xsl:text>[Error] - </xsl:text>
-                    <xsl:call-template name="processQuote">
-                        <xsl:with-param name="string">
-                            <xsl:value-of select="$currElt"/>
-                        </xsl:with-param>
-                    </xsl:call-template>
+                    <!--<xsl:call-template name="processQuote">-->
+                        <!--<xsl:with-param name="string">-->
+                            <!--<xsl:value-of select="$currElt"/>-->
+                        <!--</xsl:with-param>-->
+                    <!--</xsl:call-template>-->
+                    <xsl:value-of select="$currElt"/>
                     <xsl:text>&#13;</xsl:text>
                     <xsl:text> == [File] - </xsl:text><xsl:value-of select="($currElt)/@file"/>
                     <xsl:text>&#13;</xsl:text>
@@ -109,6 +110,8 @@
                         </xsl:otherwise>
                     </xsl:choose>
                 </xsl:when>
+
+                 <xsl:when test="$currEltName='Info'"></xsl:when>
 
             </xsl:choose>
         </xsl:for-each>

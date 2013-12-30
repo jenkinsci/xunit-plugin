@@ -47,7 +47,6 @@ public class ValidInputMetricXSLTest {
         listInputMetric.add(MSTest.class);
         listInputMetric.add(NUnit.class);
         listInputMetric.add(PHPUnit.class);
-        listInputMetric.add(Tusar.class);
         listInputMetric.add(UnitTest.class);
     }
 
