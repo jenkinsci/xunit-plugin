@@ -1,10 +1,11 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>org.jenkins-ci.lib.dtkit</groupId>
         <artifactId>dtkit-metrics-default-parent</artifactId>
-        <version>21</version>
+        <version>24</version>
     </parent>
 
     <groupId>org.jenkins-ci.lib.dtkit</groupId>
@@ -34,7 +35,6 @@
     </developers>
 
     <modules>
-        <!-- Generic DTKIT modules containing default set of metrics -->
         <module>dtkit-default-junit</module>
         <module>dtkit-default-junit-jenkins</module>
     </modules>
@@ -45,6 +45,14 @@
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>JDK7</groupId>
+                <artifactId>tools</artifactId>
+                <version>1.7</version>
+                <scope>system</scope>
+                <systemPath>/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/lib/tools.jar</systemPath>
+            </dependency>
 
             <dependency>
                 <groupId>org.jenkins-ci.lib.dtkit</groupId>
@@ -66,8 +74,8 @@
         <connection>scm:svn:https://svn.jenkins-ci.org/trunk/hudson/dtkit/dtkit-default/junit-output</connection>
         <developerConnection>scm:svn:https://svn.jenkins-ci.org/trunk/hudson/dtkit/dtkit-default/junit-output
         </developerConnection>
-    <url>https://github.com/jenkinsci/pom/dtkit-metrics-parent/tags/dtkit-metrics-default-parent-21/dtkit-default-junit-parent</url>
-  </scm>
+        <url>https://github.com/jenkinsci/pom/dtkit-metrics-parent/tags/dtkit-metrics-default-parent-21/dtkit-default-junit-parent</url>
+    </scm>
 
     <build>
         <plugins>
