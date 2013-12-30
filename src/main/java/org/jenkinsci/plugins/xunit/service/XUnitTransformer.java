@@ -4,6 +4,7 @@ import com.google.inject.Inject;
 import hudson.FilePath;
 import hudson.remoting.VirtualChannel;
 import hudson.util.IOException2;
+import org.jenkinsci.plugins.xunit.NoTestException;
 import org.jenkinsci.plugins.xunit.SkipTestException;
 import org.jenkinsci.plugins.xunit.XUnitProcessor;
 
@@ -73,7 +74,7 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
                 String msg = "No test reports found for the metric '" + metricName + "' with the resolved pattern '" + xUnitToolInfo.getExpandedPattern() + "'. Configuration error?.";
                 xUnitLog.errorConsoleLogger(msg);
                 errorSystemLogger(msg);
-                return false;
+                throw new NoTestException();
             }
 
             //Checks the timestamp for each test file if the UI option is checked (true by default)
@@ -142,6 +143,8 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
 
         } catch (SkipTestException se) {
             throw new SkipTestException();
+        } catch (NoTestException se) {
+            throw new NoTestException();
         } catch (Exception xe) {
             String msg = xe.getMessage();
             if (msg != null) {

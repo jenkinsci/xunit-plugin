@@ -111,8 +111,12 @@ public class XUnitProcessor {
                 try {
                     result = getWorkspace(build).act(xUnitTransformer);
                     findTest = true;
+                } catch (NoTestException ne) {
+                    xUnitLog.infoConsoleLogger("Fail BUILD.");
+                    throw new StopTestProcessingException();
                 } catch (SkipTestException se) {
                     xUnitLog.infoConsoleLogger("Skipping the metric tool processing.");
+                    continue;
                 }
 
                 if (!result && xUnitToolInfo.isStopProcessingIfError()) {
