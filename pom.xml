@@ -9,7 +9,7 @@
 
     <groupId>org.jenkins-ci.lib.dtkit</groupId>
     <artifactId>dtkit-default-junit-parent</artifactId>
-    <version>0.37</version>
+    <version>0.38-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>DTKit Default JUnit Parent</name>
     <url>http://wiki.jenkins-ci.org/display/JENKINS/DTKit</url>
@@ -70,10 +70,10 @@
     </dependencyManagement>
 
     <scm>
-        <connection>scm:svn:https://svn.jenkins-ci.org/tags/dtkit-default-junit-parent-0.37</connection>
-        <developerConnection>scm:svn:https://svn.jenkins-ci.org/tags/dtkit-default-junit-parent-0.37
+        <connection>scm:svn:https://svn.jenkins-ci.org/trunk/hudson/dtkit/dtkit-default/junit-output</connection>
+        <developerConnection>scm:svn:https://svn.jenkins-ci.org/trunk/hudson/dtkit/dtkit-default/junit-output
         </developerConnection>
-        <url>https://github.com/jenkinsci/pom/dtkit-metrics-parent/tags/dtkit-default-junit-parent-0.37</url>
+        <url>https://github.com/jenkinsci/pom/dtkit-metrics-parent/tags/dtkit-metrics-default-parent-21/dtkit-default-junit-parent</url>
     </scm>
 
     <build>
