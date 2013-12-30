@@ -14,8 +14,8 @@ public class CustomType extends TestType {
 
     @DataBoundConstructor
     @SuppressWarnings("unused")
-    public CustomType(String pattern, String customXSL, boolean ignoreNoResultFiles, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
-        super(pattern, ignoreNoResultFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
+    public CustomType(String pattern, String customXSL, boolean skipNoTestFiles, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
+        super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
         this.customXSL = customXSL;
     }
 

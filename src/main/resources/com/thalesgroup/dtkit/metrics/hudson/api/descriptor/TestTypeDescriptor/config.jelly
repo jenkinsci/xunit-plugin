@@ -18,7 +18,7 @@
                 <tr>
                     <td width="100%" style="${td}" colspan="2">
                         <label>Skip if there are no test files</label>
-                        <f:checkbox field="ignoreNoResultFiles" checked="${instance.skipNoTestFiles}"/>
+                        <f:checkbox field="skipNoTestFiles" checked="${instance.skipNoTestFiles}"/>
                     </td>
                 </tr>
                 <tr>
@@ -54,7 +54,7 @@
                 <tr>
                     <td width="100%" style="${td}" colspan="2">
                         <label>Skip if there are no test files</label>
-                        <f:checkbox field="ignoreNoResultFiles" checked="${instance.skipNoTestFiles}"/>
+                        <f:checkbox field="skipNoTestFiles" checked="${instance.skipNoTestFiles}"/>
                     </td>
                 </tr>
                 <tr>
