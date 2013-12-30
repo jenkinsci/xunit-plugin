@@ -10,6 +10,7 @@ import com.thalesgroup.dtkit.metrics.model.InputType;
 import com.thalesgroup.dtkit.metrics.model.OutputMetric;
 import hudson.model.BuildListener;
 import hudson.remoting.VirtualChannel;
+import org.jenkinsci.plugins.xunit.NoTestException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
@@ -111,7 +112,7 @@ public class XUnitTransformerTest {
     }
 
 
-    @Test
+    @Test(expected = NoTestException.class)
     public void emptyResultFiles() throws Exception {
 
         //Test result
