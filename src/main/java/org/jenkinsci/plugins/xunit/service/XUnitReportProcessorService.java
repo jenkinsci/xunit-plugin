@@ -97,10 +97,15 @@ public class XUnitReportProcessorService extends XUnitService implements Seriali
                     return false;
                 }
 
-                String msg = "Test reports were found but not all of them are new. Did all the tests run?\n";
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.append(
+                        String.format("Test reports were found but not all of them are new. Did all the tests run?%n"));
                 for (File f : oldResults) {
-                    msg += String.format("  * %s is %s old\n", f, Util.getTimeSpanString(xUnitToolInfo.getBuildTime() - f.lastModified()));
+                    stringBuilder.append(
+                            String.format("  * %s is %s old%n", f,
+                                    Util.getTimeSpanString(xUnitToolInfo.getBuildTime() - f.lastModified())));
                 }
+                String msg = stringBuilder.toString();
                 xUnitLog.errorConsoleLogger(msg);
                 errorSystemLogger(msg);
                 return false;

@@ -48,13 +48,12 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
      * @return true or false if the conversion fails
      * @throws IOException
      */
-    @Override
     public Boolean invoke(File ws, VirtualChannel channel) throws IOException, InterruptedException {
         try {
 
-            File junitOuputDir = new File(ws, XUnitProcessor.GENERATED_JUNIT_DIR);
-            if (!junitOuputDir.exists() && !junitOuputDir.mkdirs()) {
-                String msg = "Can't create the path " + junitOuputDir + ". Maybe the directory already exists.";
+            File junitOutputDir = new File(ws, XUnitProcessor.GENERATED_JUNIT_DIR);
+            if (!junitOutputDir.exists() && !junitOutputDir.mkdirs()) {
+                String msg = "Can't create the path " + junitOutputDir + ". Maybe the directory already exists.";
                 xUnitLog.warningConsoleLogger(msg);
                 warningSystemLogger(msg);
             }
@@ -119,7 +118,7 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
                 }
 
                 //Convert the input file
-                File junitTargetFile = xUnitConversionService.convert(xUnitToolInfo, curFile, ws, junitOuputDir);
+                File junitTargetFile = xUnitConversionService.convert(xUnitToolInfo, curFile, ws, junitOutputDir);
 
                 //Validates converted file
                 if (!xUnitValidationService.validateOutputFile(xUnitToolInfo, curFile, junitTargetFile)) {
