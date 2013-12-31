@@ -139,7 +139,7 @@ public class XUnitProcessor {
         }).getInstance(XUnitReportProcessorService.class);
     }
 
-    private class StopTestProcessingException extends Exception {
+    private static class StopTestProcessingException extends Exception {
     }
 
     private boolean isEmptyGivenPattern(XUnitReportProcessorService xUnitReportService, TestType tool) {
@@ -268,7 +268,9 @@ public class XUnitProcessor {
                     final long nowSlave = System.currentTimeMillis();
                     File generatedJunitDir = new File(ws, GENERATED_JUNIT_DIR);
                     //Try to create the file if it was deleted or something was wrong
-                    generatedJunitDir.mkdirs();
+                    if (!generatedJunitDir.mkdirs()) {
+                        throw new XUnitException("Cannot create " + generatedJunitDir.getAbsolutePath());
+                    }
                     FileSet fs = Util.createFileSet(generatedJunitDir, junitFilePattern);
                     DirectoryScanner ds = fs.getDirectoryScanner();
                     String[] files = ds.getIncludedFiles();
