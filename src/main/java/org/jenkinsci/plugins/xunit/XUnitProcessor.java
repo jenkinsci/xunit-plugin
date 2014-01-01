@@ -107,7 +107,7 @@ public class XUnitProcessor {
                 String expandedPattern = getExpandedResolvedPattern(tool, build, listener);
                 XUnitToolInfo xUnitToolInfo = getXUnitToolInfoObject(tool, expandedPattern, build, listener);
                 XUnitTransformer xUnitTransformer = getXUnitTransformerObject(xUnitToolInfo, listener);
-                boolean result = false;
+                boolean result;
                 try {
                     result = getWorkspace(build).act(xUnitTransformer);
                     findTest = true;
@@ -152,7 +152,7 @@ public class XUnitProcessor {
         return Util.replaceMacro(newExpandedPattern, build.getEnvironment(listener));
     }
 
-    private XUnitToolInfo getXUnitToolInfoObject(TestType tool, String expandedPattern, AbstractBuild build, final BuildListener listener) throws IOException, InterruptedException {
+    private XUnitToolInfo getXUnitToolInfoObject(final TestType tool, final String expandedPattern, final AbstractBuild build, final BuildListener listener) throws IOException, InterruptedException {
 
         InputMetric inputMetric = tool.getInputMetric();
         inputMetric = Guice.createInjector(new AbstractModule() {
@@ -173,8 +173,27 @@ public class XUnitProcessor {
                 tool.isFailIfNotNew(),
                 tool.isDeleteOutputFiles(), tool.isStopProcessingIfError(),
                 build.getTimeInMillis(),
-                (tool instanceof CustomType) ? getWorkspace(build).child(Util.replaceMacro(((CustomType) tool).getCustomXSL(), build.getEnvironment(listener))) : null);
+                (tool instanceof CustomType) ? getCustomStylesheet(tool, build, listener) : null);
 
+    }
+
+    private FilePath getCustomStylesheet(final TestType tool, final AbstractBuild build, final BuildListener listener) throws IOException, InterruptedException {
+
+        final FilePath workspace = getWorkspace(build);
+        final String customXSLPath = Util.replaceMacro(((CustomType) tool).getCustomXSL(), build.getEnvironment(listener));
+
+        //Try full path
+        FilePath customXSLFilePath = new FilePath(new File(customXSLPath));
+        if (!customXSLFilePath.exists()) {
+            //Try from workspace
+            customXSLFilePath = workspace.child(customXSLPath);
+        }
+
+        if (!customXSLFilePath.exists()) {
+            throw new XUnitException("The given xsl '" + customXSLPath + "'doesn't exist.");
+        }
+
+        return customXSLFilePath;
     }
 
     private FilePath getWorkspace(AbstractBuild build) {
@@ -211,9 +230,6 @@ public class XUnitProcessor {
         return getTestResultAction(previousBuild);
     }
 
-    /**
-     * Records the test results into the current build and return the number of tests
-     */
     private void recordTestResult(AbstractBuild<?, ?> build, BuildListener listener, XUnitLog xUnitLog) throws XUnitException {
         TestResultAction existingAction = build.getAction(TestResultAction.class);
         final long buildTime = build.getTimestamp().getTimeInMillis();
@@ -267,10 +283,8 @@ public class XUnitProcessor {
                 public TestResult invoke(File ws, VirtualChannel channel) throws IOException {
                     final long nowSlave = System.currentTimeMillis();
                     File generatedJunitDir = new File(ws, GENERATED_JUNIT_DIR);
-                    //Try to create the file if it was deleted or something was wrong
-                    if (!generatedJunitDir.mkdirs()) {
-                        throw new XUnitException("Cannot create " + generatedJunitDir.getAbsolutePath());
-                    }
+                    //Ignore return value
+                    generatedJunitDir.mkdirs();
                     FileSet fs = Util.createFileSet(generatedJunitDir, junitFilePattern);
                     DirectoryScanner ds = fs.getDirectoryScanner();
                     String[] files = ds.getIncludedFiles();

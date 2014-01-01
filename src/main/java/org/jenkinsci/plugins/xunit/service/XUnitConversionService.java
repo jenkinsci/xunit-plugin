@@ -72,10 +72,6 @@ public class XUnitConversionService extends XUnitService implements Serializable
 
     private File convertCustomInputMetric(XUnitToolInfo xUnitToolInfo, File inputFile, File workspace, InputMetric inputMetric, File junitTargetFile) throws IOException, InterruptedException, XUnitException {
         CustomInputMetric customInputMetric = (CustomInputMetric) inputMetric;
-        FilePath xslFilePath = xUnitToolInfo.getCusXSLFile();
-        if (!xslFilePath.exists()) {
-            throw new XUnitException("The input xsl '" + xslFilePath.getName() + "' relative to the workspace '" + workspace + "'doesn't exist.");
-        }
         customInputMetric.setCustomXSLFile(new File(xUnitToolInfo.getCusXSLFile().getRemote()));
         inputMetric.convert(inputFile, junitTargetFile);
         return junitTargetFile;
@@ -86,7 +82,7 @@ public class XUnitConversionService extends XUnitService implements Serializable
         FilePath userXSLFilePath = xUnitToolInfo.getUserContentRoot().child(inputMetricXSL.getUserContentXSLDirRelativePath());
 
         if (userXSLFilePath.exists()) {
-            xUnitLog.infoConsoleLogger("Trying to use the native embedded stylesheet.");
+            xUnitLog.infoConsoleLogger("Using the native embedded stylesheet in JENKINS_HOME.");
             try {
                 return convertInputMetricXSLWithUserXSL(inputFile, junitTargetFile, inputMetricXSL, userXSLFilePath);
             } catch (XUnitException xe) {
