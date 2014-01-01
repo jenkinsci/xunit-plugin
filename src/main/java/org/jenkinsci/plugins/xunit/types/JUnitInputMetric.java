@@ -6,7 +6,7 @@ import com.thalesgroup.dtkit.util.validator.ValidationError;
 import com.thalesgroup.dtkit.util.validator.ValidationException;
 import hudson.FilePath;
 import org.apache.commons.io.FileUtils;
-import org.jenkinsci.plugins.xunit.types.model.JUnit9;
+import org.jenkinsci.plugins.xunit.types.model.JUnit10;
 
 import java.io.File;
 import java.io.IOException;
@@ -37,7 +37,7 @@ public class JUnitInputMetric extends InputMetricOther {
 
     @Override
     public boolean validateInputFile(File inputXMLFile) throws ValidationException {
-        final JUnit9 jUnit = new JUnit9();
+        final JUnit10 jUnit = new JUnit10();
         List<ValidationError> errors = jUnit.validate(inputXMLFile);
         for (ValidationError error : errors) {
             System.out.println(error);
