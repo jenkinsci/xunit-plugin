@@ -10,7 +10,7 @@ import com.thalesgroup.dtkit.metrics.model.InputType;
 import com.thalesgroup.dtkit.metrics.model.OutputMetric;
 import hudson.model.BuildListener;
 import hudson.remoting.VirtualChannel;
-import org.jenkinsci.plugins.xunit.NoTestException;
+import org.jenkinsci.plugins.xunit.NoFoundTestException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
@@ -112,7 +112,7 @@ public class XUnitTransformerTest {
     }
 
 
-    @Test(expected = NoTestException.class)
+    @Test(expected = NoFoundTestException.class)
     public void emptyResultFiles() throws Exception {
 
         //Test result
@@ -130,9 +130,11 @@ public class XUnitTransformerTest {
     public void checkFailedNewFiles() throws Exception {
 
         //Recording behaviour : testing not empty result files found and a false check
-        List<String> resultFiles = Arrays.asList("a.txt");
+        String fileName = "a.txt";
+        File fileReport = new File(fileName);
+        List<String> resultFiles = Arrays.asList(fileName);
         when(xUnitReportProcessorServiceMock.findReports(any(XUnitToolInfo.class), any(File.class), anyString())).thenReturn(resultFiles);
-        when(xUnitReportProcessorServiceMock.checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class))).thenReturn(false);
+        when(xUnitReportProcessorServiceMock.getCurrentReport(any(File.class), anyString())).thenReturn(fileReport);
 
         //Test result
         Assert.assertFalse(xUnitTransformer.invoke(tempWorkspace.getDir(), mock(VirtualChannel.class)));
@@ -145,6 +147,7 @@ public class XUnitTransformerTest {
         InOrder inOrder = inOrder(xUnitReportProcessorServiceMock);
         inOrder.verify(xUnitReportProcessorServiceMock).findReports(any(XUnitToolInfo.class), any(File.class), anyString());
         inOrder.verify(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class));
+
     }
 
     @Test
@@ -156,9 +159,6 @@ public class XUnitTransformerTest {
 
         //Stop processing when there is an error
         when(xUnitReportProcessorServiceMock.isStopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(true);
-
-        //Check OK
-        when(xUnitReportProcessorServiceMock.checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class))).thenReturn(true);
 
         //Wants to call the real method checkFileIsNotEmpty
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenCallRealMethod();
@@ -194,9 +194,6 @@ public class XUnitTransformerTest {
         //Stop processing when there is an error
         when(xUnitReportProcessorServiceMock.isStopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(false);
 
-        //Check OK
-        when(xUnitReportProcessorServiceMock.checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class))).thenReturn(true);
-
         //Wants to call the real method checkFileIsNotEmpty
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenCallRealMethod();
 
@@ -228,7 +225,6 @@ public class XUnitTransformerTest {
         when(xUnitReportProcessorServiceMock.findReports(any(XUnitToolInfo.class), any(File.class), anyString())).thenReturn(resultFiles);
 
         //Check OK
-        when(xUnitReportProcessorServiceMock.checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class))).thenReturn(true);
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Stop processing when there is an error
@@ -268,7 +264,6 @@ public class XUnitTransformerTest {
         when(xUnitReportProcessorServiceMock.findReports(any(XUnitToolInfo.class), any(File.class), anyString())).thenReturn(resultFiles);
 
         //Check OK
-        when(xUnitReportProcessorServiceMock.checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class))).thenReturn(true);
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
         //Case: Right input validation, conversion and right output validation
         when(xUnitValidationServiceMock.validateInputFile(any(XUnitToolInfo.class), any(File.class))).thenReturn(true);
@@ -313,7 +308,6 @@ public class XUnitTransformerTest {
         when(xUnitReportProcessorServiceMock.findReports(any(XUnitToolInfo.class), any(File.class), anyString())).thenReturn(resultFiles);
 
         //Check OK
-        when(xUnitReportProcessorServiceMock.checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class))).thenReturn(true);
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Stop processing when there is an error
@@ -357,7 +351,6 @@ public class XUnitTransformerTest {
         when(xUnitReportProcessorServiceMock.findReports(any(XUnitToolInfo.class), any(File.class), anyString())).thenReturn(resultFiles);
 
         //Check OK
-        when(xUnitReportProcessorServiceMock.checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class))).thenReturn(true);
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Stop processing when there is an error
@@ -399,7 +392,6 @@ public class XUnitTransformerTest {
         when(xUnitReportProcessorServiceMock.findReports(any(XUnitToolInfo.class), any(File.class), anyString())).thenReturn(resultFiles);
 
         //Check OK
-        when(xUnitReportProcessorServiceMock.checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class))).thenReturn(true);
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Stop processing when there is an error
@@ -439,7 +431,6 @@ public class XUnitTransformerTest {
         when(xUnitReportProcessorServiceMock.findReports(any(XUnitToolInfo.class), any(File.class), anyString())).thenReturn(resultFiles);
 
         //Check OK
-        when(xUnitReportProcessorServiceMock.checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class))).thenReturn(true);
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Stop processing when there is an error
@@ -479,7 +470,6 @@ public class XUnitTransformerTest {
         when(xUnitReportProcessorServiceMock.findReports(any(XUnitToolInfo.class), any(File.class), anyString())).thenReturn(resultFiles);
 
         //Check OK
-        when(xUnitReportProcessorServiceMock.checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class))).thenReturn(true);
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Stop processing when there is an error
@@ -516,7 +506,6 @@ public class XUnitTransformerTest {
         when(xUnitReportProcessorServiceMock.findReports(any(XUnitToolInfo.class), any(File.class), anyString())).thenReturn(resultFiles);
 
         //Check OK
-        when(xUnitReportProcessorServiceMock.checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class))).thenReturn(true);
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Stop processing when there is an error
@@ -554,7 +543,6 @@ public class XUnitTransformerTest {
         when(xUnitReportProcessorServiceMock.findReports(any(XUnitToolInfo.class), any(File.class), anyString())).thenReturn(resultFiles);
 
         //Check OK
-        when(xUnitReportProcessorServiceMock.checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class))).thenReturn(true);
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Stop processing when there is an error
@@ -602,7 +590,6 @@ public class XUnitTransformerTest {
         when(xUnitReportProcessorServiceMock.findReports(any(XUnitToolInfo.class), any(File.class), anyString())).thenReturn(resultFiles);
 
         //Check OK
-        when(xUnitReportProcessorServiceMock.checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class))).thenReturn(true);
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Stop processing when there is an error
@@ -649,7 +636,6 @@ public class XUnitTransformerTest {
         when(xUnitReportProcessorServiceMock.findReports(any(XUnitToolInfo.class), any(File.class), anyString())).thenReturn(resultFiles);
 
         //Check OK
-        when(xUnitReportProcessorServiceMock.checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class))).thenReturn(true);
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Stop processing when there is an error
@@ -690,7 +676,6 @@ public class XUnitTransformerTest {
         when(xUnitReportProcessorServiceMock.findReports(any(XUnitToolInfo.class), any(File.class), anyString())).thenReturn(resultFiles);
 
         //Check OK
-        when(xUnitReportProcessorServiceMock.checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class))).thenReturn(true);
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Stop processing when there is an error
@@ -731,7 +716,6 @@ public class XUnitTransformerTest {
         when(xUnitReportProcessorServiceMock.findReports(any(XUnitToolInfo.class), any(File.class), anyString())).thenReturn(resultFiles);
 
         //Check OK
-        when(xUnitReportProcessorServiceMock.checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class))).thenReturn(true);
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Stop processing when there is an error
@@ -773,7 +757,6 @@ public class XUnitTransformerTest {
         when(xUnitReportProcessorServiceMock.findReports(any(XUnitToolInfo.class), any(File.class), anyString())).thenReturn(resultFiles);
 
         //Check OK
-        when(xUnitReportProcessorServiceMock.checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class))).thenReturn(true);
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
 
         //Stop processing when there is an error

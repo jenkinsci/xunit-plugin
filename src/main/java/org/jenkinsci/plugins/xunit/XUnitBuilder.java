@@ -26,6 +26,7 @@ public class XUnitBuilder extends Builder {
     private TestType[] types;
     private XUnitThreshold[] thresholds;
     private int thresholdMode;
+    private ExtraConfiguration extraConfiguration;
 
     /**
      * Computed
@@ -39,10 +40,15 @@ public class XUnitBuilder extends Builder {
     }
 
     @DataBoundConstructor
-    public XUnitBuilder(TestType[] tools, XUnitThreshold[] thresholds, int thresholdMode) {
+    public XUnitBuilder(TestType[] tools, XUnitThreshold[] thresholds, int thresholdMode, String testTimeMargin) {
         this.types = tools;
         this.thresholds = thresholds;
         this.thresholdMode = thresholdMode;
+        long longTestTimeMargin = XUnitDefaultValues.TEST_REPORT_TIME_MARGING;
+        if (testTimeMargin != null && testTimeMargin.trim().length() != 0) {
+            longTestTimeMargin = Long.parseLong(testTimeMargin);
+        }
+        this.extraConfiguration = new ExtraConfiguration(longTestTimeMargin);
     }
 
     public TestType[] getTypes() {
@@ -57,17 +63,24 @@ public class XUnitBuilder extends Builder {
         return thresholdMode;
     }
 
+    public ExtraConfiguration getExtraConfiguration() {
+        if (extraConfiguration == null) {
+            extraConfiguration = new ExtraConfiguration(XUnitDefaultValues.TEST_REPORT_TIME_MARGING);
+        }
+        return extraConfiguration;
+    }
+
     @Override
     public boolean perform(final AbstractBuild<?, ?> build, Launcher launcher, final BuildListener listener)
             throws InterruptedException, IOException {
-        XUnitProcessor xUnitProcessor = new XUnitProcessor(types, thresholds, thresholdMode);
+        XUnitProcessor xUnitProcessor = new XUnitProcessor(getTypes(), getThresholds(), getThresholdMode(), getExtraConfiguration());
         return xUnitProcessor.performXUnit(false, build, listener);
     }
 
     public boolean performDryRun(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener)
             throws InterruptedException, IOException {
         try {
-            XUnitProcessor xUnitProcessor = new XUnitProcessor(types, thresholds, thresholdMode);
+            XUnitProcessor xUnitProcessor = new XUnitProcessor(getTypes(), getThresholds(), getThresholdMode(), getExtraConfiguration());
             xUnitProcessor.performXUnit(true, build, listener);
         } catch (Throwable t) {
             listener.getLogger().println("[ERROR] - There is an error: " + t.getCause().getMessage());

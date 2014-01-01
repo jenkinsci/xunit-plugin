@@ -4,6 +4,7 @@ import com.google.inject.Inject;
 import hudson.Util;
 import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
+import org.jenkinsci.plugins.xunit.OldTestReportException;
 
 import java.io.File;
 import java.io.Serializable;
@@ -73,14 +74,14 @@ public class XUnitReportProcessorService extends XUnitService implements Seriali
      * @param workspace     the root location of the file list
      * @return true if all files are new, false otherwise
      */
-    public boolean checkIfFindsFilesNewFiles(XUnitToolInfo xUnitToolInfo, List<String> files, File workspace) {
+    public void checkIfFindsFilesNewFiles(XUnitToolInfo xUnitToolInfo, List<String> files, File workspace) throws OldTestReportException {
 
         if (xUnitToolInfo.isFailIfNotNew()) {
             ArrayList<File> oldResults = new ArrayList<File>();
             for (String value : files) {
                 File reportFile = new File(workspace, value);
                 // if the file was not updated this build, that is a problem
-                if (xUnitToolInfo.getBuildTime() - 3000 > reportFile.lastModified()) {
+                if (xUnitToolInfo.getBuildTime() - xUnitToolInfo.getTestTimeMargin() > reportFile.lastModified()) {
                     oldResults.add(reportFile);
                 }
             }
@@ -94,7 +95,7 @@ public class XUnitReportProcessorService extends XUnitService implements Seriali
                             "Please keep the slave clock in sync with the master.";
                     xUnitLog.errorConsoleLogger(msg);
                     errorSystemLogger(msg);
-                    return false;
+                    throw new OldTestReportException();
                 }
 
                 StringBuilder stringBuilder = new StringBuilder();
@@ -108,11 +109,9 @@ public class XUnitReportProcessorService extends XUnitService implements Seriali
                 String msg = stringBuilder.toString();
                 xUnitLog.errorConsoleLogger(msg);
                 errorSystemLogger(msg);
-                return false;
+                throw new OldTestReportException();
             }
         }
-
-        return true;
     }
 
     /**

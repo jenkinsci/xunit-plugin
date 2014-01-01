@@ -4,9 +4,10 @@ import com.google.inject.Inject;
 import hudson.FilePath;
 import hudson.remoting.VirtualChannel;
 import hudson.util.IOException2;
-import org.jenkinsci.plugins.xunit.NoTestException;
+import org.jenkinsci.plugins.xunit.NoFoundTestException;
+import org.jenkinsci.plugins.xunit.OldTestReportException;
 import org.jenkinsci.plugins.xunit.SkipTestException;
-import org.jenkinsci.plugins.xunit.XUnitProcessor;
+import org.jenkinsci.plugins.xunit.XUnitDefaultValues;
 
 import java.io.File;
 import java.io.IOException;
@@ -51,7 +52,7 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
     public Boolean invoke(File ws, VirtualChannel channel) throws IOException, InterruptedException {
         try {
 
-            File junitOutputDir = new File(ws, XUnitProcessor.GENERATED_JUNIT_DIR);
+            File junitOutputDir = new File(ws, XUnitDefaultValues.GENERATED_JUNIT_DIR);
             if (!junitOutputDir.exists() && !junitOutputDir.mkdirs()) {
                 String msg = "Can't create the path " + junitOutputDir + ". Maybe the directory already exists.";
                 xUnitLog.warningConsoleLogger(msg);
@@ -73,14 +74,11 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
                 String msg = "No test reports found for the metric '" + metricName + "' with the resolved pattern '" + xUnitToolInfo.getExpandedPattern() + "'. Configuration error?.";
                 xUnitLog.errorConsoleLogger(msg);
                 errorSystemLogger(msg);
-                throw new NoTestException();
+                throw new NoFoundTestException();
             }
 
             //Checks the timestamp for each test file if the UI option is checked (true by default)
-            if (!xUnitReportProcessorService.checkIfFindsFilesNewFiles(xUnitToolInfo, resultFiles, ws)) {
-                return false;
-            }
-
+            xUnitReportProcessorService.checkIfFindsFilesNewFiles(xUnitToolInfo, resultFiles, ws);
 
             boolean atLeastOneWarningOrError = false;
             for (String curFileName : resultFiles) {
@@ -142,8 +140,10 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
 
         } catch (SkipTestException se) {
             throw new SkipTestException();
-        } catch (NoTestException se) {
-            throw new NoTestException();
+        } catch (NoFoundTestException se) {
+            throw new NoFoundTestException();
+        } catch (OldTestReportException oe) {
+            throw new OldTestReportException();
         } catch (Exception xe) {
             String msg = xe.getMessage();
             if (msg != null) {

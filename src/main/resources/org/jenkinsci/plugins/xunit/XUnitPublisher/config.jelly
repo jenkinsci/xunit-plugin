@@ -29,4 +29,27 @@
 
     </f:block>
 
+    <br/>
+    <br/>
+
+    <!-- Extra Configuration -->
+    <f:block>
+        <f:advanced>
+            <f:entry title="Extra Configuration">
+                <table width="100%" border='0' cellspacing='0' padding="0">
+                    <tr>
+                        <td width="50%" style="${td}">
+                            <label>Give the report time margin value (default to 3000) in ms, before to fail if not new
+                                (unless the option 'Fail the build if test results were not updated this run' is
+                                checked).
+                            </label>
+                            <f:textbox name="testTimeMargin" value="${instance.extraConfiguration.testTimeMargin}"/>
+                        </td>
+                        <td width="50%" style="${td}"/>
+                    </tr>
+                </table>
+            </f:entry>
+        </f:advanced>
+    </f:block>
+
 </j:jelly>

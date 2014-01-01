@@ -29,18 +29,16 @@ import java.io.IOException;
  */
 public class XUnitProcessor {
 
-    public static final String GENERATED_JUNIT_DIR = "generatedJUnitFiles";
-
-    private static final int MODE_PERCENT = 2;
-
     private TestType[] types;
     private XUnitThreshold[] thresholds;
     private int thresholdMode;
+    private ExtraConfiguration extraConfiguration;
 
-    public XUnitProcessor(TestType[] types, XUnitThreshold[] thresholds, int thresholdMode) {
+    public XUnitProcessor(TestType[] types, XUnitThreshold[] thresholds, int thresholdMode, ExtraConfiguration extraConfiguration) {
         this.types = types;
         this.thresholds = thresholds;
         this.thresholdMode = thresholdMode;
+        this.extraConfiguration = extraConfiguration;
     }
 
     public boolean performXUnit(boolean dryRun, AbstractBuild<?, ?> build, BuildListener listener)
@@ -111,16 +109,19 @@ public class XUnitProcessor {
                 try {
                     result = getWorkspace(build).act(xUnitTransformer);
                     findTest = true;
-                } catch (NoTestException ne) {
-                    xUnitLog.infoConsoleLogger("Fail BUILD.");
+                } catch (NoFoundTestException ne) {
+                    xUnitLog.infoConsoleLogger("Failing BUILD.");
                     throw new StopTestProcessingException();
                 } catch (SkipTestException se) {
                     xUnitLog.infoConsoleLogger("Skipping the metric tool processing.");
                     continue;
+                } catch (OldTestReportException se) {
+                    xUnitLog.infoConsoleLogger("Failing BUILD.");
+                    throw new StopTestProcessingException();
                 }
 
                 if (!result && xUnitToolInfo.isStopProcessingIfError()) {
-                    xUnitLog.infoConsoleLogger("Fail BUILD because 'set build failed if errors' option is activated.");
+                    xUnitLog.infoConsoleLogger("Failing BUILD because 'set build failed if errors' option is activated.");
                     throw new StopTestProcessingException();
                 }
             }
@@ -173,6 +174,7 @@ public class XUnitProcessor {
                 tool.isFailIfNotNew(),
                 tool.isDeleteOutputFiles(), tool.isStopProcessingIfError(),
                 build.getTimeInMillis(),
+                this.extraConfiguration.getTestTimeMargin(),
                 (tool instanceof CustomType) ? getCustomStylesheet(tool, build, listener) : null);
 
     }
@@ -282,7 +284,7 @@ public class XUnitProcessor {
 
                 public TestResult invoke(File ws, VirtualChannel channel) throws IOException {
                     final long nowSlave = System.currentTimeMillis();
-                    File generatedJunitDir = new File(ws, GENERATED_JUNIT_DIR);
+                    File generatedJunitDir = new File(ws, XUnitDefaultValues.GENERATED_JUNIT_DIR);
                     //Ignore return value
                     generatedJunitDir.mkdirs();
                     FileSet fs = Util.createFileSet(generatedJunitDir, junitFilePattern);
@@ -349,7 +351,7 @@ public class XUnitProcessor {
             for (XUnitThreshold threshold : thresholds) {
                 log.infoConsoleLogger(String.format("Check '%s' threshold.", threshold.getDescriptor().getDisplayName()));
                 Result result;
-                if (MODE_PERCENT == thresholdMode) {
+                if (XUnitDefaultValues.MODE_PERCENT == thresholdMode) {
                     result = threshold.getResultThresholdPercent(log, build, testResultAction, previousTestResultAction);
                 } else {
                     result = threshold.getResultThresholdNumber(log, build, testResultAction, previousTestResultAction);
@@ -371,14 +373,14 @@ public class XUnitProcessor {
                 InputMetric inputMetric = tool.getInputMetric();
 
                 if (dryRun || tool.isDeleteOutputFiles()) {
-                    getWorkspace(build).child(GENERATED_JUNIT_DIR + "/" + inputMetric.getToolName()).deleteRecursive();
+                    getWorkspace(build).child(XUnitDefaultValues.GENERATED_JUNIT_DIR + "/" + inputMetric.getToolName()).deleteRecursive();
                 } else {
                     //Mark the tool file parent directory to no deletion
                     keepJUnitDirectory = true;
                 }
             }
             if (!keepJUnitDirectory) {
-                getWorkspace(build).child(GENERATED_JUNIT_DIR).deleteRecursive();
+                getWorkspace(build).child(XUnitDefaultValues.GENERATED_JUNIT_DIR).deleteRecursive();
             }
         } catch (IOException ioe) {
             throw new XUnitException("Problem on deletion", ioe);

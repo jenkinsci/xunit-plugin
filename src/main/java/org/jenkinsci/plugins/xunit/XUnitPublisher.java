@@ -33,6 +33,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
     private TestType[] types;
     private XUnitThreshold[] thresholds;
     private int thresholdMode;
+    private ExtraConfiguration extraConfiguration;
 
     public XUnitPublisher(TestType[] types, XUnitThreshold[] thresholds) {
         this.types = types;
@@ -41,10 +42,15 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
     }
 
     @DataBoundConstructor
-    public XUnitPublisher(TestType[] tools, XUnitThreshold[] thresholds, int thresholdMode) {
+    public XUnitPublisher(TestType[] tools, XUnitThreshold[] thresholds, int thresholdMode, String testTimeMargin) {
         this.types = tools;
         this.thresholds = thresholds;
         this.thresholdMode = thresholdMode;
+        long longTestTimeMargin = XUnitDefaultValues.TEST_REPORT_TIME_MARGING;
+        if (testTimeMargin != null && testTimeMargin.trim().length() != 0) {
+            longTestTimeMargin = Long.parseLong(testTimeMargin);
+        }
+        this.extraConfiguration = new ExtraConfiguration(longTestTimeMargin);
     }
 
     public TestType[] getTypes() {
@@ -59,6 +65,13 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
         return thresholdMode;
     }
 
+    public ExtraConfiguration getExtraConfiguration() {
+        if (extraConfiguration == null) {
+            extraConfiguration = new ExtraConfiguration(XUnitDefaultValues.TEST_REPORT_TIME_MARGING);
+        }
+        return extraConfiguration;
+    }
+
     @Override
     public Action getProjectAction(AbstractProject<?, ?> project) {
         JUnitResultArchiver jUnitResultArchiver = project.getPublishersList().get(JUnitResultArchiver.class);
@@ -71,14 +84,14 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
     @Override
     public boolean perform(final AbstractBuild<?, ?> build, Launcher launcher, final BuildListener listener)
             throws InterruptedException, IOException {
-        XUnitProcessor xUnitProcessor = new XUnitProcessor(types, thresholds, thresholdMode);
+        XUnitProcessor xUnitProcessor = new XUnitProcessor(getTypes(), getThresholds(), getThresholdMode(), getExtraConfiguration());
         return xUnitProcessor.performXUnit(false, build, listener);
     }
 
     public boolean performDryRun(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener)
             throws InterruptedException, IOException {
         try {
-            XUnitProcessor xUnitProcessor = new XUnitProcessor(types, thresholds, thresholdMode);
+            XUnitProcessor xUnitProcessor = new XUnitProcessor(getTypes(), getThresholds(), getThresholdMode(), getExtraConfiguration());
             xUnitProcessor.performXUnit(true, build, listener);
         } catch (Throwable t) {
             listener.getLogger().println("[ERROR] - There is an error: " + t.getCause().getMessage());
