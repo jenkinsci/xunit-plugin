@@ -43,7 +43,7 @@ public class XUnitConversionService extends XUnitService implements Serializable
         final String JUNIT_FILE_POSTFIX = ".xml";
         final String JUNIT_FILE_PREFIX = "TEST-";
         File parent = new File(junitOutputDirectory, inputMetric.getToolName());
-        if (!parent.mkdirs()) {
+        if (!parent.exists() && !parent.mkdirs()) {
             throw new XUnitException("Can't create " + parent);
         }
         File junitTargetFile = new File(parent, JUNIT_FILE_PREFIX + inputFile.hashCode() + JUNIT_FILE_POSTFIX);
