@@ -23,12 +23,13 @@ import org.jenkinsci.plugins.xunit.types.CustomType;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * @author Gregory Boissinot
  */
-public class XUnitProcessor {
-
+public class XUnitProcessor implements Serializable {
+    private static final long serialVersionUID = 1L;
     private TestType[] types;
     private XUnitThreshold[] thresholds;
     private int thresholdMode;
