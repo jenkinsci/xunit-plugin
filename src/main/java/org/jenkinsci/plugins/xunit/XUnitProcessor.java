@@ -106,20 +106,33 @@ public class XUnitProcessor implements Serializable {
                 String expandedPattern = getExpandedResolvedPattern(tool, build, listener);
                 XUnitToolInfo xUnitToolInfo = getXUnitToolInfoObject(tool, expandedPattern, build, listener);
                 XUnitTransformer xUnitTransformer = getXUnitTransformerObject(xUnitToolInfo, listener);
-                boolean result;
+                boolean result = false;
                 try {
                     result = getWorkspace(build).act(xUnitTransformer);
                     findTest = true;
-                } catch (NoFoundTestException ne) {
-                    xUnitLog.infoConsoleLogger("Failing BUILD.");
-                    throw new StopTestProcessingException();
-                } catch (SkipTestException se) {
-                    xUnitLog.infoConsoleLogger("Skipping the metric tool processing.");
-                    continue;
-                } catch (OldTestReportException se) {
-                    xUnitLog.infoConsoleLogger("Failing BUILD.");
-                    throw new StopTestProcessingException();
+                } catch (InterruptedException ie) {
+
+                    Throwable e = ie.getCause();
+                    if (e == null) {
+                        throw new StopTestProcessingException();
+                    }
+
+                    if (e instanceof NoFoundTestException) {
+                        xUnitLog.infoConsoleLogger("Failing BUILD.");
+                        throw new StopTestProcessingException();
+                    }
+
+                    if (e instanceof SkipTestException) {
+                        xUnitLog.infoConsoleLogger("Skipping the metric tool processing.");
+                        continue;
+                    }
+
+                    if (e instanceof OldTestReportException) {
+                        xUnitLog.infoConsoleLogger("Failing BUILD.");
+                        throw new StopTestProcessingException();
+                    }
                 }
+
 
                 if (!result && xUnitToolInfo.isStopProcessingIfError()) {
                     xUnitLog.infoConsoleLogger("Failing BUILD because 'set build failed if errors' option is activated.");
