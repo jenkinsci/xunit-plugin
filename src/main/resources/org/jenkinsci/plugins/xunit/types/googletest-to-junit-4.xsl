@@ -27,14 +27,18 @@
 			<xsl:if test="failure">
 				<failure>
 					<xsl:for-each select="failure">
+						<xsl:if test="not(position()=1)">
+							<xsl:text>&#xa;&#xa;</xsl:text>
+						</xsl:if>
 						<xsl:value-of select="@message"/>
-						<xsl:text>&#xa;&#xa;</xsl:text>
 					</xsl:for-each>
 				</failure>
 				<system-out>
 					<xsl:for-each select="failure">
+						<xsl:if test="not(position()=1)">
+							<xsl:text>&#xa;&#xa;</xsl:text>
+						</xsl:if>
 						<xsl:value-of select="."/>
-						<xsl:text>&#xa;&#xa;</xsl:text>
 					</xsl:for-each>
 				</system-out>
 			</xsl:if>
