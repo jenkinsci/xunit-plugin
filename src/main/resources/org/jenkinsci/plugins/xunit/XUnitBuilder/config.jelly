@@ -29,8 +29,10 @@
 
     </f:block>
 
-    <br/>
-    <br/>
+    <f:block>
+        <br/>
+        <br/>
+    </f:block>
 
     <!-- Extra Configuration -->
     <f:block>
