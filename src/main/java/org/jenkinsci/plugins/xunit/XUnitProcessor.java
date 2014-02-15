@@ -112,27 +112,22 @@ public class XUnitProcessor implements Serializable {
                     findTest = true;
                 } catch (InterruptedException ie) {
 
-                    Throwable e = ie.getCause();
-                    if (e == null) {
-                        throw new StopTestProcessingException();
-                    }
-
-                    if (e instanceof NoFoundTestException) {
+                    if (ie instanceof NoFoundTestException) {
                         xUnitLog.infoConsoleLogger("Failing BUILD.");
                         throw new StopTestProcessingException();
                     }
 
-                    if (e instanceof SkipTestException) {
+                    if (ie instanceof SkipTestException) {
                         xUnitLog.infoConsoleLogger("Skipping the metric tool processing.");
+                        findTest = false;
                         continue;
                     }
 
-                    if (e instanceof OldTestReportException) {
+                    if (ie instanceof OldTestReportException) {
                         xUnitLog.infoConsoleLogger("Failing BUILD.");
                         throw new StopTestProcessingException();
                     }
                 }
-
 
                 if (!result && xUnitToolInfo.isStopProcessingIfError()) {
                     xUnitLog.infoConsoleLogger("Failing BUILD because 'set build failed if errors' option is activated.");
