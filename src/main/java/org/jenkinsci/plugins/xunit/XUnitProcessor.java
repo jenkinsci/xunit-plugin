@@ -37,6 +37,9 @@ public class XUnitProcessor implements Serializable {
 
     public XUnitProcessor(TestType[] types, XUnitThreshold[] thresholds, int thresholdMode, ExtraConfiguration extraConfiguration) {
         this.types = types;
+        if (types == null) {
+            throw new NullPointerException("The types section is required.");
+        }
         this.thresholds = thresholds;
         this.thresholdMode = thresholdMode;
         this.extraConfiguration = extraConfiguration;
