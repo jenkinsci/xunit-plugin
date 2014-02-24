@@ -32,8 +32,7 @@ public class XUnitConversionService extends XUnitService implements Serializable
      * @param workspace            the workspace
      * @param junitOutputDirectory the output parent directory that contains the JUnit output file
      * @return the converted file
-     * @throws org.jenkinsci.plugins.xunit.exception.XUnitException
-     *          an XUnitException is thrown if there is a conversion error.
+     * @throws org.jenkinsci.plugins.xunit.exception.XUnitException an XUnitException is thrown if there is a conversion error.
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")
     public File convert(XUnitToolInfo xUnitToolInfo, File inputFile, File workspace, File junitOutputDirectory) throws XUnitException {
