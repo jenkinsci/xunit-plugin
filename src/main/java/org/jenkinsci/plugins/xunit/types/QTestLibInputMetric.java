@@ -32,7 +32,7 @@ public class QTestLibInputMetric extends InputMetricXSL {
 
     @Override
     public String getXslName() {
-        return "qtestlib-to-junit-4.xsl";
+        return "qtestlib-to-junit-5.xsl";
     }
 
     @Override
@@ -42,6 +42,6 @@ public class QTestLibInputMetric extends InputMetricXSL {
 
     @Override
     public OutputMetric getOutputFormatType() {
-        return JUnitModel.OUTPUT_JUNIT_4;
+        return JUnitModel.OUTPUT_JUNIT_5;
     }
 }

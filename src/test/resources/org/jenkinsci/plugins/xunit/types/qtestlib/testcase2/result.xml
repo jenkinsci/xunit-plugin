@@ -80,7 +80,7 @@
   <testcase classname="tst_QString" name="constructorQByteArray" time="0.000"/>
   <testcase classname="tst_QString" name="STL" time="0.000"/>
   <testcase classname="tst_QString" name="macTypes" time="0.000">
-    <skipped>/home/frederik/dev/qt/qt-src-stable/qtbase/tests/auto/corelib/tools/qstring/tst_qstring.cpp:946 :: This is a Mac-only test</skipped>
+     <skipped message="/home/frederik/dev/qt/qt-src-stable/qtbase/tests/auto/corelib/tools/qstring/tst_qstring.cpp:946 :: [] This is a Mac-only test"/>
   </testcase>
   <testcase classname="tst_QString" name="isEmpty" time="0.000"/>
   <testcase classname="tst_QString" name="isNull" time="0.000"/>
