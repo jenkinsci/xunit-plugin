@@ -7,3 +7,5 @@ target
 *.iml
 work
 /bin
+dependency
+.idea
