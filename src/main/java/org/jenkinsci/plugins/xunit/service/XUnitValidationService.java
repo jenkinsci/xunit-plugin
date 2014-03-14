@@ -1,5 +1,6 @@
 package org.jenkinsci.plugins.xunit.service;
 
+import com.google.inject.Inject;
 import com.thalesgroup.dtkit.metrics.model.InputMetric;
 import com.thalesgroup.dtkit.util.validator.ValidationError;
 import com.thalesgroup.dtkit.util.validator.ValidationException;
@@ -11,6 +12,14 @@ import java.io.Serializable;
 
 
 public class XUnitValidationService extends XUnitService implements Serializable {
+
+    private XUnitLog xUnitLog;
+
+    @Inject
+    @SuppressWarnings("unused")
+    void load(XUnitLog xUnitLog) {
+        this.xUnitLog = xUnitLog;
+    }
 
     /**
      * Checks if the current input file is not empty
@@ -43,9 +52,9 @@ public class XUnitValidationService extends XUnitService implements Serializable
             if (!inputMetric.validateInputFile(inputFile)) {
 
                 //Ignores invalid files
-                warningSystemLogger("The file '" + inputFile + "' is an invalid file.");
+                xUnitLog.warningConsoleLogger("The file '" + inputFile + "' is an invalid file.");
                 for (ValidationError validatorError : inputMetric.getInputValidationErrors()) {
-                    warningSystemLogger(validatorError.toString());
+                    xUnitLog.warningConsoleLogger(validatorError.toString());
                 }
 
                 return false;
@@ -73,9 +82,9 @@ public class XUnitValidationService extends XUnitService implements Serializable
             //Validates the output
             boolean validateOutput = inputMetric.validateOutputFile(junitTargetFile);
             if (!validateOutput) {
-                warningSystemLogger("The converted file for the input file '" + inputFile + "' doesn't match the JUnit format");
+                xUnitLog.warningConsoleLogger("The converted file for the input file '" + inputFile + "' doesn't match the JUnit format");
                 for (ValidationError validatorError : inputMetric.getOutputValidationErrors()) {
-                    warningSystemLogger(validatorError.toString());
+                    xUnitLog.warningConsoleLogger(validatorError.toString());
                 }
                 return false;
             }

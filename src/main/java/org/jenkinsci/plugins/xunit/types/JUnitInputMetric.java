@@ -39,9 +39,7 @@ public class JUnitInputMetric extends InputMetricOther {
     public boolean validateInputFile(File inputXMLFile) throws ValidationException {
         final JUnit10 jUnit = new JUnit10();
         List<ValidationError> errors = jUnit.validate(inputXMLFile);
-        for (ValidationError error : errors) {
-            System.out.println(error);
-        }
+        setInputValidationErrors(errors);
         return errors.isEmpty();
     }
 
