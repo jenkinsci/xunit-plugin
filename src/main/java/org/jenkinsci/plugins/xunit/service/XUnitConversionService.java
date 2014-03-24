@@ -46,7 +46,7 @@ public class XUnitConversionService extends XUnitService implements Serializable
             throw new XUnitException("Can't create " + parent);
         }
         File junitTargetFile = new File(parent, JUNIT_FILE_PREFIX + inputFile.hashCode() + JUNIT_FILE_POSTFIX);
-        infoSystemLogger("Converting '" + inputFile + "' .");
+        xUnitLog.infoConsoleLogger("Converting '" + inputFile + "' .");
         try {
 
             if (inputMetric instanceof CustomInputMetric) {
