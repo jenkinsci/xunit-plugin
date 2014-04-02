@@ -122,7 +122,6 @@ public class XUnitProcessor implements Serializable {
 
                     if (ie instanceof SkipTestException) {
                         xUnitLog.infoConsoleLogger("Skipping the metric tool processing.");
-                        findTest = false;
                         continue;
                     }
 
@@ -137,8 +136,6 @@ public class XUnitProcessor implements Serializable {
                     throw new StopTestProcessingException();
                 }
             }
-
-
         }
         return findTest;
     }
