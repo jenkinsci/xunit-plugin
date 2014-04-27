@@ -114,6 +114,15 @@ public class XUnitProcessor implements Serializable {
                     result = getWorkspace(build).act(xUnitTransformer);
                     findTest = true;
                 } catch (InterruptedException ie) {
+                	// handled tunneled exceptions
+                	Throwable originalException = null;
+                	Throwable cause = ie.getCause();
+                	while (cause != null) {
+                		originalException = cause;
+                		cause = cause.getCause();
+                	}
+                	if (originalException instanceof InterruptedException)
+                		ie = (InterruptedException)originalException;
 
                     if (ie instanceof NoFoundTestException) {
                         xUnitLog.infoConsoleLogger("Failing BUILD.");
@@ -129,6 +138,9 @@ public class XUnitProcessor implements Serializable {
                         xUnitLog.infoConsoleLogger("Failing BUILD.");
                         throw new StopTestProcessingException();
                     }
+
+                    xUnitLog.warningConsoleLogger("Caught exception of unexpected type " + ie.getClass() + ", rethrowing");
+                    throw ie;
                 }
 
                 if (!result && xUnitToolInfo.isStopProcessingIfError()) {
