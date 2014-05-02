@@ -8,7 +8,7 @@
     </parent>
 
     <artifactId>xunit</artifactId>
-    <version>1.85-SNAPSHOT</version>
+    <version>1.86-SNAPSHOT</version>
     <packaging>hpi</packaging>
     <name>xUnit plugin</name>
     <url>http://wiki.jenkins-ci.org/display/JENKINS/xUnit+Plugin</url>
@@ -39,7 +39,7 @@
         <maven.compiler.target>1.6</maven.compiler.target>
         <dtkit.frmk.version>1.0.0</dtkit.frmk.version>
         <dtkit.junit.format>0.20</dtkit.junit.format>
-        <dtkit.default.junit.version>0.37</dtkit.default.junit.version>
+        <dtkit.default.junit.version>0.38</dtkit.default.junit.version>
         <xerces.version>2.9.1</xerces.version>
         <saxon.version>9.1.0.8</saxon.version>
         <dry.run.version>0.1</dry.run.version>
@@ -238,14 +238,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <!--
-                        <plugin>
-                            <groupId>org.jenkins-ci.tools</groupId>
-                            <artifactId>maven-hpi-plugin</artifactId>
-                            <version>1.100</version>
-                            <extensions>true</extensions>
-                        </plugin>
-            -->
         </plugins>
     </build>
 </project>
