@@ -58,7 +58,7 @@ public class CppUnit extends InputMetricXSL {
 
     @Override
     public String getXslName() {
-        return "cppunit-1.0-to-junit-1.0.xsl";
+        return "cppunit-2.0-to-junit-1.0.xsl";
     }
 
     @Override

@@ -73,7 +73,6 @@
         <connection>scm:svn:https://svn.jenkins-ci.org/trunk/hudson/dtkit/dtkit-default/junit-output</connection>
         <developerConnection>scm:svn:https://svn.jenkins-ci.org/trunk/hudson/dtkit/dtkit-default/junit-output
         </developerConnection>
-        <url>https://github.com/jenkinsci/pom/dtkit-metrics-parent/tags/dtkit-metrics-default-parent-21/dtkit-default-junit-parent</url>
     </scm>
 
     <build>

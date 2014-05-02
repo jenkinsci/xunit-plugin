@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuite errors="0" failures="0" tests="4" name="cppunit">
-   <testcase classname="DeviceDataTest" name="testConstructor" time="0"/>
-   <testcase classname="DeviceDataTest" name="testToJSON" time="0"/>
-   <testcase classname="DeviceDataTest" name="testToObject" time="0"/>
-   <testcase classname="DeviceDataTest" name="testToObjectException" time="0"/>
+   <testcase classname="DeviceDataTest" name="testConstructor" time="0.002"/>
+   <testcase classname="DeviceDataTest" name="testToJSON" time="0.001"/>
+   <testcase classname="DeviceDataTest" name="testToObject" time="0.000"/>
+   <testcase classname="DeviceDataTest" name="testToObjectException" time="0.005"/>
 </testsuite>
