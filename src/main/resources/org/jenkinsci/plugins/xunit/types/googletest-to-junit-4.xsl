@@ -18,7 +18,14 @@
 	</xsl:template>
 	<xsl:template match="//testcase">
 		<testcase>
-			<xsl:attribute name="name"><xsl:value-of select="@name"/></xsl:attribute>
+			<xsl:choose>
+				<xsl:when test="@value_param">
+					<xsl:attribute name="name"><xsl:value-of select="@name"/> (<xsl:value-of select="@value_param"/>)</xsl:attribute>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:attribute name="name"><xsl:value-of select="@name"/></xsl:attribute>
+			</xsl:otherwise>
+		  </xsl:choose>
 			<xsl:attribute name="time"><xsl:value-of select="@time"/></xsl:attribute>
 			<xsl:attribute name="classname"><xsl:value-of select="@classname"/></xsl:attribute>
 			<xsl:if test="@status = 'notrun'">
@@ -47,3 +54,4 @@
 	<!-- this swallows all unmatched text -->
 	<!-- <xsl:template match="text()|@*"/>-->
 </xsl:stylesheet>
+
