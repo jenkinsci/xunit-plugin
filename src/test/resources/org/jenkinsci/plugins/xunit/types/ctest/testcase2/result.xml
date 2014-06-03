@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<testsuites>
+  <testsuite name="CTest" tests="1" time="0" failures="1" errors="0" skipped="0">
+    <testcase classname="projectroot" name="app_gl_default_sb" time="">
+      <skipped/>
+      <system-out>Run application...
+DRY_RUN=yes /var/lib/hudson/workspace/apitrace-mac-test/apps/gl/tri -sb
+SKIP (application returned code 125)
+</system-out>
+    </testcase>
+  </testsuite>
+</testsuites>
