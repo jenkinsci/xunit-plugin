@@ -19,11 +19,17 @@
                     <testcase classname="projectroot{$className}"
                               name="{$testName}"
                               time="{$duration}">
-                        <xsl:if test="@Status!='passed'">
-                            <failure>
-                                <xsl:value-of select="$output"/>
-                            </failure>
-                        </xsl:if>
+                        <xsl:choose>
+                            <xsl:when test="@Status='passed'"/>
+                            <xsl:when test="@Status='notrun'">
+                                <skipped/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <failure>
+                                    <xsl:value-of select="$output"/>
+                                </failure>
+                            </xsl:otherwise>
+                        </xsl:choose>
                         <system-out>
                             <xsl:value-of select="$output"/>
                         </system-out>
