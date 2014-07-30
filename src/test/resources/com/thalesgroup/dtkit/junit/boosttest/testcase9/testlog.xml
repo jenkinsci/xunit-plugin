@@ -1,0 +1,13 @@
+<TestLog>
+    <TestSuite name="Master Test Suite">
+        <TestSuite name="TestSample">
+            <TestCase name="TestSampleClass">Clf nr samples before:
+                53 Clf nr samples after: 630
+                <Exception file="unknown location" line="0">
+                    <![CDATA[std::exception: Unable to open 'features_in.txt'.]]>
+                </Exception>
+                <TestingTime>15000</TestingTime>
+            </TestCase>
+        </TestSuite>
+    </TestSuite>
+</TestLog>

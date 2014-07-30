@@ -1,0 +1,1340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite tests="69" errors="2" failures="3" name="MergedTestSuite" skipped="0">
+    <testcase classname="Crete.Unit.Test.vfstest" name="VFSSnapshotTest" time="0.01">
+        <system-out>&#xD;[Info] - check l_obj passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 76&#xD;&#xD;[Info] -
+            check l_snapshot passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 78&#xD;&#xD;[Info] - check !children-&gt;is_open()
+            passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 80&#xD;&#xD;[Info] - check !children-&gt;is_open()
+            passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 82&#xD;&#xD;[Info] - check l_obj-&gt;property(keys-&gt;current())
+            == l_snapshot-&gt;property("origin." + keys-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; ==
+            [Line] - 86&#xD;&#xD;[Info] - check l_obj-&gt;property(keys-&gt;current()) == l_snapshot-&gt;property("origin."
+            + keys-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 86&#xD;&#xD;[Info] - check l_obj-&gt;property(keys-&gt;current())
+            == l_snapshot-&gt;property("origin." + keys-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; ==
+            [Line] - 86&#xD;&#xD;[Info] - check l_obj-&gt;property(keys-&gt;current()) == l_snapshot-&gt;property("origin."
+            + keys-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 86&#xD;&#xD;[Info] - check l_obj-&gt;property(keys-&gt;current())
+            == l_snapshot-&gt;property("origin." + keys-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; ==
+            [Line] - 86&#xD;&#xD;[Info] - check l_obj-&gt;property(keys-&gt;current()) == l_snapshot-&gt;property("origin."
+            + keys-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 86&#xD;&#xD;[Info] - check l_obj-&gt;property(keys-&gt;current())
+            == l_snapshot-&gt;property("origin." + keys-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; ==
+            [Line] - 86&#xD;&#xD;[Info] - check l_obj-&gt;property(keys-&gt;current()) == l_snapshot-&gt;property("origin."
+            + keys-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 86&#xD;&#xD;[Info] - check l_obj-&gt;property(keys-&gt;current())
+            == l_snapshot-&gt;property("origin." + keys-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; ==
+            [Line] - 86&#xD;&#xD;[Info] - check l_obj-&gt;property(keys-&gt;current()) == l_snapshot-&gt;property("origin."
+            + keys-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 86&#xD;&#xD;[Info] - check l_obj-&gt;property(keys-&gt;current())
+            == l_snapshot-&gt;property("origin." + keys-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; ==
+            [Line] - 86&#xD;&#xD;[Info] - check l_obj-&gt;property(keys-&gt;current()) == l_snapshot-&gt;property("origin."
+            + keys-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 86&#xD;&#xD;[Info] - check
+            l_origin_obj passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 91&#xD;&#xD;[Info] - check l_snapshot-&gt;property(keys-&gt;current())
+            == l_origin_obj-&gt;property(keys-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 94&#xD;&#xD;[Info]
+            - check l_snapshot-&gt;property(keys-&gt;current()) == l_origin_obj-&gt;property(keys-&gt;current()) passed&#xD;
+            == [File] - vfstest.cpp&#xD; == [Line] - 94&#xD;&#xD;[Info] - check l_snapshot-&gt;property(keys-&gt;current())
+            == l_origin_obj-&gt;property(keys-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 94&#xD;&#xD;[Info]
+            - check l_snapshot-&gt;property(keys-&gt;current()) == l_origin_obj-&gt;property(keys-&gt;current()) passed&#xD;
+            == [File] - vfstest.cpp&#xD; == [Line] - 94&#xD;&#xD;[Info] - check l_snapshot-&gt;property(keys-&gt;current())
+            == l_origin_obj-&gt;property(keys-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 94&#xD;&#xD;[Info]
+            - check l_snapshot-&gt;property(keys-&gt;current()) == l_origin_obj-&gt;property(keys-&gt;current()) passed&#xD;
+            == [File] - vfstest.cpp&#xD; == [Line] - 94&#xD;&#xD;[Info] - check l_snapshot-&gt;property(keys-&gt;current())
+            == l_origin_obj-&gt;property(keys-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 94&#xD;&#xD;[Info]
+            - check l_snapshot-&gt;property(keys-&gt;current()) == l_origin_obj-&gt;property(keys-&gt;current()) passed&#xD;
+            == [File] - vfstest.cpp&#xD; == [Line] - 94&#xD;&#xD;[Info] - check l_snapshot-&gt;property(keys-&gt;current())
+            == l_origin_obj-&gt;property(keys-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 94&#xD;&#xD;[Info]
+            - check l_snapshot-&gt;property(keys-&gt;current()) == l_origin_obj-&gt;property(keys-&gt;current()) passed&#xD;
+            == [File] - vfstest.cpp&#xD; == [Line] - 94&#xD;&#xD;[Info] - check l_snapshot-&gt;property(keys-&gt;current())
+            == l_origin_obj-&gt;property(keys-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 94&#xD;&#xD;[Info]
+            - check l_snapshot-&gt;property(keys-&gt;current()) == l_origin_obj-&gt;property(keys-&gt;current()) passed&#xD;
+            == [File] - vfstest.cpp&#xD; == [Line] - 94&#xD;&#xD;[Info] - check !children-&gt;is_open() passed&#xD; ==
+            [File] - vfstest.cpp&#xD; == [Line] - 99&#xD;&#xD;[Info] - check !children-&gt;is_open() passed&#xD; ==
+            [File] - vfstest.cpp&#xD; == [Line] - 101&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.vfstest" name="VFSTest" time="0">
+        <system-out>&#xD;[Info] - check !l_vfs-&gt;parent() passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 106&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.vfstest" name="ObjectTest" time="0">
+        <system-out>&#xD;[Info] - check l_obj passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 25&#xD;&#xD;[Info] -
+            check *(l_obj.get()) == *(l_obj2.get()) passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 29&#xD;&#xD;[Info]
+            - check *(l_obj.get()) != *(l_obj3.get()) passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 30&#xD;&#xD;[Info]
+            - check l_obj passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 39&#xD;&#xD;[Info] - check !l_obj passed&#xD;
+            == [File] - vfstest.cpp&#xD; == [Line] - 49&#xD;&#xD;[Info] - check !getpwuid_r(getuid(), &amp;l_passwd,
+            l_buffer, 1024, &amp;l_ppasswd) passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 54&#xD;&#xD;[Info] -
+            check l_obj passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 56&#xD;&#xD;[Info] - check !l_children-&gt;is_open()
+            passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 58&#xD;&#xD;[Info] - check !l_obj-&gt;create(std::map&lt;std::string,
+            Tethys::VFS::Variant&gt;(), false, 0) passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 59&#xD;&#xD;[Info]
+            - check !l_obj-&gt;find("") passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 60&#xD;&#xD;[Info] - check
+            boost::get&lt;std::string&gt;(l_obj-&gt;property("type")) == "file" passed&#xD; == [File] - vfstest.cpp&#xD;
+            == [Line] - 61&#xD;&#xD;[Info] - check boost::get&lt;int&gt;(l_obj-&gt;property("filesystem.uid")) ==
+            static_cast&lt;int&gt;(l_passwd.pw_uid) passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 63&#xD;&#xD;[Info]
+            - check boost::get&lt;int&gt;(l_obj-&gt;property("filesystem.gid")) == static_cast&lt;int&gt;(l_passwd.pw_gid)
+            passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 65&#xD;&#xD;[Info] - check boost::get&lt;std::string&gt;(l_obj-&gt;property("filesystem.user"))
+            == l_passwd.pw_name passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 67&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.vfstest" name="VFSTestChecksum" time="0">
+        <system-out>&#xD;[Info] - check "9fce82c34887c1953b40b3a2883e18850c4fa8a6" == formatted_checksum passed&#xD; ==
+            [File] - vfstest.cpp&#xD; == [Line] - 243&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.vfstest" name="DirTest" time="0.03">
+        <system-out>&#xD;[Info] - check dir_obj passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 142&#xD;&#xD;[Info]
+            - check !dir_obj-&gt;create(std::map&lt;std::string, Tethys::VFS::Variant&gt;(), false, 0) passed&#xD; ==
+            [File] - vfstest.cpp&#xD; == [Line] - 145&#xD;&#xD;[Info] - check !dir_obj-&gt;find("") passed&#xD; ==
+            [File] - vfstest.cpp&#xD; == [Line] - 146&#xD;&#xD;[Info] - check !vfs.parent() passed&#xD; == [File] -
+            vfstest.cpp&#xD; == [Line] - 148&#xD;&#xD;[Info] - check !vfs.create(std::map&lt;std::string,
+            Tethys::VFS::Variant&gt;(), false, 0) passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 149&#xD;&#xD;[Info]
+            - check count == 2 passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 156&#xD;&#xD;[Info] - check "linux"
+            == boost::get&lt;std::string&gt;(vfs.property("name")) passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] -
+            157&#xD;&#xD;[Info] - check "vfs" == boost::get&lt;std::string&gt;(vfs.property("type")) passed&#xD; ==
+            [File] - vfstest.cpp&#xD; == [Line] - 158&#xD;&#xD;[Info] - check Com(vfs_children-&gt;current(),
+            obj_children-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 162&#xD;&#xD;[Info] - check
+            Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; ==
+            [Line] - 162&#xD;&#xD;[Info] - check Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed&#xD;
+            == [File] - vfstest.cpp&#xD; == [Line] - 162&#xD;&#xD;[Info] - check Com(vfs_children-&gt;current(),
+            obj_children-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 162&#xD;&#xD;[Info] - check
+            Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; ==
+            [Line] - 162&#xD;&#xD;[Info] - check Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed&#xD;
+            == [File] - vfstest.cpp&#xD; == [Line] - 162&#xD;&#xD;[Info] - check Com(vfs_children-&gt;current(),
+            obj_children-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 162&#xD;&#xD;[Info] - check
+            Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; ==
+            [Line] - 162&#xD;&#xD;[Info] - check Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed&#xD;
+            == [File] - vfstest.cpp&#xD; == [Line] - 162&#xD;&#xD;[Info] - check Com(vfs_children-&gt;current(),
+            obj_children-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 162&#xD;&#xD;[Info] - check
+            Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; ==
+            [Line] - 162&#xD;&#xD;[Info] - check Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed&#xD;
+            == [File] - vfstest.cpp&#xD; == [Line] - 162&#xD;&#xD;[Info] - check Com(vfs_children-&gt;current(),
+            obj_children-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 162&#xD;&#xD;[Info] - check
+            Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; ==
+            [Line] - 162&#xD;&#xD;[Info] - check Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed&#xD;
+            == [File] - vfstest.cpp&#xD; == [Line] - 162&#xD;&#xD;[Info] - check Com(vfs_children-&gt;current(),
+            obj_children-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 162&#xD;&#xD;[Info] - check
+            Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; ==
+            [Line] - 162&#xD;&#xD;[Info] - check Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed&#xD;
+            == [File] - vfstest.cpp&#xD; == [Line] - 162&#xD;&#xD;[Info] - check Com(vfs_children-&gt;current(),
+            obj_children-&gt;current()) passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 162&#xD;&#xD;[Info] - check
+            !vfs_children-&gt;is_open() passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 166&#xD;&#xD;[Info] - check
+            !obj_children-&gt;is_open() passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 167&#xD;&#xD;[Info] - check
+            !refs-&gt;is_open() passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 170&#xD;&#xD;[Info] - check !refs-&gt;is_open()
+            passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 172&#xD;&#xD;[Info] - check !vfs.open() passed&#xD; ==
+            [File] - vfstest.cpp&#xD; == [Line] - 176&#xD;&#xD;[Info] - check !dir_obj-&gt;open() passed&#xD; == [File]
+            - vfstest.cpp&#xD; == [Line] - 177&#xD;&#xD;[Info] - check !mkdir("/tmp/TESTDIRAAAAA", 0766) passed&#xD; ==
+            [File] - vfstest.cpp&#xD; == [Line] - 179&#xD;&#xD;[Info] - check !mkdir("/tmp/TESTDIRAAAAA/TESTDIRB", 0666)
+            passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 180&#xD;&#xD;[Info] - check test_dir_a passed&#xD; ==
+            [File] - vfstest.cpp&#xD; == [Line] - 182&#xD;&#xD;[Info] - check obj_children-&gt;is_open() passed&#xD; ==
+            [File] - vfstest.cpp&#xD; == [Line] - 184&#xD;&#xD;[Info] - check !test_dir_a passed&#xD; == [File] -
+            vfstest.cpp&#xD; == [Line] - 189&#xD;&#xD;[Info] - check !test_dir_b passed&#xD; == [File] - vfstest.cpp&#xD;
+            == [Line] - 191&#xD;&#xD;[Info] - check !symlink("/", "/tmp/TESTFORLINK") passed&#xD; == [File] -
+            vfstest.cpp&#xD; == [Line] - 197&#xD;&#xD;[Info] - check !lstat64("/tmp/TESTFORLINK", &amp;obj_stat) passed&#xD;
+            == [File] - vfstest.cpp&#xD; == [Line] - 198&#xD;&#xD;[Info] - check link_obj passed&#xD; == [File] -
+            vfstest.cpp&#xD; == [Line] - 200&#xD;&#xD;[Info] - check "link" == boost::get&lt;std::string&gt;(link_obj-&gt;property("type"))
+            passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 201&#xD;&#xD;[Info] - check link_refs-&gt;is_open()
+            passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 203&#xD;&#xD;[Info] - check Com(link_refs-&gt;current(),
+            vfs.find("/")) passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 204&#xD;&#xD;[Info] - check
+            !symlink(tmp.GetPath(), "/tmp/TESTFORLINK") passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 208&#xD;&#xD;[Info]
+            - check !lstat64("/tmp/TESTFORLINK", &amp;obj_stat) passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 209&#xD;&#xD;[Info]
+            - check link_obj passed&#xD; == [File] - vfstest.cpp&#xD; == [Line] - 211&#xD;&#xD;[Info] - check
+            Com(VFS::Linux::resolvePath("/tmp"), link_obj-&gt;parent()) passed&#xD; == [File] - vfstest.cpp&#xD; ==
+            [Line] - 212&#xD;&#xD;[Info] - check link_refs-&gt;is_open() passed&#xD; == [File] - vfstest.cpp&#xD; ==
+            [Line] - 214&#xD;&#xD;[Info] - check Com(link_refs-&gt;current(), vfs.find(tmp.GetPath())) passed&#xD; ==
+            [File] - vfstest.cpp&#xD; == [Line] - 215&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.utilitiestest" name="TempFileTestCreateAndRemove"
+              time="0">
+        <system-out>&#xD;[Info] - check stat(tmp_path.c_str(), &amp;tmp_stat) == 0 passed&#xD; == [File] -
+            utilitiestest.cpp&#xD; == [Line] - 19&#xD;&#xD;[Info] - check ((((tmp_stat.st_mode)) &amp; 0170000) ==
+            (0100000)) passed&#xD; == [File] - utilitiestest.cpp&#xD; == [Line] - 20&#xD;&#xD;[Info] - check
+            stat(tmp_path.c_str(), &amp;tmp_stat) == -1 passed&#xD; == [File] - utilitiestest.cpp&#xD; == [Line] - 22&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.utilitiestest" name="TempFileTestCreateSpecialFile"
+              time="0">
+        <system-out>&#xD;[Info] - check stat(tmp.GetPath(), &amp;tmp_stat) == 0 passed&#xD; == [File] -
+            utilitiestest.cpp&#xD; == [Line] - 28&#xD;&#xD;[Info] - check ((((tmp_stat.st_mode)) &amp; 0170000) ==
+            (0100000)) passed&#xD; == [File] - utilitiestest.cpp&#xD; == [Line] - 29&#xD;&#xD;[Info] - check
+            std::string("/tmp/test.doc") == std::string(tmp.GetPath()) passed&#xD; == [File] - utilitiestest.cpp&#xD; ==
+            [Line] - 30&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.utilitiestest" name="TempFileTestNoCleanUp" time="0">
+        <system-out>&#xD;[Info] - check stat(tmp_path.c_str(), &amp;tmp_stat) == 0 passed&#xD; == [File] -
+            utilitiestest.cpp&#xD; == [Line] - 39&#xD;&#xD;[Info] - check ((((tmp_stat.st_mode)) &amp; 0170000) ==
+            (0100000)) passed&#xD; == [File] - utilitiestest.cpp&#xD; == [Line] - 40&#xD;&#xD;[Info] - check
+            stat(tmp_path.c_str(), &amp;tmp_stat) == 0 passed&#xD; == [File] - utilitiestest.cpp&#xD; == [Line] - 42&#xD;&#xD;[Info]
+            - check ((((tmp_stat.st_mode)) &amp; 0170000) == (0100000)) passed&#xD; == [File] - utilitiestest.cpp&#xD;
+            == [Line] - 43&#xD;&#xD;[Info] - check ::unlink("/tmp/test_no_clean_up") == 0 passed&#xD; == [File] -
+            utilitiestest.cpp&#xD; == [Line] - 45&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.utilitiestest" name="GetSda1PartitionUUID" time="0">
+        <system-out>&#xD;[Info] - check dest_str1 == TestGetSda1PartitionUUID(out_str1) passed&#xD; == [File] -
+            utilitiestest.cpp&#xD; == [Line] - 89&#xD;&#xD;[Info] - check dest_str2 ==
+            TestGetSda1PartitionUUID(out_str2) passed&#xD; == [File] - utilitiestest.cpp&#xD; == [Line] - 93&#xD;&#xD;[Info]
+            - check dest_str3 == TestGetSda1PartitionUUID(out_str3) passed&#xD; == [File] - utilitiestest.cpp&#xD; ==
+            [Line] - 106&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.tritonoperationtest" name="CreateDirectoryTest"
+              time="0">
+        <system-out>&#xD;[Info] - check fs::exists("/tmp/hello/world/test/") passed&#xD; == [File] -
+            tritonoperationtest.cpp&#xD; == [Line] - 99&#xD;&#xD;[Info] - check fs::remove_all("/tmp/hello/") &gt; 0
+            passed&#xD; == [File] - tritonoperationtest.cpp&#xD; == [Line] - 100&#xD;&#xD;[Info] - check
+            fs::exists("/tmp/already/exists/") passed&#xD; == [File] - tritonoperationtest.cpp&#xD; == [Line] - 104&#xD;&#xD;[Info]
+            - check fs::exists("/tmp/already/exists/") passed&#xD; == [File] - tritonoperationtest.cpp&#xD; == [Line] -
+            106&#xD;&#xD;[Info] - check fs::remove_all("/tmp/already/") &gt; 0 passed&#xD; == [File] -
+            tritonoperationtest.cpp&#xD; == [Line] - 107&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.tritonoperationtest" name="TritonOperationTest"
+              time="0">
+        <system-out>&#xD;[Warning] - triton.host not defined&#xD; == [File] - tritonoperationtest.cpp&#xD; == [Line] -
+            46&#xD;&#xD;[Message] - Test case TritonOperationTest did not run any assertions&#xD; == [File] -
+            ./boost/test/impl/results_collector.ipp&#xD; == [Line] - 220&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.tritonoperationtest" name="TritonOperationTest2"
+              time="0">
+        <system-out>&#xD;[Warning] - triton.host not defined&#xD; == [File] - tritonoperationtest.cpp&#xD; == [Line] -
+            46&#xD;&#xD;[Message] - Test case TritonOperationTest2 did not run any assertions&#xD; == [File] -
+            ./boost/test/impl/results_collector.ipp&#xD; == [Line] - 220&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.tritonoperationtest" name="TritonOperationTest3"
+              time="0.01">
+        <system-out>&#xD;[Warning] - triton.host not defined&#xD; == [File] - tritonoperationtest.cpp&#xD; == [Line] -
+            46&#xD;&#xD;[Message] - Test case TritonOperationTest3 did not run any assertions&#xD; == [File] -
+            ./boost/test/impl/results_collector.ipp&#xD; == [Line] - 220&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.tritonoperationqueuetest"
+              name="TritonOperationQueueOrderTest"
+              time="0">
+        <system-out>&#xD;[Info] - check !queue.Poll() passed&#xD; == [File] - tritonoperationqueuetest.cpp&#xD; ==
+            [Line] - 33&#xD;&#xD;[Info] - check op2 == queue.Poll() passed&#xD; == [File] - tritonoperationqueuetest.cpp&#xD;
+            == [Line] - 52&#xD;&#xD;[Info] - check op3 == queue.Poll() passed&#xD; == [File] -
+            tritonoperationqueuetest.cpp&#xD; == [Line] - 53&#xD;&#xD;[Info] - check op4 == queue.Poll() passed&#xD; ==
+            [File] - tritonoperationqueuetest.cpp&#xD; == [Line] - 54&#xD;&#xD;[Info] - check op6 == queue.Poll() passed&#xD;
+            == [File] - tritonoperationqueuetest.cpp&#xD; == [Line] - 55&#xD;&#xD;[Info] - check op5 == queue.Poll()
+            passed&#xD; == [File] - tritonoperationqueuetest.cpp&#xD; == [Line] - 56&#xD;&#xD;[Info] - check op1 ==
+            queue.Poll() passed&#xD; == [File] - tritonoperationqueuetest.cpp&#xD; == [Line] - 57&#xD;&#xD;[Info] -
+            check op7 == queue.Poll() passed&#xD; == [File] - tritonoperationqueuetest.cpp&#xD; == [Line] - 58&#xD;&#xD;[Info]
+            - check op8 == queue.Poll() passed&#xD; == [File] - tritonoperationqueuetest.cpp&#xD; == [Line] - 59&#xD;&#xD;[Info]
+            - check !queue.Poll() passed&#xD; == [File] - tritonoperationqueuetest.cpp&#xD; == [Line] - 61&#xD;&#xD;[Info]
+            - check !queue.Poll() passed&#xD; == [File] - tritonoperationqueuetest.cpp&#xD; == [Line] -
+            62&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.tritonoperationqueuetest"
+              name="TritonOperationQueueTestSingleThread"
+              time="0">
+        <system-out>&#xD;[Info] - check queue.Poll() == __null passed&#xD; == [File] - tritonoperationqueuetest.cpp&#xD;
+            == [Line] - 71&#xD;&#xD;[Info] - check queue.Poll() == op1 passed&#xD; == [File] -
+            tritonoperationqueuetest.cpp&#xD; == [Line] - 75&#xD;&#xD;[Info] - check queue.Poll() == op2 passed&#xD; ==
+            [File] - tritonoperationqueuetest.cpp&#xD; == [Line] - 77&#xD;&#xD;[Info] - check queue.Poll() == op3 passed&#xD;
+            == [File] - tritonoperationqueuetest.cpp&#xD; == [Line] - 78&#xD;&#xD;[Info] - check queue.Poll() == __null
+            passed&#xD; == [File] - tritonoperationqueuetest.cpp&#xD; == [Line] - 79&#xD;&#xD;[Info] - check
+            queue.Poll() == __null passed&#xD; == [File] - tritonoperationqueuetest.cpp&#xD; == [Line] -
+            80&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.tritonoperationqueuetest"
+              name="TritonOperationQueueTestMultipleThreads"
+              time="0.01">
+        <system-out>&#xD;[Info] - check queue.Poll() == __null passed&#xD; == [File] - tritonoperationqueuetest.cpp&#xD;
+            == [Line] - 104&#xD;&#xD;[Info] - check queue.Poll() == __null passed&#xD; == [File] -
+            tritonoperationqueuetest.cpp&#xD; == [Line] - 105&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.threadtest" name="ThreadTestJoin" time="0.01">
+        <system-out>&#xD;[Info] - check initialized_ passed&#xD; == [File] - threadtest.cpp&#xD; == [Line] - 23&#xD;&#xD;[Info]
+            - check initialized_ passed&#xD; == [File] - threadtest.cpp&#xD; == [Line] - 23&#xD;&#xD;[Info] - check
+            initialized_ passed&#xD; == [File] - threadtest.cpp&#xD; == [Line] - 23&#xD;&#xD;[Info] - check 0 ==
+            thread.GetCounter() passed&#xD; == [File] - threadtest.cpp&#xD; == [Line] - 78&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.threadtest" name="ThreadTestPause" time="0">
+        <system-out>&#xD;[Info] - check initialized_ passed&#xD; == [File] - threadtest.cpp&#xD; == [Line] - 23&#xD;&#xD;[Info]
+            - check initialized_ passed&#xD; == [File] - threadtest.cpp&#xD; == [Line] - 23&#xD;&#xD;[Info] - check
+            initialized_ passed&#xD; == [File] - threadtest.cpp&#xD; == [Line] - 23&#xD;&#xD;[Info] - check initialized_
+            passed&#xD; == [File] - threadtest.cpp&#xD; == [Line] - 23&#xD;&#xD;[Info] - check initialized_ passed&#xD;
+            == [File] - threadtest.cpp&#xD; == [Line] - 23&#xD;&#xD;[Info] - check initialized_ passed&#xD; == [File] -
+            threadtest.cpp&#xD; == [Line] - 23&#xD;&#xD;[Info] - check 0 == thread.GetCounter() passed&#xD; == [File] -
+            threadtest.cpp&#xD; == [Line] - 92&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.threadtest" name="ThreadTestRestart" time="0">
+        <system-out>&#xD;[Info] - check initialized_ passed&#xD; == [File] - threadtest.cpp&#xD; == [Line] - 23&#xD;&#xD;[Info]
+            - check initialized_ passed&#xD; == [File] - threadtest.cpp&#xD; == [Line] - 23&#xD;&#xD;[Info] - check
+            initialized_ passed&#xD; == [File] - threadtest.cpp&#xD; == [Line] - 23&#xD;&#xD;[Info] - check 0 ==
+            thread.GetCounter() passed&#xD; == [File] - threadtest.cpp&#xD; == [Line] - 99&#xD;&#xD;[Info] - check 3 ==
+            thread.GetCounter() passed&#xD; == [File] - threadtest.cpp&#xD; == [Line] - 101&#xD;&#xD;[Info] - check
+            initialized_ passed&#xD; == [File] - threadtest.cpp&#xD; == [Line] - 23&#xD;&#xD;[Info] - check initialized_
+            passed&#xD; == [File] - threadtest.cpp&#xD; == [Line] - 23&#xD;&#xD;[Info] - check initialized_ passed&#xD;
+            == [File] - threadtest.cpp&#xD; == [Line] - 23&#xD;&#xD;[Info] - check 0 == thread.GetCounter() passed&#xD;
+            == [File] - threadtest.cpp&#xD; == [Line] - 105&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.threadtest" name="ThreadTestInterrupt" time="0.01">
+        <system-out>&#xD;[Info] - check initialized_ passed&#xD; == [File] - threadtest.cpp&#xD; == [Line] - 23&#xD;&#xD;[Info]
+            - check initialized_ passed&#xD; == [File] - threadtest.cpp&#xD; == [Line] - 23&#xD;&#xD;[Info] - check
+            thread.GetCounter() &gt; 0 passed&#xD; == [File] - threadtest.cpp&#xD; == [Line] - 113&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test" name="ThreadTestInitFailed" time="0">
+        <system-out>&#xD;[Message] - Test case ThreadTestInitFailed did not run any assertions&#xD; == [File] -
+            ./boost/test/impl/results_collector.ipp&#xD; == [Line] - 220&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test" name="ThreadTestInterruptionNotIgnored" time="0">
+        <system-out>&#xD;[Message] - Test case ThreadTestInterruptionNotIgnored did not run any assertions&#xD; ==
+            [File] - ./boost/test/impl/results_collector.ipp&#xD; == [Line] - 220&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.threadtest" name="ThreadTestNotStarted" time="0">
+        <system-out>&#xD;[Info] - check &apos;exception crete::ApplicationException is caught&apos; passed&#xD; ==
+            [File] - threadtest.cpp&#xD; == [Line] - 145&#xD;&#xD;[Info] - check &apos;exception
+            crete::ApplicationException is caught&apos; passed&#xD; == [File] - threadtest.cpp&#xD; == [Line] -
+            146&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test" name="ThreadPoolTestNoJob" time="0">
+        <system-out>&#xD;[Message] - Test case ThreadPoolTestNoJob did not run any assertions&#xD; == [File] -
+            ./boost/test/impl/results_collector.ipp&#xD; == [Line] - 220&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.threadpooltest" name="ThreadPoolTestLargePool"
+              time="0">
+        <system-out>&#xD;[Info] - check job_count == execute_counter.GetCount() passed&#xD; == [File] -
+            threadpooltest.cpp&#xD; == [Line] - 71&#xD;&#xD;[Info] - check job_count == dtor_counter.GetCount() passed&#xD;
+            == [File] - threadpooltest.cpp&#xD; == [Line] - 72&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.threadpooltest" name="ThreadPoolTestSmallPool"
+              time="0">
+        <system-out>&#xD;[Info] - check job_count == execute_counter.GetCount() passed&#xD; == [File] -
+            threadpooltest.cpp&#xD; == [Line] - 71&#xD;&#xD;[Info] - check job_count == dtor_counter.GetCount() passed&#xD;
+            == [File] - threadpooltest.cpp&#xD; == [Line] - 72&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.threadpooltest" name="ThreadPoolTestNormalPool"
+              time="0">
+        <system-out>&#xD;[Info] - check job_count == execute_counter.GetCount() passed&#xD; == [File] -
+            threadpooltest.cpp&#xD; == [Line] - 71&#xD;&#xD;[Info] - check job_count == dtor_counter.GetCount() passed&#xD;
+            == [File] - threadpooltest.cpp&#xD; == [Line] - 72&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.threadpooltest"
+              name="ThreadPoolTestDiscardPendingJobs"
+              time="0">
+        <system-out>&#xD;[Info] - check execute_counter.GetCount() &lt; JOB_COUNT passed&#xD; == [File] -
+            threadpooltest.cpp&#xD; == [Line] - 105&#xD;&#xD;[Info] - check dtor_counter.GetCount() == JOB_COUNT passed&#xD;
+            == [File] - threadpooltest.cpp&#xD; == [Line] - 106&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.sysconfigtest" name="SysConfigTest" time="0">
+        <system-out>&#xD;[Info] - check sysconf-&gt;Get("nonexist") == "" passed&#xD; == [File] - sysconfigtest.cpp&#xD;
+            == [Line] - 13&#xD;&#xD;[Info] - check sysconf-&gt;Get("username") == "crete_test0005@tester.org" passed&#xD;
+            == [File] - sysconfigtest.cpp&#xD; == [Line] - 14&#xD;&#xD;[Info] - check sysconf-&gt;Get("password") ==
+            "password" passed&#xD; == [File] - sysconfigtest.cpp&#xD; == [Line] - 15&#xD;&#xD;[Info] - check sysconf-&gt;Get("license")
+            == "2VZQXT2WWV9TWDE67TTG" passed&#xD; == [File] - sysconfigtest.cpp&#xD; == [Line] - 16&#xD;&#xD;[Info] -
+            check sysconf-&gt;Get("bushost") == "https://192.168.89.194" passed&#xD; == [File] - sysconfigtest.cpp&#xD;
+            == [Line] - 17&#xD;&#xD;[Info] - check sysconf-&gt;Get("tritonhost") == "https://192.168.89.62:9444" passed&#xD;
+            == [File] - sysconfigtest.cpp&#xD; == [Line] - 18&#xD;&#xD;[Info] - check sysconf-&gt;Get("empty") == ""
+            passed&#xD; == [File] - sysconfigtest.cpp&#xD; == [Line] - 19&#xD;&#xD;[Info] - check sysconf-&gt;Get("SetV")
+            == "" passed&#xD; == [File] - sysconfigtest.cpp&#xD; == [Line] - 20&#xD;&#xD;[Info] - check sysconf-&gt;Get("SetV")
+            == "123321" passed&#xD; == [File] - sysconfigtest.cpp&#xD; == [Line] - 22&#xD;&#xD;[Info] - check sysconf-&gt;Get("SetV")
+            == "000" passed&#xD; == [File] - sysconfigtest.cpp&#xD; == [Line] - 24&#xD;&#xD;[Info] - check sysconf-&gt;Get("SetV")
+            == "" passed&#xD; == [File] - sysconfigtest.cpp&#xD; == [Line] - 26&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.sqlitewrappertest" name="SQLiteWrapperTest" time="0">
+        <system-out>&#xD;[Info] - check conn.ExecuteUpdate( "insert into testwrapper(" "col1, col2, col3) values(1.21,
+            &apos;abc&apos;, &apos;abc&apos;)" ) == 1 passed&#xD; == [File] - sqlitewrappertest.cpp&#xD; == [Line] - 21&#xD;&#xD;[Info]
+            - check rs passed&#xD; == [File] - sqlitewrappertest.cpp&#xD; == [Line] - 23&#xD;&#xD;[Info] - check rs-&gt;Next()
+            passed&#xD; == [File] - sqlitewrappertest.cpp&#xD; == [Line] - 24&#xD;&#xD;[Info] - check rs-&gt;GetDouble(1)
+            == 1.21 passed&#xD; == [File] - sqlitewrappertest.cpp&#xD; == [Line] - 25&#xD;&#xD;[Info] - check rs-&gt;GetString(2)
+            == "abc" passed&#xD; == [File] - sqlitewrappertest.cpp&#xD; == [Line] - 26&#xD;&#xD;[Info] - check rs-&gt;GetInt(0)
+            == rs-&gt;GetInt("id") passed&#xD; == [File] - sqlitewrappertest.cpp&#xD; == [Line] - 27&#xD;&#xD;[Info] -
+            check rs-&gt;GetDouble(1) == rs-&gt;GetDouble("col1") passed&#xD; == [File] - sqlitewrappertest.cpp&#xD; ==
+            [Line] - 28&#xD;&#xD;[Info] - check rs-&gt;GetString(2) == rs-&gt;GetString("col2") passed&#xD; == [File] -
+            sqlitewrappertest.cpp&#xD; == [Line] - 29&#xD;&#xD;[Info] - check pst-&gt;ExecuteUpdate() == 1 passed&#xD;
+            == [File] - sqlitewrappertest.cpp&#xD; == [Line] - 37&#xD;&#xD;[Info] - check conn.ExecuteUpdate("delete
+            from testwrapper where col1=23.12") == 1 passed&#xD; == [File] - sqlitewrappertest.cpp&#xD; == [Line] - 39&#xD;&#xD;[Info]
+            - check &apos;exception SQLiteException is caught&apos; passed&#xD; == [File] - sqlitewrappertest.cpp&#xD;
+            == [Line] - 40&#xD;&#xD;[Info] - check &apos;no exceptions thrown by conn.RollbackNoThrow()&apos; passed&#xD;
+            == [File] - sqlitewrappertest.cpp&#xD; == [Line] - 41&#xD;&#xD;[Info] - check rs passed&#xD; == [File] -
+            sqlitewrappertest.cpp&#xD; == [Line] - 48&#xD;&#xD;[Info] - check rs-&gt;Next() passed&#xD; == [File] -
+            sqlitewrappertest.cpp&#xD; == [Line] - 49&#xD;&#xD;[Info] - check !rs-&gt;Next() passed&#xD; == [File] -
+            sqlitewrappertest.cpp&#xD; == [Line] - 50&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test" name="SnapshotThreadTest" time="0.01">
+        <system-out>&#xD;[Message] - Test case SnapshotThreadTest did not run any assertions&#xD; == [File] -
+            ./boost/test/impl/results_collector.ipp&#xD; == [Line] - 220&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.snapshotthreadtest"
+              name="SnapshotThreadTestInaccessibleDirectory"
+              time="0.01">
+        <system-out>&#xD;[Info] - check &apos;exception crete::IllegalOperationException is caught&apos; passed&#xD; ==
+            [File] - snapshotthreadtest.cpp&#xD; == [Line] - 39&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.snapshottest" name="SnapshotTestZeroSize" time="0">
+        <system-out>&#xD;[Info] - check !fs.bad() passed&#xD; == [File] - snapshottest.cpp&#xD; == [Line] - 126&#xD;&#xD;[Info]
+            - check !lhs_fs.bad() passed&#xD; == [File] - snapshottest.cpp&#xD; == [Line] - 48&#xD;&#xD;[Info] - check
+            !rhs_fs.bad() passed&#xD; == [File] - snapshottest.cpp&#xD; == [Line] - 51&#xD;&#xD;[Info] - check &apos;/tmp/crete_unittest_dDqEzY
+            vs /tmp/snapshot_crete_unittest_dDqEzY_7E1849&apos; passed&#xD; == [File] - snapshottest.cpp&#xD; == [Line]
+            - 134&#xD;&#xD;[Info] - check tmp_object passed&#xD; == [File] - snapshottest.cpp&#xD; == [Line] - 137&#xD;&#xD;[Info]
+            - check boost::get&lt;std::string&gt;(lhs-&gt;property("name")) == boost::get&lt;std::string&gt;(rhs-&gt;GetProperty("origin.name"))
+            passed&#xD; == [File] - snapshottest.cpp&#xD; == [Line] - 35&#xD;&#xD;[Info] - check boost::get&lt;std::string&gt;(lhs-&gt;property("abspath"))
+            == boost::get&lt;std::string&gt;(rhs-&gt;GetProperty("origin.abspath")) passed&#xD; == [File] -
+            snapshottest.cpp&#xD; == [Line] - 37&#xD;&#xD;[Info] - check boost::get&lt;boost::posix_time::ptime&gt;(lhs-&gt;property("filesystem.creation_time"))
+            == boost::get&lt;boost::posix_time::ptime&gt;(rhs-&gt;GetProperty("origin.filesystem.creation_time")) passed&#xD;
+            == [File] - snapshottest.cpp&#xD; == [Line] - 40&#xD;&#xD;[Info] - check boost::get&lt;boost::posix_time::ptime&gt;(lhs-&gt;property("filesystem.modification_time"))
+            == boost::get&lt;boost::posix_time::ptime&gt;(rhs-&gt;GetProperty("origin.filesystem.modification_time"))
+            passed&#xD; == [File] - snapshottest.cpp&#xD; == [Line] - 43&#xD;&#xD;[Warning] - triton.host not defined&#xD;
+            == [File] - snapshottest.cpp&#xD; == [Line] - 72&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.snapshottest" name="SnapshotTestSmallSize" time="0">
+        <system-out>&#xD;[Info] - check !fs.bad() passed&#xD; == [File] - snapshottest.cpp&#xD; == [Line] - 126&#xD;&#xD;[Info]
+            - check !lhs_fs.bad() passed&#xD; == [File] - snapshottest.cpp&#xD; == [Line] - 48&#xD;&#xD;[Info] - check
+            !rhs_fs.bad() passed&#xD; == [File] - snapshottest.cpp&#xD; == [Line] - 51&#xD;&#xD;[Info] - check &apos;/tmp/crete_unittest_B1LXEj
+            vs /tmp/snapshot_crete_unittest_B1LXEj_nVC76s&apos; passed&#xD; == [File] - snapshottest.cpp&#xD; == [Line]
+            - 134&#xD;&#xD;[Info] - check tmp_object passed&#xD; == [File] - snapshottest.cpp&#xD; == [Line] - 137&#xD;&#xD;[Info]
+            - check boost::get&lt;std::string&gt;(lhs-&gt;property("name")) == boost::get&lt;std::string&gt;(rhs-&gt;GetProperty("origin.name"))
+            passed&#xD; == [File] - snapshottest.cpp&#xD; == [Line] - 35&#xD;&#xD;[Info] - check boost::get&lt;std::string&gt;(lhs-&gt;property("abspath"))
+            == boost::get&lt;std::string&gt;(rhs-&gt;GetProperty("origin.abspath")) passed&#xD; == [File] -
+            snapshottest.cpp&#xD; == [Line] - 37&#xD;&#xD;[Info] - check boost::get&lt;boost::posix_time::ptime&gt;(lhs-&gt;property("filesystem.creation_time"))
+            == boost::get&lt;boost::posix_time::ptime&gt;(rhs-&gt;GetProperty("origin.filesystem.creation_time")) passed&#xD;
+            == [File] - snapshottest.cpp&#xD; == [Line] - 40&#xD;&#xD;[Info] - check boost::get&lt;boost::posix_time::ptime&gt;(lhs-&gt;property("filesystem.modification_time"))
+            == boost::get&lt;boost::posix_time::ptime&gt;(rhs-&gt;GetProperty("origin.filesystem.modification_time"))
+            passed&#xD; == [File] - snapshottest.cpp&#xD; == [Line] - 43&#xD;&#xD;[Warning] - triton.host not defined&#xD;
+            == [File] - snapshottest.cpp&#xD; == [Line] - 72&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.snapshottest" name="SnapshotTestMediumSize"
+              time="0.07">
+        <system-out>&#xD;[Info] - check !fs.bad() passed&#xD; == [File] - snapshottest.cpp&#xD; == [Line] - 126&#xD;&#xD;[Info]
+            - check !lhs_fs.bad() passed&#xD; == [File] - snapshottest.cpp&#xD; == [Line] - 48&#xD;&#xD;[Info] - check
+            !rhs_fs.bad() passed&#xD; == [File] - snapshottest.cpp&#xD; == [Line] - 51&#xD;&#xD;[Info] - check &apos;/tmp/crete_unittest_ZXqiyC
+            vs /tmp/snapshot_crete_unittest_ZXqiyC_twFbWP&apos; passed&#xD; == [File] - snapshottest.cpp&#xD; == [Line]
+            - 134&#xD;&#xD;[Info] - check tmp_object passed&#xD; == [File] - snapshottest.cpp&#xD; == [Line] - 137&#xD;&#xD;[Info]
+            - check boost::get&lt;std::string&gt;(lhs-&gt;property("name")) == boost::get&lt;std::string&gt;(rhs-&gt;GetProperty("origin.name"))
+            passed&#xD; == [File] - snapshottest.cpp&#xD; == [Line] - 35&#xD;&#xD;[Info] - check boost::get&lt;std::string&gt;(lhs-&gt;property("abspath"))
+            == boost::get&lt;std::string&gt;(rhs-&gt;GetProperty("origin.abspath")) passed&#xD; == [File] -
+            snapshottest.cpp&#xD; == [Line] - 37&#xD;&#xD;[Info] - check boost::get&lt;boost::posix_time::ptime&gt;(lhs-&gt;property("filesystem.creation_time"))
+            == boost::get&lt;boost::posix_time::ptime&gt;(rhs-&gt;GetProperty("origin.filesystem.creation_time")) passed&#xD;
+            == [File] - snapshottest.cpp&#xD; == [Line] - 40&#xD;&#xD;[Info] - check boost::get&lt;boost::posix_time::ptime&gt;(lhs-&gt;property("filesystem.modification_time"))
+            == boost::get&lt;boost::posix_time::ptime&gt;(rhs-&gt;GetProperty("origin.filesystem.modification_time"))
+            passed&#xD; == [File] - snapshottest.cpp&#xD; == [Line] - 43&#xD;&#xD;[Warning] - triton.host not defined&#xD;
+            == [File] - snapshottest.cpp&#xD; == [Line] - 72&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.snapshottest" name="SnapshotTestLargeSize"
+              time="0.96">
+        <failure>&#xD;[Error] - check crete::FileStates::GetInstance()-&gt;GetPatchTimeAndHash( snapshot-&gt;GetManifestFilename(),
+            hash, patchtime) failed&#xD; == [File] - snapshottest.cpp&#xD; == [Line] - 146&#xD;&#xD;[Error] - check
+            crete::RDIFF::Read( snapshot-&gt;GetManifestFilename(), &amp;header, hashes) failed&#xD; == [File] -
+            snapshottest.cpp&#xD; == [Line] - 150&#xD;&#xD;[Error] - check crete::FileStates::GetInstance()-&gt;RemoveFile(
+            snapshot-&gt;GetManifestFilename()) failed&#xD; == [File] - snapshottest.cpp&#xD; == [Line] -
+            152&#xD;</failure>
+        <system-out>&#xD;[Info] - check !fs.bad() passed&#xD; == [File] - snapshottest.cpp&#xD; == [Line] - 126&#xD;&#xD;[Info]
+            - check !lhs_fs.bad() passed&#xD; == [File] - snapshottest.cpp&#xD; == [Line] - 48&#xD;&#xD;[Info] - check
+            !rhs_fs.bad() passed&#xD; == [File] - snapshottest.cpp&#xD; == [Line] - 51&#xD;&#xD;[Info] - check &apos;/tmp/crete_unittest_PeVPb6
+            vs /tmp/snapshot_crete_unittest_PeVPb6_PD02MF&apos; passed&#xD; == [File] - snapshottest.cpp&#xD; == [Line]
+            - 134&#xD;&#xD;[Info] - check tmp_object passed&#xD; == [File] - snapshottest.cpp&#xD; == [Line] - 137&#xD;&#xD;[Info]
+            - check boost::get&lt;std::string&gt;(lhs-&gt;property("name")) == boost::get&lt;std::string&gt;(rhs-&gt;GetProperty("origin.name"))
+            passed&#xD; == [File] - snapshottest.cpp&#xD; == [Line] - 35&#xD;&#xD;[Info] - check boost::get&lt;std::string&gt;(lhs-&gt;property("abspath"))
+            == boost::get&lt;std::string&gt;(rhs-&gt;GetProperty("origin.abspath")) passed&#xD; == [File] -
+            snapshottest.cpp&#xD; == [Line] - 37&#xD;&#xD;[Info] - check boost::get&lt;boost::posix_time::ptime&gt;(lhs-&gt;property("filesystem.creation_time"))
+            == boost::get&lt;boost::posix_time::ptime&gt;(rhs-&gt;GetProperty("origin.filesystem.creation_time")) passed&#xD;
+            == [File] - snapshottest.cpp&#xD; == [Line] - 40&#xD;&#xD;[Info] - check boost::get&lt;boost::posix_time::ptime&gt;(lhs-&gt;property("filesystem.modification_time"))
+            == boost::get&lt;boost::posix_time::ptime&gt;(rhs-&gt;GetProperty("origin.filesystem.modification_time"))
+            passed&#xD; == [File] - snapshottest.cpp&#xD; == [Line] - 43&#xD;&#xD;[Warning] - triton.host not defined&#xD;
+            == [File] - snapshottest.cpp&#xD; == [Line] - 72&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.snapshottest" name="SnapshotPatchTest" time="0">
+        <system-out>&#xD;[Warning] - triton.host not defined&#xD; == [File] - snapshottest.cpp&#xD; == [Line] - 173&#xD;&#xD;[Message]
+            - Test case SnapshotPatchTest did not run any assertions&#xD; == [File] -
+            ./boost/test/impl/results_collector.ipp&#xD; == [Line] - 220&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.scanthreadtest" name="ScanThreadTestScan"
+              time="0.09">
+        <system-out>&#xD;[Info] - check task_queue.GetBackupTaskCount() &gt; 0 passed&#xD; == [File] -
+            scanthreadtest.cpp&#xD; == [Line] - 49&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.restorestoretest" name="RestoreStoreTest"
+              time="0.01">
+        <system-out>&#xD;[Info] - check handle &gt; 0 passed&#xD; == [File] - restorestoretest.cpp&#xD; == [Line] - 29&#xD;&#xD;[Info]
+            - check store.AddRestoreFile(handle, src_pathes[i], backup_times[i], des_pathes[i]) &gt; 0 passed&#xD; ==
+            [File] - restorestoretest.cpp&#xD; == [Line] - 31&#xD;&#xD;[Info] - check store.AddRestoreFile(handle,
+            src_pathes[i], backup_times[i], des_pathes[i]) &gt; 0 passed&#xD; == [File] - restorestoretest.cpp&#xD; ==
+            [Line] - 31&#xD;&#xD;[Info] - check store.AddRestoreFile(handle, src_pathes[i], backup_times[i],
+            des_pathes[i]) &gt; 0 passed&#xD; == [File] - restorestoretest.cpp&#xD; == [Line] - 31&#xD;&#xD;[Info] -
+            check store.AddRestoreFile(handle, src_pathes[i], backup_times[i], des_pathes[i]) &gt; 0 passed&#xD; ==
+            [File] - restorestoretest.cpp&#xD; == [Line] - 31&#xD;&#xD;[Info] - check store.AddRestoreFile(handle,
+            src_pathes[i], backup_times[i], des_pathes[i]) &gt; 0 passed&#xD; == [File] - restorestoretest.cpp&#xD; ==
+            [Line] - 31&#xD;&#xD;[Info] - check store.CommitJob(-1) == -1 passed&#xD; == [File] - restorestoretest.cpp&#xD;
+            == [Line] - 33&#xD;&#xD;[Info] - check store.AddRestoreFile(-1, "aaa", 11, "aa") == 0 passed&#xD; == [File]
+            - restorestoretest.cpp&#xD; == [Line] - 35&#xD;&#xD;[Info] - check id &gt; 0 passed&#xD; == [File] -
+            restorestoretest.cpp&#xD; == [Line] - 37&#xD;&#xD;[Info] - check store.CommitJob(id) == -1 passed&#xD; ==
+            [File] - restorestoretest.cpp&#xD; == [Line] - 38&#xD;&#xD;[Info] - check rt passed&#xD; == [File] -
+            restorestoretest.cpp&#xD; == [Line] - 40&#xD;&#xD;[Info] - check rt-&gt;GetID() == id passed&#xD; == [File]
+            - restorestoretest.cpp&#xD; == [Line] - 41&#xD;&#xD;[Info] - check rt-&gt;GetName() == "Test1" passed&#xD;
+            == [File] - restorestoretest.cpp&#xD; == [Line] - 42&#xD;&#xD;[Info] - check tasks.size() == RIC passed&#xD;
+            == [File] - restorestoretest.cpp&#xD; == [Line] - 45&#xD;&#xD;[Info] - check (*it)-&gt;GetID() &gt; 0 passed&#xD;
+            == [File] - restorestoretest.cpp&#xD; == [Line] - 48&#xD;&#xD;[Info] - check (*it)-&gt;GetSrcPath() ==
+            src_pathes[index] passed&#xD; == [File] - restorestoretest.cpp&#xD; == [Line] - 49&#xD;&#xD;[Info] - check
+            (*it)-&gt;GetDesPath() == des_pathes[index] passed&#xD; == [File] - restorestoretest.cpp&#xD; == [Line] - 50&#xD;&#xD;[Info]
+            - check (*it)-&gt;GetBackupTime() == backup_times[index] passed&#xD; == [File] - restorestoretest.cpp&#xD;
+            == [Line] - 51&#xD;&#xD;[Info] - check (*it)-&gt;GetID() &gt; 0 passed&#xD; == [File] - restorestoretest.cpp&#xD;
+            == [Line] - 48&#xD;&#xD;[Info] - check (*it)-&gt;GetSrcPath() == src_pathes[index] passed&#xD; == [File] -
+            restorestoretest.cpp&#xD; == [Line] - 49&#xD;&#xD;[Info] - check (*it)-&gt;GetDesPath() == des_pathes[index]
+            passed&#xD; == [File] - restorestoretest.cpp&#xD; == [Line] - 50&#xD;&#xD;[Info] - check (*it)-&gt;GetBackupTime()
+            == backup_times[index] passed&#xD; == [File] - restorestoretest.cpp&#xD; == [Line] - 51&#xD;&#xD;[Info] -
+            check (*it)-&gt;GetID() &gt; 0 passed&#xD; == [File] - restorestoretest.cpp&#xD; == [Line] - 48&#xD;&#xD;[Info]
+            - check (*it)-&gt;GetSrcPath() == src_pathes[index] passed&#xD; == [File] - restorestoretest.cpp&#xD; ==
+            [Line] - 49&#xD;&#xD;[Info] - check (*it)-&gt;GetDesPath() == des_pathes[index] passed&#xD; == [File] -
+            restorestoretest.cpp&#xD; == [Line] - 50&#xD;&#xD;[Info] - check (*it)-&gt;GetBackupTime() ==
+            backup_times[index] passed&#xD; == [File] - restorestoretest.cpp&#xD; == [Line] - 51&#xD;&#xD;[Info] - check
+            (*it)-&gt;GetID() &gt; 0 passed&#xD; == [File] - restorestoretest.cpp&#xD; == [Line] - 48&#xD;&#xD;[Info] -
+            check (*it)-&gt;GetSrcPath() == src_pathes[index] passed&#xD; == [File] - restorestoretest.cpp&#xD; ==
+            [Line] - 49&#xD;&#xD;[Info] - check (*it)-&gt;GetDesPath() == des_pathes[index] passed&#xD; == [File] -
+            restorestoretest.cpp&#xD; == [Line] - 50&#xD;&#xD;[Info] - check (*it)-&gt;GetBackupTime() ==
+            backup_times[index] passed&#xD; == [File] - restorestoretest.cpp&#xD; == [Line] - 51&#xD;&#xD;[Info] - check
+            (*it)-&gt;GetID() &gt; 0 passed&#xD; == [File] - restorestoretest.cpp&#xD; == [Line] - 48&#xD;&#xD;[Info] -
+            check (*it)-&gt;GetSrcPath() == src_pathes[index] passed&#xD; == [File] - restorestoretest.cpp&#xD; ==
+            [Line] - 49&#xD;&#xD;[Info] - check (*it)-&gt;GetDesPath() == des_pathes[index] passed&#xD; == [File] -
+            restorestoretest.cpp&#xD; == [Line] - 50&#xD;&#xD;[Info] - check (*it)-&gt;GetBackupTime() ==
+            backup_times[index] passed&#xD; == [File] - restorestoretest.cpp&#xD; == [Line] - 51&#xD;&#xD;[Info] - check
+            store.AddRestoreFile(handle, src_pathes[i], backup_times[i], des_pathes[i]) &gt; 0 passed&#xD; == [File] -
+            restorestoretest.cpp&#xD; == [Line] - 56&#xD;&#xD;[Info] - check store.AddRestoreFile(handle, src_pathes[i],
+            backup_times[i], des_pathes[i]) &gt; 0 passed&#xD; == [File] - restorestoretest.cpp&#xD; == [Line] - 56&#xD;&#xD;[Info]
+            - check store.AddRestoreFile(handle, src_pathes[i], backup_times[i], des_pathes[i]) &gt; 0 passed&#xD; ==
+            [File] - restorestoretest.cpp&#xD; == [Line] - 56&#xD;&#xD;[Info] - check store.AddRestoreFile(handle,
+            src_pathes[i], backup_times[i], des_pathes[i]) &gt; 0 passed&#xD; == [File] - restorestoretest.cpp&#xD; ==
+            [Line] - 56&#xD;&#xD;[Info] - check store.AddRestoreFile(handle, src_pathes[i], backup_times[i],
+            des_pathes[i]) &gt; 0 passed&#xD; == [File] - restorestoretest.cpp&#xD; == [Line] - 56&#xD;&#xD;[Info] -
+            check rt-&gt;GetID() == id passed&#xD; == [File] - restorestoretest.cpp&#xD; == [Line] - 60&#xD;&#xD;[Info]
+            - check rt-&gt;GetName() == "Test2" passed&#xD; == [File] - restorestoretest.cpp&#xD; == [Line] - 61&#xD;&#xD;[Info]
+            - check jobs.size() == 2 passed&#xD; == [File] - restorestoretest.cpp&#xD; == [Line] - 66&#xD;&#xD;[Info] -
+            check jobs.size() == 0 passed&#xD; == [File] - restorestoretest.cpp&#xD; == [Line] - 69&#xD;&#xD;[Info] -
+            check jobs.size() == 2 passed&#xD; == [File] - restorestoretest.cpp&#xD; == [Line] - 71&#xD;&#xD;[Info] -
+            check tasks.size() == RIC passed&#xD; == [File] - restorestoretest.cpp&#xD; == [Line] - 74&#xD;&#xD;[Info] -
+            check tasks.size() == RIC &lt;&lt; 1 passed&#xD; == [File] - restorestoretest.cpp&#xD; == [Line] - 79&#xD;&#xD;[Info]
+            - check tasks.size() == 9 passed&#xD; == [File] - restorestoretest.cpp&#xD; == [Line] - 82&#xD;&#xD;[Info] -
+            check tasks.size() == 1 passed&#xD; == [File] - restorestoretest.cpp&#xD; == [Line] - 85&#xD;&#xD;[Info] -
+            check tasks.size() == RIC - 1 passed&#xD; == [File] - restorestoretest.cpp&#xD; == [Line] - 90&#xD;&#xD;[Info]
+            - check jobs.size() == 1 passed&#xD; == [File] - restorestoretest.cpp&#xD; == [Line] - 94&#xD;&#xD;[Info] -
+            check store.DeleteJob(-1) == 0 passed&#xD; == [File] - restorestoretest.cpp&#xD; == [Line] - 95&#xD;&#xD;[Info]
+            - check store.DeleteTask(-1) == 0 passed&#xD; == [File] - restorestoretest.cpp&#xD; == [Line] -
+            96&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.rdifftest" name="RdiffTest" time="0.02">
+        <system-out>&#xD;[Info] - check !RDIFF::WantRdiffStream("test.doc", 1024ll * 100, &amp;blocksize) passed&#xD; ==
+            [File] - rdifftest.cpp&#xD; == [Line] - 26&#xD;&#xD;[Info] - check blocksize == 65536 passed&#xD; == [File]
+            - rdifftest.cpp&#xD; == [Line] - 27&#xD;&#xD;[Info] - check RDIFF::WantRdiffStream("test.ppt", 1024ll * 500,
+            &amp;blocksize) passed&#xD; == [File] - rdifftest.cpp&#xD; == [Line] - 28&#xD;&#xD;[Info] - check blocksize
+            == 65536 passed&#xD; == [File] - rdifftest.cpp&#xD; == [Line] - 29&#xD;&#xD;[Info] - check
+            !RDIFF::WantRdiffStream("test.mp3", 1024ll * 1000, &amp;blocksize) passed&#xD; == [File] - rdifftest.cpp&#xD;
+            == [Line] - 30&#xD;&#xD;[Info] - check blocksize == 1048576 passed&#xD; == [File] - rdifftest.cpp&#xD; ==
+            [Line] - 31&#xD;&#xD;[Info] - check RDIFF::WantRdiffStream("test.mp3", 1024ll * 5000, &amp;blocksize) passed&#xD;
+            == [File] - rdifftest.cpp&#xD; == [Line] - 32&#xD;&#xD;[Info] - check blocksize == 1048576 passed&#xD; ==
+            [File] - rdifftest.cpp&#xD; == [Line] - 33&#xD;&#xD;[Info] - check !RDIFF::Read("rdifftest.0", &amp;header,
+            hashes1) passed&#xD; == [File] - rdifftest.cpp&#xD; == [Line] - 39&#xD;&#xD;[Info] - check
+            RDIFF::Commit("rdifftest.1.doc", &amp;rdiffcontext, "01234567890123456789", 12345678ll) passed&#xD; ==
+            [File] - rdifftest.cpp&#xD; == [Line] - 59&#xD;&#xD;[Info] - check RDIFF::Commit("rdifftest.2.mp3", &amp;rdiffcontext,
+            "98765432109876543210", 87654321ll) passed&#xD; == [File] - rdifftest.cpp&#xD; == [Line] - 79&#xD;&#xD;[Info]
+            - check RDIFF::Read("rdifftest.1.doc", &amp;headerOut, hashesOut) passed&#xD; == [File] - rdifftest.cpp&#xD;
+            == [Line] - 84&#xD;&#xD;[Info] - check hashesOut-&gt;buffer() == origin1-&gt;buffer() passed&#xD; == [File]
+            - rdifftest.cpp&#xD; == [Line] - 86&#xD;&#xD;[Info] - check headerOut.blocksize == 65536 passed&#xD; ==
+            [File] - rdifftest.cpp&#xD; == [Line] - 87&#xD;&#xD;[Info] - check headerOut.backuptime == 12345678ll passed&#xD;
+            == [File] - rdifftest.cpp&#xD; == [Line] - 88&#xD;&#xD;[Info] - check headerOut.mtime == 12345678ll passed&#xD;
+            == [File] - rdifftest.cpp&#xD; == [Line] - 89&#xD;&#xD;[Info] - check headerOut.filesize == 1048576ll passed&#xD;
+            == [File] - rdifftest.cpp&#xD; == [Line] - 90&#xD;&#xD;[Info] - check headerOut.patchsize == 65536ll * 8
+            passed&#xD; == [File] - rdifftest.cpp&#xD; == [Line] - 91&#xD;&#xD;[Info] - check filehash ==
+            "01234567890123456789" passed&#xD; == [File] - rdifftest.cpp&#xD; == [Line] - 93&#xD;&#xD;[Info] - check
+            patchtime == (time_t)12345678ll passed&#xD; == [File] - rdifftest.cpp&#xD; == [Line] - 94&#xD;&#xD;[Info] -
+            check RDIFF::Read("rdifftest.2.mp3", &amp;headerOut, hashesOut) passed&#xD; == [File] - rdifftest.cpp&#xD;
+            == [Line] - 96&#xD;&#xD;[Info] - check hashesOut-&gt;buffer() == origin2-&gt;buffer() passed&#xD; == [File]
+            - rdifftest.cpp&#xD; == [Line] - 98&#xD;&#xD;[Info] - check headerOut.blocksize == 1048576 passed&#xD; ==
+            [File] - rdifftest.cpp&#xD; == [Line] - 99&#xD;&#xD;[Info] - check headerOut.backuptime == 87654321ll passed&#xD;
+            == [File] - rdifftest.cpp&#xD; == [Line] - 100&#xD;&#xD;[Info] - check headerOut.mtime == 87654321ll passed&#xD;
+            == [File] - rdifftest.cpp&#xD; == [Line] - 101&#xD;&#xD;[Info] - check headerOut.filesize == 1048576ll * 6
+            passed&#xD; == [File] - rdifftest.cpp&#xD; == [Line] - 102&#xD;&#xD;[Info] - check headerOut.patchsize ==
+            1048576ll * 3 passed&#xD; == [File] - rdifftest.cpp&#xD; == [Line] - 103&#xD;&#xD;[Info] - check filehash ==
+            "98765432109876543210" passed&#xD; == [File] - rdifftest.cpp&#xD; == [Line] - 105&#xD;&#xD;[Info] - check
+            patchtime == (time_t)87654321ll passed&#xD; == [File] - rdifftest.cpp&#xD; == [Line] - 106&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.rdiffstreamtest" name="RdiffStreamZeroTest" time="0">
+        <system-out>&#xD;[Info] - check !fs.bad() passed&#xD; == [File] - rdiffstreamtest.cpp&#xD; == [Line] - 41&#xD;&#xD;[Info]
+            - check rdiffhash-&gt;size() == originHashes-&gt;size() passed&#xD; == [File] - rdiffstreamtest.cpp&#xD; ==
+            [Line] - 66&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.rdiffstreamtest" name="RdiffStreamSmallTest"
+              time="0">
+        <system-out>&#xD;[Info] - check !fs.bad() passed&#xD; == [File] - rdiffstreamtest.cpp&#xD; == [Line] - 41&#xD;&#xD;[Info]
+            - check rdiffhash-&gt;size() == originHashes-&gt;size() passed&#xD; == [File] - rdiffstreamtest.cpp&#xD; ==
+            [Line] - 66&#xD;&#xD;[Info] - check rdiffhash-&gt;buffer() == originHashes-&gt;buffer() passed&#xD; ==
+            [File] - rdiffstreamtest.cpp&#xD; == [Line] - 68&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.rdiffstreamtest" name="RdiffStreamMediumTest"
+              time="0">
+        <system-out>&#xD;[Info] - check !fs.bad() passed&#xD; == [File] - rdiffstreamtest.cpp&#xD; == [Line] - 41&#xD;&#xD;[Info]
+            - check rdiffhash-&gt;size() == originHashes-&gt;size() passed&#xD; == [File] - rdiffstreamtest.cpp&#xD; ==
+            [Line] - 66&#xD;&#xD;[Info] - check rdiffhash-&gt;buffer() == originHashes-&gt;buffer() passed&#xD; ==
+            [File] - rdiffstreamtest.cpp&#xD; == [Line] - 68&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.rdiffstreamtest" name="RdiffStreamLargeTest"
+              time="0.01">
+        <system-out>&#xD;[Info] - check !fs.bad() passed&#xD; == [File] - rdiffstreamtest.cpp&#xD; == [Line] - 41&#xD;&#xD;[Info]
+            - check rdiffhash-&gt;size() == originHashes-&gt;size() passed&#xD; == [File] - rdiffstreamtest.cpp&#xD; ==
+            [Line] - 66&#xD;&#xD;[Info] - check rdiffhash-&gt;buffer() == originHashes-&gt;buffer() passed&#xD; ==
+            [File] - rdiffstreamtest.cpp&#xD; == [Line] - 68&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.mordorthreadtest" name="EventConversionTest"
+              time="0">
+        <system-out>&#xD;[Info] - check event_list[i] == VFS::Linux::watcherEvent2InotifyEvent(
+            VFS::Linux::inotifyEvent2WatcherEvent(event_list[i]) ) passed&#xD; == [File] - mordorthreadtest.cpp&#xD; ==
+            [Line] - 68&#xD;&#xD;[Info] - check event_list[i] == VFS::Linux::watcherEvent2InotifyEvent(
+            VFS::Linux::inotifyEvent2WatcherEvent(event_list[i]) ) passed&#xD; == [File] - mordorthreadtest.cpp&#xD; ==
+            [Line] - 68&#xD;&#xD;[Info] - check event_list[i] == VFS::Linux::watcherEvent2InotifyEvent(
+            VFS::Linux::inotifyEvent2WatcherEvent(event_list[i]) ) passed&#xD; == [File] - mordorthreadtest.cpp&#xD; ==
+            [Line] - 68&#xD;&#xD;[Info] - check event_list[i] == VFS::Linux::watcherEvent2InotifyEvent(
+            VFS::Linux::inotifyEvent2WatcherEvent(event_list[i]) ) passed&#xD; == [File] - mordorthreadtest.cpp&#xD; ==
+            [Line] - 68&#xD;&#xD;[Info] - check event_list[i] == VFS::Linux::watcherEvent2InotifyEvent(
+            VFS::Linux::inotifyEvent2WatcherEvent(event_list[i]) ) passed&#xD; == [File] - mordorthreadtest.cpp&#xD; ==
+            [Line] - 68&#xD;&#xD;[Info] - check event_list[i] == VFS::Linux::watcherEvent2InotifyEvent(
+            VFS::Linux::inotifyEvent2WatcherEvent(event_list[i]) ) passed&#xD; == [File] - mordorthreadtest.cpp&#xD; ==
+            [Line] - 68&#xD;&#xD;[Info] - check event_list[i] == VFS::Linux::watcherEvent2InotifyEvent(
+            VFS::Linux::inotifyEvent2WatcherEvent(event_list[i]) ) passed&#xD; == [File] - mordorthreadtest.cpp&#xD; ==
+            [Line] - 68&#xD;&#xD;[Info] - check event_list[i] == VFS::Linux::watcherEvent2InotifyEvent(
+            VFS::Linux::inotifyEvent2WatcherEvent(event_list[i]) ) passed&#xD; == [File] - mordorthreadtest.cpp&#xD; ==
+            [Line] - 68&#xD;&#xD;[Info] - check event_list[i] == VFS::Linux::watcherEvent2InotifyEvent(
+            VFS::Linux::inotifyEvent2WatcherEvent(event_list[i]) ) passed&#xD; == [File] - mordorthreadtest.cpp&#xD; ==
+            [Line] - 68&#xD;&#xD;[Info] - check event_list[i] == VFS::Linux::watcherEvent2InotifyEvent(
+            VFS::Linux::inotifyEvent2WatcherEvent(event_list[i]) ) passed&#xD; == [File] - mordorthreadtest.cpp&#xD; ==
+            [Line] - 68&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.mordorthreadtest" name="MordorThreadTest" time="0">
+        <system-out>&#xD;[Warning] - triton.host not defined&#xD; == [File] - mordorthreadtest.cpp&#xD; == [Line] - 83&#xD;&#xD;[Message]
+            - Test case MordorThreadTest did not run any assertions&#xD; == [File] -
+            ./boost/test/impl/results_collector.ipp&#xD; == [Line] - 220&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.manifesttest" name="ManifestTest" time="0">
+        <system-out>&#xD;[Warning] - triton.host not defined&#xD; == [File] - manifesttest.cpp&#xD; == [Line] - 49&#xD;&#xD;[Message]
+            - Test case ManifestTest did not run any assertions&#xD; == [File] - ./boost/test/impl/results_collector.ipp&#xD;
+            == [Line] - 220&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.manifeststoretest" name="ManifestStoreTest"
+              time="0.02">
+        <system-out>&#xD;[Info] - check stream passed&#xD; == [File] - manifeststoretest.cpp&#xD; == [Line] - 13&#xD;&#xD;[Info]
+            - check !parser-&gt;error() passed&#xD; == [File] - manifeststoretest.cpp&#xD; == [Line] - 22&#xD;&#xD;[Info]
+            - check parser-&gt;final() passed&#xD; == [File] - manifeststoretest.cpp&#xD; == [Line] - 23&#xD;&#xD;[Info]
+            - check id &gt; 0 passed&#xD; == [File] - manifeststoretest.cpp&#xD; == [Line] - 34&#xD;&#xD;[Info] - check
+            id &gt; 0 passed&#xD; == [File] - manifeststoretest.cpp&#xD; == [Line] - 34&#xD;&#xD;[Info] - check id &gt;
+            0 passed&#xD; == [File] - manifeststoretest.cpp&#xD; == [Line] - 34&#xD;&#xD;[Info] - check entries.size()
+            == 3 passed&#xD; == [File] - manifeststoretest.cpp&#xD; == [Line] - 38&#xD;&#xD;[Info] - check
+            store.DeleteEntry( "C:\\Documents and Settings\\tester\\My Documents\\pic.bmp.bmp") &gt; 0 passed&#xD; ==
+            [File] - manifeststoretest.cpp&#xD; == [Line] - 41&#xD;&#xD;[Info] - check entries.size() == 2 passed&#xD;
+            == [File] - manifeststoretest.cpp&#xD; == [Line] - 44&#xD;&#xD;[Info] - check me passed&#xD; == [File] -
+            manifeststoretest.cpp&#xD; == [Line] - 46&#xD;&#xD;[Info] - check patches.size() == 8 passed&#xD; == [File]
+            - manifeststoretest.cpp&#xD; == [Line] - 49&#xD;&#xD;[Info] - check me passed&#xD; == [File] -
+            manifeststoretest.cpp&#xD; == [Line] - 51&#xD;&#xD;[Info] - check me-&gt;GetPath() ==
+            "/home/ron/hello-world.mp3" passed&#xD; == [File] - manifeststoretest.cpp&#xD; == [Line] - 52&#xD;&#xD;[Info]
+            - check me-&gt;GetID() &gt; 0 passed&#xD; == [File] - manifeststoretest.cpp&#xD; == [Line] - 53&#xD;&#xD;[Info]
+            - check patches.size() &gt; 0 passed&#xD; == [File] - manifeststoretest.cpp&#xD; == [Line] - 56&#xD;&#xD;[Info]
+            - check pi-&gt;GetBackupTime() == 1260428212 passed&#xD; == [File] - manifeststoretest.cpp&#xD; == [Line] -
+            58&#xD;&#xD;[Info] - check pi-&gt;GetModifiedTime() == 1091613600 passed&#xD; == [File] -
+            manifeststoretest.cpp&#xD; == [Line] - 59&#xD;&#xD;[Info] - check pi-&gt;GetCreationTime() == 1237774581
+            passed&#xD; == [File] - manifeststoretest.cpp&#xD; == [Line] - 60&#xD;&#xD;[Info] - check pi-&gt;GetFileSize()
+            == 760752 passed&#xD; == [File] - manifeststoretest.cpp&#xD; == [Line] - 61&#xD;&#xD;[Info] - check pi-&gt;IsBaseline()
+            == true passed&#xD; == [File] - manifeststoretest.cpp&#xD; == [Line] - 62&#xD;&#xD;[Info] - check pi-&gt;GetPatchHash()
+            == "86826218e270d4ae6123852c5d3826abb65ebfa8" passed&#xD; == [File] - manifeststoretest.cpp&#xD; == [Line] -
+            63&#xD;&#xD;[Info] - check pi-&gt;GetPatchSize() == 760752 passed&#xD; == [File] - manifeststoretest.cpp&#xD;
+            == [Line] - 64&#xD;&#xD;[Info] - check pi-&gt;GetAttributes() == 40 passed&#xD; == [File] -
+            manifeststoretest.cpp&#xD; == [Line] - 65&#xD;&#xD;[Info] - check stream passed&#xD; == [File] -
+            manifeststoretest.cpp&#xD; == [Line] - 13&#xD;&#xD;[Info] - check !parser-&gt;error() passed&#xD; == [File]
+            - manifeststoretest.cpp&#xD; == [Line] - 22&#xD;&#xD;[Info] - check parser-&gt;final() passed&#xD; == [File]
+            - manifeststoretest.cpp&#xD; == [Line] - 23&#xD;&#xD;[Info] - check parser-&gt;size() &gt; 0 passed&#xD; ==
+            [File] - manifeststoretest.cpp&#xD; == [Line] - 70&#xD;&#xD;[Info] - check store.AddPatch(me, pi) &gt; 0
+            passed&#xD; == [File] - manifeststoretest.cpp&#xD; == [Line] - 73&#xD;&#xD;[Info] - check patches.size() ==
+            2 passed&#xD; == [File] - manifeststoretest.cpp&#xD; == [Line] - 77&#xD;&#xD;[Info] - check
+            store.AddPatch(me, pi) == 0 passed&#xD; == [File] - manifeststoretest.cpp&#xD; == [Line] - 81&#xD;&#xD;[Info]
+            - check entries.size() == 2 passed&#xD; == [File] - manifeststoretest.cpp&#xD; == [Line] - 86&#xD;&#xD;[Info]
+            - check entries.size() == 2 passed&#xD; == [File] - manifeststoretest.cpp&#xD; == [Line] - 90&#xD;&#xD;[Info]
+            - check entries.size() == 3 passed&#xD; == [File] - manifeststoretest.cpp&#xD; == [Line] - 94&#xD;&#xD;[Info]
+            - check entries.size() == 1 passed&#xD; == [File] - manifeststoretest.cpp&#xD; == [Line] - 99&#xD;&#xD;[Info]
+            - check objs.size() == 1 passed&#xD; == [File] - manifeststoretest.cpp&#xD; == [Line] - 103&#xD;&#xD;[Info]
+            - check objs.front().second == true passed&#xD; == [File] - manifeststoretest.cpp&#xD; == [Line] - 104&#xD;&#xD;[Info]
+            - check objs.size() == 2 passed&#xD; == [File] - manifeststoretest.cpp&#xD; == [Line] - 107&#xD;&#xD;[Info]
+            - check objs.front().second == true passed&#xD; == [File] - manifeststoretest.cpp&#xD; == [Line] - 108&#xD;&#xD;[Info]
+            - check objs.back().second == false passed&#xD; == [File] - manifeststoretest.cpp&#xD; == [Line] -
+            109&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.manifestparsertest"
+              name="ManifestParserTestPatchInfo"
+              time="0">
+        <system-out>&#xD;[Info] - check info passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 43&#xD;&#xD;[Info]
+            - check 1260428222 == info-&gt;GetBackupTime() passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line]
+            - 44&#xD;&#xD;[Info] - check 1260414458 == info-&gt;GetModifiedTime() passed&#xD; == [File] -
+            manifestparsertest.cpp&#xD; == [Line] - 45&#xD;&#xD;[Info] - check 1260414458 == info-&gt;GetCreationTime()
+            passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 46&#xD;&#xD;[Info] - check 67 == info-&gt;GetFileSize()
+            passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 47&#xD;&#xD;[Info] - check true == info-&gt;IsBaseline()
+            passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 48&#xD;&#xD;[Info] - check
+            "45b5c07695b8c8fc7f643da841adb217b6a1284d" == info-&gt;GetPatchHash() passed&#xD; == [File] -
+            manifestparsertest.cpp&#xD; == [Line] - 49&#xD;&#xD;[Info] - check 67 == info-&gt;GetPatchSize() passed&#xD;
+            == [File] - manifestparsertest.cpp&#xD; == [Line] - 50&#xD;&#xD;[Info] - check 40 == info-&gt;GetAttributes()
+            passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 51&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.manifestparsertest"
+              name="ManifestParserTestPatchInfo2"
+              time="0">
+        <system-out>&#xD;[Info] - check info passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 58&#xD;&#xD;[Info]
+            - check 1260764691 == info-&gt;GetBackupTime() passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line]
+            - 59&#xD;&#xD;[Info] - check 1260764691 == info-&gt;GetModifiedTime() passed&#xD; == [File] -
+            manifestparsertest.cpp&#xD; == [Line] - 60&#xD;&#xD;[Info] - check 1260764691 == info-&gt;GetCreationTime()
+            passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 61&#xD;&#xD;[Info] - check -1 == info-&gt;GetFileSize()
+            passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 62&#xD;&#xD;[Info] - check false == info-&gt;IsBaseline()
+            passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 63&#xD;&#xD;[Info] - check
+            "da39a3ee5e6b4b0d3255bfef95601890afd80709" == info-&gt;GetPatchHash() passed&#xD; == [File] -
+            manifestparsertest.cpp&#xD; == [Line] - 64&#xD;&#xD;[Info] - check 0 == info-&gt;GetPatchSize() passed&#xD;
+            == [File] - manifestparsertest.cpp&#xD; == [Line] - 65&#xD;&#xD;[Info] - check 0 == info-&gt;GetAttributes()
+            passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 66&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.manifestparsertest"
+              name="ManifestParserTestBadPatchInfo"
+              time="0">
+        <system-out>&#xD;[Info] - check !info passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 72&#xD;&#xD;[Info]
+            - check !info passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 77&#xD;&#xD;[Info] - check
+            !info passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 82&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.manifestparsertest" name="ManifestParserTestSmall"
+              time="0">
+        <system-out>&#xD;[Info] - check stream passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 15&#xD;&#xD;[Info]
+            - check !parser-&gt;error() passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 24&#xD;&#xD;[Info]
+            - check parser-&gt;final() passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 25&#xD;&#xD;[Info]
+            - check 3 == parser-&gt;size() passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 88&#xD;&#xD;[Info]
+            - check it != parser-&gt;end() passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 90&#xD;&#xD;[Info]
+            - check "C:\\Documents and Settings\\tester\\My Documents\\pic.bmp.bmp" == (*it)-&gt;GetPath() passed&#xD;
+            == [File] - manifestparsertest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check
+            "748c040b89e1017f392656b96e5bdbbfa0d0154b" == (*it)-&gt;GetLastPatchInfo()-&gt;GetPatchHash() passed&#xD; ==
+            [File] - manifestparsertest.cpp&#xD; == [Line] - 94&#xD;&#xD;[Info] - check ++it != parser-&gt;end() passed&#xD;
+            == [File] - manifestparsertest.cpp&#xD; == [Line] - 96&#xD;&#xD;[Info] - check "/home/ron/hello-world.mp3"
+            == (*it)-&gt;GetPath() passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 98&#xD;&#xD;[Info] -
+            check "86826218e270d4ae6123852c5d3826abb65ebfa8" == (*it)-&gt;GetLastPatchInfo()-&gt;GetPatchHash() passed&#xD;
+            == [File] - manifestparsertest.cpp&#xD; == [Line] - 100&#xD;&#xD;[Info] - check ++it != parser-&gt;end()
+            passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 102&#xD;&#xD;[Info] - check "conf.dat" ==
+            (*it)-&gt;GetPath() passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 104&#xD;&#xD;[Info] -
+            check "8febf5b3fb05ac88729320e00e9aba1e96e7cb86" == (*it)-&gt;GetLastPatchInfo()-&gt;GetPatchHash() passed&#xD;
+            == [File] - manifestparsertest.cpp&#xD; == [Line] - 106&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.manifestparsertest" name="ManifestParserTestUnicode"
+              time="0">
+        <system-out>&#xD;[Info] - check stream passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 15&#xD;&#xD;[Info]
+            - check !parser-&gt;error() passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 24&#xD;&#xD;[Info]
+            - check parser-&gt;final() passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 25&#xD;&#xD;[Info]
+            - check 2 == parser-&gt;size() passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 112&#xD;&#xD;[Info]
+            - check it != parser-&gt;end() passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 114&#xD;&#xD;[Info]
+            - check std::string("C:\\share\\?????\\??.txt") == (*it)-&gt;GetPath() passed&#xD; == [File] -
+            manifestparsertest.cpp&#xD; == [Line] - 116&#xD;&#xD;[Info] - check
+            "0eac2882e305fd863fb85eea42fcae20756e76fc" == (*it)-&gt;GetLastPatchInfo()-&gt;GetPatchHash() passed&#xD; ==
+            [File] - manifestparsertest.cpp&#xD; == [Line] - 118&#xD;&#xD;[Info] - check ++it != parser-&gt;end() passed&#xD;
+            == [File] - manifestparsertest.cpp&#xD; == [Line] - 120&#xD;&#xD;[Info] - check "C:\\share\\test.txt" ==
+            (*it)-&gt;GetPath() passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 122&#xD;&#xD;[Info] -
+            check "8328407d17367dffb808e526b9cd6dced7e154f8" == (*it)-&gt;GetLastPatchInfo()-&gt;GetPatchHash() passed&#xD;
+            == [File] - manifestparsertest.cpp&#xD; == [Line] - 124&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.manifestparsertest" name="ManifestParserTestLarge"
+              time="0.02">
+        <system-out>&#xD;[Info] - check stream passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 15&#xD;&#xD;[Info]
+            - check !parser-&gt;error() passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 24&#xD;&#xD;[Info]
+            - check parser-&gt;final() passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 25&#xD;&#xD;[Info]
+            - check 233 == parser-&gt;size() passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] -
+            130&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.manifestparsertest" name="ManifestParserTestEmpty"
+              time="0">
+        <system-out>&#xD;[Info] - check strlen(str) == stream-&gt;write(str, strlen(str)) passed&#xD; == [File] -
+            manifestparsertest.cpp&#xD; == [Line] - 32&#xD;&#xD;[Info] - check &apos;FILES
+
+            USER
+            &apos; passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 142&#xD;&#xD;[Info] - check
+            strlen(str) == stream-&gt;write(str, strlen(str)) passed&#xD; == [File] - manifestparsertest.cpp&#xD; ==
+            [Line] - 32&#xD;&#xD;[Info] - check &apos;FILES
+
+
+            USER
+            &apos; passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 142&#xD;&#xD;[Info] - check
+            strlen(str) == stream-&gt;write(str, strlen(str)) passed&#xD; == [File] - manifestparsertest.cpp&#xD; ==
+            [Line] - 32&#xD;&#xD;[Info] - check &apos;
+            FILES
+
+            USER
+            &apos; passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 142&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.manifestparsertest"
+              name="ManifestParserTestUnexpected"
+              time="0">
+        <system-out>&#xD;[Info] - check strlen(str) == stream-&gt;write(str, strlen(str)) passed&#xD; == [File] -
+            manifestparsertest.cpp&#xD; == [Line] - 32&#xD;&#xD;[Info] - check &apos;&apos; passed&#xD; == [File] -
+            manifestparsertest.cpp&#xD; == [Line] - 167&#xD;&#xD;[Info] - check 0 == parser-&gt;size() passed&#xD; ==
+            [File] - manifestparsertest.cpp&#xD; == [Line] - 168&#xD;&#xD;[Info] - check strlen(str) == stream-&gt;write(str,
+            strlen(str)) passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 32&#xD;&#xD;[Info] - check
+            &apos; &apos; passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 167&#xD;&#xD;[Info] - check 0
+            == parser-&gt;size() passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 168&#xD;&#xD;[Info] -
+            check strlen(str) == stream-&gt;write(str, strlen(str)) passed&#xD; == [File] - manifestparsertest.cpp&#xD;
+            == [Line] - 32&#xD;&#xD;[Info] - check &apos; &apos; passed&#xD; == [File] - manifestparsertest.cpp&#xD; ==
+            [Line] - 167&#xD;&#xD;[Info] - check 0 == parser-&gt;size() passed&#xD; == [File] - manifestparsertest.cpp&#xD;
+            == [Line] - 168&#xD;&#xD;[Info] - check strlen(str) == stream-&gt;write(str, strlen(str)) passed&#xD; ==
+            [File] - manifestparsertest.cpp&#xD; == [Line] - 32&#xD;&#xD;[Info] - check &apos;
+            &apos; passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 167&#xD;&#xD;[Info] - check 0 ==
+            parser-&gt;size() passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 168&#xD;&#xD;[Info] -
+            check strlen(str) == stream-&gt;write(str, strlen(str)) passed&#xD; == [File] - manifestparsertest.cpp&#xD;
+            == [Line] - 32&#xD;&#xD;[Info] - check &apos;
+
+            &apos; passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 167&#xD;&#xD;[Info] - check 0 ==
+            parser-&gt;size() passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 168&#xD;&#xD;[Info] -
+            check strlen(str) == stream-&gt;write(str, strlen(str)) passed&#xD; == [File] - manifestparsertest.cpp&#xD;
+            == [Line] - 32&#xD;&#xD;[Info] - check &apos;
+
+            &apos; passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 167&#xD;&#xD;[Info] - check 0 ==
+            parser-&gt;size() passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 168&#xD;&#xD;[Info] -
+            check strlen(str) == stream-&gt;write(str, strlen(str)) passed&#xD; == [File] - manifestparsertest.cpp&#xD;
+            == [Line] - 32&#xD;&#xD;[Info] - check &apos;FILES&apos; passed&#xD; == [File] - manifestparsertest.cpp&#xD;
+            == [Line] - 167&#xD;&#xD;[Info] - check 0 == parser-&gt;size() passed&#xD; == [File] -
+            manifestparsertest.cpp&#xD; == [Line] - 168&#xD;&#xD;[Info] - check strlen(str) == stream-&gt;write(str,
+            strlen(str)) passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 32&#xD;&#xD;[Info] - check
+            &apos;FILES
+            &apos; passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 167&#xD;&#xD;[Info] - check 0 ==
+            parser-&gt;size() passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 168&#xD;&#xD;[Info] -
+            check strlen(str) == stream-&gt;write(str, strlen(str)) passed&#xD; == [File] - manifestparsertest.cpp&#xD;
+            == [Line] - 32&#xD;&#xD;[Info] - check &apos;FILES
+
+            &apos; passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 167&#xD;&#xD;[Info] - check 0 ==
+            parser-&gt;size() passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 168&#xD;&#xD;[Info] -
+            check strlen(str) == stream-&gt;write(str, strlen(str)) passed&#xD; == [File] - manifestparsertest.cpp&#xD;
+            == [Line] - 32&#xD;&#xD;[Info] - check &apos;FILES
+
+            USER&apos; passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 167&#xD;&#xD;[Info] - check 0 ==
+            parser-&gt;size() passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 168&#xD;&#xD;[Info] -
+            check strlen(str) == stream-&gt;write(str, strlen(str)) passed&#xD; == [File] - manifestparsertest.cpp&#xD;
+            == [Line] - 32&#xD;&#xD;[Info] - check &apos;FILES
+
+
+            USER&apos; passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 167&#xD;&#xD;[Info] - check 0 ==
+            parser-&gt;size() passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 168&#xD;&#xD;[Info] -
+            check strlen(str) == stream-&gt;write(str, strlen(str)) passed&#xD; == [File] - manifestparsertest.cpp&#xD;
+            == [Line] - 32&#xD;&#xD;[Info] - check &apos;FILES
+
+            USER
+            &apos; passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 167&#xD;&#xD;[Info] - check 0 ==
+            parser-&gt;size() passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 168&#xD;&#xD;[Info] -
+            check strlen(str) == stream-&gt;write(str, strlen(str)) passed&#xD; == [File] - manifestparsertest.cpp&#xD;
+            == [Line] - 32&#xD;&#xD;[Info] - check &apos;FILES
+
+            USER
+
+            &apos; passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 167&#xD;&#xD;[Info] - check 0 ==
+            parser-&gt;size() passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 168&#xD;&#xD;[Info] -
+            check strlen(str) == stream-&gt;write(str, strlen(str)) passed&#xD; == [File] - manifestparsertest.cpp&#xD;
+            == [Line] - 32&#xD;&#xD;[Info] - check &apos;FILES
+
+            &apos; passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 167&#xD;&#xD;[Info] - check 0 ==
+            parser-&gt;size() passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 168&#xD;&#xD;[Info] -
+            check strlen(str) == stream-&gt;write(str, strlen(str)) passed&#xD; == [File] - manifestparsertest.cpp&#xD;
+            == [Line] - 32&#xD;&#xD;[Info] - check &apos;FILES
+
+
+            &apos; passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 167&#xD;&#xD;[Info] - check 0 ==
+            parser-&gt;size() passed&#xD; == [File] - manifestparsertest.cpp&#xD; == [Line] - 168&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.librarytest" name="LibraryTestMozyFS" time="0.03">
+        <system-out>&#xD;[Info] - check root passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 48&#xD;&#xD;[Info]
+            - check cur-&gt;GetPath() == "/" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 51&#xD;&#xD;[Info]
+            - check root-&gt;GetChildren(entries) == 3 passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 55&#xD;&#xD;[Info]
+            - check entries.size() == 3 passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 56&#xD;&#xD;[Info] -
+            check cur-&gt;IsDir() == true passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 58&#xD;&#xD;[Info] -
+            check cur-&gt;GetPath() == "/home/" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 59&#xD;&#xD;[Info]
+            - check cur-&gt;GetChildren(entries) == 21 passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 61&#xD;&#xD;[Info]
+            - check entries.size() == 21 passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 62&#xD;&#xD;[Info] -
+            check cur-&gt;IsDir() == false passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 64&#xD;&#xD;[Info] -
+            check cur-&gt;GetPath() == "/home/ttt.mp3" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 65&#xD;&#xD;[Info]
+            - check cur-&gt;ListPatches(patches) == 0 passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 69&#xD;&#xD;[Info]
+            - check patches.size() == 4 passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 70&#xD;&#xD;[Info] -
+            check patches.front()-&gt;GetBackupTime() == 1263268064 passed&#xD; == [File] - librarytest.cpp&#xD; ==
+            [Line] - 71&#xD;&#xD;[Info] - check patches.front()-&gt;GetPatchHash() ==
+            "e350025c58a6819d8219cd023fc3e7a66e420234" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 72&#xD;&#xD;[Info]
+            - check patches.front()-&gt;GetFileSize() == 4 passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 73&#xD;&#xD;[Info]
+            - check patches.back()-&gt;GetBackupTime() == 1268644584 passed&#xD; == [File] - librarytest.cpp&#xD; ==
+            [Line] - 74&#xD;&#xD;[Info] - check patches.back()-&gt;GetPatchHash() ==
+            "df0723ba94a9781b245eeb51115c42d756d8e078" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 75&#xD;&#xD;[Info]
+            - check patches.back()-&gt;GetFileSize() == 8 passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 76&#xD;&#xD;[Info]
+            - check files.size() == 5 passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 82&#xD;&#xD;[Info] -
+            check files.size() == 71 passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 88&#xD;&#xD;[Info] - check
+            (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check (*iter)-&gt;GetPath().substr(0, 29) ==
+            "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info]
+            - check (*iter)-&gt;GetPath().substr(0, 29) == "/share/lanslot/Fireworks/DSC0" passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check quota == 87373600 passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 95&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.librarytest" name="LibraryTestDaemon" time="0.01">
+        <system-out>&#xD;[Info] - check CheckNumJobTask(3, 3) == true passed&#xD; == [File] - librarytest.cpp&#xD; ==
+            [Line] - 102&#xD;&#xD;[Info] - check new_job1 passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 106&#xD;&#xD;[Info]
+            - check ret == -1 passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 108&#xD;&#xD;[Info] - check
+            CheckNumJobTask(3, 3) == true passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 110&#xD;&#xD;[Info] -
+            check new_job2 passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 115&#xD;&#xD;[Info] - check new_job3
+            passed&#xD; == [File] - librarytest.cpp&#xD; == [Line] - 116&#xD;&#xD;[Info] - check ret == 0 passed&#xD; ==
+            [File] - librarytest.cpp&#xD; == [Line] - 123&#xD;&#xD;[Info] - check ret == 0 passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 125&#xD;&#xD;[Info] - check ret == -1 passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 128&#xD;&#xD;[Info] - check CheckNumJobTask(5, 8) == true passed&#xD; ==
+            [File] - librarytest.cpp&#xD; == [Line] - 129&#xD;&#xD;[Info] - check jobs.size() == 1 passed&#xD; == [File]
+            - librarytest.cpp&#xD; == [Line] - 134&#xD;&#xD;[Info] - check ret == 0 passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 136&#xD;&#xD;[Info] - check ret == 0 passed&#xD; == [File] -
+            librarytest.cpp&#xD; == [Line] - 138&#xD;&#xD;[Info] - check CheckNumJobTask(3, 3) == true passed&#xD; ==
+            [File] - librarytest.cpp&#xD; == [Line] - 139&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.filestatestest" name="FileStatesTest" time="0">
+        <system-out>&#xD;[Info] - check file_state passed&#xD; == [File] - filestatestest.cpp&#xD; == [Line] - 18&#xD;&#xD;[Info]
+            - check !file_state-&gt;GetFileRdiff("/filestatetest.0", rdiffOut) passed&#xD; == [File] -
+            filestatestest.cpp&#xD; == [Line] - 25&#xD;&#xD;[Info] - check !file_state-&gt;GetPatchTimeAndHash("/filestatetest.0",
+            filehash, patchtime) passed&#xD; == [File] - filestatestest.cpp&#xD; == [Line] - 26&#xD;&#xD;[Info] - check
+            !file_state-&gt;GetFileRdiff("/filestatetest.1", rdiffOut) passed&#xD; == [File] - filestatestest.cpp&#xD;
+            == [Line] - 27&#xD;&#xD;[Info] - check !file_state-&gt;GetPatchTimeAndHash("/filestatetest.1", filehash,
+            patchtime) passed&#xD; == [File] - filestatestest.cpp&#xD; == [Line] - 28&#xD;&#xD;[Info] - check
+            file_state-&gt;AddOrUpdateFile("/filestatetest.1", rdiffIn, "123", patchtime) passed&#xD; == [File] -
+            filestatestest.cpp&#xD; == [Line] - 33&#xD;&#xD;[Info] - check file_state-&gt;AddOrUpdateFile("/filestatetest.2",
+            rdiffIn, "456", patchtime) passed&#xD; == [File] - filestatestest.cpp&#xD; == [Line] - 36&#xD;&#xD;[Info] -
+            check file_state-&gt;AddOrUpdateFile("/filestatetest.3", rdiffIn, "781239", patchtime) passed&#xD; == [File]
+            - filestatestest.cpp&#xD; == [Line] - 39&#xD;&#xD;[Info] - check file_state-&gt;AddOrUpdateFile("/filestatetest.3",
+            rdiffIn, "789", patchtime) passed&#xD; == [File] - filestatestest.cpp&#xD; == [Line] - 42&#xD;&#xD;[Info] -
+            check file_state-&gt;GetFileRdiff("/filestatetest.1", rdiffOut) passed&#xD; == [File] - filestatestest.cpp&#xD;
+            == [Line] - 48&#xD;&#xD;[Info] - check file_state-&gt;GetPatchTimeAndHash("/filestatetest.1", filehash,
+            patchtime) passed&#xD; == [File] - filestatestest.cpp&#xD; == [Line] - 49&#xD;&#xD;[Info] - check filehash
+            == "123" passed&#xD; == [File] - filestatestest.cpp&#xD; == [Line] - 50&#xD;&#xD;[Info] - check patchtime ==
+            (time_t)11111111 passed&#xD; == [File] - filestatestest.cpp&#xD; == [Line] - 51&#xD;&#xD;[Info] - check
+            rdiffOut-&gt;size() == 10 passed&#xD; == [File] - filestatestest.cpp&#xD; == [Line] - 52&#xD;&#xD;[Info] -
+            check rdiffOut-&gt;buffer() == origin1-&gt;buffer() passed&#xD; == [File] - filestatestest.cpp&#xD; ==
+            [Line] - 53&#xD;&#xD;[Info] - check file_state-&gt;GetFileRdiff("/filestatetest.2", rdiffOut) passed&#xD; ==
+            [File] - filestatestest.cpp&#xD; == [Line] - 54&#xD;&#xD;[Info] - check file_state-&gt;GetPatchTimeAndHash("/filestatetest.2",
+            filehash, patchtime) passed&#xD; == [File] - filestatestest.cpp&#xD; == [Line] - 55&#xD;&#xD;[Info] - check
+            filehash == "456" passed&#xD; == [File] - filestatestest.cpp&#xD; == [Line] - 56&#xD;&#xD;[Info] - check
+            patchtime == (time_t)22222222 passed&#xD; == [File] - filestatestest.cpp&#xD; == [Line] - 57&#xD;&#xD;[Info]
+            - check rdiffOut-&gt;size() == 20 passed&#xD; == [File] - filestatestest.cpp&#xD; == [Line] - 58&#xD;&#xD;[Info]
+            - check rdiffOut-&gt;buffer() == origin2-&gt;buffer() passed&#xD; == [File] - filestatestest.cpp&#xD; ==
+            [Line] - 59&#xD;&#xD;[Info] - check file_state-&gt;GetFileRdiff("/filestatetest.3", rdiffOut) passed&#xD; ==
+            [File] - filestatestest.cpp&#xD; == [Line] - 60&#xD;&#xD;[Info] - check file_state-&gt;GetPatchTimeAndHash("/filestatetest.3",
+            filehash, patchtime) passed&#xD; == [File] - filestatestest.cpp&#xD; == [Line] - 61&#xD;&#xD;[Info] - check
+            filehash == "789" passed&#xD; == [File] - filestatestest.cpp&#xD; == [Line] - 62&#xD;&#xD;[Info] - check
+            patchtime == (time_t)33333333 passed&#xD; == [File] - filestatestest.cpp&#xD; == [Line] - 63&#xD;&#xD;[Info]
+            - check rdiffOut-&gt;size() == 30 passed&#xD; == [File] - filestatestest.cpp&#xD; == [Line] - 64&#xD;&#xD;[Info]
+            - check rdiffOut-&gt;buffer() == origin3-&gt;buffer() passed&#xD; == [File] - filestatestest.cpp&#xD; ==
+            [Line] - 65&#xD;&#xD;[Info] - check file_state-&gt;AddOrUpdateFile("/filestatetest.3", rdiffIn, "999",
+            patchtime) passed&#xD; == [File] - filestatestest.cpp&#xD; == [Line] - 71&#xD;&#xD;[Info] - check
+            file_state-&gt;GetFileRdiff("/filestatetest.3", rdiffOut) passed&#xD; == [File] - filestatestest.cpp&#xD; ==
+            [Line] - 72&#xD;&#xD;[Info] - check file_state-&gt;GetPatchTimeAndHash("/filestatetest.3", filehash,
+            patchtime) passed&#xD; == [File] - filestatestest.cpp&#xD; == [Line] - 73&#xD;&#xD;[Info] - check filehash
+            == "999" passed&#xD; == [File] - filestatestest.cpp&#xD; == [Line] - 74&#xD;&#xD;[Info] - check patchtime ==
+            (time_t)77777777 passed&#xD; == [File] - filestatestest.cpp&#xD; == [Line] - 75&#xD;&#xD;[Info] - check
+            rdiffOut-&gt;size() == 20 passed&#xD; == [File] - filestatestest.cpp&#xD; == [Line] - 76&#xD;&#xD;[Info] -
+            check rdiffOut-&gt;buffer() == update3-&gt;buffer() passed&#xD; == [File] - filestatestest.cpp&#xD; ==
+            [Line] - 77&#xD;&#xD;[Info] - check !file_state-&gt;RemoveFile("/filestatetest.4") passed&#xD; == [File] -
+            filestatestest.cpp&#xD; == [Line] - 80&#xD;&#xD;[Info] - check file_state-&gt;RemoveFile("/filestatetest.3")
+            passed&#xD; == [File] - filestatestest.cpp&#xD; == [Line] - 81&#xD;&#xD;[Info] - check file_state-&gt;RemoveFile("/filestatetest.2")
+            passed&#xD; == [File] - filestatestest.cpp&#xD; == [Line] - 82&#xD;&#xD;[Info] - check file_state-&gt;RemoveFile("/filestatetest.1")
+            passed&#xD; == [File] - filestatestest.cpp&#xD; == [Line] - 83&#xD;&#xD;[Info] - check !file_state-&gt;GetFileRdiff("/filestatetest.1",
+            rdiffOut) passed&#xD; == [File] - filestatestest.cpp&#xD; == [Line] - 85&#xD;&#xD;[Info] - check
+            !file_state-&gt;GetPatchTimeAndHash("/filestatetest.1", filehash, patchtime) passed&#xD; == [File] -
+            filestatestest.cpp&#xD; == [Line] - 86&#xD;&#xD;[Info] - check !file_state-&gt;GetFileRdiff("/filestatetest.2",
+            rdiffOut) passed&#xD; == [File] - filestatestest.cpp&#xD; == [Line] - 87&#xD;&#xD;[Info] - check
+            !file_state-&gt;GetPatchTimeAndHash("/filestatetest.2", filehash, patchtime) passed&#xD; == [File] -
+            filestatestest.cpp&#xD; == [Line] - 88&#xD;&#xD;[Info] - check !file_state-&gt;GetFileRdiff("/filestatetest.3",
+            rdiffOut) passed&#xD; == [File] - filestatestest.cpp&#xD; == [Line] - 89&#xD;&#xD;[Info] - check
+            !file_state-&gt;GetPatchTimeAndHash("/filestatetest.3", filehash, patchtime) passed&#xD; == [File] -
+            filestatestest.cpp&#xD; == [Line] - 90&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.exceptiontest"
+              name="ExceptionTestCatchByCreteException"
+              time="0">
+        <system-out>&#xD;[Info] - check &apos;exceptiontest.cpp(11): Throw in function void&lt;unnamed&gt;::DummyFunction()
+            Dynamic exception type: N5boost16exception_detail10clone_implIN5crete20ApplicationExceptionEEE
+            std::exception::what: whatever error message
+            [PN6Mordor13tag_backtraceE] = /var/lib/hudson/workspace/crete/crete/test/test [0x8363445]
+            /var/lib/hudson/workspace/crete/crete/test/test(_ZN34ExceptionTestCatchByCreteException11test_methodEv+0x4d)
+            [0x836525d]
+            /var/lib/hudson/workspace/crete/crete/test/test [0x836650e]
+            /var/lib/hudson/workspace/crete/crete/test/test(_ZN5boost9unit_test9ut_detail7invokerINS1_6unusedEE6invokeIPFvvEEES3_RT_+0x37)
+            [0x82face3]
+            /var/lib/hudson/workspace/crete/crete/test/test(_ZN5boost9unit_test9ut_detail16callback0_impl_tINS1_6unusedEPFvvEE6invokeEv+0x4d)
+            [0x82fad61]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0 [0xb77309dd]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost17execution_monitor13catch_signalsERKNS_9unit_test9callback0IiEE+0xe5)
+            [0xb7715765]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost17execution_monitor7executeERKNS_9unit_test9callback0IiEE+0x35)
+            [0xb7715835]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test19unit_test_monitor_t21execute_and_translateERKNS0_9test_caseE+0xb8)
+            [0xb7730b08]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test14framework_impl5visitERKNS0_9test_caseE+0xb8)
+            [0xb7721708]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeERKNS0_9test_caseERNS0_17test_tree_visitorE+0x26)
+            [0xb7751986]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorE+0x40)
+            [0xb7752030]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeERKNS0_10test_suiteERNS0_17test_tree_visitorE+0x71)
+            [0xb7751e51]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorE+0x6c)
+            [0xb775205c]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test9framework3runEmb+0x55d) [0xb771f79d]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test14unit_test_mainEPFbvEiPPc+0x13e)
+            [0xb772d9fe]
+            /var/lib/hudson/workspace/crete/crete/test/test(main+0x54) [0x83a6ade]
+            /lib/libc.so.6(__libc_start_main+0xe5) [0xb711d455]
+            /var/lib/hudson/workspace/crete/crete/test/test [0x82ec021]
+            &apos; passed&#xD; == [File] - exceptiontest.cpp&#xD; == [Line] - 22&#xD;&#xD;[Info] - check &apos;exceptiontest.cpp(11):
+            Throw in function void&lt;unnamed&gt;::DummyFunction()
+            Dynamic exception type: N5boost16exception_detail10clone_implIN5crete20ApplicationExceptionEEE
+            std::exception::what: whatever error message
+            [PN6Mordor13tag_backtraceE] = /var/lib/hudson/workspace/crete/crete/test/test [0x8363445]
+            /var/lib/hudson/workspace/crete/crete/test/test(_ZN34ExceptionTestCatchByCreteException11test_methodEv+0x4d)
+            [0x836525d]
+            /var/lib/hudson/workspace/crete/crete/test/test [0x836650e]
+            /var/lib/hudson/workspace/crete/crete/test/test(_ZN5boost9unit_test9ut_detail7invokerINS1_6unusedEE6invokeIPFvvEEES3_RT_+0x37)
+            [0x82face3]
+            /var/lib/hudson/workspace/crete/crete/test/test(_ZN5boost9unit_test9ut_detail16callback0_impl_tINS1_6unusedEPFvvEE6invokeEv+0x4d)
+            [0x82fad61]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0 [0xb77309dd]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost17execution_monitor13catch_signalsERKNS_9unit_test9callback0IiEE+0xe5)
+            [0xb7715765]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost17execution_monitor7executeERKNS_9unit_test9callback0IiEE+0x35)
+            [0xb7715835]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test19unit_test_monitor_t21execute_and_translateERKNS0_9test_caseE+0xb8)
+            [0xb7730b08]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test14framework_impl5visitERKNS0_9test_caseE+0xb8)
+            [0xb7721708]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeERKNS0_9test_caseERNS0_17test_tree_visitorE+0x26)
+            [0xb7751986]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorE+0x40)
+            [0xb7752030]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeERKNS0_10test_suiteERNS0_17test_tree_visitorE+0x71)
+            [0xb7751e51]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorE+0x6c)
+            [0xb775205c]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test9framework3runEmb+0x55d) [0xb771f79d]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test14unit_test_mainEPFbvEiPPc+0x13e)
+            [0xb772d9fe]
+            /var/lib/hudson/workspace/crete/crete/test/test(main+0x54) [0x83a6ade]
+            /lib/libc.so.6(__libc_start_main+0xe5) [0xb711d455]
+            /var/lib/hudson/workspace/crete/crete/test/test [0x82ec021]
+            &apos; passed&#xD; == [File] - exceptiontest.cpp&#xD; == [Line] - 23&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.exceptiontest"
+              name="ExceptionTestCatchByStdException"
+              time="0.01">
+        <system-out>&#xD;[Info] - check &apos;exceptiontest.cpp(11): Throw in function void&lt;unnamed&gt;::DummyFunction()
+            Dynamic exception type: N5boost16exception_detail10clone_implIN5crete20ApplicationExceptionEEE
+            std::exception::what: whatever error message
+            [PN6Mordor13tag_backtraceE] = /var/lib/hudson/workspace/crete/crete/test/test [0x8363445]
+            /var/lib/hudson/workspace/crete/crete/test/test(_ZN32ExceptionTestCatchByStdException11test_methodEv+0x4d)
+            [0x8363f33]
+            /var/lib/hudson/workspace/crete/crete/test/test [0x83651e4]
+            /var/lib/hudson/workspace/crete/crete/test/test(_ZN5boost9unit_test9ut_detail7invokerINS1_6unusedEE6invokeIPFvvEEES3_RT_+0x37)
+            [0x82face3]
+            /var/lib/hudson/workspace/crete/crete/test/test(_ZN5boost9unit_test9ut_detail16callback0_impl_tINS1_6unusedEPFvvEE6invokeEv+0x4d)
+            [0x82fad61]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0 [0xb77309dd]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost17execution_monitor13catch_signalsERKNS_9unit_test9callback0IiEE+0xe5)
+            [0xb7715765]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost17execution_monitor7executeERKNS_9unit_test9callback0IiEE+0x35)
+            [0xb7715835]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test19unit_test_monitor_t21execute_and_translateERKNS0_9test_caseE+0xb8)
+            [0xb7730b08]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test14framework_impl5visitERKNS0_9test_caseE+0xb8)
+            [0xb7721708]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeERKNS0_9test_caseERNS0_17test_tree_visitorE+0x26)
+            [0xb7751986]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorE+0x40)
+            [0xb7752030]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeERKNS0_10test_suiteERNS0_17test_tree_visitorE+0x71)
+            [0xb7751e51]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorE+0x6c)
+            [0xb775205c]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test9framework3runEmb+0x55d) [0xb771f79d]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test14unit_test_mainEPFbvEiPPc+0x13e)
+            [0xb772d9fe]
+            /var/lib/hudson/workspace/crete/crete/test/test(main+0x54) [0x83a6ade]
+            /lib/libc.so.6(__libc_start_main+0xe5) [0xb711d455]
+            /var/lib/hudson/workspace/crete/crete/test/test [0x82ec021]
+            &apos; passed&#xD; == [File] - exceptiontest.cpp&#xD; == [Line] - 37&#xD;&#xD;[Info] - check &apos;exceptiontest.cpp(11):
+            Throw in function void&lt;unnamed&gt;::DummyFunction()
+            Dynamic exception type: N5boost16exception_detail10clone_implIN5crete20ApplicationExceptionEEE
+            std::exception::what: whatever error message
+            [PN6Mordor13tag_backtraceE] = /var/lib/hudson/workspace/crete/crete/test/test [0x8363445]
+            /var/lib/hudson/workspace/crete/crete/test/test(_ZN32ExceptionTestCatchByStdException11test_methodEv+0x4d)
+            [0x8363f33]
+            /var/lib/hudson/workspace/crete/crete/test/test [0x83651e4]
+            /var/lib/hudson/workspace/crete/crete/test/test(_ZN5boost9unit_test9ut_detail7invokerINS1_6unusedEE6invokeIPFvvEEES3_RT_+0x37)
+            [0x82face3]
+            /var/lib/hudson/workspace/crete/crete/test/test(_ZN5boost9unit_test9ut_detail16callback0_impl_tINS1_6unusedEPFvvEE6invokeEv+0x4d)
+            [0x82fad61]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0 [0xb77309dd]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost17execution_monitor13catch_signalsERKNS_9unit_test9callback0IiEE+0xe5)
+            [0xb7715765]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost17execution_monitor7executeERKNS_9unit_test9callback0IiEE+0x35)
+            [0xb7715835]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test19unit_test_monitor_t21execute_and_translateERKNS0_9test_caseE+0xb8)
+            [0xb7730b08]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test14framework_impl5visitERKNS0_9test_caseE+0xb8)
+            [0xb7721708]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeERKNS0_9test_caseERNS0_17test_tree_visitorE+0x26)
+            [0xb7751986]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorE+0x40)
+            [0xb7752030]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeERKNS0_10test_suiteERNS0_17test_tree_visitorE+0x71)
+            [0xb7751e51]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorE+0x6c)
+            [0xb775205c]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test9framework3runEmb+0x55d) [0xb771f79d]
+            /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test14unit_test_mainEPFbvEiPPc+0x13e)
+            [0xb772d9fe]
+            /var/lib/hudson/workspace/crete/crete/test/test(main+0x54) [0x83a6ade]
+            /lib/libc.so.6(__libc_start_main+0xe5) [0xb711d455]
+            /var/lib/hudson/workspace/crete/crete/test/test [0x82ec021]
+            &apos; passed&#xD; == [File] - exceptiontest.cpp&#xD; == [Line] - 38&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.configuretest" name="ConfigurationLoadTest" time="0">
+        <system-out>&#xD;[Info] - check conf-&gt;schedule_sets_.size() == 3 passed&#xD; == [File] - configuretest.cpp&#xD;
+            == [Line] - 26&#xD;&#xD;[Info] - check its-&gt;start_ == 0 passed&#xD; == [File] - configuretest.cpp&#xD; ==
+            [Line] - 28&#xD;&#xD;[Info] - check its-&gt;end_ == 86400 passed&#xD; == [File] - configuretest.cpp&#xD; ==
+            [Line] - 29&#xD;&#xD;[Info] - check its-&gt;throttle_ == -1 passed&#xD; == [File] - configuretest.cpp&#xD;
+            == [Line] - 30&#xD;&#xD;[Info] - check its-&gt;start_ == 86400 passed&#xD; == [File] - configuretest.cpp&#xD;
+            == [Line] - 32&#xD;&#xD;[Info] - check its-&gt;end_ == 172800 passed&#xD; == [File] - configuretest.cpp&#xD;
+            == [Line] - 33&#xD;&#xD;[Info] - check its-&gt;throttle_ == 0 passed&#xD; == [File] - configuretest.cpp&#xD;
+            == [Line] - 34&#xD;&#xD;[Info] - check its-&gt;start_ == 172800 passed&#xD; == [File] - configuretest.cpp&#xD;
+            == [Line] - 36&#xD;&#xD;[Info] - check its-&gt;end_ == 604800 passed&#xD; == [File] - configuretest.cpp&#xD;
+            == [Line] - 37&#xD;&#xD;[Info] - check its-&gt;throttle_ == 64000 passed&#xD; == [File] - configuretest.cpp&#xD;
+            == [Line] - 38&#xD;&#xD;[Info] - check conf-&gt;backup_sets_.size() == 2 passed&#xD; == [File] -
+            configuretest.cpp&#xD; == [Line] - 40&#xD;&#xD;[Info] - check it-&gt;name_ == "Music" passed&#xD; == [File]
+            - configuretest.cpp&#xD; == [Line] - 42&#xD;&#xD;[Info] - check it-&gt;include_scopes_.size() == 3 passed&#xD;
+            == [File] - configuretest.cpp&#xD; == [Line] - 43&#xD;&#xD;[Info] - check *it2++ == "/home/" passed&#xD; ==
+            [File] - configuretest.cpp&#xD; == [Line] - 45&#xD;&#xD;[Info] - check *it2++ == "/share/" passed&#xD; ==
+            [File] - configuretest.cpp&#xD; == [Line] - 46&#xD;&#xD;[Info] - check *it2++ == "/tmp/" passed&#xD; ==
+            [File] - configuretest.cpp&#xD; == [Line] - 47&#xD;&#xD;[Info] - check it-&gt;exclude_scopes_.size() == 0
+            passed&#xD; == [File] - configuretest.cpp&#xD; == [Line] - 48&#xD;&#xD;[Info] - check it-&gt;rules_.size()
+            == 2 passed&#xD; == [File] - configuretest.cpp&#xD; == [Line] - 49&#xD;&#xD;[Info] - check it3-&gt;size() ==
+            1 passed&#xD; == [File] - configuretest.cpp&#xD; == [Line] - 51&#xD;&#xD;[Info] - check it4-&gt;include_ ==
+            true passed&#xD; == [File] - configuretest.cpp&#xD; == [Line] - 53&#xD;&#xD;[Info] - check it4-&gt;type_ ==
+            BackupSetRule::TYPE_EXTENSION passed&#xD; == [File] - configuretest.cpp&#xD; == [Line] - 54&#xD;&#xD;[Info]
+            - check it4-&gt;operation_ == BackupSetRule::OPERATION_EQUAL passed&#xD; == [File] - configuretest.cpp&#xD;
+            == [Line] - 55&#xD;&#xD;[Info] - check it4-&gt;extensions_.size() == 4 passed&#xD; == [File] -
+            configuretest.cpp&#xD; == [Line] - 56&#xD;&#xD;[Info] - check *it5++ == "mp3" passed&#xD; == [File] -
+            configuretest.cpp&#xD; == [Line] - 58&#xD;&#xD;[Info] - check *it5++ == "wma" passed&#xD; == [File] -
+            configuretest.cpp&#xD; == [Line] - 59&#xD;&#xD;[Info] - check *it5++ == "aac" passed&#xD; == [File] -
+            configuretest.cpp&#xD; == [Line] - 60&#xD;&#xD;[Info] - check *it5++ == "m4a" passed&#xD; == [File] -
+            configuretest.cpp&#xD; == [Line] - 61&#xD;&#xD;[Info] - check it3-&gt;size() == 2 passed&#xD; == [File] -
+            configuretest.cpp&#xD; == [Line] - 63&#xD;&#xD;[Info] - check it4-&gt;include_ == true passed&#xD; == [File]
+            - configuretest.cpp&#xD; == [Line] - 65&#xD;&#xD;[Info] - check it4-&gt;type_ ==
+            BackupSetRule::TYPE_EXTENSION passed&#xD; == [File] - configuretest.cpp&#xD; == [Line] - 66&#xD;&#xD;[Info]
+            - check it4-&gt;operation_ == BackupSetRule::OPERATION_EQUAL passed&#xD; == [File] - configuretest.cpp&#xD;
+            == [Line] - 67&#xD;&#xD;[Info] - check it4-&gt;extensions_.size() == 1 passed&#xD; == [File] -
+            configuretest.cpp&#xD; == [Line] - 68&#xD;&#xD;[Info] - check *it5++ == "wav" passed&#xD; == [File] -
+            configuretest.cpp&#xD; == [Line] - 70&#xD;&#xD;[Info] - check it4-&gt;include_ == false passed&#xD; ==
+            [File] - configuretest.cpp&#xD; == [Line] - 72&#xD;&#xD;[Info] - check it4-&gt;type_ ==
+            BackupSetRule::TYPE_EXTENSION passed&#xD; == [File] - configuretest.cpp&#xD; == [Line] - 73&#xD;&#xD;[Info]
+            - check it4-&gt;operation_ == BackupSetRule::OPERATION_EQUAL passed&#xD; == [File] - configuretest.cpp&#xD;
+            == [Line] - 74&#xD;&#xD;[Info] - check it4-&gt;extensions_.size() == 1 passed&#xD; == [File] -
+            configuretest.cpp&#xD; == [Line] - 75&#xD;&#xD;[Info] - check *it5++ == "ogg" passed&#xD; == [File] -
+            configuretest.cpp&#xD; == [Line] - 77&#xD;&#xD;[Info] - check it-&gt;name_ == "Photo" passed&#xD; == [File]
+            - configuretest.cpp&#xD; == [Line] - 79&#xD;&#xD;[Info] - check it-&gt;include_scopes_.size() == 3 passed&#xD;
+            == [File] - configuretest.cpp&#xD; == [Line] - 80&#xD;&#xD;[Info] - check *it2++ == "/home/" passed&#xD; ==
+            [File] - configuretest.cpp&#xD; == [Line] - 82&#xD;&#xD;[Info] - check *it2++ == "/mnt/" passed&#xD; ==
+            [File] - configuretest.cpp&#xD; == [Line] - 83&#xD;&#xD;[Info] - check *it2++ == "/tmp/" passed&#xD; ==
+            [File] - configuretest.cpp&#xD; == [Line] - 84&#xD;&#xD;[Info] - check it-&gt;exclude_scopes_.size() == 1
+            passed&#xD; == [File] - configuretest.cpp&#xD; == [Line] - 85&#xD;&#xD;[Info] - check *it2++ ==
+            "/tmp/tmp.jpg" passed&#xD; == [File] - configuretest.cpp&#xD; == [Line] - 87&#xD;&#xD;[Info] - check it-&gt;rules_.size()
+            == 1 passed&#xD; == [File] - configuretest.cpp&#xD; == [Line] - 88&#xD;&#xD;[Info] - check it3-&gt;size() ==
+            1 passed&#xD; == [File] - configuretest.cpp&#xD; == [Line] - 90&#xD;&#xD;[Info] - check it4-&gt;include_ ==
+            true passed&#xD; == [File] - configuretest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check it4-&gt;type_ ==
+            BackupSetRule::TYPE_EXTENSION passed&#xD; == [File] - configuretest.cpp&#xD; == [Line] - 93&#xD;&#xD;[Info]
+            - check it4-&gt;operation_ == BackupSetRule::OPERATION_EQUAL passed&#xD; == [File] - configuretest.cpp&#xD;
+            == [Line] - 94&#xD;&#xD;[Info] - check it4-&gt;extensions_.size() == 2 passed&#xD; == [File] -
+            configuretest.cpp&#xD; == [Line] - 95&#xD;&#xD;[Info] - check *it5++ == "jpg" passed&#xD; == [File] -
+            configuretest.cpp&#xD; == [Line] - 97&#xD;&#xD;[Info] - check *it5++ == "arw" passed&#xD; == [File] -
+            configuretest.cpp&#xD; == [Line] - 98&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.busclienttest" name="CheckLicense_0" time="0.01">
+        <error>&#xD;[Exception] - child has exited; pid: 8389; uid: 101; exit value: 2&#xD; == [File] -
+            busclienttest.cpp&#xD; == [Line] - 56&#xD;</error>
+        <system-err>&#xD;[Exception] - child has exited; pid: 8389; uid: 101; exit value: 2&#xD; == [File] -
+            busclienttest.cpp&#xD; == [Line] - 56&#xD;</system-err>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.busclienttest" name="CheckLicense_1" time="0">
+        <error>&#xD;[Exception] - signal: SIGABRT (application abort requested)&#xD; == [File] - busclienttest.cpp&#xD;
+            == [Line] - 56&#xD;</error>
+        <system-err>&#xD;[Exception] - signal: SIGABRT (application abort requested)&#xD; == [File] - busclienttest.cpp&#xD;
+            == [Line] - 56&#xD;</system-err>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.blacklisttest" name="BlackListTest" time="0">
+        <system-out>&#xD;[Info] - check bl.IsInBlackList("/tmp/crete_snapshot") == false passed&#xD; == [File] -
+            blacklisttest.cpp&#xD; == [Line] - 14&#xD;&#xD;[Info] - check bl.IsInBlackList("/tmp/crete_snap") == false
+            passed&#xD; == [File] - blacklisttest.cpp&#xD; == [Line] - 16&#xD;&#xD;[Info] - check
+            bl.IsInBlackList("/tmp/crete_snapshot") == true passed&#xD; == [File] - blacklisttest.cpp&#xD; == [Line] -
+            17&#xD;&#xD;[Info] - check bl.IsInBlackList("/tmp/crete_snapshot000") == false passed&#xD; == [File] -
+            blacklisttest.cpp&#xD; == [Line] - 18&#xD;&#xD;[Info] - check bl.IsInBlackList("/tmp/crete_snapshot/") ==
+            true passed&#xD; == [File] - blacklisttest.cpp&#xD; == [Line] - 19&#xD;&#xD;[Info] - check
+            bl.IsInBlackList("/tmp/crete_snapshot/snap/") == true passed&#xD; == [File] - blacklisttest.cpp&#xD; ==
+            [Line] - 20&#xD;&#xD;[Info] - check bl.IsInBlackList("/tmp/crete_snapshot/snap/tmp.txt") == true passed&#xD;
+            == [File] - blacklisttest.cpp&#xD; == [Line] - 21&#xD;&#xD;[Info] - check bl.IsInBlackList("/tmp/test.txt")
+            == false passed&#xD; == [File] - blacklisttest.cpp&#xD; == [Line] - 22&#xD;&#xD;[Info] - check
+            bl.IsInBlackList("/proc/sys") == true passed&#xD; == [File] - blacklisttest.cpp&#xD; == [Line] - 25&#xD;&#xD;[Info]
+            - check bl.IsInBlackList("/") == false passed&#xD; == [File] - blacklisttest.cpp&#xD; == [Line] - 26&#xD;&#xD;[Info]
+            - check bl.IsInBlackList("") == false passed&#xD; == [File] - blacklisttest.cpp&#xD; == [Line] - 27&#xD;&#xD;[Info]
+            - check bl.IsInBlackList("/proc/sys") == true passed&#xD; == [File] - blacklisttest.cpp&#xD; == [Line] - 30&#xD;&#xD;[Info]
+            - check bl.IsInBlackList("/") == false passed&#xD; == [File] - blacklisttest.cpp&#xD; == [Line] - 31&#xD;&#xD;[Info]
+            - check bl.IsInBlackList("") == false passed&#xD; == [File] - blacklisttest.cpp&#xD; == [Line] - 32&#xD;&#xD;[Info]
+            - check bl.IsInBlackList("/proc/sys") == true passed&#xD; == [File] - blacklisttest.cpp&#xD; == [Line] - 34&#xD;&#xD;[Info]
+            - check bl.IsInBlackList("/") == true passed&#xD; == [File] - blacklisttest.cpp&#xD; == [Line] - 35&#xD;&#xD;[Info]
+            - check bl.IsInBlackList("") == false passed&#xD; == [File] - blacklisttest.cpp&#xD; == [Line] -
+            36&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.backuptaskstoretest" name="BackupTaskStoreTest"
+              time="0.02">
+        <system-out>&#xD;[Info] - check bts.CountBackupTask() == 0 passed&#xD; == [File] - backuptaskstoretest.cpp&#xD;
+            == [Line] - 22&#xD;&#xD;[Info] - check bt1 == __null passed&#xD; == [File] - backuptaskstoretest.cpp&#xD; ==
+            [Line] - 24&#xD;&#xD;[Info] - check bts.CountBackupTask() == 10 passed&#xD; == [File] -
+            backuptaskstoretest.cpp&#xD; == [Line] - 31&#xD;&#xD;[Info] - check bt2-&gt;GetPath() == "test_0" passed&#xD;
+            == [File] - backuptaskstoretest.cpp&#xD; == [Line] - 33&#xD;&#xD;[Info] - check bt2-&gt;GetOperation() == 0
+            passed&#xD; == [File] - backuptaskstoretest.cpp&#xD; == [Line] - 34&#xD;&#xD;[Info] - check
+            bts.CountBackupTask() == 16 passed&#xD; == [File] - backuptaskstoretest.cpp&#xD; == [Line] - 40&#xD;&#xD;[Info]
+            - check ll.size() == 6 passed&#xD; == [File] - backuptaskstoretest.cpp&#xD; == [Line] - 43&#xD;&#xD;[Info] -
+            check it-&gt;GetPath() == "same" passed&#xD; == [File] - backuptaskstoretest.cpp&#xD; == [Line] - 45&#xD;&#xD;[Info]
+            - check it-&gt;GetPath() == "same" passed&#xD; == [File] - backuptaskstoretest.cpp&#xD; == [Line] - 45&#xD;&#xD;[Info]
+            - check it-&gt;GetPath() == "same" passed&#xD; == [File] - backuptaskstoretest.cpp&#xD; == [Line] - 45&#xD;&#xD;[Info]
+            - check it-&gt;GetPath() == "same" passed&#xD; == [File] - backuptaskstoretest.cpp&#xD; == [Line] - 45&#xD;&#xD;[Info]
+            - check it-&gt;GetPath() == "same" passed&#xD; == [File] - backuptaskstoretest.cpp&#xD; == [Line] - 45&#xD;&#xD;[Info]
+            - check it-&gt;GetPath() == "same" passed&#xD; == [File] - backuptaskstoretest.cpp&#xD; == [Line] - 45&#xD;&#xD;[Info]
+            - check ll.begin()-&gt;GetOperation() == 5 passed&#xD; == [File] - backuptaskstoretest.cpp&#xD; == [Line] -
+            49&#xD;&#xD;[Info] - check bts.UpdateBackupTask(bt4) == 1 passed&#xD; == [File] - backuptaskstoretest.cpp&#xD;
+            == [Line] - 51&#xD;&#xD;[Info] - check bts.CountBackupTask() == 16 passed&#xD; == [File] -
+            backuptaskstoretest.cpp&#xD; == [Line] - 52&#xD;&#xD;[Info] - check ll.begin()-&gt;GetOperation() == 0
+            passed&#xD; == [File] - backuptaskstoretest.cpp&#xD; == [Line] - 55&#xD;&#xD;[Info] - check
+            bts.DelBackupTask("test_5") == 1 passed&#xD; == [File] - backuptaskstoretest.cpp&#xD; == [Line] - 57&#xD;&#xD;[Info]
+            - check bts.CountBackupTask() == 15 passed&#xD; == [File] - backuptaskstoretest.cpp&#xD; == [Line] - 58&#xD;&#xD;[Info]
+            - check bt3-&gt;GetPath() == "same" passed&#xD; == [File] - backuptaskstoretest.cpp&#xD; == [Line] - 60&#xD;&#xD;[Info]
+            - check bt3-&gt;GetOperation() == 10 passed&#xD; == [File] - backuptaskstoretest.cpp&#xD; == [Line] - 61&#xD;&#xD;[Info]
+            - check bts.CountBackupTask() == 14 passed&#xD; == [File] - backuptaskstoretest.cpp&#xD; == [Line] - 63&#xD;&#xD;[Info]
+            - check bts.CountBackupTask() == 14 passed&#xD; == [File] - backuptaskstoretest.cpp&#xD; == [Line] - 65&#xD;&#xD;[Info]
+            - check bts.DelBackupTask("same") == 6 passed&#xD; == [File] - backuptaskstoretest.cpp&#xD; == [Line] - 66&#xD;&#xD;[Info]
+            - check bts.CountBackupTask() == 8 passed&#xD; == [File] - backuptaskstoretest.cpp&#xD; == [Line] - 67&#xD;&#xD;[Info]
+            - check bts.CountBackupTask() == 0 passed&#xD; == [File] - backuptaskstoretest.cpp&#xD; == [Line] -
+            69&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.backuptaskqueuetest"
+              name="BackupTaskQueueTestNormal"
+              time="0.03">
+        <system-out>&#xD;[Info] - check &apos;/tmp/file1.mp3&apos; passed&#xD; == [File] - backuptaskqueuetest.cpp&#xD;
+            == [Line] - 22&#xD;&#xD;[Info] - check &apos;/tmp/file2.mp3&apos; passed&#xD; == [File] -
+            backuptaskqueuetest.cpp&#xD; == [Line] - 22&#xD;&#xD;[Info] - check &apos;/tmp/file3.mp3&apos; passed&#xD;
+            == [File] - backuptaskqueuetest.cpp&#xD; == [Line] - 22&#xD;&#xD;[Info] - check all.empty() passed&#xD; ==
+            [File] - backuptaskqueuetest.cpp&#xD; == [Line] - 57&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.backuptaskqueuetest"
+              name="BackupTaskQueueTestCoalescing"
+              time="0.02">
+        <system-out>&#xD;[Info] - check &apos;/tmp/file1.mp3&apos; passed&#xD; == [File] - backuptaskqueuetest.cpp&#xD;
+            == [Line] - 22&#xD;&#xD;[Info] - check &apos;/tmp/file2.mp3&apos; passed&#xD; == [File] -
+            backuptaskqueuetest.cpp&#xD; == [Line] - 22&#xD;&#xD;[Info] - check &apos;/tmp/file3.mp3&apos; passed&#xD;
+            == [File] - backuptaskqueuetest.cpp&#xD; == [Line] - 22&#xD;&#xD;[Info] - check all.empty() passed&#xD; ==
+            [File] - backuptaskqueuetest.cpp&#xD; == [Line] - 96&#xD;</system-out>
+    </testcase>
+    <testcase classname="Crete.Unit.Test.backuptaskcheckruletest"
+              name="BackupTaskCheckRuleTest"
+              time="0">
+        <system-out>&#xD;[Info] - check conf-&gt;Match(obj0) == true passed&#xD; == [File] - backuptaskcheckruletest.cpp&#xD;
+            == [Line] - 89&#xD;&#xD;[Info] - check conf-&gt;Match(obj1) == false passed&#xD; == [File] -
+            backuptaskcheckruletest.cpp&#xD; == [Line] - 90&#xD;&#xD;[Info] - check conf-&gt;Match(obj2) == true passed&#xD;
+            == [File] - backuptaskcheckruletest.cpp&#xD; == [Line] - 91&#xD;&#xD;[Info] - check conf-&gt;Match(obj3) ==
+            true passed&#xD; == [File] - backuptaskcheckruletest.cpp&#xD; == [Line] - 92&#xD;&#xD;[Info] - check conf-&gt;Match(obj4)
+            == true passed&#xD; == [File] - backuptaskcheckruletest.cpp&#xD; == [Line] - 93&#xD;&#xD;[Info] - check
+            conf-&gt;Match(obj5) == true passed&#xD; == [File] - backuptaskcheckruletest.cpp&#xD; == [Line] - 94&#xD;&#xD;[Info]
+            - check conf-&gt;Match(obj6) == true passed&#xD; == [File] - backuptaskcheckruletest.cpp&#xD; == [Line] - 95&#xD;&#xD;[Info]
+            - check conf-&gt;Match(obj7) == false passed&#xD; == [File] - backuptaskcheckruletest.cpp&#xD; == [Line] -
+            96&#xD;&#xD;[Info] - check conf-&gt;Match(obj8) == true passed&#xD; == [File] - backuptaskcheckruletest.cpp&#xD;
+            == [Line] - 97&#xD;&#xD;[Info] - check conf-&gt;Match(obj9) == false passed&#xD; == [File] -
+            backuptaskcheckruletest.cpp&#xD; == [Line] - 98&#xD;&#xD;[Info] - check conf-&gt;Match(obj10) == true passed&#xD;
+            == [File] - backuptaskcheckruletest.cpp&#xD; == [Line] - 99&#xD;&#xD;[Info] - check conf-&gt;Match(obj11) ==
+            false passed&#xD; == [File] - backuptaskcheckruletest.cpp&#xD; == [Line] - 100&#xD;&#xD;[Info] - check conf-&gt;Match(obj12)
+            == true passed&#xD; == [File] - backuptaskcheckruletest.cpp&#xD; == [Line] - 102&#xD;&#xD;[Info] - check
+            conf-&gt;Match(obj13) == true passed&#xD; == [File] - backuptaskcheckruletest.cpp&#xD; == [Line] - 103&#xD;&#xD;[Info]
+            - check conf-&gt;Match(obj14) == false passed&#xD; == [File] - backuptaskcheckruletest.cpp&#xD; == [Line] -
+            104&#xD;&#xD;[Info] - check conf-&gt;Match(obj15) == false passed&#xD; == [File] -
+            backuptaskcheckruletest.cpp&#xD; == [Line] - 105&#xD;</system-out>
+    </testcase>
+</testsuite>

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<TestRun elapsed='6.280E-4'>
+    <Statistics>
+        <Tests>14</Tests>
+        <FailuresTotal>2</FailuresTotal>
+        <Failures>2</Failures>
+        <Errors>0</Errors>
+    </Statistics>
+    <SuccessfulTests>
+        <Test>
+            <Name>Test Stack.Push</Name>
+        </Test>
+        <Test>
+            <Name>Test Stack.Pop</Name>
+        </Test>
+        <Test>
+            <Name>Test Stack.Length</Name>
+        </Test>
+        <Test>
+            <Name>Test Stack.Top</Name>
+        </Test>
+        <Test>
+            <Name>Test Stack.Next_To_Top</Name>
+        </Test>
+        <Test>
+            <Name>Test Operations.Addition.Pop</Name>
+        </Test>
+        <Test>
+            <Name>Test Operations.Addition.Push</Name>
+        </Test>
+        <Test>
+            <Name>Test Operations.Addition.Execute</Name>
+        </Test>
+        <Test>
+            <Name>Test Operations.Subtraction.Pop</Name>
+        </Test>
+        <Test>
+            <Name>Test Operations.Subtraction.Push</Name>
+        </Test>
+        <Test>
+            <Name>Test Operations.Subtraction.Execute</Name>
+        </Test>
+        <Test>
+            <Name>Test Operands.Ints.Image</Name>
+        </Test>
+    </SuccessfulTests>
+    <FailedTests>
+        <Test>
+            <Name>Test Operands.Ints.Value</Name>
+            <FailureType>Assertion</FailureType>
+            <Message>test not implemented</Message>
+            <Location>
+                <File>operands-ints-test.adb</File>
+                <Line>23</Line>
+            </Location>
+        </Test>
+        <Test>
+            <Name>Test Operands.Ints.Set</Name>
+            <FailureType>Assertion</FailureType>
+            <Message>test not implemented</Message>
+            <Location>
+                <File>operands-ints-test.adb</File>
+                <Line>29</Line>
+            </Location>
+        </Test>
+    </FailedTests>
+</TestRun>

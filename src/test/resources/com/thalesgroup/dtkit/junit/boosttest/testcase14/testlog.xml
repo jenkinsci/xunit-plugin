@@ -1,0 +1,12 @@
+<TestLog>
+    <BuildInfo platform="linux" compiler="GNU C++ version 4.4.6 20120305 (Red Hat 4.4.6-4)" stl="GNU libstdc++ version 20120305" boost="1.53.0"/>
+    <Message file="./boost/test/impl/framework.ipp" line="432"><![CDATA[Test cases order is shuffled using seed: 1371107205]]></Message>
+    <TestSuite name="Master Test Suite">
+        <TestSuite name="testSuite1">
+            <TestCase name="start_ok">
+                <Info file="foo.cpp" line="83"><![CDATA[check init() passed]]></Info>
+                <TestingTime>0</TestingTime>
+            </TestCase>
+        </TestSuite>
+    </TestSuite>
+</TestLog>

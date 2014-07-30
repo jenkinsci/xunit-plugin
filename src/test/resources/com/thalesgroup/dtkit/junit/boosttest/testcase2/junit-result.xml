@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite tests="2" errors="0" failures="1" name="MergedTestSuite" skipped="0">
+    <testcase classname="Master.Test.Suite.test_suite.test" name="test_1" time="0">
+        <system-out>&#xD;[Info] - check i == j passed&#xD; == [File] - test.cpp&#xD; == [Line] - 9&#xD;</system-out>
+    </testcase>
+    <testcase classname="Master.Test.Suite.test_suite.test" name="test_2" time="0">
+        <failure>&#xD;[Error] - check i == j failed [1 != 2]&#xD; == [File] - test.cpp&#xD; == [Line] -
+            16&#xD;</failure>
+    </testcase>
+</testsuite>

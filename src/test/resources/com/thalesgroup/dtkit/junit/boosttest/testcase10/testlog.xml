@@ -1,0 +1,19 @@
+<TestLog>
+    <TestSuite name="Master Test Suite">
+        <TestSuite name="TGS_RESOURCE_DTMF_DETECTION">
+            <TestCase name="RES_DTMF_DETECTION_1">
+                <Message file="./res_test_dtmf_detection.cpp" line="15">
+                    <![CDATA[==== Start test using AudioCodesSimRcs ====]]></Message>
+                <Info file="./test_sip.cpp" line="179"><![CDATA[check !m_acceptor passed]]></Info>
+                <Info file="./test_sip.cpp" line="180"><![CDATA[check !m_acceptorThread passed]]>
+                </Info>
+                <Info file="./test_sip.cpp" line="187"><![CDATA[check ! m_socket.is_open() passed]]></Info>
+                <Exception file="unknown location" line="0"><![CDATA[memory access violation]]>
+                    <LastCheckpoint file=".\res_test_dtmf_detection.cpp" line="17"><![CDATA[]]></LastCheckpoint>
+                </Exception>
+                <Message file="./boost/test/impl/unit_test_log.ipp" line="161"><![CDATA[Test is aborted]]></Message>
+                <TestingTime>2313000</TestingTime>
+            </TestCase>
+        </TestSuite>
+    </TestSuite>
+</TestLog>

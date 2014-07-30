@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="fb3f2637-1e98-47f0-a72b-80f987e82aee" name="koiti.takahashi@TECNOLOGIA137 2009-06-15 19:16:52" runUser="FABRICA\koiti.takahashi" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+  <TestRunConfiguration name="Local Test Run" id="8f497344-58a0-4fc3-91d8-686a7506b064">
+    <Description>This is a default test run configuration for a local test run.</Description>
+    <Deployment userDeploymentRoot="C:\PostIt\MultipleTests\TestResults" useDefaultDeploymentRoot="false" runDeploymentRoot="C:\PostIt\MultipleTests\TestResults\koiti.takahashi_TECNOLOGIA137 2009-06-15 19_16_52" />
+    <TestTypeSpecific />
+  </TestRunConfiguration>
+  <ResultSummary outcome="Failed">
+    <Counters total="2" executed="2" passed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <Times creation="2009-06-15T19:16:52.2937500-03:00" queuing="2009-06-15T19:16:53.3718750-03:00" start="2009-06-15T19:16:53.5750000-03:00" finish="2009-06-15T19:16:54.6375000-03:00" />
+  <TestDefinitions>
+    <UnitTest name="TestYell" storage="projectnumberonetest\bin\debug\projectnumberonetest.dll" id="162ab213-2f22-9707-b3a7-801bae7bfa56">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="0d730aa9-6113-4109-9105-5a50681418be" />
+      <TestMethod codeBase="C:/PostIt/MultipleTests/ProjectNumberOneTest/bin/Debug/ProjectNumberOneTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter" className="ProjectNumberOneTest.BoringGuyTest, ProjectNumberOneTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestYell" />
+    </UnitTest>
+    <UnitTest name="TestYell" storage="Goodguytest\bin\debug\Goodguytest.dll" id="0b41094a-d5da-b3af-f860-86e1265336fe">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="9adf777b-c9b9-48a1-8a06-0341b4299060" />
+      <TestMethod codeBase="C:/PostIt/MultipleTests/GoodGuyTest/bin/Debug/GoodGuyTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter" className="GoodGuyTest.GoodGuyTest, GoodGuyTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestYell" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="0b41094a-d5da-b3af-f860-86e1265336fe" executionId="9adf777b-c9b9-48a1-8a06-0341b4299060" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="162ab213-2f22-9707-b3a7-801bae7bfa56" executionId="0d730aa9-6113-4109-9105-5a50681418be" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="9adf777b-c9b9-48a1-8a06-0341b4299060" testId="0b41094a-d5da-b3af-f860-86e1265336fe" testName="TestYell" computerName="TECNOLOGIA137" duration="00:00:00.0437026" startTime="2009-06-15T19:16:53.6218750-03:00" endTime="2009-06-15T19:16:54.1375000-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;lala!&gt;. Actual:&lt;Lele!!&gt;. </Message>
+          <StackTrace>   at GoodGuyTest.GoodGuyTest.TestYell() in C:\PostIt\MultipleTests\GoodGuyTest\GoodGuyTest.cs:line 16
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="0d730aa9-6113-4109-9105-5a50681418be" testId="162ab213-2f22-9707-b3a7-801bae7bfa56" testName="TestYell" computerName="TECNOLOGIA137" duration="00:00:00.0230074" startTime="2009-06-15T19:16:54.1375000-03:00" endTime="2009-06-15T19:16:54.5750000-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

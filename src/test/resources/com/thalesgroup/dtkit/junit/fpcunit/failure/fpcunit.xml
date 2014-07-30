@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<TestResults>
+    <!-- Generated using FPCUnit on 2010-01-20 15:20:47-->
+    <TestListing>
+        <TestSuite Name="" ElapsedTime="00:00:00.823" NumberOfErrors="1" NumberOfFailures="7" NumberOfRunTests="8"
+                   NumberOfIgnoredTests="0">
+            <TestSuite Name="TRealTestOptionModem" ElapsedTime="00:00:00.814" NumberOfErrors="0" NumberOfFailures="6"
+                       NumberOfRunTests="6" NumberOfIgnoredTests="0">
+                <Test Name="TestConnect" Result="Failed" ElapsedTime="00:00:00.121">
+                    <Message>TRealTestOptionModem.TestConnect: No Option modem found</Message>
+                    <ExceptionClass>EAssertionFailedError</ExceptionClass>
+                    <ExceptionMessage>[SETUP] No Option modem found</ExceptionMessage>
+                </Test>
+                <Test Name="TestCommunication" Result="Failed" ElapsedTime="00:00:00.137">
+                    <Message>TRealTestOptionModem.TestCommunication: No Option modem found</Message>
+                    <ExceptionClass>EAssertionFailedError</ExceptionClass>
+                    <ExceptionMessage>[SETUP] No Option modem found</ExceptionMessage>
+                </Test>
+                <Test Name="TestSelectOperatorMccMnc" Result="Failed" ElapsedTime="00:00:00.139">
+                    <Message>TRealTestOptionModem.TestSelectOperatorMccMnc: No Option modem found</Message>
+                    <ExceptionClass>EAssertionFailedError</ExceptionClass>
+                    <ExceptionMessage>[SETUP] No Option modem found</ExceptionMessage>
+                </Test>
+                <Test Name="TestReadModemInformation" Result="Failed" ElapsedTime="00:00:00.142">
+                    <Message>TRealTestOptionModem.TestReadModemInformation: No Option modem found</Message>
+                    <ExceptionClass>EAssertionFailedError</ExceptionClass>
+                    <ExceptionMessage>[SETUP] No Option modem found</ExceptionMessage>
+                </Test>
+                <Test Name="TestAutoRegister" Result="Failed" ElapsedTime="00:00:00.140">
+                    <Message>TRealTestOptionModem.TestAutoRegister: No Option modem found</Message>
+                    <ExceptionClass>EAssertionFailedError</ExceptionClass>
+                    <ExceptionMessage>[SETUP] No Option modem found</ExceptionMessage>
+                </Test>
+                <Test Name="TestSignalQualityDbm" Result="Failed" ElapsedTime="00:00:00.135">
+                    <Message>TRealTestOptionModem.TestSignalQualityDbm: No Option modem found</Message>
+                    <ExceptionClass>EAssertionFailedError</ExceptionClass>
+                    <ExceptionMessage>[SETUP] No Option modem found</ExceptionMessage>
+                </Test>
+            </TestSuite>
+            <TestSuite Name="TRealTestModemFactory" ElapsedTime="00:00:00.009" NumberOfErrors="1" NumberOfFailures="1"
+                       NumberOfRunTests="2" NumberOfIgnoredTests="0">
+                <Test Name="TestGetAllModems" Result="Failed" ElapsedTime="00:00:00.000">
+                    <Message>TRealTestModemFactory.TestGetAllModems: this is a message expected: &lt;1&gt; but was: &lt;2&gt;</Message>
+                    <ExceptionClass>EAssertionFailedError</ExceptionClass>
+                    <ExceptionMessage>this is a message expected: &lt;1&gt; but was: &lt;2&gt;</ExceptionMessage>
+                </Test>
+                <Test Name="TextException" Result="Error" ElapsedTime="00:00:00.009">
+                    <Message>TRealTestModemFactory.TextException: this is a message</Message>
+                    <ExceptionClass>Exception</ExceptionClass>
+                    <ExceptionMessage>this is a message</ExceptionMessage>
+                    <SourceUnitName>realtestmodemfactory.pas</SourceUnitName>
+                    <LineNumber>51</LineNumber>
+                    <FailedMethodName>TREALTESTMODEMFACTORY__TEXTEXCEPTION</FailedMethodName>
+                </Test>
+            </TestSuite>
+        </TestSuite>
+    </TestListing>
+    <Title></Title>
+    <NumberOfRunTests>8</NumberOfRunTests>
+    <NumberOfErrors>1</NumberOfErrors>
+    <NumberOfFailures>7</NumberOfFailures>
+    <NumberOfIgnoredTests>0</NumberOfIgnoredTests>
+    <TotalElapsedTime>00:00:00.823</TotalElapsedTime>
+    <DateTimeRan>2010-01-20 15:20:47</DateTimeRan>
+</TestResults>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="930638c2-1646-4d97-ad3d-2b49651e7472" name="Koiti@KOU 2009-01-11 16:22:44" runUser="KOU\Koiti" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+  <TestRunConfiguration name="Local Test Run" id="049b43ad-25f0-49df-9c33-bd7842bc7f63">
+    <Description>This is a default test run configuration for a local test run.</Description>
+    <Deployment runDeploymentRoot="E:\Koiti\Dev\GitHudsonTest\TestResults\Koiti_KOU 2009-01-11 16_22_44">
+      <DeploymentItem filename="E:\Koiti\Dev\GitHudsonTest\GitHudsonTest\bin\Release\GitHudsonTest.exe" />
+    </Deployment>
+    <TestTypeSpecific />
+  </TestRunConfiguration> 
+  <ResultSummary outcome="Failed">
+    <Counters total="2" executed="2" passed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <Times creation="2009-01-11T16:22:44.4687500-02:00" queuing="2009-01-11T16:22:45.9375000-02:00" start="2009-01-11T16:22:46.2343750-02:00" finish="2009-01-11T16:22:46.7187500-02:00" />
+  <TestDefinitions>
+    <UnitTest name="CalculaFibonacci" storage="e:\koiti\dev\githudsontest\functionstest\bin\release\functionstest.dll" id="122e4794-c549-ce37-572b-9acc5c73b926">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="8345830d-d786-4a65-8c84-06c870df88d4" />
+      <TestMethod codeBase="E:\Koiti\Dev\GitHudsonTest\FunctionsTest\bin\Release\FunctionsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FunctionsTest.FibonacciTest, FunctionsTest" name="CalculaFibonacci" />
+    </UnitTest>
+    <UnitTest name="CalculaFibonacci_2" storage="e:\koiti\dev\githudsontest\functionstest\bin\release\functionstest.dll" id="a8e7f580-dfd1-6bc6-0553-1b5bd86844a6">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="caea04c4-a48a-45f7-b757-79e1be06e3ba" />
+      <TestMethod codeBase="E:\Koiti\Dev\GitHudsonTest\FunctionsTest\bin\Release\FunctionsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FunctionsTest.FibonacciTest, FunctionsTest" name="CalculaFibonacci_2" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="122e4794-c549-ce37-572b-9acc5c73b926" executionId="8345830d-d786-4a65-8c84-06c870df88d4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a8e7f580-dfd1-6bc6-0553-1b5bd86844a6" executionId="caea04c4-a48a-45f7-b757-79e1be06e3ba" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="8345830d-d786-4a65-8c84-06c870df88d4" testId="122e4794-c549-ce37-572b-9acc5c73b926" testName="CalculaFibonacci" computerName="KOU" duration="00:02:10.0157226" startTime="2009-01-11T16:22:46.2968750-02:00" endTime="2009-01-11T16:22:46.5625000-02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="caea04c4-a48a-45f7-b757-79e1be06e3ba" testId="a8e7f580-dfd1-6bc6-0553-1b5bd86844a6" testName="CalculaFibonacci_2" computerName="KOU" duration="00:00:00.1007273" startTime="2009-01-11T16:22:46.5625000-02:00" endTime="2009-01-11T16:22:46.6718750-02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;2&gt;. Actual:&lt;1&gt;. </Message>
+          <StackTrace>   at FunctionsTest.FibonacciTest.CalculaFibonacci_2() in E:\Koiti\Dev\GitHudsonTest\FunctionsTest\FibonacciTest.cs:line 72
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

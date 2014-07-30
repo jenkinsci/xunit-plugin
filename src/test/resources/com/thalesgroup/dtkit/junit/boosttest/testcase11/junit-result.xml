@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite tests="40" errors="0" failures="0" name="MergedTestSuite" skipped="0">
+    <testcase classname="basic" name="Test_SandboxCase" time="0">
+        <system-out>&#xD;[Message] -
+            Test case Test_SandboxCase did not check any assertions&#xD; == [File] -
+            ../../../boost/test/impl/results_collector.ipp&#xD; == [Line] - 220&#xD;</system-out>
+    </testcase>
+    <testcase classname="basic" name="Test_FiniteInline" time="0"/>
+    <testcase classname="basic" name="Test_CheckedMath" time="0"/>
+    <testcase classname="basic" name="Test_Primitives" time="0"/>
+    <testcase classname="basic" name="Test_BinaryPredicates" time="0"/>
+    <testcase classname="basic" name="Test_InverseNormDist" time="0"/>
+    <testcase classname="basic" name="Test_NormDist" time="0.047"/>
+    <testcase classname="basic.RootFinding" name="Test_RootFindBracketRoot" time="0"/>
+    <testcase classname="basic.RootFinding" name="Test_RootFindNoGradients" time="0"/>
+    <testcase classname="basic" name="Test_LevenbergMarquardt" time="0.016"/>
+    <testcase classname="basic" name="Test_LevenbergMarquardtBarrier" time="0"/>
+    <testcase classname="basic.Interpolation" name="Test_CubicTensionBSpline" time="0"/>
+    <testcase classname="basic.Interpolation" name="Test_ForwardQuartic" time="0"/>
+    <testcase classname="basic.Interpolation" name="Test_LinearInterpolation" time="0"/>
+    <testcase classname="basic.Interpolation" name="Test_MonotoneConvexQuadraticSpline"
+              time="0.047"/>
+    <testcase classname="basic.Interpolation" name="Test_CubicTensionBSplineHelpers" time="0"/>
+    <testcase classname="basic" name="Test_InterpolationCoords1D" time="0"/>
+    <testcase classname="basic" name="Test_Cholesky" time="0"/>
+    <testcase classname="basic" name="Test_LUDecomposition" time="0"/>
+    <testcase classname="basic" name="Test_Matrix" time="0"/>
+    <testcase classname="basic" name="Test_GaussJordan" time="0"/>
+    <testcase classname="basic" name="Test_QRDecomposition" time="0"/>
+    <testcase classname="basic" name="Test_SingularValueDecomposition" time="0"/>
+    <testcase classname="basic" name="Test_ToUpperLower" time="0"/>
+    <testcase classname="basic" name="Test_PathUtils" time="0"/>
+    <testcase classname="basic" name="Test_Array2D" time="0"/>
+    <testcase classname="basic" name="Test_Array2DIterator" time="0.171"/>
+    <testcase classname="basic" name="Test_GridAxis" time="0"/>
+    <testcase classname="basic" name="Test_SortedContainer" time="0"/>
+    <testcase classname="basic" name="Test_Date" time="0"/>
+    <testcase classname="basic" name="Test_DatesCalendarHelpers" time="0"/>
+    <testcase classname="basic" name="Test_DateSolver" time="0.735"/>
+    <testcase classname="basic" name="Test_I_Calendar" time="0.094"/>
+    <testcase classname="basic" name="Test_Period" time="0"/>
+    <testcase classname="basic" name="Test_YearFraction" time="0"/>
+    <testcase classname="basic" name="Test_Serialization" time="0.015"/>
+    <testcase classname="basic" name="Test_SerializationOfCacheables" time="0.016"/>
+    <testcase classname="basic" name="Test_Enum" time="0"/>
+    <testcase classname="basic" name="Test_Struct" time="0"/>
+    <testcase classname="basic.c:/jenkins/jobs/test/workspace/src/basic_test/test/test_testutilities"
+              name="Test_TestUtilities"
+              time="0">
+        <system-out>&#xD;[Message] -
+            RNG random seed: 1313511162&#xD; == [File] -
+            c:/jenkins/jobs/test/workspace/src/basic_test/test/test_testutilities.cpp&#xD; == [Line] -
+            23&#xD;</system-out>
+    </testcase>
+</testsuite>

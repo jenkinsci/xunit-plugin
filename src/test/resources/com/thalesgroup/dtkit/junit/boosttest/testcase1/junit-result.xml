@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite tests="3" errors="1" failures="1" name="MergedTestSuite" skipped="0">
+    <testcase classname="Master.Test.Suite.array.test.test" name="test1" time="0">
+        <system-out>&#xD;[Info] - check add( 2,2 ) == 4 passed&#xD; == [File] - test.cpp&#xD; == [Line] -
+            8&#xD;</system-out>
+    </testcase>
+    <testcase classname="Master.Test.Suite.array.test.test" name="test2" time="0">
+        <failure>&#xD;[Error] - check add( 2,3 ) == 4 failed&#xD; == [File] - test.cpp&#xD; == [Line] -
+            12&#xD;</failure>
+    </testcase>
+    <testcase classname="Master.Test.Suite.array.test.test" name="test3" time="0">
+        <error>&#xD;[Exception] - un test failed&#xD; == [File] - test.cpp&#xD; == [Line] -16&#xD;</error>
+    </testcase>
+</testsuite>

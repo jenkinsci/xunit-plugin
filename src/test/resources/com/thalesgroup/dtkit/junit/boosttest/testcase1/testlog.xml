@@ -1,0 +1,23 @@
+<TestLog>
+    <TestSuite name="Master Test Suite">
+        <TestSuite name="array test">
+            <TestCase name="test1">
+                <Info file="test.cpp" line="8">check add( 2,2 ) == 4 passed</Info>
+
+                <TestingTime>0</TestingTime>
+            </TestCase>
+
+            <TestCase name="test2">
+                <Error file="test.cpp" line="12">check add( 2,3 ) == 4 failed</Error>
+
+                <TestingTime>0</TestingTime>
+            </TestCase>
+
+            <TestCase name="test3">
+                <FatalError file="test.cpp" line="16">un test failed</FatalError>
+
+                <TestingTime>0</TestingTime>
+            </TestCase>
+        </TestSuite>
+    </TestSuite>
+</TestLog>

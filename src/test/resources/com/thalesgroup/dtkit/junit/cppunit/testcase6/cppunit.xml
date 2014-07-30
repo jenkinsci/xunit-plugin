@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding='ISO-8859-1' standalone='yes' ?>
+<TestRun>
+  <FailedTests></FailedTests>
+  <SuccessfulTests>
+    <Test id="1">
+      <Name>DeviceDataTest::testConstructor</Name>
+      <TestPath>/All Tests/DeviceDataTest/DeviceDataTest::testConstructor</TestPath>
+      <Time>0.002</Time>
+    </Test>
+    <Test id="2">
+      <Name>DeviceDataTest::testToJSON</Name>
+      <TestPath>/All Tests/DeviceDataTest/DeviceDataTest::testToJSON</TestPath>
+      <Time>0.001</Time>
+    </Test>
+    <Test id="3">
+      <Name>DeviceDataTest::testToObject</Name>
+      <TestPath>/All Tests/DeviceDataTest/DeviceDataTest::testToObject</TestPath>
+      <Time>0.000</Time>
+    </Test>
+    <Test id="4">
+      <Name>DeviceDataTest::testToObjectException</Name>
+      <TestPath>/All Tests/DeviceDataTest/DeviceDataTest::testToObjectException</TestPath>
+      <Time>0.005</Time>
+    </Test>
+  </SuccessfulTests>
+  <Statistics>
+    <Tests>4</Tests>
+    <FailuresTotal>0</FailuresTotal>
+    <Errors>0</Errors>
+    <Failures>0</Failures>
+    <TotalElapsedTime>0.010</TotalElapsedTime>
+    <AverageTestCaseTime>0.002</AverageTestCaseTime>
+  </Statistics>
+  <TimedTestTree>
+    <TimedSuite id="0">
+      <Name>All Tests</Name>
+      <TestPath>/All Tests</TestPath>
+      <Time>0.010</Time>
+      <TimedSuite id="1">
+        <Name>DeviceDataTest</Name>
+        <TestPath>/All Tests/DeviceDataTest</TestPath>
+        <Time>0.010</Time>
+        <TimedTest id="2">
+          <Name>DeviceDataTest::testConstructor</Name>
+          <TestPath>/All Tests/DeviceDataTest/DeviceDataTest::testConstructor</TestPath>
+          <Time>0.002</Time>
+        </TimedTest>
+        <TimedTest id="3">
+          <Name>DeviceDataTest::testToJSON</Name>
+          <TestPath>/All Tests/DeviceDataTest/DeviceDataTest::testToJSON</TestPath>
+          <Time>0.001</Time>
+        </TimedTest>
+        <TimedTest id="4">
+          <Name>DeviceDataTest::testToObject</Name>
+          <TestPath>/All Tests/DeviceDataTest/DeviceDataTest::testToObject</TestPath>
+          <Time>0.000</Time>
+        </TimedTest>
+        <TimedTest id="5">
+          <Name>DeviceDataTest::testToObjectException</Name>
+          <TestPath>/All Tests/DeviceDataTest/DeviceDataTest::testToObjectException</TestPath>
+          <Time>0.005</Time>
+        </TimedTest>
+      </TimedSuite>
+    </TimedSuite>
+  </TimedTestTree>
+</TestRun>

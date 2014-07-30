@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="valgrind-memcheck" errors="1" tests="1">
+    <testcase name="valgrind-out">
+        <failure>Conditional jump or move depends on uninitialised value(s)
+            (see: http://valgrind.org/docs/manual/mc-manual.html#mc-manual.uninitvals)
+            at 0x100011C2F: memchr (mc_replace_strmem.c:446)
+            by 0x100114346: __sfvwrite
+            by 0x100165854: fwrite
+            by 0x10004EAE3: void std::__ostream_write&lt;char, std::char_traits&lt;char&gt; &gt;(std::basic_ostream&lt;char,
+            std::char_traits&lt;char&gt; &gt;&amp;, char const*, long)
+
+            by 0x10004CB97: std::basic_ostream&lt;char, std::char_traits&lt;char&gt; &gt;&amp; std::__ostream_insert&lt;char,
+            std::char_traits&lt;char&gt; &gt;(std::basic_ostream&lt;char, std::char_traits&lt;char&gt; &gt;&amp;,
+            char const*, long)
+
+            by 0x10004CC93: std::basic_ostream&lt;char, std::char_traits&lt;char&gt; &gt;&amp; std::operator&lt;&lt;
+            &lt;std::char_traits&lt;char&gt;
+            &gt;(std::basic_ostream&lt;char, std::char_traits&lt;char&gt; &gt;&amp;, char)
+
+            by 0x100000D12: main
+
+            Syscall param write(buf) points to uninitialised byte(s)
+            (see: http://valgrind.org/docs/manual/mc-manual.html#mc-manual.bad-syscall-args)
+            at 0x1001521E2: write$NOCANCEL
+            by 0x10015215C: _swrite
+            by 0x1001520A1: __sflush
+            by 0x1001568C0: __swbuf
+            by 0x100189D8E: putc
+            by 0x10004CA18: std::ostream::put(char)
+            by 0x10004CAC6: std::basic_ostream&lt;char, std::char_traits&lt;char&gt; &gt;&amp; std::endl&lt;char,
+            std::char_traits&lt;char&gt; &gt;(std::basic_ostream&lt;char, std::char_traits&lt;char&gt; &gt;&amp;)
+
+            by 0x100000D21: main
+            Address 0x10035a0e3 is 3 bytes inside a block of size 4,096 alloc'd
+            at 0x10001079F: malloc (vg_replace_malloc.c:236)
+            by 0x100151F4D: __smakebuf
+            by 0x100151EB9: __swsetup
+            by 0x100114128: __sfvwrite
+            by 0x100165854: fwrite
+            by 0x10004EAE3: void std::__ostream_write&lt;char, std::char_traits&lt;char&gt; &gt;(std::basic_ostream&lt;char,
+            std::char_traits&lt;char&gt; &gt;&amp;, char const*, long)
+
+            by 0x10004CB97: std::basic_ostream&lt;char, std::char_traits&lt;char&gt; &gt;&amp; std::__ostream_insert&lt;char,
+            std::char_traits&lt;char&gt; &gt;(std::basic_ostream&lt;char, std::char_traits&lt;char&gt; &gt;&amp;,
+            char const*, long)
+
+            by 0x10004CC57: std::basic_ostream&lt;char, std::char_traits&lt;char&gt; &gt;&amp; std::operator&lt;&lt;
+            &lt;std::char_traits&lt;char&gt;
+            &gt;(std::basic_ostream&lt;char, std::char_traits&lt;char&gt; &gt;&amp;, char const*)
+
+            by 0x100000D08: main
+
+        </failure>
+    </testcase>
+</testsuite>
