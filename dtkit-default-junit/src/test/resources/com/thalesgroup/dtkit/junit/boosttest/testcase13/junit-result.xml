@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite tests="1" errors="1" failures="0" name="MergedTestSuite" skipped="0">
+    <testcase classname="TrialSpaceTestSuite.testDiscretization"
+              name="testLagrangeSpacesReferencePyramid"
+              time="0">
+        <error>&#xD;[Exception] -
+            unknown type
+
+            Checking shapes at dofs are kronecker delta ...
+
+            &#xD; == [File] - testDiscretization.cpp&#xD; == [Line] - 74&#xD;</error>
+        <system-err>&#xD;[Exception] -
+            unknown type
+
+            Checking shapes at dofs are kronecker delta ...
+
+            &#xD; == [File] - testDiscretization.cpp&#xD; == [Line] - 74&#xD;</system-err>
+    </testcase>
+</testsuite>

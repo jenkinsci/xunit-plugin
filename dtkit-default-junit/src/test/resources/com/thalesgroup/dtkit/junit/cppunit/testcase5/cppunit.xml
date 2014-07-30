@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding='ISO-8859-1' standalone='yes' ?>
+<TestRun>
+    <SuiteInfo>
+        <Author>J. Costa</Author>
+        <Project>NavLaser3 - config_extractor</Project>
+        <Date>1324236885</Date>
+    </SuiteInfo>
+    <FailedTests></FailedTests>
+    <SuccessfulTests>
+        <Test id="1">
+            <Name>config_extractorTest::test_config_extractor_Constructors</Name>
+        </Test>
+        <Test id="2">
+            <Name>config_extractorTest::test_setLineEstimationMethod</Name>
+        </Test>
+        <Test id="3">
+            <Name>config_extractorTest::test_setCircleEstimationMethod</Name>
+        </Test>
+        <Test id="4">
+            <Name>config_extractorTest::test_setBreakPointMethod</Name>
+        </Test>
+        <Test id="5">
+            <Name>config_extractorTest::test_setCornerEstimationMethod</Name>
+        </Test>
+        <Test id="6">
+            <Name>config_extractorTest::test_setMinDistanceBtwLines</Name>
+        </Test>
+        <Test id="7">
+            <Name>config_extractorTest::test_setMinLinePoints</Name>
+        </Test>
+    </SuccessfulTests>
+    <Statistics>
+        <Tests>7</Tests>
+        <FailuresTotal>0</FailuresTotal>
+        <Errors>0</Errors>
+        <Failures>0</Failures>
+    </Statistics>
+</TestRun>

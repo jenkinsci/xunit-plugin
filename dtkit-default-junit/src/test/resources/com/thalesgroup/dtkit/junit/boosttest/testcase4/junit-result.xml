@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite tests="5" errors="2" failures="0" name="MergedTestSuite" skipped="0">
+    <testcase
+            classname="Master.Test.Suite.TestDataSelectionServices.d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult"
+            name="TestAnd"
+            time="0">
+        <system-out>&#xD;[Info] -
+            check CheckResult(vTracks, Dsls::eOutStAllSamples, Dsls::eOutStAllSamples, true,
+            Dsls::eOutStAllSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 133&#xD;&#xD;[Info] -
+            check CheckResult(vTracks, Dsls::eOutStAllSamples, Dsls::eOutStNestingCriteria, true,
+            Dsls::eOutStNestingCriteria) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 134&#xD;&#xD;[Info] -
+            check CheckResult(vTracks, Dsls::eOutStAllSamples, Dsls::eOutStNoSamples, true,
+            Dsls::eOutStNoSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 135&#xD;&#xD;[Info] -
+            check CheckResult(vTracks, Dsls::eOutStNestingCriteria, Dsls::eOutStAllSamples, true,
+            Dsls::eOutStNestingCriteria) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 137&#xD;&#xD;[Info] -
+            check CheckResult(vTracks, Dsls::eOutStNestingCriteria, Dsls::eOutStNestingCriteria, true,
+            Dsls::eOutStNestingCriteria) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 138&#xD;&#xD;[Info] -
+            check CheckResult(vTracks, Dsls::eOutStNestingCriteria, Dsls::eOutStNoSamples, true,
+            Dsls::eOutStNoSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 139&#xD;&#xD;[Info] -
+            check CheckResult(vTracks, Dsls::eOutStNoSamples, Dsls::eOutStAllSamples, true,
+            Dsls::eOutStNoSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 141&#xD;&#xD;[Info] -
+            check CheckResult(vTracks, Dsls::eOutStNoSamples, Dsls::eOutStNestingCriteria, true,
+            Dsls::eOutStNoSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 142&#xD;&#xD;[Info] -
+            check CheckResult(vTracks, Dsls::eOutStNoSamples, Dsls::eOutStNoSamples, true,
+            Dsls::eOutStNoSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 143&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="Master.Test.Suite.TestDataSelectionServices.NCTstDslsAdmExprResult.d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult"
+            name="TestAnd"
+            time="0">
+        <system-out>&#xD;[Info] - check CheckResult(vTracks, Dsls::eOutStAllSamples, Dsls::eOutStAllSamples, true,
+            Dsls::eOutStAllSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 133&#xD;&#xD;[Info] - check CheckResult(vTracks, Dsls::eOutStAllSamples,
+            Dsls::eOutStNestingCriteria,
+            true, Dsls::eOutStNestingCriteria) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 134&#xD;&#xD;[Info] - check CheckResult(vTracks, Dsls::eOutStAllSamples, Dsls::eOutStNoSamples,
+            true,
+            Dsls::eOutStNoSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 135&#xD;&#xD;[Info] - check CheckResult(vTracks, Dsls::eOutStNestingCriteria,
+            Dsls::eOutStAllSamples,
+            true, Dsls::eOutStNestingCriteria) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 137&#xD;&#xD;[Info] - check CheckResult(vTracks, Dsls::eOutStNestingCriteria,
+            Dsls::eOutStNestingCriteria, true, Dsls::eOutStNestingCriteria) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 138&#xD;&#xD;[Info] - check CheckResult(vTracks, Dsls::eOutStNestingCriteria,
+            Dsls::eOutStNoSamples,
+            true, Dsls::eOutStNoSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 139&#xD;&#xD;[Info] - check CheckResult(vTracks, Dsls::eOutStNoSamples, Dsls::eOutStAllSamples,
+            true,
+            Dsls::eOutStNoSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 141&#xD;&#xD;[Info] - check CheckResult(vTracks, Dsls::eOutStNoSamples,
+            Dsls::eOutStNestingCriteria,
+            true, Dsls::eOutStNoSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 142&#xD;&#xD;[Info] - check CheckResult(vTracks, Dsls::eOutStNoSamples, Dsls::eOutStNoSamples,
+            true,
+            Dsls::eOutStNoSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 143&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="Master.Test.Suite.TestDataSelectionServices.NCTstDslsAdmExprResult.d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult"
+            name="TestAndNonOverlap"
+            time="0">
+        <system-out>&#xD;[Info] - check CheckResultSymmetric(vTracks1, Dsls::eOutStAllSamples, vTracks2,
+            Dsls::eOutStAllSamples, true, Dsls::eOutStAllSamples, Dsls::eOutStNoSamples,
+            Dsls::eOutStNoSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 156&#xD;&#xD;[Info] - check CheckResultSymmetric(vTracks1, Dsls::eOutStAllSamples, vTracks2,
+            Dsls::eOutStNestingCriteria, true, Dsls::eOutStNestingCriteria, Dsls::eOutStNoSamples,
+            Dsls::eOutStNoSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 157&#xD;&#xD;[Info] - check CheckResultSymmetric(vTracks1, Dsls::eOutStAllSamples, vTracks2,
+            Dsls::eOutStNoSamples, true, Dsls::eOutStNoSamples, Dsls::eOutStNoSamples,
+            Dsls::eOutStNoSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 158&#xD;&#xD;[Info] - check CheckResultSymmetric(vTracks1, Dsls::eOutStNestingCriteria, vTracks2,
+            Dsls::eOutStAllSamples, true, Dsls::eOutStNestingCriteria, Dsls::eOutStNoSamples,
+            Dsls::eOutStNoSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 160&#xD;&#xD;[Info] - check CheckResultSymmetric(vTracks1, Dsls::eOutStNestingCriteria, vTracks2,
+            Dsls::eOutStNestingCriteria, true, Dsls::eOutStNestingCriteria, Dsls::eOutStNoSamples,
+            Dsls::eOutStNoSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 161&#xD;&#xD;[Info] - check CheckResultSymmetric(vTracks1, Dsls::eOutStNestingCriteria, vTracks2,
+            Dsls::eOutStNoSamples, true, Dsls::eOutStNoSamples, Dsls::eOutStNoSamples,
+            Dsls::eOutStNoSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 162&#xD;&#xD;[Info] - check CheckResultSymmetric(vTracks1, Dsls::eOutStNoSamples, vTracks2,
+            Dsls::eOutStAllSamples, true, Dsls::eOutStNoSamples, Dsls::eOutStNoSamples,
+            Dsls::eOutStNoSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 164&#xD;&#xD;[Info] - check CheckResultSymmetric(vTracks1, Dsls::eOutStNoSamples, vTracks2,
+            Dsls::eOutStNestingCriteria, true, Dsls::eOutStNoSamples, Dsls::eOutStNoSamples,
+            Dsls::eOutStNoSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 165&#xD;&#xD;[Info] - check CheckResultSymmetric(vTracks1, Dsls::eOutStNoSamples, vTracks2,
+            Dsls::eOutStNoSamples, true, Dsls::eOutStNoSamples, Dsls::eOutStNoSamples,
+            Dsls::eOutStNoSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 166&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="Master.Test.Suite.TestDataSelectionServices.NCTstDslsAdmExprResult.d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult"
+            name="TestOr"
+            time="0">
+        <error>&#xD;[Exception] - un test failed&#xD; == [File] - test.cpp&#xD; == [Line] -16&#xD;</error>
+        <system-out>&#xD;[Info] - check CheckResult(vTracks, Dsls::eOutStAllSamples, Dsls::eOutStAllSamples, false,
+            Dsls::eOutStAllSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 178&#xD;&#xD;[Info] - check CheckResult(vTracks, Dsls::eOutStAllSamples,
+            Dsls::eOutStNestingCriteria,
+            false, Dsls::eOutStAllSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 179&#xD;&#xD;[Info] - check CheckResult(vTracks, Dsls::eOutStAllSamples, Dsls::eOutStNoSamples,
+            false,
+            Dsls::eOutStAllSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 180&#xD;&#xD;[Info] - check CheckResult(vTracks, Dsls::eOutStNestingCriteria,
+            Dsls::eOutStAllSamples,
+            false, Dsls::eOutStAllSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 182&#xD;&#xD;[Info] - check CheckResult(vTracks, Dsls::eOutStNestingCriteria,
+            Dsls::eOutStNestingCriteria, false, Dsls::eOutStNestingCriteria) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 183&#xD;&#xD;[Info] - check CheckResult(vTracks, Dsls::eOutStNestingCriteria,
+            Dsls::eOutStNoSamples,
+            false, Dsls::eOutStNestingCriteria) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 184&#xD;&#xD;[Info] - check CheckResult(vTracks, Dsls::eOutStNoSamples, Dsls::eOutStAllSamples,
+            false,
+            Dsls::eOutStAllSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 186&#xD;&#xD;[Info] - check CheckResult(vTracks, Dsls::eOutStNoSamples,
+            Dsls::eOutStNestingCriteria,
+            false, Dsls::eOutStNestingCriteria) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 187&#xD;&#xD;[Info] - check CheckResult(vTracks, Dsls::eOutStNoSamples, Dsls::eOutStNoSamples,
+            false,
+            Dsls::eOutStNoSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 188&#xD;</system-out>
+    </testcase>
+    <testcase
+            classname="Master.Test.Suite.TestDataSelectionServices.NCTstDslsAdmExprResult.d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult"
+            name="TestOrNonOverlap"
+            time="0">
+        <error>&#xD;[Exception] - un test failed&#xD; == [File] - test.cpp&#xD; == [Line] -16&#xD;</error>
+        <system-out>&#xD;[Info] - check CheckResultSymmetric(vTracks1, Dsls::eOutStAllSamples, vTracks2,
+            Dsls::eOutStAllSamples, false, Dsls::eOutStAllSamples, Dsls::eOutStAllSamples,
+            Dsls::eOutStAllSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 201&#xD;&#xD;[Info] - check CheckResultSymmetric(vTracks1, Dsls::eOutStAllSamples, vTracks2,
+            Dsls::eOutStNestingCriteria, false, Dsls::eOutStAllSamples, Dsls::eOutStAllSamples,
+            Dsls::eOutStNestingCriteria) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 202&#xD;&#xD;[Info] - check CheckResultSymmetric(vTracks1, Dsls::eOutStAllSamples, vTracks2,
+            Dsls::eOutStNoSamples, false, Dsls::eOutStAllSamples, Dsls::eOutStAllSamples,
+            Dsls::eOutStNoSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 203&#xD;&#xD;[Info] - check CheckResultSymmetric(vTracks1, Dsls::eOutStNestingCriteria, vTracks2,
+            Dsls::eOutStAllSamples, false, Dsls::eOutStAllSamples, Dsls::eOutStNestingCriteria,
+            Dsls::eOutStAllSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 205&#xD;&#xD;[Info] - check CheckResultSymmetric(vTracks1, Dsls::eOutStNestingCriteria, vTracks2,
+            Dsls::eOutStNestingCriteria, false, Dsls::eOutStNestingCriteria, Dsls::eOutStNestingCriteria,
+            Dsls::eOutStNestingCriteria) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 206&#xD;&#xD;[Info] - check CheckResultSymmetric(vTracks1, Dsls::eOutStNestingCriteria, vTracks2,
+            Dsls::eOutStNoSamples, false, Dsls::eOutStNestingCriteria, Dsls::eOutStNestingCriteria,
+            Dsls::eOutStNoSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 207&#xD;&#xD;[Info] - check CheckResultSymmetric(vTracks1, Dsls::eOutStNoSamples, vTracks2,
+            Dsls::eOutStAllSamples, false, Dsls::eOutStAllSamples, Dsls::eOutStNoSamples,
+            Dsls::eOutStAllSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 209&#xD;&#xD;[Info] - check CheckResultSymmetric(vTracks1, Dsls::eOutStNoSamples, vTracks2,
+            Dsls::eOutStNestingCriteria, false, Dsls::eOutStNestingCriteria, Dsls::eOutStNoSamples,
+            Dsls::eOutStNestingCriteria) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 210&#xD;&#xD;[Info] - check CheckResultSymmetric(vTracks1, Dsls::eOutStNoSamples, vTracks2,
+            Dsls::eOutStNoSamples, false, Dsls::eOutStNoSamples, Dsls::eOutStNoSamples,
+            Dsls::eOutStNoSamples) passed
+            &#xD; == [File] - d:/develop/test/testvts/testdataselectionservices/nctstdslsadmexprresult.cpp&#xD; ==
+            [Line] - 211&#xD;</system-out>
+    </testcase>
+</testsuite>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite tests="1" errors="1" failures="0" name="MergedTestSuite" skipped="0">
+    <testcase classname="Master.Test.Suite.TestSample"
+              name="TestSampleClass"
+              time="0.015">
+        <error>&#xD;[Exception] -
+            std::exception: Unable to open &apos;features_in.txt&apos;.
+            &#xD; == [File] - unknown location&#xD; == [Line] - 0&#xD;</error>
+        <system-err>&#xD;[Exception] -
+            std::exception: Unable to open &apos;features_in.txt&apos;.
+            &#xD; == [File] - unknown location&#xD; == [Line] - 0&#xD;</system-err>
+    </testcase>
+</testsuite>

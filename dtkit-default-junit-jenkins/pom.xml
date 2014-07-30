@@ -1,0 +1,60 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.jenkins-ci.lib.dtkit</groupId>
+        <artifactId>dtkit-default-junit-parent</artifactId>
+        <version>0.40-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>dtkit-default-junit-jenkins</artifactId>
+    <packaging>dtkit-jenkins-jar</packaging>
+    <name>DTKit Default JUnit Jenkins</name>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.jenkins-ci.lib.dtkit</groupId>
+            <artifactId>dtkit-default-junit</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jenkins-ci.lib.dtkit</groupId>
+            <artifactId>dtkit-metrics-hudson-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jenkins-ci.lib.dtkit</groupId>
+            <artifactId>dtkit-junit-model</artifactId>
+        </dependency>
+
+        <!-- Used only for compiling the generated Hudson classes -->
+        <dependency>
+            <groupId>org.jenkins-ci.main</groupId>
+            <artifactId>jenkins-core</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.kohsuke.stapler</groupId>
+                <artifactId>maven-stapler-plugin</artifactId>
+                <version>1.7</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.sun</groupId>
+                        <artifactId>tools</artifactId>
+                        <version>1.7</version>
+                        <scope>system</scope>
+                        <systemPath>${jdk.home}/lib/tools.jar
+                        </systemPath>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

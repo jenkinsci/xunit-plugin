@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="java::lang::EnumTest_API" tests="8" failures="0" errors="0" skipped="0" time="0" timestamp="0">
+        <testcase name="testValues" time="0" assertions="0"/>
+        <testcase name="testValueOf" time="0" assertions="0"/>
+        <testcase name="testDeclaringClass" time="0" assertions="0"/>
+        <testcase name="testName" time="0" assertions="0"/>
+        <testcase name="testOrdinal" time="0" assertions="0"/>
+        <testcase name="testToString" time="0" assertions="0"/>
+        <testcase name="testEquals" time="0" assertions="0"/>
+        <testcase name="testHashCode" time="0" assertions="0"/>
+    </testsuite>
+    <testsuite name="java::util::ArrayListTest_API" tests="3" failures="0" errors="0" skipped="0" time="0"
+               timestamp="0">
+        <testcase name="testIsEmpty" time="0" assertions="0"/>
+        <testcase name="testIterator" time="0" assertions="0"/>
+        <testcase name="testSubList" time="0" assertions="0"/>
+    </testsuite>
+    <testsuite name="java::util::HashMapTest_API" tests="2" failures="0" errors="0" skipped="0" time="0" timestamp="0">
+        <testcase name="testIsEmpty" time="0" assertions="0"/>
+        <testcase name="testGet" time="0" assertions="0"/>
+    </testsuite>
+    <testsuite name="java::util::HashSetTest_API" tests="2" failures="0" errors="0" skipped="0" time="0" timestamp="0">
+        <testcase name="testIsEmpty" time="0" assertions="0"/>
+        <testcase name="testContains" time="0" assertions="0"/>
+    </testsuite>
+    <testsuite name="com::thalesraytheon::sdk::osgi::OSGiTest_API" tests="1" failures="0" errors="0" skipped="0"
+               time="0" timestamp="0">
+        <testcase name="testActivator" time="0" assertions="0"/>
+    </testsuite>
+</testsuites>

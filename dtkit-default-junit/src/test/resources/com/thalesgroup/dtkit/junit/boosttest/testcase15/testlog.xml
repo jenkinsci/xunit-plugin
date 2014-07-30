@@ -1,0 +1,13 @@
+<TestLog>
+    <TestSuite name="Test_Suite">
+        <TestCase name="Test_Case">
+            <Message file="/absolute/path/to/source.cpp" line="123">
+                <![CDATA[This is some message]]>
+            </Message>
+            <Info file="/absolute/path/to/source.cpp" line="321">
+                <![CDATA[This is also some message]]>
+            </Info>
+            <TestingTime>80000</TestingTime>
+        </TestCase>
+    </TestSuite>
+</TestLog>

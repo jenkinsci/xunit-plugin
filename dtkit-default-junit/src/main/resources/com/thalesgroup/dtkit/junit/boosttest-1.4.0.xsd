@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+/*******************************************************************************
+* Author : Gregory Boissinot                                                   *
+*******************************************************************************/
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Error">
+        <xs:complexType mixed="true">
+            <xs:attribute name="line" type="xs:integer" use="required"/>
+            <xs:attribute name="file" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="FatalError">
+        <xs:complexType mixed="true">
+            <xs:attribute name="line" type="xs:integer" use="required"/>
+            <xs:attribute name="file" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Info">
+        <xs:complexType mixed="true">
+            <xs:attribute name="line" type="xs:integer" use="required"/>
+            <xs:attribute name="file" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="LastCheckpoint">
+        <xs:complexType mixed="true">
+            <xs:attribute name="line" type="xs:integer" use="required"/>
+            <xs:attribute name="file" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Exception">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:element ref="LastCheckpoint" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+            <xs:attribute name="line" type="xs:integer" use="optional"/>
+            <xs:attribute name="file" type="xs:string" use="optional"/>
+            <xs:attribute name="function" type="xs:string" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Message">
+        <xs:complexType mixed="true">
+            <xs:attribute name="line" type="xs:positiveInteger" use="required"/>
+            <xs:attribute name="file" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Warning">
+        <xs:complexType mixed="true">
+            <xs:attribute name="line" type="xs:positiveInteger" use="required"/>
+            <xs:attribute name="file" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="TestCase">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:element ref="TestSuite" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="Info" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="Error" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="FatalError" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="Message" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="Exception" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="Warning" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:choice>
+                <xs:element ref="TestingTime" minOccurs="1" maxOccurs="1"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string" use="required"/>
+            <xs:attribute name="result" type="xs:string" use="optional"/>
+            <xs:attribute name="assertions_passed" type="xs:integer" use="optional"/>
+            <xs:attribute name="assertions_failed" type="xs:integer" use="optional"/>
+            <xs:attribute name="expected_failures" type="xs:integer" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="TestingTime">
+        <xs:complexType mixed="true">
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="TestLog">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:element ref="BuildInfo" minOccurs="0" maxOccurs="1"/>
+                    <xs:element ref="TestSuite" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="Message" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:choice>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="BuildInfo">
+        <xs:complexType mixed="true">
+            <xs:attribute name="platform" type="xs:string" use="optional"/>
+            <xs:attribute name="compiler" type="xs:string" use="optional"/>
+            <xs:attribute name="stl" type="xs:string" use="optional"/>
+            <xs:attribute name="version" type="xs:string" use="optional"/>
+            <xs:attribute name="boost" type="xs:string" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="TestSuite">
+        <xs:complexType>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element ref="TestCase" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element ref="TestSuite" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:choice>
+            <xs:attribute name="name" type="xs:string" use="required"/>
+            <xs:attribute name="result" type="xs:string" use="optional"/>
+            <xs:attribute name="assertions_passed" type="xs:integer" use="optional"/>
+            <xs:attribute name="assertions_failed" type="xs:integer" use="optional"/>
+            <xs:attribute name="expected_failures" type="xs:integer" use="optional"/>
+            <xs:attribute name="test_cases_passed" type="xs:integer" use="optional"/>
+            <xs:attribute name="test_cases_failed" type="xs:integer" use="optional"/>
+            <xs:attribute name="test_cases_skipped" type="xs:integer" use="optional"/>
+            <xs:attribute name="test_cases_aborted" type="xs:integer" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
