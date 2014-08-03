@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+The MIT License (MIT)
+
+Copyright (c) 2014, Gregory Boissinot
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Errors">
+        <xs:complexType mixed="true"/>
+    </xs:element>
+
+    <xs:element name="FailedTests">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Test" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Failures">
+        <xs:complexType mixed="true"/>
+    </xs:element>
+
+    <xs:element name="FailuresTotal">
+        <xs:complexType mixed="true"/>
+    </xs:element>
+
+    <xs:element name="FailureType">
+        <xs:complexType mixed="true"/>
+    </xs:element>
+
+    <xs:element name="File">
+        <xs:complexType mixed="true"/>
+    </xs:element>
+
+    <xs:element name="Line">
+        <xs:complexType mixed="true"/>
+    </xs:element>
+
+    <xs:element name="Location">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="File"/>
+                <xs:element ref="Line"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Message">
+        <xs:complexType mixed="true"/>
+    </xs:element>
+
+    <xs:element name="Information">
+        <xs:complexType mixed="true"/>
+    </xs:element>
+
+    <xs:element name="Traceback">
+        <xs:complexType mixed="true"/>
+    </xs:element>
+
+    <xs:element name="Name">
+        <xs:complexType mixed="true"/>
+    </xs:element>
+
+    <xs:element name="Statistics">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Tests" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="FailuresTotal" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="Failures" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="Errors" minOccurs="1" maxOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="SuccessfulTests">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Test" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Exception">
+        <xs:complexType>
+            <xs:all>
+                <xs:element ref="Message" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="Information" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="Traceback" minOccurs="0" maxOccurs="1"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Test">
+        <xs:complexType>
+            <xs:all>
+                <xs:element ref="Name" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="FailureType" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="Location" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="Message" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="Exception" minOccurs="0" maxOccurs="1"/>
+            </xs:all>
+            <xs:attribute name="id" type="xs:integer" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="TestRun">
+        <xs:complexType>
+            <xs:all>
+                <xs:element ref="Statistics" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="FailedTests" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="SuccessfulTests" minOccurs="0" maxOccurs="1"/>
+            </xs:all>
+            <xs:attribute name="elapsed" type="xs:string" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Tests">
+        <xs:complexType mixed="true"/>
+    </xs:element>
+
+</xs:schema>
