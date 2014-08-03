@@ -1,10 +1,10 @@
 package org.jenkinsci.plugins.xunit.service;
 
 import com.google.inject.Inject;
-import com.thalesgroup.dtkit.metrics.model.InputMetric;
-import com.thalesgroup.dtkit.metrics.model.InputMetricXSL;
-import com.thalesgroup.dtkit.util.converter.ConversionException;
 import hudson.FilePath;
+import org.jenkinsci.lib.dtkit.model.InputMetric;
+import org.jenkinsci.lib.dtkit.model.InputMetricXSL;
+import org.jenkinsci.lib.dtkit.util.converter.ConversionException;
 import org.jenkinsci.plugins.xunit.exception.XUnitException;
 import org.jenkinsci.plugins.xunit.types.CustomInputMetric;
 

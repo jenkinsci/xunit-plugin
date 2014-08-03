@@ -1,10 +1,10 @@
 package org.jenkinsci.plugins.xunit.service;
 
-import com.thalesgroup.dtkit.metrics.model.InputMetric;
+
 import hudson.FilePath;
+import org.jenkinsci.lib.dtkit.model.InputMetric;
 
 import java.io.Serializable;
-
 
 public class XUnitToolInfo implements Serializable {
 

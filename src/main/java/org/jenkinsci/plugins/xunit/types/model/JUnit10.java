@@ -1,6 +1,7 @@
 package org.jenkinsci.plugins.xunit.types.model;
 
-import com.thalesgroup.dtkit.metrics.model.AbstractOutputMetric;
+
+import org.jenkinsci.lib.dtkit.model.AbstractOutputMetric;
 
 import java.io.Serializable;
 

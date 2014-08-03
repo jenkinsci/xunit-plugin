@@ -1,14 +1,14 @@
 package org.jenkinsci.plugins.xunit.service;
 
-import com.thalesgroup.dtkit.metrics.model.InputMetric;
-import com.thalesgroup.dtkit.util.validator.ValidationError;
-import com.thalesgroup.dtkit.util.validator.ValidationException;
+
+import org.jenkinsci.lib.dtkit.model.InputMetric;
+import org.jenkinsci.lib.dtkit.util.validator.ValidationError;
+import org.jenkinsci.lib.dtkit.util.validator.ValidationException;
 import org.jenkinsci.plugins.xunit.exception.XUnitException;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
-
 
 public class XUnitValidationService extends XUnitService implements Serializable {
 

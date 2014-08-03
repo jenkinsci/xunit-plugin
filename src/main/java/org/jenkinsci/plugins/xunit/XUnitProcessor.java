@@ -3,8 +3,6 @@ package org.jenkinsci.plugins.xunit;
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Singleton;
-import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
-import com.thalesgroup.dtkit.metrics.model.InputMetric;
 import hudson.FilePath;
 import hudson.Util;
 import hudson.model.AbstractBuild;
@@ -16,6 +14,8 @@ import hudson.tasks.junit.TestResult;
 import hudson.tasks.junit.TestResultAction;
 import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
+import org.jenkinsci.lib.dtkit.model.InputMetric;
+import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.xunit.exception.XUnitException;
 import org.jenkinsci.plugins.xunit.service.*;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
@@ -114,15 +114,15 @@ public class XUnitProcessor implements Serializable {
                     result = getWorkspace(build).act(xUnitTransformer);
                     findTest = true;
                 } catch (InterruptedException ie) {
-                	// handled tunneled exceptions
-                	Throwable originalException = null;
-                	Throwable cause = ie.getCause();
-                	while (cause != null) {
-                		originalException = cause;
-                		cause = cause.getCause();
-                	}
-                	if (originalException instanceof InterruptedException)
-                		ie = (InterruptedException)originalException;
+                    // handled tunneled exceptions
+                    Throwable originalException = null;
+                    Throwable cause = ie.getCause();
+                    while (cause != null) {
+                        originalException = cause;
+                        cause = cause.getCause();
+                    }
+                    if (originalException instanceof InterruptedException)
+                        ie = (InterruptedException) originalException;
 
                     if (ie instanceof NoFoundTestException) {
                         xUnitLog.infoConsoleLogger("Failing BUILD.");

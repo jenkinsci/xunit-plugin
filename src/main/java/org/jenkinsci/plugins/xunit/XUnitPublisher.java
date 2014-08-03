@@ -1,7 +1,5 @@
 package org.jenkinsci.plugins.xunit;
 
-import com.thalesgroup.dtkit.metrics.hudson.api.descriptor.TestTypeDescriptor;
-import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
 import hudson.DescriptorExtensionList;
 import hudson.Extension;
 import hudson.Launcher;
@@ -13,6 +11,8 @@ import hudson.tasks.Recorder;
 import hudson.tasks.junit.JUnitResultArchiver;
 import hudson.tasks.test.TestResultProjectAction;
 import org.jenkinsci.lib.dryrun.DryRun;
+import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
+import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
 import org.jenkinsci.plugins.xunit.threshold.SkippedThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;

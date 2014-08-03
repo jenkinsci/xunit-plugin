@@ -1,11 +1,12 @@
 package org.jenkinsci.plugins.xunit.types;
 
-import com.thalesgroup.dtkit.metrics.model.InputMetricOther;
-import com.thalesgroup.dtkit.util.converter.ConversionException;
-import com.thalesgroup.dtkit.util.validator.ValidationError;
-import com.thalesgroup.dtkit.util.validator.ValidationException;
+
 import hudson.FilePath;
 import org.apache.commons.io.FileUtils;
+import org.jenkinsci.lib.dtkit.model.InputMetricOther;
+import org.jenkinsci.lib.dtkit.util.converter.ConversionException;
+import org.jenkinsci.lib.dtkit.util.validator.ValidationError;
+import org.jenkinsci.lib.dtkit.util.validator.ValidationException;
 import org.jenkinsci.plugins.xunit.types.model.JUnit10;
 
 import java.io.File;

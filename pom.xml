@@ -22,7 +22,7 @@
 
     <developers>
         <developer>
-            <id>gbois</id>
+            <id>gboissinot</id>
             <name>Gregory Boissinot</name>
             <email>gregory.boissinot@gmail.com</email>
             <timezone>+1</timezone>
@@ -37,9 +37,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
-        <dtkit.frmk.version>1.0.0</dtkit.frmk.version>
-        <dtkit.junit.format>0.20</dtkit.junit.format>
-        <dtkit.default.junit.version>0.39</dtkit.default.junit.version>
+        <dtkit.frmk.version>2.0.0-SNAPSHOT</dtkit.frmk.version>
         <xerces.version>2.9.1</xerces.version>
         <saxon.version>9.1.0.8</saxon.version>
         <dry.run.version>0.1</dry.run.version>
@@ -94,49 +92,49 @@
             <version>${dtkit.frmk.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.jenkins-ci.lib.dtkit</groupId>
-            <artifactId>dtkit-junit-model</artifactId>
-            <version>${dtkit.junit.format}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.thalesgroup.dtkit</groupId>
-                    <artifactId>dtkit-metrics-util</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.thalesgroup.dtkit</groupId>
-                    <artifactId>dtkit-metrics-model</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.jenkins-ci.lib.dtkit</groupId>-->
+            <!--<artifactId>dtkit-junit-model</artifactId>-->
+            <!--<version>${dtkit.junit.format}</version>-->
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<groupId>com.thalesgroup.dtkit</groupId>-->
+                    <!--<artifactId>dtkit-metrics-util</artifactId>-->
+                <!--</exclusion>-->
+                <!--<exclusion>-->
+                    <!--<groupId>com.thalesgroup.dtkit</groupId>-->
+                    <!--<artifactId>dtkit-metrics-model</artifactId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
+        <!--</dependency>-->
 
-        <dependency>
-            <groupId>org.jenkins-ci.lib.dtkit</groupId>
-            <artifactId>dtkit-default-junit-jenkins</artifactId>
-            <version>${dtkit.default.junit.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax.xml.bind</groupId>
-                    <artifactId>jaxb-api</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.sun.xml.bind</groupId>
-                    <artifactId>jaxb-impl</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.thalesgroup.dtkit</groupId>
-                    <artifactId>dtkit-processor</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.thalesgroup.dtkit</groupId>
-                    <artifactId>dtkit-metrics-hudson-api</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.thalesgroup.dtkit</groupId>
-                    <artifactId>dtkit-metrics-model</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.jenkins-ci.lib.dtkit</groupId>-->
+            <!--<artifactId>dtkit-default-junit-jenkins</artifactId>-->
+            <!--<version>${dtkit.default.junit.version}</version>-->
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<groupId>javax.xml.bind</groupId>-->
+                    <!--<artifactId>jaxb-api</artifactId>-->
+                <!--</exclusion>-->
+                <!--<exclusion>-->
+                    <!--<groupId>com.sun.xml.bind</groupId>-->
+                    <!--<artifactId>jaxb-impl</artifactId>-->
+                <!--</exclusion>-->
+                <!--<exclusion>-->
+                    <!--<groupId>com.thalesgroup.dtkit</groupId>-->
+                    <!--<artifactId>dtkit-processor</artifactId>-->
+                <!--</exclusion>-->
+                <!--<exclusion>-->
+                    <!--<groupId>com.thalesgroup.dtkit</groupId>-->
+                    <!--<artifactId>dtkit-metrics-hudson-api</artifactId>-->
+                <!--</exclusion>-->
+                <!--<exclusion>-->
+                    <!--<groupId>com.thalesgroup.dtkit</groupId>-->
+                    <!--<artifactId>dtkit-metrics-model</artifactId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>org.jenkins-ci.lib</groupId>

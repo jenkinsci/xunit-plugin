@@ -1,14 +1,16 @@
 package org.jenkinsci.plugins.xunit;
 
-import com.thalesgroup.dtkit.metrics.hudson.api.descriptor.TestTypeDescriptor;
-import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
+
 import hudson.DescriptorExtensionList;
 import hudson.init.InitMilestone;
 import hudson.init.Initializer;
 import hudson.model.Hudson;
 import hudson.model.Items;
+import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
+import org.jenkinsci.lib.dtkit.type.TestType;
 
 import java.util.Iterator;
+
 
 /**
  * @author Gregory Boissinot

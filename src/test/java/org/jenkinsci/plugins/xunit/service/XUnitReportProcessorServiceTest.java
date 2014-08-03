@@ -3,15 +3,15 @@ package org.jenkinsci.plugins.xunit.service;
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Singleton;
-import com.thalesgroup.dtkit.junit.model.JUnitModel;
-import com.thalesgroup.dtkit.metrics.hudson.api.descriptor.TestTypeDescriptor;
-import com.thalesgroup.dtkit.metrics.hudson.api.type.TestType;
-import com.thalesgroup.dtkit.metrics.model.InputMetricType;
-import com.thalesgroup.dtkit.metrics.model.InputMetricXSL;
-import com.thalesgroup.dtkit.metrics.model.InputType;
-import com.thalesgroup.dtkit.metrics.model.OutputMetric;
 import hudson.Util;
 import hudson.model.BuildListener;
+import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
+import org.jenkinsci.lib.dtkit.model.InputMetricType;
+import org.jenkinsci.lib.dtkit.model.InputMetricXSL;
+import org.jenkinsci.lib.dtkit.model.InputType;
+import org.jenkinsci.lib.dtkit.model.OutputMetric;
+import org.jenkinsci.lib.dtkit.type.TestType;
+import org.jenkinsci.plugins.xunit.types.model.JUnitModel;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -63,7 +63,7 @@ public class XUnitReportProcessorServiceTest {
 
         @Override
         public OutputMetric getOutputFormatType() {
-            return JUnitModel.OUTPUT_JUNIT_1_0;
+            return JUnitModel.LATEST;
         }
     }
 

@@ -104,7 +104,8 @@ public class XUnitReportProcessorService extends XUnitService implements Seriali
                 for (File f : oldResults) {
                     stringBuilder.append(
                             String.format("  * %s is %s old%n", f,
-                                    Util.getTimeSpanString(xUnitToolInfo.getBuildTime() - f.lastModified())));
+                                    Util.getTimeSpanString(xUnitToolInfo.getBuildTime() - f.lastModified()))
+                    );
                 }
                 String msg = stringBuilder.toString();
                 xUnitLog.errorConsoleLogger(msg);

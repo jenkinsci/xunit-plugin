@@ -3,14 +3,14 @@ package org.jenkinsci.plugins.xunit.service;
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Stage;
-import com.thalesgroup.dtkit.junit.model.JUnitModel;
-import com.thalesgroup.dtkit.metrics.model.InputMetricType;
-import com.thalesgroup.dtkit.metrics.model.InputMetricXSL;
-import com.thalesgroup.dtkit.metrics.model.InputType;
-import com.thalesgroup.dtkit.metrics.model.OutputMetric;
 import hudson.model.BuildListener;
 import hudson.remoting.VirtualChannel;
+import org.jenkinsci.lib.dtkit.model.InputMetricType;
+import org.jenkinsci.lib.dtkit.model.InputMetricXSL;
+import org.jenkinsci.lib.dtkit.model.InputType;
+import org.jenkinsci.lib.dtkit.model.OutputMetric;
 import org.jenkinsci.plugins.xunit.NoFoundTestException;
+import org.jenkinsci.plugins.xunit.types.model.JUnitModel;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
@@ -107,7 +107,7 @@ public class XUnitTransformerTest {
 
         @Override
         public OutputMetric getOutputFormatType() {
-            return JUnitModel.OUTPUT_JUNIT_1_0;
+            return JUnitModel.LATEST;
         }
     }
 

@@ -1,10 +1,11 @@
 package org.jenkinsci.plugins.xunit.types;
 
-import com.thalesgroup.dtkit.metrics.model.InputMetric;
-import com.thalesgroup.dtkit.metrics.model.InputMetricFactory;
-import com.thalesgroup.dtkit.util.validator.ValidationError;
+
 import org.custommonkey.xmlunit.Diff;
 import org.custommonkey.xmlunit.XMLUnit;
+import org.jenkinsci.lib.dtkit.model.InputMetric;
+import org.jenkinsci.lib.dtkit.model.InputMetricFactory;
+import org.jenkinsci.lib.dtkit.util.validator.ValidationError;
 import org.junit.Assert;
 
 import java.io.*;
