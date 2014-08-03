@@ -92,50 +92,6 @@
             <version>${dtkit.frmk.version}</version>
         </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>org.jenkins-ci.lib.dtkit</groupId>-->
-            <!--<artifactId>dtkit-junit-model</artifactId>-->
-            <!--<version>${dtkit.junit.format}</version>-->
-            <!--<exclusions>-->
-                <!--<exclusion>-->
-                    <!--<groupId>com.thalesgroup.dtkit</groupId>-->
-                    <!--<artifactId>dtkit-metrics-util</artifactId>-->
-                <!--</exclusion>-->
-                <!--<exclusion>-->
-                    <!--<groupId>com.thalesgroup.dtkit</groupId>-->
-                    <!--<artifactId>dtkit-metrics-model</artifactId>-->
-                <!--</exclusion>-->
-            <!--</exclusions>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-            <!--<groupId>org.jenkins-ci.lib.dtkit</groupId>-->
-            <!--<artifactId>dtkit-default-junit-jenkins</artifactId>-->
-            <!--<version>${dtkit.default.junit.version}</version>-->
-            <!--<exclusions>-->
-                <!--<exclusion>-->
-                    <!--<groupId>javax.xml.bind</groupId>-->
-                    <!--<artifactId>jaxb-api</artifactId>-->
-                <!--</exclusion>-->
-                <!--<exclusion>-->
-                    <!--<groupId>com.sun.xml.bind</groupId>-->
-                    <!--<artifactId>jaxb-impl</artifactId>-->
-                <!--</exclusion>-->
-                <!--<exclusion>-->
-                    <!--<groupId>com.thalesgroup.dtkit</groupId>-->
-                    <!--<artifactId>dtkit-processor</artifactId>-->
-                <!--</exclusion>-->
-                <!--<exclusion>-->
-                    <!--<groupId>com.thalesgroup.dtkit</groupId>-->
-                    <!--<artifactId>dtkit-metrics-hudson-api</artifactId>-->
-                <!--</exclusion>-->
-                <!--<exclusion>-->
-                    <!--<groupId>com.thalesgroup.dtkit</groupId>-->
-                    <!--<artifactId>dtkit-metrics-model</artifactId>-->
-                <!--</exclusion>-->
-            <!--</exclusions>-->
-        <!--</dependency>-->
-
         <dependency>
             <groupId>org.jenkins-ci.lib</groupId>
             <artifactId>dry-run-lib</artifactId>
