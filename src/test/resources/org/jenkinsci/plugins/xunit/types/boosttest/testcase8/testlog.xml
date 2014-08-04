@@ -1,0 +1,1737 @@
+<TestLog>
+    <TestSuite name="Crete Unit Test">
+        <TestCase name="VFSSnapshotTest">
+            <Info file="vfstest.cpp" line="76">check l_obj passed</Info>
+            <Info file="vfstest.cpp" line="78">check l_snapshot passed</Info>
+            <Info file="vfstest.cpp" line="80">check !children-&gt;is_open() passed</Info>
+            <Info file="vfstest.cpp" line="82">check !children-&gt;is_open() passed</Info>
+            <Info file="vfstest.cpp" line="86">check l_obj-&gt;property(keys-&gt;current()) == l_snapshot-&gt;property(&quot;origin.&quot;
+                + keys-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="86">check l_obj-&gt;property(keys-&gt;current()) == l_snapshot-&gt;property(&quot;origin.&quot;
+                + keys-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="86">check l_obj-&gt;property(keys-&gt;current()) == l_snapshot-&gt;property(&quot;origin.&quot;
+                + keys-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="86">check l_obj-&gt;property(keys-&gt;current()) == l_snapshot-&gt;property(&quot;origin.&quot;
+                + keys-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="86">check l_obj-&gt;property(keys-&gt;current()) == l_snapshot-&gt;property(&quot;origin.&quot;
+                + keys-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="86">check l_obj-&gt;property(keys-&gt;current()) == l_snapshot-&gt;property(&quot;origin.&quot;
+                + keys-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="86">check l_obj-&gt;property(keys-&gt;current()) == l_snapshot-&gt;property(&quot;origin.&quot;
+                + keys-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="86">check l_obj-&gt;property(keys-&gt;current()) == l_snapshot-&gt;property(&quot;origin.&quot;
+                + keys-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="86">check l_obj-&gt;property(keys-&gt;current()) == l_snapshot-&gt;property(&quot;origin.&quot;
+                + keys-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="86">check l_obj-&gt;property(keys-&gt;current()) == l_snapshot-&gt;property(&quot;origin.&quot;
+                + keys-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="86">check l_obj-&gt;property(keys-&gt;current()) == l_snapshot-&gt;property(&quot;origin.&quot;
+                + keys-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="86">check l_obj-&gt;property(keys-&gt;current()) == l_snapshot-&gt;property(&quot;origin.&quot;
+                + keys-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="91">check l_origin_obj passed</Info>
+            <Info file="vfstest.cpp" line="94">check l_snapshot-&gt;property(keys-&gt;current()) == l_origin_obj-&gt;property(keys-&gt;current())
+                passed
+            </Info>
+            <Info file="vfstest.cpp" line="94">check l_snapshot-&gt;property(keys-&gt;current()) == l_origin_obj-&gt;property(keys-&gt;current())
+                passed
+            </Info>
+            <Info file="vfstest.cpp" line="94">check l_snapshot-&gt;property(keys-&gt;current()) == l_origin_obj-&gt;property(keys-&gt;current())
+                passed
+            </Info>
+            <Info file="vfstest.cpp" line="94">check l_snapshot-&gt;property(keys-&gt;current()) == l_origin_obj-&gt;property(keys-&gt;current())
+                passed
+            </Info>
+            <Info file="vfstest.cpp" line="94">check l_snapshot-&gt;property(keys-&gt;current()) == l_origin_obj-&gt;property(keys-&gt;current())
+                passed
+            </Info>
+            <Info file="vfstest.cpp" line="94">check l_snapshot-&gt;property(keys-&gt;current()) == l_origin_obj-&gt;property(keys-&gt;current())
+                passed
+            </Info>
+            <Info file="vfstest.cpp" line="94">check l_snapshot-&gt;property(keys-&gt;current()) == l_origin_obj-&gt;property(keys-&gt;current())
+                passed
+            </Info>
+            <Info file="vfstest.cpp" line="94">check l_snapshot-&gt;property(keys-&gt;current()) == l_origin_obj-&gt;property(keys-&gt;current())
+                passed
+            </Info>
+            <Info file="vfstest.cpp" line="94">check l_snapshot-&gt;property(keys-&gt;current()) == l_origin_obj-&gt;property(keys-&gt;current())
+                passed
+            </Info>
+            <Info file="vfstest.cpp" line="94">check l_snapshot-&gt;property(keys-&gt;current()) == l_origin_obj-&gt;property(keys-&gt;current())
+                passed
+            </Info>
+            <Info file="vfstest.cpp" line="94">check l_snapshot-&gt;property(keys-&gt;current()) == l_origin_obj-&gt;property(keys-&gt;current())
+                passed
+            </Info>
+            <Info file="vfstest.cpp" line="94">check l_snapshot-&gt;property(keys-&gt;current()) == l_origin_obj-&gt;property(keys-&gt;current())
+                passed
+            </Info>
+            <Info file="vfstest.cpp" line="99">check !children-&gt;is_open() passed</Info>
+            <Info file="vfstest.cpp" line="101">check !children-&gt;is_open() passed</Info>
+            <TestingTime>10000</TestingTime>
+        </TestCase>
+        <TestCase name="VFSTest">
+            <Info file="vfstest.cpp" line="106">check !l_vfs-&gt;parent() passed</Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="ObjectTest">
+            <Info file="vfstest.cpp" line="25">check l_obj passed</Info>
+            <Info file="vfstest.cpp" line="29">check *(l_obj.get()) == *(l_obj2.get()) passed</Info>
+            <Info file="vfstest.cpp" line="30">check *(l_obj.get()) != *(l_obj3.get()) passed</Info>
+            <Info file="vfstest.cpp" line="39">check l_obj passed</Info>
+            <Info file="vfstest.cpp" line="49">check !l_obj passed</Info>
+            <Info file="vfstest.cpp" line="54">check !getpwuid_r(getuid(), &amp;l_passwd, l_buffer, 1024, &amp;l_ppasswd)
+                passed
+            </Info>
+            <Info file="vfstest.cpp" line="56">check l_obj passed</Info>
+            <Info file="vfstest.cpp" line="58">check !l_children-&gt;is_open() passed</Info>
+            <Info file="vfstest.cpp" line="59">check !l_obj-&gt;create(std::map&lt;std::string, Tethys::VFS::Variant&gt;(),
+                false, 0) passed
+            </Info>
+            <Info file="vfstest.cpp" line="60">check !l_obj-&gt;find(&quot;&quot;) passed</Info>
+            <Info file="vfstest.cpp" line="61">check boost::get&lt;std::string&gt;(l_obj-&gt;property(&quot;type&quot;))
+                == &quot;file&quot; passed
+            </Info>
+            <Info file="vfstest.cpp" line="63">check boost::get&lt;int&gt;(l_obj-&gt;property(&quot;filesystem.uid&quot;))
+                == static_cast&lt;int&gt;(l_passwd.pw_uid) passed
+            </Info>
+            <Info file="vfstest.cpp" line="65">check boost::get&lt;int&gt;(l_obj-&gt;property(&quot;filesystem.gid&quot;))
+                == static_cast&lt;int&gt;(l_passwd.pw_gid) passed
+            </Info>
+            <Info file="vfstest.cpp" line="67">check boost::get&lt;std::string&gt;(l_obj-&gt;property(&quot;filesystem.user&quot;))
+                == l_passwd.pw_name passed
+            </Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="VFSTestChecksum">
+            <Info file="vfstest.cpp" line="243">check &quot;9fce82c34887c1953b40b3a2883e18850c4fa8a6&quot; ==
+                formatted_checksum passed
+            </Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="DirTest">
+            <Info file="vfstest.cpp" line="142">check dir_obj passed</Info>
+            <Info file="vfstest.cpp" line="145">check !dir_obj-&gt;create(std::map&lt;std::string, Tethys::VFS::Variant&gt;(),
+                false, 0) passed
+            </Info>
+            <Info file="vfstest.cpp" line="146">check !dir_obj-&gt;find(&quot;&quot;) passed</Info>
+            <Info file="vfstest.cpp" line="148">check !vfs.parent() passed</Info>
+            <Info file="vfstest.cpp" line="149">check !vfs.create(std::map&lt;std::string, Tethys::VFS::Variant&gt;(),
+                false, 0) passed
+            </Info>
+            <Info file="vfstest.cpp" line="156">check count == 2 passed</Info>
+            <Info file="vfstest.cpp" line="157">check &quot;linux&quot; == boost::get&lt;std::string&gt;(vfs.property(&quot;name&quot;))
+                passed
+            </Info>
+            <Info file="vfstest.cpp" line="158">check &quot;vfs&quot; == boost::get&lt;std::string&gt;(vfs.property(&quot;type&quot;))
+                passed
+            </Info>
+            <Info file="vfstest.cpp" line="162">check Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="162">check Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="162">check Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="162">check Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="162">check Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="162">check Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="162">check Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="162">check Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="162">check Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="162">check Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="162">check Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="162">check Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="162">check Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="162">check Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="162">check Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="162">check Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="162">check Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="162">check Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="162">check Com(vfs_children-&gt;current(), obj_children-&gt;current()) passed
+            </Info>
+            <Info file="vfstest.cpp" line="166">check !vfs_children-&gt;is_open() passed</Info>
+            <Info file="vfstest.cpp" line="167">check !obj_children-&gt;is_open() passed</Info>
+            <Info file="vfstest.cpp" line="170">check !refs-&gt;is_open() passed</Info>
+            <Info file="vfstest.cpp" line="172">check !refs-&gt;is_open() passed</Info>
+            <Info file="vfstest.cpp" line="176">check !vfs.open() passed</Info>
+            <Info file="vfstest.cpp" line="177">check !dir_obj-&gt;open() passed</Info>
+            <Info file="vfstest.cpp" line="179">check !mkdir(&quot;/tmp/TESTDIRAAAAA&quot;, 0766) passed</Info>
+            <Info file="vfstest.cpp" line="180">check !mkdir(&quot;/tmp/TESTDIRAAAAA/TESTDIRB&quot;, 0666) passed</Info>
+            <Info file="vfstest.cpp" line="182">check test_dir_a passed</Info>
+            <Info file="vfstest.cpp" line="184">check obj_children-&gt;is_open() passed</Info>
+            <Info file="vfstest.cpp" line="189">check !test_dir_a passed</Info>
+            <Info file="vfstest.cpp" line="191">check !test_dir_b passed</Info>
+            <Info file="vfstest.cpp" line="197">check !symlink(&quot;/&quot;, &quot;/tmp/TESTFORLINK&quot;) passed
+            </Info>
+            <Info file="vfstest.cpp" line="198">check !lstat64(&quot;/tmp/TESTFORLINK&quot;, &amp;obj_stat) passed
+            </Info>
+            <Info file="vfstest.cpp" line="200">check link_obj passed</Info>
+            <Info file="vfstest.cpp" line="201">check &quot;link&quot; == boost::get&lt;std::string&gt;(link_obj-&gt;property(&quot;type&quot;))
+                passed
+            </Info>
+            <Info file="vfstest.cpp" line="203">check link_refs-&gt;is_open() passed</Info>
+            <Info file="vfstest.cpp" line="204">check Com(link_refs-&gt;current(), vfs.find(&quot;/&quot;)) passed
+            </Info>
+            <Info file="vfstest.cpp" line="208">check !symlink(tmp.GetPath(), &quot;/tmp/TESTFORLINK&quot;) passed
+            </Info>
+            <Info file="vfstest.cpp" line="209">check !lstat64(&quot;/tmp/TESTFORLINK&quot;, &amp;obj_stat) passed
+            </Info>
+            <Info file="vfstest.cpp" line="211">check link_obj passed</Info>
+            <Info file="vfstest.cpp" line="212">check Com(VFS::Linux::resolvePath(&quot;/tmp&quot;), link_obj-&gt;parent())
+                passed
+            </Info>
+            <Info file="vfstest.cpp" line="214">check link_refs-&gt;is_open() passed</Info>
+            <Info file="vfstest.cpp" line="215">check Com(link_refs-&gt;current(), vfs.find(tmp.GetPath())) passed
+            </Info>
+            <TestingTime>30000</TestingTime>
+        </TestCase>
+        <TestCase name="TempFileTestCreateAndRemove">
+            <Info file="utilitiestest.cpp" line="19">check stat(tmp_path.c_str(), &amp;tmp_stat) == 0 passed</Info>
+            <Info file="utilitiestest.cpp" line="20">check ((((tmp_stat.st_mode)) &amp; 0170000) == (0100000)) passed
+            </Info>
+            <Info file="utilitiestest.cpp" line="22">check stat(tmp_path.c_str(), &amp;tmp_stat) == -1 passed</Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TempFileTestCreateSpecialFile">
+            <Info file="utilitiestest.cpp" line="28">check stat(tmp.GetPath(), &amp;tmp_stat) == 0 passed</Info>
+            <Info file="utilitiestest.cpp" line="29">check ((((tmp_stat.st_mode)) &amp; 0170000) == (0100000)) passed
+            </Info>
+            <Info file="utilitiestest.cpp" line="30">check std::string(&quot;/tmp/test.doc&quot;) ==
+                std::string(tmp.GetPath()) passed
+            </Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TempFileTestNoCleanUp">
+            <Info file="utilitiestest.cpp" line="39">check stat(tmp_path.c_str(), &amp;tmp_stat) == 0 passed</Info>
+            <Info file="utilitiestest.cpp" line="40">check ((((tmp_stat.st_mode)) &amp; 0170000) == (0100000)) passed
+            </Info>
+            <Info file="utilitiestest.cpp" line="42">check stat(tmp_path.c_str(), &amp;tmp_stat) == 0 passed</Info>
+            <Info file="utilitiestest.cpp" line="43">check ((((tmp_stat.st_mode)) &amp; 0170000) == (0100000)) passed
+            </Info>
+            <Info file="utilitiestest.cpp" line="45">check ::unlink(&quot;/tmp/test_no_clean_up&quot;) == 0 passed
+            </Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="GetSda1PartitionUUID">
+            <Info file="utilitiestest.cpp" line="89">check dest_str1 == TestGetSda1PartitionUUID(out_str1) passed</Info>
+            <Info file="utilitiestest.cpp" line="93">check dest_str2 == TestGetSda1PartitionUUID(out_str2) passed</Info>
+            <Info file="utilitiestest.cpp" line="106">check dest_str3 == TestGetSda1PartitionUUID(out_str3) passed
+            </Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="CreateDirectoryTest">
+            <Info file="tritonoperationtest.cpp" line="99">check fs::exists(&quot;/tmp/hello/world/test/&quot;) passed
+            </Info>
+            <Info file="tritonoperationtest.cpp" line="100">check fs::remove_all(&quot;/tmp/hello/&quot;) &gt; 0 passed
+            </Info>
+            <Info file="tritonoperationtest.cpp" line="104">check fs::exists(&quot;/tmp/already/exists/&quot;) passed
+            </Info>
+            <Info file="tritonoperationtest.cpp" line="106">check fs::exists(&quot;/tmp/already/exists/&quot;) passed
+            </Info>
+            <Info file="tritonoperationtest.cpp" line="107">check fs::remove_all(&quot;/tmp/already/&quot;) &gt; 0
+                passed
+            </Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TritonOperationTest">
+            <Warning file="tritonoperationtest.cpp" line="46">triton.host not defined</Warning>
+            <Message file="./boost/test/impl/results_collector.ipp" line="220">Test case TritonOperationTest did not run
+                any assertions
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TritonOperationTest2">
+            <Warning file="tritonoperationtest.cpp" line="46">triton.host not defined</Warning>
+            <Message file="./boost/test/impl/results_collector.ipp" line="220">Test case TritonOperationTest2 did not
+                run any assertions
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TritonOperationTest3">
+            <Warning file="tritonoperationtest.cpp" line="46">triton.host not defined</Warning>
+            <Message file="./boost/test/impl/results_collector.ipp" line="220">Test case TritonOperationTest3 did not
+                run any assertions
+            </Message>
+            <TestingTime>10000</TestingTime>
+        </TestCase>
+        <TestCase name="TritonOperationQueueOrderTest">
+            <Info file="tritonoperationqueuetest.cpp" line="33">check !queue.Poll() passed</Info>
+            <Info file="tritonoperationqueuetest.cpp" line="52">check op2 == queue.Poll() passed</Info>
+            <Info file="tritonoperationqueuetest.cpp" line="53">check op3 == queue.Poll() passed</Info>
+            <Info file="tritonoperationqueuetest.cpp" line="54">check op4 == queue.Poll() passed</Info>
+            <Info file="tritonoperationqueuetest.cpp" line="55">check op6 == queue.Poll() passed</Info>
+            <Info file="tritonoperationqueuetest.cpp" line="56">check op5 == queue.Poll() passed</Info>
+            <Info file="tritonoperationqueuetest.cpp" line="57">check op1 == queue.Poll() passed</Info>
+            <Info file="tritonoperationqueuetest.cpp" line="58">check op7 == queue.Poll() passed</Info>
+            <Info file="tritonoperationqueuetest.cpp" line="59">check op8 == queue.Poll() passed</Info>
+            <Info file="tritonoperationqueuetest.cpp" line="61">check !queue.Poll() passed</Info>
+            <Info file="tritonoperationqueuetest.cpp" line="62">check !queue.Poll() passed</Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TritonOperationQueueTestSingleThread">
+            <Info file="tritonoperationqueuetest.cpp" line="71">check queue.Poll() == __null passed</Info>
+            <Info file="tritonoperationqueuetest.cpp" line="75">check queue.Poll() == op1 passed</Info>
+            <Info file="tritonoperationqueuetest.cpp" line="77">check queue.Poll() == op2 passed</Info>
+            <Info file="tritonoperationqueuetest.cpp" line="78">check queue.Poll() == op3 passed</Info>
+            <Info file="tritonoperationqueuetest.cpp" line="79">check queue.Poll() == __null passed</Info>
+            <Info file="tritonoperationqueuetest.cpp" line="80">check queue.Poll() == __null passed</Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TritonOperationQueueTestMultipleThreads">
+            <Info file="tritonoperationqueuetest.cpp" line="104">check queue.Poll() == __null passed</Info>
+            <Info file="tritonoperationqueuetest.cpp" line="105">check queue.Poll() == __null passed</Info>
+            <TestingTime>10000</TestingTime>
+        </TestCase>
+        <TestCase name="ThreadTestJoin">
+            <Info file="threadtest.cpp" line="23">check initialized_ passed</Info>
+            <Info file="threadtest.cpp" line="23">check initialized_ passed</Info>
+            <Info file="threadtest.cpp" line="23">check initialized_ passed</Info>
+            <Info file="threadtest.cpp" line="78">check 0 == thread.GetCounter() passed</Info>
+            <TestingTime>10000</TestingTime>
+        </TestCase>
+        <TestCase name="ThreadTestPause">
+            <Info file="threadtest.cpp" line="23">check initialized_ passed</Info>
+            <Info file="threadtest.cpp" line="23">check initialized_ passed</Info>
+            <Info file="threadtest.cpp" line="23">check initialized_ passed</Info>
+            <Info file="threadtest.cpp" line="23">check initialized_ passed</Info>
+            <Info file="threadtest.cpp" line="23">check initialized_ passed</Info>
+            <Info file="threadtest.cpp" line="23">check initialized_ passed</Info>
+            <Info file="threadtest.cpp" line="92">check 0 == thread.GetCounter() passed</Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="ThreadTestRestart">
+            <Info file="threadtest.cpp" line="23">check initialized_ passed</Info>
+            <Info file="threadtest.cpp" line="23">check initialized_ passed</Info>
+            <Info file="threadtest.cpp" line="23">check initialized_ passed</Info>
+            <Info file="threadtest.cpp" line="99">check 0 == thread.GetCounter() passed</Info>
+            <Info file="threadtest.cpp" line="101">check 3 == thread.GetCounter() passed</Info>
+            <Info file="threadtest.cpp" line="23">check initialized_ passed</Info>
+            <Info file="threadtest.cpp" line="23">check initialized_ passed</Info>
+            <Info file="threadtest.cpp" line="23">check initialized_ passed</Info>
+            <Info file="threadtest.cpp" line="105">check 0 == thread.GetCounter() passed</Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="ThreadTestInterrupt">
+            <Info file="threadtest.cpp" line="23">check initialized_ passed</Info>
+            <Info file="threadtest.cpp" line="23">check initialized_ passed</Info>
+            <Info file="threadtest.cpp" line="113">check thread.GetCounter() &gt; 0 passed</Info>
+            <TestingTime>10000</TestingTime>
+        </TestCase>
+        <TestCase name="ThreadTestInitFailed">
+            <Message file="./boost/test/impl/results_collector.ipp" line="220">Test case ThreadTestInitFailed did not
+                run any assertions
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="ThreadTestInterruptionNotIgnored">
+            <Message file="./boost/test/impl/results_collector.ipp" line="220">Test case
+                ThreadTestInterruptionNotIgnored did not run any assertions
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="ThreadTestNotStarted">
+            <Info file="threadtest.cpp" line="145">check &apos;exception crete::ApplicationException is caught&apos;
+                passed
+            </Info>
+            <Info file="threadtest.cpp" line="146">check &apos;exception crete::ApplicationException is caught&apos;
+                passed
+            </Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="ThreadPoolTestNoJob">
+            <Message file="./boost/test/impl/results_collector.ipp" line="220">Test case ThreadPoolTestNoJob did not run
+                any assertions
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="ThreadPoolTestLargePool">
+            <Info file="threadpooltest.cpp" line="71">check job_count == execute_counter.GetCount() passed</Info>
+            <Info file="threadpooltest.cpp" line="72">check job_count == dtor_counter.GetCount() passed</Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="ThreadPoolTestSmallPool">
+            <Info file="threadpooltest.cpp" line="71">check job_count == execute_counter.GetCount() passed</Info>
+            <Info file="threadpooltest.cpp" line="72">check job_count == dtor_counter.GetCount() passed</Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="ThreadPoolTestNormalPool">
+            <Info file="threadpooltest.cpp" line="71">check job_count == execute_counter.GetCount() passed</Info>
+            <Info file="threadpooltest.cpp" line="72">check job_count == dtor_counter.GetCount() passed</Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="ThreadPoolTestDiscardPendingJobs">
+            <Info file="threadpooltest.cpp" line="105">check execute_counter.GetCount() &lt; JOB_COUNT passed</Info>
+            <Info file="threadpooltest.cpp" line="106">check dtor_counter.GetCount() == JOB_COUNT passed</Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="SysConfigTest">
+            <Info file="sysconfigtest.cpp" line="13">check sysconf-&gt;Get(&quot;nonexist&quot;) == &quot;&quot; passed
+            </Info>
+            <Info file="sysconfigtest.cpp" line="14">check sysconf-&gt;Get(&quot;username&quot;) == &quot;crete_test0005@tester.org&quot;
+                passed
+            </Info>
+            <Info file="sysconfigtest.cpp" line="15">check sysconf-&gt;Get(&quot;password&quot;) == &quot;password&quot;
+                passed
+            </Info>
+            <Info file="sysconfigtest.cpp" line="16">check sysconf-&gt;Get(&quot;license&quot;) == &quot;2VZQXT2WWV9TWDE67TTG&quot;
+                passed
+            </Info>
+            <Info file="sysconfigtest.cpp" line="17">check sysconf-&gt;Get(&quot;bushost&quot;) == &quot;https://192.168.89.194&quot;
+                passed
+            </Info>
+            <Info file="sysconfigtest.cpp" line="18">check sysconf-&gt;Get(&quot;tritonhost&quot;) == &quot;https://192.168.89.62:9444&quot;
+                passed
+            </Info>
+            <Info file="sysconfigtest.cpp" line="19">check sysconf-&gt;Get(&quot;empty&quot;) == &quot;&quot; passed
+            </Info>
+            <Info file="sysconfigtest.cpp" line="20">check sysconf-&gt;Get(&quot;SetV&quot;) == &quot;&quot; passed
+            </Info>
+            <Info file="sysconfigtest.cpp" line="22">check sysconf-&gt;Get(&quot;SetV&quot;) == &quot;123321&quot;
+                passed
+            </Info>
+            <Info file="sysconfigtest.cpp" line="24">check sysconf-&gt;Get(&quot;SetV&quot;) == &quot;000&quot; passed
+            </Info>
+            <Info file="sysconfigtest.cpp" line="26">check sysconf-&gt;Get(&quot;SetV&quot;) == &quot;&quot; passed
+            </Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="SQLiteWrapperTest">
+            <Info file="sqlitewrappertest.cpp" line="21">check conn.ExecuteUpdate( &quot;insert into testwrapper(&quot;
+                &quot;col1, col2, col3) values(1.21, &apos;abc&apos;, &apos;abc&apos;)&quot; ) == 1 passed
+            </Info>
+            <Info file="sqlitewrappertest.cpp" line="23">check rs passed</Info>
+            <Info file="sqlitewrappertest.cpp" line="24">check rs-&gt;Next() passed</Info>
+            <Info file="sqlitewrappertest.cpp" line="25">check rs-&gt;GetDouble(1) == 1.21 passed</Info>
+            <Info file="sqlitewrappertest.cpp" line="26">check rs-&gt;GetString(2) == &quot;abc&quot; passed</Info>
+            <Info file="sqlitewrappertest.cpp" line="27">check rs-&gt;GetInt(0) == rs-&gt;GetInt(&quot;id&quot;) passed
+            </Info>
+            <Info file="sqlitewrappertest.cpp" line="28">check rs-&gt;GetDouble(1) == rs-&gt;GetDouble(&quot;col1&quot;)
+                passed
+            </Info>
+            <Info file="sqlitewrappertest.cpp" line="29">check rs-&gt;GetString(2) == rs-&gt;GetString(&quot;col2&quot;)
+                passed
+            </Info>
+            <Info file="sqlitewrappertest.cpp" line="37">check pst-&gt;ExecuteUpdate() == 1 passed</Info>
+            <Info file="sqlitewrappertest.cpp" line="39">check conn.ExecuteUpdate(&quot;delete from testwrapper where
+                col1=23.12&quot;) == 1 passed
+            </Info>
+            <Info file="sqlitewrappertest.cpp" line="40">check &apos;exception SQLiteException is caught&apos; passed
+            </Info>
+            <Info file="sqlitewrappertest.cpp" line="41">check &apos;no exceptions thrown by conn.RollbackNoThrow()&apos;
+                passed
+            </Info>
+            <Info file="sqlitewrappertest.cpp" line="48">check rs passed</Info>
+            <Info file="sqlitewrappertest.cpp" line="49">check rs-&gt;Next() passed</Info>
+            <Info file="sqlitewrappertest.cpp" line="50">check !rs-&gt;Next() passed</Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="SnapshotThreadTest">
+            <Message file="./boost/test/impl/results_collector.ipp" line="220">Test case SnapshotThreadTest did not run
+                any assertions
+            </Message>
+            <TestingTime>10000</TestingTime>
+        </TestCase>
+        <TestCase name="SnapshotThreadTestInaccessibleDirectory">
+            <Info file="snapshotthreadtest.cpp" line="39">check &apos;exception crete::IllegalOperationException is
+                caught&apos; passed
+            </Info>
+            <TestingTime>10000</TestingTime>
+        </TestCase>
+        <TestCase name="SnapshotTestZeroSize">
+            <Info file="snapshottest.cpp" line="126">check !fs.bad() passed</Info>
+            <Info file="snapshottest.cpp" line="48">check !lhs_fs.bad() passed</Info>
+            <Info file="snapshottest.cpp" line="51">check !rhs_fs.bad() passed</Info>
+            <Info file="snapshottest.cpp" line="134">check &apos;/tmp/crete_unittest_dDqEzY vs
+                /tmp/snapshot_crete_unittest_dDqEzY_7E1849&apos; passed
+            </Info>
+            <Info file="snapshottest.cpp" line="137">check tmp_object passed</Info>
+            <Info file="snapshottest.cpp" line="35">check boost::get&lt;std::string&gt;(lhs-&gt;property(&quot;name&quot;))
+                == boost::get&lt;std::string&gt;(rhs-&gt;GetProperty(&quot;origin.name&quot;)) passed
+            </Info>
+            <Info file="snapshottest.cpp" line="37">check boost::get&lt;std::string&gt;(lhs-&gt;property(&quot;abspath&quot;))
+                == boost::get&lt;std::string&gt;(rhs-&gt;GetProperty(&quot;origin.abspath&quot;)) passed
+            </Info>
+            <Info file="snapshottest.cpp" line="40">check boost::get&lt;boost::posix_time::ptime&gt;(lhs-&gt;property(&quot;filesystem.creation_time&quot;))
+                == boost::get&lt;boost::posix_time::ptime&gt;(rhs-&gt;GetProperty(&quot;origin.filesystem.creation_time&quot;))
+                passed
+            </Info>
+            <Info file="snapshottest.cpp" line="43">check boost::get&lt;boost::posix_time::ptime&gt;(lhs-&gt;property(&quot;filesystem.modification_time&quot;))
+                == boost::get&lt;boost::posix_time::ptime&gt;(rhs-&gt;GetProperty(&quot;origin.filesystem.modification_time&quot;))
+                passed
+            </Info>
+            <Warning file="snapshottest.cpp" line="72">triton.host not defined</Warning>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="SnapshotTestSmallSize">
+            <Info file="snapshottest.cpp" line="126">check !fs.bad() passed</Info>
+            <Info file="snapshottest.cpp" line="48">check !lhs_fs.bad() passed</Info>
+            <Info file="snapshottest.cpp" line="51">check !rhs_fs.bad() passed</Info>
+            <Info file="snapshottest.cpp" line="134">check &apos;/tmp/crete_unittest_B1LXEj vs
+                /tmp/snapshot_crete_unittest_B1LXEj_nVC76s&apos; passed
+            </Info>
+            <Info file="snapshottest.cpp" line="137">check tmp_object passed</Info>
+            <Info file="snapshottest.cpp" line="35">check boost::get&lt;std::string&gt;(lhs-&gt;property(&quot;name&quot;))
+                == boost::get&lt;std::string&gt;(rhs-&gt;GetProperty(&quot;origin.name&quot;)) passed
+            </Info>
+            <Info file="snapshottest.cpp" line="37">check boost::get&lt;std::string&gt;(lhs-&gt;property(&quot;abspath&quot;))
+                == boost::get&lt;std::string&gt;(rhs-&gt;GetProperty(&quot;origin.abspath&quot;)) passed
+            </Info>
+            <Info file="snapshottest.cpp" line="40">check boost::get&lt;boost::posix_time::ptime&gt;(lhs-&gt;property(&quot;filesystem.creation_time&quot;))
+                == boost::get&lt;boost::posix_time::ptime&gt;(rhs-&gt;GetProperty(&quot;origin.filesystem.creation_time&quot;))
+                passed
+            </Info>
+            <Info file="snapshottest.cpp" line="43">check boost::get&lt;boost::posix_time::ptime&gt;(lhs-&gt;property(&quot;filesystem.modification_time&quot;))
+                == boost::get&lt;boost::posix_time::ptime&gt;(rhs-&gt;GetProperty(&quot;origin.filesystem.modification_time&quot;))
+                passed
+            </Info>
+            <Warning file="snapshottest.cpp" line="72">triton.host not defined</Warning>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="SnapshotTestMediumSize">
+            <Info file="snapshottest.cpp" line="126">check !fs.bad() passed</Info>
+            <Info file="snapshottest.cpp" line="48">check !lhs_fs.bad() passed</Info>
+            <Info file="snapshottest.cpp" line="51">check !rhs_fs.bad() passed</Info>
+            <Info file="snapshottest.cpp" line="134">check &apos;/tmp/crete_unittest_ZXqiyC vs
+                /tmp/snapshot_crete_unittest_ZXqiyC_twFbWP&apos; passed
+            </Info>
+            <Info file="snapshottest.cpp" line="137">check tmp_object passed</Info>
+            <Info file="snapshottest.cpp" line="35">check boost::get&lt;std::string&gt;(lhs-&gt;property(&quot;name&quot;))
+                == boost::get&lt;std::string&gt;(rhs-&gt;GetProperty(&quot;origin.name&quot;)) passed
+            </Info>
+            <Info file="snapshottest.cpp" line="37">check boost::get&lt;std::string&gt;(lhs-&gt;property(&quot;abspath&quot;))
+                == boost::get&lt;std::string&gt;(rhs-&gt;GetProperty(&quot;origin.abspath&quot;)) passed
+            </Info>
+            <Info file="snapshottest.cpp" line="40">check boost::get&lt;boost::posix_time::ptime&gt;(lhs-&gt;property(&quot;filesystem.creation_time&quot;))
+                == boost::get&lt;boost::posix_time::ptime&gt;(rhs-&gt;GetProperty(&quot;origin.filesystem.creation_time&quot;))
+                passed
+            </Info>
+            <Info file="snapshottest.cpp" line="43">check boost::get&lt;boost::posix_time::ptime&gt;(lhs-&gt;property(&quot;filesystem.modification_time&quot;))
+                == boost::get&lt;boost::posix_time::ptime&gt;(rhs-&gt;GetProperty(&quot;origin.filesystem.modification_time&quot;))
+                passed
+            </Info>
+            <Warning file="snapshottest.cpp" line="72">triton.host not defined</Warning>
+            <TestingTime>70000</TestingTime>
+        </TestCase>
+        <TestCase name="SnapshotTestLargeSize">
+            <Info file="snapshottest.cpp" line="126">check !fs.bad() passed</Info>
+            <Info file="snapshottest.cpp" line="48">check !lhs_fs.bad() passed</Info>
+            <Info file="snapshottest.cpp" line="51">check !rhs_fs.bad() passed</Info>
+            <Info file="snapshottest.cpp" line="134">check &apos;/tmp/crete_unittest_PeVPb6 vs
+                /tmp/snapshot_crete_unittest_PeVPb6_PD02MF&apos; passed
+            </Info>
+            <Info file="snapshottest.cpp" line="137">check tmp_object passed</Info>
+            <Info file="snapshottest.cpp" line="35">check boost::get&lt;std::string&gt;(lhs-&gt;property(&quot;name&quot;))
+                == boost::get&lt;std::string&gt;(rhs-&gt;GetProperty(&quot;origin.name&quot;)) passed
+            </Info>
+            <Info file="snapshottest.cpp" line="37">check boost::get&lt;std::string&gt;(lhs-&gt;property(&quot;abspath&quot;))
+                == boost::get&lt;std::string&gt;(rhs-&gt;GetProperty(&quot;origin.abspath&quot;)) passed
+            </Info>
+            <Info file="snapshottest.cpp" line="40">check boost::get&lt;boost::posix_time::ptime&gt;(lhs-&gt;property(&quot;filesystem.creation_time&quot;))
+                == boost::get&lt;boost::posix_time::ptime&gt;(rhs-&gt;GetProperty(&quot;origin.filesystem.creation_time&quot;))
+                passed
+            </Info>
+            <Info file="snapshottest.cpp" line="43">check boost::get&lt;boost::posix_time::ptime&gt;(lhs-&gt;property(&quot;filesystem.modification_time&quot;))
+                == boost::get&lt;boost::posix_time::ptime&gt;(rhs-&gt;GetProperty(&quot;origin.filesystem.modification_time&quot;))
+                passed
+            </Info>
+            <Warning file="snapshottest.cpp" line="72">triton.host not defined</Warning>
+            <Error file="snapshottest.cpp" line="146">check crete::FileStates::GetInstance()-&gt;GetPatchTimeAndHash(
+                snapshot-&gt;GetManifestFilename(), hash, patchtime) failed
+            </Error>
+            <Error file="snapshottest.cpp" line="150">check crete::RDIFF::Read( snapshot-&gt;GetManifestFilename(),
+                &amp;header, hashes) failed
+            </Error>
+            <Error file="snapshottest.cpp" line="152">check crete::FileStates::GetInstance()-&gt;RemoveFile( snapshot-&gt;GetManifestFilename())
+                failed
+            </Error>
+            <TestingTime>960000</TestingTime>
+        </TestCase>
+        <TestCase name="SnapshotPatchTest">
+            <Warning file="snapshottest.cpp" line="173">triton.host not defined</Warning>
+            <Message file="./boost/test/impl/results_collector.ipp" line="220">Test case SnapshotPatchTest did not run
+                any assertions
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="ScanThreadTestScan">
+            <Info file="scanthreadtest.cpp" line="49">check task_queue.GetBackupTaskCount() &gt; 0 passed</Info>
+            <TestingTime>90000</TestingTime>
+        </TestCase>
+        <TestCase name="RestoreStoreTest">
+            <Info file="restorestoretest.cpp" line="29">check handle &gt; 0 passed</Info>
+            <Info file="restorestoretest.cpp" line="31">check store.AddRestoreFile(handle, src_pathes[i],
+                backup_times[i], des_pathes[i]) &gt; 0 passed
+            </Info>
+            <Info file="restorestoretest.cpp" line="31">check store.AddRestoreFile(handle, src_pathes[i],
+                backup_times[i], des_pathes[i]) &gt; 0 passed
+            </Info>
+            <Info file="restorestoretest.cpp" line="31">check store.AddRestoreFile(handle, src_pathes[i],
+                backup_times[i], des_pathes[i]) &gt; 0 passed
+            </Info>
+            <Info file="restorestoretest.cpp" line="31">check store.AddRestoreFile(handle, src_pathes[i],
+                backup_times[i], des_pathes[i]) &gt; 0 passed
+            </Info>
+            <Info file="restorestoretest.cpp" line="31">check store.AddRestoreFile(handle, src_pathes[i],
+                backup_times[i], des_pathes[i]) &gt; 0 passed
+            </Info>
+            <Info file="restorestoretest.cpp" line="33">check store.CommitJob(-1) == -1 passed</Info>
+            <Info file="restorestoretest.cpp" line="35">check store.AddRestoreFile(-1, &quot;aaa&quot;, 11, &quot;aa&quot;)
+                == 0 passed
+            </Info>
+            <Info file="restorestoretest.cpp" line="37">check id &gt; 0 passed</Info>
+            <Info file="restorestoretest.cpp" line="38">check store.CommitJob(id) == -1 passed</Info>
+            <Info file="restorestoretest.cpp" line="40">check rt passed</Info>
+            <Info file="restorestoretest.cpp" line="41">check rt-&gt;GetID() == id passed</Info>
+            <Info file="restorestoretest.cpp" line="42">check rt-&gt;GetName() == &quot;Test1&quot; passed</Info>
+            <Info file="restorestoretest.cpp" line="45">check tasks.size() == RIC passed</Info>
+            <Info file="restorestoretest.cpp" line="48">check (*it)-&gt;GetID() &gt; 0 passed</Info>
+            <Info file="restorestoretest.cpp" line="49">check (*it)-&gt;GetSrcPath() == src_pathes[index] passed</Info>
+            <Info file="restorestoretest.cpp" line="50">check (*it)-&gt;GetDesPath() == des_pathes[index] passed</Info>
+            <Info file="restorestoretest.cpp" line="51">check (*it)-&gt;GetBackupTime() == backup_times[index] passed
+            </Info>
+            <Info file="restorestoretest.cpp" line="48">check (*it)-&gt;GetID() &gt; 0 passed</Info>
+            <Info file="restorestoretest.cpp" line="49">check (*it)-&gt;GetSrcPath() == src_pathes[index] passed</Info>
+            <Info file="restorestoretest.cpp" line="50">check (*it)-&gt;GetDesPath() == des_pathes[index] passed</Info>
+            <Info file="restorestoretest.cpp" line="51">check (*it)-&gt;GetBackupTime() == backup_times[index] passed
+            </Info>
+            <Info file="restorestoretest.cpp" line="48">check (*it)-&gt;GetID() &gt; 0 passed</Info>
+            <Info file="restorestoretest.cpp" line="49">check (*it)-&gt;GetSrcPath() == src_pathes[index] passed</Info>
+            <Info file="restorestoretest.cpp" line="50">check (*it)-&gt;GetDesPath() == des_pathes[index] passed</Info>
+            <Info file="restorestoretest.cpp" line="51">check (*it)-&gt;GetBackupTime() == backup_times[index] passed
+            </Info>
+            <Info file="restorestoretest.cpp" line="48">check (*it)-&gt;GetID() &gt; 0 passed</Info>
+            <Info file="restorestoretest.cpp" line="49">check (*it)-&gt;GetSrcPath() == src_pathes[index] passed</Info>
+            <Info file="restorestoretest.cpp" line="50">check (*it)-&gt;GetDesPath() == des_pathes[index] passed</Info>
+            <Info file="restorestoretest.cpp" line="51">check (*it)-&gt;GetBackupTime() == backup_times[index] passed
+            </Info>
+            <Info file="restorestoretest.cpp" line="48">check (*it)-&gt;GetID() &gt; 0 passed</Info>
+            <Info file="restorestoretest.cpp" line="49">check (*it)-&gt;GetSrcPath() == src_pathes[index] passed</Info>
+            <Info file="restorestoretest.cpp" line="50">check (*it)-&gt;GetDesPath() == des_pathes[index] passed</Info>
+            <Info file="restorestoretest.cpp" line="51">check (*it)-&gt;GetBackupTime() == backup_times[index] passed
+            </Info>
+            <Info file="restorestoretest.cpp" line="56">check store.AddRestoreFile(handle, src_pathes[i],
+                backup_times[i], des_pathes[i]) &gt; 0 passed
+            </Info>
+            <Info file="restorestoretest.cpp" line="56">check store.AddRestoreFile(handle, src_pathes[i],
+                backup_times[i], des_pathes[i]) &gt; 0 passed
+            </Info>
+            <Info file="restorestoretest.cpp" line="56">check store.AddRestoreFile(handle, src_pathes[i],
+                backup_times[i], des_pathes[i]) &gt; 0 passed
+            </Info>
+            <Info file="restorestoretest.cpp" line="56">check store.AddRestoreFile(handle, src_pathes[i],
+                backup_times[i], des_pathes[i]) &gt; 0 passed
+            </Info>
+            <Info file="restorestoretest.cpp" line="56">check store.AddRestoreFile(handle, src_pathes[i],
+                backup_times[i], des_pathes[i]) &gt; 0 passed
+            </Info>
+            <Info file="restorestoretest.cpp" line="60">check rt-&gt;GetID() == id passed</Info>
+            <Info file="restorestoretest.cpp" line="61">check rt-&gt;GetName() == &quot;Test2&quot; passed</Info>
+            <Info file="restorestoretest.cpp" line="66">check jobs.size() == 2 passed</Info>
+            <Info file="restorestoretest.cpp" line="69">check jobs.size() == 0 passed</Info>
+            <Info file="restorestoretest.cpp" line="71">check jobs.size() == 2 passed</Info>
+            <Info file="restorestoretest.cpp" line="74">check tasks.size() == RIC passed</Info>
+            <Info file="restorestoretest.cpp" line="79">check tasks.size() == RIC &lt;&lt; 1 passed</Info>
+            <Info file="restorestoretest.cpp" line="82">check tasks.size() == 9 passed</Info>
+            <Info file="restorestoretest.cpp" line="85">check tasks.size() == 1 passed</Info>
+            <Info file="restorestoretest.cpp" line="90">check tasks.size() == RIC - 1 passed</Info>
+            <Info file="restorestoretest.cpp" line="94">check jobs.size() == 1 passed</Info>
+            <Info file="restorestoretest.cpp" line="95">check store.DeleteJob(-1) == 0 passed</Info>
+            <Info file="restorestoretest.cpp" line="96">check store.DeleteTask(-1) == 0 passed</Info>
+            <TestingTime>10000</TestingTime>
+        </TestCase>
+        <TestCase name="RdiffTest">
+            <Info file="rdifftest.cpp" line="26">check !RDIFF::WantRdiffStream(&quot;test.doc&quot;, 1024ll * 100, &amp;blocksize)
+                passed
+            </Info>
+            <Info file="rdifftest.cpp" line="27">check blocksize == 65536 passed</Info>
+            <Info file="rdifftest.cpp" line="28">check RDIFF::WantRdiffStream(&quot;test.ppt&quot;, 1024ll * 500, &amp;blocksize)
+                passed
+            </Info>
+            <Info file="rdifftest.cpp" line="29">check blocksize == 65536 passed</Info>
+            <Info file="rdifftest.cpp" line="30">check !RDIFF::WantRdiffStream(&quot;test.mp3&quot;, 1024ll * 1000,
+                &amp;blocksize) passed
+            </Info>
+            <Info file="rdifftest.cpp" line="31">check blocksize == 1048576 passed</Info>
+            <Info file="rdifftest.cpp" line="32">check RDIFF::WantRdiffStream(&quot;test.mp3&quot;, 1024ll * 5000, &amp;blocksize)
+                passed
+            </Info>
+            <Info file="rdifftest.cpp" line="33">check blocksize == 1048576 passed</Info>
+            <Info file="rdifftest.cpp" line="39">check !RDIFF::Read(&quot;rdifftest.0&quot;, &amp;header, hashes1)
+                passed
+            </Info>
+            <Info file="rdifftest.cpp" line="59">check RDIFF::Commit(&quot;rdifftest.1.doc&quot;, &amp;rdiffcontext,
+                &quot;01234567890123456789&quot;, 12345678ll) passed
+            </Info>
+            <Info file="rdifftest.cpp" line="79">check RDIFF::Commit(&quot;rdifftest.2.mp3&quot;, &amp;rdiffcontext,
+                &quot;98765432109876543210&quot;, 87654321ll) passed
+            </Info>
+            <Info file="rdifftest.cpp" line="84">check RDIFF::Read(&quot;rdifftest.1.doc&quot;, &amp;headerOut,
+                hashesOut) passed
+            </Info>
+            <Info file="rdifftest.cpp" line="86">check hashesOut-&gt;buffer() == origin1-&gt;buffer() passed</Info>
+            <Info file="rdifftest.cpp" line="87">check headerOut.blocksize == 65536 passed</Info>
+            <Info file="rdifftest.cpp" line="88">check headerOut.backuptime == 12345678ll passed</Info>
+            <Info file="rdifftest.cpp" line="89">check headerOut.mtime == 12345678ll passed</Info>
+            <Info file="rdifftest.cpp" line="90">check headerOut.filesize == 1048576ll passed</Info>
+            <Info file="rdifftest.cpp" line="91">check headerOut.patchsize == 65536ll * 8 passed</Info>
+            <Info file="rdifftest.cpp" line="93">check filehash == &quot;01234567890123456789&quot; passed</Info>
+            <Info file="rdifftest.cpp" line="94">check patchtime == (time_t)12345678ll passed</Info>
+            <Info file="rdifftest.cpp" line="96">check RDIFF::Read(&quot;rdifftest.2.mp3&quot;, &amp;headerOut,
+                hashesOut) passed
+            </Info>
+            <Info file="rdifftest.cpp" line="98">check hashesOut-&gt;buffer() == origin2-&gt;buffer() passed</Info>
+            <Info file="rdifftest.cpp" line="99">check headerOut.blocksize == 1048576 passed</Info>
+            <Info file="rdifftest.cpp" line="100">check headerOut.backuptime == 87654321ll passed</Info>
+            <Info file="rdifftest.cpp" line="101">check headerOut.mtime == 87654321ll passed</Info>
+            <Info file="rdifftest.cpp" line="102">check headerOut.filesize == 1048576ll * 6 passed</Info>
+            <Info file="rdifftest.cpp" line="103">check headerOut.patchsize == 1048576ll * 3 passed</Info>
+            <Info file="rdifftest.cpp" line="105">check filehash == &quot;98765432109876543210&quot; passed</Info>
+            <Info file="rdifftest.cpp" line="106">check patchtime == (time_t)87654321ll passed</Info>
+            <TestingTime>20000</TestingTime>
+        </TestCase>
+        <TestCase name="RdiffStreamZeroTest">
+            <Info file="rdiffstreamtest.cpp" line="41">check !fs.bad() passed</Info>
+            <Info file="rdiffstreamtest.cpp" line="66">check rdiffhash-&gt;size() == originHashes-&gt;size() passed
+            </Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="RdiffStreamSmallTest">
+            <Info file="rdiffstreamtest.cpp" line="41">check !fs.bad() passed</Info>
+            <Info file="rdiffstreamtest.cpp" line="66">check rdiffhash-&gt;size() == originHashes-&gt;size() passed
+            </Info>
+            <Info file="rdiffstreamtest.cpp" line="68">check rdiffhash-&gt;buffer() == originHashes-&gt;buffer() passed
+            </Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="RdiffStreamMediumTest">
+            <Info file="rdiffstreamtest.cpp" line="41">check !fs.bad() passed</Info>
+            <Info file="rdiffstreamtest.cpp" line="66">check rdiffhash-&gt;size() == originHashes-&gt;size() passed
+            </Info>
+            <Info file="rdiffstreamtest.cpp" line="68">check rdiffhash-&gt;buffer() == originHashes-&gt;buffer() passed
+            </Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="RdiffStreamLargeTest">
+            <Info file="rdiffstreamtest.cpp" line="41">check !fs.bad() passed</Info>
+            <Info file="rdiffstreamtest.cpp" line="66">check rdiffhash-&gt;size() == originHashes-&gt;size() passed
+            </Info>
+            <Info file="rdiffstreamtest.cpp" line="68">check rdiffhash-&gt;buffer() == originHashes-&gt;buffer() passed
+            </Info>
+            <TestingTime>10000</TestingTime>
+        </TestCase>
+        <TestCase name="EventConversionTest">
+            <Info file="mordorthreadtest.cpp" line="68">check event_list[i] == VFS::Linux::watcherEvent2InotifyEvent(
+                VFS::Linux::inotifyEvent2WatcherEvent(event_list[i]) ) passed
+            </Info>
+            <Info file="mordorthreadtest.cpp" line="68">check event_list[i] == VFS::Linux::watcherEvent2InotifyEvent(
+                VFS::Linux::inotifyEvent2WatcherEvent(event_list[i]) ) passed
+            </Info>
+            <Info file="mordorthreadtest.cpp" line="68">check event_list[i] == VFS::Linux::watcherEvent2InotifyEvent(
+                VFS::Linux::inotifyEvent2WatcherEvent(event_list[i]) ) passed
+            </Info>
+            <Info file="mordorthreadtest.cpp" line="68">check event_list[i] == VFS::Linux::watcherEvent2InotifyEvent(
+                VFS::Linux::inotifyEvent2WatcherEvent(event_list[i]) ) passed
+            </Info>
+            <Info file="mordorthreadtest.cpp" line="68">check event_list[i] == VFS::Linux::watcherEvent2InotifyEvent(
+                VFS::Linux::inotifyEvent2WatcherEvent(event_list[i]) ) passed
+            </Info>
+            <Info file="mordorthreadtest.cpp" line="68">check event_list[i] == VFS::Linux::watcherEvent2InotifyEvent(
+                VFS::Linux::inotifyEvent2WatcherEvent(event_list[i]) ) passed
+            </Info>
+            <Info file="mordorthreadtest.cpp" line="68">check event_list[i] == VFS::Linux::watcherEvent2InotifyEvent(
+                VFS::Linux::inotifyEvent2WatcherEvent(event_list[i]) ) passed
+            </Info>
+            <Info file="mordorthreadtest.cpp" line="68">check event_list[i] == VFS::Linux::watcherEvent2InotifyEvent(
+                VFS::Linux::inotifyEvent2WatcherEvent(event_list[i]) ) passed
+            </Info>
+            <Info file="mordorthreadtest.cpp" line="68">check event_list[i] == VFS::Linux::watcherEvent2InotifyEvent(
+                VFS::Linux::inotifyEvent2WatcherEvent(event_list[i]) ) passed
+            </Info>
+            <Info file="mordorthreadtest.cpp" line="68">check event_list[i] == VFS::Linux::watcherEvent2InotifyEvent(
+                VFS::Linux::inotifyEvent2WatcherEvent(event_list[i]) ) passed
+            </Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="MordorThreadTest">
+            <Warning file="mordorthreadtest.cpp" line="83">triton.host not defined</Warning>
+            <Message file="./boost/test/impl/results_collector.ipp" line="220">Test case MordorThreadTest did not run
+                any assertions
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="ManifestTest">
+            <Warning file="manifesttest.cpp" line="49">triton.host not defined</Warning>
+            <Message file="./boost/test/impl/results_collector.ipp" line="220">Test case ManifestTest did not run any
+                assertions
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="ManifestStoreTest">
+            <Info file="manifeststoretest.cpp" line="13">check stream passed</Info>
+            <Info file="manifeststoretest.cpp" line="22">check !parser-&gt;error() passed</Info>
+            <Info file="manifeststoretest.cpp" line="23">check parser-&gt;final() passed</Info>
+            <Info file="manifeststoretest.cpp" line="34">check id &gt; 0 passed</Info>
+            <Info file="manifeststoretest.cpp" line="34">check id &gt; 0 passed</Info>
+            <Info file="manifeststoretest.cpp" line="34">check id &gt; 0 passed</Info>
+            <Info file="manifeststoretest.cpp" line="38">check entries.size() == 3 passed</Info>
+            <Info file="manifeststoretest.cpp" line="41">check store.DeleteEntry( &quot;C:\\Documents and
+                Settings\\tester\\My Documents\\pic.bmp.bmp&quot;) &gt; 0 passed
+            </Info>
+            <Info file="manifeststoretest.cpp" line="44">check entries.size() == 2 passed</Info>
+            <Info file="manifeststoretest.cpp" line="46">check me passed</Info>
+            <Info file="manifeststoretest.cpp" line="49">check patches.size() == 8 passed</Info>
+            <Info file="manifeststoretest.cpp" line="51">check me passed</Info>
+            <Info file="manifeststoretest.cpp" line="52">check me-&gt;GetPath() == &quot;/home/ron/hello-world.mp3&quot;
+                passed
+            </Info>
+            <Info file="manifeststoretest.cpp" line="53">check me-&gt;GetID() &gt; 0 passed</Info>
+            <Info file="manifeststoretest.cpp" line="56">check patches.size() &gt; 0 passed</Info>
+            <Info file="manifeststoretest.cpp" line="58">check pi-&gt;GetBackupTime() == 1260428212 passed</Info>
+            <Info file="manifeststoretest.cpp" line="59">check pi-&gt;GetModifiedTime() == 1091613600 passed</Info>
+            <Info file="manifeststoretest.cpp" line="60">check pi-&gt;GetCreationTime() == 1237774581 passed</Info>
+            <Info file="manifeststoretest.cpp" line="61">check pi-&gt;GetFileSize() == 760752 passed</Info>
+            <Info file="manifeststoretest.cpp" line="62">check pi-&gt;IsBaseline() == true passed</Info>
+            <Info file="manifeststoretest.cpp" line="63">check pi-&gt;GetPatchHash() == &quot;86826218e270d4ae6123852c5d3826abb65ebfa8&quot;
+                passed
+            </Info>
+            <Info file="manifeststoretest.cpp" line="64">check pi-&gt;GetPatchSize() == 760752 passed</Info>
+            <Info file="manifeststoretest.cpp" line="65">check pi-&gt;GetAttributes() == 40 passed</Info>
+            <Info file="manifeststoretest.cpp" line="13">check stream passed</Info>
+            <Info file="manifeststoretest.cpp" line="22">check !parser-&gt;error() passed</Info>
+            <Info file="manifeststoretest.cpp" line="23">check parser-&gt;final() passed</Info>
+            <Info file="manifeststoretest.cpp" line="70">check parser-&gt;size() &gt; 0 passed</Info>
+            <Info file="manifeststoretest.cpp" line="73">check store.AddPatch(me, pi) &gt; 0 passed</Info>
+            <Info file="manifeststoretest.cpp" line="77">check patches.size() == 2 passed</Info>
+            <Info file="manifeststoretest.cpp" line="81">check store.AddPatch(me, pi) == 0 passed</Info>
+            <Info file="manifeststoretest.cpp" line="86">check entries.size() == 2 passed</Info>
+            <Info file="manifeststoretest.cpp" line="90">check entries.size() == 2 passed</Info>
+            <Info file="manifeststoretest.cpp" line="94">check entries.size() == 3 passed</Info>
+            <Info file="manifeststoretest.cpp" line="99">check entries.size() == 1 passed</Info>
+            <Info file="manifeststoretest.cpp" line="103">check objs.size() == 1 passed</Info>
+            <Info file="manifeststoretest.cpp" line="104">check objs.front().second == true passed</Info>
+            <Info file="manifeststoretest.cpp" line="107">check objs.size() == 2 passed</Info>
+            <Info file="manifeststoretest.cpp" line="108">check objs.front().second == true passed</Info>
+            <Info file="manifeststoretest.cpp" line="109">check objs.back().second == false passed</Info>
+            <TestingTime>20000</TestingTime>
+        </TestCase>
+        <TestCase name="ManifestParserTestPatchInfo">
+            <Info file="manifestparsertest.cpp" line="43">check info passed</Info>
+            <Info file="manifestparsertest.cpp" line="44">check 1260428222 == info-&gt;GetBackupTime() passed</Info>
+            <Info file="manifestparsertest.cpp" line="45">check 1260414458 == info-&gt;GetModifiedTime() passed</Info>
+            <Info file="manifestparsertest.cpp" line="46">check 1260414458 == info-&gt;GetCreationTime() passed</Info>
+            <Info file="manifestparsertest.cpp" line="47">check 67 == info-&gt;GetFileSize() passed</Info>
+            <Info file="manifestparsertest.cpp" line="48">check true == info-&gt;IsBaseline() passed</Info>
+            <Info file="manifestparsertest.cpp" line="49">check &quot;45b5c07695b8c8fc7f643da841adb217b6a1284d&quot; ==
+                info-&gt;GetPatchHash() passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="50">check 67 == info-&gt;GetPatchSize() passed</Info>
+            <Info file="manifestparsertest.cpp" line="51">check 40 == info-&gt;GetAttributes() passed</Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="ManifestParserTestPatchInfo2">
+            <Info file="manifestparsertest.cpp" line="58">check info passed</Info>
+            <Info file="manifestparsertest.cpp" line="59">check 1260764691 == info-&gt;GetBackupTime() passed</Info>
+            <Info file="manifestparsertest.cpp" line="60">check 1260764691 == info-&gt;GetModifiedTime() passed</Info>
+            <Info file="manifestparsertest.cpp" line="61">check 1260764691 == info-&gt;GetCreationTime() passed</Info>
+            <Info file="manifestparsertest.cpp" line="62">check -1 == info-&gt;GetFileSize() passed</Info>
+            <Info file="manifestparsertest.cpp" line="63">check false == info-&gt;IsBaseline() passed</Info>
+            <Info file="manifestparsertest.cpp" line="64">check &quot;da39a3ee5e6b4b0d3255bfef95601890afd80709&quot; ==
+                info-&gt;GetPatchHash() passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="65">check 0 == info-&gt;GetPatchSize() passed</Info>
+            <Info file="manifestparsertest.cpp" line="66">check 0 == info-&gt;GetAttributes() passed</Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="ManifestParserTestBadPatchInfo">
+            <Info file="manifestparsertest.cpp" line="72">check !info passed</Info>
+            <Info file="manifestparsertest.cpp" line="77">check !info passed</Info>
+            <Info file="manifestparsertest.cpp" line="82">check !info passed</Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="ManifestParserTestSmall">
+            <Info file="manifestparsertest.cpp" line="15">check stream passed</Info>
+            <Info file="manifestparsertest.cpp" line="24">check !parser-&gt;error() passed</Info>
+            <Info file="manifestparsertest.cpp" line="25">check parser-&gt;final() passed</Info>
+            <Info file="manifestparsertest.cpp" line="88">check 3 == parser-&gt;size() passed</Info>
+            <Info file="manifestparsertest.cpp" line="90">check it != parser-&gt;end() passed</Info>
+            <Info file="manifestparsertest.cpp" line="92">check &quot;C:\\Documents and Settings\\tester\\My
+                Documents\\pic.bmp.bmp&quot; == (*it)-&gt;GetPath() passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="94">check &quot;748c040b89e1017f392656b96e5bdbbfa0d0154b&quot; ==
+                (*it)-&gt;GetLastPatchInfo()-&gt;GetPatchHash() passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="96">check ++it != parser-&gt;end() passed</Info>
+            <Info file="manifestparsertest.cpp" line="98">check &quot;/home/ron/hello-world.mp3&quot; == (*it)-&gt;GetPath()
+                passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="100">check &quot;86826218e270d4ae6123852c5d3826abb65ebfa8&quot; ==
+                (*it)-&gt;GetLastPatchInfo()-&gt;GetPatchHash() passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="102">check ++it != parser-&gt;end() passed</Info>
+            <Info file="manifestparsertest.cpp" line="104">check &quot;conf.dat&quot; == (*it)-&gt;GetPath() passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="106">check &quot;8febf5b3fb05ac88729320e00e9aba1e96e7cb86&quot; ==
+                (*it)-&gt;GetLastPatchInfo()-&gt;GetPatchHash() passed
+            </Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="ManifestParserTestUnicode">
+            <Info file="manifestparsertest.cpp" line="15">check stream passed</Info>
+            <Info file="manifestparsertest.cpp" line="24">check !parser-&gt;error() passed</Info>
+            <Info file="manifestparsertest.cpp" line="25">check parser-&gt;final() passed</Info>
+            <Info file="manifestparsertest.cpp" line="112">check 2 == parser-&gt;size() passed</Info>
+            <Info file="manifestparsertest.cpp" line="114">check it != parser-&gt;end() passed</Info>
+            <Info file="manifestparsertest.cpp" line="116">check std::string(&quot;C:\\share\\?????\\??.txt&quot;) ==
+                (*it)-&gt;GetPath() passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="118">check &quot;0eac2882e305fd863fb85eea42fcae20756e76fc&quot; ==
+                (*it)-&gt;GetLastPatchInfo()-&gt;GetPatchHash() passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="120">check ++it != parser-&gt;end() passed</Info>
+            <Info file="manifestparsertest.cpp" line="122">check &quot;C:\\share\\test.txt&quot; == (*it)-&gt;GetPath()
+                passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="124">check &quot;8328407d17367dffb808e526b9cd6dced7e154f8&quot; ==
+                (*it)-&gt;GetLastPatchInfo()-&gt;GetPatchHash() passed
+            </Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="ManifestParserTestLarge">
+            <Info file="manifestparsertest.cpp" line="15">check stream passed</Info>
+            <Info file="manifestparsertest.cpp" line="24">check !parser-&gt;error() passed</Info>
+            <Info file="manifestparsertest.cpp" line="25">check parser-&gt;final() passed</Info>
+            <Info file="manifestparsertest.cpp" line="130">check 233 == parser-&gt;size() passed</Info>
+            <TestingTime>20000</TestingTime>
+        </TestCase>
+        <TestCase name="ManifestParserTestEmpty">
+            <Info file="manifestparsertest.cpp" line="32">check strlen(str) == stream-&gt;write(str, strlen(str)) passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="142">check &apos;FILES
+
+                USER
+                &apos; passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="32">check strlen(str) == stream-&gt;write(str, strlen(str)) passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="142">check &apos;FILES
+
+
+                USER
+                &apos; passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="32">check strlen(str) == stream-&gt;write(str, strlen(str)) passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="142">check &apos;
+                FILES
+
+                USER
+                &apos; passed
+            </Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="ManifestParserTestUnexpected">
+            <Info file="manifestparsertest.cpp" line="32">check strlen(str) == stream-&gt;write(str, strlen(str)) passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="167">check &apos;&apos; passed</Info>
+            <Info file="manifestparsertest.cpp" line="168">check 0 == parser-&gt;size() passed</Info>
+            <Info file="manifestparsertest.cpp" line="32">check strlen(str) == stream-&gt;write(str, strlen(str)) passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="167">check &apos; &apos; passed</Info>
+            <Info file="manifestparsertest.cpp" line="168">check 0 == parser-&gt;size() passed</Info>
+            <Info file="manifestparsertest.cpp" line="32">check strlen(str) == stream-&gt;write(str, strlen(str)) passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="167">check &apos; &apos; passed</Info>
+            <Info file="manifestparsertest.cpp" line="168">check 0 == parser-&gt;size() passed</Info>
+            <Info file="manifestparsertest.cpp" line="32">check strlen(str) == stream-&gt;write(str, strlen(str)) passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="167">check &apos;
+                &apos; passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="168">check 0 == parser-&gt;size() passed</Info>
+            <Info file="manifestparsertest.cpp" line="32">check strlen(str) == stream-&gt;write(str, strlen(str)) passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="167">check &apos;
+
+                &apos; passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="168">check 0 == parser-&gt;size() passed</Info>
+            <Info file="manifestparsertest.cpp" line="32">check strlen(str) == stream-&gt;write(str, strlen(str)) passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="167">check &apos;
+
+                &apos; passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="168">check 0 == parser-&gt;size() passed</Info>
+            <Info file="manifestparsertest.cpp" line="32">check strlen(str) == stream-&gt;write(str, strlen(str)) passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="167">check &apos;FILES&apos; passed</Info>
+            <Info file="manifestparsertest.cpp" line="168">check 0 == parser-&gt;size() passed</Info>
+            <Info file="manifestparsertest.cpp" line="32">check strlen(str) == stream-&gt;write(str, strlen(str)) passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="167">check &apos;FILES
+                &apos; passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="168">check 0 == parser-&gt;size() passed</Info>
+            <Info file="manifestparsertest.cpp" line="32">check strlen(str) == stream-&gt;write(str, strlen(str)) passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="167">check &apos;FILES
+
+                &apos; passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="168">check 0 == parser-&gt;size() passed</Info>
+            <Info file="manifestparsertest.cpp" line="32">check strlen(str) == stream-&gt;write(str, strlen(str)) passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="167">check &apos;FILES
+
+                USER&apos; passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="168">check 0 == parser-&gt;size() passed</Info>
+            <Info file="manifestparsertest.cpp" line="32">check strlen(str) == stream-&gt;write(str, strlen(str)) passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="167">check &apos;FILES
+
+
+                USER&apos; passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="168">check 0 == parser-&gt;size() passed</Info>
+            <Info file="manifestparsertest.cpp" line="32">check strlen(str) == stream-&gt;write(str, strlen(str)) passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="167">check &apos;FILES
+
+                USER
+                &apos; passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="168">check 0 == parser-&gt;size() passed</Info>
+            <Info file="manifestparsertest.cpp" line="32">check strlen(str) == stream-&gt;write(str, strlen(str)) passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="167">check &apos;FILES
+
+                USER
+
+                &apos; passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="168">check 0 == parser-&gt;size() passed</Info>
+            <Info file="manifestparsertest.cpp" line="32">check strlen(str) == stream-&gt;write(str, strlen(str)) passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="167">check &apos;FILES
+
+                &apos; passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="168">check 0 == parser-&gt;size() passed</Info>
+            <Info file="manifestparsertest.cpp" line="32">check strlen(str) == stream-&gt;write(str, strlen(str)) passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="167">check &apos;FILES
+
+
+                &apos; passed
+            </Info>
+            <Info file="manifestparsertest.cpp" line="168">check 0 == parser-&gt;size() passed</Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="LibraryTestMozyFS">
+            <Info file="librarytest.cpp" line="48">check root passed</Info>
+            <Info file="librarytest.cpp" line="51">check cur-&gt;GetPath() == &quot;/&quot; passed</Info>
+            <Info file="librarytest.cpp" line="55">check root-&gt;GetChildren(entries) == 3 passed</Info>
+            <Info file="librarytest.cpp" line="56">check entries.size() == 3 passed</Info>
+            <Info file="librarytest.cpp" line="58">check cur-&gt;IsDir() == true passed</Info>
+            <Info file="librarytest.cpp" line="59">check cur-&gt;GetPath() == &quot;/home/&quot; passed</Info>
+            <Info file="librarytest.cpp" line="61">check cur-&gt;GetChildren(entries) == 21 passed</Info>
+            <Info file="librarytest.cpp" line="62">check entries.size() == 21 passed</Info>
+            <Info file="librarytest.cpp" line="64">check cur-&gt;IsDir() == false passed</Info>
+            <Info file="librarytest.cpp" line="65">check cur-&gt;GetPath() == &quot;/home/ttt.mp3&quot; passed</Info>
+            <Info file="librarytest.cpp" line="69">check cur-&gt;ListPatches(patches) == 0 passed</Info>
+            <Info file="librarytest.cpp" line="70">check patches.size() == 4 passed</Info>
+            <Info file="librarytest.cpp" line="71">check patches.front()-&gt;GetBackupTime() == 1263268064 passed</Info>
+            <Info file="librarytest.cpp" line="72">check patches.front()-&gt;GetPatchHash() == &quot;e350025c58a6819d8219cd023fc3e7a66e420234&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="73">check patches.front()-&gt;GetFileSize() == 4 passed</Info>
+            <Info file="librarytest.cpp" line="74">check patches.back()-&gt;GetBackupTime() == 1268644584 passed</Info>
+            <Info file="librarytest.cpp" line="75">check patches.back()-&gt;GetPatchHash() == &quot;df0723ba94a9781b245eeb51115c42d756d8e078&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="76">check patches.back()-&gt;GetFileSize() == 8 passed</Info>
+            <Info file="librarytest.cpp" line="82">check files.size() == 5 passed</Info>
+            <Info file="librarytest.cpp" line="88">check files.size() == 71 passed</Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="92">check (*iter)-&gt;GetPath().substr(0, 29) == &quot;/share/lanslot/Fireworks/DSC0&quot;
+                passed
+            </Info>
+            <Info file="librarytest.cpp" line="95">check quota == 87373600 passed</Info>
+            <TestingTime>30000</TestingTime>
+        </TestCase>
+        <TestCase name="LibraryTestDaemon">
+            <Info file="librarytest.cpp" line="102">check CheckNumJobTask(3, 3) == true passed</Info>
+            <Info file="librarytest.cpp" line="106">check new_job1 passed</Info>
+            <Info file="librarytest.cpp" line="108">check ret == -1 passed</Info>
+            <Info file="librarytest.cpp" line="110">check CheckNumJobTask(3, 3) == true passed</Info>
+            <Info file="librarytest.cpp" line="115">check new_job2 passed</Info>
+            <Info file="librarytest.cpp" line="116">check new_job3 passed</Info>
+            <Info file="librarytest.cpp" line="123">check ret == 0 passed</Info>
+            <Info file="librarytest.cpp" line="125">check ret == 0 passed</Info>
+            <Info file="librarytest.cpp" line="128">check ret == -1 passed</Info>
+            <Info file="librarytest.cpp" line="129">check CheckNumJobTask(5, 8) == true passed</Info>
+            <Info file="librarytest.cpp" line="134">check jobs.size() == 1 passed</Info>
+            <Info file="librarytest.cpp" line="136">check ret == 0 passed</Info>
+            <Info file="librarytest.cpp" line="138">check ret == 0 passed</Info>
+            <Info file="librarytest.cpp" line="139">check CheckNumJobTask(3, 3) == true passed</Info>
+            <TestingTime>10000</TestingTime>
+        </TestCase>
+        <TestCase name="FileStatesTest">
+            <Info file="filestatestest.cpp" line="18">check file_state passed</Info>
+            <Info file="filestatestest.cpp" line="25">check !file_state-&gt;GetFileRdiff(&quot;/filestatetest.0&quot;,
+                rdiffOut) passed
+            </Info>
+            <Info file="filestatestest.cpp" line="26">check !file_state-&gt;GetPatchTimeAndHash(&quot;/filestatetest.0&quot;,
+                filehash, patchtime) passed
+            </Info>
+            <Info file="filestatestest.cpp" line="27">check !file_state-&gt;GetFileRdiff(&quot;/filestatetest.1&quot;,
+                rdiffOut) passed
+            </Info>
+            <Info file="filestatestest.cpp" line="28">check !file_state-&gt;GetPatchTimeAndHash(&quot;/filestatetest.1&quot;,
+                filehash, patchtime) passed
+            </Info>
+            <Info file="filestatestest.cpp" line="33">check file_state-&gt;AddOrUpdateFile(&quot;/filestatetest.1&quot;,
+                rdiffIn, &quot;123&quot;, patchtime) passed
+            </Info>
+            <Info file="filestatestest.cpp" line="36">check file_state-&gt;AddOrUpdateFile(&quot;/filestatetest.2&quot;,
+                rdiffIn, &quot;456&quot;, patchtime) passed
+            </Info>
+            <Info file="filestatestest.cpp" line="39">check file_state-&gt;AddOrUpdateFile(&quot;/filestatetest.3&quot;,
+                rdiffIn, &quot;781239&quot;, patchtime) passed
+            </Info>
+            <Info file="filestatestest.cpp" line="42">check file_state-&gt;AddOrUpdateFile(&quot;/filestatetest.3&quot;,
+                rdiffIn, &quot;789&quot;, patchtime) passed
+            </Info>
+            <Info file="filestatestest.cpp" line="48">check file_state-&gt;GetFileRdiff(&quot;/filestatetest.1&quot;,
+                rdiffOut) passed
+            </Info>
+            <Info file="filestatestest.cpp" line="49">check file_state-&gt;GetPatchTimeAndHash(&quot;/filestatetest.1&quot;,
+                filehash, patchtime) passed
+            </Info>
+            <Info file="filestatestest.cpp" line="50">check filehash == &quot;123&quot; passed</Info>
+            <Info file="filestatestest.cpp" line="51">check patchtime == (time_t)11111111 passed</Info>
+            <Info file="filestatestest.cpp" line="52">check rdiffOut-&gt;size() == 10 passed</Info>
+            <Info file="filestatestest.cpp" line="53">check rdiffOut-&gt;buffer() == origin1-&gt;buffer() passed</Info>
+            <Info file="filestatestest.cpp" line="54">check file_state-&gt;GetFileRdiff(&quot;/filestatetest.2&quot;,
+                rdiffOut) passed
+            </Info>
+            <Info file="filestatestest.cpp" line="55">check file_state-&gt;GetPatchTimeAndHash(&quot;/filestatetest.2&quot;,
+                filehash, patchtime) passed
+            </Info>
+            <Info file="filestatestest.cpp" line="56">check filehash == &quot;456&quot; passed</Info>
+            <Info file="filestatestest.cpp" line="57">check patchtime == (time_t)22222222 passed</Info>
+            <Info file="filestatestest.cpp" line="58">check rdiffOut-&gt;size() == 20 passed</Info>
+            <Info file="filestatestest.cpp" line="59">check rdiffOut-&gt;buffer() == origin2-&gt;buffer() passed</Info>
+            <Info file="filestatestest.cpp" line="60">check file_state-&gt;GetFileRdiff(&quot;/filestatetest.3&quot;,
+                rdiffOut) passed
+            </Info>
+            <Info file="filestatestest.cpp" line="61">check file_state-&gt;GetPatchTimeAndHash(&quot;/filestatetest.3&quot;,
+                filehash, patchtime) passed
+            </Info>
+            <Info file="filestatestest.cpp" line="62">check filehash == &quot;789&quot; passed</Info>
+            <Info file="filestatestest.cpp" line="63">check patchtime == (time_t)33333333 passed</Info>
+            <Info file="filestatestest.cpp" line="64">check rdiffOut-&gt;size() == 30 passed</Info>
+            <Info file="filestatestest.cpp" line="65">check rdiffOut-&gt;buffer() == origin3-&gt;buffer() passed</Info>
+            <Info file="filestatestest.cpp" line="71">check file_state-&gt;AddOrUpdateFile(&quot;/filestatetest.3&quot;,
+                rdiffIn, &quot;999&quot;, patchtime) passed
+            </Info>
+            <Info file="filestatestest.cpp" line="72">check file_state-&gt;GetFileRdiff(&quot;/filestatetest.3&quot;,
+                rdiffOut) passed
+            </Info>
+            <Info file="filestatestest.cpp" line="73">check file_state-&gt;GetPatchTimeAndHash(&quot;/filestatetest.3&quot;,
+                filehash, patchtime) passed
+            </Info>
+            <Info file="filestatestest.cpp" line="74">check filehash == &quot;999&quot; passed</Info>
+            <Info file="filestatestest.cpp" line="75">check patchtime == (time_t)77777777 passed</Info>
+            <Info file="filestatestest.cpp" line="76">check rdiffOut-&gt;size() == 20 passed</Info>
+            <Info file="filestatestest.cpp" line="77">check rdiffOut-&gt;buffer() == update3-&gt;buffer() passed</Info>
+            <Info file="filestatestest.cpp" line="80">check !file_state-&gt;RemoveFile(&quot;/filestatetest.4&quot;)
+                passed
+            </Info>
+            <Info file="filestatestest.cpp" line="81">check file_state-&gt;RemoveFile(&quot;/filestatetest.3&quot;)
+                passed
+            </Info>
+            <Info file="filestatestest.cpp" line="82">check file_state-&gt;RemoveFile(&quot;/filestatetest.2&quot;)
+                passed
+            </Info>
+            <Info file="filestatestest.cpp" line="83">check file_state-&gt;RemoveFile(&quot;/filestatetest.1&quot;)
+                passed
+            </Info>
+            <Info file="filestatestest.cpp" line="85">check !file_state-&gt;GetFileRdiff(&quot;/filestatetest.1&quot;,
+                rdiffOut) passed
+            </Info>
+            <Info file="filestatestest.cpp" line="86">check !file_state-&gt;GetPatchTimeAndHash(&quot;/filestatetest.1&quot;,
+                filehash, patchtime) passed
+            </Info>
+            <Info file="filestatestest.cpp" line="87">check !file_state-&gt;GetFileRdiff(&quot;/filestatetest.2&quot;,
+                rdiffOut) passed
+            </Info>
+            <Info file="filestatestest.cpp" line="88">check !file_state-&gt;GetPatchTimeAndHash(&quot;/filestatetest.2&quot;,
+                filehash, patchtime) passed
+            </Info>
+            <Info file="filestatestest.cpp" line="89">check !file_state-&gt;GetFileRdiff(&quot;/filestatetest.3&quot;,
+                rdiffOut) passed
+            </Info>
+            <Info file="filestatestest.cpp" line="90">check !file_state-&gt;GetPatchTimeAndHash(&quot;/filestatetest.3&quot;,
+                filehash, patchtime) passed
+            </Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="ExceptionTestCatchByCreteException">
+            <Info file="exceptiontest.cpp" line="22">check &apos;exceptiontest.cpp(11): Throw in function void&lt;unnamed&gt;::DummyFunction()
+                Dynamic exception type: N5boost16exception_detail10clone_implIN5crete20ApplicationExceptionEEE
+                std::exception::what: whatever error message
+                [PN6Mordor13tag_backtraceE] = /var/lib/hudson/workspace/crete/crete/test/test [0x8363445]
+                /var/lib/hudson/workspace/crete/crete/test/test(_ZN34ExceptionTestCatchByCreteException11test_methodEv+0x4d)
+                [0x836525d]
+                /var/lib/hudson/workspace/crete/crete/test/test [0x836650e]
+                /var/lib/hudson/workspace/crete/crete/test/test(_ZN5boost9unit_test9ut_detail7invokerINS1_6unusedEE6invokeIPFvvEEES3_RT_+0x37)
+                [0x82face3]
+                /var/lib/hudson/workspace/crete/crete/test/test(_ZN5boost9unit_test9ut_detail16callback0_impl_tINS1_6unusedEPFvvEE6invokeEv+0x4d)
+                [0x82fad61]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0 [0xb77309dd]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost17execution_monitor13catch_signalsERKNS_9unit_test9callback0IiEE+0xe5)
+                [0xb7715765]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost17execution_monitor7executeERKNS_9unit_test9callback0IiEE+0x35)
+                [0xb7715835]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test19unit_test_monitor_t21execute_and_translateERKNS0_9test_caseE+0xb8)
+                [0xb7730b08]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test14framework_impl5visitERKNS0_9test_caseE+0xb8)
+                [0xb7721708]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeERKNS0_9test_caseERNS0_17test_tree_visitorE+0x26)
+                [0xb7751986]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorE+0x40)
+                [0xb7752030]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeERKNS0_10test_suiteERNS0_17test_tree_visitorE+0x71)
+                [0xb7751e51]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorE+0x6c)
+                [0xb775205c]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test9framework3runEmb+0x55d) [0xb771f79d]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test14unit_test_mainEPFbvEiPPc+0x13e)
+                [0xb772d9fe]
+                /var/lib/hudson/workspace/crete/crete/test/test(main+0x54) [0x83a6ade]
+                /lib/libc.so.6(__libc_start_main+0xe5) [0xb711d455]
+                /var/lib/hudson/workspace/crete/crete/test/test [0x82ec021]
+                &apos; passed
+            </Info>
+            <Info file="exceptiontest.cpp" line="23">check &apos;exceptiontest.cpp(11): Throw in function void&lt;unnamed&gt;::DummyFunction()
+                Dynamic exception type: N5boost16exception_detail10clone_implIN5crete20ApplicationExceptionEEE
+                std::exception::what: whatever error message
+                [PN6Mordor13tag_backtraceE] = /var/lib/hudson/workspace/crete/crete/test/test [0x8363445]
+                /var/lib/hudson/workspace/crete/crete/test/test(_ZN34ExceptionTestCatchByCreteException11test_methodEv+0x4d)
+                [0x836525d]
+                /var/lib/hudson/workspace/crete/crete/test/test [0x836650e]
+                /var/lib/hudson/workspace/crete/crete/test/test(_ZN5boost9unit_test9ut_detail7invokerINS1_6unusedEE6invokeIPFvvEEES3_RT_+0x37)
+                [0x82face3]
+                /var/lib/hudson/workspace/crete/crete/test/test(_ZN5boost9unit_test9ut_detail16callback0_impl_tINS1_6unusedEPFvvEE6invokeEv+0x4d)
+                [0x82fad61]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0 [0xb77309dd]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost17execution_monitor13catch_signalsERKNS_9unit_test9callback0IiEE+0xe5)
+                [0xb7715765]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost17execution_monitor7executeERKNS_9unit_test9callback0IiEE+0x35)
+                [0xb7715835]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test19unit_test_monitor_t21execute_and_translateERKNS0_9test_caseE+0xb8)
+                [0xb7730b08]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test14framework_impl5visitERKNS0_9test_caseE+0xb8)
+                [0xb7721708]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeERKNS0_9test_caseERNS0_17test_tree_visitorE+0x26)
+                [0xb7751986]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorE+0x40)
+                [0xb7752030]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeERKNS0_10test_suiteERNS0_17test_tree_visitorE+0x71)
+                [0xb7751e51]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorE+0x6c)
+                [0xb775205c]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test9framework3runEmb+0x55d) [0xb771f79d]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test14unit_test_mainEPFbvEiPPc+0x13e)
+                [0xb772d9fe]
+                /var/lib/hudson/workspace/crete/crete/test/test(main+0x54) [0x83a6ade]
+                /lib/libc.so.6(__libc_start_main+0xe5) [0xb711d455]
+                /var/lib/hudson/workspace/crete/crete/test/test [0x82ec021]
+                &apos; passed
+            </Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="ExceptionTestCatchByStdException">
+            <Info file="exceptiontest.cpp" line="37">check &apos;exceptiontest.cpp(11): Throw in function void&lt;unnamed&gt;::DummyFunction()
+                Dynamic exception type: N5boost16exception_detail10clone_implIN5crete20ApplicationExceptionEEE
+                std::exception::what: whatever error message
+                [PN6Mordor13tag_backtraceE] = /var/lib/hudson/workspace/crete/crete/test/test [0x8363445]
+                /var/lib/hudson/workspace/crete/crete/test/test(_ZN32ExceptionTestCatchByStdException11test_methodEv+0x4d)
+                [0x8363f33]
+                /var/lib/hudson/workspace/crete/crete/test/test [0x83651e4]
+                /var/lib/hudson/workspace/crete/crete/test/test(_ZN5boost9unit_test9ut_detail7invokerINS1_6unusedEE6invokeIPFvvEEES3_RT_+0x37)
+                [0x82face3]
+                /var/lib/hudson/workspace/crete/crete/test/test(_ZN5boost9unit_test9ut_detail16callback0_impl_tINS1_6unusedEPFvvEE6invokeEv+0x4d)
+                [0x82fad61]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0 [0xb77309dd]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost17execution_monitor13catch_signalsERKNS_9unit_test9callback0IiEE+0xe5)
+                [0xb7715765]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost17execution_monitor7executeERKNS_9unit_test9callback0IiEE+0x35)
+                [0xb7715835]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test19unit_test_monitor_t21execute_and_translateERKNS0_9test_caseE+0xb8)
+                [0xb7730b08]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test14framework_impl5visitERKNS0_9test_caseE+0xb8)
+                [0xb7721708]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeERKNS0_9test_caseERNS0_17test_tree_visitorE+0x26)
+                [0xb7751986]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorE+0x40)
+                [0xb7752030]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeERKNS0_10test_suiteERNS0_17test_tree_visitorE+0x71)
+                [0xb7751e51]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorE+0x6c)
+                [0xb775205c]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test9framework3runEmb+0x55d) [0xb771f79d]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test14unit_test_mainEPFbvEiPPc+0x13e)
+                [0xb772d9fe]
+                /var/lib/hudson/workspace/crete/crete/test/test(main+0x54) [0x83a6ade]
+                /lib/libc.so.6(__libc_start_main+0xe5) [0xb711d455]
+                /var/lib/hudson/workspace/crete/crete/test/test [0x82ec021]
+                &apos; passed
+            </Info>
+            <Info file="exceptiontest.cpp" line="38">check &apos;exceptiontest.cpp(11): Throw in function void&lt;unnamed&gt;::DummyFunction()
+                Dynamic exception type: N5boost16exception_detail10clone_implIN5crete20ApplicationExceptionEEE
+                std::exception::what: whatever error message
+                [PN6Mordor13tag_backtraceE] = /var/lib/hudson/workspace/crete/crete/test/test [0x8363445]
+                /var/lib/hudson/workspace/crete/crete/test/test(_ZN32ExceptionTestCatchByStdException11test_methodEv+0x4d)
+                [0x8363f33]
+                /var/lib/hudson/workspace/crete/crete/test/test [0x83651e4]
+                /var/lib/hudson/workspace/crete/crete/test/test(_ZN5boost9unit_test9ut_detail7invokerINS1_6unusedEE6invokeIPFvvEEES3_RT_+0x37)
+                [0x82face3]
+                /var/lib/hudson/workspace/crete/crete/test/test(_ZN5boost9unit_test9ut_detail16callback0_impl_tINS1_6unusedEPFvvEE6invokeEv+0x4d)
+                [0x82fad61]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0 [0xb77309dd]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost17execution_monitor13catch_signalsERKNS_9unit_test9callback0IiEE+0xe5)
+                [0xb7715765]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost17execution_monitor7executeERKNS_9unit_test9callback0IiEE+0x35)
+                [0xb7715835]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test19unit_test_monitor_t21execute_and_translateERKNS0_9test_caseE+0xb8)
+                [0xb7730b08]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test14framework_impl5visitERKNS0_9test_caseE+0xb8)
+                [0xb7721708]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeERKNS0_9test_caseERNS0_17test_tree_visitorE+0x26)
+                [0xb7751986]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorE+0x40)
+                [0xb7752030]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeERKNS0_10test_suiteERNS0_17test_tree_visitorE+0x71)
+                [0xb7751e51]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorE+0x6c)
+                [0xb775205c]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test9framework3runEmb+0x55d) [0xb771f79d]
+                /usr/lib/libboost_unit_test_framework.so.1.40.0(_ZN5boost9unit_test14unit_test_mainEPFbvEiPPc+0x13e)
+                [0xb772d9fe]
+                /var/lib/hudson/workspace/crete/crete/test/test(main+0x54) [0x83a6ade]
+                /lib/libc.so.6(__libc_start_main+0xe5) [0xb711d455]
+                /var/lib/hudson/workspace/crete/crete/test/test [0x82ec021]
+                &apos; passed
+            </Info>
+            <TestingTime>10000</TestingTime>
+        </TestCase>
+        <TestCase name="ConfigurationLoadTest">
+            <Info file="configuretest.cpp" line="26">check conf-&gt;schedule_sets_.size() == 3 passed</Info>
+            <Info file="configuretest.cpp" line="28">check its-&gt;start_ == 0 passed</Info>
+            <Info file="configuretest.cpp" line="29">check its-&gt;end_ == 86400 passed</Info>
+            <Info file="configuretest.cpp" line="30">check its-&gt;throttle_ == -1 passed</Info>
+            <Info file="configuretest.cpp" line="32">check its-&gt;start_ == 86400 passed</Info>
+            <Info file="configuretest.cpp" line="33">check its-&gt;end_ == 172800 passed</Info>
+            <Info file="configuretest.cpp" line="34">check its-&gt;throttle_ == 0 passed</Info>
+            <Info file="configuretest.cpp" line="36">check its-&gt;start_ == 172800 passed</Info>
+            <Info file="configuretest.cpp" line="37">check its-&gt;end_ == 604800 passed</Info>
+            <Info file="configuretest.cpp" line="38">check its-&gt;throttle_ == 64000 passed</Info>
+            <Info file="configuretest.cpp" line="40">check conf-&gt;backup_sets_.size() == 2 passed</Info>
+            <Info file="configuretest.cpp" line="42">check it-&gt;name_ == &quot;Music&quot; passed</Info>
+            <Info file="configuretest.cpp" line="43">check it-&gt;include_scopes_.size() == 3 passed</Info>
+            <Info file="configuretest.cpp" line="45">check *it2++ == &quot;/home/&quot; passed</Info>
+            <Info file="configuretest.cpp" line="46">check *it2++ == &quot;/share/&quot; passed</Info>
+            <Info file="configuretest.cpp" line="47">check *it2++ == &quot;/tmp/&quot; passed</Info>
+            <Info file="configuretest.cpp" line="48">check it-&gt;exclude_scopes_.size() == 0 passed</Info>
+            <Info file="configuretest.cpp" line="49">check it-&gt;rules_.size() == 2 passed</Info>
+            <Info file="configuretest.cpp" line="51">check it3-&gt;size() == 1 passed</Info>
+            <Info file="configuretest.cpp" line="53">check it4-&gt;include_ == true passed</Info>
+            <Info file="configuretest.cpp" line="54">check it4-&gt;type_ == BackupSetRule::TYPE_EXTENSION passed</Info>
+            <Info file="configuretest.cpp" line="55">check it4-&gt;operation_ == BackupSetRule::OPERATION_EQUAL passed
+            </Info>
+            <Info file="configuretest.cpp" line="56">check it4-&gt;extensions_.size() == 4 passed</Info>
+            <Info file="configuretest.cpp" line="58">check *it5++ == &quot;mp3&quot; passed</Info>
+            <Info file="configuretest.cpp" line="59">check *it5++ == &quot;wma&quot; passed</Info>
+            <Info file="configuretest.cpp" line="60">check *it5++ == &quot;aac&quot; passed</Info>
+            <Info file="configuretest.cpp" line="61">check *it5++ == &quot;m4a&quot; passed</Info>
+            <Info file="configuretest.cpp" line="63">check it3-&gt;size() == 2 passed</Info>
+            <Info file="configuretest.cpp" line="65">check it4-&gt;include_ == true passed</Info>
+            <Info file="configuretest.cpp" line="66">check it4-&gt;type_ == BackupSetRule::TYPE_EXTENSION passed</Info>
+            <Info file="configuretest.cpp" line="67">check it4-&gt;operation_ == BackupSetRule::OPERATION_EQUAL passed
+            </Info>
+            <Info file="configuretest.cpp" line="68">check it4-&gt;extensions_.size() == 1 passed</Info>
+            <Info file="configuretest.cpp" line="70">check *it5++ == &quot;wav&quot; passed</Info>
+            <Info file="configuretest.cpp" line="72">check it4-&gt;include_ == false passed</Info>
+            <Info file="configuretest.cpp" line="73">check it4-&gt;type_ == BackupSetRule::TYPE_EXTENSION passed</Info>
+            <Info file="configuretest.cpp" line="74">check it4-&gt;operation_ == BackupSetRule::OPERATION_EQUAL passed
+            </Info>
+            <Info file="configuretest.cpp" line="75">check it4-&gt;extensions_.size() == 1 passed</Info>
+            <Info file="configuretest.cpp" line="77">check *it5++ == &quot;ogg&quot; passed</Info>
+            <Info file="configuretest.cpp" line="79">check it-&gt;name_ == &quot;Photo&quot; passed</Info>
+            <Info file="configuretest.cpp" line="80">check it-&gt;include_scopes_.size() == 3 passed</Info>
+            <Info file="configuretest.cpp" line="82">check *it2++ == &quot;/home/&quot; passed</Info>
+            <Info file="configuretest.cpp" line="83">check *it2++ == &quot;/mnt/&quot; passed</Info>
+            <Info file="configuretest.cpp" line="84">check *it2++ == &quot;/tmp/&quot; passed</Info>
+            <Info file="configuretest.cpp" line="85">check it-&gt;exclude_scopes_.size() == 1 passed</Info>
+            <Info file="configuretest.cpp" line="87">check *it2++ == &quot;/tmp/tmp.jpg&quot; passed</Info>
+            <Info file="configuretest.cpp" line="88">check it-&gt;rules_.size() == 1 passed</Info>
+            <Info file="configuretest.cpp" line="90">check it3-&gt;size() == 1 passed</Info>
+            <Info file="configuretest.cpp" line="92">check it4-&gt;include_ == true passed</Info>
+            <Info file="configuretest.cpp" line="93">check it4-&gt;type_ == BackupSetRule::TYPE_EXTENSION passed</Info>
+            <Info file="configuretest.cpp" line="94">check it4-&gt;operation_ == BackupSetRule::OPERATION_EQUAL passed
+            </Info>
+            <Info file="configuretest.cpp" line="95">check it4-&gt;extensions_.size() == 2 passed</Info>
+            <Info file="configuretest.cpp" line="97">check *it5++ == &quot;jpg&quot; passed</Info>
+            <Info file="configuretest.cpp" line="98">check *it5++ == &quot;arw&quot; passed</Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="CheckLicense_0">
+            <Exception>child has exited; pid: 8389; uid: 101; exit value: 2
+                <LastCheckpoint file="busclienttest.cpp" line="56"></LastCheckpoint>
+            </Exception>
+            <TestingTime>10000</TestingTime>
+        </TestCase>
+        <TestCase name="CheckLicense_1">
+            <Exception>signal: SIGABRT (application abort requested)
+                <LastCheckpoint file="busclienttest.cpp" line="56"></LastCheckpoint>
+            </Exception>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="BlackListTest">
+            <Info file="blacklisttest.cpp" line="14">check bl.IsInBlackList(&quot;/tmp/crete_snapshot&quot;) == false
+                passed
+            </Info>
+            <Info file="blacklisttest.cpp" line="16">check bl.IsInBlackList(&quot;/tmp/crete_snap&quot;) == false passed
+            </Info>
+            <Info file="blacklisttest.cpp" line="17">check bl.IsInBlackList(&quot;/tmp/crete_snapshot&quot;) == true
+                passed
+            </Info>
+            <Info file="blacklisttest.cpp" line="18">check bl.IsInBlackList(&quot;/tmp/crete_snapshot000&quot;) == false
+                passed
+            </Info>
+            <Info file="blacklisttest.cpp" line="19">check bl.IsInBlackList(&quot;/tmp/crete_snapshot/&quot;) == true
+                passed
+            </Info>
+            <Info file="blacklisttest.cpp" line="20">check bl.IsInBlackList(&quot;/tmp/crete_snapshot/snap/&quot;) ==
+                true passed
+            </Info>
+            <Info file="blacklisttest.cpp" line="21">check bl.IsInBlackList(&quot;/tmp/crete_snapshot/snap/tmp.txt&quot;)
+                == true passed
+            </Info>
+            <Info file="blacklisttest.cpp" line="22">check bl.IsInBlackList(&quot;/tmp/test.txt&quot;) == false passed
+            </Info>
+            <Info file="blacklisttest.cpp" line="25">check bl.IsInBlackList(&quot;/proc/sys&quot;) == true passed</Info>
+            <Info file="blacklisttest.cpp" line="26">check bl.IsInBlackList(&quot;/&quot;) == false passed</Info>
+            <Info file="blacklisttest.cpp" line="27">check bl.IsInBlackList(&quot;&quot;) == false passed</Info>
+            <Info file="blacklisttest.cpp" line="30">check bl.IsInBlackList(&quot;/proc/sys&quot;) == true passed</Info>
+            <Info file="blacklisttest.cpp" line="31">check bl.IsInBlackList(&quot;/&quot;) == false passed</Info>
+            <Info file="blacklisttest.cpp" line="32">check bl.IsInBlackList(&quot;&quot;) == false passed</Info>
+            <Info file="blacklisttest.cpp" line="34">check bl.IsInBlackList(&quot;/proc/sys&quot;) == true passed</Info>
+            <Info file="blacklisttest.cpp" line="35">check bl.IsInBlackList(&quot;/&quot;) == true passed</Info>
+            <Info file="blacklisttest.cpp" line="36">check bl.IsInBlackList(&quot;&quot;) == false passed</Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="BackupTaskStoreTest">
+            <Info file="backuptaskstoretest.cpp" line="22">check bts.CountBackupTask() == 0 passed</Info>
+            <Info file="backuptaskstoretest.cpp" line="24">check bt1 == __null passed</Info>
+            <Info file="backuptaskstoretest.cpp" line="31">check bts.CountBackupTask() == 10 passed</Info>
+            <Info file="backuptaskstoretest.cpp" line="33">check bt2-&gt;GetPath() == &quot;test_0&quot; passed</Info>
+            <Info file="backuptaskstoretest.cpp" line="34">check bt2-&gt;GetOperation() == 0 passed</Info>
+            <Info file="backuptaskstoretest.cpp" line="40">check bts.CountBackupTask() == 16 passed</Info>
+            <Info file="backuptaskstoretest.cpp" line="43">check ll.size() == 6 passed</Info>
+            <Info file="backuptaskstoretest.cpp" line="45">check it-&gt;GetPath() == &quot;same&quot; passed</Info>
+            <Info file="backuptaskstoretest.cpp" line="45">check it-&gt;GetPath() == &quot;same&quot; passed</Info>
+            <Info file="backuptaskstoretest.cpp" line="45">check it-&gt;GetPath() == &quot;same&quot; passed</Info>
+            <Info file="backuptaskstoretest.cpp" line="45">check it-&gt;GetPath() == &quot;same&quot; passed</Info>
+            <Info file="backuptaskstoretest.cpp" line="45">check it-&gt;GetPath() == &quot;same&quot; passed</Info>
+            <Info file="backuptaskstoretest.cpp" line="45">check it-&gt;GetPath() == &quot;same&quot; passed</Info>
+            <Info file="backuptaskstoretest.cpp" line="49">check ll.begin()-&gt;GetOperation() == 5 passed</Info>
+            <Info file="backuptaskstoretest.cpp" line="51">check bts.UpdateBackupTask(bt4) == 1 passed</Info>
+            <Info file="backuptaskstoretest.cpp" line="52">check bts.CountBackupTask() == 16 passed</Info>
+            <Info file="backuptaskstoretest.cpp" line="55">check ll.begin()-&gt;GetOperation() == 0 passed</Info>
+            <Info file="backuptaskstoretest.cpp" line="57">check bts.DelBackupTask(&quot;test_5&quot;) == 1 passed
+            </Info>
+            <Info file="backuptaskstoretest.cpp" line="58">check bts.CountBackupTask() == 15 passed</Info>
+            <Info file="backuptaskstoretest.cpp" line="60">check bt3-&gt;GetPath() == &quot;same&quot; passed</Info>
+            <Info file="backuptaskstoretest.cpp" line="61">check bt3-&gt;GetOperation() == 10 passed</Info>
+            <Info file="backuptaskstoretest.cpp" line="63">check bts.CountBackupTask() == 14 passed</Info>
+            <Info file="backuptaskstoretest.cpp" line="65">check bts.CountBackupTask() == 14 passed</Info>
+            <Info file="backuptaskstoretest.cpp" line="66">check bts.DelBackupTask(&quot;same&quot;) == 6 passed</Info>
+            <Info file="backuptaskstoretest.cpp" line="67">check bts.CountBackupTask() == 8 passed</Info>
+            <Info file="backuptaskstoretest.cpp" line="69">check bts.CountBackupTask() == 0 passed</Info>
+            <TestingTime>20000</TestingTime>
+        </TestCase>
+        <TestCase name="BackupTaskQueueTestNormal">
+            <Info file="backuptaskqueuetest.cpp" line="22">check &apos;/tmp/file1.mp3&apos; passed</Info>
+            <Info file="backuptaskqueuetest.cpp" line="22">check &apos;/tmp/file2.mp3&apos; passed</Info>
+            <Info file="backuptaskqueuetest.cpp" line="22">check &apos;/tmp/file3.mp3&apos; passed</Info>
+            <Info file="backuptaskqueuetest.cpp" line="57">check all.empty() passed</Info>
+            <TestingTime>30000</TestingTime>
+        </TestCase>
+        <TestCase name="BackupTaskQueueTestCoalescing">
+            <Info file="backuptaskqueuetest.cpp" line="22">check &apos;/tmp/file1.mp3&apos; passed</Info>
+            <Info file="backuptaskqueuetest.cpp" line="22">check &apos;/tmp/file2.mp3&apos; passed</Info>
+            <Info file="backuptaskqueuetest.cpp" line="22">check &apos;/tmp/file3.mp3&apos; passed</Info>
+            <Info file="backuptaskqueuetest.cpp" line="96">check all.empty() passed</Info>
+            <TestingTime>20000</TestingTime>
+        </TestCase>
+        <TestCase name="BackupTaskCheckRuleTest">
+            <Info file="backuptaskcheckruletest.cpp" line="89">check conf-&gt;Match(obj0) == true passed</Info>
+            <Info file="backuptaskcheckruletest.cpp" line="90">check conf-&gt;Match(obj1) == false passed</Info>
+            <Info file="backuptaskcheckruletest.cpp" line="91">check conf-&gt;Match(obj2) == true passed</Info>
+            <Info file="backuptaskcheckruletest.cpp" line="92">check conf-&gt;Match(obj3) == true passed</Info>
+            <Info file="backuptaskcheckruletest.cpp" line="93">check conf-&gt;Match(obj4) == true passed</Info>
+            <Info file="backuptaskcheckruletest.cpp" line="94">check conf-&gt;Match(obj5) == true passed</Info>
+            <Info file="backuptaskcheckruletest.cpp" line="95">check conf-&gt;Match(obj6) == true passed</Info>
+            <Info file="backuptaskcheckruletest.cpp" line="96">check conf-&gt;Match(obj7) == false passed</Info>
+            <Info file="backuptaskcheckruletest.cpp" line="97">check conf-&gt;Match(obj8) == true passed</Info>
+            <Info file="backuptaskcheckruletest.cpp" line="98">check conf-&gt;Match(obj9) == false passed</Info>
+            <Info file="backuptaskcheckruletest.cpp" line="99">check conf-&gt;Match(obj10) == true passed</Info>
+            <Info file="backuptaskcheckruletest.cpp" line="100">check conf-&gt;Match(obj11) == false passed</Info>
+            <Info file="backuptaskcheckruletest.cpp" line="102">check conf-&gt;Match(obj12) == true passed</Info>
+            <Info file="backuptaskcheckruletest.cpp" line="103">check conf-&gt;Match(obj13) == true passed</Info>
+            <Info file="backuptaskcheckruletest.cpp" line="104">check conf-&gt;Match(obj14) == false passed</Info>
+            <Info file="backuptaskcheckruletest.cpp" line="105">check conf-&gt;Match(obj15) == false passed</Info>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+    </TestSuite>
+</TestLog>

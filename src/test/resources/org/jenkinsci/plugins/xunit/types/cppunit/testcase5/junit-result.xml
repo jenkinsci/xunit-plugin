@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite errors="0" failures="0" tests="7" name="cppunit">
+    <testcase classname="config_extractorTest" name="test_config_extractor_Constructors"
+              time="0"/>
+    <testcase classname="config_extractorTest" name="test_setLineEstimationMethod" time="0"/>
+    <testcase classname="config_extractorTest" name="test_setCircleEstimationMethod" time="0"/>
+    <testcase classname="config_extractorTest" name="test_setBreakPointMethod" time="0"/>
+    <testcase classname="config_extractorTest" name="test_setCornerEstimationMethod" time="0"/>
+    <testcase classname="config_extractorTest" name="test_setMinDistanceBtwLines" time="0"/>
+    <testcase classname="config_extractorTest" name="test_setMinLinePoints" time="0"/>
+</testsuite>

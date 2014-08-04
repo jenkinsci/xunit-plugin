@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite errors="0" failures="1" tests="5" name="cppunit">
+    <testcase classname="MathTest" name="testSum" time="0">
+        <failure message="equality assertion failed - Expected: 141496748 - Actual : 16777217" type="Assertion"/>
+        <system-err>
+            [File] - mathTest.cpp
+            [Line] - 56
+        </system-err>
+    </testcase>
+    <testcase classname="MathTest" name="testConstructor" time="0"/>
+    <testcase classname="MathTest" name="testPush" time="0"/>
+    <testcase classname="ExpressionTest" name="testConstructor" time="0"/>
+    <testcase classname="ExpressionTest" name="testPush" time="0"/>
+</testsuite>

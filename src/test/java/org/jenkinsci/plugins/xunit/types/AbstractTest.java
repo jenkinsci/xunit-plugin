@@ -7,6 +7,7 @@ import org.jenkinsci.lib.dtkit.model.InputMetric;
 import org.jenkinsci.lib.dtkit.model.InputMetricFactory;
 import org.jenkinsci.lib.dtkit.util.validator.ValidationError;
 import org.junit.Assert;
+import org.junit.Before;
 
 import java.io.*;
 
@@ -14,6 +15,15 @@ import java.io.*;
  * @author Gregory Boissinot
  */
 public abstract class AbstractTest {
+
+
+    @Before
+    public void setUp() {
+        XMLUnit.setIgnoreWhitespace(true);
+        XMLUnit.setNormalizeWhitespace(true);
+        XMLUnit.setIgnoreComments(true);
+    }
+
 
     private String readXmlAsString(File input)
             throws IOException {

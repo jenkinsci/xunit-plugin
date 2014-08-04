@@ -1,0 +1,16 @@
+<TestLog>
+    <TestSuite name="MyTest">
+        <TestCase name="my_test">
+            <Info file="test.cpp" line="11">check add( 2,2 ) == 4 passed</Info>
+
+            <TestingTime>0</TestingTime>
+        </TestCase>
+    </TestSuite>
+</TestLog>
+
+<TestResult>
+<TestSuite name="MyTest" result="passed" assertions_passed="1" assertions_failed="0" expected_failures="0"
+           test_cases_passed="1" test_cases_failed="0" test_cases_skipped="0" test_cases_aborted="0">
+</TestSuite>
+</TestResult>
+

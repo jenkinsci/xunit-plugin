@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="php-src" tests="1" failures="0" errors="0" skipped="0" time="0.1061">
+        <testsuite name="php-src.tests.run-test" tests="1" failures="0" errors="0" skip="0" time="0.1061">
+            <testcase classname='php-src.tests.run-test' name='test001.phpt - EXPECT' time='0.1061'></testcase>
+        </testsuite>
+    </testsuite>
+</testsuites>

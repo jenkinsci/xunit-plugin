@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<tusar xmlns_xsi='http://www.w3.org/2001/XMLSchema-instance'
+       version='1.0'>
+    <tests>
+        <testsuite name='java::lang::EnumTest_API' tests='8'>
+            <testcase testname='testValues'>
+            </testcase>
+            <testcase testname='testValueOf'>
+            </testcase>
+            <testcase testname='testDeclaringClass'>
+            </testcase>
+            <testcase testname='testName'>
+            </testcase>
+            <testcase testname='testOrdinal'>
+            </testcase>
+            <testcase testname='testToString'>
+            </testcase>
+            <testcase testname='testEquals'>
+            </testcase>
+            <testcase testname='testHashCode'>
+            </testcase>
+        </testsuite>
+        <testsuite name='java::util::ArrayListTest_API' tests='3'>
+            <testcase testname='testIsEmpty'>
+            </testcase>
+            <testcase testname='testIterator'>
+            </testcase>
+            <testcase testname='testSubList'>
+            </testcase>
+        </testsuite>
+        <testsuite name='java::util::HashMapTest_API' tests='2'>
+            <testcase testname='testIsEmpty'>
+            </testcase>
+            <testcase testname='testGet'>
+            </testcase>
+        </testsuite>
+        <testsuite name='java::util::HashSetTest_API' tests='2'>
+            <testcase testname='testIsEmpty'>
+            </testcase>
+            <testcase testname='testContains'>
+            </testcase>
+        </testsuite>
+        <testsuite name='com::thalesraytheon::sdk::osgi::OSGiTest_API'
+                   tests='1'>
+            <testcase testname='testActivator'>
+            </testcase>
+        </testsuite>
+    </tests>
+</tusar>

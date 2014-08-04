@@ -1,0 +1,336 @@
+<testsuites>
+    <testsuite name="Object_Freezer" file="/usr/local/hudson/jobs/php-object-freezer/workspace/Object/Freezer.php"
+               fullPackage="Object_Freezer" package="Object_Freezer" tests="78" assertions="165" failures="0" errors="0"
+               time="2.766869">
+        <testsuite name="Object_FreezerTest"
+                   file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php"
+                   fullPackage="Object_Freezer.Tests" package="Object_Freezer" subpackage="Tests" tests="28"
+                   assertions="60" failures="0" errors="0" time="0.259860">
+            <testcase name="testFreezingAnObjectWorks" class="Object_FreezerTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php" line="98"
+                      assertions="2" time="0.022366"/>
+            <testcase name="testFreezingAnObjectOfAnExtendedClassWorks" class="Object_FreezerTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php" line="123"
+                      assertions="2" time="0.004925"/>
+            <testcase name="testFreezingAnObjectThatAggregatesAResourceWorks" class="Object_FreezerTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php" line="150"
+                      assertions="2" time="0.004488"/>
+            <testcase name="testFreezingAnObjectThatAggregatesOtherObjectsWorks" class="Object_FreezerTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php" line="174"
+                      assertions="2" time="0.007780"/>
+            <testcase name="testFreezingAnObjectThatAggregatesOtherObjectsInAnArrayWorks" class="Object_FreezerTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php" line="217"
+                      assertions="2" time="0.006247"/>
+            <testcase name="testFreezingAnObjectThatAggregatesOtherObjectsInANestedArrayWorks"
+                      class="Object_FreezerTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php" line="254"
+                      assertions="2" time="0.006312"/>
+            <testcase name="testFreezingAnObjectGraphThatContainsCyclesWorks" class="Object_FreezerTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php" line="292"
+                      assertions="2" time="0.009836"/>
+
+            <testcase name="testFreezingAnObjectGraphThatContainsCyclesWorks2" class="Object_FreezerTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php" line="349"
+                      assertions="2" time="0.009758"/>
+            <testcase name="testFreezingAndThawingAnObjectWorks" class="Object_FreezerTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php" line="403"
+                      assertions="2" time="0.005602"/>
+            <testcase name="testRepeatedlyFreezingAndThawingAnObjectWorks" class="Object_FreezerTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php" line="417"
+                      assertions="2" time="0.007014"/>
+            <testcase name="testFreezingAndThawingAnObjectOfAnExtendedClassWorks" class="Object_FreezerTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php" line="435"
+                      assertions="2" time="0.006125"/>
+            <testcase name="testFreezingAndThawingAnObjectThatAggregatesOtherObjectsWorks" class="Object_FreezerTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php" line="449"
+                      assertions="2" time="0.010203"/>
+            <testcase name="testRepeatedlyFreezingAndThawingAnObjectThatAggregatesOtherObjectsWorks"
+                      class="Object_FreezerTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php" line="463"
+                      assertions="2" time="0.013952"/>
+            <testcase name="testFreezingAndThawingAnObjectThatAggregatesOtherObjectsInAnArrayWorks"
+                      class="Object_FreezerTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php" line="485"
+                      assertions="2" time="0.008167"/>
+            <testcase name="testFreezingAndThawingAnObjectThatAggregatesOtherObjectsInANestedArrayWorks"
+                      class="Object_FreezerTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php" line="501"
+                      assertions="2" time="0.008490"/>
+            <testcase name="testFreezingAndThawingAnObjectGraphThatContainsCyclesWorks" class="Object_FreezerTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php" line="517"
+                      assertions="2" time="0.062774"/>
+
+            <testcase name="testFreezingAndThawingAnObjectGraphThatContainsCyclesWorks2" class="Object_FreezerTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php" line="537"
+                      assertions="2" time="0.027439"/>
+            <testcase name="testConstructorIsNotCalledWhenAnObjectIsThawed" class="Object_FreezerTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php" line="552"
+                      assertions="2" time="0.004718"/>
+            <testcase name="testExceptionIsThrownIfNotAnObjectIsPassedAsFirstArgumentToFreeze"
+                      class="Object_FreezerTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php" line="563"
+                      assertions="2" time="0.002685"/>
+            <testcase name="testExceptionIsThrownWhenClassCouldNotBeFound" class="Object_FreezerTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php" line="573"
+                      assertions="2" time="0.002640"/>
+            <testcase name="testConstructorWithDefaultArguments" class="Object_FreezerTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php" line="601"
+                      assertions="5" time="0.005946"/>
+            <testcase name="testExceptionIsRaisedForInvalidConstructorArguments" class="Object_FreezerTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php" line="623"
+                      assertions="2" time="0.002962"/>
+            <testcase name="testNonDirtyObjectIsRecognizedAsNotBeingDirty" class="Object_FreezerTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php" line="631"
+                      assertions="2" time="0.003684"/>
+            <testcase name="testDirtyObjectIsRecognizedAsBeingDirty" class="Object_FreezerTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php" line="642"
+                      assertions="2" time="0.003252"/>
+            <testcase name="testDirtyObjectIsRecognizedAsBeingDirty2" class="Object_FreezerTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php" line="653"
+                      assertions="2" time="0.003204"/>
+
+            <testcase name="testDirtyObjectIsRecognizedAsBeingDirty3" class="Object_FreezerTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php" line="663"
+                      assertions="3" time="0.003947"/>
+            <testcase name="testExceptionIsThrownIfNotAnObjectIsPassedAsFirstArgumentToIsDirty"
+                      class="Object_FreezerTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php" line="677"
+                      assertions="2" time="0.002666"/>
+            <testcase name="testExceptionIsThrownIfNotABooleanIsPassedAsSecondArgumentToIsDirty"
+                      class="Object_FreezerTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/FreezerTest.php" line="687"
+                      assertions="2" time="0.002677"/>
+        </testsuite>
+        <testsuite name="Object_Freezer_Storage_CouchDB_WithLazyLoadTest"
+                   file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithLazyLoadTest.php"
+                   fullPackage="Object_Freezer.Tests" package="Object_Freezer" subpackage="Tests" tests="12"
+                   assertions="28" failures="0" errors="0" time="1.822911">
+            <testcase name="testStoringAndFetchingAnObjectThatAggregatesOtherObjectsWorks"
+                      class="Object_Freezer_Storage_CouchDB_WithLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithLazyLoadTest.php"
+                      line="72" assertions="2" time="1.415706"/>
+            <testcase name="testStoringAndFetchingAnObjectThatAggregatesOtherObjectsWorks2"
+                      class="Object_Freezer_Storage_CouchDB_WithLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithLazyLoadTest.php"
+                      line="92" assertions="2" time="0.037729"/>
+            <testcase name="testStoringAndFetchingAnObjectThatAggregatesOtherObjectsWorks3"
+                      class="Object_Freezer_Storage_CouchDB_WithLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithLazyLoadTest.php"
+                      line="111" assertions="2" time="0.044783"/>
+            <testcase name="testStoringAndFetchingAnObjectThatAggregatesOtherObjectsWorks4"
+                      class="Object_Freezer_Storage_CouchDB_WithLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithLazyLoadTest.php"
+                      line="134" assertions="2" time="0.037761"/>
+
+            <testcase name="testStoringAndFetchingAnObjectThatAggregatesOtherObjectsInAnArrayWorks"
+                      class="Object_Freezer_Storage_CouchDB_WithLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithLazyLoadTest.php"
+                      line="154" assertions="2" time="0.033008"/>
+            <testcase name="testStoringAndFetchingAnObjectThatAggregatesOtherObjectsInAnArrayWorks2"
+                      class="Object_Freezer_Storage_CouchDB_WithLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithLazyLoadTest.php"
+                      line="174" assertions="2" time="0.041370"/>
+            <testcase name="testStoringAndFetchingAnObjectThatAggregatesOtherObjectsInAnArrayWorks3"
+                      class="Object_Freezer_Storage_CouchDB_WithLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithLazyLoadTest.php"
+                      line="198" assertions="2" time="0.036305"/>
+            <testcase name="testStoringAndFetchingAnObjectThatAggregatesOtherObjectsInANestedArrayWorks"
+                      class="Object_Freezer_Storage_CouchDB_WithLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithLazyLoadTest.php"
+                      line="218" assertions="2" time="0.030594"/>
+            <testcase name="testStoringAndFetchingAnObjectThatAggregatesOtherObjectsInANestedArrayWorks2"
+                      class="Object_Freezer_Storage_CouchDB_WithLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithLazyLoadTest.php"
+                      line="238" assertions="2" time="0.031673"/>
+            <testcase name="testStoringAndFetchingAnObjectThatAggregatesOtherObjectsInANestedArrayWorks3"
+                      class="Object_Freezer_Storage_CouchDB_WithLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithLazyLoadTest.php"
+                      line="262" assertions="2" time="0.032969"/>
+            <testcase name="testStoringAndFetchingAnObjectGraphThatContainsCyclesWorks"
+                      class="Object_Freezer_Storage_CouchDB_WithLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithLazyLoadTest.php"
+                      line="281" assertions="4" time="0.041063"/>
+            <testcase name="testStoringAndFetchingAnObjectGraphThatContainsCyclesWorks2"
+                      class="Object_Freezer_Storage_CouchDB_WithLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithLazyLoadTest.php"
+                      line="311" assertions="4" time="0.039950"/>
+        </testsuite>
+
+        <testsuite name="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest"
+                   file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithoutLazyLoadTest.php"
+                   fullPackage="Object_Freezer.Tests" package="Object_Freezer" subpackage="Tests" tests="19"
+                   assertions="46" failures="0" errors="0" time="0.635720">
+            <testcase name="testStoringAnObjectWorks" class="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithoutLazyLoadTest.php"
+                      line="68" assertions="2" time="0.028318"/>
+            <testcase name="testStoringAnObjectThatAggregatesOtherObjectsWorks"
+                      class="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithoutLazyLoadTest.php"
+                      line="93" assertions="4" time="0.033012"/>
+            <testcase name="testStoringAnObjectThatAggregatesOtherObjectsInAnArrayWorks"
+                      class="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithoutLazyLoadTest.php"
+                      line="142" assertions="3" time="0.032954"/>
+            <testcase name="testStoringAnObjectThatAggregatesOtherObjectsInANestedArrayWorks"
+                      class="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithoutLazyLoadTest.php"
+                      line="181" assertions="3" time="0.029145"/>
+            <testcase name="testStoringAnObjectGraphThatContainsCyclesWorks"
+                      class="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithoutLazyLoadTest.php"
+                      line="222" assertions="4" time="0.033089"/>
+            <testcase name="testStoringAnObjectGraphThatContainsCyclesWorks2"
+                      class="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithoutLazyLoadTest.php"
+                      line="284" assertions="4" time="0.034249"/>
+            <testcase name="testStoringAndFetchingAnObjectWorks"
+                      class="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithoutLazyLoadTest.php"
+                      line="346" assertions="2" time="0.030048"/>
+            <testcase name="testStoringAndFetchingAnObjectWorks2"
+                      class="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithoutLazyLoadTest.php"
+                      line="362" assertions="2" time="0.027857"/>
+
+            <testcase name="testStoringAndFetchingAnObjectThatAggregatesOtherObjectsWorks"
+                      class="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithoutLazyLoadTest.php"
+                      line="380" assertions="2" time="0.039175"/>
+            <testcase name="testStoringAndFetchingAnObjectThatAggregatesOtherObjectsInAnArrayWorks"
+                      class="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithoutLazyLoadTest.php"
+                      line="396" assertions="2" time="0.032866"/>
+            <testcase name="testStoringAndFetchingAnObjectThatAggregatesOtherObjectsInANestedArrayWorks"
+                      class="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithoutLazyLoadTest.php"
+                      line="412" assertions="2" time="0.032061"/>
+            <testcase name="testStoringAndFetchingAnObjectGraphThatContainsCyclesWorks"
+                      class="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithoutLazyLoadTest.php"
+                      line="427" assertions="2" time="0.096908"/>
+            <testcase name="testStoringAndFetchingAnObjectGraphThatContainsCyclesWorks2"
+                      class="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithoutLazyLoadTest.php"
+                      line="448" assertions="2" time="0.058626"/>
+            <testcase name="testExceptionIsThrownIfFirstConstructorArgumentIsNotAString"
+                      class="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithoutLazyLoadTest.php"
+                      line="464" assertions="2" time="0.022465"/>
+            <testcase name="testExceptionIsThrownIfFourthConstructorArgumentIsNotABoolean"
+                      class="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithoutLazyLoadTest.php"
+                      line="474" assertions="2" time="0.019187"/>
+            <testcase name="testExceptionIsThrownIfFifthConstructorArgumentIsNotAString"
+                      class="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithoutLazyLoadTest.php"
+                      line="484" assertions="2" time="0.019346"/>
+            <testcase name="testExceptionIsThrownIfSixthConstructorArgumentIsNotAnInteger"
+                      class="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithoutLazyLoadTest.php"
+                      line="494" assertions="2" time="0.022084"/>
+
+            <testcase name="testExceptionIsThrownIfObjectCouldNotBeFetched"
+                      class="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithoutLazyLoadTest.php"
+                      line="504" assertions="2" time="0.022511"/>
+            <testcase name="testExceptionIsThrownIfConnectionFails"
+                      class="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/Storage/CouchDB/WithoutLazyLoadTest.php"
+                      line="514" assertions="2" time="0.021819"/>
+        </testsuite>
+        <testsuite name="Object_Freezer_UtilTest"
+                   file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/UtilTest.php"
+                   fullPackage="Object_Freezer.Tests" package="Object_Freezer" subpackage="Tests" tests="3"
+                   assertions="3" failures="0" errors="0" time="0.003899">
+            <testcase name="testAttributesOfAnObjectCanBeRead" class="Object_Freezer_UtilTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/UtilTest.php" line="67"
+                      assertions="1" time="0.001225"/>
+            <testcase name="testAttributesOfAnObjectWithAggregatedObjectCanBeRead" class="Object_Freezer_UtilTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/UtilTest.php" line="79"
+                      assertions="1" time="0.001835"/>
+            <testcase name="testExceptionIsThrownIfNotAnObjectIsPassedToReadAttributes" class="Object_Freezer_UtilTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/UtilTest.php" line="92"
+                      assertions="1" time="0.000839"/>
+        </testsuite>
+        <testsuite name="Object_Freezer_IdGenerator_UUIDTest"
+                   file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/IdGenerator/UUIDTest.php"
+                   fullPackage="Object_Freezer.Tests" package="Object_Freezer" subpackage="Tests" tests="1"
+                   assertions="1" failures="0" errors="0" time="0.002207">
+
+            <testcase name="testReturnValueOfUuidIsUnique" class="Object_Freezer_IdGenerator_UUIDTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/IdGenerator/UUIDTest.php"
+                      line="66" assertions="1" time="0.002207"/>
+        </testsuite>
+        <testsuite name="Object_Freezer_HashGenerator_NonRecursiveSHA1Test"
+                   file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/HashGenerator/NonRecursiveSHA1Test.php"
+                   fullPackage="Object_Freezer.Tests" package="Object_Freezer" subpackage="Tests" tests="9"
+                   assertions="18" failures="0" errors="0" time="0.028807">
+            <testcase name="testObjectCanBeHashed" class="Object_Freezer_HashGenerator_NonRecursiveSHA1Test"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/HashGenerator/NonRecursiveSHA1Test.php"
+                      line="97" assertions="2" time="0.003033"/>
+            <testcase name="testHashedObjectCanBeHashed" class="Object_Freezer_HashGenerator_NonRecursiveSHA1Test"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/HashGenerator/NonRecursiveSHA1Test.php"
+                      line="108" assertions="2" time="0.003033"/>
+            <testcase name="testObjectWithAggregatedResourceCanBeHashed"
+                      class="Object_Freezer_HashGenerator_NonRecursiveSHA1Test"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/HashGenerator/NonRecursiveSHA1Test.php"
+                      line="123" assertions="2" time="0.002911"/>
+            <testcase name="testObjectWithAggregatedObjectCanBeHashed"
+                      class="Object_Freezer_HashGenerator_NonRecursiveSHA1Test"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/HashGenerator/NonRecursiveSHA1Test.php"
+                      line="135" assertions="2" time="0.003745"/>
+            <testcase name="testObjectThatAggregatesOtherObjectsInAnArrayCanBeHashed"
+                      class="Object_Freezer_HashGenerator_NonRecursiveSHA1Test"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/HashGenerator/NonRecursiveSHA1Test.php"
+                      line="147" assertions="2" time="0.002921"/>
+            <testcase name="testObjectThatAggregatesOtherObjectsInANestedArrayCanBeHashed"
+                      class="Object_Freezer_HashGenerator_NonRecursiveSHA1Test"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/HashGenerator/NonRecursiveSHA1Test.php"
+                      line="159" assertions="2" time="0.002912"/>
+
+            <testcase name="testObjectGraphThatContainsCyclesCanBeHashed"
+                      class="Object_Freezer_HashGenerator_NonRecursiveSHA1Test"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/HashGenerator/NonRecursiveSHA1Test.php"
+                      line="171" assertions="2" time="0.004593"/>
+            <testcase name="testObjectGraphThatContainsCyclesCanBeHashed2"
+                      class="Object_Freezer_HashGenerator_NonRecursiveSHA1Test"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/HashGenerator/NonRecursiveSHA1Test.php"
+                      line="189" assertions="2" time="0.003226"/>
+            <testcase name="testExceptionIsThrownIfNotAnObjectIsPassedToGetHash"
+                      class="Object_Freezer_HashGenerator_NonRecursiveSHA1Test"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/HashGenerator/NonRecursiveSHA1Test.php"
+                      line="206" assertions="2" time="0.002433"/>
+        </testsuite>
+        <testsuite name="Object_Freezer_CacheTest"
+                   file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/CacheTest.php"
+                   fullPackage="Object_Freezer.Tests" package="Object_Freezer" subpackage="Tests" tests="3"
+                   assertions="2" failures="0" errors="0" time="0.002612">
+            <testcase name="testPut" class="Object_Freezer_CacheTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/CacheTest.php" line="64"
+                      assertions="0" time="0.000685"/>
+            <testcase name="testGet" class="Object_Freezer_CacheTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/CacheTest.php" line="75"
+                      assertions="1" time="0.001016"/>
+            <testcase name="testGetReturnsFalseForNotExistingId" class="Object_Freezer_CacheTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/CacheTest.php" line="83"
+                      assertions="1" time="0.000911"/>
+        </testsuite>
+
+        <testsuite name="Object_Freezer_StorageTest"
+                   file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/StorageTest.php"
+                   fullPackage="Object_Freezer.Tests" package="Object_Freezer" subpackage="Tests" tests="3"
+                   assertions="7" failures="0" errors="0" time="0.010853">
+            <testcase name="testConstructorWithDefaultArguments" class="Object_Freezer_StorageTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/StorageTest.php" line="76"
+                      assertions="3" time="0.006542"/>
+            <testcase name="testExceptionIsThrownIfNotAnObjectIsPassedAsArgumentToStore"
+                      class="Object_Freezer_StorageTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/StorageTest.php" line="88"
+                      assertions="2" time="0.002177"/>
+            <testcase name="testExceptionIsThrownIfNotAStringIsPassedAsArgumentToFetch"
+                      class="Object_Freezer_StorageTest"
+                      file="/usr/local/hudson/jobs/php-object-freezer/workspace/Tests/Freezer/StorageTest.php" line="98"
+                      assertions="2" time="0.002134"/>
+        </testsuite>
+    </testsuite>
+</testsuites>

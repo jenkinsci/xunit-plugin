@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite tests="1" errors="0" failures="0" name="MergedTestSuite" skipped="0">
+    <testcase classname="MyTest.test" name="MyTestCase" time="0">
+        <system-out>
+            [Info] - check x != 0.0f passed
+            == [File] - test.cpp
+            == [Line] - 14
+
+            [Info] - check int)x == 9 passed
+            == [File] - test.cpp
+            == [Line] - 15
+
+            [Info] - difference between x{9.5} and 9.5f{9.5} doesn&amp;apos;t exceed 0.0001%&gt;
+            == [File] - test.cpp
+            == [Line] - 16
+        </system-out>
+    </testcase>
+</testsuite>

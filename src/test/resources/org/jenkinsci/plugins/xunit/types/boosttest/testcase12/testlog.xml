@@ -1,0 +1,1636 @@
+<TestLog>
+    <TestSuite name="BER">
+        <TestCase name="TestBERIntegerConstraints">
+            <TestSuite name="Base BER INTEGER encoding/decoding constrained test suite">
+                <TestCase name="TestBERIntegerConstraintsWithValue">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="340">
+                        <![CDATA[BER INTEGER constraints: 0 .. 255, value = 0]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="353">
+                        <![CDATA[Encode INTEGER [EMPTY, UNIVERSAL]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="360">
+                        <![CDATA[Decode INTEGER [EMPTY, UNIVERSAL]]]>
+                    </Message>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestBERIntegerConstraintsWithValue">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="340">
+                        <![CDATA[BER INTEGER constraints: 0 .. 255, value = 127]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="353">
+                        <![CDATA[Encode INTEGER [EMPTY, UNIVERSAL]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="360">
+                        <![CDATA[Decode INTEGER [EMPTY, UNIVERSAL]]]>
+                    </Message>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestBERIntegerConstraintsWithValue">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="340">
+                        <![CDATA[BER INTEGER constraints: 0 .. 255, value = 256]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="353">
+                        <![CDATA[Encode INTEGER [EMPTY, UNIVERSAL]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="360">
+                        <![CDATA[Decode INTEGER [EMPTY, UNIVERSAL]]]>
+                    </Message>
+                    <Error file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                           line="361">
+                        <![CDATA[exception thrown by type.read(reader, vToRead)]]>
+                    </Error>
+                    <Error file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                           line="363">
+                        <![CDATA[check vToWrite == vToRead failed [256 != -257]]]>
+                    </Error>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestBERIntegerConstraintsWithBadValue">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="370">
+                        <![CDATA[BER INTEGER constraints: 0 .. 255, bad value = -9223372036854775808]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="383">
+                        <![CDATA[Encode INTEGER [EMPTY, UNIVERSAL]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="390">
+                        <![CDATA[Decode INTEGER [EMPTY, UNIVERSAL]]]>
+                    </Message>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestBERIntegerConstraintsWithBadValue">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="370">
+                        <![CDATA[BER INTEGER constraints: 0 .. 255, bad value = -1]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="383">
+                        <![CDATA[Encode INTEGER [EMPTY, UNIVERSAL]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="390">
+                        <![CDATA[Decode INTEGER [EMPTY, UNIVERSAL]]]>
+                    </Message>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestBERIntegerConstraintsWithBadValue">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="370">
+                        <![CDATA[BER INTEGER constraints: 0 .. 255, bad value = 256]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="383">
+                        <![CDATA[Encode INTEGER [EMPTY, UNIVERSAL]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="390">
+                        <![CDATA[Decode INTEGER [EMPTY, UNIVERSAL]]]>
+                    </Message>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestBERIntegerConstraintsWithBadValue">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="370">
+                        <![CDATA[BER INTEGER constraints: 0 .. 255, bad value = 9223372036854775807]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="383">
+                        <![CDATA[Encode INTEGER [EMPTY, UNIVERSAL]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="390">
+                        <![CDATA[Decode INTEGER [EMPTY, UNIVERSAL]]]>
+                    </Message>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+            </TestSuite>
+            <Error file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                   line="410">
+                <![CDATA[check tr.p_assertions_failed == (std::size_t) 0 failed [2 != 0]]]>
+            </Error>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBERInteger">
+            <TestSuite name="Base BER INTEGER encoding/decoding test suite">
+                <TestCase name="TestBEREmptyIntegerWithValue">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="30">
+                        <![CDATA[Value = -9223372036854775808]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="39">
+                        <![CDATA[Encode INTEGER [EMPTY, UNIVERSAL]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="46">
+                        <![CDATA[Decode INTEGER [EMPTY, UNIVERSAL]]]>
+                    </Message>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestBEREmptyIntegerWithValue">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="30">
+                        <![CDATA[Value = 0]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="39">
+                        <![CDATA[Encode INTEGER [EMPTY, UNIVERSAL]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="46">
+                        <![CDATA[Decode INTEGER [EMPTY, UNIVERSAL]]]>
+                    </Message>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestBEREmptyIntegerWithValue">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="30">
+                        <![CDATA[Value = 9223372036854775807]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="39">
+                        <![CDATA[Encode INTEGER [EMPTY, UNIVERSAL]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="46">
+                        <![CDATA[Decode INTEGER [EMPTY, UNIVERSAL]]]>
+                    </Message>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestBEREmptyIntegerWithTagNumberWithValue">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="56">
+                        <![CDATA[Value = -9223372036854775808]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="68">
+                        <![CDATA[Encode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="76">
+                        <![CDATA[Decode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]]]>
+                    </Message>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestBEREmptyIntegerWithTagNumberWithValue">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="56">
+                        <![CDATA[Value = 0]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="68">
+                        <![CDATA[Encode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="76">
+                        <![CDATA[Decode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]]]>
+                    </Message>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestBEREmptyIntegerWithTagNumberWithValue">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="56">
+                        <![CDATA[Value = 9223372036854775807]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="68">
+                        <![CDATA[Encode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="76">
+                        <![CDATA[Decode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]]]>
+                    </Message>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestBERImplicitIntegerWithTagNumberWithValue">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="86">
+                        <![CDATA[Value = -9223372036854775808]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="98">
+                        <![CDATA[Encode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 0]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="106">
+                        <![CDATA[Decode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 0]]]>
+                    </Message>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestBERImplicitIntegerWithTagNumberWithValue">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="86">
+                        <![CDATA[Value = 0]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="98">
+                        <![CDATA[Encode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 0]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="106">
+                        <![CDATA[Decode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 0]]]>
+                    </Message>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestBERImplicitIntegerWithTagNumberWithValue">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="86">
+                        <![CDATA[Value = 9223372036854775807]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="98">
+                        <![CDATA[Encode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 0]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="106">
+                        <![CDATA[Decode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 0]]]>
+                    </Message>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestBERExplicitIntegerWithTagNumberWithValue">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="116">
+                        <![CDATA[Value = -9223372036854775808]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="128">
+                        <![CDATA[Encode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="135">
+                        <![CDATA[Decode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]]]>
+                    </Message>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestBERExplicitIntegerWithTagNumberWithValue">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="116">
+                        <![CDATA[Value = 0]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="128">
+                        <![CDATA[Encode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="135">
+                        <![CDATA[Decode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]]]>
+                    </Message>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestBERExplicitIntegerWithTagNumberWithValue">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="116">
+                        <![CDATA[Value = 9223372036854775807]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="128">
+                        <![CDATA[Encode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="135">
+                        <![CDATA[Decode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]]]>
+                    </Message>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestBERExplicitIntegerWithTagNumber">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="145">
+                        <![CDATA[Tag Number = 0]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="157">
+                        <![CDATA[Encode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="164">
+                        <![CDATA[Decode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]]]>
+                    </Message>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestBERExplicitIntegerWithTagNumber">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="145">
+                        <![CDATA[Tag Number = 12345]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="157">
+                        <![CDATA[Encode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 12345]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="164">
+                        <![CDATA[Decode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 12345]]]>
+                    </Message>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestBERExplicitIntegerWithTagNumber">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="145">
+                        <![CDATA[Tag Number = 9223372036854775807]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="157">
+                        <![CDATA[Encode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 9223372036854775807]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="164">
+                        <![CDATA[Decode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 9223372036854775807]]]>
+                    </Message>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestBERImplicitIntegerWithTagNumber">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="174">
+                        <![CDATA[Tag Number = 0]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="186">
+                        <![CDATA[Encode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 0]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="193">
+                        <![CDATA[Decode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 0]]]>
+                    </Message>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestBERImplicitIntegerWithTagNumber">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="174">
+                        <![CDATA[Tag Number = 12345]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="186">
+                        <![CDATA[Encode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 12345]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="193">
+                        <![CDATA[Decode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 12345]]]>
+                    </Message>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestBERImplicitIntegerWithTagNumber">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="174">
+                        <![CDATA[Tag Number = 9223372036854775807]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="186">
+                        <![CDATA[Encode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 9223372036854775807]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="193">
+                        <![CDATA[Decode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 9223372036854775807]]]>
+                    </Message>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestBERExplicitIntegerWithDifferentTagNumbers">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="204">
+                        <![CDATA[Tag Number In = 0; Tag Number Out = 1]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="216">
+                        <![CDATA[Encode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="229">
+                        <![CDATA[Decode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 1]]]>
+                    </Message>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestBERImplicitIntegerWithDifferentTagNumbers">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="239">
+                        <![CDATA[Tag Number In = 0; Tag Number Out = 1]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="251">
+                        <![CDATA[Encode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 0]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="264">
+                        <![CDATA[Decode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 1]]]>
+                    </Message>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestBadBERImplicitExplicitIntegerEncodingDecoding">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="273">
+                        <![CDATA[Tag Number = 0, IMPLICIT -> EXPLICIT]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="285">
+                        <![CDATA[Encode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 0]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="298">
+                        <![CDATA[Decode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]]]>
+                    </Message>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestBadBERExplicitImplicitIntegerEncodingDecoding">
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="307">
+                        <![CDATA[Tag Number = 0, EXPLICIT -> IMPLICIT]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="319">
+                        <![CDATA[Encode INTEGER [EXPLICIT, CONTEXT-SPECIFIC, 0]]]>
+                    </Message>
+                    <Message
+                            file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                            line="332">
+                        <![CDATA[Decode INTEGER [IMPLICIT, CONTEXT-SPECIFIC, 0]]]>
+                    </Message>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+            </TestSuite>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="Test_BER_SequenceOf_OctetString_Type1_Huge">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="472">
+                <![CDATA[Encode SEQUENCE OF [EMPTY, UNIVERSAL] { OCTET STRING [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="479">
+                <![CDATA[Decode SEQUENCE OF [EMPTY, UNIVERSAL] { OCTET STRING [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <TestingTime>470000</TestingTime>
+        </TestCase>
+        <TestCase name="TestBERSequenceOfInteger">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="489">
+                <![CDATA[Testing BER SEQUENCE OF]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="501">
+                <![CDATA[Encode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="508">
+                <![CDATA[Decode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerSequenceOfSequenceOfInteger">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="521">
+                <![CDATA[Testing BER SEQUENCE OF SEQUENCE OF INTEGER]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="543">
+                <![CDATA[Encode SEQUENCE OF [EMPTY, UNIVERSAL] { SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] } }]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="550">
+                <![CDATA[Decode SEQUENCE OF [EMPTY, UNIVERSAL] { SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] } }]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerVisibleStringType1_LongString128">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="686">
+                <![CDATA[Encode VISIBLE STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="707">
+                <![CDATA[Decode VISIBLE STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerVisibleStringType1_LongString1024">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="722">
+                <![CDATA[Encode VISIBLE STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="733">
+                <![CDATA[Decode VISIBLE STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerVisibleStringType1">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="749">
+                <![CDATA[Encode VISIBLE STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="760">
+                <![CDATA[Decode VISIBLE STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerVisibleStringType2">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="776">
+                <![CDATA[Encode VISIBLE STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="787">
+                <![CDATA[Decode VISIBLE STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerVisibleStringType3">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="803">
+                <![CDATA[Encode VISIBLE STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="814">
+                <![CDATA[Decode VISIBLE STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerVisibleStringType4">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="830">
+                <![CDATA[Encode VISIBLE STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="841">
+                <![CDATA[Decode VISIBLE STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerVisibleStringType5">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="857">
+                <![CDATA[Encode VISIBLE STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="868">
+                <![CDATA[Decode VISIBLE STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerVisibleStringType6">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="884">
+                <![CDATA[Encode VISIBLE STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="895">
+                <![CDATA[Decode VISIBLE STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerVisibleStringType7">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="911">
+                <![CDATA[Encode VISIBLE STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Error file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                   line="916">
+                <![CDATA[check { outbuffer.data(), outbuffer.data() + outbuffer.size() } == { dataToTest, dataToTest + (sizeof(utils::ArraySizeHelper(dataToTest))) } failed. Mismatch in a position 1:  != Mismatch in a position 2:  != ]]>
+            </Error>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="922">
+                <![CDATA[Decode VISIBLE STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerVisibleStringType8">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="938">
+                <![CDATA[Encode VISIBLE STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="949">
+                <![CDATA[Decode VISIBLE STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>10000</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerVisibleStringType9">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="965">
+                <![CDATA[Encode VISIBLE STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="976">
+                <![CDATA[Decode VISIBLE STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerIntegerType1">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1118">
+                <![CDATA[Encode INTEGER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1129">
+                <![CDATA[Decode INTEGER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerIntegerType2">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1145">
+                <![CDATA[Encode INTEGER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1156">
+                <![CDATA[Decode INTEGER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerIntegerType3">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1172">
+                <![CDATA[Encode INTEGER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1183">
+                <![CDATA[Decode INTEGER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerIntegerType4">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1199">
+                <![CDATA[Encode INTEGER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1210">
+                <![CDATA[Decode INTEGER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerIntegerType5">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1226">
+                <![CDATA[Encode INTEGER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1237">
+                <![CDATA[Decode INTEGER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerIntegerType6">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1253">
+                <![CDATA[Encode INTEGER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1264">
+                <![CDATA[Decode INTEGER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerIntegerType7">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1280">
+                <![CDATA[Encode INTEGER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1291">
+                <![CDATA[Decode INTEGER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerIntegerType8">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1307">
+                <![CDATA[Encode INTEGER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1318">
+                <![CDATA[Decode INTEGER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerIntegerType9">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1334">
+                <![CDATA[Encode INTEGER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1345">
+                <![CDATA[Decode INTEGER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerIntegerType10">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1361">
+                <![CDATA[Encode INTEGER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1372">
+                <![CDATA[Decode INTEGER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestObjectIdentifierValue">
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerObjectIdentifierType1">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1519">
+                <![CDATA[Encode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1530">
+                <![CDATA[Decode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerObjectIdentifierType2">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1549">
+                <![CDATA[Encode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1560">
+                <![CDATA[Decode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerObjectIdentifierType3">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1579">
+                <![CDATA[Encode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1590">
+                <![CDATA[Decode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerObjectIdentifierType4">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1609">
+                <![CDATA[Encode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1620">
+                <![CDATA[Decode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerObjectIdentifierType5">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1639">
+                <![CDATA[Encode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1650">
+                <![CDATA[Decode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerObjectIdentifierType6">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1669">
+                <![CDATA[Encode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1680">
+                <![CDATA[Decode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerObjectIdentifierType7">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1699">
+                <![CDATA[Encode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1710">
+                <![CDATA[Decode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerObjectIdentifierType8">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1729">
+                <![CDATA[Encode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1740">
+                <![CDATA[Decode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerObjectIdentifierType9">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1759">
+                <![CDATA[Encode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1770">
+                <![CDATA[Decode OBJECT IDENTIFIER [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerSequenceOfTypeIntegerType1">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1925">
+                <![CDATA[Encode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1936">
+                <![CDATA[Decode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerSequenceOfTypeIntegerType2">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1957">
+                <![CDATA[Encode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1968">
+                <![CDATA[Decode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerSequenceOfTypeIntegerType3">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="1989">
+                <![CDATA[Encode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2000">
+                <![CDATA[Decode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerSequenceOfTypeIntegerType4">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2021">
+                <![CDATA[Encode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2032">
+                <![CDATA[Decode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerSequenceOfTypeIntegerType5">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2053">
+                <![CDATA[Encode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2064">
+                <![CDATA[Decode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerSequenceOfTypeIntegerType6">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2085">
+                <![CDATA[Encode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2096">
+                <![CDATA[Decode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerSequenceOfTypeIntegerType7">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2117">
+                <![CDATA[Encode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2128">
+                <![CDATA[Decode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerSequenceOfTypeIntegerType8">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2149">
+                <![CDATA[Encode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2160">
+                <![CDATA[Decode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerSequenceOfTypeIntegerType9">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2181">
+                <![CDATA[Encode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2192">
+                <![CDATA[Decode SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerSequenceOfTypeIntegerType10">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2223">
+                <![CDATA[Encode SEQUENCE OF [EMPTY, UNIVERSAL] { SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] } }]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2234">
+                <![CDATA[Decode SEQUENCE OF [EMPTY, UNIVERSAL] { SEQUENCE OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] } }]]>
+            </Message>
+            <TestingTime>10000</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerNullType1">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2363">
+                <![CDATA[Encode NULL [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2374">
+                <![CDATA[Decode NULL [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerNullType2">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2388">
+                <![CDATA[Encode NULL [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2399">
+                <![CDATA[Decode NULL [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerNullType3">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2413">
+                <![CDATA[Encode NULL [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2424">
+                <![CDATA[Decode NULL [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerNullType4">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2438">
+                <![CDATA[Encode NULL [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2449">
+                <![CDATA[Decode NULL [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerNullType5">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2463">
+                <![CDATA[Encode NULL [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2474">
+                <![CDATA[Decode NULL [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerNullType6">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2488">
+                <![CDATA[Encode NULL [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2499">
+                <![CDATA[Decode NULL [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerNullType7">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2513">
+                <![CDATA[Encode NULL [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2524">
+                <![CDATA[Decode NULL [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerNullType8">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2538">
+                <![CDATA[Encode NULL [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2549">
+                <![CDATA[Decode NULL [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerNullType9">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2563">
+                <![CDATA[Encode NULL [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2574">
+                <![CDATA[Decode NULL [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerBooleanType1">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2696">
+                <![CDATA[Encode BOOLEAN [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2707">
+                <![CDATA[Decode BOOLEAN [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerBooleanType2">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2723">
+                <![CDATA[Encode BOOLEAN [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2734">
+                <![CDATA[Decode BOOLEAN [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerBooleanType3">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2750">
+                <![CDATA[Encode BOOLEAN [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2761">
+                <![CDATA[Decode BOOLEAN [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerBooleanType4">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2777">
+                <![CDATA[Encode BOOLEAN [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2788">
+                <![CDATA[Decode BOOLEAN [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerBooleanType5">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2804">
+                <![CDATA[Encode BOOLEAN [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2815">
+                <![CDATA[Decode BOOLEAN [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerBooleanType6">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2831">
+                <![CDATA[Encode BOOLEAN [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2842">
+                <![CDATA[Decode BOOLEAN [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerBooleanType7">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2858">
+                <![CDATA[Encode BOOLEAN [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2869">
+                <![CDATA[Decode BOOLEAN [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerBooleanType8">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2885">
+                <![CDATA[Encode BOOLEAN [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2896">
+                <![CDATA[Decode BOOLEAN [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerBooleanType9">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2912">
+                <![CDATA[Encode BOOLEAN [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="2923">
+                <![CDATA[Decode BOOLEAN [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerChoiceTypeChoice">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="3131">
+                <![CDATA[Encode CHOICE [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] | BOOLEAN [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="3142">
+                <![CDATA[Decode CHOICE [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] | BOOLEAN [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerChoiceType3">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="3168">
+                <![CDATA[Encode CHOICE [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] | BOOLEAN [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="3179">
+                <![CDATA[Decode CHOICE [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] | BOOLEAN [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerChoiceType4">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="3205">
+                <![CDATA[Encode CHOICE [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] | BOOLEAN [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="3216">
+                <![CDATA[Decode CHOICE [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] | BOOLEAN [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerChoiceType6">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="3242">
+                <![CDATA[Encode CHOICE [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] | BOOLEAN [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="3253">
+                <![CDATA[Decode CHOICE [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] | BOOLEAN [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerChoiceType7">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="3279">
+                <![CDATA[Encode CHOICE [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] | BOOLEAN [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="3290">
+                <![CDATA[Decode CHOICE [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] | BOOLEAN [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerChoiceType8">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="3316">
+                <![CDATA[Encode CHOICE [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] | BOOLEAN [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="3327">
+                <![CDATA[Decode CHOICE [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] | BOOLEAN [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerChoiceChoiceType1">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="3515">
+                <![CDATA[Encode CHOICE [EMPTY, UNIVERSAL] { CHOICE [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] | BOOLEAN [EMPTY, UNIVERSAL] } }]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="3526">
+                <![CDATA[Decode CHOICE [EMPTY, UNIVERSAL] { CHOICE [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] | BOOLEAN [EMPTY, UNIVERSAL] } }]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerTypeSequenceValue">
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerSequenceTypeSequence">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="3773">
+                <![CDATA[Encode SEQUENCE [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="3784">
+                <![CDATA[Decode SEQUENCE [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerSequenceType1">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="3807">
+                <![CDATA[Encode SEQUENCE [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="3818">
+                <![CDATA[Decode SEQUENCE [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerSequenceType2">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="3841">
+                <![CDATA[Encode SEQUENCE [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="3852">
+                <![CDATA[Decode SEQUENCE [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerSequenceType3">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="3875">
+                <![CDATA[Encode SEQUENCE [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="3886">
+                <![CDATA[Decode SEQUENCE [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerSequenceType4">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="3909">
+                <![CDATA[Encode SEQUENCE [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="3920">
+                <![CDATA[Decode SEQUENCE [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerSequenceType5">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="3943">
+                <![CDATA[Encode SEQUENCE [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="3954">
+                <![CDATA[Decode SEQUENCE [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>10000</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerSequenceType6">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="3977">
+                <![CDATA[Encode SEQUENCE [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="3988">
+                <![CDATA[Decode SEQUENCE [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerSequenceType7">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4011">
+                <![CDATA[Encode SEQUENCE [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4022">
+                <![CDATA[Decode SEQUENCE [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>10000</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerSequenceType8">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4045">
+                <![CDATA[Encode SEQUENCE [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4056">
+                <![CDATA[Decode SEQUENCE [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerSequenceType9">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4080">
+                <![CDATA[Encode SEQUENCE [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4095">
+                <![CDATA[Decode SEQUENCE [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerSequenceType10">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4129">
+                <![CDATA[Encode SEQUENCE OF [EMPTY, UNIVERSAL] { SEQUENCE [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4140">
+                <![CDATA[Decode SEQUENCE OF [EMPTY, UNIVERSAL] { SEQUENCE [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerEnumeratedType1">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4282">
+                <![CDATA[Encode ENUMERATED [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4293">
+                <![CDATA[Decode ENUMERATED [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerEnumeratedType2">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4309">
+                <![CDATA[Encode ENUMERATED [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4320">
+                <![CDATA[Decode ENUMERATED [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerEnumeratedType3">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4336">
+                <![CDATA[Encode ENUMERATED [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4347">
+                <![CDATA[Decode ENUMERATED [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerEnumeratedType4">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4363">
+                <![CDATA[Encode ENUMERATED [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4374">
+                <![CDATA[Decode ENUMERATED [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerEnumeratedType5">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4390">
+                <![CDATA[Encode ENUMERATED [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4401">
+                <![CDATA[Decode ENUMERATED [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerEnumeratedType6">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4417">
+                <![CDATA[Encode ENUMERATED [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4428">
+                <![CDATA[Decode ENUMERATED [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerEnumeratedType7">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4444">
+                <![CDATA[Encode ENUMERATED [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4455">
+                <![CDATA[Decode ENUMERATED [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBitStringValue">
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerBitStringType1">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4631">
+                <![CDATA[Encode BIT STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4642">
+                <![CDATA[Decode BIT STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerBitStringType2">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4652">
+                <![CDATA[Encode BIT STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4663">
+                <![CDATA[Decode BIT STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerBitStringType3">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4673">
+                <![CDATA[Encode BIT STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4684">
+                <![CDATA[Decode BIT STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerBitStringType4">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4694">
+                <![CDATA[Encode BIT STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4705">
+                <![CDATA[Decode BIT STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerBitStringType5">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4715">
+                <![CDATA[Encode BIT STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4726">
+                <![CDATA[Decode BIT STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerBitStringType6">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4736">
+                <![CDATA[Encode BIT STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4747">
+                <![CDATA[Decode BIT STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerBitStringType7">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4757">
+                <![CDATA[Encode BIT STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4768">
+                <![CDATA[Decode BIT STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerBitStringType8">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4778">
+                <![CDATA[Encode BIT STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4789">
+                <![CDATA[Decode BIT STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBerBitStringType9">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4799">
+                <![CDATA[Encode BIT STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4810">
+                <![CDATA[Decode BIT STRING [EMPTY, UNIVERSAL]]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBERSetOfInteger">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4844">
+                <![CDATA[Encode SET OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4851">
+                <![CDATA[Decode SET OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] }]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="TestBERSetOfSetOfInteger">
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4896">
+                <![CDATA[Encode SET OF [EMPTY, UNIVERSAL] { SET OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] } }]]>
+            </Message>
+            <Message file="/var/lib/jenkins/jobs/ASN1 Compiler/workspace/trunk/asn1-compiler/runtime/tests/TestBER.cc"
+                     line="4903">
+                <![CDATA[Decode SET OF [EMPTY, UNIVERSAL] { SET OF [EMPTY, UNIVERSAL] { INTEGER [EMPTY, UNIVERSAL] } }]]>
+            </Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+    </TestSuite>
+</TestLog>

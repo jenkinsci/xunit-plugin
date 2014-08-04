@@ -1,0 +1,436 @@
+<TestLog>
+    <TestSuite name="Master Test Suite">
+        <TestSuite name="TestPlot">
+            <TestSuite name="NCTstPltScaleBase">
+                <TestCase name="TestShift&lt;double&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="35">check tStart == 10.0 passed
+                    </Info>
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="36">check tEnd == 110.0 passed
+                    </Info>
+                    <TestingTime>9000</TestingTime>
+
+                </TestCase>
+                <TestCase name="TestShift&lt;int&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="35">check tStart == 10.0 passed
+                    </Info>
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="36">check tEnd == 110.0 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestShift&lt;long&gt;">
+
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="35">check tStart == 10.0 passed
+                    </Info>
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="36">check tEnd == 110.0 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestShift&lt;__int64&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="35">check tStart == 10.0 passed
+                    </Info>
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="36">check tEnd == 110.0 passed
+                    </Info>
+
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestScrollTo&lt;double&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="51">check iPixelsScrolled == 50 passed
+                    </Info>
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="58">check tStart == 50 passed
+                    </Info>
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="59">check tEnd == 150 passed
+                    </Info>
+                    <TestingTime>1000</TestingTime>
+
+                </TestCase>
+                <TestCase name="TestScrollTo&lt;int&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="51">check iPixelsScrolled == 50 passed
+                    </Info>
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="58">check tStart == 50 passed
+                    </Info>
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="59">check tEnd == 150 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+
+                <TestCase name="TestScrollTo&lt;long&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="51">check iPixelsScrolled == 50 passed
+                    </Info>
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="58">check tStart == 50 passed
+                    </Info>
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="59">check tEnd == 150 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestScrollTo&lt;__int64&gt;">
+
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="51">check iPixelsScrolled == 50 passed
+                    </Info>
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="58">check tStart == 50 passed
+                    </Info>
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="59">check tEnd == 150 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestScroll&lt;double&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="78">check lStart == 10 passed
+                    </Info>
+
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="79">check lEnd == 60 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestScroll&lt;int&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="78">check lStart == 10 passed
+                    </Info>
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="79">check lEnd == 60 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+
+                </TestCase>
+                <TestCase name="TestScroll&lt;long&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="78">check lStart == 10 passed
+                    </Info>
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="79">check lEnd == 60 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestScroll&lt;__int64&gt;">
+
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="78">check lStart == 10 passed
+                    </Info>
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="79">check lEnd == 60 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestUnitToPixel&lt;double&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="94">check iPixel == 25 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+
+                </TestCase>
+                <TestCase name="TestUnitToPixel&lt;int&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="94">check iPixel == 25 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestUnitToPixel&lt;long&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="94">check iPixel == 25 passed
+                    </Info>
+
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestUnitToPixel&lt;__int64&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="94">check iPixel == 25 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestUnitToPixelNegativeRange&lt;double&gt;">
+
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="109">check iPixel == 25 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestUnitToPixelNegativeRange&lt;int&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="109">check iPixel == 25 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+
+                </TestCase>
+                <TestCase name="TestUnitToPixelNegativeRange&lt;long&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="109">check iPixel == 25 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestUnitToPixelNegativeRange&lt;__int64&gt;">
+
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="109">check iPixel == 25 passed
+                    </Info>
+
+                    <TestingTime>1000</TestingTime>
+                </TestCase>
+                <TestCase name="TestPixelToUnit&lt;double&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="124">check tValue == 50.0 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestPixelToUnit&lt;int&gt;">
+
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="124">check tValue == 50.0 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestPixelToUnit&lt;long&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="124">check tValue == 50.0 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+
+                <TestCase name="TestPixelToUnit&lt;__int64&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="124">check tValue == 50.0 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestPixelToUnitDifferentSizeSameScale&lt;double&gt;">
+
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="143">check tValue1 == tValue2 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+
+                </TestCase>
+                <TestCase name="TestPixelToUnitDifferentSizeSameScale&lt;int&gt;">
+
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="143">check tValue1 == tValue2 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestPixelToUnitDifferentSizeSameScale&lt;long&gt;">
+
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="143">check tValue1 == tValue2 passed
+                    </Info>
+
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestPixelToUnitDifferentSizeSameScale&lt;__int64&gt;">
+
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="143">check tValue1 == tValue2 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestPixelToUnitDifferentSizeDifferentScale&lt;double&gt;">
+
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="164">check tValue1 == tValue2 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestPixelToUnitDifferentSizeDifferentScale&lt;int&gt;">
+
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="164">check tValue1 == tValue2 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+
+                </TestCase>
+                <TestCase name="TestPixelToUnitDifferentSizeDifferentScale&lt;long&gt;">
+
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="164">check tValue1 == tValue2 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestPixelToUnitDifferentSizeDifferentScale&lt;__int64&gt;">
+
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="164">check tValue1 == tValue2 passed
+                    </Info>
+
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestUnitToPixelToUnit&lt;double&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="180">check tValue == 50 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestUnitToPixelToUnit&lt;int&gt;">
+
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="180">check tValue == 50 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestUnitToPixelToUnit&lt;long&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="180">check tValue == 50 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+
+                <TestCase name="TestUnitToPixelToUnit&lt;__int64&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="180">check tValue == 50 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestPixelToUnitToPixel&lt;double&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="196">check iPixel == 25 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+
+                </TestCase>
+                <TestCase name="TestPixelToUnitToPixel&lt;int&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="196">check iPixel == 25 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestPixelToUnitToPixel&lt;long&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="196">check iPixel == 25 passed
+                    </Info>
+
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestPixelToUnitToPixel&lt;__int64&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="196">check iPixel == 25 passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestIsValid&lt;double&gt;">
+
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="211">check bValid passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestIsValid&lt;int&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="211">check bValid passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+
+                <TestCase name="TestIsValid&lt;long&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="211">check bValid passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestIsValid&lt;__int64&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="211">check bValid passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+
+                </TestCase>
+                <TestCase name="TestIsValidZeroRange&lt;double&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="226">check !bValid passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestIsValidZeroRange&lt;int&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="226">check !bValid passed
+                    </Info>
+
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestIsValidZeroRange&lt;long&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="226">check !bValid passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestIsValidZeroRange&lt;__int64&gt;">
+
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="226">check !bValid passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestIsValidZeroSize&lt;double&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="241">check !bValid passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+
+                <TestCase name="TestIsValidZeroSize&lt;int&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="241">check !bValid passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestIsValidZeroSize&lt;long&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="241">check !bValid passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+
+                </TestCase>
+                <TestCase name="TestIsValidZeroSize&lt;__int64&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="241">check !bValid passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestIsValidZeroSizeAndRange&lt;double&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="256">check !bValid passed
+                    </Info>
+
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestIsValidZeroSizeAndRange&lt;int&gt;">
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="256">check !bValid passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestIsValidZeroSizeAndRange&lt;long&gt;">
+
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="256">check !bValid passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+                </TestCase>
+                <TestCase name="TestIsValidZeroSizeAndRange&lt;__int64&gt;">
+
+                    <Info file="d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp"
+                          line="256">check !bValid passed
+                    </Info>
+                    <TestingTime>0</TestingTime>
+
+                </TestCase>
+            </TestSuite>
+        </TestSuite>
+    </TestSuite>
+</TestLog>

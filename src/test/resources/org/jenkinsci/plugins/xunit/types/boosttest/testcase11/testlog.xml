@@ -1,0 +1,132 @@
+<TestLog>
+    <TestSuite name="basic">
+        <TestCase name="Test_SandboxCase">
+            <Message file="../../../boost/test/impl/results_collector.ipp" line="220">
+                <![CDATA[Test case Test_SandboxCase did not check any assertions]]></Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="Test_FiniteInline">
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="Test_CheckedMath">
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="Test_Primitives">
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="Test_BinaryPredicates">
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="Test_InverseNormDist">
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="Test_NormDist">
+            <TestingTime>47000</TestingTime>
+        </TestCase>
+        <TestSuite name="RootFinding">
+            <TestCase name="Test_RootFindBracketRoot">
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase name="Test_RootFindNoGradients">
+                <TestingTime>0</TestingTime>
+            </TestCase>
+        </TestSuite>
+        <TestCase name="Test_LevenbergMarquardt">
+            <TestingTime>16000</TestingTime>
+        </TestCase>
+        <TestCase name="Test_LevenbergMarquardtBarrier">
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestSuite name="Interpolation">
+            <TestCase name="Test_CubicTensionBSpline">
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase name="Test_ForwardQuartic">
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase name="Test_LinearInterpolation">
+                <TestingTime>0</TestingTime>
+            </TestCase>
+            <TestCase name="Test_MonotoneConvexQuadraticSpline">
+                <TestingTime>47000</TestingTime>
+            </TestCase>
+            <TestCase name="Test_CubicTensionBSplineHelpers">
+                <TestingTime>0</TestingTime>
+            </TestCase>
+        </TestSuite>
+        <TestCase name="Test_InterpolationCoords1D">
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="Test_Cholesky">
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="Test_LUDecomposition">
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="Test_Matrix">
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="Test_GaussJordan">
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="Test_QRDecomposition">
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="Test_SingularValueDecomposition">
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="Test_ToUpperLower">
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="Test_PathUtils">
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="Test_Array2D">
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="Test_Array2DIterator">
+            <TestingTime>171000</TestingTime>
+        </TestCase>
+        <TestCase name="Test_GridAxis">
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="Test_SortedContainer">
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="Test_Date">
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="Test_DatesCalendarHelpers">
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="Test_DateSolver">
+            <TestingTime>735000</TestingTime>
+        </TestCase>
+        <TestCase name="Test_I_Calendar">
+            <TestingTime>94000</TestingTime>
+        </TestCase>
+        <TestCase name="Test_Period">
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="Test_YearFraction">
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="Test_Serialization">
+            <TestingTime>15000</TestingTime>
+        </TestCase>
+        <TestCase name="Test_SerializationOfCacheables">
+            <TestingTime>16000</TestingTime>
+        </TestCase>
+        <TestCase name="Test_Enum">
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="Test_Struct">
+            <TestingTime>0</TestingTime>
+        </TestCase>
+        <TestCase name="Test_TestUtilities">
+            <Message file="c:/jenkins/jobs/test/workspace/src/basic_test/test/test_testutilities.cpp" line="23">
+                <![CDATA[RNG random seed: 1313511162]]></Message>
+            <TestingTime>0</TestingTime>
+        </TestCase>
+    </TestSuite>
+</TestLog>

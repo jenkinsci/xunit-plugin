@@ -1,0 +1,26 @@
+<?xml-stylesheet type="text/xsl" href="../../../../../../../../../../main/resources/com/thalesgroup/hudson/plugins/xunit/types/fpcunit-to-junit.xsl"?>
+<TestResults>
+    <!-- Generated using FPCUnit on 2010-01-19 17:00:06-->
+    <TestListing>
+        <TestSuite Name="" ElapsedTime="00:00:00.011" NumberOfErrors="0" NumberOfFailures="0" NumberOfRunTests="46"
+                   NumberOfIgnoredTests="0">
+            <TestSuite Name="TTestTLModelUnit" ElapsedTime="00:00:00.000" NumberOfErrors="0" NumberOfFailures="0"
+                       NumberOfRunTests="1" NumberOfIgnoredTests="0">
+                <Test Name="TestRunTL" Result="OK" ElapsedTime="00:00:00.000"/>
+            </TestSuite>
+            <TestSuite Name="TestTBin" ElapsedTime="00:00:00.000" NumberOfErrors="0" NumberOfFailures="0"
+                       NumberOfRunTests="3" NumberOfIgnoredTests="0">
+                <Test Name="TestgetLatitudeStepSize" Result="OK" ElapsedTime="00:00:00.000"/>
+                <Test Name="TestgetLongitudeStepSize" Result="OK" ElapsedTime="00:00:00.000"/>
+                <Test Name="TestisInsideBin" Result="OK" ElapsedTime="00:00:00.000"/>
+            </TestSuite>
+        </TestSuite>
+    </TestListing>
+    <Title></Title>
+    <NumberOfRunTests>46</NumberOfRunTests>
+    <NumberOfErrors>0</NumberOfErrors>
+    <NumberOfFailures>0</NumberOfFailures>
+    <NumberOfIgnoredTests>0</NumberOfIgnoredTests>
+    <TotalElapsedTime>00:00:00.011</TotalElapsedTime>
+    <DateTimeRan>2010-01-19 17:00:06</DateTimeRan>
+</TestResults>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="DataTest" file="C:\Documents and Settings\pepinsson\Mes documents\www\htdocs\phpUnit\DataTest.php"
+               tests="4" assertions="4" failures="1" errors="0" time="0.016757">
+
+        <testsuite name="DataTest::testAdd" tests="4" assertions="4" failures="1" errors="0" time="0.016757">
+
+
+            <testcase name="testAdd with data set #0" assertions="1" time="0.003837"/>
+
+            <testcase name="testAdd with data set #1" assertions="1" time="0.003892"/>
+
+            <testcase name="testAdd with data set #2" assertions="1" time="0.003831"/>
+
+            <testcase name="testAdd with data set #3" assertions="1" time="0.005197">
+                <failure type="PHPUnit_Framework_ExpectationFailedException">DataTest::testAdd with data set #3 (1, 1,
+                    3)
+                    Failed asserting that &lt;integer:2&gt; matches expected &lt;integer:3&gt;.
+
+                    C:\Documents and Settings\pepinsson\Mes documents\www\htdocs\phpUnit\DataTest.php:9
+                </failure>
+            </testcase>
+        </testsuite>
+
+    </testsuite>
+</testsuites>

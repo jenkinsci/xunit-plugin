@@ -1,0 +1,460 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<TestRun>
+    <Statistics>
+        <Tests>64</Tests>
+        <FailuresTotal>27</FailuresTotal>
+        <Failures>25</Failures>
+        <Errors>2</Errors>
+    </Statistics>
+    <SuccessfulTests>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_ABEAM_BrgLeg_0001 : SwU_IVVPr_AVBU_WGS84_Acc_ABEAM_BrgLeg_0001.0001</Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_ABEAM_BrgLeg_0002 : SwU_IVVPr_AVBU_WGS84_Acc_ABEAM_BrgLeg_0002.0001</Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_ABEAM_BrgLeg_0003 : SwU_IVVPr_AVBU_WGS84_Acc_ABEAM_BrgLeg_0003.0001</Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_ABEAM_BrgOrtho_0003 : SwU_IVVPr_AVBU_WGS84_Acc_ABEAM_BrgOrtho_0003.0001
+            </Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_CCD_0001 : SwU_IVVPr_AVBU_WGS84_Acc_CCD_0001.0001</Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_CCD_0002 : SwU_IVVPr_AVBU_WGS84_Acc_CCD_0002.0001</Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_XTK_Left_0001 : SwU_IVVPr_AVBU_WGS84_Acc_XTK_Left_0001.0001</Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_XTK_Left_0002 : SwU_IVVPr_AVBU_WGS84_Acc_XTK_Left_0002.0001</Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_XTK_Left_0003 : SwU_IVVPr_AVBU_WGS84_Acc_XTK_Left_0003.0001</Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_XTK_Right_0001 : SwU_IVVPr_AVBU_WGS84_Acc_XTK_Right_0001.0001</Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_XTK_Right_0002 : SwU_IVVPr_AVBU_WGS84_Acc_XTK_Right_0002.0001</Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_XTK_Right_0003 : SwU_IVVPr_AVBU_WGS84_Acc_XTK_Right_0003.0001</Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_DTK_Left_0001 : SwU_IVVPr_AVBU_WGS84_Acc_DTK_Left_0001.0001</Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_DTK_Left_0002 : SwU_IVVPr_AVBU_WGS84_Acc_DTK_Left_0002.0001</Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_DTK_Right_0001 : SwU_IVVPr_AVBU_WGS84_Acc_DTK_Right_0001.0001</Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_DTK_Right_0002 : SwU_IVVPr_AVBU_WGS84_Acc_DTK_Right_0002.0001</Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_Dist_To_End_Straight_0001 :
+                SwU_IVVPr_AVBU_WGS84_Acc_Dist_To_End_Straight_0001.0001
+            </Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_Dist_To_End_Straight_0002 :
+                SwU_IVVPr_AVBU_WGS84_Acc_Dist_To_End_Straight_0002.0001
+            </Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_Dist_To_End_Straight_0003 :
+                SwU_IVVPr_AVBU_WGS84_Acc_Dist_To_End_Straight_0003.0001
+            </Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_XTK_Arc_Left_0001 : SwU_IVVPr_AVBU_WGS84_Acc_XTK_Arc_Left_0001.0001</Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_DTK_Arc_Left_0002 : SwU_IVVPr_AVBU_WGS84_Acc_DTK_Arc_Left_0002.0001</Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_DTK_Arc_Left_0003 : SwU_IVVPr_AVBU_WGS84_Acc_DTK_Arc_Left_0003.0001</Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_DTK_Arc_Right_0002 : SwU_IVVPr_AVBU_WGS84_Acc_DTK_Arc_Right_0002.0001</Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_DTK_Arc_Right_0003 : SwU_IVVPr_AVBU_WGS84_Acc_DTK_Arc_Right_0003.0001</Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_Dist_To_End_Arc_0001 : SwU_IVVPr_AVBU_WGS84_Acc_Dist_To_End_Arc_0001.0001
+            </Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Plane_Brg_0001 : SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Plane_Brg_0001.0001
+            </Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Plane_Brg_0002 : SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Plane_Brg_0002.0001
+            </Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Dist_0001 :
+                SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Dist_0001.0001
+            </Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Dist_0001 :
+                SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Dist_0001.0002
+            </Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Dist_0002 :
+                SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Dist_0002.0001
+            </Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Dist_0002 :
+                SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Dist_0002.0002
+            </Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Dist_0004 :
+                SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Dist_0004.0001
+            </Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Dist_0004 :
+                SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Dist_0004.0002
+            </Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Brg_0001 :
+                SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Brg_0001.0001
+            </Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Brg_0001 :
+                SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Brg_0001.0002
+            </Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Brg_0004 :
+                SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Brg_0004.0001
+            </Name>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Brg_0004 :
+                SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Brg_0004.0002
+            </Name>
+        </Test>
+    </SuccessfulTests>
+    <FailedTests>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_ABEAM_BrgOrtho_0001 : SwU_IVVPr_AVBU_WGS84_Acc_ABEAM_BrgOrtho_0001.0001
+            </Name>
+            <FailureType>Assertion</FailureType>
+            <Message>Test KO; 1.0; over ; 964.0; iterations.</Message>
+            <Location>
+                <File>avbu-tests_accuracy.adb</File>
+                <Line>129</Line>
+            </Location>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_ABEAM_BrgOrtho_0002 : SwU_IVVPr_AVBU_WGS84_Acc_ABEAM_BrgOrtho_0002.0001
+            </Name>
+            <FailureType>Assertion</FailureType>
+            <Message>Test KO; 5.0; over ; 2932.0; iterations.</Message>
+            <Location>
+                <File>avbu-tests_accuracy.adb</File>
+                <Line>129</Line>
+            </Location>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_CCD_0003 : SwU_IVVPr_AVBU_WGS84_Acc_CCD_0003.0001</Name>
+            <FailureType>Assertion</FailureType>
+            <Message>Test KO; 802.0; over ; 9990.0; iterations.</Message>
+            <Location>
+                <File>avbu-tests_accuracy.adb</File>
+                <Line>129</Line>
+            </Location>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_DTK_Left_0003 : SwU_IVVPr_AVBU_WGS84_Acc_DTK_Left_0003.0001</Name>
+            <FailureType>Assertion</FailureType>
+            <Message>Test KO; 999.0; over ; 3996.0; iterations.</Message>
+            <Location>
+                <File>avbu-tests_accuracy.adb</File>
+                <Line>129</Line>
+            </Location>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_DTK_Right_0003 : SwU_IVVPr_AVBU_WGS84_Acc_DTK_Right_0003.0001</Name>
+            <FailureType>Assertion</FailureType>
+            <Message>Test KO; 999.0; over ; 3996.0; iterations.</Message>
+            <Location>
+                <File>avbu-tests_accuracy.adb</File>
+                <Line>129</Line>
+            </Location>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_XTK_Arc_Left_0002 : SwU_IVVPr_AVBU_WGS84_Acc_XTK_Arc_Left_0002.0001</Name>
+            <FailureType>Assertion</FailureType>
+            <Message>Test KO; 1.0; over ; 305.0; iterations.</Message>
+            <Location>
+                <File>avbu-tests_accuracy.adb</File>
+                <Line>129</Line>
+            </Location>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_XTK_Arc_Left_0003 : SwU_IVVPr_AVBU_WGS84_Acc_XTK_Arc_Left_0003.0001</Name>
+            <FailureType>Assertion</FailureType>
+            <Message>Test KO; 117.0; over ; 305.0; iterations.</Message>
+            <Location>
+                <File>avbu-tests_accuracy.adb</File>
+                <Line>129</Line>
+            </Location>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_XTK_Arc_Left_0004 : SwU_IVVPr_AVBU_WGS84_Acc_XTK_Arc_Left_0004.0001</Name>
+            <FailureType>Assertion</FailureType>
+            <Message>Test KO; 122.0; over ; 305.0; iterations.</Message>
+            <Location>
+                <File>avbu-tests_accuracy.adb</File>
+                <Line>129</Line>
+            </Location>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_XTK_Arc_Right_0001 : SwU_IVVPr_AVBU_WGS84_Acc_XTK_Arc_Right_0001.0001</Name>
+            <FailureType>Assertion</FailureType>
+            <Message>Test KO; 1.0; over ; 305.0; iterations.</Message>
+            <Location>
+                <File>avbu-tests_accuracy.adb</File>
+                <Line>129</Line>
+            </Location>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_XTK_Arc_Right_0002 : SwU_IVVPr_AVBU_WGS84_Acc_XTK_Arc_Right_0002.0001</Name>
+            <FailureType>Assertion</FailureType>
+            <Message>Test KO; 1.0; over ; 305.0; iterations.</Message>
+            <Location>
+                <File>avbu-tests_accuracy.adb</File>
+                <Line>129</Line>
+            </Location>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_XTK_Arc_Right_0003 : SwU_IVVPr_AVBU_WGS84_Acc_XTK_Arc_Right_0003.0001</Name>
+            <FailureType>Assertion</FailureType>
+            <Message>Test KO; 115.0; over ; 305.0; iterations.</Message>
+            <Location>
+                <File>avbu-tests_accuracy.adb</File>
+                <Line>129</Line>
+            </Location>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_XTK_Arc_Right_0004 : SwU_IVVPr_AVBU_WGS84_Acc_XTK_Arc_Right_0004.0001</Name>
+            <FailureType>Assertion</FailureType>
+            <Message>Test KO; 122.0; over ; 305.0; iterations.</Message>
+            <Location>
+                <File>avbu-tests_accuracy.adb</File>
+                <Line>129</Line>
+            </Location>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_Dist_To_End_Arc_0002 : SwU_IVVPr_AVBU_WGS84_Acc_Dist_To_End_Arc_0002.0001
+            </Name>
+            <FailureType>Assertion</FailureType>
+            <Message>Test KO; 285.0; over ; 305.0; iterations.</Message>
+            <Location>
+                <File>avbu-tests_accuracy.adb</File>
+                <Line>129</Line>
+            </Location>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_Dist_To_End_Arc_0003 : SwU_IVVPr_AVBU_WGS84_Acc_Dist_To_End_Arc_0003.0001
+            </Name>
+            <FailureType>Assertion</FailureType>
+            <Message>Test KO; 300.0; over ; 305.0; iterations.</Message>
+            <Location>
+                <File>avbu-tests_accuracy.adb</File>
+                <Line>129</Line>
+            </Location>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_Dist_To_End_Arc_0004 : SwU_IVVPr_AVBU_WGS84_Acc_Dist_To_End_Arc_0004.0001
+            </Name>
+            <FailureType>Assertion</FailureType>
+            <Message>Test KO; 300.0; over ; 305.0; iterations.</Message>
+            <Location>
+                <File>avbu-tests_accuracy.adb</File>
+                <Line>129</Line>
+            </Location>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Plane_Dist_0001 : SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Plane_Dist_0001.0001
+            </Name>
+            <FailureType>Assertion</FailureType>
+            <Message>Test KO; 610.0; over ; 10000.0; iterations.</Message>
+            <Location>
+                <File>avbu-tests_accuracy.adb</File>
+                <Line>129</Line>
+            </Location>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Plane_Dist_0001 : SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Plane_Dist_0001.0002
+            </Name>
+            <FailureType>Assertion</FailureType>
+            <Message>Test KO; 852.0; over ; 10000.0; iterations.</Message>
+            <Location>
+                <File>avbu-tests_accuracy.adb</File>
+                <Line>129</Line>
+            </Location>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Plane_Dist_0002 : SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Plane_Dist_0002.0002
+            </Name>
+            <FailureType>Assertion</FailureType>
+            <Message>Test KO; 1000.0; over ; 10000.0; iterations.</Message>
+            <Location>
+                <File>avbu-tests_accuracy.adb</File>
+                <Line>129</Line>
+            </Location>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Plane_Brg_0001 : SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Plane_Brg_0001.0002
+            </Name>
+            <FailureType>Assertion</FailureType>
+            <Message>Test KO; 61.0; over ; 10000.0; iterations.</Message>
+            <Location>
+                <File>avbu-tests_accuracy.adb</File>
+                <Line>129</Line>
+            </Location>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Plane_Brg_0002 : SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Plane_Brg_0002.0002
+            </Name>
+            <FailureType>Assertion</FailureType>
+            <Message>Test KO; 72.0; over ; 10000.0; iterations.</Message>
+            <Location>
+                <File>avbu-tests_accuracy.adb</File>
+                <Line>129</Line>
+            </Location>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Dist_0003 :
+                SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Dist_0003.0001
+            </Name>
+            <FailureType>Assertion</FailureType>
+            <Message>Test KO; 1.0; over ; 10000.0; iterations.</Message>
+            <Location>
+                <File>avbu-tests_accuracy.adb</File>
+                <Line>129</Line>
+            </Location>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Brg_0002 :
+                SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Brg_0002.0001
+            </Name>
+            <FailureType>Assertion</FailureType>
+            <Message>Test KO; 49.0; over ; 10000.0; iterations.</Message>
+            <Location>
+                <File>avbu-tests_accuracy.adb</File>
+                <Line>129</Line>
+            </Location>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Brg_0002 :
+                SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Brg_0002.0002
+            </Name>
+            <FailureType>Assertion</FailureType>
+            <Message>Test KO; 2.0; over ; 10000.0; iterations.</Message>
+            <Location>
+                <File>avbu-tests_accuracy.adb</File>
+                <Line>129</Line>
+            </Location>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Brg_0003 :
+                SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Brg_0003.0001
+            </Name>
+            <FailureType>Assertion</FailureType>
+            <Message>Test KO; 1.0; over ; 10000.0; iterations.</Message>
+            <Location>
+                <File>avbu-tests_accuracy.adb</File>
+                <Line>129</Line>
+            </Location>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Brg_0003 :
+                SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Brg_0003.0002
+            </Name>
+            <FailureType>Assertion</FailureType>
+            <Message>Test KO; 3.0; over ; 10000.0; iterations.</Message>
+            <Location>
+                <File>avbu-tests_accuracy.adb</File>
+                <Line>129</Line>
+            </Location>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Plane_Dist_0002 : SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Plane_Dist_0002.0001
+            </Name>
+            <FailureType>Error</FailureType>
+            <Message>CONSTRAINT_ERROR</Message>
+            <Exception>
+                <Message>CONSTRAINT_ERROR</Message>
+                <Information>iteratif_basic_algos-cbd.adb:101 invalid data</Information>
+                <Traceback>00691AB4 in vincenty__algos__cbdX at iteratif_basic_algos-cbd.adb:101
+                    00696C92 in vincenty.cbd at vincenty.adb:25
+                    006972E4 in vincenty.cd at vincenty.adb:72
+                    006BE108 in
+                    swu_ivvpr_avbu_wgs84_acc_pbpd_plane_dist_0002.swu_ivvpr_avbu_wgs84_acc_pbpd_plane_dist_0002_0001 at
+                    swu_ivvpr_avbu_wgs84_acc_pbpd_plane_dist_0002.adb:121
+                    00420DFD in aunit.test_cases.run_test at aunit-test_cases.adb:52
+                    004144DF in aunit.simple_test_cases.run_routine at aunit-simple_test_cases-run_routine.adb:58
+                    00414BC2 in aunit.simple_test_cases.run at aunit-simple_test_cases.adb:101
+                    00420F68 in aunit.test_cases.run at aunit-test_cases.adb:81
+                    004262FF in aunit.test_suites.run at aunit-test_suites.adb:79
+                    00426389 in aunit.test_suites.run at aunit-test_suites.adb:81
+                    004266FC in aunit.run.run at aunit-run.adb:59
+                    004CA1AA in avbu_unitary_tests.avbu_test_suites_run at aunit-run.adb:83
+                    004CA0E3 in ada_avbu_unitary_tests at avbu_unitary_tests.adb:67
+                    0040204C in main at b~avbu_unitary_tests.adb:864
+                    00401235 in ?? at crtstuff.c:0
+                    00401286 in ?? at crtstuff.c:0
+                    7D4C7D28 in ?? at ??:0
+                </Traceback>
+            </Exception>
+        </Test>
+        <Test>
+            <Name>SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Dist_0003 :
+                SwU_IVVPr_AVBU_WGS84_Acc_PBPD_Spherical_Dist_0003.0002
+            </Name>
+            <FailureType>Error</FailureType>
+            <Message>CONSTRAINT_ERROR</Message>
+            <Exception>
+                <Message>CONSTRAINT_ERROR</Message>
+                <Information>iteratif_basic_algos-cbd.adb:101 invalid data</Information>
+                <Traceback>00691AB4 in vincenty__algos__cbdX at iteratif_basic_algos-cbd.adb:101
+                    00696C92 in vincenty.cbd at vincenty.adb:25
+                    006972E4 in vincenty.cd at vincenty.adb:72
+                    0069F5DB in
+                    swu_ivvpr_avbu_wgs84_acc_pbpd_spherical_dist_0003.swu_ivvpr_avbu_wgs84_acc_pbpd_spherical_dist_0003_0002
+                    at swu_ivvpr_avbu_wgs84_acc_pbpd_spherical_dist_0003.adb:330
+                    00420DFD in aunit.test_cases.run_test at aunit-test_cases.adb:52
+                    004144DF in aunit.simple_test_cases.run_routine at aunit-simple_test_cases-run_routine.adb:58
+                    00414BC2 in aunit.simple_test_cases.run at aunit-simple_test_cases.adb:101
+                    00420F68 in aunit.test_cases.run at aunit-test_cases.adb:81
+                    004262FF in aunit.test_suites.run at aunit-test_suites.adb:79
+                    00426389 in aunit.test_suites.run at aunit-test_suites.adb:81
+                    004266FC in aunit.run.run at aunit-run.adb:59
+                    004CA1AA in avbu_unitary_tests.avbu_test_suites_run at aunit-run.adb:83
+                    004CA0E3 in ada_avbu_unitary_tests at avbu_unitary_tests.adb:67
+                    0040204C in main at b~avbu_unitary_tests.adb:864
+                    00401235 in ?? at crtstuff.c:0
+                    00401286 in ?? at crtstuff.c:0
+                    7D4C7D28 in ?? at ??:0
+                </Traceback>
+            </Exception>
+        </Test>
+    </FailedTests>
+</TestRun>

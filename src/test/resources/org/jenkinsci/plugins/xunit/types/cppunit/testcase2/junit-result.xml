@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite errors="0" failures="0" tests="1" name="cppunit">
+    <testcase classname="MathTest" name="testConstructor" time="0"/>
+</testsuite>

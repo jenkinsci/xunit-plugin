@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="6d17c1f8-112c-4c0b-82ca-7f3459cfcbfa" name="Koiti@KOU 2009-01-25 19:10:35" runUser="KOU\Koiti" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+  <TestRunConfiguration name="Local Test Run" id="049b43ad-25f0-49df-9c33-bd7842bc7f63">
+    <Description>This is a default test run configuration for a local test run.</Description>
+    <Deployment runDeploymentRoot="E:\Koiti\Dev\GitHudsonTest\TestResults\Koiti_KOU 2009-01-25 19_10_35">
+      <DeploymentItem filename="E:\Koiti\Dev\GitHudsonTest\GitHudsonTest\bin\Release\GitHudsonTest.exe" />
+    </Deployment>
+    <TestTypeSpecific />
+  </TestRunConfiguration>
+  <ResultSummary outcome="Failed">
+    <Counters total="4" executed="4" passed="2" error="0" failed="2" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <Times creation="2009-01-25T19:10:35.8437500-02:00" queuing="2009-01-25T19:10:36.0156250-02:00" start="2009-01-25T19:10:36.0312500-02:00" finish="2009-01-25T19:10:36.2187500-02:00" />
+  <TestDefinitions>
+    <UnitTest name="REmoveSpecialChar2" storage="e:\koiti\dev\githudsontest\functionstest\bin\release\functionstest.dll" id="f1784aa0-512c-f58e-e3d7-859b6c2c8f4a">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="86daa010-805d-49be-ac88-352279de4659" />
+      <TestMethod codeBase="E:\Koiti\Dev\GitHudsonTest\FunctionsTest\bin\Release\FunctionsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FunctionsTest.SpecialCharRemoverTest, FunctionsTest" name="REmoveSpecialChar2" />
+    </UnitTest>
+    <UnitTest name="CalculaFibonacci" storage="e:\koiti\dev\githudsontest\functionstest\bin\release\functionstest.dll" id="122e4794-c549-ce37-572b-9acc5c73b926">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="4dca4b14-088d-47f5-bef8-6442eb80ab05" />
+      <TestMethod codeBase="E:\Koiti\Dev\GitHudsonTest\FunctionsTest\bin\Release\FunctionsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FunctionsTest.FibonacciTest, FunctionsTest" name="CalculaFibonacci" />
+    </UnitTest>
+    <UnitTest name="RemoveSpecialChar" storage="e:\koiti\dev\githudsontest\functionstest\bin\release\functionstest.dll" id="29b8ad40-3942-0599-06fc-c3780681b721">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="aa52beac-9947-4dc5-9716-432c6f9de91b" />
+      <TestMethod codeBase="E:\Koiti\Dev\GitHudsonTest\FunctionsTest\bin\Release\FunctionsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FunctionsTest.SpecialCharRemoverTest, FunctionsTest" name="RemoveSpecialChar" />
+    </UnitTest>
+    <UnitTest name="CalculaFibonacci_2" storage="e:\koiti\dev\githudsontest\functionstest\bin\release\functionstest.dll" id="a8e7f580-dfd1-6bc6-0553-1b5bd86844a6">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <Execution id="89474a72-b48f-4d41-8b62-e82b8712a6c1" />
+      <TestMethod codeBase="E:\Koiti\Dev\GitHudsonTest\FunctionsTest\bin\Release\FunctionsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FunctionsTest.FibonacciTest, FunctionsTest" name="CalculaFibonacci_2" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="122e4794-c549-ce37-572b-9acc5c73b926" executionId="4dca4b14-088d-47f5-bef8-6442eb80ab05" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a8e7f580-dfd1-6bc6-0553-1b5bd86844a6" executionId="89474a72-b48f-4d41-8b62-e82b8712a6c1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="29b8ad40-3942-0599-06fc-c3780681b721" executionId="aa52beac-9947-4dc5-9716-432c6f9de91b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f1784aa0-512c-f58e-e3d7-859b6c2c8f4a" executionId="86daa010-805d-49be-ac88-352279de4659" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="4dca4b14-088d-47f5-bef8-6442eb80ab05" testId="122e4794-c549-ce37-572b-9acc5c73b926" testName="CalculaFibonacci" computerName="KOU" duration="00:00:00.0038577" startTime="2009-01-25T19:10:36.0312500-02:00" endTime="2009-01-25T19:10:36.1718750-02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="89474a72-b48f-4d41-8b62-e82b8712a6c1" testId="a8e7f580-dfd1-6bc6-0553-1b5bd86844a6" testName="CalculaFibonacci_2" computerName="KOU" duration="00:00:00.0356570" startTime="2009-01-25T19:10:36.1718750-02:00" endTime="2009-01-25T19:10:36.2031250-02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;2&gt;. Actual:&lt;1&gt;. </Message>
+          <StackTrace>   at FunctionsTest.FibonacciTest.CalculaFibonacci_2() in E:\Koiti\Dev\GitHudsonTest\FunctionsTest\FibonacciTest.cs:line 72
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="aa52beac-9947-4dc5-9716-432c6f9de91b" testId="29b8ad40-3942-0599-06fc-c3780681b721" testName="RemoveSpecialChar" computerName="KOU" duration="00:00:00.0010439" startTime="2009-01-25T19:10:36.2031250-02:00" endTime="2009-01-25T19:10:36.2187500-02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="86daa010-805d-49be-ac88-352279de4659" testId="f1784aa0-512c-f58e-e3d7-859b6c2c8f4a" testName="REmoveSpecialChar2" computerName="KOU" duration="00:00:00.0008830" startTime="2009-01-25T19:10:36.2187500-02:00" endTime="2009-01-25T19:10:36.2187500-02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;pao&gt;. Actual:&lt;paao&gt;. </Message>
+          <StackTrace>   at FunctionsTest.SpecialCharRemoverTest.REmoveSpecialChar2() in E:\Koiti\Dev\GitHudsonTest\FunctionsTest\SpecialCharRemoverTest.cs:line 76
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>
