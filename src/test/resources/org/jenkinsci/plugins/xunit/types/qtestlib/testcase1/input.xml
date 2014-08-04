@@ -1,2363 +1,2365 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCase name="tst_QString">
-  <Environment>
-    <QtVersion>5.0.0</QtVersion>
-    <QTestVersion>5.0.0</QTestVersion>
-  </Environment>
-  <TestFunction name="initTestCase">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="fromStdString">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="toStdString">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="check_QTextIOStream">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="check_QTextStream">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="check_QDataStream">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="fromRawData">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="setRawData">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="endsWith">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="startsWith">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="setNum">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="toDouble">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[ok00]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[ok01]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[ok02]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[ok03]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[ok04]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[ok05]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[ok06]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[ok07]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[ok08]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[ok09]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[ok10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[ok11]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[wrong00]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[wrong01]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[wrong02]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[wrong03]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[wrong04]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[wrong05]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[wrong06]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[wrong07]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="toFloat">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="toLong">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[default]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[empty]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[normal]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[long_max]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[negative]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="toULong">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[default]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[empty]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[ulong1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[ulong2]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="toLongLong">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="toULongLong">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="toUInt">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="toInt">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="toShort">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="toUShort">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="replace_qchar_qchar">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[3]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[4]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[5]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[6]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[7]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="replace_qchar_qstring">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[3]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[4]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[5]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[6]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[7]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[8]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="replace_uint_uint">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem00]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem01]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem04]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem05]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem06]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep00]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep01]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep02]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep03]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep04]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep05]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep06]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep07]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep08]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep09]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep11]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep12]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep13]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep14]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep15]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[no overflow]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[overflow]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="replace_uint_uint_extra">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="replace_string">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem00]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem01]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem02]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem03]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem04]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem05]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem06]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem07]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem08]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem09]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem11]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem12]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem13]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem14]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem15]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem16]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem17]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem18]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem19]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem20]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem21]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem22]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep00]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep01]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep02]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep03]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep04]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep05]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep06]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep07]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep08]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep09]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep11]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep12]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep13]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep14]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep15]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep16]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep17]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="replace_regexp">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem00]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem01]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem02]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem03]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem04]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem05]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep00]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep01]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep02]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep03]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[backref00]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[backref01]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[backref02]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[backref03]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[backref04]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[backref05]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[backref06]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[backref07]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[backref08]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[backref09]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[backref10]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="remove_uint_uint">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem00]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem01]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem04]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem05]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem06]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep00]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep01]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep02]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep03]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep04]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep05]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep06]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep07]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep08]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep09]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep11]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep12]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep13]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep14]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep15]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[no overflow]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[overflow]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="remove_string">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem00]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem01]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem02]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem03]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem04]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem05]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem06]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem07]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem08]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem09]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem11]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem12]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem13]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem14]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem15]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem16]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem17]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem18]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem19]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem20]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem21]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem22]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep00]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep01]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep02]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep03]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep04]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep05]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep06]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep07]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep08]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep09]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep11]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep12]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep13]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep14]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep15]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep16]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep17]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="remove_regexp">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem00]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem01]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem02]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem03]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem04]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rem05]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep00]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep01]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep02]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rep03]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[backref00]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[backref01]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[backref02]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[backref03]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[backref04]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[backref05]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[backref06]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[backref07]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[backref08]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[backref09]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[backref10]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="swap">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="prepend">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="prepend_bytearray">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[emptyString]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[emptyByteArray]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[nonAsciiByteArray]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[nonAsciiByteArray2]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="append">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="append_bytearray">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[notTerminated_0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[notTerminated_1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[notTerminated_2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[emptyString]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[emptyByteArray]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[nonAsciiByteArray]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[nonAsciiByteArray2]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="operator_pluseq_bytearray">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[notTerminated_0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[notTerminated_1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[notTerminated_2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[emptyString]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[emptyByteArray]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[nonAsciiByteArray]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[nonAsciiByteArray2]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="operator_eqeq_bytearray">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[3]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[4]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[4-bis]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[4-tre]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="operator_eqeq_nullstring">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="operator_smaller">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="insert">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="simplified">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[null]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[empty]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[one char]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[one word]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[chars trivial]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[words trivial]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[allspace]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[char trailing]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[char trailing tab]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[char multitrailing]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[char multitrailing tab]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[char leading]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[char leading tab]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[char multileading]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[char multileading tab]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[chars apart]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[words apart]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[enclosed word]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[enclosed chars apart]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[enclosed words apart]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[chars apart posttab]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[chars apart pretab]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[many words]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="trimmed">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="toUpper">
-    <Incident type="xfail" file="tst_qstring.cpp" line="1807">
-      <Description><![CDATA[test doesn't work with ICU support, since QChar is unaware of any locale]]></Description>
-    </Incident>
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="toLower">
-    <Incident type="xfail" file="tst_qstring.cpp" line="1866">
-      <Description><![CDATA[test doesn't work with ICU support, since QChar is unaware of any locale]]></Description>
-    </Incident>
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="toCaseFolded">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="rightJustified">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="leftJustified">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="mid">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="right">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="left">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="midRef">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="rightRef">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="leftRef">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="stringRef">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="contains">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="count">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="lastIndexOf">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[-1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[3]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[4]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[5]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[6]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[7]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[8]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[9]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[11]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[12]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[13]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[14]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[15]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[16]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[17]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[19]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[20]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[21]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[22]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[24]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[25]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[26]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[27]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[28]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="indexOf">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data3]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data4]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data5]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data6]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data7]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data8]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data9]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data11]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data12]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data13]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data14]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data15]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data16]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data17]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data20]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data21]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data22]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data23]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data24]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data25]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data26]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data27]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data28]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data29]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data30]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data31]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data32]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data33]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data34]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data35]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data36]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data37]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data40]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data41]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data42]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data43]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data44]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data45]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data46]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data47]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data48]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data49]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data50]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data51]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data52]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data53]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data54]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data55]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data56]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data57]]></DataTag>
-    </Incident>
-    <Incident type="xfail" file="tst_qstring.cpp" line="1167">
-      <DataTag><![CDATA[data58]]></DataTag>
-      <Description><![CDATA[QRegularExpression does not support case folding]]></Description>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data58]]></DataTag>
-    </Incident>
-    <Incident type="xfail" file="tst_qstring.cpp" line="1167">
-      <DataTag><![CDATA[data59]]></DataTag>
-      <Description><![CDATA[QRegularExpression does not support case folding]]></Description>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data59]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[BoyerMooreStressTest]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[BoyerMooreStressTest2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[BoyerMooreStressTest3]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[BoyerMooreStressTest4]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[BoyerMooreStressTest5]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[BoyerMooreStressTest6]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[BoyerMooreStressTest7]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[BoyerMooreInsensitiveStressTest]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="indexOf2">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data3]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data4]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data5]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data6]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data7]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data8]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data9]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data11]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data12]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data13]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data14]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data15]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data16]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data17]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data18]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data19]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data30]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data31]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data32]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data33]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data34]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data35]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data36]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data37]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data40]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data41]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data42]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data43]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data44]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data45]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data46]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data47]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data48]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="sprintf">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="fill">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="truncate">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="constructor">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="constructorQByteArray">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[3]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[4]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[4-bis]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[4-tre]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="STL">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="isEmpty">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="isNull">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="acc_01">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="length">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data3]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data4]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data5]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data6]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data7]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data8]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data9]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data11]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="utf8">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[str0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[str1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[str2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[str3]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[surrogate]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="fromUtf8">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[str0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[str0-len]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[str1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[str1-len]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[str2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[str2-len]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[str3]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[str3-len]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[invalid utf8]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[invalid utf8-len]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[invalid utf8 2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[invalid utf8-len 2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[null-1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[null0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[null5]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[empty-1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[empty0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[empty5]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[other-1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[other5]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[surrogate]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[surrogate-len]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="nullFromUtf8">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="fromLocal8Bit">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[stringlen99]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="local8Bit">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[nullString]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[emptyString]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[string]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[longString]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[someNonAlphaChars]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="fromLatin1Roundtrip">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[null]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[empty]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[ascii-only]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[ascii+control]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[ascii+nul]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[non-ascii]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="toLatin1Roundtrip">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[null]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[empty]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[ascii-only]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[ascii+control]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[ascii+nul]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[non-ascii]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[non-latin1a]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[non-latin1b]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="stringRef_toLatin1Roundtrip">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[null]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[empty]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[ascii-only]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[ascii+control]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[ascii+nul]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[non-ascii]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[non-latin1a]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[non-latin1b]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="stringRef_utf8">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[str0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[str1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[str2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[str3]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[surrogate]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="stringRef_local8Bit">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[nullString]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[emptyString]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[string]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[longString]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[someNonAlphaChars]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="fromLatin1">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="fromAscii">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="arg">
-    <Message type="qwarn" file="" line="0">
-      <Description><![CDATA[QString::arg: Argument missing: "" , 0 ]]></Description>
-    </Message>
-    <Message type="qwarn" file="" line="0">
-      <Description><![CDATA[QString::arg: Argument missing: "" , 0 ]]></Description>
-    </Message>
-    <Message type="qwarn" file="" line="0">
-      <Description><![CDATA[QString::arg: Argument missing: " " , 0 ]]></Description>
-    </Message>
-    <Message type="qwarn" file="" line="0">
-      <Description><![CDATA[QString::arg: Argument missing: "%" , 0 ]]></Description>
-    </Message>
-    <Message type="qwarn" file="" line="0">
-      <Description><![CDATA[QString::arg: Argument missing: "%%" , 0 ]]></Description>
-    </Message>
-    <Message type="qwarn" file="" line="0">
-      <Description><![CDATA[QString::arg: Argument missing: "%%%" , 0 ]]></Description>
-    </Message>
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="number">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="arg_fillChar">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[str0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[str1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[str2]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="capacity">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data3]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data4]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data5]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data6]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data7]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data8]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data9]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data11]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="section">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data3]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data4]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data5]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data6]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data7]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data8]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data9]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data11]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data12]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[foo1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[foo2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[foo3]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[foo1rx]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[foo2rx]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[foo3rx]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[qmake_path]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[qmake_pathrx]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data13]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data14]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data15]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data16]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[normal1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[normal2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[normal3]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[normal4]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[normal5]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rx1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rx2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rx3]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rx4]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[rx5]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data17]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data18]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="double_conversion">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 1.0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 1.234]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 1.234e-10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 1.234E10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 1e10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C empty]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C null]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C .]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 1e]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 1,]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 1,0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 1,000]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 1e1.0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 1e+]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 1e-]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[de_DE 1,0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[de_DE 1,234]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[de_DE 1,234e-10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[de_DE 1,234E10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C .1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C -.1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 1.]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 1.E10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 1e+10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C   1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 1  ]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[ar_SA]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="integer_conversion">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C empty 0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C empty 8]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C empty 10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C empty 16]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C null 0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C null 8]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C null 10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C null 16]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C   -0xf 0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C -0xf   0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 	0xf	 0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C   -010 0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 010   0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 	-010	 0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C   123 10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 123   10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 	123	 10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C   -0xf 16]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C -0xf   16]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 	0xf	 16]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C -0 0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C -0 8]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C -0 10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C -0 16]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 1.234 10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 1,234 10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 0x 0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 0x 16]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 10 0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 010 0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 0x10 0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 10 8]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 010 8]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 0x10 8]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 10 10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 010 10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 0x10 10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 10 16]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 010 16]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C 0x10 16]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C -10 0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C -010 0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C -0x10 0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C -10 8]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C -010 8]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C -0x10 8]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C -10 10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C -010 10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C -0x10 10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C -10 16]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C -010 16]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[C -0x10 16]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[ar_SA 1234 0]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="tortureSprintfDouble">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="toNum">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="localeAwareCompare">
-    <Incident type="xfail" file="tst_qstring.cpp" line="4615">
-      <DataTag><![CDATA[c1]]></DataTag>
-      <Description><![CDATA[ICU disagrees with test]]></Description>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[c1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[c2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[c3]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[english1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[english2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[english3]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[swedish1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[swedish2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[swedish3]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[swedish4]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[german1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[german2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[german3]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="split">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[one-empty]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[two-empty]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[three-empty]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[all-empty]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[sep-empty]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="split_regexp">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data01]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data02]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data03]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="fromUtf16">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[str0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[str0-len]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="latin1String">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="nanAndInf">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="compare">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data0]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data3]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data4]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data5]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data6]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data7]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data8]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data8]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="resizeAfterFromRawData">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="resizeAfterReserve">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="resizeWithNegative">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="truncateWithNegative">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="QCharRefMutableUnicode">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="QCharRefDetaching">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="sprintfZU">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="repeatedSignature">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="repeated">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data3]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data4]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data5]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data6]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data7]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data8]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data9]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data10]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[data11]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="compareRef">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="arg_locale">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="toUpperLower_icu">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="eightBitLiterals">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[null]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[empty]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[regular]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[non-ascii]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="reserve">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="toHtmlEscaped">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[2]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[3]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[4]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="operatorGreaterWithQLatin1String">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="compareQLatin1Strings">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="fromQLatin1StringWithLength">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="assignQLatin1String">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
-  <TestFunction name="isRightToLeft">
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[null]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[empty]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[numbers-only]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[latin1-only]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[numbers-latin1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[arabic-only]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[numbers-arabic]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[numbers-latin1-arabic]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[numbers-arabic-latin1]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[surrogates-VS-CJK]]></DataTag>
-    </Incident>
-    <Incident type="pass" file="" line="0">
-      <DataTag><![CDATA[surrogates-cypriot]]></DataTag>
-    </Incident>
-  </TestFunction>
-  <TestFunction name="cleanupTestCase">
-    <Incident type="pass" file="" line="0"/>
-  </TestFunction>
+    <Environment>
+        <QtVersion>5.0.0</QtVersion>
+        <QTestVersion>5.0.0</QTestVersion>
+    </Environment>
+    <TestFunction name="initTestCase">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="fromStdString">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="toStdString">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="check_QTextIOStream">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="check_QTextStream">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="check_QDataStream">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="fromRawData">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="setRawData">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="endsWith">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="startsWith">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="setNum">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="toDouble">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[ok00]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[ok01]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[ok02]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[ok03]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[ok04]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[ok05]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[ok06]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[ok07]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[ok08]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[ok09]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[ok10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[ok11]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[wrong00]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[wrong01]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[wrong02]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[wrong03]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[wrong04]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[wrong05]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[wrong06]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[wrong07]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="toFloat">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="toLong">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[default]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[empty]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[normal]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[long_max]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[negative]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="toULong">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[default]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[empty]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[ulong1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[ulong2]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="toLongLong">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="toULongLong">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="toUInt">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="toInt">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="toShort">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="toUShort">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="replace_qchar_qchar">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[3]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[4]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[5]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[6]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[7]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="replace_qchar_qstring">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[3]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[4]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[5]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[6]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[7]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[8]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="replace_uint_uint">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem00]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem01]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem04]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem05]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem06]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep00]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep01]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep02]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep03]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep04]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep05]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep06]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep07]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep08]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep09]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep11]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep12]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep13]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep14]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep15]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[no overflow]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[overflow]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="replace_uint_uint_extra">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="replace_string">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem00]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem01]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem02]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem03]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem04]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem05]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem06]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem07]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem08]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem09]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem11]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem12]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem13]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem14]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem15]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem16]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem17]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem18]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem19]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem20]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem21]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem22]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep00]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep01]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep02]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep03]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep04]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep05]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep06]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep07]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep08]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep09]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep11]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep12]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep13]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep14]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep15]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep16]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep17]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="replace_regexp">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem00]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem01]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem02]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem03]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem04]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem05]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep00]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep01]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep02]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep03]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[backref00]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[backref01]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[backref02]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[backref03]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[backref04]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[backref05]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[backref06]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[backref07]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[backref08]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[backref09]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[backref10]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="remove_uint_uint">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem00]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem01]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem04]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem05]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem06]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep00]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep01]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep02]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep03]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep04]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep05]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep06]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep07]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep08]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep09]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep11]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep12]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep13]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep14]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep15]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[no overflow]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[overflow]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="remove_string">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem00]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem01]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem02]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem03]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem04]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem05]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem06]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem07]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem08]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem09]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem11]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem12]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem13]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem14]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem15]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem16]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem17]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem18]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem19]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem20]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem21]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem22]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep00]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep01]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep02]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep03]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep04]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep05]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep06]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep07]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep08]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep09]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep11]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep12]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep13]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep14]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep15]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep16]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep17]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="remove_regexp">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem00]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem01]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem02]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem03]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem04]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rem05]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep00]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep01]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep02]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rep03]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[backref00]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[backref01]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[backref02]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[backref03]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[backref04]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[backref05]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[backref06]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[backref07]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[backref08]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[backref09]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[backref10]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="swap">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="prepend">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="prepend_bytearray">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[emptyString]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[emptyByteArray]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[nonAsciiByteArray]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[nonAsciiByteArray2]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="append">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="append_bytearray">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[notTerminated_0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[notTerminated_1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[notTerminated_2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[emptyString]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[emptyByteArray]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[nonAsciiByteArray]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[nonAsciiByteArray2]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="operator_pluseq_bytearray">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[notTerminated_0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[notTerminated_1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[notTerminated_2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[emptyString]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[emptyByteArray]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[nonAsciiByteArray]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[nonAsciiByteArray2]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="operator_eqeq_bytearray">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[3]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[4]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[4-bis]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[4-tre]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="operator_eqeq_nullstring">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="operator_smaller">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="insert">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="simplified">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[null]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[empty]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[one char]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[one word]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[chars trivial]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[words trivial]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[allspace]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[char trailing]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[char trailing tab]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[char multitrailing]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[char multitrailing tab]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[char leading]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[char leading tab]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[char multileading]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[char multileading tab]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[chars apart]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[words apart]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[enclosed word]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[enclosed chars apart]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[enclosed words apart]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[chars apart posttab]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[chars apart pretab]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[many words]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="trimmed">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="toUpper">
+        <Incident type="xfail" file="tst_qstring.cpp" line="1807">
+            <Description>
+                <![CDATA[test doesn't work with ICU support, since QChar is unaware of any locale]]></Description>
+        </Incident>
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="toLower">
+        <Incident type="xfail" file="tst_qstring.cpp" line="1866">
+            <Description>
+                <![CDATA[test doesn't work with ICU support, since QChar is unaware of any locale]]></Description>
+        </Incident>
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="toCaseFolded">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="rightJustified">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="leftJustified">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="mid">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="right">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="left">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="midRef">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="rightRef">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="leftRef">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="stringRef">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="contains">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="count">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="lastIndexOf">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[-1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[3]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[4]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[5]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[6]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[7]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[8]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[9]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[11]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[12]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[13]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[14]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[15]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[16]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[17]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[19]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[20]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[21]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[22]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[24]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[25]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[26]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[27]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[28]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="indexOf">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data3]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data4]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data5]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data6]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data7]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data8]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data9]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data11]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data12]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data13]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data14]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data15]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data16]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data17]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data20]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data21]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data22]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data23]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data24]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data25]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data26]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data27]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data28]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data29]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data30]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data31]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data32]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data33]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data34]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data35]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data36]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data37]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data40]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data41]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data42]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data43]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data44]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data45]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data46]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data47]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data48]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data49]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data50]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data51]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data52]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data53]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data54]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data55]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data56]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data57]]></DataTag>
+        </Incident>
+        <Incident type="xfail" file="tst_qstring.cpp" line="1167">
+            <DataTag><![CDATA[data58]]></DataTag>
+            <Description><![CDATA[QRegularExpression does not support case folding]]></Description>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data58]]></DataTag>
+        </Incident>
+        <Incident type="xfail" file="tst_qstring.cpp" line="1167">
+            <DataTag><![CDATA[data59]]></DataTag>
+            <Description><![CDATA[QRegularExpression does not support case folding]]></Description>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data59]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[BoyerMooreStressTest]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[BoyerMooreStressTest2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[BoyerMooreStressTest3]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[BoyerMooreStressTest4]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[BoyerMooreStressTest5]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[BoyerMooreStressTest6]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[BoyerMooreStressTest7]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[BoyerMooreInsensitiveStressTest]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="indexOf2">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data3]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data4]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data5]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data6]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data7]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data8]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data9]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data11]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data12]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data13]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data14]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data15]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data16]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data17]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data18]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data19]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data30]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data31]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data32]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data33]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data34]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data35]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data36]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data37]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data40]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data41]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data42]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data43]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data44]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data45]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data46]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data47]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data48]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="sprintf">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="fill">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="truncate">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="constructor">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="constructorQByteArray">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[3]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[4]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[4-bis]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[4-tre]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="STL">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="isEmpty">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="isNull">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="acc_01">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="length">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data3]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data4]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data5]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data6]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data7]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data8]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data9]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data11]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="utf8">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[str0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[str1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[str2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[str3]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[surrogate]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="fromUtf8">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[str0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[str0-len]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[str1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[str1-len]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[str2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[str2-len]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[str3]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[str3-len]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[invalid utf8]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[invalid utf8-len]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[invalid utf8 2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[invalid utf8-len 2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[null-1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[null0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[null5]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[empty-1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[empty0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[empty5]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[other-1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[other5]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[surrogate]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[surrogate-len]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="nullFromUtf8">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="fromLocal8Bit">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[stringlen99]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="local8Bit">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[nullString]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[emptyString]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[string]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[longString]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[someNonAlphaChars]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="fromLatin1Roundtrip">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[null]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[empty]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[ascii-only]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[ascii+control]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[ascii+nul]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[non-ascii]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="toLatin1Roundtrip">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[null]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[empty]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[ascii-only]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[ascii+control]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[ascii+nul]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[non-ascii]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[non-latin1a]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[non-latin1b]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="stringRef_toLatin1Roundtrip">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[null]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[empty]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[ascii-only]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[ascii+control]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[ascii+nul]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[non-ascii]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[non-latin1a]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[non-latin1b]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="stringRef_utf8">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[str0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[str1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[str2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[str3]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[surrogate]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="stringRef_local8Bit">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[nullString]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[emptyString]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[string]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[longString]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[someNonAlphaChars]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="fromLatin1">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="fromAscii">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="arg">
+        <Message type="qwarn" file="" line="0">
+            <Description><![CDATA[QString::arg: Argument missing: "" , 0 ]]></Description>
+        </Message>
+        <Message type="qwarn" file="" line="0">
+            <Description><![CDATA[QString::arg: Argument missing: "" , 0 ]]></Description>
+        </Message>
+        <Message type="qwarn" file="" line="0">
+            <Description><![CDATA[QString::arg: Argument missing: " " , 0 ]]></Description>
+        </Message>
+        <Message type="qwarn" file="" line="0">
+            <Description><![CDATA[QString::arg: Argument missing: "%" , 0 ]]></Description>
+        </Message>
+        <Message type="qwarn" file="" line="0">
+            <Description><![CDATA[QString::arg: Argument missing: "%%" , 0 ]]></Description>
+        </Message>
+        <Message type="qwarn" file="" line="0">
+            <Description><![CDATA[QString::arg: Argument missing: "%%%" , 0 ]]></Description>
+        </Message>
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="number">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="arg_fillChar">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[str0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[str1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[str2]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="capacity">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data3]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data4]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data5]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data6]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data7]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data8]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data9]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data11]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="section">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data3]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data4]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data5]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data6]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data7]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data8]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data9]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data11]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data12]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[foo1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[foo2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[foo3]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[foo1rx]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[foo2rx]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[foo3rx]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[qmake_path]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[qmake_pathrx]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data13]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data14]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data15]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data16]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[normal1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[normal2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[normal3]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[normal4]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[normal5]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rx1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rx2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rx3]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rx4]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[rx5]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data17]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data18]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="double_conversion">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 1.0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 1.234]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 1.234e-10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 1.234E10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 1e10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C empty]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C null]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C .]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 1e]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 1,]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 1,0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 1,000]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 1e1.0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 1e+]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 1e-]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[de_DE 1,0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[de_DE 1,234]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[de_DE 1,234e-10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[de_DE 1,234E10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C .1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C -.1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 1.]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 1.E10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 1e+10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C   1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 1  ]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[ar_SA]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="integer_conversion">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C empty 0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C empty 8]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C empty 10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C empty 16]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C null 0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C null 8]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C null 10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C null 16]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C   -0xf 0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C -0xf   0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 	0xf	 0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C   -010 0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 010   0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 	-010	 0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C   123 10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 123   10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 	123	 10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C   -0xf 16]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C -0xf   16]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 	0xf	 16]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C -0 0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C -0 8]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C -0 10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C -0 16]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 1.234 10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 1,234 10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 0x 0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 0x 16]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 10 0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 010 0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 0x10 0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 10 8]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 010 8]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 0x10 8]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 10 10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 010 10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 0x10 10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 10 16]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 010 16]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C 0x10 16]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C -10 0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C -010 0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C -0x10 0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C -10 8]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C -010 8]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C -0x10 8]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C -10 10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C -010 10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C -0x10 10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C -10 16]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C -010 16]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[C -0x10 16]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[ar_SA 1234 0]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="tortureSprintfDouble">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="toNum">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="localeAwareCompare">
+        <Incident type="xfail" file="tst_qstring.cpp" line="4615">
+            <DataTag><![CDATA[c1]]></DataTag>
+            <Description><![CDATA[ICU disagrees with test]]></Description>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[c1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[c2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[c3]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[english1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[english2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[english3]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[swedish1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[swedish2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[swedish3]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[swedish4]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[german1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[german2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[german3]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="split">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[one-empty]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[two-empty]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[three-empty]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[all-empty]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[sep-empty]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="split_regexp">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data01]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data02]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data03]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="fromUtf16">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[str0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[str0-len]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="latin1String">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="nanAndInf">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="compare">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data0]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data3]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data4]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data5]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data6]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data7]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data8]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data8]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="resizeAfterFromRawData">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="resizeAfterReserve">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="resizeWithNegative">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="truncateWithNegative">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="QCharRefMutableUnicode">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="QCharRefDetaching">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="sprintfZU">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="repeatedSignature">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="repeated">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data3]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data4]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data5]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data6]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data7]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data8]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data9]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data10]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[data11]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="compareRef">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="arg_locale">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="toUpperLower_icu">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="eightBitLiterals">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[null]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[empty]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[regular]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[non-ascii]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="reserve">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="toHtmlEscaped">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[2]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[3]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[4]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="operatorGreaterWithQLatin1String">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="compareQLatin1Strings">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="fromQLatin1StringWithLength">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="assignQLatin1String">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
+    <TestFunction name="isRightToLeft">
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[null]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[empty]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[numbers-only]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[latin1-only]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[numbers-latin1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[arabic-only]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[numbers-arabic]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[numbers-latin1-arabic]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[numbers-arabic-latin1]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[surrogates-VS-CJK]]></DataTag>
+        </Incident>
+        <Incident type="pass" file="" line="0">
+            <DataTag><![CDATA[surrogates-cypriot]]></DataTag>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="cleanupTestCase">
+        <Incident type="pass" file="" line="0"/>
+    </TestFunction>
 </TestCase>

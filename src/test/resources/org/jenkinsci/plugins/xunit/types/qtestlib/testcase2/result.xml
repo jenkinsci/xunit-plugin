@@ -1,156 +1,157 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuite name="tst_QString" tests="122" failures="0" errors="0" time="0.768">
-  <properties>
-    <property name="QtVersion" value="5.2.0"/>
-    <property name="QTestVersion" value="5.2.0"/>
-  </properties>
-  <testcase classname="tst_QString" name="initTestCase" time="0.000"/>
-  <testcase classname="tst_QString" name="fromStdString" time="0.013"/>
-  <testcase classname="tst_QString" name="toStdString" time="0.000"/>
-  <testcase classname="tst_QString" name="check_QTextIOStream" time="0.000"/>
-  <testcase classname="tst_QString" name="check_QTextStream" time="0.000"/>
-  <testcase classname="tst_QString" name="check_QDataStream" time="0.000"/>
-  <testcase classname="tst_QString" name="fromRawData" time="0.000"/>
-  <testcase classname="tst_QString" name="setRawData" time="0.000"/>
-  <testcase classname="tst_QString" name="endsWith" time="0.000"/>
-  <testcase classname="tst_QString" name="startsWith" time="0.000"/>
-  <testcase classname="tst_QString" name="setNum" time="0.000"/>
-  <testcase classname="tst_QString" name="toDouble" time="0.001"/>
-  <testcase classname="tst_QString" name="toFloat" time="0.000"/>
-  <testcase classname="tst_QString" name="toLong" time="0.000"/>
-  <testcase classname="tst_QString" name="toULong" time="0.000"/>
-  <testcase classname="tst_QString" name="toLongLong" time="0.070"/>
-  <testcase classname="tst_QString" name="toULongLong" time="0.000"/>
-  <testcase classname="tst_QString" name="toUInt" time="0.000"/>
-  <testcase classname="tst_QString" name="toInt" time="0.000"/>
-  <testcase classname="tst_QString" name="toShort" time="0.000"/>
-  <testcase classname="tst_QString" name="toUShort" time="0.000"/>
-  <testcase classname="tst_QString" name="replace_qchar_qchar" time="0.000"/>
-  <testcase classname="tst_QString" name="replace_qchar_qstring" time="0.000"/>
-  <testcase classname="tst_QString" name="replace_uint_uint" time="0.001"/>
-  <testcase classname="tst_QString" name="replace_uint_uint_extra" time="0.223"/>
-  <testcase classname="tst_QString" name="replace_string" time="0.004"/>
-  <testcase classname="tst_QString" name="replace_regexp" time="0.008"/>
-  <testcase classname="tst_QString" name="remove_uint_uint" time="0.001"/>
-  <testcase classname="tst_QString" name="remove_string" time="0.003"/>
-  <testcase classname="tst_QString" name="remove_regexp" time="0.001">
-    <system-err>
-<![CDATA[QWARN : QString::replace: invalid QRegularExpression object]]></system-err>
-  </testcase>
-  <testcase classname="tst_QString" name="swap" time="0.000"/>
-  <testcase classname="tst_QString" name="prepend" time="0.000"/>
-  <testcase classname="tst_QString" name="prepend_bytearray" time="0.000"/>
-  <testcase classname="tst_QString" name="append" time="0.000"/>
-  <testcase classname="tst_QString" name="append_bytearray" time="0.000"/>
-  <testcase classname="tst_QString" name="operator_pluseq_bytearray" time="0.000"/>
-  <testcase classname="tst_QString" name="operator_eqeq_bytearray" time="0.000"/>
-  <testcase classname="tst_QString" name="operator_eqeq_nullstring" time="0.000"/>
-  <testcase classname="tst_QString" name="operator_smaller" time="0.000"/>
-  <testcase classname="tst_QString" name="insert" time="0.000"/>
-  <testcase classname="tst_QString" name="simplified" time="0.001"/>
-  <testcase classname="tst_QString" name="trimmed" time="0.000"/>
-  <testcase classname="tst_QString" name="toUpper" time="0.000">
-    <system-out>
-<![CDATA[XFAIL : /home/frederik/dev/qt/qt-src-stable/qtbase/tests/auto/corelib/tools/qstring/tst_qstring.cpp:1876 :: test doesn't work with ICU support, since QChar is unaware of any locale]]></system-out>
-  </testcase>
-  <testcase classname="tst_QString" name="toLower" time="0.000">
-    <system-out>
-<![CDATA[XFAIL : /home/frederik/dev/qt/qt-src-stable/qtbase/tests/auto/corelib/tools/qstring/tst_qstring.cpp:1935 :: test doesn't work with ICU support, since QChar is unaware of any locale]]></system-out>
-  </testcase>
-  <testcase classname="tst_QString" name="toCaseFolded" time="0.071"/>
-  <testcase classname="tst_QString" name="rightJustified" time="0.000"/>
-  <testcase classname="tst_QString" name="leftJustified" time="0.000"/>
-  <testcase classname="tst_QString" name="mid" time="0.000"/>
-  <testcase classname="tst_QString" name="right" time="0.000"/>
-  <testcase classname="tst_QString" name="left" time="0.000"/>
-  <testcase classname="tst_QString" name="midRef" time="0.000"/>
-  <testcase classname="tst_QString" name="rightRef" time="0.000"/>
-  <testcase classname="tst_QString" name="leftRef" time="0.000"/>
-  <testcase classname="tst_QString" name="stringRef" time="0.000"/>
-  <testcase classname="tst_QString" name="contains" time="0.000"/>
-  <testcase classname="tst_QString" name="count" time="0.000"/>
-  <testcase classname="tst_QString" name="lastIndexOf" time="0.003"/>
-  <testcase classname="tst_QString" name="lastIndexOfInvalidRegex" time="0.000"/>
-  <testcase classname="tst_QString" name="indexOf" time="0.118"/>
-  <testcase classname="tst_QString" name="indexOf2" time="0.002"/>
-  <testcase classname="tst_QString" name="sprintf" time="0.000"/>
-  <testcase classname="tst_QString" name="fill" time="0.000"/>
-  <testcase classname="tst_QString" name="truncate" time="0.000"/>
-  <testcase classname="tst_QString" name="constructor" time="0.000"/>
-  <testcase classname="tst_QString" name="constructorQByteArray" time="0.000"/>
-  <testcase classname="tst_QString" name="STL" time="0.000"/>
-  <testcase classname="tst_QString" name="macTypes" time="0.000">
-     <skipped message="/home/frederik/dev/qt/qt-src-stable/qtbase/tests/auto/corelib/tools/qstring/tst_qstring.cpp:946 :: [] This is a Mac-only test"/>
-  </testcase>
-  <testcase classname="tst_QString" name="isEmpty" time="0.000"/>
-  <testcase classname="tst_QString" name="isNull" time="0.000"/>
-  <testcase classname="tst_QString" name="acc_01" time="0.000">
-    <system-err>
-<![CDATA[QWARN : QIODevice::write: device not open]]></system-err>
-  </testcase>
-  <testcase classname="tst_QString" name="length" time="0.000"/>
-  <testcase classname="tst_QString" name="utf8" time="0.000"/>
-  <testcase classname="tst_QString" name="fromUtf8" time="0.001"/>
-  <testcase classname="tst_QString" name="nullFromUtf8" time="0.000"/>
-  <testcase classname="tst_QString" name="fromLocal8Bit" time="0.000"/>
-  <testcase classname="tst_QString" name="local8Bit" time="0.000"/>
-  <testcase classname="tst_QString" name="fromLatin1Roundtrip" time="0.000"/>
-  <testcase classname="tst_QString" name="toLatin1Roundtrip" time="0.000"/>
-  <testcase classname="tst_QString" name="stringRef_toLatin1Roundtrip" time="0.000"/>
-  <testcase classname="tst_QString" name="stringRef_utf8" time="0.000"/>
-  <testcase classname="tst_QString" name="stringRef_local8Bit" time="0.000"/>
-  <testcase classname="tst_QString" name="fromLatin1" time="0.000"/>
-  <testcase classname="tst_QString" name="fromAscii" time="0.000"/>
-  <testcase classname="tst_QString" name="fromUcs4" time="0.000"/>
-  <testcase classname="tst_QString" name="toUcs4" time="0.000"/>
-  <testcase classname="tst_QString" name="arg" time="0.001">
-    <system-err>
-<![CDATA[QWARN : QString::arg: Argument missing: "" , 0 ]]>
-<![CDATA[QWARN : QString::arg: Argument missing: "" , 0 ]]>
-<![CDATA[QWARN : QString::arg: Argument missing: " " , 0 ]]>
-<![CDATA[QWARN : QString::arg: Argument missing: "%" , 0 ]]>
-<![CDATA[QWARN : QString::arg: Argument missing: "%%" , 0 ]]>
-<![CDATA[QWARN : QString::arg: Argument missing: "%%%" , 0 ]]></system-err>
-  </testcase>
-  <testcase classname="tst_QString" name="number" time="0.000"/>
-  <testcase classname="tst_QString" name="arg_fillChar" time="0.000"/>
-  <testcase classname="tst_QString" name="capacity" time="0.000"/>
-  <testcase classname="tst_QString" name="section" time="0.004"/>
-  <testcase classname="tst_QString" name="double_conversion" time="0.001"/>
-  <testcase classname="tst_QString" name="integer_conversion" time="0.002"/>
-  <testcase classname="tst_QString" name="tortureSprintfDouble" time="0.124"/>
-  <testcase classname="tst_QString" name="toNum" time="0.000"/>
-  <testcase classname="tst_QString" name="localeAwareCompare" time="0.070">
-    <system-out>
-<![CDATA[XFAIL : /home/frederik/dev/qt/qt-src-stable/qtbase/tests/auto/corelib/tools/qstring/tst_qstring.cpp:4755 :: ICU disagrees with test]]></system-out>
-  </testcase>
-  <testcase classname="tst_QString" name="split" time="0.000"/>
-  <testcase classname="tst_QString" name="split_regexp" time="0.000"/>
-  <testcase classname="tst_QString" name="fromUtf16" time="0.000"/>
-  <testcase classname="tst_QString" name="latin1String" time="0.000"/>
-  <testcase classname="tst_QString" name="nanAndInf" time="0.000"/>
-  <testcase classname="tst_QString" name="compare" time="0.000"/>
-  <testcase classname="tst_QString" name="resizeAfterFromRawData" time="0.000"/>
-  <testcase classname="tst_QString" name="resizeAfterReserve" time="0.000"/>
-  <testcase classname="tst_QString" name="resizeWithNegative" time="0.000"/>
-  <testcase classname="tst_QString" name="truncateWithNegative" time="0.000"/>
-  <testcase classname="tst_QString" name="QCharRefMutableUnicode" time="0.000"/>
-  <testcase classname="tst_QString" name="QCharRefDetaching" time="0.000"/>
-  <testcase classname="tst_QString" name="sprintfZU" time="0.000"/>
-  <testcase classname="tst_QString" name="repeatedSignature" time="0.000"/>
-  <testcase classname="tst_QString" name="repeated" time="0.000"/>
-  <testcase classname="tst_QString" name="compareRef" time="0.000"/>
-  <testcase classname="tst_QString" name="arg_locale" time="0.000"/>
-  <testcase classname="tst_QString" name="toUpperLower_icu" time="0.006"/>
-  <testcase classname="tst_QString" name="eightBitLiterals" time="0.000"/>
-  <testcase classname="tst_QString" name="reserve" time="0.000"/>
-  <testcase classname="tst_QString" name="toHtmlEscaped" time="0.000"/>
-  <testcase classname="tst_QString" name="operatorGreaterWithQLatin1String" time="0.000"/>
-  <testcase classname="tst_QString" name="compareQLatin1Strings" time="0.000"/>
-  <testcase classname="tst_QString" name="fromQLatin1StringWithLength" time="0.000"/>
-  <testcase classname="tst_QString" name="assignQLatin1String" time="0.000"/>
-  <testcase classname="tst_QString" name="isRightToLeft" time="0.000"/>
-  <testcase classname="tst_QString" name="cleanupTestCase" time="0.000"/>
-  <system-out/>
-  <system-err/>
+    <properties>
+        <property name="QtVersion" value="5.2.0"/>
+        <property name="QTestVersion" value="5.2.0"/>
+    </properties>
+    <testcase classname="tst_QString" name="initTestCase" time="0.000"/>
+    <testcase classname="tst_QString" name="fromStdString" time="0.013"/>
+    <testcase classname="tst_QString" name="toStdString" time="0.000"/>
+    <testcase classname="tst_QString" name="check_QTextIOStream" time="0.000"/>
+    <testcase classname="tst_QString" name="check_QTextStream" time="0.000"/>
+    <testcase classname="tst_QString" name="check_QDataStream" time="0.000"/>
+    <testcase classname="tst_QString" name="fromRawData" time="0.000"/>
+    <testcase classname="tst_QString" name="setRawData" time="0.000"/>
+    <testcase classname="tst_QString" name="endsWith" time="0.000"/>
+    <testcase classname="tst_QString" name="startsWith" time="0.000"/>
+    <testcase classname="tst_QString" name="setNum" time="0.000"/>
+    <testcase classname="tst_QString" name="toDouble" time="0.001"/>
+    <testcase classname="tst_QString" name="toFloat" time="0.000"/>
+    <testcase classname="tst_QString" name="toLong" time="0.000"/>
+    <testcase classname="tst_QString" name="toULong" time="0.000"/>
+    <testcase classname="tst_QString" name="toLongLong" time="0.070"/>
+    <testcase classname="tst_QString" name="toULongLong" time="0.000"/>
+    <testcase classname="tst_QString" name="toUInt" time="0.000"/>
+    <testcase classname="tst_QString" name="toInt" time="0.000"/>
+    <testcase classname="tst_QString" name="toShort" time="0.000"/>
+    <testcase classname="tst_QString" name="toUShort" time="0.000"/>
+    <testcase classname="tst_QString" name="replace_qchar_qchar" time="0.000"/>
+    <testcase classname="tst_QString" name="replace_qchar_qstring" time="0.000"/>
+    <testcase classname="tst_QString" name="replace_uint_uint" time="0.001"/>
+    <testcase classname="tst_QString" name="replace_uint_uint_extra" time="0.223"/>
+    <testcase classname="tst_QString" name="replace_string" time="0.004"/>
+    <testcase classname="tst_QString" name="replace_regexp" time="0.008"/>
+    <testcase classname="tst_QString" name="remove_uint_uint" time="0.001"/>
+    <testcase classname="tst_QString" name="remove_string" time="0.003"/>
+    <testcase classname="tst_QString" name="remove_regexp" time="0.001">
+        <system-err>
+            <![CDATA[QWARN : QString::replace: invalid QRegularExpression object]]></system-err>
+    </testcase>
+    <testcase classname="tst_QString" name="swap" time="0.000"/>
+    <testcase classname="tst_QString" name="prepend" time="0.000"/>
+    <testcase classname="tst_QString" name="prepend_bytearray" time="0.000"/>
+    <testcase classname="tst_QString" name="append" time="0.000"/>
+    <testcase classname="tst_QString" name="append_bytearray" time="0.000"/>
+    <testcase classname="tst_QString" name="operator_pluseq_bytearray" time="0.000"/>
+    <testcase classname="tst_QString" name="operator_eqeq_bytearray" time="0.000"/>
+    <testcase classname="tst_QString" name="operator_eqeq_nullstring" time="0.000"/>
+    <testcase classname="tst_QString" name="operator_smaller" time="0.000"/>
+    <testcase classname="tst_QString" name="insert" time="0.000"/>
+    <testcase classname="tst_QString" name="simplified" time="0.001"/>
+    <testcase classname="tst_QString" name="trimmed" time="0.000"/>
+    <testcase classname="tst_QString" name="toUpper" time="0.000">
+        <system-out>
+            <![CDATA[XFAIL : /home/frederik/dev/qt/qt-src-stable/qtbase/tests/auto/corelib/tools/qstring/tst_qstring.cpp:1876 :: test doesn't work with ICU support, since QChar is unaware of any locale]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="toLower" time="0.000">
+        <system-out>
+            <![CDATA[XFAIL : /home/frederik/dev/qt/qt-src-stable/qtbase/tests/auto/corelib/tools/qstring/tst_qstring.cpp:1935 :: test doesn't work with ICU support, since QChar is unaware of any locale]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="toCaseFolded" time="0.071"/>
+    <testcase classname="tst_QString" name="rightJustified" time="0.000"/>
+    <testcase classname="tst_QString" name="leftJustified" time="0.000"/>
+    <testcase classname="tst_QString" name="mid" time="0.000"/>
+    <testcase classname="tst_QString" name="right" time="0.000"/>
+    <testcase classname="tst_QString" name="left" time="0.000"/>
+    <testcase classname="tst_QString" name="midRef" time="0.000"/>
+    <testcase classname="tst_QString" name="rightRef" time="0.000"/>
+    <testcase classname="tst_QString" name="leftRef" time="0.000"/>
+    <testcase classname="tst_QString" name="stringRef" time="0.000"/>
+    <testcase classname="tst_QString" name="contains" time="0.000"/>
+    <testcase classname="tst_QString" name="count" time="0.000"/>
+    <testcase classname="tst_QString" name="lastIndexOf" time="0.003"/>
+    <testcase classname="tst_QString" name="lastIndexOfInvalidRegex" time="0.000"/>
+    <testcase classname="tst_QString" name="indexOf" time="0.118"/>
+    <testcase classname="tst_QString" name="indexOf2" time="0.002"/>
+    <testcase classname="tst_QString" name="sprintf" time="0.000"/>
+    <testcase classname="tst_QString" name="fill" time="0.000"/>
+    <testcase classname="tst_QString" name="truncate" time="0.000"/>
+    <testcase classname="tst_QString" name="constructor" time="0.000"/>
+    <testcase classname="tst_QString" name="constructorQByteArray" time="0.000"/>
+    <testcase classname="tst_QString" name="STL" time="0.000"/>
+    <testcase classname="tst_QString" name="macTypes" time="0.000">
+        <skipped
+                message="/home/frederik/dev/qt/qt-src-stable/qtbase/tests/auto/corelib/tools/qstring/tst_qstring.cpp:946 :: [] This is a Mac-only test"/>
+    </testcase>
+    <testcase classname="tst_QString" name="isEmpty" time="0.000"/>
+    <testcase classname="tst_QString" name="isNull" time="0.000"/>
+    <testcase classname="tst_QString" name="acc_01" time="0.000">
+        <system-err>
+            <![CDATA[QWARN : QIODevice::write: device not open]]></system-err>
+    </testcase>
+    <testcase classname="tst_QString" name="length" time="0.000"/>
+    <testcase classname="tst_QString" name="utf8" time="0.000"/>
+    <testcase classname="tst_QString" name="fromUtf8" time="0.001"/>
+    <testcase classname="tst_QString" name="nullFromUtf8" time="0.000"/>
+    <testcase classname="tst_QString" name="fromLocal8Bit" time="0.000"/>
+    <testcase classname="tst_QString" name="local8Bit" time="0.000"/>
+    <testcase classname="tst_QString" name="fromLatin1Roundtrip" time="0.000"/>
+    <testcase classname="tst_QString" name="toLatin1Roundtrip" time="0.000"/>
+    <testcase classname="tst_QString" name="stringRef_toLatin1Roundtrip" time="0.000"/>
+    <testcase classname="tst_QString" name="stringRef_utf8" time="0.000"/>
+    <testcase classname="tst_QString" name="stringRef_local8Bit" time="0.000"/>
+    <testcase classname="tst_QString" name="fromLatin1" time="0.000"/>
+    <testcase classname="tst_QString" name="fromAscii" time="0.000"/>
+    <testcase classname="tst_QString" name="fromUcs4" time="0.000"/>
+    <testcase classname="tst_QString" name="toUcs4" time="0.000"/>
+    <testcase classname="tst_QString" name="arg" time="0.001">
+        <system-err>
+            <![CDATA[QWARN : QString::arg: Argument missing: "" , 0 ]]>
+            <![CDATA[QWARN : QString::arg: Argument missing: "" , 0 ]]>
+            <![CDATA[QWARN : QString::arg: Argument missing: " " , 0 ]]>
+            <![CDATA[QWARN : QString::arg: Argument missing: "%" , 0 ]]>
+            <![CDATA[QWARN : QString::arg: Argument missing: "%%" , 0 ]]>
+            <![CDATA[QWARN : QString::arg: Argument missing: "%%%" , 0 ]]></system-err>
+    </testcase>
+    <testcase classname="tst_QString" name="number" time="0.000"/>
+    <testcase classname="tst_QString" name="arg_fillChar" time="0.000"/>
+    <testcase classname="tst_QString" name="capacity" time="0.000"/>
+    <testcase classname="tst_QString" name="section" time="0.004"/>
+    <testcase classname="tst_QString" name="double_conversion" time="0.001"/>
+    <testcase classname="tst_QString" name="integer_conversion" time="0.002"/>
+    <testcase classname="tst_QString" name="tortureSprintfDouble" time="0.124"/>
+    <testcase classname="tst_QString" name="toNum" time="0.000"/>
+    <testcase classname="tst_QString" name="localeAwareCompare" time="0.070">
+        <system-out>
+            <![CDATA[XFAIL : /home/frederik/dev/qt/qt-src-stable/qtbase/tests/auto/corelib/tools/qstring/tst_qstring.cpp:4755 :: ICU disagrees with test]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="split" time="0.000"/>
+    <testcase classname="tst_QString" name="split_regexp" time="0.000"/>
+    <testcase classname="tst_QString" name="fromUtf16" time="0.000"/>
+    <testcase classname="tst_QString" name="latin1String" time="0.000"/>
+    <testcase classname="tst_QString" name="nanAndInf" time="0.000"/>
+    <testcase classname="tst_QString" name="compare" time="0.000"/>
+    <testcase classname="tst_QString" name="resizeAfterFromRawData" time="0.000"/>
+    <testcase classname="tst_QString" name="resizeAfterReserve" time="0.000"/>
+    <testcase classname="tst_QString" name="resizeWithNegative" time="0.000"/>
+    <testcase classname="tst_QString" name="truncateWithNegative" time="0.000"/>
+    <testcase classname="tst_QString" name="QCharRefMutableUnicode" time="0.000"/>
+    <testcase classname="tst_QString" name="QCharRefDetaching" time="0.000"/>
+    <testcase classname="tst_QString" name="sprintfZU" time="0.000"/>
+    <testcase classname="tst_QString" name="repeatedSignature" time="0.000"/>
+    <testcase classname="tst_QString" name="repeated" time="0.000"/>
+    <testcase classname="tst_QString" name="compareRef" time="0.000"/>
+    <testcase classname="tst_QString" name="arg_locale" time="0.000"/>
+    <testcase classname="tst_QString" name="toUpperLower_icu" time="0.006"/>
+    <testcase classname="tst_QString" name="eightBitLiterals" time="0.000"/>
+    <testcase classname="tst_QString" name="reserve" time="0.000"/>
+    <testcase classname="tst_QString" name="toHtmlEscaped" time="0.000"/>
+    <testcase classname="tst_QString" name="operatorGreaterWithQLatin1String" time="0.000"/>
+    <testcase classname="tst_QString" name="compareQLatin1Strings" time="0.000"/>
+    <testcase classname="tst_QString" name="fromQLatin1StringWithLength" time="0.000"/>
+    <testcase classname="tst_QString" name="assignQLatin1String" time="0.000"/>
+    <testcase classname="tst_QString" name="isRightToLeft" time="0.000"/>
+    <testcase classname="tst_QString" name="cleanupTestCase" time="0.000"/>
+    <system-out/>
+    <system-err/>
 </testsuite>

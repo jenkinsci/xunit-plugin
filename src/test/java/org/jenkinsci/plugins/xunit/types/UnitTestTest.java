@@ -25,7 +25,6 @@ package org.jenkinsci.plugins.xunit.types;
 
 import org.junit.Test;
 
-
 public class UnitTestTest extends AbstractTest {
 
     @Test

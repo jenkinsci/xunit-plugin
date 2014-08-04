@@ -7,7 +7,6 @@ import org.junit.Test;
  */
 public class CppUnitTest extends AbstractTest {
 
-
     @Test
     public void cpptestTestcase1() throws Exception {
         convertAndValidate(CppUnit.class, "cppunit/testcase1/cppunit-successAndFailure.xml", "cppunit/testcase1/junit-result.xml");

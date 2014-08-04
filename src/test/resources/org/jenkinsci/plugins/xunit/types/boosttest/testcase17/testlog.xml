@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TestLog>
-  <TestSuite name="ModuleInfoTest">
-    <TestSuite name="DLLInfoTest">
-      <TestCase name="VersionInfoTest">
-        <Info file="source/TS_DeploymentTest.cpp" line="366"><![CDATA[check boost::ifind_first(strProcessPath, L"ReleaseU") || boost::ifind_first(strProcessPath, L"DebugU") passed]]></Info>
-        <Info file="source/TS_DeploymentTest.cpp" line="375"><![CDATA[check binaryFullList.size() > 0 passed]]></Info>
-        <Info file="source/TS_DeploymentTest.cpp" line="331"><![CDATA[check GetLastError()==0 passed]]></Info>
-        <Info file="source/TS_DeploymentTest.cpp" line="332"><![CDATA[check hFile!=((HANDLE)(LONG_PTR)-1) passed]]></Info>
-        <Info file="source/TS_DeploymentTest.cpp" line="335"><![CDATA[check GetFileTime(hFile, &ftCreate, &ftLastAccess, &ftLastWrite) passed]]></Info>
-        <Info file="source/TS_DeploymentTest.cpp" line="338"><![CDATA[check creationTime.dwHighDateTime > 0 && creationTime.dwLowDateTime > 0 passed]]></Info>
-        <Error file="source/TS_DeploymentTest.cpp" line="250"><![CDATA[Version Information of CheckOpenGL.exe is wrong: '11319' instead of '11324'
+    <TestSuite name="ModuleInfoTest">
+        <TestSuite name="DLLInfoTest">
+            <TestCase name="VersionInfoTest">
+                <Info file="source/TS_DeploymentTest.cpp" line="366">
+                    <![CDATA[check boost::ifind_first(strProcessPath, L"ReleaseU") || boost::ifind_first(strProcessPath, L"DebugU") passed]]></Info>
+                <Info file="source/TS_DeploymentTest.cpp" line="375">
+                    <![CDATA[check binaryFullList.size() > 0 passed]]></Info>
+                <Info file="source/TS_DeploymentTest.cpp" line="331"><![CDATA[check GetLastError()==0 passed]]></Info>
+                <Info file="source/TS_DeploymentTest.cpp" line="332">
+                    <![CDATA[check hFile!=((HANDLE)(LONG_PTR)-1) passed]]></Info>
+                <Info file="source/TS_DeploymentTest.cpp" line="335">
+                    <![CDATA[check GetFileTime(hFile, &ftCreate, &ftLastAccess, &ftLastWrite) passed]]></Info>
+                <Info file="source/TS_DeploymentTest.cpp" line="338">
+                    <![CDATA[check creationTime.dwHighDateTime > 0 && creationTime.dwLowDateTime > 0 passed]]></Info>
+                <Error file="source/TS_DeploymentTest.cpp" line="250"><![CDATA[Version Information of CheckOpenGL.exe is wrong: '11319' instead of '11324'
 Version Information of DeviceTerminal.exe is wrong: '1' instead of '11324'
 Version Information of FloatingLicenseMonitor.exe is wrong: '1' instead of '11324'
 Version Information of LicenseWizardTestApp.exe is wrong: '1' instead of '11324'
@@ -528,38 +533,55 @@ Version Information of 1033/WorkflowCommonGUI.lng is wrong: '11319' instead of '
 Version Information of 1033/WorkflowManager.lng is wrong: '11319' instead of '11324'
 Version Information of 1033/xvTest.lng is wrong: '11319' instead of '11324'
 ]]></Error>
-        <TestingTime>7375000</TestingTime>
-      </TestCase>
-      <TestCase name="CompanyNameTest">
-        <Info file="source/TS_DeploymentTest.cpp" line="366"><![CDATA[check boost::ifind_first(strProcessPath, L"ReleaseU") || boost::ifind_first(strProcessPath, L"DebugU") passed]]></Info>
-        <Info file="source/TS_DeploymentTest.cpp" line="375"><![CDATA[check binaryFullList.size() > 0 passed]]></Info>
-        <Info file="source/TS_DeploymentTest.cpp" line="331"><![CDATA[check GetLastError()==0 passed]]></Info>
-        <Info file="source/TS_DeploymentTest.cpp" line="332"><![CDATA[check hFile!=((HANDLE)(LONG_PTR)-1) passed]]></Info>
-        <Info file="source/TS_DeploymentTest.cpp" line="335"><![CDATA[check GetFileTime(hFile, &ftCreate, &ftLastAccess, &ftLastWrite) passed]]></Info>
-        <Info file="source/TS_DeploymentTest.cpp" line="338"><![CDATA[check creationTime.dwHighDateTime > 0 && creationTime.dwLowDateTime > 0 passed]]></Info>
-        <TestingTime>1547000</TestingTime>
-      </TestCase>
-      <TestCase name="CopyrightTest">
-        <Info file="source/TS_DeploymentTest.cpp" line="366"><![CDATA[check boost::ifind_first(strProcessPath, L"ReleaseU") || boost::ifind_first(strProcessPath, L"DebugU") passed]]></Info>
-        <Info file="source/TS_DeploymentTest.cpp" line="375"><![CDATA[check binaryFullList.size() > 0 passed]]></Info>
-        <Info file="source/TS_DeploymentTest.cpp" line="331"><![CDATA[check GetLastError()==0 passed]]></Info>
-        <Info file="source/TS_DeploymentTest.cpp" line="332"><![CDATA[check hFile!=((HANDLE)(LONG_PTR)-1) passed]]></Info>
-        <Info file="source/TS_DeploymentTest.cpp" line="335"><![CDATA[check GetFileTime(hFile, &ftCreate, &ftLastAccess, &ftLastWrite) passed]]></Info>
-        <Info file="source/TS_DeploymentTest.cpp" line="338"><![CDATA[check creationTime.dwHighDateTime > 0 && creationTime.dwLowDateTime > 0 passed]]></Info>
-        <TestingTime>1375000</TestingTime>
-      </TestCase>
-      <TestCase name="DateTest">
-        <Info file="source/TS_DeploymentTest.cpp" line="366"><![CDATA[check boost::ifind_first(strProcessPath, L"ReleaseU") || boost::ifind_first(strProcessPath, L"DebugU") passed]]></Info>
-        <Info file="source/TS_DeploymentTest.cpp" line="375"><![CDATA[check binaryFullList.size() > 0 passed]]></Info>
-        <Info file="source/TS_DeploymentTest.cpp" line="331"><![CDATA[check GetLastError()==0 passed]]></Info>
-        <Info file="source/TS_DeploymentTest.cpp" line="332"><![CDATA[check hFile!=((HANDLE)(LONG_PTR)-1) passed]]></Info>
-        <Info file="source/TS_DeploymentTest.cpp" line="335"><![CDATA[check GetFileTime(hFile, &ftCreate, &ftLastAccess, &ftLastWrite) passed]]></Info>
-        <Info file="source/TS_DeploymentTest.cpp" line="338"><![CDATA[check creationTime.dwHighDateTime > 0 && creationTime.dwLowDateTime > 0 passed]]></Info>
-        <Info file="source/TS_DeploymentTest.cpp" line="366"><![CDATA[check boost::ifind_first(strProcessPath, L"ReleaseU") || boost::ifind_first(strProcessPath, L"DebugU") passed]]></Info>
-        <Info file="source/TS_DeploymentTest.cpp" line="375"><![CDATA[check binaryFullList.size() > 0 passed]]></Info>
-        <TestingTime>78000</TestingTime>
-      </TestCase>
+                <TestingTime>7375000</TestingTime>
+            </TestCase>
+            <TestCase name="CompanyNameTest">
+                <Info file="source/TS_DeploymentTest.cpp" line="366">
+                    <![CDATA[check boost::ifind_first(strProcessPath, L"ReleaseU") || boost::ifind_first(strProcessPath, L"DebugU") passed]]></Info>
+                <Info file="source/TS_DeploymentTest.cpp" line="375">
+                    <![CDATA[check binaryFullList.size() > 0 passed]]></Info>
+                <Info file="source/TS_DeploymentTest.cpp" line="331"><![CDATA[check GetLastError()==0 passed]]></Info>
+                <Info file="source/TS_DeploymentTest.cpp" line="332">
+                    <![CDATA[check hFile!=((HANDLE)(LONG_PTR)-1) passed]]></Info>
+                <Info file="source/TS_DeploymentTest.cpp" line="335">
+                    <![CDATA[check GetFileTime(hFile, &ftCreate, &ftLastAccess, &ftLastWrite) passed]]></Info>
+                <Info file="source/TS_DeploymentTest.cpp" line="338">
+                    <![CDATA[check creationTime.dwHighDateTime > 0 && creationTime.dwLowDateTime > 0 passed]]></Info>
+                <TestingTime>1547000</TestingTime>
+            </TestCase>
+            <TestCase name="CopyrightTest">
+                <Info file="source/TS_DeploymentTest.cpp" line="366">
+                    <![CDATA[check boost::ifind_first(strProcessPath, L"ReleaseU") || boost::ifind_first(strProcessPath, L"DebugU") passed]]></Info>
+                <Info file="source/TS_DeploymentTest.cpp" line="375">
+                    <![CDATA[check binaryFullList.size() > 0 passed]]></Info>
+                <Info file="source/TS_DeploymentTest.cpp" line="331"><![CDATA[check GetLastError()==0 passed]]></Info>
+                <Info file="source/TS_DeploymentTest.cpp" line="332">
+                    <![CDATA[check hFile!=((HANDLE)(LONG_PTR)-1) passed]]></Info>
+                <Info file="source/TS_DeploymentTest.cpp" line="335">
+                    <![CDATA[check GetFileTime(hFile, &ftCreate, &ftLastAccess, &ftLastWrite) passed]]></Info>
+                <Info file="source/TS_DeploymentTest.cpp" line="338">
+                    <![CDATA[check creationTime.dwHighDateTime > 0 && creationTime.dwLowDateTime > 0 passed]]></Info>
+                <TestingTime>1375000</TestingTime>
+            </TestCase>
+            <TestCase name="DateTest">
+                <Info file="source/TS_DeploymentTest.cpp" line="366">
+                    <![CDATA[check boost::ifind_first(strProcessPath, L"ReleaseU") || boost::ifind_first(strProcessPath, L"DebugU") passed]]></Info>
+                <Info file="source/TS_DeploymentTest.cpp" line="375">
+                    <![CDATA[check binaryFullList.size() > 0 passed]]></Info>
+                <Info file="source/TS_DeploymentTest.cpp" line="331"><![CDATA[check GetLastError()==0 passed]]></Info>
+                <Info file="source/TS_DeploymentTest.cpp" line="332">
+                    <![CDATA[check hFile!=((HANDLE)(LONG_PTR)-1) passed]]></Info>
+                <Info file="source/TS_DeploymentTest.cpp" line="335">
+                    <![CDATA[check GetFileTime(hFile, &ftCreate, &ftLastAccess, &ftLastWrite) passed]]></Info>
+                <Info file="source/TS_DeploymentTest.cpp" line="338">
+                    <![CDATA[check creationTime.dwHighDateTime > 0 && creationTime.dwLowDateTime > 0 passed]]></Info>
+                <Info file="source/TS_DeploymentTest.cpp" line="366">
+                    <![CDATA[check boost::ifind_first(strProcessPath, L"ReleaseU") || boost::ifind_first(strProcessPath, L"DebugU") passed]]></Info>
+                <Info file="source/TS_DeploymentTest.cpp" line="375">
+                    <![CDATA[check binaryFullList.size() > 0 passed]]></Info>
+                <TestingTime>78000</TestingTime>
+            </TestCase>
+        </TestSuite>
+        <TestSuite name="ModuleInfo Unit Tests"></TestSuite>
     </TestSuite>
-    <TestSuite name="ModuleInfo Unit Tests"></TestSuite>
-  </TestSuite>
 </TestLog>

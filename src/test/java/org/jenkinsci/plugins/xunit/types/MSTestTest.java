@@ -27,9 +27,9 @@ import org.junit.Test;
 
 
 public class MSTestTest extends AbstractTest {
+
     @Test
     public void testTransformationCase1() throws Exception {
-
         convertAndValidate(MSTest.class, "mstest/mstest_2_tests_1_class.trx", "mstest/junit_mstest_2_tests_1_class.xml");
     }
 

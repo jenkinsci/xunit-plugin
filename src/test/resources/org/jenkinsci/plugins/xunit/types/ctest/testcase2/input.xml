@@ -1,49 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Site BuildName="(empty)"
-	BuildStamp="20140603-1905-Experimental"
-	Name="(empty)"
-	Generator="ctest-3.0.0-rc6"
-	CompilerName=""
-	OSName="Mac OS X"
-	Hostname="localhost"
-	OSRelease="10.9.2"
-	OSVersion="13C64"
-	OSPlatform="x86_64"
-	Is64Bits="0"
-	VendorString="GenuineIntel"
-	VendorID="Intel Corporation"
-	FamilyID="6"
-	ModelID="23"
-	ProcessorCacheSize="32768"
-	NumberOfLogicalCPU="2"
-	NumberOfPhysicalCPU="2"
-	TotalVirtualMemory="1024"
-	TotalPhysicalMemory="6144"
-	LogicalProcessorsPerPhysical="2"
-	ProcessorClockFrequency="2278"
->
-<Testing>
-	<StartDateTime>Jun 03 20:05 BST</StartDateTime>
-	<StartTestTime>1401822355</StartTestTime>
-	<TestList>
-		<Test>./app_gl_default_sb</Test>
-	</TestList>
-	<Test Status="notrun">
-		<Name>app_gl_default_sb</Name>
-		<Path>.</Path>
-		<FullName>./app_gl_default_sb</FullName>
-		<FullCommandLine>/usr/bin/python &quot;/var/lib/hudson/workspace/apitrace-mac-test/app_driver.py&quot; &quot;--apitrace&quot; &quot;/var/lib/hudson/workspace/apitrace-mac/apitrace&quot; &quot;--apitrace-source&quot; &quot;/var/lib/hudson/workspace/apitrace-mac&quot; &quot;--api&quot; &quot;gl&quot; &quot;--ref-dump&quot; &quot;/var/lib/hudson/workspace/apitrace-mac-test/apps/gl/default_sb.ref.txt&quot; &quot;--&quot; &quot;/var/lib/hudson/workspace/apitrace-mac-test/apps/gl/tri&quot; &quot;-sb&quot;</FullCommandLine>
-		<Results>
-			<NamedMeasurement type="text/string" name="Command Line"><Value>/usr/bin/python &quot;/var/lib/hudson/workspace/apitrace-mac-test/app_driver.py&quot; &quot;--apitrace&quot; &quot;/var/lib/hudson/workspace/apitrace-mac/apitrace&quot; &quot;--apitrace-source&quot; &quot;/var/lib/hudson/workspace/apitrace-mac&quot; &quot;--api&quot; &quot;gl&quot; &quot;--ref-dump&quot; &quot;/var/lib/hudson/workspace/apitrace-mac-test/apps/gl/default_sb.ref.txt&quot; &quot;--&quot; &quot;/var/lib/hudson/workspace/apitrace-mac-test/apps/gl/tri&quot; &quot;-sb&quot;</Value></NamedMeasurement>
-			<Measurement>
-				<Value>Run application...
-DRY_RUN=yes /var/lib/hudson/workspace/apitrace-mac-test/apps/gl/tri -sb
-SKIP (application returned code 125)
-</Value>
-			</Measurement>
-		</Results>
-	</Test>
-	<EndDateTime>Jun 03 20:05 BST</EndDateTime>
-	<EndTestTime>1401822356</EndTestTime>
-<ElapsedMinutes>0</ElapsedMinutes></Testing>
+      BuildStamp="20140603-1905-Experimental"
+      Name="(empty)"
+      Generator="ctest-3.0.0-rc6"
+      CompilerName=""
+      OSName="Mac OS X"
+      Hostname="localhost"
+      OSRelease="10.9.2"
+      OSVersion="13C64"
+      OSPlatform="x86_64"
+      Is64Bits="0"
+      VendorString="GenuineIntel"
+      VendorID="Intel Corporation"
+      FamilyID="6"
+      ModelID="23"
+      ProcessorCacheSize="32768"
+      NumberOfLogicalCPU="2"
+      NumberOfPhysicalCPU="2"
+      TotalVirtualMemory="1024"
+      TotalPhysicalMemory="6144"
+      LogicalProcessorsPerPhysical="2"
+      ProcessorClockFrequency="2278"
+        >
+    <Testing>
+        <StartDateTime>Jun 03 20:05 BST</StartDateTime>
+        <StartTestTime>1401822355</StartTestTime>
+        <TestList>
+            <Test>./app_gl_default_sb</Test>
+        </TestList>
+        <Test Status="notrun">
+            <Name>app_gl_default_sb</Name>
+            <Path>.</Path>
+            <FullName>./app_gl_default_sb</FullName>
+            <FullCommandLine>/usr/bin/python &quot;/var/lib/hudson/workspace/apitrace-mac-test/app_driver.py&quot;
+                &quot;--apitrace&quot; &quot;/var/lib/hudson/workspace/apitrace-mac/apitrace&quot; &quot;--apitrace-source&quot;
+                &quot;/var/lib/hudson/workspace/apitrace-mac&quot; &quot;--api&quot; &quot;gl&quot; &quot;--ref-dump&quot;
+                &quot;/var/lib/hudson/workspace/apitrace-mac-test/apps/gl/default_sb.ref.txt&quot; &quot;--&quot; &quot;/var/lib/hudson/workspace/apitrace-mac-test/apps/gl/tri&quot;
+                &quot;-sb&quot;</FullCommandLine>
+            <Results>
+                <NamedMeasurement type="text/string" name="Command Line">
+                    <Value>/usr/bin/python &quot;/var/lib/hudson/workspace/apitrace-mac-test/app_driver.py&quot; &quot;--apitrace&quot;
+                        &quot;/var/lib/hudson/workspace/apitrace-mac/apitrace&quot; &quot;--apitrace-source&quot; &quot;/var/lib/hudson/workspace/apitrace-mac&quot;
+                        &quot;--api&quot; &quot;gl&quot; &quot;--ref-dump&quot; &quot;/var/lib/hudson/workspace/apitrace-mac-test/apps/gl/default_sb.ref.txt&quot;
+                        &quot;--&quot; &quot;/var/lib/hudson/workspace/apitrace-mac-test/apps/gl/tri&quot; &quot;-sb&quot;</Value>
+                </NamedMeasurement>
+                <Measurement>
+                    <Value>Run application...
+                        DRY_RUN=yes /var/lib/hudson/workspace/apitrace-mac-test/apps/gl/tri -sb
+                        SKIP (application returned code 125)
+                    </Value>
+                </Measurement>
+            </Results>
+        </Test>
+        <EndDateTime>Jun 03 20:05 BST</EndDateTime>
+        <EndTestTime>1401822356</EndTestTime>
+        <ElapsedMinutes>0</ElapsedMinutes>
+    </Testing>
 </Site>

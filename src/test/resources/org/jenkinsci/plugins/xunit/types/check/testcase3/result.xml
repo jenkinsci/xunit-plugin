@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-   <testsuite errors="0" tests="1" failures="0" name="Money" id="1">
-      <testcase name="test_money_create" classname="Money" time="0"/>
-   </testsuite>
+    <testsuite errors="0" tests="1" failures="0" name="Money" id="1">
+        <testcase name="test_money_create" classname="Money" time="0"/>
+    </testsuite>
 </testsuites>

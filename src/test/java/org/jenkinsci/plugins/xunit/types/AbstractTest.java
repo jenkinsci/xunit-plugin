@@ -16,14 +16,12 @@ import java.io.*;
  */
 public abstract class AbstractTest {
 
-
     @Before
     public void setUp() {
         XMLUnit.setIgnoreWhitespace(true);
         XMLUnit.setNormalizeWhitespace(true);
         XMLUnit.setIgnoreComments(true);
     }
-
 
     private String readXmlAsString(File input)
             throws IOException {

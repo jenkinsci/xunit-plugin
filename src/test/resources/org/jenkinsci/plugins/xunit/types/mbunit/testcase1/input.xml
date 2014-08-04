@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<report-result xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-               date="2012-11-13T15:05:58.9922051-08:00">
+<report-result
+        date="2012-11-13T15:05:58.9922051-08:00">
     <counter duration="0.007" run-count="4" success-count="2" failure-count="2" ignore-count="0" skip-count="0"
              assert-count="4"/>
     <assemblies>

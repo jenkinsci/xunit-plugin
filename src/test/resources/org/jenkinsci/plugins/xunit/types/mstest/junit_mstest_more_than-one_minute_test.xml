@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites xmlns:b="http://microsoft.com/schemas/VisualStudio/TeamTest/2010"
-            xmlns:a="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+<testsuites
+        >
     <testsuite name="MSTestSuite" tests="2" time="0" failures="1" errors="0" skipped="0">
         <testcase classname="FunctionsTest.FibonacciTest" name="CalculaFibonacci" time="130.0157226"/>
         <testcase classname="FunctionsTest.FibonacciTest" name="CalculaFibonacci_2" time="0.1007273">
