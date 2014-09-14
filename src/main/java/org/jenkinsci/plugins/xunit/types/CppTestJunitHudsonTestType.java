@@ -44,5 +44,10 @@ public class CppTestJunitHudsonTestType extends TestType {
         }
 
     }
+	
+	@Override
+	public Object readResolve(){
+		return super.readResolve();
+	}
 
 }

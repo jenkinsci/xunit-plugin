@@ -44,5 +44,10 @@ public class MSTestJunitHudsonTestType extends TestType {
         }
 
     }
+	
+	@Override
+	public Object readResolve(){
+		return super.readResolve();
+	}
 
 }

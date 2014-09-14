@@ -47,6 +47,11 @@ public class CTestType extends TestType {
         }
 
     }
+	
+	@Override
+	public Object readResolve(){
+		return super.readResolve();
+	}
 
 }
 

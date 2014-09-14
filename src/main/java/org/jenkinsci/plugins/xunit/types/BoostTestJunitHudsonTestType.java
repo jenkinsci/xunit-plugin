@@ -44,5 +44,10 @@ public class BoostTestJunitHudsonTestType extends TestType {
         }
 
     }
+	
+	@Override
+	public Object readResolve(){
+		return super.readResolve();
+	}
 
 }

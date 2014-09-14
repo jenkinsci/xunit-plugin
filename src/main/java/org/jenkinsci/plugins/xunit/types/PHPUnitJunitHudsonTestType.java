@@ -44,5 +44,10 @@ public class PHPUnitJunitHudsonTestType extends TestType {
         }
 
     }
+	
+	@Override
+	public Object readResolve(){
+		return super.readResolve();
+	}
 
 }
