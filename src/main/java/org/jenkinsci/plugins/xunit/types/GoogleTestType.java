@@ -47,10 +47,10 @@ public class GoogleTestType extends TestType {
         }
 
     }
-	
-	@Override
-	public Object readResolve(){
-		return super.readResolve();
-	}
+
+    @Override
+    public Object readResolve() {
+        return super.readResolve();
+    }
 
 }

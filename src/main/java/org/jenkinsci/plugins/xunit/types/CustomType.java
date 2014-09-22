@@ -59,10 +59,10 @@ public class CustomType extends TestType {
             return true;
         }
     }
-	
-	@Override
-	public Object readResolve(){
-		return super.readResolve();
-	}
+
+    @Override
+    public Object readResolve() {
+        return super.readResolve();
+    }
 
 }
