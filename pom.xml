@@ -8,7 +8,7 @@
     </parent>
 
     <artifactId>xunit</artifactId>
-    <version>1.91</version>
+    <version>1.92-SNAPSHOT</version>
     <packaging>hpi</packaging>
     <name>xUnit plugin</name>
     <url>http://wiki.jenkins-ci.org/display/JENKINS/xUnit+Plugin</url>
@@ -144,7 +144,7 @@
     <scm>
         <connection>scm:git:git://github.com/jenkinsci/xunit-plugin.git</connection>
         <developerConnection>scm:git:git@github.com:jenkinsci/xunit-plugin.git</developerConnection>
-      <tag>xunit-1.91</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <build>
