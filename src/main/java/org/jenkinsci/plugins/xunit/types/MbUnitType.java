@@ -47,5 +47,10 @@ public class MbUnitType extends TestType {
         }
 
     }
+	
+	@Override
+	public Object readResolve(){
+		return super.readResolve();
+	}
 }
 

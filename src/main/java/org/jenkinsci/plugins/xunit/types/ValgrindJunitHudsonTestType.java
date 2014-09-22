@@ -43,5 +43,10 @@ public class ValgrindJunitHudsonTestType extends TestType {
             super(ValgrindJunitHudsonTestType.class, Valgrind.class);
         }
     }
+	
+	@Override
+	public Object readResolve(){
+		return super.readResolve();
+	}
 
 }

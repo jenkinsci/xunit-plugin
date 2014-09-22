@@ -44,5 +44,10 @@ public class AUnitJunitHudsonTestType extends TestType {
         }
 
     }
+	
+	@Override
+	public Object readResolve(){
+		return super.readResolve();
+	}
 
 }
