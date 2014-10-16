@@ -28,6 +28,7 @@ import com.google.inject.Inject;
 import hudson.FilePath;
 import hudson.remoting.VirtualChannel;
 import hudson.util.IOException2;
+import org.jenkinsci.lib.dtkit.util.validator.ValidationError;
 import org.jenkinsci.plugins.xunit.NoFoundTestException;
 import org.jenkinsci.plugins.xunit.OldTestReportException;
 import org.jenkinsci.plugins.xunit.SkipTestException;
@@ -145,9 +146,12 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
                 //Validates converted file
                 if (!xUnitValidationService.validateOutputFile(xUnitToolInfo, curFile, junitTargetFile)) {
                     String msg = "The converted file for the result file '" + curFile + "' (during conversion process for the metric '" + metricName + "') is not valid. The report file has been skipped.";
+                    xUnitLog.errorConsoleLogger(msg);
+                    errorSystemLogger(msg);
+                    for (ValidationError validatorError : xUnitToolInfo.getInputMetric().getOutputValidationErrors()) {
+                        xUnitLog.errorConsoleLogger(validatorError.getMessage());
+                    }
                     if (isStopProcessingIfError) {
-                        xUnitLog.errorConsoleLogger(msg);
-                        errorSystemLogger(msg);
                         return false;
                     } else {
                         atLeastOneWarningOrError = true;
