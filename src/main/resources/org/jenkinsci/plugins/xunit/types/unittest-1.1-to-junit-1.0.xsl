@@ -50,9 +50,6 @@
 
             <xsl:choose>
                 <xsl:when test="count(/unittest-results/test)>1">
-                    <!--<xsl:call-template name="testCaseProcess">-->
-                    <!--<xsl:with-param name="currentNode" select="."/>-->
-                    <!--</xsl:call-template>-->
                     <xsl:for-each select="/unittest-results/test">
                         <xsl:call-template name="testCaseProcess">
                             <xsl:with-param name="currentNode" select="current()"/>
@@ -73,8 +70,6 @@
                     </xsl:for-each>
                 </xsl:otherwise>
             </xsl:choose>
-
-            <!-- <xsl:apply-templates/> -->
         </testsuite>
     </xsl:template>
 
@@ -92,9 +87,10 @@
                     <xsl:value-of select="$currentNode/@time"/>
                 </xsl:attribute>
             </xsl:if>
-            <xsl:copy-of select="$currentNode/child::*"/>
+            <xsl:copy-of select="$currentNode/child::*[name()!='log'][name()!='ignorederrors']"/>
         </testcase>
     </xsl:template>
+
 
     <xsl:template name="testCaseProcessWithTestTimeParam">
         <xsl:param name="currentNode"/>
@@ -118,7 +114,7 @@
                     </xsl:attribute>
                 </xsl:when>
             </xsl:choose>
-            <xsl:copy-of select="$currentNode/child::*"/>
+            <xsl:copy-of select="$currentNode/child::*[name()!='log'][name()!='ignorederrors']"/>
         </testcase>
     </xsl:template>
 
