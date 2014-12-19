@@ -43,7 +43,7 @@ public class XUnitDotNet extends InputMetricXSL {
 
     @Override
     public String getToolVersion() {
-        return "Version N/A";
+        return "v2";
     }
 
     @Override
