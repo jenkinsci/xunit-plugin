@@ -69,7 +69,7 @@ public class SkippedThreshold extends XUnitThreshold {
             previousSkippedCount = previousTestResultAction.getSkipCount();
         }
         int newSkippedCount = skippedCount - previousSkippedCount;
-        int percentNewSkipped = (count == 0) ? 0 : (newSkippedCount / count) * 100;
+        int percentNewSkipped = (count == 0) ? 0 : (newSkippedCount  * 100 / count);
 
         return getResultThresholdPercent(log, percentSkipped, percentNewSkipped);
     }
