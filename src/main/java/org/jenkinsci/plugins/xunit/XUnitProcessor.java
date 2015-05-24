@@ -325,7 +325,7 @@ public class XUnitProcessor implements Serializable {
             throws XUnitException {
 
         try {
-            return getWorkspace(build).act(new FilePath.FileCallable<TestResult>() {
+            return getWorkspace(build).act(new jenkins.SlaveToMasterFileCallable<TestResult>() {
 
                 public TestResult invoke(File ws, VirtualChannel channel) throws IOException {
                     final long nowSlave = System.currentTimeMillis();
