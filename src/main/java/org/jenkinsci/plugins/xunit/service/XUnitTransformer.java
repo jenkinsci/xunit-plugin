@@ -28,7 +28,9 @@ import com.google.inject.Inject;
 import hudson.FilePath;
 import hudson.remoting.VirtualChannel;
 import hudson.util.IOException2;
+import jenkins.security.Roles;
 import org.jenkinsci.lib.dtkit.util.validator.ValidationError;
+import org.jenkinsci.remoting.RoleChecker;
 import org.jenkinsci.plugins.xunit.NoFoundTestException;
 import org.jenkinsci.plugins.xunit.OldTestReportException;
 import org.jenkinsci.plugins.xunit.SkipTestException;
@@ -184,4 +186,8 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
         return true;
     }
 
+    @Override
+    public void checkRoles(RoleChecker checker) throws SecurityException {
+        checker.check(this, Roles.SLAVE);
+    }
 }
