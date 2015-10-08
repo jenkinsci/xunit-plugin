@@ -23,8 +23,21 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Frame" type="xs:string" />
+
+    <xs:element name="Context">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:element ref="Frame" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
     <xs:element name="Error">
         <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:element ref="Context" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
             <xs:attribute name="line" type="xs:integer" use="required"/>
             <xs:attribute name="file" type="xs:string" use="required"/>
         </xs:complexType>
@@ -32,6 +45,9 @@ THE SOFTWARE.
 
     <xs:element name="FatalError">
         <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:element ref="Context" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
             <xs:attribute name="line" type="xs:integer" use="required"/>
             <xs:attribute name="file" type="xs:string" use="required"/>
         </xs:complexType>
@@ -39,6 +55,9 @@ THE SOFTWARE.
 
     <xs:element name="Info">
         <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:element ref="Context" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
             <xs:attribute name="line" type="xs:integer" use="required"/>
             <xs:attribute name="file" type="xs:string" use="required"/>
         </xs:complexType>
@@ -64,6 +83,9 @@ THE SOFTWARE.
 
     <xs:element name="Message">
         <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:element ref="Context" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
             <xs:attribute name="line" type="xs:positiveInteger" use="required"/>
             <xs:attribute name="file" type="xs:string" use="required"/>
         </xs:complexType>
@@ -71,6 +93,9 @@ THE SOFTWARE.
 
     <xs:element name="Warning">
         <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:element ref="Context" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
             <xs:attribute name="line" type="xs:positiveInteger" use="required"/>
             <xs:attribute name="file" type="xs:string" use="required"/>
         </xs:complexType>

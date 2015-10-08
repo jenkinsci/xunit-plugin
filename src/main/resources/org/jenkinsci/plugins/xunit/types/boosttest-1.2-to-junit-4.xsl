@@ -42,6 +42,14 @@ THE SOFTWARE.
         </xsl:if>
     </xsl:template>
 
+    <xsl:template name="testCaseContext">
+        <xsl:for-each select="child::*">
+            <xsl:text> == [Context] </xsl:text>
+            <xsl:value-of select="."/>
+            <xsl:text>&#13;</xsl:text>
+        </xsl:for-each>
+    </xsl:template>
+
     <xsl:template match="/TestLog">
 
         <xsl:element name="testsuite">
@@ -79,7 +87,7 @@ THE SOFTWARE.
                     <xsl:text>[Error] - </xsl:text>
                     <!--<xsl:call-template name="processQuote">-->
                     <!--<xsl:with-param name="string">-->
-                    <!--<xsl:value-of select="$currElt"/>-->
+                    <!--<xsl:value-of select="$currElt/text()"/>-->
                     <!--</xsl:with-param>-->
                     <!--</xsl:call-template>-->
                     <xsl:value-of select="$currElt"/>
@@ -88,6 +96,9 @@ THE SOFTWARE.
                     <xsl:text>&#13;</xsl:text>
                     <xsl:text> == [Line] - </xsl:text><xsl:value-of select="($currElt)/@line"/>
                     <xsl:text>&#13;</xsl:text>
+                    <xsl:for-each select="child::Context">
+                        <xsl:call-template name="testCaseContext"/>
+                    </xsl:for-each>
                 </xsl:when>
 
                 <xsl:when test="$currEltName='FatalError'">
@@ -95,7 +106,7 @@ THE SOFTWARE.
                     <xsl:text>[Exception] - </xsl:text>
                     <xsl:call-template name="processQuote">
                         <xsl:with-param name="string">
-                            <xsl:value-of select="$currElt"/>
+                            <xsl:value-of select="$currElt/text()"/>
                         </xsl:with-param>
                     </xsl:call-template>
                     <xsl:text>&#13;</xsl:text>
@@ -103,6 +114,9 @@ THE SOFTWARE.
                     <xsl:text>&#13;</xsl:text>
                     <xsl:text> == [Line] -</xsl:text><xsl:value-of select="($currElt)/@line"/>
                     <xsl:text>&#13;</xsl:text>
+                    <xsl:for-each select="child::Context">
+                        <xsl:call-template name="testCaseContext"/>
+                    </xsl:for-each>
                 </xsl:when>
 
                 <xsl:when test="$currEltName='Exception'">
@@ -110,11 +124,12 @@ THE SOFTWARE.
                     <xsl:text>[Exception] - </xsl:text>
                     <xsl:call-template name="processQuote">
                         <xsl:with-param name="string">
-                            <xsl:value-of select="$currElt"/>
+                            <xsl:value-of select="$currElt/text()"/>
                         </xsl:with-param>
                     </xsl:call-template>
                     <xsl:choose>
                         <xsl:when test="($currElt)/LastCheckpoint">
+                            <xsl:value-of select="($currElt)/LastCheckpoint/text()"/>
                             <xsl:text>&#13;</xsl:text>
                             <xsl:text> == [File] - </xsl:text><xsl:value-of select="($currElt)/LastCheckpoint/@file"/>
                             <xsl:text>&#13;</xsl:text>
@@ -130,6 +145,9 @@ THE SOFTWARE.
                             <xsl:text>&#13;</xsl:text>
                         </xsl:otherwise>
                     </xsl:choose>
+                    <xsl:for-each select="child::Context">
+                        <xsl:call-template name="testCaseContext"/>
+                    </xsl:for-each>
                 </xsl:when>
 
                 <xsl:when test="$currEltName='Info'"></xsl:when>
@@ -228,7 +246,7 @@ THE SOFTWARE.
                         <xsl:text>[Info] - </xsl:text>
                         <xsl:call-template name="processQuote">
                             <xsl:with-param name="string">
-                                <xsl:value-of select="$currElt"/>
+                                <xsl:value-of select="$currElt/text()"/>
                             </xsl:with-param>
                         </xsl:call-template>
                         <xsl:text>&#13;</xsl:text>
@@ -245,7 +263,7 @@ THE SOFTWARE.
 
                         <xsl:call-template name="processQuote">
                             <xsl:with-param name="string">
-                                <xsl:value-of select="$currElt"/>
+                                <xsl:value-of select="$currElt/text()"/>
                             </xsl:with-param>
                         </xsl:call-template>
                         <xsl:text>&#13;</xsl:text>
@@ -261,7 +279,7 @@ THE SOFTWARE.
                         <xsl:text>[Message] - </xsl:text>
                         <xsl:call-template name="processQuote">
                             <xsl:with-param name="string">
-                                <xsl:value-of select="$currElt"/>
+                                <xsl:value-of select="$currElt/text()"/>
                             </xsl:with-param>
                         </xsl:call-template>
                         <xsl:text>&#13;</xsl:text>
@@ -269,6 +287,10 @@ THE SOFTWARE.
                         <xsl:text>&#13;</xsl:text>
                         <xsl:text> == [Line] - </xsl:text><xsl:value-of select="($currElt)/@line"/>
                         <xsl:text>&#13;</xsl:text>
+                    </xsl:for-each>
+
+                    <xsl:for-each select="child::*/Context">
+                        <xsl:call-template name="testCaseContext"/>
                     </xsl:for-each>
 
                 </xsl:element>
@@ -283,11 +305,12 @@ THE SOFTWARE.
                         <xsl:text>[Exception] - </xsl:text>
                         <xsl:call-template name="processQuote">
                             <xsl:with-param name="string">
-                                <xsl:value-of select="$currElt"/>
+                                <xsl:value-of select="$currElt/text()"/>
                             </xsl:with-param>
                         </xsl:call-template>
                         <xsl:choose>
                             <xsl:when test="($currElt)/LastCheckpoint">
+                                <xsl:value-of select="($currElt)/LastCheckpoint/text()"/>
                                 <xsl:text>&#13;</xsl:text>
                                 <xsl:text> == [File] - </xsl:text><xsl:value-of
                                     select="($currElt)/LastCheckpoint/@file"/>
@@ -307,6 +330,11 @@ THE SOFTWARE.
                         </xsl:choose>
 
                     </xsl:for-each>
+
+                    <xsl:for-each select="child::*/Context">
+                        <xsl:call-template name="testCaseContext"/>
+                    </xsl:for-each>
+
                 </xsl:element>
             </xsl:if>
 
