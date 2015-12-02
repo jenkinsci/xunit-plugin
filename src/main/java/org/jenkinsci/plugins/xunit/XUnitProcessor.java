@@ -369,7 +369,7 @@ public class XUnitProcessor implements Serializable {
             if (previousResultStep == null) {
                 return curResult;
             }
-            if (previousResultStep.isWorseOrEqualTo(curResult)) {
+            if (previousResultStep != Result.NOT_BUILT && previousResultStep.isWorseOrEqualTo(curResult)) {
                 curResult = previousResultStep;
             }
             return curResult;
