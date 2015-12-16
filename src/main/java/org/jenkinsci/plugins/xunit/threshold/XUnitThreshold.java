@@ -127,7 +127,7 @@ public abstract class XUnitThreshold implements ExtensionPoint, Serializable, De
                                             double testPercent,
                                             double newTestPercent) {
 
-        String errorMessage = "The percent of the total number of tests for this category exceeds the specified '%s' threshold percent value."
+        String errorMessage = "The percent of the total number of tests for this category exceeds the specified '%s' threshold percent value.";
         if (isValid(getFailureThreshold())
                 && (convertToIntegerPercent(getFailureThreshold()) < testPercent)) {
             log.infoConsoleLogger(String.format(errorMessage, "failure"));
