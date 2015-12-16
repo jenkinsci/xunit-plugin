@@ -94,7 +94,7 @@ public abstract class XUnitThreshold implements ExtensionPoint, Serializable, De
                                            int testCount,
                                            int newTestCount) {
 
-        String errorMessage = "The total number of tests for this category exceeds the specified '%s' threshold value."
+        String errorMessage = "The total number of tests for this category exceeds the specified '%s' threshold value.";
         if (isValid(getFailureThreshold())
                 && (convertToInteger(getFailureThreshold()) < testCount)) {
             log.infoConsoleLogger(String.format(errorMessage, "failure"));
