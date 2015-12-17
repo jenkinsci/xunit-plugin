@@ -94,28 +94,28 @@ public abstract class XUnitThreshold implements ExtensionPoint, Serializable, De
                                            int testCount,
                                            int newTestCount) {
 
-        String errorMessage = "The total number of tests for this category exceeds the specified '%s' threshold value.";
+        String thresholdErrorMessage = "The %s number of tests for this category exceeds the specified '%s' threshold value.";
         if (isValid(getFailureThreshold())
                 && (convertToInteger(getFailureThreshold()) < testCount)) {
-            log.infoConsoleLogger(String.format(errorMessage, "failure"));
+            log.infoConsoleLogger(String.format(thresholdErrorMessage, "total", "failure"));
             return Result.FAILURE;
         }
 
         if (isValid(getFailureNewThreshold())
                 && (convertToInteger(getFailureNewThreshold()) < newTestCount)) {
-            log.infoConsoleLogger(String.format(errorMessage, "new failure"));
+            log.infoConsoleLogger(String.format(thresholdErrorMessage, "new", "new failure"));
             return Result.FAILURE;
         }
 
         if (isValid(getUnstableThreshold())
                 && (convertToInteger(getUnstableThreshold()) < testCount)) {
-            log.infoConsoleLogger(String.format(errorMessage, "unstable"));
+            log.infoConsoleLogger(String.format(thresholdErrorMessage, "total", "unstable"));
             return Result.UNSTABLE;
         }
 
         if (isValid(getUnstableNewThreshold())
                 && (convertToInteger(getUnstableNewThreshold()) < newTestCount)) {
-            log.infoConsoleLogger(String.format(errorMessage, "new unstable"));
+            log.infoConsoleLogger(String.format(thresholdErrorMessage, "new", "new unstable"));
             return Result.UNSTABLE;
         }
 
@@ -127,28 +127,28 @@ public abstract class XUnitThreshold implements ExtensionPoint, Serializable, De
                                             double testPercent,
                                             double newTestPercent) {
 
-        String errorMessage = "The percent of the total number of tests for this category exceeds the specified '%s' threshold percent value.";
+        String thresholdErrorMessage = "The percent %s tests for this category exceeds the specified '%s' threshold percent value.";
         if (isValid(getFailureThreshold())
                 && (convertToIntegerPercent(getFailureThreshold()) < testPercent)) {
-            log.infoConsoleLogger(String.format(errorMessage, "failure"));
+            log.infoConsoleLogger(String.format(thresholdErrorMessage, "of the total number of", "failure"));
             return Result.FAILURE;
         }
 
         if (isValid(getFailureNewThreshold())
                 && (convertToIntegerPercent(getFailureNewThreshold()) < newTestPercent)) {
-            log.infoConsoleLogger(String.format(errorMessage, "new failure"));
+            log.infoConsoleLogger(String.format(thresholdErrorMessage, "of the new number of", "new failure"));
             return Result.FAILURE;
         }
 
         if (isValid(getUnstableThreshold())
                 && (convertToIntegerPercent(getUnstableThreshold()) < testPercent)) {
-            log.infoConsoleLogger(String.format(errorMessage, "unstable"));
+            log.infoConsoleLogger(String.format(thresholdErrorMessage, "of", "unstable"));
             return Result.UNSTABLE;
         }
 
         if (isValid(getUnstableNewThreshold())
                 && (convertToIntegerPercent(getUnstableNewThreshold()) < newTestPercent)) {
-            log.infoConsoleLogger(String.format(errorMessage, "new unstable"));
+            log.infoConsoleLogger(String.format(thresholdErrorMessage, "of the new number of", "new unstable"));
             return Result.UNSTABLE;
         }
 
