@@ -94,27 +94,28 @@ public abstract class XUnitThreshold implements ExtensionPoint, Serializable, De
                                            int testCount,
                                            int newTestCount) {
 
+        String thresholdErrorMessage = "The %s number of tests for this category exceeds the specified '%s' threshold value.";
         if (isValid(getFailureThreshold())
                 && (convertToInteger(getFailureThreshold()) < testCount)) {
-            log.infoConsoleLogger("The total number of tests for this category exceeds the specified 'failure' threshold value.");
+            log.infoConsoleLogger(String.format(thresholdErrorMessage, "total", "failure"));
             return Result.FAILURE;
         }
 
         if (isValid(getFailureNewThreshold())
                 && (convertToInteger(getFailureNewThreshold()) < newTestCount)) {
-            log.infoConsoleLogger("The new number of tests for this category exceeds the specified 'new failure' threshold value.");
+            log.infoConsoleLogger(String.format(thresholdErrorMessage, "new", "new failure"));
             return Result.FAILURE;
         }
 
         if (isValid(getUnstableThreshold())
                 && (convertToInteger(getUnstableThreshold()) < testCount)) {
-            log.infoConsoleLogger("The total number of tests for this category exceeds the specified 'unstable' threshold value.");
+            log.infoConsoleLogger(String.format(thresholdErrorMessage, "total", "unstable"));
             return Result.UNSTABLE;
         }
 
         if (isValid(getUnstableNewThreshold())
                 && (convertToInteger(getUnstableNewThreshold()) < newTestCount)) {
-            log.infoConsoleLogger("The new number of tests for this category exceeds the specified 'new unstable' threshold value.");
+            log.infoConsoleLogger(String.format(thresholdErrorMessage, "new", "new unstable"));
             return Result.UNSTABLE;
         }
 
@@ -126,27 +127,28 @@ public abstract class XUnitThreshold implements ExtensionPoint, Serializable, De
                                             double testPercent,
                                             double newTestPercent) {
 
+        String thresholdErrorMessage = "The percent %s tests for this category exceeds the specified '%s' threshold percent value.";
         if (isValid(getFailureThreshold())
                 && (convertToIntegerPercent(getFailureThreshold()) < testPercent)) {
-            log.infoConsoleLogger("The percent of the total number of tests for this category exceeds the specified 'failure' threshold percent value.");
+            log.infoConsoleLogger(String.format(thresholdErrorMessage, "of the total number of", "failure"));
             return Result.FAILURE;
         }
 
-        if (isValid(getUnstableNewThreshold())
+        if (isValid(getFailureNewThreshold())
                 && (convertToIntegerPercent(getFailureNewThreshold()) < newTestPercent)) {
-            log.infoConsoleLogger("The percent of the new number of tests for this category exceeds the specified 'new failure' threshold percent value.");
+            log.infoConsoleLogger(String.format(thresholdErrorMessage, "of the new number of", "new failure"));
             return Result.FAILURE;
         }
 
         if (isValid(getUnstableThreshold())
                 && (convertToIntegerPercent(getUnstableThreshold()) < testPercent)) {
-            log.infoConsoleLogger("The percent of tests for this category exceeds the specified 'unstable' threshold percent value.");
+            log.infoConsoleLogger(String.format(thresholdErrorMessage, "of", "unstable"));
             return Result.UNSTABLE;
         }
 
         if (isValid(getUnstableNewThreshold())
                 && (convertToIntegerPercent(getUnstableNewThreshold()) < newTestPercent)) {
-            log.infoConsoleLogger("The percent of the new number of tests for this category exceeds the specified 'new unstable' threshold percent value.");
+            log.infoConsoleLogger(String.format(thresholdErrorMessage, "of the new number of", "new unstable"));
             return Result.UNSTABLE;
         }
 
