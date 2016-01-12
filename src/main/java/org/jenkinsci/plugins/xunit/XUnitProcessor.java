@@ -29,6 +29,8 @@ import com.google.inject.Guice;
 import com.google.inject.Singleton;
 import hudson.FilePath;
 import hudson.Util;
+import hudson.model.AbstractBuild;
+import hudson.model.BuildListener;
 import hudson.model.Hudson;
 import hudson.model.Result;
 import hudson.model.Run;
@@ -67,6 +69,11 @@ public class XUnitProcessor implements Serializable {
         this.thresholds = thresholds;
         this.thresholdMode = thresholdMode;
         this.extraConfiguration = extraConfiguration;
+    }
+
+    public boolean performXunit(boolean dryRun, AbstractBuild<?, ?> build, BuildListener listener)
+            throws IOException, InterruptedException {
+        return performXUnit(dryRun, build, build.getWorkspace(), listener);
     }
 
     public boolean performXUnit(boolean dryRun, Run<?, ?> build, FilePath workspace, TaskListener listener)
