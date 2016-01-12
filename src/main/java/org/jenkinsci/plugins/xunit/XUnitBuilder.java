@@ -26,12 +26,17 @@ package org.jenkinsci.plugins.xunit;
 
 import hudson.DescriptorExtensionList;
 import hudson.Extension;
+import hudson.FilePath;
 import hudson.Launcher;
 import hudson.model.AbstractBuild;
 import hudson.model.BuildListener;
 import hudson.model.Result;
+import hudson.model.Run;
+import hudson.model.TaskListener;
 import hudson.tasks.BuildStepDescriptor;
+import hudson.tasks.BuildStepMonitor;
 import hudson.tasks.Builder;
+import jenkins.tasks.SimpleBuildStep;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
@@ -45,7 +50,7 @@ import java.io.IOException;
 /**
  * @author Gregory Boissinot
  */
-public class XUnitBuilder extends Builder {
+public class XUnitBuilder extends Builder implements SimpleBuildStep {
 
     private TestType[] types;
     private XUnitThreshold[] thresholds;
@@ -95,23 +100,28 @@ public class XUnitBuilder extends Builder {
     }
 
     @Override
-    public boolean perform(final AbstractBuild<?, ?> build, Launcher launcher, final BuildListener listener)
+    public void perform(final Run<?, ?> build, FilePath workspace, Launcher launcher, final TaskListener listener)
             throws InterruptedException, IOException {
         XUnitProcessor xUnitProcessor = new XUnitProcessor(getTypes(), getThresholds(), getThresholdMode(), getExtraConfiguration());
-        return xUnitProcessor.performXUnit(false, build, listener);
+        xUnitProcessor.performXUnit(false, build, workspace, listener);
     }
 
     public boolean performDryRun(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener)
             throws InterruptedException, IOException {
         try {
             XUnitProcessor xUnitProcessor = new XUnitProcessor(getTypes(), getThresholds(), getThresholdMode(), getExtraConfiguration());
-            xUnitProcessor.performXUnit(true, build, listener);
+            xUnitProcessor.performXUnit(true, build, build.getWorkspace(), listener);
         } catch (Throwable t) {
             listener.getLogger().println("[ERROR] - There is an error: " + t.getCause().getMessage());
         }
         //Always exit on success (returned code and status)
         build.setResult(Result.SUCCESS);
         return true;
+    }
+
+    @Override
+    public BuildStepMonitor getRequiredMonitorService() {
+        return BuildStepMonitor.NONE;
     }
 
     @Extension

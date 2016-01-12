@@ -24,8 +24,8 @@
 
 package org.jenkinsci.plugins.xunit.threshold;
 
-import hudson.model.AbstractBuild;
 import hudson.model.Result;
+import hudson.model.Run;
 import hudson.tasks.junit.TestResultAction;
 import org.jenkinsci.plugins.xunit.service.XUnitLog;
 import org.kohsuke.stapler.DataBoundConstructor;
@@ -44,7 +44,7 @@ public class FailedThreshold extends XUnitThreshold {
     }
 
     @Override
-    public Result getResultThresholdNumber(XUnitLog log, AbstractBuild<?, ?> build, TestResultAction testResultAction, TestResultAction previousTestResultAction) {
+    public Result getResultThresholdNumber(XUnitLog log, Run<?, ?> build, TestResultAction testResultAction, TestResultAction previousTestResultAction) {
 
         int failedCount = testResultAction.getFailCount();
 
@@ -59,7 +59,7 @@ public class FailedThreshold extends XUnitThreshold {
     }
 
     @Override
-    public Result getResultThresholdPercent(XUnitLog log, AbstractBuild<?, ?> build, TestResultAction testResultAction, TestResultAction previousTestResultAction) {
+    public Result getResultThresholdPercent(XUnitLog log, Run<?, ?> build, TestResultAction testResultAction, TestResultAction previousTestResultAction) {
 
         double count = testResultAction.getTotalCount();
 
