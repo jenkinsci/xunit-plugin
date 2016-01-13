@@ -115,6 +115,13 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable, Si
     }
 
     @Override
+    public boolean perform(final AbstractBuild<?, ?> build, Launcher launcher, final BuildListener listener)
+            throws InterruptedException, IOException {
+        perform(build, build.getWorkspace(), launcher, listener);
+        return true;
+    }
+
+    @Override
     public void perform(final Run<?, ?> build, FilePath workspace, Launcher launcher, final TaskListener listener)
             throws InterruptedException, IOException {
         XUnitProcessor xUnitProcessor = new XUnitProcessor(getTypes(), getThresholds(), getThresholdMode(), getExtraConfiguration());
