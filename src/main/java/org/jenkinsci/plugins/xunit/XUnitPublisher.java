@@ -85,6 +85,20 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable, Si
         this.extraConfiguration = new ExtraConfiguration(longTestTimeMargin);
     }
 
+    /**
+     * Needed to support Snippet Generator and Workflow properly.
+     */
+    public TestType[] getTools() {
+        return types;
+    }
+
+    /**
+     * Needed to support Snippet Generator and Workflow properly
+     */
+    public long getTestTimeMargin() {
+        return getExtraConfiguration().getTestTimeMargin();
+    }
+
     public TestType[] getTypes() {
         return types;
     }
