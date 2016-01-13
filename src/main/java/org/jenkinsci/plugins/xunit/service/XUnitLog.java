@@ -25,7 +25,6 @@
 package org.jenkinsci.plugins.xunit.service;
 
 import com.google.inject.Inject;
-import hudson.model.BuildListener;
 import hudson.model.TaskListener;
 
 import java.io.Serializable;

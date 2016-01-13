@@ -3,7 +3,7 @@ package org.jenkinsci.plugins.xunit.service;
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Stage;
-import hudson.model.BuildListener;
+import hudson.model.TaskListener;
 import hudson.remoting.VirtualChannel;
 import org.jenkinsci.lib.dtkit.model.InputMetricType;
 import org.jenkinsci.lib.dtkit.model.InputMetricXSL;
@@ -30,7 +30,7 @@ public class XUnitTransformerTest {
 
     @Mock
     @SuppressWarnings("unused")
-    private BuildListener buildListenerMock;
+    private TaskListener buildListenerMock;
 
     @Mock
     @SuppressWarnings("unused")
@@ -64,7 +64,7 @@ public class XUnitTransformerTest {
         xUnitTransformer = Guice.createInjector(Stage.DEVELOPMENT, new AbstractModule() {
             @Override
             protected void configure() {
-                bind(BuildListener.class).toInstance(buildListenerMock);
+                bind(TaskListener.class).toInstance(buildListenerMock);
                 bind(XUnitToolInfo.class).toInstance(xUnitToolInfoMock);
                 bind(XUnitConversionService.class).toInstance(xUnitConversionServiceMock);
                 bind(XUnitValidationService.class).toInstance(xUnitValidationServiceMock);
