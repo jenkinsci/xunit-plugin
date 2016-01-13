@@ -90,8 +90,8 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
     /**
      * Needed to support Snippet Generator and Workflow properly
      */
-    public long getTestTimeMargin() {
-        return getExtraConfiguration().getTestTimeMargin();
+    public String getTestTimeMargin() {
+        return String.valueOf(getExtraConfiguration().getTestTimeMargin());
     }
 
     public TestType[] getTypes() {
