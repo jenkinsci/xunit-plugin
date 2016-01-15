@@ -83,6 +83,24 @@ THE SOFTWARE.
                     </xsl:for-each>
                 </system-out>
             </xsl:if>
+			<xsl:if test="error">
+                <failure>
+                    <xsl:for-each select="error">
+                        <xsl:if test="not(position()=1)">
+                            <xsl:text>&#xa;&#xa;</xsl:text>
+                        </xsl:if>
+                        <xsl:value-of select="@message"/>
+                    </xsl:for-each>
+                </failure>
+                <system-out>
+                    <xsl:for-each select="error">
+                        <xsl:if test="not(position()=1)">
+                            <xsl:text>&#xa;&#xa;</xsl:text>
+                        </xsl:if>
+                        <xsl:value-of select="."/>
+                    </xsl:for-each>
+                </system-out>
+            </xsl:if>
         </testcase>
     </xsl:template>
     <!-- this swallows all unmatched text -->
