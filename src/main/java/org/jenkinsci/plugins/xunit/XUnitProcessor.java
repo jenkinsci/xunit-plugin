@@ -33,6 +33,8 @@ import hudson.model.AbstractBuild;
 import hudson.model.BuildListener;
 import hudson.model.Hudson;
 import hudson.model.Result;
+import hudson.model.Run;
+import hudson.model.TaskListener;
 import hudson.remoting.VirtualChannel;
 import hudson.tasks.junit.TestResult;
 import hudson.tasks.junit.TestResultAction;
@@ -69,7 +71,12 @@ public class XUnitProcessor implements Serializable {
         this.extraConfiguration = extraConfiguration;
     }
 
-    public boolean performXUnit(boolean dryRun, AbstractBuild<?, ?> build, BuildListener listener)
+    public boolean performXunit(boolean dryRun, AbstractBuild<?, ?> build, BuildListener listener)
+            throws IOException, InterruptedException {
+        return performXUnit(dryRun, build, build.getWorkspace(), listener);
+    }
+
+    public boolean performXUnit(boolean dryRun, Run<?, ?> build, FilePath workspace, TaskListener listener)
             throws IOException, InterruptedException {
         final XUnitLog xUnitLog = getXUnitLogObject(listener);
         try {
@@ -78,7 +85,7 @@ public class XUnitProcessor implements Serializable {
 
             boolean continueTestProcessing;
             try {
-                continueTestProcessing = performTests(xUnitLog, build, listener);
+                continueTestProcessing = performTests(xUnitLog, build, workspace, listener);
             } catch (StopTestProcessingException e) {
                 build.setResult(Result.FAILURE);
                 xUnitLog.infoConsoleLogger("There are errors when processing test results.");
@@ -93,8 +100,8 @@ public class XUnitProcessor implements Serializable {
                 return true;
             }
 
-            recordTestResult(build, listener, xUnitLog);
-            processDeletion(dryRun, build, xUnitLog);
+            recordTestResult(build, workspace, listener, xUnitLog);
+            processDeletion(dryRun, workspace, xUnitLog);
             Result result = getBuildStatus(build, xUnitLog);
             if (result != null) {
                 if (!dryRun) {
@@ -114,16 +121,16 @@ public class XUnitProcessor implements Serializable {
         }
     }
 
-    private XUnitLog getXUnitLogObject(final BuildListener listener) {
+    private XUnitLog getXUnitLogObject(final TaskListener listener) {
         return Guice.createInjector(new AbstractModule() {
             @Override
             protected void configure() {
-                bind(BuildListener.class).toInstance(listener);
+                bind(TaskListener.class).toInstance(listener);
             }
         }).getInstance(XUnitLog.class);
     }
 
-    private boolean performTests(XUnitLog xUnitLog, AbstractBuild<?, ?> build, BuildListener listener) throws IOException, InterruptedException, StopTestProcessingException {
+    private boolean performTests(XUnitLog xUnitLog, Run<?, ?> build, FilePath workspace, TaskListener listener) throws IOException, InterruptedException, StopTestProcessingException {
         XUnitReportProcessorService xUnitReportService = getXUnitReportProcessorServiceObject(listener);
         boolean findTest = false;
         for (TestType tool : types) {
@@ -131,11 +138,11 @@ public class XUnitProcessor implements Serializable {
 
             if (!isEmptyGivenPattern(xUnitReportService, tool)) {
                 String expandedPattern = getExpandedResolvedPattern(tool, build, listener);
-                XUnitToolInfo xUnitToolInfo = getXUnitToolInfoObject(tool, expandedPattern, build, listener);
+                XUnitToolInfo xUnitToolInfo = getXUnitToolInfoObject(tool, expandedPattern, build, workspace, listener);
                 XUnitTransformer xUnitTransformer = getXUnitTransformerObject(xUnitToolInfo, listener);
                 boolean result = false;
                 try {
-                    result = getWorkspace(build).act(xUnitTransformer);
+                    result = workspace.act(xUnitTransformer);
                     findTest = true;
                 } catch (InterruptedException ie) {
                     // handled tunneled exceptions
@@ -176,11 +183,11 @@ public class XUnitProcessor implements Serializable {
         return findTest;
     }
 
-    private XUnitReportProcessorService getXUnitReportProcessorServiceObject(final BuildListener listener) {
+    private XUnitReportProcessorService getXUnitReportProcessorServiceObject(final TaskListener listener) {
         return Guice.createInjector(new AbstractModule() {
             @Override
             protected void configure() {
-                bind(BuildListener.class).toInstance(listener);
+                bind(TaskListener.class).toInstance(listener);
             }
         }).getInstance(XUnitReportProcessorService.class);
     }
@@ -192,19 +199,19 @@ public class XUnitProcessor implements Serializable {
         return xUnitReportService.isEmptyPattern(tool.getPattern());
     }
 
-    private String getExpandedResolvedPattern(TestType tool, AbstractBuild build, BuildListener listener) throws IOException, InterruptedException {
+    private String getExpandedResolvedPattern(TestType tool, Run build, TaskListener listener) throws IOException, InterruptedException {
         String newExpandedPattern = tool.getPattern();
         newExpandedPattern = newExpandedPattern.replaceAll("[\t\r\n]+", " ");
         return Util.replaceMacro(newExpandedPattern, build.getEnvironment(listener));
     }
 
-    private XUnitToolInfo getXUnitToolInfoObject(final TestType tool, final String expandedPattern, final AbstractBuild build, final BuildListener listener) throws IOException, InterruptedException {
+    private XUnitToolInfo getXUnitToolInfoObject(final TestType tool, final String expandedPattern, final Run build, final FilePath workspace, final TaskListener listener) throws IOException, InterruptedException {
 
         InputMetric inputMetric = tool.getInputMetric();
         inputMetric = Guice.createInjector(new AbstractModule() {
             @Override
             protected void configure() {
-                bind(BuildListener.class).toInstance(listener);
+                bind(TaskListener.class).toInstance(listener);
                 bind(XUnitLog.class).in(Singleton.class);
                 bind(XUnitValidationService.class).in(Singleton.class);
                 bind(XUnitConversionService.class).in(Singleton.class);
@@ -220,13 +227,12 @@ public class XUnitProcessor implements Serializable {
                 tool.isDeleteOutputFiles(), tool.isStopProcessingIfError(),
                 build.getTimeInMillis(),
                 this.extraConfiguration.getTestTimeMargin(),
-                (tool instanceof CustomType) ? getCustomStylesheet(tool, build, listener) : null);
+                (tool instanceof CustomType) ? getCustomStylesheet(tool, build, workspace, listener) : null);
 
     }
 
-    private FilePath getCustomStylesheet(final TestType tool, final AbstractBuild build, final BuildListener listener) throws IOException, InterruptedException {
+    private FilePath getCustomStylesheet(final TestType tool, final Run build, final FilePath workspace, final TaskListener listener) throws IOException, InterruptedException {
 
-        final FilePath workspace = getWorkspace(build);
         final String customXSLPath = Util.replaceMacro(((CustomType) tool).getCustomXSL(), build.getEnvironment(listener));
 
         //Try full path
@@ -243,19 +249,11 @@ public class XUnitProcessor implements Serializable {
         return customXSLFilePath;
     }
 
-    private FilePath getWorkspace(AbstractBuild build) {
-        FilePath workspace = build.getWorkspace();
-        if (workspace == null) {
-            workspace = build.getProject().getSomeWorkspace();
-        }
-        return workspace;
-    }
-
-    private XUnitTransformer getXUnitTransformerObject(final XUnitToolInfo xUnitToolInfo, final BuildListener listener) {
+    private XUnitTransformer getXUnitTransformerObject(final XUnitToolInfo xUnitToolInfo, final TaskListener listener) {
         return Guice.createInjector(new AbstractModule() {
             @Override
             protected void configure() {
-                bind(BuildListener.class).toInstance(listener);
+                bind(TaskListener.class).toInstance(listener);
                 bind(XUnitToolInfo.class).toInstance(xUnitToolInfo);
                 bind(XUnitValidationService.class).in(Singleton.class);
                 bind(XUnitConversionService.class).in(Singleton.class);
@@ -265,19 +263,19 @@ public class XUnitProcessor implements Serializable {
         }).getInstance(XUnitTransformer.class);
     }
 
-    private TestResultAction getTestResultAction(AbstractBuild<?, ?> build) {
+    private TestResultAction getTestResultAction(Run<?, ?> build) {
         return build.getAction(TestResultAction.class);
     }
 
-    private TestResultAction getPreviousTestResultAction(AbstractBuild<?, ?> build) {
-        AbstractBuild previousBuild = build.getPreviousBuild();
+    private TestResultAction getPreviousTestResultAction(Run<?, ?> build) {
+        Run previousBuild = build.getPreviousBuild();
         if (previousBuild == null) {
             return null;
         }
         return getTestResultAction(previousBuild);
     }
 
-    private void recordTestResult(AbstractBuild<?, ?> build, BuildListener listener, XUnitLog xUnitLog) throws XUnitException {
+    private void recordTestResult(Run<?, ?> build, FilePath workspace, TaskListener listener, XUnitLog xUnitLog) throws XUnitException {
         TestResultAction existingAction = build.getAction(TestResultAction.class);
         final long buildTime = build.getTimestamp().getTimeInMillis();
         final long nowMaster = System.currentTimeMillis();
@@ -287,7 +285,7 @@ public class XUnitProcessor implements Serializable {
             existingTestResults = existingAction.getResult();
         }
 
-        TestResult result = getTestResult(build, "**/TEST-*.xml", existingTestResults, buildTime, nowMaster);
+        TestResult result = getTestResult(workspace, "**/TEST-*.xml", existingTestResults, buildTime, nowMaster);
         if (result != null) {
             TestResultAction action;
             if (existingAction == null) {
@@ -310,7 +308,7 @@ public class XUnitProcessor implements Serializable {
     /**
      * Gets a Test result object (a new one if any)
      *
-     * @param build               the current build
+     * @param workspace           the build's workspace
      * @param junitFilePattern    the JUnit search pattern
      * @param existingTestResults the existing test result
      * @param buildTime           the build time
@@ -318,14 +316,14 @@ public class XUnitProcessor implements Serializable {
      * @return the test result object
      * @throws XUnitException the plugin exception
      */
-    private TestResult getTestResult(final AbstractBuild<?, ?> build,
+    private TestResult getTestResult(final FilePath workspace,
                                      final String junitFilePattern,
                                      final TestResult existingTestResults,
                                      final long buildTime, final long nowMaster)
             throws XUnitException {
 
         try {
-            return getWorkspace(build).act(new jenkins.SlaveToMasterFileCallable<TestResult>() {
+            return workspace.act(new jenkins.SlaveToMasterFileCallable<TestResult>() {
 
                 public TestResult invoke(File ws, VirtualChannel channel) throws IOException {
                     final long nowSlave = System.currentTimeMillis();
@@ -362,7 +360,7 @@ public class XUnitProcessor implements Serializable {
         }
     }
 
-    private Result getBuildStatus(AbstractBuild<?, ?> build, XUnitLog xUnitLog) {
+    private Result getBuildStatus(Run<?, ?> build, XUnitLog xUnitLog) {
         Result curResult = getResultWithThreshold(xUnitLog, build);
         Result previousResultStep = build.getResult();
         if (curResult != null) {
@@ -377,7 +375,7 @@ public class XUnitProcessor implements Serializable {
         return null;
     }
 
-    private Result getResultWithThreshold(XUnitLog log, AbstractBuild<?, ?> build) {
+    private Result getResultWithThreshold(XUnitLog log, Run<?, ?> build) {
         TestResultAction testResultAction = getTestResultAction(build);
         TestResultAction previousTestResultAction = getPreviousTestResultAction(build);
         if (testResultAction == null) {
@@ -388,7 +386,7 @@ public class XUnitProcessor implements Serializable {
     }
 
     private Result processResultThreshold(XUnitLog log,
-                                          AbstractBuild<?, ?> build,
+                                          Run<?, ?> build,
                                           TestResultAction testResultAction,
                                           TestResultAction previousTestResultAction) {
 
@@ -411,21 +409,21 @@ public class XUnitProcessor implements Serializable {
     }
 
 
-    private void processDeletion(boolean dryRun, AbstractBuild<?, ?> build, XUnitLog xUnitLog) throws XUnitException {
+    private void processDeletion(boolean dryRun, FilePath workspace, XUnitLog xUnitLog) throws XUnitException {
         try {
             boolean keepJUnitDirectory = false;
             for (TestType tool : types) {
                 InputMetric inputMetric = tool.getInputMetric();
 
                 if (dryRun || tool.isDeleteOutputFiles()) {
-                    getWorkspace(build).child(XUnitDefaultValues.GENERATED_JUNIT_DIR + "/" + inputMetric.getToolName()).deleteRecursive();
+                    workspace.child(XUnitDefaultValues.GENERATED_JUNIT_DIR + "/" + inputMetric.getToolName()).deleteRecursive();
                 } else {
                     //Mark the tool file parent directory to no deletion
                     keepJUnitDirectory = true;
                 }
             }
             if (!keepJUnitDirectory) {
-                getWorkspace(build).child(XUnitDefaultValues.GENERATED_JUNIT_DIR).deleteRecursive();
+                workspace.child(XUnitDefaultValues.GENERATED_JUNIT_DIR).deleteRecursive();
             }
         } catch (IOException ioe) {
             throw new XUnitException("Problem on deletion", ioe);

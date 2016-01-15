@@ -4,7 +4,7 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Singleton;
 import hudson.Util;
-import hudson.model.BuildListener;
+import hudson.model.TaskListener;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.model.InputMetricType;
 import org.jenkinsci.lib.dtkit.model.InputMetricXSL;
@@ -92,13 +92,13 @@ public class XUnitReportProcessorServiceTest {
 
     @BeforeClass
     public static void init() {
-        final BuildListener listenerMock = mock(BuildListener.class);
+        final TaskListener listenerMock = mock(TaskListener.class);
         when(listenerMock.getLogger()).thenReturn(new PrintStream(new ByteArrayOutputStream()));
         xUnitReportProcessorService = Guice.createInjector(new AbstractModule() {
             @Override
             protected void configure() {
                 bind(XUnitLog.class).in(Singleton.class);
-                bind(BuildListener.class).toInstance(listenerMock);
+                bind(TaskListener.class).toInstance(listenerMock);
             }
         }).getInstance(XUnitReportProcessorService.class);
 

@@ -26,14 +26,22 @@ package org.jenkinsci.plugins.xunit;
 
 import hudson.DescriptorExtensionList;
 import hudson.Extension;
+import hudson.FilePath;
 import hudson.Launcher;
-import hudson.model.*;
+import hudson.model.AbstractBuild;
+import hudson.model.AbstractProject;
+import hudson.model.Action;
+import hudson.model.BuildListener;
+import hudson.model.Result;
+import hudson.model.Run;
+import hudson.model.TaskListener;
 import hudson.tasks.BuildStepDescriptor;
 import hudson.tasks.BuildStepMonitor;
 import hudson.tasks.Publisher;
 import hudson.tasks.Recorder;
 import hudson.tasks.junit.JUnitResultArchiver;
 import hudson.tasks.test.TestResultProjectAction;
+import jenkins.tasks.SimpleBuildStep;
 import org.jenkinsci.lib.dryrun.DryRun;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
@@ -52,7 +60,7 @@ import java.io.Serializable;
  * @author Gregory Boissinot
  */
 @SuppressWarnings({"unchecked", "unused"})
-public class XUnitPublisher extends Recorder implements DryRun, Serializable {
+public class XUnitPublisher extends Recorder implements DryRun, Serializable, SimpleBuildStep {
 
     private TestType[] types;
     private XUnitThreshold[] thresholds;
@@ -77,6 +85,20 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
         this.extraConfiguration = new ExtraConfiguration(longTestTimeMargin);
     }
 
+    /**
+     * Needed to support Snippet Generator and Workflow properly.
+     */
+    public TestType[] getTools() {
+        return types;
+    }
+
+    /**
+     * Needed to support Snippet Generator and Workflow properly
+     */
+    public String getTestTimeMargin() {
+        return String.valueOf(getExtraConfiguration().getTestTimeMargin());
+    }
+
     public TestType[] getTypes() {
         return types;
     }
@@ -96,6 +118,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
         return extraConfiguration;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public Action getProjectAction(AbstractProject<?, ?> project) {
         JUnitResultArchiver jUnitResultArchiver = project.getPublishersList().get(JUnitResultArchiver.class);
@@ -108,15 +131,22 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable {
     @Override
     public boolean perform(final AbstractBuild<?, ?> build, Launcher launcher, final BuildListener listener)
             throws InterruptedException, IOException {
+        perform(build, build.getWorkspace(), launcher, listener);
+        return true;
+    }
+
+    @Override
+    public void perform(final Run<?, ?> build, FilePath workspace, Launcher launcher, final TaskListener listener)
+            throws InterruptedException, IOException {
         XUnitProcessor xUnitProcessor = new XUnitProcessor(getTypes(), getThresholds(), getThresholdMode(), getExtraConfiguration());
-        return xUnitProcessor.performXUnit(false, build, listener);
+        xUnitProcessor.performXUnit(false, build, workspace, listener);
     }
 
     public boolean performDryRun(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener)
             throws InterruptedException, IOException {
         try {
             XUnitProcessor xUnitProcessor = new XUnitProcessor(getTypes(), getThresholds(), getThresholdMode(), getExtraConfiguration());
-            xUnitProcessor.performXUnit(true, build, listener);
+            xUnitProcessor.performXUnit(true, build, build.getWorkspace(), listener);
         } catch (Throwable t) {
             listener.getLogger().println("[ERROR] - There is an error: " + t.getCause().getMessage());
         }

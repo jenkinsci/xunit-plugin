@@ -26,7 +26,11 @@ package org.jenkinsci.plugins.xunit.threshold;
 
 import hudson.DescriptorExtensionList;
 import hudson.ExtensionPoint;
-import hudson.model.*;
+import hudson.model.Describable;
+import hudson.model.Descriptor;
+import hudson.model.Hudson;
+import hudson.model.Result;
+import hudson.model.Run;
 import hudson.tasks.junit.TestResultAction;
 import org.jenkinsci.plugins.xunit.service.XUnitLog;
 
@@ -81,12 +85,12 @@ public abstract class XUnitThreshold implements ExtensionPoint, Serializable, De
     }
 
     public abstract Result getResultThresholdNumber(XUnitLog log,
-                                                    AbstractBuild<?, ?> build,
+                                                    Run<?, ?> build,
                                                     TestResultAction testResultAction,
                                                     TestResultAction previousTestResultAction);
 
     public abstract Result getResultThresholdPercent(XUnitLog log,
-                                                     AbstractBuild<?, ?> build,
+                                                     Run<?, ?> build,
                                                      TestResultAction testResultAction,
                                                      TestResultAction previousTestResultAction);
 
