@@ -43,7 +43,7 @@ public class CUnit extends InputMetricXSL {
 
     @Override
     public String getToolVersion() {
-        return "2.1-2";
+        return "2.1";
     }
 
     @Override
@@ -53,7 +53,7 @@ public class CUnit extends InputMetricXSL {
 
     @Override
     public String getXslName() {
-        return "cunit-2.1-2-to-junit.xsl";
+        return "cunit-2.1-to-junit.xsl";
     }
 
     @Override
