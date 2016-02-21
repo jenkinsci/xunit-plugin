@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/xsl" href="CUnit-Run.xsl" ?>
+<!DOCTYPE CUNIT_TEST_RUN_REPORT SYSTEM "CUnit-Run.dtd">
+<CUNIT_TEST_RUN_REPORT>
+    <CUNIT_HEADER/>
+    <CUNIT_RESULT_LISTING>
+
+        <CUNIT_RUN_SUITE>
+            <CUNIT_RUN_SUITE_SUCCESS>
+                <SUITE_NAME>Suite Success 1</SUITE_NAME>
+
+                <CUNIT_RUN_TEST_RECORD>
+                    <CUNIT_RUN_TEST_SUCCESS>
+                        <TEST_NAME>Test 1.1</TEST_NAME>
+                    </CUNIT_RUN_TEST_SUCCESS>
+                </CUNIT_RUN_TEST_RECORD>
+
+            </CUNIT_RUN_SUITE_SUCCESS>
+        </CUNIT_RUN_SUITE>
+
+    </CUNIT_RESULT_LISTING>
+    <CUNIT_FOOTER />
+</CUNIT_TEST_RUN_REPORT>

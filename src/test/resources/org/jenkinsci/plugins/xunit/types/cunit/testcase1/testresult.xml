@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/xsl" href="CUnit-Run.xsl" ?>
+<!DOCTYPE CUNIT_TEST_RUN_REPORT SYSTEM "CUnit-Run.dtd">
+<CUNIT_TEST_RUN_REPORT>
+    <CUNIT_HEADER/>
+    <CUNIT_RESULT_LISTING>
+
+    </CUNIT_RESULT_LISTING>
+    <CUNIT_FOOTER />
+</CUNIT_TEST_RUN_REPORT>

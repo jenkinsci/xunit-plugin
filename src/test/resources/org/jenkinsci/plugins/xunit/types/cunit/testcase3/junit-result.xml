@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="Suite Success 1" tests="0" time="0" failures="1" errors="0" skipped="0">
+        <testcase classname="Suite Success 1" name="Test 1.1" time="0.0">
+            <failure>
+                Test failed at line  100 in file  /foo/bar/test_1_1.c  :
+                Error in nominal use 1 - Expected : 0 , Result : -1 </failure>
+        </testcase>
+    </testsuite>
+</testsuites>
