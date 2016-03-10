@@ -3,7 +3,7 @@
 The MIT License (MIT)
 
 Copyright (c) 2014 Shawn Liang
-Last modification: 02/18/2016 by Etienne Bec
+Last modification: 02/18/2016 by Schneider Electric
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
