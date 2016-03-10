@@ -39,6 +39,7 @@ import hudson.tasks.Builder;
 import jenkins.tasks.SimpleBuildStep;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
+import org.jenkinsci.plugins.xunit.service.XUnitLog;
 import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
 import org.jenkinsci.plugins.xunit.threshold.SkippedThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
@@ -69,7 +70,7 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
     }
 
     @DataBoundConstructor
-    public XUnitBuilder(TestType[] tools, XUnitThreshold[] thresholds, int thresholdMode, String testTimeMargin) {
+    public XUnitBuilder(TestType[] tools, XUnitThreshold[] thresholds, int thresholdMode, String testTimeMargin, String loggingLevel) {
         this.types = tools;
         this.thresholds = thresholds;
         this.thresholdMode = thresholdMode;
@@ -77,7 +78,8 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
         if (testTimeMargin != null && testTimeMargin.trim().length() != 0) {
             longTestTimeMargin = Long.parseLong(testTimeMargin);
         }
-        this.extraConfiguration = new ExtraConfiguration(longTestTimeMargin);
+        XUnitLog.Level logLevel = XUnitLog.Level.fromString(loggingLevel);
+        this.extraConfiguration = new ExtraConfiguration(longTestTimeMargin, logLevel);
     }
 
     /**
@@ -108,7 +110,7 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
 
     public ExtraConfiguration getExtraConfiguration() {
         if (extraConfiguration == null) {
-            extraConfiguration = new ExtraConfiguration(XUnitDefaultValues.TEST_REPORT_TIME_MARGING);
+            extraConfiguration = new ExtraConfiguration(XUnitDefaultValues.TEST_REPORT_TIME_MARGING, XUnitDefaultValues.LOGGING_LEVEL);
         }
         return extraConfiguration;
     }

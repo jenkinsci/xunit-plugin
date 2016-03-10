@@ -74,6 +74,13 @@ THE SOFTWARE.
                         <td width="50%" style="${td}"/>
                     </tr>
                 </table>
+                <label>Set xUnit logging level. INFO prints all messages, WARN skips for example messages about each and every file converted</label>
+                <select name="loggingLevel" value="${instance.extraConfiguration.testTimeMargin}">
+                    <option value="INFO">INFO</option>
+                    <option value="ERROR">WARN</option>
+                    <option value="ERROR">ERROR</option>
+                </select>
+
             </f:entry>
         </f:advanced>
     </f:block>

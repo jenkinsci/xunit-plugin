@@ -52,8 +52,8 @@ public class XUnitToolInfo implements Serializable {
     private FilePath cusXSLFile;
 
     public XUnitToolInfo(FilePath userContentRoot, InputMetric inputMetric,
-                         String expandedPattern, Boolean skipNoTestFiles, Boolean failIfNotNew,
-                         Boolean deleteOutputFiles, Boolean stopProcessingIfError,
+                         String expandedPattern, boolean skipNoTestFiles, boolean failIfNotNew,
+                         boolean deleteOutputFiles, boolean stopProcessingIfError,
                          long buildTime, long testTimeMargin, FilePath cusXSLFile) {
         this.userContentRoot = userContentRoot;
         this.inputMetric = inputMetric;

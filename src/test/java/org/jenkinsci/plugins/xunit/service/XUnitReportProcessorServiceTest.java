@@ -11,6 +11,7 @@ import org.jenkinsci.lib.dtkit.model.InputMetricXSL;
 import org.jenkinsci.lib.dtkit.model.InputType;
 import org.jenkinsci.lib.dtkit.model.OutputMetric;
 import org.jenkinsci.lib.dtkit.type.TestType;
+import org.jenkinsci.plugins.xunit.ExtraConfiguration;
 import org.jenkinsci.plugins.xunit.types.model.JUnitModel;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -94,11 +95,15 @@ public class XUnitReportProcessorServiceTest {
     public static void init() {
         final TaskListener listenerMock = mock(TaskListener.class);
         when(listenerMock.getLogger()).thenReturn(new PrintStream(new ByteArrayOutputStream()));
+
+        final ExtraConfiguration extraConfigurationMock = mock(ExtraConfiguration.class);
+        when(extraConfigurationMock.getLogLevel()).thenReturn(XUnitLog.Level.INFO);
         xUnitReportProcessorService = Guice.createInjector(new AbstractModule() {
             @Override
             protected void configure() {
                 bind(XUnitLog.class).in(Singleton.class);
                 bind(TaskListener.class).toInstance(listenerMock);
+                bind(ExtraConfiguration.class).toInstance(extraConfigurationMock);
             }
         }).getInstance(XUnitReportProcessorService.class);
 
