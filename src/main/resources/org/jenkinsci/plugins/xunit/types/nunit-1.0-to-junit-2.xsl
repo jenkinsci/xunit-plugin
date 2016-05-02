@@ -53,9 +53,15 @@ THE SOFTWARE.
                     <!--  <redirect:write file="{$outputpath}/TEST-{$assembly}.xml">-->
 
                     <testsuite name="{$assembly}"
-                               tests="{count(*/test-case)}" time="{@time}"
+                               tests="{count(*/test-case)}"
                                failures="{count(*/test-case/failure)}" errors="0"
-                               skipped="{count(*/test-case[@executed='False'])}">
+                               skipped="{count(*/test-case[@executed='False'])}"
+							   >
+					   <xsl:if test="@time!=''">
+							<xsl:attribute name="time">
+								<xsl:value-of select="@time"/>
+							</xsl:attribute>
+						</xsl:if>
                         <xsl:for-each select="*/test-case">
                             <xsl:variable name="testcaseName">
                                 <xsl:choose>
