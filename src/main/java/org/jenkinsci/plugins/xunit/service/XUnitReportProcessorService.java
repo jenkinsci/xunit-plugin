@@ -78,7 +78,7 @@ public class XUnitReportProcessorService extends XUnitService implements Seriali
                     + pattern + "' relative to '" + parentPath + "' for the testing framework '" + toolName + "'."
                     + "  Did you enter a pattern relative to the correct directory?"
                     + "  Did you generate the result report(s) for '" + toolName + "'?";
-            xUnitLog.infoConsoleLogger(msg);
+            xUnitLog.warningConsoleLogger(msg);
             infoSystemLogger(msg);
         } else {
             String msg = "[" + toolName + "] - " + xunitFiles.length + " test report file(s) were found with the pattern '"

@@ -26,17 +26,26 @@ package org.jenkinsci.plugins.xunit;
 
 import java.io.Serializable;
 
+import com.google.inject.Inject;
+import org.jenkinsci.plugins.xunit.service.XUnitLog;
+
 /**
  * @author Gregory Boissinot
  */
 public class ExtraConfiguration implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 2L;
 
     private final long testTimeMargin;
+    private final XUnitLog.Level logLevel;
 
-    public ExtraConfiguration(long testTimeMargin) {
+    public ExtraConfiguration(long testTimeMargin, XUnitLog.Level logLevel) {
         this.testTimeMargin = testTimeMargin;
+        this.logLevel = logLevel;
+    }
+
+    public XUnitLog.Level getLogLevel() {
+        return logLevel;
     }
 
     public long getTestTimeMargin() {

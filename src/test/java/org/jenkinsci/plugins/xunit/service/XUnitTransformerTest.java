@@ -9,6 +9,7 @@ import org.jenkinsci.lib.dtkit.model.InputMetricType;
 import org.jenkinsci.lib.dtkit.model.InputMetricXSL;
 import org.jenkinsci.lib.dtkit.model.InputType;
 import org.jenkinsci.lib.dtkit.model.OutputMetric;
+import org.jenkinsci.plugins.xunit.ExtraConfiguration;
 import org.jenkinsci.plugins.xunit.NoFoundTestException;
 import org.jenkinsci.plugins.xunit.types.model.JUnitModel;
 import org.junit.Assert;
@@ -48,6 +49,10 @@ public class XUnitTransformerTest {
     @SuppressWarnings("unused")
     private XUnitToolInfo xUnitToolInfoMock;
 
+    @Mock
+    @SuppressWarnings("unused")
+    private ExtraConfiguration extraConfiguration;
+
     @Rule
     public TempWorkspace tempWorkspace = new TempWorkspace();
 
@@ -60,6 +65,7 @@ public class XUnitTransformerTest {
 
         when(buildListenerMock.getLogger()).thenReturn(new PrintStream(new ByteArrayOutputStream()));
         when(xUnitToolInfoMock.getInputMetric()).thenReturn(new MyInputMetric());
+        when(extraConfiguration.getLogLevel()).thenReturn(XUnitLog.Level.INFO);
 
         xUnitTransformer = Guice.createInjector(Stage.DEVELOPMENT, new AbstractModule() {
             @Override
@@ -69,6 +75,7 @@ public class XUnitTransformerTest {
                 bind(XUnitConversionService.class).toInstance(xUnitConversionServiceMock);
                 bind(XUnitValidationService.class).toInstance(xUnitValidationServiceMock);
                 bind(XUnitReportProcessorService.class).toInstance(xUnitReportProcessorServiceMock);
+                bind(ExtraConfiguration.class).toInstance(extraConfiguration);
             }
         }).getInstance(XUnitTransformer.class);
 

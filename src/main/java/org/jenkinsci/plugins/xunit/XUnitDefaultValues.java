@@ -24,6 +24,8 @@
 
 package org.jenkinsci.plugins.xunit;
 
+import org.jenkinsci.plugins.xunit.service.XUnitLog;
+
 /**
  * @author Gregory Boissinot
  */
@@ -34,4 +36,6 @@ public class XUnitDefaultValues {
     public static final int MODE_PERCENT = 2;
 
     public static final int TEST_REPORT_TIME_MARGING = 3000; //default to 3000ms
+
+    public static final XUnitLog.Level LOGGING_LEVEL = XUnitLog.Level.INFO;
 }

@@ -38,6 +38,7 @@ import hudson.model.TaskListener;
 import hudson.remoting.VirtualChannel;
 import hudson.tasks.junit.TestResult;
 import hudson.tasks.junit.TestResultAction;
+import jenkins.model.Jenkins;
 import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
 import org.jenkinsci.lib.dtkit.model.InputMetric;
@@ -88,15 +89,15 @@ public class XUnitProcessor implements Serializable {
                 continueTestProcessing = performTests(xUnitLog, build, workspace, listener);
             } catch (StopTestProcessingException e) {
                 build.setResult(Result.FAILURE);
-                xUnitLog.infoConsoleLogger("There are errors when processing test results.");
-                xUnitLog.infoConsoleLogger("Skipping tests recording.");
-                xUnitLog.infoConsoleLogger("Stop build.");
+                xUnitLog.errorConsoleLogger("There are errors when processing test results.");
+                xUnitLog.errorConsoleLogger("Skipping tests recording.");
+                xUnitLog.errorConsoleLogger("Stop build.");
                 return true;
             }
 
             if (!continueTestProcessing) {
-                xUnitLog.infoConsoleLogger("There are errors when processing test results.");
-                xUnitLog.infoConsoleLogger("Skipping tests recording.");
+                xUnitLog.warningConsoleLogger("There are errors when processing test results.");
+                xUnitLog.warningConsoleLogger("Skipping tests recording.");
                 return true;
             }
 
@@ -126,6 +127,7 @@ public class XUnitProcessor implements Serializable {
             @Override
             protected void configure() {
                 bind(TaskListener.class).toInstance(listener);
+                bind(ExtraConfiguration.class).toInstance(extraConfiguration);
             }
         }).getInstance(XUnitLog.class);
     }
@@ -188,6 +190,7 @@ public class XUnitProcessor implements Serializable {
             @Override
             protected void configure() {
                 bind(TaskListener.class).toInstance(listener);
+                bind(ExtraConfiguration.class).toInstance(extraConfiguration);
             }
         }).getInstance(XUnitReportProcessorService.class);
     }
@@ -212,6 +215,7 @@ public class XUnitProcessor implements Serializable {
             @Override
             protected void configure() {
                 bind(TaskListener.class).toInstance(listener);
+                bind(ExtraConfiguration.class).toInstance(extraConfiguration);
                 bind(XUnitLog.class).in(Singleton.class);
                 bind(XUnitValidationService.class).in(Singleton.class);
                 bind(XUnitConversionService.class).in(Singleton.class);
@@ -219,7 +223,7 @@ public class XUnitProcessor implements Serializable {
         }).getInstance(inputMetric.getClass());
 
         return new XUnitToolInfo(
-                new FilePath(new File(Hudson.getInstance().getRootDir(), "userContent")),
+                new FilePath(new File(Jenkins.getInstance().getRootDir(), "userContent")),
                 inputMetric,
                 expandedPattern,
                 tool.isSkipNoTestFiles(),
@@ -254,6 +258,7 @@ public class XUnitProcessor implements Serializable {
             @Override
             protected void configure() {
                 bind(TaskListener.class).toInstance(listener);
+                bind(ExtraConfiguration.class).toInstance(extraConfiguration);
                 bind(XUnitToolInfo.class).toInstance(xUnitToolInfo);
                 bind(XUnitValidationService.class).in(Singleton.class);
                 bind(XUnitConversionService.class).in(Singleton.class);

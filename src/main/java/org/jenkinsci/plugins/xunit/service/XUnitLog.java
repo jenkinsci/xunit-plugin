@@ -26,17 +26,57 @@ package org.jenkinsci.plugins.xunit.service;
 
 import com.google.inject.Inject;
 import hudson.model.TaskListener;
+import org.jenkinsci.plugins.xunit.ExtraConfiguration;
+import org.jenkinsci.plugins.xunit.XUnitDefaultValues;
 
 import java.io.Serializable;
 
 public class XUnitLog implements Serializable {
 
+    public enum Level {
+        INFO, WARN, ERROR;
+
+        public boolean isActive(Level testedLevel) {
+            return testedLevel.ordinal() >= ordinal();
+        }
+
+        public static Level fromString(String value) {
+            if (value != null) {
+                return Enum.valueOf(Level.class, value);
+            }
+            return INFO;
+        }
+    }
+
     private TaskListener buildListener;
+    private ExtraConfiguration extraConfiguration;
 
     @Inject
     @SuppressWarnings("unused")
     void set(TaskListener buildListener) {
         this.buildListener = buildListener;
+    }
+
+    @Inject
+    @SuppressWarnings("unused")
+    void set(ExtraConfiguration extraConfiguration) {
+        this.extraConfiguration = extraConfiguration;
+    }
+
+    private XUnitLog.Level currentLevel() {
+        return extraConfiguration == null ? XUnitDefaultValues.LOGGING_LEVEL : extraConfiguration.getLogLevel();
+    }
+
+    private boolean logError() {
+        return currentLevel().isActive(Level.ERROR);
+    }
+
+    private boolean logWarn() {
+        return currentLevel().isActive(Level.WARN);
+    }
+
+    private boolean logInfo() {
+        return currentLevel().isActive(Level.INFO);
     }
 
     /**
@@ -45,7 +85,7 @@ public class XUnitLog implements Serializable {
      * @param message The message to be outputted
      */
     public void infoConsoleLogger(String message) {
-        buildListener.getLogger().println("[xUnit] [INFO] - " + message);
+        if (logInfo()) buildListener.getLogger().println("[xUnit] [INFO] - " + message);
     }
 
     /**
@@ -54,7 +94,7 @@ public class XUnitLog implements Serializable {
      * @param message The message to be outputted
      */
     public void errorConsoleLogger(String message) {
-        buildListener.getLogger().println("[xUnit] [ERROR] - " + message);
+        if (logError()) buildListener.getLogger().println("[xUnit] [ERROR] - " + message);
     }
 
     /**
@@ -63,7 +103,7 @@ public class XUnitLog implements Serializable {
      * @param message The message to be outputted
      */
     public void warningConsoleLogger(String message) {
-        buildListener.getLogger().println("[xUnit] [WARNING] - " + message);
+        if (logWarn()) buildListener.getLogger().println("[xUnit] [WARNING] - " + message);
     }
 
 }
