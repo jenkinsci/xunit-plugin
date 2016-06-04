@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-run id="2" testcasecount="267" result="Failed" total="3" passed="1" failed="1" inconclusive="0" skipped="1" asserts="4" engine-version="3.2.0.0" clr-version="4.0.30319.42000" start-time="2016-06-04 17:17:57Z" end-time="2016-06-04 17:18:52Z" duration="54.870289">
+    <command-line><![CDATA[..\packages\NUnit.Console.3.2.0\bin\nunit3-console.exe  ..\RSelenium\RSelenium.csproj --config=Mexico --where="method==AUT0027TestUnregisterUserRedirect or method==AUT0140TestSingleYearAndReducedPriceFilterCombinationInCars or method==AUT0513TestPrefixedSiteURLRedirect"    --workers=9]]></command-line>
+    <filter>
+        <or>
+            <method>AUT0027TestUnregisterUserRedirect</method>
+            <method>AUT0140TestSingleYearAndReducedPriceFilterCombinationInCars</method>
+            <method>AUT0513TestPrefixedSiteURLRedirect</method>
+        </or>
+    </filter>
+    <test-suite type="Project" id="2" name="RSelenium.csproj" fullname="C:\Program Files (x86)\Jenkins\workspace\InDevelopment\Selenium\RSelenium\RSelenium.csproj" testcasecount="267" result="Failed" site="Child" total="3" passed="1" failed="1" inconclusive="0" skipped="1" asserts="4">
+        <test-suite type="Assembly" id="1-1390" name="RSelenium.exe" fullname="C:\Program Files (x86)\Jenkins\workspace\InDevelopment\Selenium\RSelenium\bin\Mexico\RSelenium.exe" runstate="Runnable" testcasecount="267" result="Failed" site="Child" start-time="2016-06-04 17:17:57Z" end-time="2016-06-04 17:18:52Z" duration="54.772556" total="3" passed="1" failed="1" inconclusive="0" skipped="1" asserts="4">
+            <environment framework-version="3.2.0.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 6.3.9600.0" platform="Win32NT" cwd="C:\Program Files (x86)\Jenkins\workspace\InDevelopment\Selenium\RSelenium" machine-name="RQA" user="SYSTEM" user-domain="WORKGROUP" culture="en-US" uiculture="en-US" os-architecture="x86" />
+            <settings>
+                <setting name="BasePath" value="C:\Program Files (x86)\Jenkins\workspace\InDevelopment\Selenium\RSelenium\bin\Mexico\" />
+                <setting name="ActiveConfig" value="Mexico" />
+                <setting name="WorkDirectory" value="C:\Program Files (x86)\Jenkins\workspace\InDevelopment\Selenium\RSelenium" />
+                <setting name="NumberOfTestWorkers" value="9" />
+                <setting name="ImageRuntimeVersion" value="4.0.30319" />
+                <setting name="ImageTargetFrameworkName" value=".NETFramework,Version=v4.5" />
+                <setting name="ImageRequiresX86" value="True" />
+                <setting name="RunAsX86" value="True" />
+                <setting name="ImageRequiresDefaultAppDomainAssemblyResolver" value="False" />
+            </settings>
+            <properties>
+                <property name="_PID" value="4752" />
+                <property name="_APPDOMAIN" value="test-domain-RSelenium.csproj" />
+            </properties>
+            <failure>
+                <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-suite type="SetUpFixture" id="1-1000" name="RSelenium" fullname="RSelenium.SetUpFixture" classname="RSelenium.SetUpFixture" runstate="Runnable" testcasecount="267" result="Failed" site="Child" start-time="2016-06-04 17:17:57Z" end-time="2016-06-04 17:18:52Z" duration="54.742710" total="3" passed="1" failed="1" inconclusive="0" skipped="1" asserts="4">
+                <failure>
+                    <message><![CDATA[One or more child tests had errors]]></message>
+                </failure>
+                <output><![CDATA[Resetting test users: testuser@gmail.com, testuser1@gmail.com, testuser2@gmail.com, testuser3@gmail.com
+==== Test Parameters ====
+	Country: Mexico
+	Environment: TEST
+	Browser: FIREFOX
+	Driver: GRID
+	BaseUrl: http://stagingmx.hugintechnologies.com
+]]></output>
+                <test-suite type="TestSuite" id="1-1393" name="Tests" fullname="RSelenium.Tests" runstate="Runnable" testcasecount="253" result="Failed" site="Child" start-time="2016-06-04 17:18:12Z" end-time="2016-06-04 17:18:52Z" duration="39.287937" total="3" passed="1" failed="1" inconclusive="0" skipped="1" asserts="4">
+                    <failure>
+                        <message><![CDATA[One or more child tests had errors]]></message>
+                    </failure>
+                    <test-suite type="TestFixture" id="1-1020" name="AfterLiveTestCases" fullname="RSelenium.Tests.AfterLiveTestCases" classname="RSelenium.Tests.AfterLiveTestCases" runstate="Runnable" testcasecount="2" result="Skipped" label="Ignored" start-time="2016-06-04 17:18:12Z" end-time="2016-06-04 17:18:38Z" duration="25.819336" total="1" passed="0" failed="0" inconclusive="0" skipped="1" asserts="0">
+                        <properties>
+                            <property name="ParallelScope" value="Fixtures" />
+                        </properties>
+                        <reason>
+                            <message><![CDATA[One or more child tests were ignored]]></message>
+                        </reason>
+                        <output><![CDATA[***Quitting browser at end of fixture
+]]></output>
+                        <test-case id="1-1022" name="AUT0513TestPrefixedSiteURLRedirect" fullname="RSelenium.Tests.AfterLiveTestCases.AUT0513TestPrefixedSiteURLRedirect" methodname="AUT0513TestPrefixedSiteURLRedirect" classname="RSelenium.Tests.AfterLiveTestCases" runstate="Runnable" seed="2083519019" result="Skipped" label="Ignored" start-time="2016-06-04 17:18:35Z" end-time="2016-06-04 17:18:38Z" duration="3.514810" asserts="0">
+                            <properties>
+                                <property name="Category" value="Desktop" />
+                                <property name="Category" value="AfterLiveTest" />
+                                <property name="Category" value="InDevelopment" />
+                            </properties>
+                            <reason>
+                                <message><![CDATA[Test intentionally ignored due to environment constraints.This test is only applicable for the Live Environment]]></message>
+                            </reason>
+                            <output><![CDATA[==============================
+= Running Test: RSelenium.Tests.AfterLiveTestCases.AUT0513TestPrefixedSiteURLRedirect
+= Test Number: 3
+= Start Time: 2016/06/04 19:18:35
+= threadID: 1088
+= managedThreadId: 22
+[Test Case Description] : Check that the site URL redirect to live portal no matter the prefix used:- www.site URL- http://site URL/Ex:- http://www.allclassifieds.ca/ -http://allclassifieds.ca/ -www.allclassifieds.ca /All combinations should redirect to the Front Page of the live portal
+]]></output>
+                        </test-case>
+                    </test-suite>
+                    <test-suite type="TestFixture" id="1-1347" name="LoginTestCases" fullname="RSelenium.Tests.LoginTestCases" classname="RSelenium.Tests.LoginTestCases" runstate="Runnable" testcasecount="13" result="Passed" start-time="2016-06-04 17:18:12Z" end-time="2016-06-04 17:18:48Z" duration="35.692928" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+                        <properties>
+                            <property name="ParallelScope" value="Fixtures" />
+                        </properties>
+                        <output><![CDATA[***Quitting browser at end of fixture
+]]></output>
+                        <test-case id="1-1354" name="AUT0027TestUnregisterUserRedirect" fullname="RSelenium.Tests.LoginTestCases.AUT0027TestUnregisterUserRedirect" methodname="AUT0027TestUnregisterUserRedirect" classname="RSelenium.Tests.LoginTestCases" runstate="Runnable" seed="1086435579" result="Passed" start-time="2016-06-04 17:18:27Z" end-time="2016-06-04 17:18:48Z" duration="21.316192" asserts="0">
+                            <properties>
+                                <property name="Category" value="Desktop" />
+                                <property name="Category" value="Mobile" />
+                            </properties>
+                            <output><![CDATA[==============================
+= Running Test: RSelenium.Tests.LoginTestCases.AUT0027TestUnregisterUserRedirect
+= Test Number: 2
+= Start Time: 2016/06/04 19:18:27
+= threadID: 1616
+= managedThreadId: 10
+[Test Case Description] : Enter a valid, unregistered email address and click 'send'.Check that the user is redirected to Regiter page with the scope to register an account .
+User: 160604-191829621@RSelenium.work, Aa1oevKLrU, False, True
+]]></output>
+                        </test-case>
+                    </test-suite>
+                    <test-suite type="TestFixture" id="1-1052" name="FilterTestCases" fullname="RSelenium.Tests.FilterTestCases" classname="RSelenium.Tests.FilterTestCases" runstate="Runnable" testcasecount="25" result="Failed" site="Child" start-time="2016-06-04 17:18:12Z" end-time="2016-06-04 17:18:52Z" duration="39.269244" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="4">
+                        <properties>
+                            <property name="ParallelScope" value="Fixtures" />
+                        </properties>
+                        <failure>
+                            <message><![CDATA[One or more child tests had errors]]></message>
+                        </failure>
+                        <test-case id="1-1080" name="AUT0140TestSingleYearAndReducedPriceFilterCombinationInCars" fullname="RSelenium.Tests.FilterTestCases.AUT0140TestSingleYearAndReducedPriceFilterCombinationInCars" methodname="AUT0140TestSingleYearAndReducedPriceFilterCombinationInCars" classname="RSelenium.Tests.FilterTestCases" runstate="Runnable" seed="2135584091" result="Failed" label="Error" start-time="2016-06-04 17:18:20Z" end-time="2016-06-04 17:18:52Z" duration="31.869764" asserts="4">
+                            <properties>
+                                <property name="Category" value="Desktop" />
+                            </properties>
+                            <failure>
+                                <message><![CDATA[OpenQA.Selenium.NoSuchElementException : Unable to locate element: {"method":"css selector","selector":"div.noUi-value-large[style='left: 100.00000%']"}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.52.0', revision: '4c2593c', time: '2016-02-11 19:06:42'
+System info: host: 'Azure0604065212', ip: '10.1.1.4', os.name: 'Linux', os.arch: 'amd64', os.version: '3.19.0-33-generic', java.version: '1.7.0_95'
+Driver info: driver.version: unknown
+TearDown : NUnit.Framework.AssertionException :
+
+]]></message>
+                                <stack-trace><![CDATA[   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebElement.FindElement(String mechanism, String value)
+   at OpenQA.Selenium.Remote.RemoteWebElement.FindElementByCssSelector(String cssSelector)
+   at OpenQA.Selenium.By.<>c__DisplayClass1e.<CssSelector>b__1c(ISearchContext context)
+   at OpenQA.Selenium.By.FindElement(ISearchContext context)
+   at OpenQA.Selenium.Remote.RemoteWebElement.FindElement(By by)
+   at RSelenium.PageObjects.Components.SliderRangeFilter.get_SliderMax() in C:\Program Files (x86)\Jenkins\workspace\InDevelopment\Selenium\RSelenium\PageObjects\Components\Filter.cs:line 271
+   at RSelenium.PageObjects.Components.SliderRangeFilter.GetSliderMaxValue() in C:\Program Files (x86)\Jenkins\workspace\InDevelopment\Selenium\RSelenium\PageObjects\Components\Filter.cs:line 361
+   at RSelenium.PageObjects.Components.SliderRangeFilter.GetSliderIncrement() in C:\Program Files (x86)\Jenkins\workspace\InDevelopment\Selenium\RSelenium\PageObjects\Components\Filter.cs:line 365
+   at RSelenium.Tests.FilterTestCases.AUT0140TestSingleYearAndReducedPriceFilterCombinationInCars() in C:\Program Files (x86)\Jenkins\workspace\InDevelopment\Selenium\RSelenium\Tests\FilterTestCases.cs:line 379
+--TearDown
+   at RSelenium.SeleniumBase.TestTearDown() in C:\Program Files (x86)\Jenkins\workspace\InDevelopment\Selenium\RSelenium\SeleniumBase.cs:line 101]]></stack-trace>
+                            </failure>
+                            <output><![CDATA[==============================
+= Running Test: RSelenium.Tests.FilterTestCases.AUT0140TestSingleYearAndReducedPriceFilterCombinationInCars
+= Test Number: 1
+= Start Time: 2016/06/04 19:18:20
+= threadID: 2784
+= managedThreadId: 20
+[Test Case Description] : Go to Cars category and in Results page enter the same value from the both fields for year sliderange (From=To=2007) and check Reduced price box Check that the page is refreshed and the search is performed.
+MAIN CATEGORY     Vehículos
+CATEGORY     Autos y Camionetas
+Filters available for category : Autos y Camionetas  are motoring__body_type, motoring__transmission, motoring__make, motoring__fuel_type, Category, Category, Category, Category, ad__price, motoring__engine_displacement_cubic_centimeters, motoring__mileage_kilometers, motoring__model_year
+[[SCREENSHOT|/artifact/Selenium/RSelenium/bin/Mexico/screenshots/AUT0140TestSingleYearAndReducedPriceFilterCombinationInCars_00_20160604-19.18.48.png]]
+
+]]></output>
+                        </test-case>
+                    </test-suite>
+                </test-suite>
+            </test-suite>
+        </test-suite>
+    </test-suite>
+</test-run>
