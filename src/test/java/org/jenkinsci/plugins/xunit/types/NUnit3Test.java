@@ -23,44 +23,18 @@
 
 package org.jenkinsci.plugins.xunit.types;
 
-import org.jenkinsci.lib.dtkit.model.InputMetricXSL;
-import org.jenkinsci.lib.dtkit.model.InputType;
-import org.jenkinsci.lib.dtkit.model.OutputMetric;
-import org.jenkinsci.plugins.xunit.types.model.JUnitModel;
+import org.junit.Test;
 
-public class NUnit extends InputMetricXSL {
+public class NUnit3Test extends AbstractTest {
 
-    @Override
-    public InputType getToolType() {
-        return InputType.TEST;
+    @Test
+    public void testTransformation() throws Exception {
+        convertAndValidate(NUnit3.class, "nunit3/NUnit-simple.xml", "nunit3/JUnit-simple.xml");
     }
 
-    @Override
-    public String getToolName() {
-        return "NUnit";
+    @Test
+    public void testTransformedIgnored() throws Exception {
+        convertAndValidate(NUnit3.class, "nunit3/NUnit-pass-fail-skip-unicode.xml", "nunit3/JUnit-pass-fail-skip-unicode.xml");
     }
 
-    @Override
-    public String getToolVersion() {
-        return "2";
-    }
-
-    @Override
-    public boolean isDefault() {
-        return true;
-    }
-
-    @Override
-    public String getXslName() {
-        return "nunit-1.0-to-junit-2.xsl";
-    }
-
-    @Override
-    public String[] getInputXsdNameList() {
-        return null;
-    }
-
-    public OutputMetric getOutputFormatType() {
-        return JUnitModel.LATEST;
-    }
 }
