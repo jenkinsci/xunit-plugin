@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 'schemaLocation' generates a SAX warning -->
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd"
+           name="com.example.ComplexTest"
+           time="0.07" tests="1" errors="0" skipped="0" failures="0">
+    <properties>
+        <!-- 'property' generates a SAX error -->
+        <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"> </property>
+    </properties>
+    <testcase name="shouldNotFail" classname="com.example.ComplexTest" time="0.06"/>
+</testsuite>
