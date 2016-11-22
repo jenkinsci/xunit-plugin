@@ -45,10 +45,7 @@ import jenkins.tasks.SimpleBuildStep;
 import org.jenkinsci.lib.dryrun.DryRun;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
-import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
-import org.jenkinsci.plugins.xunit.threshold.SkippedThreshold;
-import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
-import org.jenkinsci.plugins.xunit.threshold.XUnitThresholdDescriptor;
+import org.jenkinsci.plugins.xunit.threshold.*;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 import java.io.IOException;
@@ -65,6 +62,10 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable, Si
     private TestType[] types;
     private XUnitThreshold[] thresholds;
     private int thresholdMode;
+    private boolean shouldFailIfFrequentTest;
+    private String ageFailedTest;
+    private String unstableTests;
+    private String historyBuilds;
     private ExtraConfiguration extraConfiguration;
 
     public XUnitPublisher(TestType[] types, XUnitThreshold[] thresholds) {
@@ -74,7 +75,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable, Si
     }
 
     @DataBoundConstructor
-    public XUnitPublisher(TestType[] tools, XUnitThreshold[] thresholds, int thresholdMode, String testTimeMargin) {
+    public XUnitPublisher(TestType[] tools, XUnitThreshold[] thresholds, int thresholdMode, boolean shouldFailIfFrequentTest, String ageFailedTest, String unstableTests, String historyBuilds, String testTimeMargin) {
         this.types = tools;
         this.thresholds = thresholds;
         this.thresholdMode = thresholdMode;
@@ -82,6 +83,10 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable, Si
         if (testTimeMargin != null && testTimeMargin.trim().length() != 0) {
             longTestTimeMargin = Long.parseLong(testTimeMargin);
         }
+        this.shouldFailIfFrequentTest = shouldFailIfFrequentTest;
+        this.ageFailedTest = ageFailedTest;
+        this.unstableTests = unstableTests;
+        this.historyBuilds = historyBuilds;
         this.extraConfiguration = new ExtraConfiguration(longTestTimeMargin);
     }
 
@@ -118,6 +123,22 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable, Si
         return extraConfiguration;
     }
 
+    public boolean isShouldFailIfFrequentTest() {
+        return shouldFailIfFrequentTest;
+    }
+
+    public String getAgeFailedTest() {
+        return ageFailedTest;
+    }
+
+    public String getUnstableTests() {
+        return unstableTests;
+    }
+
+    public String getHistoryBuilds() {
+        return historyBuilds;
+    }
+
     @SuppressWarnings("deprecation")
     @Override
     public Action getProjectAction(AbstractProject<?, ?> project) {
@@ -138,14 +159,14 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable, Si
     @Override
     public void perform(final Run<?, ?> build, FilePath workspace, Launcher launcher, final TaskListener listener)
             throws InterruptedException, IOException {
-        XUnitProcessor xUnitProcessor = new XUnitProcessor(getTypes(), getThresholds(), getThresholdMode(), getExtraConfiguration());
+        XUnitProcessor xUnitProcessor = new XUnitProcessor(getTypes(), getThresholds(), getThresholdMode(), isShouldFailIfFrequentTest(), getAgeFailedTest(), getUnstableTests(), getHistoryBuilds(), getExtraConfiguration());
         xUnitProcessor.performXUnit(false, build, workspace, listener);
     }
 
     public boolean performDryRun(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener)
             throws InterruptedException, IOException {
         try {
-            XUnitProcessor xUnitProcessor = new XUnitProcessor(getTypes(), getThresholds(), getThresholdMode(), getExtraConfiguration());
+            XUnitProcessor xUnitProcessor = new XUnitProcessor(getTypes(), getThresholds(), getThresholdMode(), isShouldFailIfFrequentTest(), getAgeFailedTest(), getUnstableTests(), getHistoryBuilds(), getExtraConfiguration());
             xUnitProcessor.performXUnit(true, build, build.getWorkspace(), listener);
         } catch (Throwable t) {
             listener.getLogger().println("[ERROR] - There is an error: " + t.getCause().getMessage());

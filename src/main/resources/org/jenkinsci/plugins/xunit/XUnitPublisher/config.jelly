@@ -49,6 +49,43 @@ THE SOFTWARE.
                 <f:radio name="thresholdMode" value="2" checked="${instance.thresholdMode==2}"/>
                 <label class="attach-previous">Use a percent of tests</label>
             </f:entry>
+            <f:entry title="${%Fails on consecutive test}">
+              <f:checkbox name="shouldFailIfFrequentTest" checked="${instance.shouldFailIfFrequentTest}"/>
+            </f:entry>
+            <f:entry field="historyMode" title="${%Thresholds for recurrent tests}">
+                <table width="50%" border='0' cellspacing='0' padding="0">
+                    <thead>
+                        <tr>
+                            <td>
+                                <img src="${rootURL}/images/16x16/yellow.gif" alt="100%"/>
+                                ${%Max age for a failed test}
+                            </td>
+                            <td>
+                                <img src="${rootURL}/images/16x16/yellow.gif" alt="100%"/>
+                                ${%Max number of unstable tests}
+                            </td>
+                            <td>
+                                <img src="${rootURL}/images/16x16/yellow.gif" alt="100%"/>
+                                ${%Number of history builds}
+                            </td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <f:textbox name="ageFailedTest" field="ageFailedTest"/>
+                            </td>
+                            <td>
+                                <f:textbox name="unstableTests" field="unstableTests"/>
+                            </td>
+                            <td>
+                                <f:textbox name="historyBuilds" field="historyBuilds"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </f:entry>
         </f:advanced>
 
     </f:block>

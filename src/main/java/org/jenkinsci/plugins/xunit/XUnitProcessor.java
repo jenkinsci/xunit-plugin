@@ -36,6 +36,7 @@ import hudson.model.Result;
 import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.remoting.VirtualChannel;
+import hudson.tasks.junit.CaseResult;
 import hudson.tasks.junit.TestResult;
 import hudson.tasks.junit.TestResultAction;
 import org.apache.tools.ant.DirectoryScanner;
@@ -50,6 +51,8 @@ import org.jenkinsci.plugins.xunit.types.CustomType;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Gregory Boissinot
@@ -59,15 +62,23 @@ public class XUnitProcessor implements Serializable {
     private TestType[] types;
     private XUnitThreshold[] thresholds;
     private int thresholdMode;
+    private boolean shouldFailIfFrequentTest;
+    private String ageFailedTest;
+    private String unstableTests;
+    private String historyBuilds;
     private ExtraConfiguration extraConfiguration;
 
-    public XUnitProcessor(TestType[] types, XUnitThreshold[] thresholds, int thresholdMode, ExtraConfiguration extraConfiguration) {
+    public XUnitProcessor(TestType[] types, XUnitThreshold[] thresholds, int thresholdMode, boolean shouldFailIfFrequentTest, String ageFailedTest, String unstableTests, String historyBuilds, ExtraConfiguration extraConfiguration) {
         this.types = types;
         if (types == null) {
             throw new NullPointerException("The types section is required.");
         }
         this.thresholds = thresholds;
         this.thresholdMode = thresholdMode;
+        this.shouldFailIfFrequentTest = shouldFailIfFrequentTest;
+        this.ageFailedTest = ageFailedTest;
+        this.unstableTests = unstableTests;
+        this.historyBuilds = historyBuilds;
         this.extraConfiguration = extraConfiguration;
     }
 
@@ -105,8 +116,21 @@ public class XUnitProcessor implements Serializable {
             Result result = getBuildStatus(build, xUnitLog);
             if (result != null) {
                 if (!dryRun) {
-                    xUnitLog.infoConsoleLogger("Setting the build status to " + result);
-                    build.setResult(result);
+                    if(result.isWorseThan(Result.SUCCESS)) {
+                        xUnitLog.infoConsoleLogger("Threshold of failed tests was exceeded.");
+                        xUnitLog.infoConsoleLogger("Setting the build status to " + result);
+                        build.setResult(result);
+                    } else {
+                        if(shouldFailIfFrequentTest && isConsecutiveTest(xUnitLog, build)) {
+                            xUnitLog.infoConsoleLogger("Setting the build status to " + Result.UNSTABLE);
+                            build.setResult(Result.UNSTABLE);
+                        } else if (isValid(ageFailedTest) && isValid(historyBuilds) && isValid(historyBuilds) && isRecurrentTest(xUnitLog, build)){
+                            xUnitLog.infoConsoleLogger("Setting the build status to " + Result.UNSTABLE);
+                            build.setResult(Result.UNSTABLE);
+                        }
+                    }
+
+
                 } else {
                     xUnitLog.infoConsoleLogger("Through the xUnit plugin, the build status will be set to " + result.toString());
                 }
@@ -117,6 +141,80 @@ public class XUnitProcessor implements Serializable {
         } catch (XUnitException xe) {
             xUnitLog.errorConsoleLogger("The plugin hasn't been performed correctly: " + xe.getMessage());
             build.setResult(Result.FAILURE);
+            return false;
+        }
+    }
+
+    private boolean isRecurrentTest(XUnitLog xUnitLog, Run<?, ?> build) {
+        List<CaseResult> recurrentTests = new ArrayList<CaseResult>();
+
+        List<CaseResult> failedTests = build.getAction(TestResultAction.class).getFailedTests();
+        if(failedTests.size() == 0) {
+            xUnitLog.infoConsoleLogger("There are no failed tests.");
+            return false;
+        }
+
+        xUnitLog.infoConsoleLogger("Current build number is " + build.getNumber());
+
+        for (CaseResult currentFailedTest : failedTests) {
+            xUnitLog.infoConsoleLogger("Checking test on " + historyBuilds + " builds \t\t" + currentFailedTest.getSimpleName() + "#" + currentFailedTest.getName());
+            int numberOfFails = numberOfFails(xUnitLog, currentFailedTest, build);
+            if (numberOfFails >= convertToInteger(ageFailedTest)) {
+                xUnitLog.infoConsoleLogger("Recurring test found (" + numberOfFails + "/" + historyBuilds + ").\t\t" + currentFailedTest.getSimpleName() + "#" + currentFailedTest.getName());
+                recurrentTests.add(currentFailedTest);
+            }
+        }
+
+        if (recurrentTests.size() >= convertToInteger(unstableTests)) {
+            xUnitLog.warningConsoleLogger("There are " + recurrentTests.size() + " recurring tests:");
+            for (CaseResult caseResult : recurrentTests) {
+                xUnitLog.warningConsoleLogger(caseResult.getSimpleName() + "#" + caseResult.getName());
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private int numberOfFails(XUnitLog xUnitLog, CaseResult currentFailedTest, Run<?, ?> build) {
+        List<? extends Run<?, ?>> previousBuilds = build.getPreviousBuildsOverThreshold(convertToInteger(historyBuilds), Result.FAILURE);
+        int count = 0;
+        for (Run r : previousBuilds) {
+            TestResultAction previousTestAction = r.getAction(TestResultAction.class);
+            if(previousTestAction != null) {
+                boolean hasFailedOnBuild = false;
+                for (CaseResult previousFailedTest : previousTestAction.getFailedTests()) {
+                    if (currentFailedTest.compareTo(previousFailedTest) == 0) {
+                        hasFailedOnBuild = true;
+                        count++;
+                    }
+                }
+                if (hasFailedOnBuild) {
+                    xUnitLog.infoConsoleLogger("Build #" + r.getNumber() + ".\t Test failed.");
+                }
+            }
+        }
+
+        return count;
+    }
+
+    private boolean isConsecutiveTest(XUnitLog xUnitLog, Run<?, ?> build) {
+        List<CaseResult> testsExceededAge = new ArrayList<CaseResult>();
+
+        TestResultAction testResultAction = getTestResultAction(build);
+        List<CaseResult> failedTests = testResultAction.getFailedTests();
+        for (CaseResult caseResult : failedTests) {
+            if (caseResult.getAge() > 1) {
+                testsExceededAge.add(caseResult);
+            }
+        }
+
+        if (!testsExceededAge.isEmpty()) {
+            for (CaseResult caseResult : testsExceededAge) {
+                xUnitLog.warningConsoleLogger("Test '" + caseResult.getFullDisplayName() + "' failed consecutive and has age " + caseResult.getAge());
+            }
+            return true;
+        } else {
             return false;
         }
     }
@@ -432,4 +530,25 @@ public class XUnitProcessor implements Serializable {
         }
     }
 
+    private boolean isValid(String value) {
+        if (value == null) {
+            return false;
+        }
+
+        if (value.trim().length() == 0) {
+            return false;
+        }
+
+        try {
+            Integer.parseInt(value);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+
+        return true;
+    }
+
+    private int convertToInteger(String value) {
+        return Integer.parseInt(value);
+    }
 }
