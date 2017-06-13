@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="4" failures="2" disabled="1" errors="0" time="0" name="AllTests">
+    <testsuite name="TestSuite" tests="4" failures="2" disabled="1" errors="0" time="0">
+        <testcase name="Ok_Testcase" status="run" time="0" classname="TestSuite"/>
+        <testcase name="Failing_Testcase" status="run" time="0" classname="TestSuite">
+            <failure message="Value of: false&#x0A;  Actual: false&#x0A;Expected: true" type=""><![CDATA[Test_moca_bl.cpp:271
+Value of: false
+  Actual: false
+Expected: true]]></failure>
+        </testcase>
+        <testcase name="Error_Testcase" status="run" time="0" classname="TestSuite">
+            <failure message="Unknown C++ exception thrown in the test body." type=""><![CDATA[unknown file
+Unknown C++ exception thrown in the test body.]]></failure>
+        </testcase>
+        <testcase name="DISABLED_Testcase" status="notrun" time="0" classname="TestSuite"/>
+    </testsuite>
+</testsuites>

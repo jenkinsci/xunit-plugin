@@ -73,6 +73,13 @@ THE SOFTWARE.
                     </tr>
                 </table>
             </f:entry>
+            <j:invokeStatic var="testDataPublisherDescriptors"
+                            className="hudson.tasks.junit.TestDataPublisher" method="all" />
+            <j:if test="${testDataPublisherDescriptors.size() > 0}">
+                <f:entry title="Additional test report features" field="testDataPublishers">
+                    <f:repeatableHeteroProperty field="testDataPublishers" hasHeader="true" oneEach="true"/>
+                </f:entry>
+            </j:if>
         </f:advanced>
     </f:block>
 

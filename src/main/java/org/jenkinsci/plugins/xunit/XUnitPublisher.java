@@ -26,9 +26,16 @@ package org.jenkinsci.plugins.xunit;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+import javax.annotation.Nonnull;
+
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 import javax.annotation.CheckForNull;
 
+import hudson.model.Descriptor;
 import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
@@ -38,6 +45,7 @@ import org.jenkinsci.plugins.xunit.threshold.SkippedThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThresholdDescriptor;
 import org.kohsuke.stapler.DataBoundConstructor;
+import org.kohsuke.stapler.DataBoundSetter;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
@@ -49,13 +57,16 @@ import hudson.model.AbstractProject;
 import hudson.model.Action;
 import hudson.model.Result;
 import hudson.model.Run;
+import hudson.model.Saveable;
 import hudson.model.TaskListener;
 import hudson.tasks.BuildStepDescriptor;
 import hudson.tasks.BuildStepMonitor;
 import hudson.tasks.Publisher;
 import hudson.tasks.Recorder;
 import hudson.tasks.junit.JUnitResultArchiver;
+import hudson.tasks.junit.TestDataPublisher;
 import hudson.tasks.test.TestResultProjectAction;
+import hudson.util.DescribableList;
 import jenkins.tasks.SimpleBuildStep;
 
 /**
@@ -70,6 +81,11 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
     private XUnitThreshold[] thresholds;
     private int thresholdMode;
     private ExtraConfiguration extraConfiguration;
+    /**
+     * for compatibility reasons, can be null.
+     */
+    @SuppressFBWarnings(value="SE_BAD_FIELD", justification="Known non-serializable field")
+    private DescribableList<TestDataPublisher, Descriptor<TestDataPublisher>> testDataPublishers;
 
     @DataBoundConstructor
     public XUnitPublisher(@CheckForNull TestType[] tools, @CheckForNull XUnitThreshold[] thresholds, int thresholdMode, @CheckForNull String testTimeMargin) {
@@ -124,7 +140,7 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
             throws InterruptedException, IOException {
         try {
             XUnitProcessor xUnitProcessor = new XUnitProcessor(getTools(), getThresholds(), getThresholdMode(), getExtraConfiguration());
-            xUnitProcessor.process(build, workspace, listener);
+            xUnitProcessor.process(build, workspace, listener, launcher, testDataPublishers);
         } catch(TransformerException e) {
             // also if we throws AbortException the all published steps are always performed. I prefer hide stacktrace.
             listener.error("The plugin hasn't been performed correctly: " + e.getMessage());
@@ -135,6 +151,20 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
     @Override
     public BuildStepMonitor getRequiredMonitorService() {
         return BuildStepMonitor.NONE;
+    }
+
+    public @Nonnull List<TestDataPublisher> getTestDataPublishers() {
+        return testDataPublishers == null ? Collections.<TestDataPublisher>emptyList() : testDataPublishers;
+    }
+
+    /**
+     * Configures the {@link TestDataPublisher}s for this custom reports publisher, to process the recorded data.
+     * @param testDataPublishers the test data publishers to set for this custom reports publisher
+     */
+    @DataBoundSetter
+    public final void setTestDataPublishers(@Nonnull List<TestDataPublisher> testDataPublishers) {
+        this.testDataPublishers = new DescribableList<>(Saveable.NOOP);
+        this.testDataPublishers.addAll(testDataPublishers);
     }
 
     @Symbol("xunit")
