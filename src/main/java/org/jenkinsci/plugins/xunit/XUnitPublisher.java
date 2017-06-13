@@ -26,8 +26,12 @@ package org.jenkinsci.plugins.xunit;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 import javax.annotation.CheckForNull;
+import javax.annotation.Nonnull;
 
 import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
@@ -38,15 +42,18 @@ import org.jenkinsci.plugins.xunit.threshold.SkippedThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThresholdDescriptor;
 import org.kohsuke.stapler.DataBoundConstructor;
+import org.kohsuke.stapler.DataBoundSetter;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
+import hudson.AbortException;
 import hudson.DescriptorExtensionList;
 import hudson.Extension;
 import hudson.FilePath;
 import hudson.Launcher;
 import hudson.model.AbstractProject;
 import hudson.model.Action;
+import hudson.model.Descriptor;
 import hudson.model.Result;
 import hudson.model.Run;
 import hudson.model.TaskListener;
@@ -55,6 +62,7 @@ import hudson.tasks.BuildStepMonitor;
 import hudson.tasks.Publisher;
 import hudson.tasks.Recorder;
 import hudson.tasks.junit.JUnitResultArchiver;
+import hudson.tasks.junit.TestDataPublisher;
 import hudson.tasks.test.TestResultProjectAction;
 import jenkins.tasks.SimpleBuildStep;
 
@@ -70,6 +78,7 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
     private XUnitThreshold[] thresholds;
     private int thresholdMode;
     private ExtraConfiguration extraConfiguration;
+    private Set<TestDataPublisher> testDataPublishers;
 
     @DataBoundConstructor
     public XUnitPublisher(@CheckForNull TestType[] tools, @CheckForNull XUnitThreshold[] thresholds, int thresholdMode, @CheckForNull String testTimeMargin) {
@@ -78,11 +87,13 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
         this.thresholdMode = thresholdMode;
         long longTestTimeMargin = XUnitUtil.parsePositiveLong(testTimeMargin, XUnitDefaultValues.TEST_REPORT_TIME_MARGING);
         this.extraConfiguration = new ExtraConfiguration(longTestTimeMargin);
+        this.testDataPublishers = Collections.<TestDataPublisher> emptySet();
     }
 
     /*
      * Needed to support Snippet Generator and Workflow properly.
      */
+    @Nonnull
     public TestType[] getTools() {
         return tools;
     }
@@ -90,10 +101,15 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
     /*
      * Needed to support Snippet Generator and Workflow properly
      */
+    @Nonnull
     public String getTestTimeMargin() {
         return String.valueOf(getExtraConfiguration().getTestTimeMargin());
     }
 
+    /*
+     * Needed to support Snippet Generator and Workflow properly
+     */
+    @Nonnull
     public XUnitThreshold[] getThresholds() {
         return thresholds;
     }
@@ -102,11 +118,31 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
         return thresholdMode;
     }
 
+    @Nonnull
     public ExtraConfiguration getExtraConfiguration() {
         if (extraConfiguration == null) {
             extraConfiguration = new ExtraConfiguration(XUnitDefaultValues.TEST_REPORT_TIME_MARGING);
         }
         return extraConfiguration;
+    }
+
+    public @Nonnull Set<TestDataPublisher> getTestDataPublishers() {
+        return testDataPublishers;
+    }
+
+    /**
+     * Configures the {@link TestDataPublisher}s for this custom reports
+     * publisher, to process the recorded data.
+     *
+     * @param testDataPublishers
+     *            the test data publishers to set for this custom reports
+     *            publisher
+     */
+    @DataBoundSetter
+    public void setTestDataPublishers(@CheckForNull Set<TestDataPublisher> testDataPublishers) {
+        this.testDataPublishers = testDataPublishers != null
+                ? new LinkedHashSet<>(testDataPublishers)
+                : Collections.<TestDataPublisher> emptySet();
     }
 
     @SuppressWarnings("deprecation")
@@ -124,9 +160,9 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
             throws InterruptedException, IOException {
         try {
             XUnitProcessor xUnitProcessor = new XUnitProcessor(getTools(), getThresholds(), getThresholdMode(), getExtraConfiguration());
-            xUnitProcessor.process(build, workspace, listener);
-        } catch(TransformerException e) {
-            // also if we throws AbortException the all published steps are always performed. I prefer hide stacktrace.
+            xUnitProcessor.process(build, workspace, listener, launcher, testDataPublishers);
+        } catch(AbortException | TransformerException e) {
+            // also if we throws AbortException the all publisher steps are always performed. I prefer hide the stacktrace.
             listener.error("The plugin hasn't been performed correctly: " + e.getMessage());
             build.setResult(Result.FAILURE);
         }
@@ -165,16 +201,12 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
             return TestTypeDescriptor.all();
         }
 
-        public DescriptorExtensionList<XUnitThreshold, XUnitThresholdDescriptor<?>> getListXUnitThresholdDescriptors() {
-            return XUnitThresholdDescriptor.all();
+        public DescriptorExtensionList<TestDataPublisher, Descriptor<TestDataPublisher>> getListTestDataPublisherDescriptors() {
+            return hudson.tasks.junit.TestDataPublisher.all();
         }
 
-        public XUnitThreshold[] getListXUnitThresholdInstance() {
-            return new XUnitThreshold[]{
-                    new FailedThreshold(),
-                    new SkippedThreshold()/*,
-                    new PassedThreshold()*/
-            };
+        public DescriptorExtensionList<XUnitThreshold, XUnitThresholdDescriptor<?>> getListXUnitThresholdDescriptors() {
+            return XUnitThresholdDescriptor.all();
         }
 
     }

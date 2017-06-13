@@ -29,6 +29,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Set;
 import java.util.UUID;
 
 import javax.annotation.CheckForNull;
@@ -58,11 +60,13 @@ import com.google.inject.Guice;
 import com.google.inject.Singleton;
 
 import hudson.FilePath;
+import hudson.Launcher;
 import hudson.Util;
 import hudson.model.Result;
 import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.remoting.VirtualChannel;
+import hudson.tasks.junit.TestDataPublisher;
 import hudson.tasks.junit.TestResult;
 import hudson.tasks.junit.TestResultAction;
 import jenkins.model.Jenkins;
@@ -139,7 +143,8 @@ public class XUnitProcessor {
         this.processorId = UUID.randomUUID().toString();
     }
 
-    public void process(Run<?, ?> build, FilePath workspace, TaskListener listener) throws IOException, InterruptedException {
+    public void process(Run<?, ?> build, FilePath workspace, TaskListener listener, Launcher launcher, @Nonnull Set<TestDataPublisher> testDataPublishers)
+     throws IOException, InterruptedException {
         logger = new XUnitLog(listener);
         logger.info("Starting to record.");
 
@@ -150,7 +155,7 @@ public class XUnitProcessor {
             return;
         }
 
-        TestResult testResult = recordTestResult(build, workspace, listener);
+        TestResult testResult = recordTestResult(build, workspace, listener, launcher, testDataPublishers);
 
         processDeletion(workspace);
 
@@ -324,7 +329,9 @@ public class XUnitProcessor {
 
     private TestResult recordTestResult(Run<?, ?> build,
                                         FilePath workspace,
-                                        TaskListener listener) throws IOException, InterruptedException {
+                                        TaskListener listener,
+                                        Launcher launcher,
+                                        Set<TestDataPublisher> testDataPublishers) throws IOException, InterruptedException {
         TestResultAction existingAction = build.getAction(TestResultAction.class);
         final long buildTime = build.getTimestamp().getTimeInMillis();
         final long nowMaster = System.currentTimeMillis();
@@ -342,6 +349,14 @@ public class XUnitProcessor {
             result.tally(); // force re-calculus of counters
             if (result.getPassCount() == 0 && result.getFailCount() == 0) {
                 logger.warn(Messages.xUnitProcessor_emptyReport());
+            }
+
+            // decorates reports with extra informations
+            for (TestDataPublisher tdp : testDataPublishers) {
+                TestResultAction.Data d = tdp.contributeTestData(build, workspace, launcher, listener, result);
+                if (d != null) {
+                    action.addData(d);
+                }
             }
 
             if (existingAction == null) {
