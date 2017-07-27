@@ -6,6 +6,7 @@ import hudson.model.Result;
 import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.tasks.junit.TestResultAction;
+import hudson.tasks.junit.TestResultSummary;
 import hudson.tasks.junit.pipeline.JUnitResultsStep;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.workflow.actions.TagsAction;
@@ -18,7 +19,7 @@ import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
 
 import javax.annotation.Nonnull;
 
-public class XUnitResultsStepExecution extends SynchronousStepExecution<Void> {
+public class XUnitResultsStepExecution extends SynchronousStepExecution<TestResultSummary> {
     private transient XUnitResultsStep step;
 
     public XUnitResultsStepExecution(@Nonnull XUnitResultsStep step, StepContext context) {
@@ -27,7 +28,7 @@ public class XUnitResultsStepExecution extends SynchronousStepExecution<Void> {
     }
 
     @Override
-    protected Void run() throws Exception {
+    protected TestResultSummary run() throws Exception {
         FilePath workspace = getContext().get(FilePath.class);
         workspace.mkdirs();
         Run<?,?> run = getContext().get(Run.class);
@@ -60,10 +61,10 @@ public class XUnitResultsStepExecution extends SynchronousStepExecution<Void> {
                 tagsAction.addTag(JUnitResultsStep.HAS_TEST_RESULTS_TAG_NAME, "true");
                 node.addAction(tagsAction);
             }
-
+            return new TestResultSummary(action.getResult().getResultByRunAndNode(run.getExternalizableId(), nodeId));
         }
 
-        return null;
+        return new TestResultSummary();
     }
 
     private static final long serialVersionUID = 1L;
