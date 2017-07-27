@@ -31,5 +31,5 @@ import org.jenkinsci.lib.dtkit.model.AbstractOutputMetric;
  */
 public class JUnitModel {
 
-    public static AbstractOutputMetric LATEST = new JUnit10();
+    public final static AbstractOutputMetric LATEST = new JUnit10();
 }

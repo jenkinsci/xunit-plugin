@@ -27,6 +27,7 @@ package org.jenkinsci.plugins.xunit;
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Singleton;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import hudson.FilePath;
 import hudson.Util;
 import hudson.model.AbstractBuild;
@@ -42,18 +43,22 @@ import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
 import org.jenkinsci.lib.dtkit.model.InputMetric;
 import org.jenkinsci.lib.dtkit.type.TestType;
+import org.jenkinsci.plugins.workflow.graph.FlowNode;
 import org.jenkinsci.plugins.xunit.exception.XUnitException;
 import org.jenkinsci.plugins.xunit.service.*;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
 import org.jenkinsci.plugins.xunit.types.CustomType;
 
+import javax.annotation.CheckForNull;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.Arrays;
 
 /**
  * @author Gregory Boissinot
  */
+@SuppressFBWarnings(value="RV_RETURN_VALUE_IGNORED_BAD_PRACTICE", justification = "generatedJunitDir.mkdirs() result is not needed")
 public class XUnitProcessor implements Serializable {
     private static final long serialVersionUID = 1L;
     private TestType[] types;
@@ -62,21 +67,30 @@ public class XUnitProcessor implements Serializable {
     private ExtraConfiguration extraConfiguration;
 
     public XUnitProcessor(TestType[] types, XUnitThreshold[] thresholds, int thresholdMode, ExtraConfiguration extraConfiguration) {
-        this.types = types;
         if (types == null) {
             throw new NullPointerException("The types section is required.");
         }
-        this.thresholds = thresholds;
+        this.types = Arrays.copyOf(types, types.length);
+        this.thresholds = Arrays.copyOf(thresholds, thresholds.length);
         this.thresholdMode = thresholdMode;
         this.extraConfiguration = extraConfiguration;
     }
 
     public boolean performXunit(boolean dryRun, AbstractBuild<?, ?> build, BuildListener listener)
             throws IOException, InterruptedException {
-        return performXUnit(dryRun, build, build.getWorkspace(), listener);
+        return performXUnit(dryRun, build, null, build.getWorkspace(), listener);
     }
 
+    @Deprecated
     public boolean performXUnit(boolean dryRun, Run<?, ?> build, FilePath workspace, TaskListener listener)
+            throws IOException, InterruptedException {
+        return performXUnit(dryRun, build, null, workspace, listener);
+    }
+
+    /**
+     * @since 1.103
+     */
+    public boolean performXUnit(boolean dryRun, Run<?, ?> build, String nodeId, FilePath workspace, TaskListener listener)
             throws IOException, InterruptedException {
         final XUnitLog xUnitLog = getXUnitLogObject(listener);
         try {
@@ -100,7 +114,7 @@ public class XUnitProcessor implements Serializable {
                 return true;
             }
 
-            recordTestResult(build, workspace, listener, xUnitLog);
+            recordTestResult(build, workspace, listener, xUnitLog, nodeId);
             processDeletion(dryRun, workspace, xUnitLog);
             Result result = getBuildStatus(build, xUnitLog);
             if (result != null) {
@@ -118,6 +132,41 @@ public class XUnitProcessor implements Serializable {
             xUnitLog.errorConsoleLogger("The plugin hasn't been performed correctly: " + xe.getMessage());
             build.setResult(Result.FAILURE);
             return false;
+        }
+    }
+
+    @CheckForNull
+    public TestResultAction performAndGetAction(Run<?, ?> build, String nodeId, FilePath workspace, TaskListener listener)
+            throws IOException, InterruptedException, StopTestProcessingException, XUnitException {
+        final XUnitLog xUnitLog = getXUnitLogObject(listener);
+        try {
+
+            xUnitLog.infoConsoleLogger("Starting to record.");
+
+            boolean continueTestProcessing;
+            try {
+                continueTestProcessing = performTests(xUnitLog, build, workspace, listener);
+            } catch (StopTestProcessingException e) {
+                xUnitLog.infoConsoleLogger("There are errors when processing test results.");
+                xUnitLog.infoConsoleLogger("Skipping tests recording.");
+                xUnitLog.infoConsoleLogger("Stop build.");
+                throw e;
+            }
+
+            if (!continueTestProcessing) {
+                xUnitLog.infoConsoleLogger("There are errors when processing test results.");
+                xUnitLog.infoConsoleLogger("Skipping tests recording.");
+                return null;
+            }
+
+            recordTestResult(build, workspace, listener, xUnitLog, nodeId);
+            // dryRun is true so that we delete the generated files for future runs.
+            processDeletion(true, workspace, xUnitLog);
+
+            return getTestResultAction(build);
+        } catch (XUnitException xe) {
+            xUnitLog.errorConsoleLogger("The plugin hasn't been performed correctly: " + xe.getMessage());
+            throw xe;
         }
     }
 
@@ -275,32 +324,36 @@ public class XUnitProcessor implements Serializable {
         return getTestResultAction(previousBuild);
     }
 
-    private void recordTestResult(Run<?, ?> build, FilePath workspace, TaskListener listener, XUnitLog xUnitLog) throws XUnitException {
-        TestResultAction existingAction = build.getAction(TestResultAction.class);
-        final long buildTime = build.getTimestamp().getTimeInMillis();
-        final long nowMaster = System.currentTimeMillis();
+    private void recordTestResult(Run<?, ?> build, FilePath workspace, TaskListener listener, XUnitLog xUnitLog,
+                                  String nodeId) throws XUnitException {
+        synchronized (build) {
+            TestResultAction action = build.getAction(TestResultAction.class);
+            final long buildTime = build.getTimestamp().getTimeInMillis();
+            final long nowMaster = System.currentTimeMillis();
 
-        TestResult existingTestResults = null;
-        if (existingAction != null) {
-            existingTestResults = existingAction.getResult();
-        }
-
-        TestResult result = getTestResult(workspace, "**/TEST-*.xml", existingTestResults, buildTime, nowMaster);
-        if (result != null) {
-            TestResultAction action;
-            if (existingAction == null) {
+            boolean appending = false;
+            TestResult result = getTestResult(workspace, "**/TEST-*.xml", null, buildTime, nowMaster,
+                    build.getExternalizableId(), nodeId);
+            if (action == null) {
                 action = new TestResultAction(build, result, listener);
             } else {
-                action = existingAction;
-                action.setResult(result, listener);
+                appending = true;
+                result.freeze(action);
+                action.mergeResult(result, listener);
             }
 
             if (result.getPassCount() == 0 && result.getFailCount() == 0) {
                 xUnitLog.warningConsoleLogger("All test reports are empty.");
             }
 
-            if (existingAction == null) {
-                build.getActions().add(action);
+            if (appending) {
+                try {
+                    build.save();
+                } catch (IOException e) {
+                    throw new XUnitException("Error saving build", e);
+                }
+            } else {
+                build.addAction(action);
             }
         }
     }
@@ -313,13 +366,16 @@ public class XUnitProcessor implements Serializable {
      * @param existingTestResults the existing test result
      * @param buildTime           the build time
      * @param nowMaster           the time on master
+     * @param runId               Optional, possibly null {@link Run#getExternalizableId()}
+     * @param nodeId              Optional, possibly null {@link FlowNode#getId()}
      * @return the test result object
      * @throws XUnitException the plugin exception
      */
     private TestResult getTestResult(final FilePath workspace,
                                      final String junitFilePattern,
                                      final TestResult existingTestResults,
-                                     final long buildTime, final long nowMaster)
+                                     final long buildTime, final long nowMaster,
+                                     final String runId, final String nodeId)
             throws XUnitException {
 
         try {
@@ -341,9 +397,9 @@ public class XUnitProcessor implements Serializable {
                     }
                     try {
                         if (existingTestResults == null) {
-                            return new TestResult(buildTime + (nowSlave - nowMaster), ds, true);
+                            return new TestResult(buildTime + (nowSlave - nowMaster), ds, true, runId, nodeId);
                         } else {
-                            existingTestResults.parse(buildTime + (nowSlave - nowMaster), ds);
+                            existingTestResults.parse(buildTime + (nowSlave - nowMaster), ds, runId, nodeId);
                             return existingTestResults;
                         }
                     } catch (IOException ioe) {
@@ -363,16 +419,13 @@ public class XUnitProcessor implements Serializable {
     private Result getBuildStatus(Run<?, ?> build, XUnitLog xUnitLog) {
         Result curResult = getResultWithThreshold(xUnitLog, build);
         Result previousResultStep = build.getResult();
-        if (curResult != null) {
-            if (previousResultStep == null) {
-                return curResult;
-            }
-            if (previousResultStep != Result.NOT_BUILT && previousResultStep.isWorseOrEqualTo(curResult)) {
-                curResult = previousResultStep;
-            }
+        if (previousResultStep == null) {
             return curResult;
         }
-        return null;
+        if (previousResultStep != Result.NOT_BUILT && previousResultStep.isWorseOrEqualTo(curResult)) {
+            curResult = previousResultStep;
+        }
+        return curResult;
     }
 
     private Result getResultWithThreshold(XUnitLog log, Run<?, ?> build) {

@@ -35,10 +35,11 @@ import org.kohsuke.stapler.DataBoundConstructor;
  */
 public class SkippedThreshold extends XUnitThreshold {
 
+    @DataBoundConstructor
     public SkippedThreshold() {
     }
 
-    @DataBoundConstructor
+    @Deprecated
     public SkippedThreshold(String unstableThreshold, String unstableNewThreshold, String failureThreshold, String failureNewThreshold) {
         super(unstableThreshold, unstableNewThreshold, failureThreshold, failureNewThreshold);
     }

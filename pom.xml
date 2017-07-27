@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>1.596.1</version>
+        <version>2.31</version>
     </parent>
 
     <artifactId>xunit</artifactId>
@@ -34,14 +34,14 @@
     </developers>
 
     <properties>
+        <jenkins.version>2.7.3</jenkins.version>
+        <java.level>7</java.level>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.6</maven.compiler.source>
-        <maven.compiler.target>1.6</maven.compiler.target>
         <dtkit.frmk.version>2.0.0</dtkit.frmk.version>
         <xerces.version>2.9.1</xerces.version>
         <saxon.version>9.1.0.8</saxon.version>
         <dry.run.version>0.1</dry.run.version>
-        <junit.version>4.11</junit.version>
+        <junit.version>4.12</junit.version>
         <xmlunit.version>1.3</xmlunit.version>
         <mockito.version>1.8.5</mockito.version>
     </properties>
@@ -61,6 +61,33 @@
     </pluginRepositories>
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>structs</artifactId>
+            <version>1.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins.workflow</groupId>
+            <artifactId>workflow-step-api</artifactId>
+            <version>2.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins.workflow</groupId>
+            <artifactId>workflow-api</artifactId>
+            <version>2.19</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.jenkins-ci.plugins</groupId>
+                    <artifactId>scm-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>junit</artifactId>
+            <version>1.21-20170727.163537-3</version> <!-- TODO: Switch to release once https://github.com/jenkinsci/junit-plugin/pull/76 is merged and released -->
+        </dependency>
 
         <dependency>
             <groupId>org.jenkins-ci.lib.dtkit</groupId>
@@ -140,22 +167,46 @@
         </dependency>
 
         <dependency>
-            <groupId>org.jenkins-ci.plugins</groupId>
-            <artifactId>junit</artifactId>
-            <version>1.6</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.jenkins-ci.plugins.workflow</groupId>
-            <artifactId>workflow-aggregator</artifactId>
-            <version>1.7</version>
+            <artifactId>workflow-cps</artifactId>
+            <version>2.37</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
-            <groupId>org.jenkins-ci.modules</groupId>
-            <artifactId>sshd</artifactId>
-            <version>1.6</version>
+            <groupId>org.jenkins-ci.plugins.workflow</groupId>
+            <artifactId>workflow-job</artifactId>
+            <version>2.11.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins.workflow</groupId>
+            <artifactId>workflow-basic-steps</artifactId>
+            <version>2.6</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins.workflow</groupId>
+            <artifactId>workflow-support</artifactId>
+            <version>2.14</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins.workflow</groupId>
+            <artifactId>workflow-support</artifactId>
+            <version>2.14</version>
+            <classifier>tests</classifier>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>pipeline-stage-step</artifactId>
+            <version>2.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins.workflow</groupId>
+            <artifactId>workflow-durable-task-step</artifactId>
+            <version>2.13</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

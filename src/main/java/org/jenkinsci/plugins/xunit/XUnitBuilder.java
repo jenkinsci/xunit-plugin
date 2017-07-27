@@ -45,7 +45,9 @@ import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThresholdDescriptor;
 import org.kohsuke.stapler.DataBoundConstructor;
 
+import javax.annotation.Nonnull;
 import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * @author Gregory Boissinot
@@ -63,15 +65,15 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
     private XUnitProcessor xUnitProcessor;
 
     public XUnitBuilder(TestType[] types, XUnitThreshold[] thresholds) {
-        this.types = types;
-        this.thresholds = thresholds;
+        this.types = Arrays.copyOf(types, types.length);
+        this.thresholds = Arrays.copyOf(thresholds, thresholds.length);
         this.thresholdMode = 1;
     }
 
     @DataBoundConstructor
     public XUnitBuilder(TestType[] tools, XUnitThreshold[] thresholds, int thresholdMode, String testTimeMargin) {
-        this.types = tools;
-        this.thresholds = thresholds;
+        this.types = Arrays.copyOf(tools, tools.length);
+        this.thresholds = Arrays.copyOf(thresholds, thresholds.length);
         this.thresholdMode = thresholdMode;
         long longTestTimeMargin = XUnitDefaultValues.TEST_REPORT_TIME_MARGING;
         if (testTimeMargin != null && testTimeMargin.trim().length() != 0) {
@@ -84,7 +86,7 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
      * Needed to support Snippet Generator and Workflow properly.
      */
     public TestType[] getTools() {
-        return types;
+        return Arrays.copyOf(types, types.length);
     }
 
     /**
@@ -95,11 +97,11 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
     }
 
     public TestType[] getTypes() {
-        return types;
+        return Arrays.copyOf(types, types.length);
     }
 
     public XUnitThreshold[] getThresholds() {
-        return thresholds;
+        return Arrays.copyOf(thresholds, thresholds.length);
     }
 
     public int getThresholdMode() {
@@ -114,24 +116,29 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
     }
 
     @Override
-    public boolean perform(final AbstractBuild<?, ?> build, Launcher launcher, final BuildListener listener)
+    public boolean perform(@Nonnull final AbstractBuild<?, ?> build, @Nonnull Launcher launcher, @Nonnull final BuildListener listener)
             throws InterruptedException, IOException {
-        perform(build, build.getWorkspace(), launcher, listener);
+        FilePath ws = build.getWorkspace();
+        if (ws == null) {
+            throw new IllegalArgumentException("Build " + build.getDisplayName() + " has a null workspace");
+        }
+        perform(build, ws, launcher, listener);
         return true;
     }
 
     @Override
-    public void perform(final Run<?, ?> build, FilePath workspace, Launcher launcher, final TaskListener listener)
+    public void perform(@Nonnull final Run<?, ?> build, @Nonnull FilePath workspace, @Nonnull Launcher launcher,
+                        @Nonnull final TaskListener listener)
             throws InterruptedException, IOException {
         XUnitProcessor xUnitProcessor = new XUnitProcessor(getTypes(), getThresholds(), getThresholdMode(), getExtraConfiguration());
-        xUnitProcessor.performXUnit(false, build, workspace, listener);
+        xUnitProcessor.performXUnit(false, build, null, workspace, listener);
     }
 
     public boolean performDryRun(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener)
             throws InterruptedException, IOException {
         try {
             XUnitProcessor xUnitProcessor = new XUnitProcessor(getTypes(), getThresholds(), getThresholdMode(), getExtraConfiguration());
-            xUnitProcessor.performXUnit(true, build, build.getWorkspace(), listener);
+            xUnitProcessor.performXUnit(true, build, null, build.getWorkspace(), listener);
         } catch (Throwable t) {
             listener.getLogger().println("[ERROR] - There is an error: " + t.getCause().getMessage());
         }

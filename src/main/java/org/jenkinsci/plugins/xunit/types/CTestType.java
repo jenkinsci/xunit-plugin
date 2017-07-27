@@ -25,6 +25,7 @@
 package org.jenkinsci.plugins.xunit.types;
 
 import hudson.Extension;
+import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
@@ -39,7 +40,7 @@ public class CTestType extends TestType {
         super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
     }
 
-    @Extension
+    @Extension @Symbol("cTest")
     public static class CTestTypeDescriptor extends TestTypeDescriptor<CTestType> {
 
         public CTestTypeDescriptor() {
