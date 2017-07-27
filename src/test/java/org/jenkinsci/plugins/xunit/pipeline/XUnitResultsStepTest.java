@@ -2,11 +2,8 @@ package org.jenkinsci.plugins.xunit.pipeline;
 
 import hudson.FilePath;
 import hudson.model.Result;
-import hudson.tasks.junit.SuiteResult;
 import hudson.tasks.junit.TestResult;
 import hudson.tasks.junit.TestResultAction;
-import hudson.tasks.junit.pipeline.JUnitResultsStep;
-import org.jenkinsci.plugins.workflow.actions.TagsAction;
 import org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition;
 import org.jenkinsci.plugins.workflow.flow.FlowExecution;
 import org.jenkinsci.plugins.workflow.graph.FlowNode;
@@ -70,10 +67,6 @@ public class XUnitResultsStepTest {
         FlowNode testNode = execution.getNode("7");
         assertNotNull(testNode);
 
-        TagsAction tagsAction = testNode.getAction(TagsAction.class);
-        assertNotNull(tagsAction);
-        assertEquals("true", tagsAction.getTagValue(JUnitResultsStep.HAS_TEST_RESULTS_TAG_NAME));
-
         TestResult nodeTests = action.getResult().getResultByRunAndNode(r.getExternalizableId(), testNode.getId());
         assertNotNull(nodeTests);
         assertEquals(1, nodeTests.getSuites().size());
@@ -113,16 +106,8 @@ public class XUnitResultsStepTest {
         FlowNode googleTestNode = execution.getNode("7");
         assertNotNull(googleTestNode);
 
-        TagsAction googleTagsAction = googleTestNode.getAction(TagsAction.class);
-        assertNotNull(googleTagsAction);
-        assertEquals("true", googleTagsAction.getTagValue(JUnitResultsStep.HAS_TEST_RESULTS_TAG_NAME));
-
         FlowNode cunitTestNode = execution.getNode("8");
         assertNotNull(cunitTestNode);
-
-        TagsAction cunitTagsAction = cunitTestNode.getAction(TagsAction.class);
-        assertNotNull(cunitTagsAction);
-        assertEquals("true", cunitTagsAction.getTagValue(JUnitResultsStep.HAS_TEST_RESULTS_TAG_NAME));
 
         TestResult googleNodeTests = action.getResult().getResultByRunAndNode(r.getExternalizableId(), googleTestNode.getId());
         assertNotNull(googleNodeTests);

@@ -7,9 +7,7 @@ import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.tasks.junit.TestResultAction;
 import hudson.tasks.junit.TestResultSummary;
-import hudson.tasks.junit.pipeline.JUnitResultsStep;
 import org.jenkinsci.lib.dtkit.type.TestType;
-import org.jenkinsci.plugins.workflow.actions.TagsAction;
 import org.jenkinsci.plugins.workflow.graph.FlowNode;
 import org.jenkinsci.plugins.workflow.steps.StepContext;
 import org.jenkinsci.plugins.workflow.steps.SynchronousStepExecution;
@@ -52,15 +50,6 @@ public class XUnitResultsStepExecution extends SynchronousStepExecution<TestResu
                 getContext().setResult(Result.UNSTABLE);
             }
 
-            TagsAction tagsAction = node.getAction(TagsAction.class);
-            if (tagsAction != null) {
-                tagsAction.addTag(JUnitResultsStep.HAS_TEST_RESULTS_TAG_NAME, "true");
-                node.save();
-            } else {
-                tagsAction = new TagsAction();
-                tagsAction.addTag(JUnitResultsStep.HAS_TEST_RESULTS_TAG_NAME, "true");
-                node.addAction(tagsAction);
-            }
             return new TestResultSummary(action.getResult().getResultByRunAndNode(run.getExternalizableId(), nodeId));
         }
 
