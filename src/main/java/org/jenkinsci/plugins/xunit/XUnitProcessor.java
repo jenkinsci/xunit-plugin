@@ -90,7 +90,7 @@ public class XUnitProcessor implements Serializable {
     /**
      * @since 1.103
      */
-    public boolean performXUnit(boolean dryRun, Run<?, ?> build, String nodeId, FilePath workspace, TaskListener listener)
+    public boolean performXUnit(boolean dryRun, Run<?, ?> build, @CheckForNull String nodeId, FilePath workspace, TaskListener listener)
             throws IOException, InterruptedException {
         final XUnitLog xUnitLog = getXUnitLogObject(listener);
         try {
@@ -136,7 +136,7 @@ public class XUnitProcessor implements Serializable {
     }
 
     @CheckForNull
-    public TestResultAction performAndGetAction(Run<?, ?> build, String nodeId, FilePath workspace, TaskListener listener)
+    public TestResultAction performAndGetAction(Run<?, ?> build, @CheckForNull String nodeId, FilePath workspace, TaskListener listener)
             throws IOException, InterruptedException, StopTestProcessingException, XUnitException {
         final XUnitLog xUnitLog = getXUnitLogObject(listener);
         try {
@@ -325,7 +325,7 @@ public class XUnitProcessor implements Serializable {
     }
 
     private void recordTestResult(Run<?, ?> build, FilePath workspace, TaskListener listener, XUnitLog xUnitLog,
-                                  String nodeId) throws XUnitException {
+                                  @CheckForNull String nodeId) throws XUnitException {
         synchronized (build) {
             TestResultAction action = build.getAction(TestResultAction.class);
             final long buildTime = build.getTimestamp().getTimeInMillis();
@@ -366,7 +366,7 @@ public class XUnitProcessor implements Serializable {
      * @param existingTestResults the existing test result
      * @param buildTime           the build time
      * @param nowMaster           the time on master
-     * @param runId               Optional, possibly null {@link Run#getExternalizableId()}
+     * @param runId               {@link Run#getExternalizableId()}
      * @param nodeId              Optional, possibly null {@link FlowNode#getId()}
      * @return the test result object
      * @throws XUnitException the plugin exception
@@ -375,7 +375,7 @@ public class XUnitProcessor implements Serializable {
                                      final String junitFilePattern,
                                      final TestResult existingTestResults,
                                      final long buildTime, final long nowMaster,
-                                     final String runId, final String nodeId)
+                                     final String runId, @CheckForNull final String nodeId)
             throws XUnitException {
 
         try {
