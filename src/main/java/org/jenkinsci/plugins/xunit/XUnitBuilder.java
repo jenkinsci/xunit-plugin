@@ -131,14 +131,14 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
                         @Nonnull final TaskListener listener)
             throws InterruptedException, IOException {
         XUnitProcessor xUnitProcessor = new XUnitProcessor(getTypes(), getThresholds(), getThresholdMode(), getExtraConfiguration());
-        xUnitProcessor.performXUnit(false, build, null, workspace, listener);
+        xUnitProcessor.performXUnit(false, build, null, null, workspace, listener);
     }
 
     public boolean performDryRun(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener)
             throws InterruptedException, IOException {
         try {
             XUnitProcessor xUnitProcessor = new XUnitProcessor(getTypes(), getThresholds(), getThresholdMode(), getExtraConfiguration());
-            xUnitProcessor.performXUnit(true, build, null, build.getWorkspace(), listener);
+            xUnitProcessor.performXUnit(true, build, null, null, build.getWorkspace(), listener);
         } catch (Throwable t) {
             listener.getLogger().println("[ERROR] - There is an error: " + t.getCause().getMessage());
         }

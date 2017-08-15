@@ -4,6 +4,7 @@ import hudson.FilePath;
 import hudson.model.Result;
 import hudson.tasks.junit.TestResult;
 import hudson.tasks.junit.TestResultAction;
+import hudson.tasks.junit.pipeline.JUnitResultsStepTest;
 import org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition;
 import org.jenkinsci.plugins.workflow.flow.FlowExecution;
 import org.jenkinsci.plugins.workflow.graph.FlowNode;
@@ -124,5 +125,42 @@ public class XUnitResultsStepTest {
         assertNotNull(combinedTests);
         assertEquals(2, combinedTests.getSuites().size());
         assertEquals(5, combinedTests.getTotalCount());
+    }
+
+    @Test
+    public void parallelBranches() throws Exception {
+        WorkflowJob job = getBaseJob("parallelBranches");
+        job.setDefinition(new CpsFlowDefinition(""
+                + "stage('first') {\n"
+                + "  node {\n"
+                + "    parallel(a: {\n"
+                + "      def first = xunit(tools: [googleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml',\n"
+                + "                                           skipNoTestFiles: false, stopProcessingIfError: true)],\n"
+                + "                        thresholds: [failed(unstableThreshold: '1'), skipped()])\n"
+                + "      assert first.totalCount == 4\n"
+                + "    },\n"
+                + "    b: {\n"
+                + "      def second = xunit(tools: [cunit(deleteOutputFiles: false, failIfNotNew: false, pattern: 'cunit.xml',\n"
+                + "                                       skipNoTestFiles: false, stopProcessingIfError: true)],\n"
+                + "                         thresholds: [failed(unstableThreshold: '1'), skipped()])\n"
+                + "      assert second.totalCount == 1\n"
+                + "    })\n"
+                + "  }\n"
+                + "}\n", true));
+
+        WorkflowRun r = job.scheduleBuild2(0).waitForStart();
+        j.assertBuildStatus(Result.UNSTABLE, j.waitForCompletion(r));
+
+        TestResultAction action = r.getAction(TestResultAction.class);
+        assertNotNull(action);
+
+        assertEquals(2, action.getResult().getSuites().size());
+        assertEquals(5, action.getTotalCount());
+        assertEquals(1, action.getSkipCount());
+        assertEquals(2, action.getFailCount());
+
+        JUnitResultsStepTest.assertBranchResults(r, 1, 4, "a", "first");
+        JUnitResultsStepTest.assertBranchResults(r, 1, 1, "b", "first");
+        JUnitResultsStepTest.assertStageResults(r, 2, 5, "first");
     }
 }

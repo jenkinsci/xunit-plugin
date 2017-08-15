@@ -7,6 +7,7 @@ import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.tasks.junit.TestResultAction;
 import hudson.tasks.junit.TestResultSummary;
+import hudson.tasks.junit.pipeline.JUnitResultsStepExecution;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.workflow.graph.FlowNode;
 import org.jenkinsci.plugins.workflow.steps.StepContext;
@@ -43,7 +44,8 @@ public class XUnitResultsStepExecution extends SynchronousStepExecution<TestResu
                 step.getThresholds().toArray(new XUnitThreshold[0]),
                 step.getThresholdMode(),
                 new ExtraConfiguration(step.getTestTimeMargin()));
-        TestResultAction action = xUnitProcessor.performAndGetAction(run, nodeId, workspace, listener);
+        TestResultAction action = xUnitProcessor.performAndGetAction(run, nodeId,
+                JUnitResultsStepExecution.getEnclosingStagesAndParallels(node), workspace, listener);
         if (action != null) {
             // TODO: Once JENKINS-43995 lands, update this to set the step status instead of the entire build.
             if (action.getResult().getFailCount() > 0) {
