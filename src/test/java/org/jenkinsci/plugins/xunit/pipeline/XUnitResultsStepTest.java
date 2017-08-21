@@ -5,11 +5,16 @@ import hudson.model.Result;
 import hudson.tasks.junit.TestResult;
 import hudson.tasks.junit.TestResultAction;
 import hudson.tasks.junit.pipeline.JUnitResultsStepTest;
+import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition;
+import org.jenkinsci.plugins.workflow.cps.SnippetizerTester;
 import org.jenkinsci.plugins.workflow.flow.FlowExecution;
 import org.jenkinsci.plugins.workflow.graph.FlowNode;
 import org.jenkinsci.plugins.workflow.job.WorkflowJob;
 import org.jenkinsci.plugins.workflow.job.WorkflowRun;
+import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
+import org.jenkinsci.plugins.xunit.threshold.SkippedThreshold;
+import org.jenkinsci.plugins.xunit.types.GoogleTestType;
 import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
@@ -17,6 +22,7 @@ import org.jvnet.hudson.test.BuildWatcher;
 import org.jvnet.hudson.test.JenkinsRule;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -37,6 +43,20 @@ public class XUnitResultsStepTest {
         cunit.copyFrom(XUnitResultsStepTest.class.getResourceAsStream("/org/jenkinsci/plugins/xunit/types/cunit/testcase2/testresult.xml"));
 
         return job;
+    }
+
+    @Test
+    public void configRoundTrip() throws Exception {
+        SnippetizerTester st = new SnippetizerTester(j);
+        FailedThreshold failedThreshold = new FailedThreshold();
+        failedThreshold.setUnstableThreshold("1");
+        XUnitResultsStep step = new XUnitResultsStep(
+                Collections.<TestType>singletonList(new GoogleTestType("input.xml", false, false, false, true)),
+                Arrays.asList(failedThreshold, new SkippedThreshold())
+        );
+
+        st.assertRoundTrip(step, "xunit thresholds: [failed(unstableThreshold: '1'), skipped()], tools: [googleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml', skipNoTestFiles: false, stopProcessingIfError: true)]");
+
     }
 
     @Test
