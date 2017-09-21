@@ -36,18 +36,18 @@ public class XUnitWorkflowTest {
     @ClassRule
     public static JenkinsRule jenkinsRule = new JenkinsRule();
 
-    private WorkflowJob getBaseJob(String jobName) throws Exception {
+    private WorkflowJob getBaseJob(String jobName, String xmlInput) throws Exception {
         WorkflowJob job = jenkinsRule.jenkins.createProject(WorkflowJob.class, jobName);
         FilePath workspace = jenkinsRule.jenkins.getWorkspaceFor(job);
         FilePath input = workspace.child("input.xml");
-        input.copyFrom(XUnitWorkflowTest.class.getResourceAsStream("/org/jenkinsci/plugins/xunit/types/googletest/testcase2/input.xml"));
+        input.copyFrom(XUnitWorkflowTest.class.getResourceAsStream(xmlInput));
 
         return job;
     }
 
     @Test
     public void xunitBuilderWorkflowStepTest() throws Exception {
-        WorkflowJob job = getBaseJob("builder");
+        WorkflowJob job = getBaseJob("builder", "/org/jenkinsci/plugins/xunit/types/googletest/testcase2/input.xml");
         job.setDefinition(new CpsFlowDefinition(""
                 + "node {\n"
                 + "  step([$class: 'XUnitBuilder', testTimeMargin: '3000', thresholdMode: 1, thresholds: [[$class: 'FailedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '1'], [$class: 'SkippedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '']], tools: [[$class: 'GoogleTestType', deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml', skipNoTestFiles: false, stopProcessingIfError: true]]])\n"
@@ -58,7 +58,7 @@ public class XUnitWorkflowTest {
 
     @Test
     public void xunitPublisherWorkflowStepTest() throws Exception {
-        WorkflowJob job = getBaseJob("publisher");
+        WorkflowJob job = getBaseJob("publisher", "/org/jenkinsci/plugins/xunit/types/googletest/testcase2/input.xml");
         job.setDefinition(new CpsFlowDefinition(""
                 + "node {\n"
                 + "  step([$class: 'XUnitPublisher', testTimeMargin: '3000', thresholdMode: 1, thresholds: [[$class: 'FailedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '1'], [$class: 'SkippedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '']], tools: [[$class: 'GoogleTestType', deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml', skipNoTestFiles: false, stopProcessingIfError: true]]])\n"
@@ -66,4 +66,27 @@ public class XUnitWorkflowTest {
 
         jenkinsRule.assertBuildStatus(Result.UNSTABLE, job.scheduleBuild2(0).get());
     }
+
+    @Test
+    public void xunitBuilderWorkflowStepTestFailIfNoTestRunDisabled() throws Exception {
+        WorkflowJob job = getBaseJob("builder-fail-when-no-test-run-disabled", "/org/jenkinsci/plugins/xunit/types/googletest/testcase3/input.xml");
+        job.setDefinition(new CpsFlowDefinition(""
+                + "node {\n"
+                + "  step([$class: 'XUnitBuilder', testTimeMargin: '3000', failIfNoTestsRun: false, thresholdMode: 1, thresholds: [[$class: 'FailedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '1'], [$class: 'SkippedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '']], tools: [[$class: 'GoogleTestType', deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml', skipNoTestFiles: false, stopProcessingIfError: true]]])\n"
+                + "}"));
+
+        jenkinsRule.assertBuildStatus(Result.SUCCESS, job.scheduleBuild2(0).get());
+    }
+
+    @Test
+    public void xunitBuilderWorkflowStepTestFailIfNoTestRunEnabled() throws Exception {
+        WorkflowJob job = getBaseJob("builder-fail-when-no-test-run-enabled", "/org/jenkinsci/plugins/xunit/types/googletest/testcase3/input.xml");
+        job.setDefinition(new CpsFlowDefinition(""
+                + "node {\n"
+                + "  step([$class: 'XUnitBuilder', testTimeMargin: '3000', failIfNoTestsRun: true, thresholdMode: 1, thresholds: [[$class: 'FailedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '1'], [$class: 'SkippedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '']], tools: [[$class: 'GoogleTestType', deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml', skipNoTestFiles: false, stopProcessingIfError: true]]])\n"
+                + "}"));
+
+        jenkinsRule.assertBuildStatus(Result.FAILURE, job.scheduleBuild2(0).get());
+    }
+
 }

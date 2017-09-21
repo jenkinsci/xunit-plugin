@@ -106,4 +106,5 @@ public class XUnitToolInfo implements Serializable {
     public long getTestTimeMargin() {
         return testTimeMargin;
     }
+
 }

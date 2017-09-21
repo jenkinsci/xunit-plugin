@@ -34,4 +34,6 @@ public class XUnitDefaultValues {
     public static final int MODE_PERCENT = 2;
 
     public static final int TEST_REPORT_TIME_MARGING = 3000; //default to 3000ms
+
+    public static final boolean FAIL_IF_NO_TEST_RUN = false;
 }

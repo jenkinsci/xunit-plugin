@@ -69,7 +69,8 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
     }
 
     @DataBoundConstructor
-    public XUnitBuilder(TestType[] tools, XUnitThreshold[] thresholds, int thresholdMode, String testTimeMargin) {
+    public XUnitBuilder(TestType[] tools, XUnitThreshold[] thresholds, int thresholdMode, String testTimeMargin,
+                        boolean failIfNoTestsRun) {
         this.types = tools;
         this.thresholds = thresholds;
         this.thresholdMode = thresholdMode;
@@ -77,7 +78,7 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
         if (testTimeMargin != null && testTimeMargin.trim().length() != 0) {
             longTestTimeMargin = Long.parseLong(testTimeMargin);
         }
-        this.extraConfiguration = new ExtraConfiguration(longTestTimeMargin);
+        this.extraConfiguration = new ExtraConfiguration(longTestTimeMargin, failIfNoTestsRun);
     }
 
     /**
@@ -94,6 +95,13 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
         return String.valueOf(getExtraConfiguration().getTestTimeMargin());
     }
 
+    /**
+     * Needed to support Snippet Generator and Workflow properly
+     */
+    public String getFailIfNoTestsRun() {
+        return String.valueOf(getExtraConfiguration().getFailIfNoTestsRun());
+    }
+
     public TestType[] getTypes() {
         return types;
     }
@@ -108,7 +116,8 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
 
     public ExtraConfiguration getExtraConfiguration() {
         if (extraConfiguration == null) {
-            extraConfiguration = new ExtraConfiguration(XUnitDefaultValues.TEST_REPORT_TIME_MARGING);
+            extraConfiguration = new ExtraConfiguration(XUnitDefaultValues.TEST_REPORT_TIME_MARGING,
+                    XUnitDefaultValues.FAIL_IF_NO_TEST_RUN);
         }
         return extraConfiguration;
     }

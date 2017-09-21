@@ -296,7 +296,14 @@ public class XUnitProcessor implements Serializable {
             }
 
             if (result.getPassCount() == 0 && result.getFailCount() == 0) {
-                xUnitLog.warningConsoleLogger("All test reports are empty.");
+                String message = "All test reports are empty.";
+                if(extraConfiguration.getFailIfNoTestsRun()){
+                    xUnitLog.errorConsoleLogger(message);
+                    build.setResult(Result.FAILURE);
+                } else {
+                    xUnitLog.warningConsoleLogger(message);
+                }
+
             }
 
             if (existingAction == null) {
