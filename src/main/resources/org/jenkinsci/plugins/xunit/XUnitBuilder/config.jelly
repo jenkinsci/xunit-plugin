@@ -73,6 +73,14 @@ THE SOFTWARE.
                         </td>
                         <td width="50%" style="${td}"/>
                     </tr>
+                    <tr>
+                        <td width="50%" style="${td}">
+                            <f:checkbox name="failIfNoTestsRun" checked="${instance.extraConfiguration.failIfNoTestsRun}" value="${instance.extraConfiguration.failIfNoTestsRun}"/>
+                            <label>Fail the build if not a single test was run.
+                            </label>
+                        </td>
+                        <td width="50%" style="${td}"/>
+                    </tr>
                 </table>
             </f:entry>
         </f:advanced>

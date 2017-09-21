@@ -98,8 +98,8 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
     /**
      * Needed to support Snippet Generator and Workflow properly
      */
-    public String getFailIfNoTestsRun() {
-        return String.valueOf(getExtraConfiguration().getFailIfNoTestsRun());
+    public boolean getFailIfNoTestsRun() {
+        return getExtraConfiguration().getFailIfNoTestsRun();
     }
 
     public TestType[] getTypes() {
