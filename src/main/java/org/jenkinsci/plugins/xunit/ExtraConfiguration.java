@@ -35,11 +35,16 @@ public class ExtraConfiguration implements Serializable {
 
     private final long testTimeMargin;
 
-    public ExtraConfiguration(long testTimeMargin) {
+    private final boolean failIfNoTestsRun;
+
+    public ExtraConfiguration(long testTimeMargin, boolean failIfNoTestsRun) {
         this.testTimeMargin = testTimeMargin;
+        this.failIfNoTestsRun = failIfNoTestsRun;
     }
 
     public long getTestTimeMargin() {
         return testTimeMargin;
     }
+
+    public boolean getFailIfNoTestsRun() { return failIfNoTestsRun; }
 }
