@@ -145,27 +145,27 @@ public class XUnitProcessor implements Serializable {
         try {
 
             xUnitLog.infoConsoleLogger("Starting to record.");
+            synchronized (build) {
+                boolean continueTestProcessing;
+                try {
+                    continueTestProcessing = performTests(xUnitLog, build, workspace, listener);
+                } catch (StopTestProcessingException e) {
+                    xUnitLog.infoConsoleLogger("There are errors when processing test results.");
+                    xUnitLog.infoConsoleLogger("Skipping tests recording.");
+                    xUnitLog.infoConsoleLogger("Stop build.");
+                    throw e;
+                }
 
-            boolean continueTestProcessing;
-            try {
-                continueTestProcessing = performTests(xUnitLog, build, workspace, listener);
-            } catch (StopTestProcessingException e) {
-                xUnitLog.infoConsoleLogger("There are errors when processing test results.");
-                xUnitLog.infoConsoleLogger("Skipping tests recording.");
-                xUnitLog.infoConsoleLogger("Stop build.");
-                throw e;
+                if (!continueTestProcessing) {
+                    xUnitLog.infoConsoleLogger("There are errors when processing test results.");
+                    xUnitLog.infoConsoleLogger("Skipping tests recording.");
+                    return null;
+                }
+
+                recordTestResult(build, workspace, listener, xUnitLog, nodeId, enclosingBlocks);
+                // dryRun is true so that we delete the generated files for future runs.
+                processDeletion(true, workspace, xUnitLog);
             }
-
-            if (!continueTestProcessing) {
-                xUnitLog.infoConsoleLogger("There are errors when processing test results.");
-                xUnitLog.infoConsoleLogger("Skipping tests recording.");
-                return null;
-            }
-
-            recordTestResult(build, workspace, listener, xUnitLog, nodeId, enclosingBlocks);
-            // dryRun is true so that we delete the generated files for future runs.
-            processDeletion(true, workspace, xUnitLog);
-
             return getTestResultAction(build);
         } catch (XUnitException xe) {
             xUnitLog.errorConsoleLogger("The plugin hasn't been performed correctly: " + xe.getMessage());
