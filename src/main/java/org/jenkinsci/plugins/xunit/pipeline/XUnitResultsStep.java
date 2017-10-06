@@ -2,11 +2,11 @@ package org.jenkinsci.plugins.xunit.pipeline;
 
 import com.google.common.collect.ImmutableSet;
 import hudson.DescriptorExtensionList;
-import hudson.Extension;
 import hudson.FilePath;
 import hudson.model.TaskListener;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
+import org.jenkinsci.plugins.variant.OptionalExtension;
 import org.jenkinsci.plugins.workflow.graph.FlowNode;
 import org.jenkinsci.plugins.workflow.steps.Step;
 import org.jenkinsci.plugins.workflow.steps.StepContext;
@@ -70,7 +70,7 @@ public class XUnitResultsStep extends Step {
         return new XUnitResultsStepExecution(this, context);
     }
 
-    @Extension
+    @OptionalExtension(requirePlugins = {"pipeline-stage-step","workflow-cps","workflow-job"})
     public static class DescriptorImpl extends StepDescriptor {
         @Override
         public String getFunctionName() {
