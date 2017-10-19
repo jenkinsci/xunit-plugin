@@ -17,6 +17,7 @@ import org.jenkinsci.plugins.xunit.XUnitProcessor;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
 
 import javax.annotation.Nonnull;
+import java.util.List;
 
 public class XUnitResultsStepExecution extends SynchronousStepExecution<TestResultSummary> {
     private transient XUnitResultsStep step;
@@ -44,15 +45,19 @@ public class XUnitResultsStepExecution extends SynchronousStepExecution<TestResu
                 step.getThresholds().toArray(new XUnitThreshold[0]),
                 step.getThresholdMode(),
                 new ExtraConfiguration(step.getTestTimeMargin()));
+        List<FlowNode> enclosingBlocks = JUnitResultsStepExecution.getEnclosingStagesAndParallels(node);
+
         TestResultAction action = xUnitProcessor.performAndGetAction(run, nodeId,
-                JUnitResultsStepExecution.getEnclosingStagesAndParallels(node), workspace, listener);
+                JUnitResultsStepExecution.getEnclosingBlockIds(enclosingBlocks),
+                JUnitResultsStepExecution.getEnclosingBlockNames(enclosingBlocks),
+                workspace, listener);
         if (action != null) {
             // TODO: Once JENKINS-43995 lands, update this to set the step status instead of the entire build.
             if (action.getResult().getFailCount() > 0) {
                 getContext().setResult(Result.UNSTABLE);
             }
 
-            return new TestResultSummary(action.getResult().getResultByRunAndNode(run.getExternalizableId(), nodeId));
+            return new TestResultSummary(action.getResult().getResultByNode(nodeId));
         }
 
         return new TestResultSummary();

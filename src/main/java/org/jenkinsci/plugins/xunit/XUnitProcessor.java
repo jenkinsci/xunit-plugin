@@ -79,20 +79,20 @@ public class XUnitProcessor implements Serializable {
 
     public boolean performXunit(boolean dryRun, AbstractBuild<?, ?> build, BuildListener listener)
             throws IOException, InterruptedException {
-        return performXUnit(dryRun, build, null, null, build.getWorkspace(), listener);
+        return performXUnit(dryRun, build, null, null, null, build.getWorkspace(), listener);
     }
 
     @Deprecated
     public boolean performXUnit(boolean dryRun, Run<?, ?> build, FilePath workspace, TaskListener listener)
             throws IOException, InterruptedException {
-        return performXUnit(dryRun, build, null, null, workspace, listener);
+        return performXUnit(dryRun, build, null, null, null, workspace, listener);
     }
 
     /**
      * @since 1.103
      */
     public boolean performXUnit(boolean dryRun, Run<?, ?> build, @CheckForNull String nodeId, List<String> enclosingBlocks,
-                                FilePath workspace, TaskListener listener)
+                                List<String> enclosingBlockNames, FilePath workspace, TaskListener listener)
             throws IOException, InterruptedException {
         final XUnitLog xUnitLog = getXUnitLogObject(listener);
         try {
@@ -116,7 +116,7 @@ public class XUnitProcessor implements Serializable {
                 return true;
             }
 
-            recordTestResult(build, workspace, listener, xUnitLog, nodeId, enclosingBlocks);
+            recordTestResult(build, workspace, listener, xUnitLog, nodeId, enclosingBlocks, enclosingBlockNames);
             processDeletion(dryRun, workspace, xUnitLog);
             Result result = getBuildStatus(build, xUnitLog);
             if (result != null) {
@@ -139,7 +139,7 @@ public class XUnitProcessor implements Serializable {
 
     @CheckForNull
     public TestResultAction performAndGetAction(Run<?, ?> build, @CheckForNull String nodeId, List<String> enclosingBlocks,
-                                                FilePath workspace, TaskListener listener)
+                                                List<String> enclosingBlockNames, FilePath workspace, TaskListener listener)
             throws IOException, InterruptedException, StopTestProcessingException, XUnitException {
         final XUnitLog xUnitLog = getXUnitLogObject(listener);
         try {
@@ -162,7 +162,7 @@ public class XUnitProcessor implements Serializable {
                     return null;
                 }
 
-                recordTestResult(build, workspace, listener, xUnitLog, nodeId, enclosingBlocks);
+                recordTestResult(build, workspace, listener, xUnitLog, nodeId, enclosingBlocks, enclosingBlockNames);
                 // dryRun is true so that we delete the generated files for future runs.
                 processDeletion(true, workspace, xUnitLog);
             }
@@ -328,7 +328,8 @@ public class XUnitProcessor implements Serializable {
     }
 
     private void recordTestResult(Run<?, ?> build, FilePath workspace, TaskListener listener, XUnitLog xUnitLog,
-                                  @CheckForNull String nodeId, List<String> enclosingBlocks) throws XUnitException {
+                                  @CheckForNull String nodeId, List<String> enclosingBlocks,
+                                  List<String> enclosingBlockNames) throws XUnitException {
         synchronized (build) {
             TestResultAction action = build.getAction(TestResultAction.class);
             final long buildTime = build.getTimestamp().getTimeInMillis();
@@ -336,7 +337,7 @@ public class XUnitProcessor implements Serializable {
 
             boolean appending = false;
             TestResult result = getTestResult(workspace, "**/TEST-*.xml", null, buildTime, nowMaster,
-                    build.getExternalizableId(), nodeId, enclosingBlocks);
+                    nodeId, enclosingBlocks, enclosingBlockNames);
             if (action == null) {
                 action = new TestResultAction(build, result, listener);
             } else {
@@ -369,9 +370,9 @@ public class XUnitProcessor implements Serializable {
      * @param existingTestResults the existing test result
      * @param buildTime           the build time
      * @param nowMaster           the time on master
-     * @param runId               {@link Run#getExternalizableId()}
      * @param nodeId              Optional, possibly null {@link FlowNode#getId()}
      * @param enclosingBlocks     Optional, possibly null list of enclosing {@link FlowNode#getId()}
+     * @param enclosingBlockNames Optional, possibly null list of enclosing block names
      * @return the test result object
      * @throws XUnitException the plugin exception
      */
@@ -379,8 +380,9 @@ public class XUnitProcessor implements Serializable {
                                      final String junitFilePattern,
                                      final TestResult existingTestResults,
                                      final long buildTime, final long nowMaster,
-                                     final String runId, @CheckForNull final String nodeId,
-                                     final List<String> enclosingBlocks)
+                                     @CheckForNull final String nodeId,
+                                     final List<String> enclosingBlocks,
+                                     final List<String> enclosingBlockNames)
             throws XUnitException {
 
         try {
@@ -403,10 +405,10 @@ public class XUnitProcessor implements Serializable {
                     try {
                         if (existingTestResults == null) {
                             return new TestResult(buildTime + (nowSlave - nowMaster), ds, true,
-                                    runId, nodeId, enclosingBlocks);
+                                    nodeId, enclosingBlocks, enclosingBlockNames);
                         } else {
-                            existingTestResults.parse(buildTime + (nowSlave - nowMaster), ds, runId, nodeId,
-                                    enclosingBlocks);
+                            existingTestResults.parse(buildTime + (nowSlave - nowMaster), ds, nodeId,
+                                    enclosingBlocks, enclosingBlockNames);
                             return existingTestResults;
                         }
                     } catch (IOException ioe) {

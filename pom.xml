@@ -42,7 +42,7 @@
         <saxon.version>9.1.0.8</saxon.version>
         <dry.run.version>0.1</dry.run.version>
         <junit.version>4.12</junit.version>
-        <junit-plugin.version>1.22-beta-1</junit-plugin.version><!-- TODO: Switch to 1.22 post-beta -->
+        <junit-plugin.version>1.22-beta-2-20171019.094026-1</junit-plugin.version><!-- TODO: Switch to 1.22 post-beta -->
         <xmlunit.version>1.3</xmlunit.version>
         <mockito.version>1.8.5</mockito.version>
         <workflow-cps.version>2.37</workflow-cps.version>

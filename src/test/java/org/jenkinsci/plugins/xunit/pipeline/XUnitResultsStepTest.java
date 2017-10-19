@@ -88,7 +88,7 @@ public class XUnitResultsStepTest {
         FlowNode testNode = execution.getNode("7");
         assertNotNull(testNode);
 
-        TestResult nodeTests = action.getResult().getResultByRunAndNode(r.getExternalizableId(), testNode.getId());
+        TestResult nodeTests = action.getResult().getResultByNode(testNode.getId());
         assertNotNull(nodeTests);
         assertEquals(1, nodeTests.getSuites().size());
         assertEquals(4, nodeTests.getTotalCount());
@@ -130,17 +130,17 @@ public class XUnitResultsStepTest {
         FlowNode cunitTestNode = execution.getNode("8");
         assertNotNull(cunitTestNode);
 
-        TestResult googleNodeTests = action.getResult().getResultByRunAndNode(r.getExternalizableId(), googleTestNode.getId());
+        TestResult googleNodeTests = action.getResult().getResultByNode(googleTestNode.getId());
         assertNotNull(googleNodeTests);
         assertEquals(1, googleNodeTests.getSuites().size());
         assertEquals(4, googleNodeTests.getTotalCount());
 
-        TestResult cunitNodeTests = action.getResult().getResultByRunAndNode(r.getExternalizableId(), cunitTestNode.getId());
+        TestResult cunitNodeTests = action.getResult().getResultByNode(cunitTestNode.getId());
         assertNotNull(cunitNodeTests);
         assertEquals(1, cunitNodeTests.getSuites().size());
         assertEquals(1, cunitNodeTests.getTotalCount());
 
-        TestResult combinedTests = action.getResult().getResultByRunAndNodes(r.getExternalizableId(), Arrays.asList(googleTestNode.getId(),
+        TestResult combinedTests = action.getResult().getResultByNodes(Arrays.asList(googleTestNode.getId(),
                 cunitTestNode.getId()));
         assertNotNull(combinedTests);
         assertEquals(2, combinedTests.getSuites().size());
