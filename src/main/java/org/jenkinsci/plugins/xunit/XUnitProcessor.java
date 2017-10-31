@@ -39,6 +39,7 @@ import hudson.model.TaskListener;
 import hudson.remoting.VirtualChannel;
 import hudson.tasks.junit.TestResult;
 import hudson.tasks.junit.TestResultAction;
+import hudson.tasks.test.PipelineArgs;
 import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
 import org.jenkinsci.lib.dtkit.model.InputMetric;
@@ -50,6 +51,7 @@ import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
 import org.jenkinsci.plugins.xunit.types.CustomType;
 
 import javax.annotation.CheckForNull;
+import javax.annotation.Nonnull;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
@@ -79,21 +81,20 @@ public class XUnitProcessor implements Serializable {
 
     public boolean performXunit(boolean dryRun, AbstractBuild<?, ?> build, BuildListener listener)
             throws IOException, InterruptedException {
-        return performXUnit(dryRun, build, null, null, null, build.getWorkspace(), listener);
+        return performXUnit(dryRun, build, new PipelineArgs(), build.getWorkspace(), listener);
     }
 
     @Deprecated
     public boolean performXUnit(boolean dryRun, Run<?, ?> build, FilePath workspace, TaskListener listener)
             throws IOException, InterruptedException {
-        return performXUnit(dryRun, build, null, null, null, workspace, listener);
+        return performXUnit(dryRun, build, new PipelineArgs(), workspace, listener);
     }
 
     /**
      * @since 1.103
      */
-    public boolean performXUnit(boolean dryRun, Run<?, ?> build, @CheckForNull String nodeId, List<String> enclosingBlocks,
-                                List<String> enclosingBlockNames, FilePath workspace, TaskListener listener)
-            throws IOException, InterruptedException {
+    public boolean performXUnit(boolean dryRun, Run<?, ?> build, @Nonnull PipelineArgs pipelineArgs, FilePath workspace,
+                                TaskListener listener) throws IOException, InterruptedException {
         final XUnitLog xUnitLog = getXUnitLogObject(listener);
         try {
 
@@ -116,7 +117,7 @@ public class XUnitProcessor implements Serializable {
                 return true;
             }
 
-            recordTestResult(build, workspace, listener, xUnitLog, nodeId, enclosingBlocks, enclosingBlockNames);
+            recordTestResult(build, workspace, listener, xUnitLog, pipelineArgs);
             processDeletion(dryRun, workspace, xUnitLog);
             Result result = getBuildStatus(build, xUnitLog);
             if (result != null) {
@@ -138,8 +139,8 @@ public class XUnitProcessor implements Serializable {
     }
 
     @CheckForNull
-    public TestResultAction performAndGetAction(Run<?, ?> build, @CheckForNull String nodeId, List<String> enclosingBlocks,
-                                                List<String> enclosingBlockNames, FilePath workspace, TaskListener listener)
+    public TestResultAction performAndGetAction(Run<?, ?> build, @Nonnull PipelineArgs pipelineArgs, FilePath workspace,
+                                                TaskListener listener)
             throws IOException, InterruptedException, StopTestProcessingException, XUnitException {
         final XUnitLog xUnitLog = getXUnitLogObject(listener);
         try {
@@ -162,7 +163,7 @@ public class XUnitProcessor implements Serializable {
                     return null;
                 }
 
-                recordTestResult(build, workspace, listener, xUnitLog, nodeId, enclosingBlocks, enclosingBlockNames);
+                recordTestResult(build, workspace, listener, xUnitLog, pipelineArgs);
                 // dryRun is true so that we delete the generated files for future runs.
                 processDeletion(true, workspace, xUnitLog);
             }
@@ -328,8 +329,7 @@ public class XUnitProcessor implements Serializable {
     }
 
     private void recordTestResult(Run<?, ?> build, FilePath workspace, TaskListener listener, XUnitLog xUnitLog,
-                                  @CheckForNull String nodeId, List<String> enclosingBlocks,
-                                  List<String> enclosingBlockNames) throws XUnitException {
+                                  @Nonnull PipelineArgs pipelineArgs) throws XUnitException {
         synchronized (build) {
             TestResultAction action = build.getAction(TestResultAction.class);
             final long buildTime = build.getTimestamp().getTimeInMillis();
@@ -337,7 +337,7 @@ public class XUnitProcessor implements Serializable {
 
             boolean appending = false;
             TestResult result = getTestResult(workspace, "**/TEST-*.xml", null, buildTime, nowMaster,
-                    nodeId, enclosingBlocks, enclosingBlockNames);
+                    pipelineArgs);
             if (action == null) {
                 action = new TestResultAction(build, result, listener);
             } else {
@@ -370,9 +370,7 @@ public class XUnitProcessor implements Serializable {
      * @param existingTestResults the existing test result
      * @param buildTime           the build time
      * @param nowMaster           the time on master
-     * @param nodeId              Optional, possibly null {@link FlowNode#getId()}
-     * @param enclosingBlocks     Optional, possibly null list of enclosing {@link FlowNode#getId()}
-     * @param enclosingBlockNames Optional, possibly null list of enclosing block names
+     * @param pipelineArgs A non-null {@link PipelineArgs} instance containing Pipeline-related additional arguments.
      * @return the test result object
      * @throws XUnitException the plugin exception
      */
@@ -380,9 +378,7 @@ public class XUnitProcessor implements Serializable {
                                      final String junitFilePattern,
                                      final TestResult existingTestResults,
                                      final long buildTime, final long nowMaster,
-                                     @CheckForNull final String nodeId,
-                                     final List<String> enclosingBlocks,
-                                     final List<String> enclosingBlockNames)
+                                     @Nonnull final PipelineArgs pipelineArgs)
             throws XUnitException {
 
         try {
@@ -405,10 +401,9 @@ public class XUnitProcessor implements Serializable {
                     try {
                         if (existingTestResults == null) {
                             return new TestResult(buildTime + (nowSlave - nowMaster), ds, true,
-                                    nodeId, enclosingBlocks, enclosingBlockNames);
+                                    pipelineArgs);
                         } else {
-                            existingTestResults.parse(buildTime + (nowSlave - nowMaster), ds, nodeId,
-                                    enclosingBlocks, enclosingBlockNames);
+                            existingTestResults.parse(buildTime + (nowSlave - nowMaster), ds, pipelineArgs);
                             return existingTestResults;
                         }
                     } catch (IOException ioe) {

@@ -8,6 +8,7 @@ import hudson.model.TaskListener;
 import hudson.tasks.junit.TestResultAction;
 import hudson.tasks.junit.TestResultSummary;
 import hudson.tasks.junit.pipeline.JUnitResultsStepExecution;
+import hudson.tasks.test.PipelineArgs;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.workflow.graph.FlowNode;
 import org.jenkinsci.plugins.workflow.steps.StepContext;
@@ -47,10 +48,11 @@ public class XUnitResultsStepExecution extends SynchronousStepExecution<TestResu
                 new ExtraConfiguration(step.getTestTimeMargin()));
         List<FlowNode> enclosingBlocks = JUnitResultsStepExecution.getEnclosingStagesAndParallels(node);
 
-        TestResultAction action = xUnitProcessor.performAndGetAction(run, nodeId,
-                JUnitResultsStepExecution.getEnclosingBlockIds(enclosingBlocks),
-                JUnitResultsStepExecution.getEnclosingBlockNames(enclosingBlocks),
-                workspace, listener);
+        PipelineArgs pipelineArgs = new PipelineArgs();
+        pipelineArgs.setNodeId(nodeId);
+        pipelineArgs.setEnclosingBlocks(JUnitResultsStepExecution.getEnclosingBlockIds(enclosingBlocks));
+        pipelineArgs.setEnclosingBlockNames(JUnitResultsStepExecution.getEnclosingBlockNames(enclosingBlocks));
+        TestResultAction action = xUnitProcessor.performAndGetAction(run, pipelineArgs, workspace, listener);
         if (action != null) {
             // TODO: Once JENKINS-43995 lands, update this to set the step status instead of the entire build.
             if (action.getResult().getFailCount() > 0) {
