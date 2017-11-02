@@ -40,7 +40,6 @@ import hudson.tasks.BuildStepMonitor;
 import hudson.tasks.Publisher;
 import hudson.tasks.Recorder;
 import hudson.tasks.junit.JUnitResultArchiver;
-import hudson.tasks.test.PipelineArgs;
 import hudson.tasks.test.TestResultProjectAction;
 import jenkins.tasks.SimpleBuildStep;
 import org.jenkinsci.lib.dryrun.DryRun;
@@ -147,14 +146,14 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable, Si
                         @Nonnull final TaskListener listener)
             throws InterruptedException, IOException {
         XUnitProcessor xUnitProcessor = new XUnitProcessor(getTypes(), getThresholds(), getThresholdMode(), getExtraConfiguration());
-        xUnitProcessor.performXUnit(false, build, new PipelineArgs(), workspace, listener);
+        xUnitProcessor.performXUnit(false, build, null, workspace, listener);
     }
 
     public boolean performDryRun(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener)
             throws InterruptedException, IOException {
         try {
             XUnitProcessor xUnitProcessor = new XUnitProcessor(getTypes(), getThresholds(), getThresholdMode(), getExtraConfiguration());
-            xUnitProcessor.performXUnit(true, build, new PipelineArgs(), build.getWorkspace(), listener);
+            xUnitProcessor.performXUnit(true, build, null, build.getWorkspace(), listener);
         } catch (Throwable t) {
             listener.getLogger().println("[ERROR] - There is an error: " + t.getCause().getMessage());
         }
