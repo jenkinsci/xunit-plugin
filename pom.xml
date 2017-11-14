@@ -31,6 +31,15 @@
                 <role>Project developer</role>
             </roles>
         </developer>
+        <developer>
+            <id>abayer</id>
+            <name>Andrew Bayer</name>
+            <email>andrew.bayer@gmail.com</email>
+            <timezone>-5</timezone>
+            <roles>
+                <role>Project developer</role>
+            </roles>
+        </developer>
     </developers>
 
     <properties>
