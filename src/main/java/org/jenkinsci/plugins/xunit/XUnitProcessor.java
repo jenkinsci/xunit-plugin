@@ -58,7 +58,6 @@ import java.util.Arrays;
 /**
  * @author Gregory Boissinot
  */
-@SuppressFBWarnings(value="RV_RETURN_VALUE_IGNORED_BAD_PRACTICE", justification = "generatedJunitDir.mkdirs() result is not needed")
 public class XUnitProcessor implements Serializable {
     private static final long serialVersionUID = 1L;
     private TestType[] types;
@@ -381,11 +380,15 @@ public class XUnitProcessor implements Serializable {
         try {
             return workspace.act(new jenkins.SlaveToMasterFileCallable<TestResult>() {
 
+                @SuppressFBWarnings(value="RV_RETURN_VALUE_IGNORED_BAD_PRACTICE", justification = "generatedJunitDir.mkdirs() result is not needed")
                 public TestResult invoke(File ws, VirtualChannel channel) throws IOException {
                     final long nowSlave = System.currentTimeMillis();
                     File generatedJunitDir = new File(ws, XUnitDefaultValues.GENERATED_JUNIT_DIR);
-                    //Ignore return value
+                    //Ignore return value - we actually only care if the directory exists, not whether it just now got created.
                     generatedJunitDir.mkdirs();
+                    if (!generatedJunitDir.isDirectory()) {
+                        throw new IllegalStateException("Could not create directory " + generatedJunitDir.getAbsolutePath());
+                    }
                     FileSet fs = Util.createFileSet(generatedJunitDir, junitFilePattern);
                     DirectoryScanner ds = fs.getDirectoryScanner();
                     String[] files = ds.getIncludedFiles();
