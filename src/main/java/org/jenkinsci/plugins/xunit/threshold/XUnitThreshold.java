@@ -33,6 +33,7 @@ import hudson.model.Result;
 import hudson.model.Run;
 import hudson.tasks.junit.TestResultAction;
 import org.jenkinsci.plugins.xunit.service.XUnitLog;
+import org.kohsuke.stapler.DataBoundSetter;
 
 import java.io.Serializable;
 
@@ -68,16 +69,36 @@ public abstract class XUnitThreshold implements ExtensionPoint, Serializable, De
         return Hudson.getInstance().<XUnitThreshold, XUnitThresholdDescriptor<?>>getDescriptorList(XUnitThreshold.class);
     }
 
+    @DataBoundSetter
+    public void setUnstableThreshold(String unstableThreshold) {
+        this.unstableThreshold = unstableThreshold;
+    }
+
     public String getUnstableThreshold() {
         return unstableThreshold;
+    }
+
+    @DataBoundSetter
+    public void setUnstableNewThreshold(String unstableNewThreshold) {
+        this.unstableNewThreshold = unstableNewThreshold;
     }
 
     public String getUnstableNewThreshold() {
         return unstableNewThreshold;
     }
 
+    @DataBoundSetter
+    public void setFailureThreshold(String failureThreshold) {
+        this.failureThreshold = failureThreshold;
+    }
+
     public String getFailureThreshold() {
         return failureThreshold;
+    }
+
+    @DataBoundSetter
+    public void setFailureNewThreshold(String failureNewThreshold) {
+        this.failureNewThreshold = failureNewThreshold;
     }
 
     public String getFailureNewThreshold() {

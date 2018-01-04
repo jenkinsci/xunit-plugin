@@ -25,6 +25,7 @@
 package org.jenkinsci.plugins.xunit.types;
 
 import hudson.Extension;
+import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
@@ -39,7 +40,7 @@ public class MbUnitType extends TestType {
         super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
     }
 
-    @Extension
+    @Extension @Symbol("mbUnit")
     public static class MbUnitTypeDescriptor extends TestTypeDescriptor<MbUnitType> {
 
         public MbUnitTypeDescriptor() {

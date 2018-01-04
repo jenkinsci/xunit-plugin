@@ -25,6 +25,7 @@
 package org.jenkinsci.plugins.xunit.types;
 
 import hudson.Extension;
+import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
@@ -36,7 +37,7 @@ public class GTesterJunitHudsonTestType extends TestType {
         super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
     }
 
-    @Extension
+    @Extension @Symbol("gTester")
     public static class DescriptorImpl extends TestTypeDescriptor<GTesterJunitHudsonTestType> {
 
         public DescriptorImpl() {
