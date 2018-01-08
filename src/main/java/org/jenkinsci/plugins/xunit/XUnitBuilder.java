@@ -37,6 +37,7 @@ import hudson.tasks.BuildStepDescriptor;
 import hudson.tasks.BuildStepMonitor;
 import hudson.tasks.Builder;
 import jenkins.tasks.SimpleBuildStep;
+import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
@@ -145,7 +146,7 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
         return BuildStepMonitor.NONE;
     }
 
-    @Extension
+    @Extension @Symbol("xunit")
     @SuppressWarnings("unused")
     public static final class XUnitDescriptorBuilder extends BuildStepDescriptor<Builder> {
 
