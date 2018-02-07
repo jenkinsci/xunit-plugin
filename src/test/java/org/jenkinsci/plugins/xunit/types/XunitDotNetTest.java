@@ -34,4 +34,9 @@ public class XunitDotNetTest extends AbstractTest {
     public void testSimpleTransformationCase1() throws Exception {
         convertAndValidate(XUnitDotNet.class, "xunitdotnet/xunit-simple.xml", "xunitdotnet/junit-simple.xml");
     }
+
+    @Test
+    public void testWithoutPackageAtName() throws Exception {
+        convertAndValidate(XUnitDotNet.class, "xunitdotnet/xunit-without-package-at-name.xml", "xunitdotnet/junit-without-package-at-name.xml");
+    }
 }
