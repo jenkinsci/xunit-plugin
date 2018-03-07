@@ -25,6 +25,7 @@
 package org.jenkinsci.plugins.xunit.types;
 
 import hudson.Extension;
+import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
@@ -37,6 +38,7 @@ public class XUnitDotNetTestType extends TestType {
     }
 
     @Extension
+    @Symbol("xUnitDotNetResults")
     public static class DescriptorImpl extends TestTypeDescriptor<XUnitDotNetTestType> {
 
         public DescriptorImpl() {

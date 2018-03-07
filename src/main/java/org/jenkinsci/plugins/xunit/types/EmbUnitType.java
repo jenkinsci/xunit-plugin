@@ -25,6 +25,7 @@
 package org.jenkinsci.plugins.xunit.types;
 
 import hudson.Extension;
+import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
@@ -40,6 +41,7 @@ public class EmbUnitType extends TestType {
     }
 
     @Extension
+    @Symbol("EmbUnitResults")
     public static class EmbUnitTypeDescriptor extends TestTypeDescriptor<EmbUnitType> {
 
         public EmbUnitTypeDescriptor() {

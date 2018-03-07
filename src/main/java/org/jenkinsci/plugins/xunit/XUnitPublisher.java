@@ -53,6 +53,7 @@ import org.kohsuke.stapler.DataBoundConstructor;
 
 import java.io.IOException;
 import java.io.Serializable;
+import org.jenkinsci.Symbol;
 
 /**
  * Class that converting custom reports to Junit reports and records them
@@ -164,6 +165,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable, Si
 
     @Extension
     @SuppressWarnings("unused")
+    @Symbol("xUnitPublisher")
     public static final class XUnitDescriptorPublisher extends BuildStepDescriptor<Publisher> {
 
         public XUnitDescriptorPublisher() {
