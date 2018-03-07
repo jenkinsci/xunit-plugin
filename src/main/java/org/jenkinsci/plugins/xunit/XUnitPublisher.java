@@ -142,6 +142,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable, Si
         xUnitProcessor.performXUnit(false, build, workspace, listener);
     }
 
+    @Override
     public boolean performDryRun(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener)
             throws InterruptedException, IOException {
         try {
@@ -156,6 +157,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable, Si
     }
 
 
+    @Override
     public BuildStepMonitor getRequiredMonitorService() {
         return BuildStepMonitor.NONE;
     }

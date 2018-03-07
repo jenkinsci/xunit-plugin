@@ -325,6 +325,7 @@ public class XUnitProcessor implements Serializable {
         try {
             return workspace.act(new jenkins.SlaveToMasterFileCallable<TestResult>() {
 
+                @Override
                 public TestResult invoke(File ws, VirtualChannel channel) throws IOException {
                     final long nowSlave = System.currentTimeMillis();
                     File generatedJunitDir = new File(ws, XUnitDefaultValues.GENERATED_JUNIT_DIR);

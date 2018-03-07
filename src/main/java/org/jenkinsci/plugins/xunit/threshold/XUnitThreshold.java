@@ -59,6 +59,7 @@ public abstract class XUnitThreshold implements ExtensionPoint, Serializable, De
         this.failureNewThreshold = failureNewThreshold;
     }
 
+    @Override
     public Descriptor<XUnitThreshold> getDescriptor() {
         return (XUnitThresholdDescriptor<? extends XUnitThreshold>) Hudson.getInstance().getDescriptor(getClass());
     }

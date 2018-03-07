@@ -46,6 +46,7 @@ import org.jenkinsci.plugins.xunit.threshold.XUnitThresholdDescriptor;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 import java.io.IOException;
+import org.jenkinsci.Symbol;
 
 /**
  * @author Gregory Boissinot
@@ -147,6 +148,7 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
 
     @Extension
     @SuppressWarnings("unused")
+    @Symbol("ProcessxUnit")
     public static final class XUnitDescriptorBuilder extends BuildStepDescriptor<Builder> {
 
         public XUnitDescriptorBuilder() {

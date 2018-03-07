@@ -76,6 +76,7 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
      * @return true or false if the conversion fails
      * @throws IOException
      */
+    @Override
     public Boolean invoke(File ws, VirtualChannel channel) throws IOException, InterruptedException {
         try {
 
