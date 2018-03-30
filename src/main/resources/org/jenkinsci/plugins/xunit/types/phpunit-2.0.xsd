@@ -38,6 +38,8 @@ THE SOFTWARE.
         </xs:complexType>
     </xs:element>
 
+    <xs:element name="skipped" />
+
     <xs:element name="properties">
         <xs:complexType>
             <xs:sequence>
@@ -68,6 +70,7 @@ THE SOFTWARE.
                 <xs:element ref="failure" minOccurs="0" maxOccurs="1"/>
                 <xs:element ref="system-err" minOccurs="0" maxOccurs="1"/>
                 <xs:element ref="system-out" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="skipped" minOccurs="0" maxOccurs="1"/>
             </xs:sequence>
             <xs:attribute name="classname" type="xs:string" use="optional"/>
             <xs:attribute name="name" type="xs:string" use="required"/>
