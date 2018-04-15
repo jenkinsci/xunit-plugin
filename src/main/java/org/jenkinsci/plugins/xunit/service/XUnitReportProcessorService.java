@@ -24,17 +24,19 @@
 
 package org.jenkinsci.plugins.xunit.service;
 
-import com.google.inject.Inject;
-import hudson.Util;
-import org.apache.tools.ant.DirectoryScanner;
-import org.apache.tools.ant.types.FileSet;
-import org.jenkinsci.plugins.xunit.OldTestReportException;
-
 import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import org.apache.tools.ant.DirectoryScanner;
+import org.apache.tools.ant.types.FileSet;
+import org.jenkinsci.plugins.xunit.OldTestReportException;
+
+import com.google.inject.Inject;
+
+import hudson.Util;
 
 
 public class XUnitReportProcessorService extends XUnitService implements Serializable {
@@ -42,7 +44,6 @@ public class XUnitReportProcessorService extends XUnitService implements Seriali
     private XUnitLog xUnitLog;
 
     @Inject
-    @SuppressWarnings("unused")
     void set(XUnitLog xUnitLog) {
         this.xUnitLog = xUnitLog;
     }

@@ -24,22 +24,23 @@
 
 package org.jenkinsci.plugins.xunit.service;
 
-import com.google.inject.Inject;
-import hudson.FilePath;
-import hudson.remoting.VirtualChannel;
-import hudson.util.IOException2;
-import jenkins.security.Roles;
-import org.jenkinsci.lib.dtkit.util.validator.ValidationError;
-import org.jenkinsci.remoting.RoleChecker;
-import org.jenkinsci.plugins.xunit.NoFoundTestException;
-import org.jenkinsci.plugins.xunit.OldTestReportException;
-import org.jenkinsci.plugins.xunit.SkipTestException;
-import org.jenkinsci.plugins.xunit.XUnitDefaultValues;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
+
+import org.jenkinsci.lib.dtkit.util.validator.ValidationError;
+import org.jenkinsci.plugins.xunit.NoFoundTestException;
+import org.jenkinsci.plugins.xunit.OldTestReportException;
+import org.jenkinsci.plugins.xunit.SkipTestException;
+import org.jenkinsci.plugins.xunit.XUnitDefaultValues;
+import org.jenkinsci.remoting.RoleChecker;
+
+import com.google.inject.Inject;
+
+import hudson.FilePath;
+import hudson.remoting.VirtualChannel;
+import jenkins.security.Roles;
 
 public class XUnitTransformer extends XUnitService implements FilePath.FileCallable<Boolean>, Serializable {
 
@@ -54,7 +55,6 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
     private XUnitLog xUnitLog;
 
     @Inject
-    @SuppressWarnings("unused")
     void load(
             XUnitReportProcessorService xUnitReportProcessorService,
             XUnitConversionService xUnitConversionService,
@@ -76,6 +76,7 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
      * @return true or false if the conversion fails
      * @throws IOException
      */
+    @Override
     public Boolean invoke(File ws, VirtualChannel channel) throws IOException, InterruptedException {
         try {
 
@@ -180,7 +181,7 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
                 xUnitLog.errorConsoleLogger(msg);
             }
             xe.printStackTrace();
-            throw new IOException2("There are some problems during the conversion into JUnit reports: ", xe);
+            throw new IOException("There are some problems during the conversion into JUnit reports: ", xe);
         }
 
         return true;

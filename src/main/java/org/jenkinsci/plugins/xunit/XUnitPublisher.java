@@ -24,6 +24,18 @@
 
 package org.jenkinsci.plugins.xunit;
 
+import java.io.IOException;
+import java.io.Serializable;
+
+import org.jenkinsci.lib.dryrun.DryRun;
+import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
+import org.jenkinsci.lib.dtkit.type.TestType;
+import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
+import org.jenkinsci.plugins.xunit.threshold.SkippedThreshold;
+import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
+import org.jenkinsci.plugins.xunit.threshold.XUnitThresholdDescriptor;
+import org.kohsuke.stapler.DataBoundConstructor;
+
 import hudson.DescriptorExtensionList;
 import hudson.Extension;
 import hudson.FilePath;
@@ -42,24 +54,12 @@ import hudson.tasks.Recorder;
 import hudson.tasks.junit.JUnitResultArchiver;
 import hudson.tasks.test.TestResultProjectAction;
 import jenkins.tasks.SimpleBuildStep;
-import org.jenkinsci.lib.dryrun.DryRun;
-import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
-import org.jenkinsci.lib.dtkit.type.TestType;
-import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
-import org.jenkinsci.plugins.xunit.threshold.SkippedThreshold;
-import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
-import org.jenkinsci.plugins.xunit.threshold.XUnitThresholdDescriptor;
-import org.kohsuke.stapler.DataBoundConstructor;
-
-import java.io.IOException;
-import java.io.Serializable;
 
 /**
  * Class that converting custom reports to Junit reports and records them
  *
  * @author Gregory Boissinot
  */
-@SuppressWarnings({"unchecked", "unused"})
 public class XUnitPublisher extends Recorder implements DryRun, Serializable, SimpleBuildStep {
 
     private TestType[] types;
@@ -142,6 +142,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable, Si
         xUnitProcessor.performXUnit(false, build, workspace, listener);
     }
 
+    @Override
     public boolean performDryRun(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener)
             throws InterruptedException, IOException {
         try {
@@ -156,12 +157,12 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable, Si
     }
 
 
+    @Override
     public BuildStepMonitor getRequiredMonitorService() {
         return BuildStepMonitor.NONE;
     }
 
     @Extension
-    @SuppressWarnings("unused")
     public static final class XUnitDescriptorPublisher extends BuildStepDescriptor<Publisher> {
 
         public XUnitDescriptorPublisher() {
@@ -175,7 +176,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable, Si
         }
 
         @Override
-        public boolean isApplicable(Class type) {
+        public boolean isApplicable(@SuppressWarnings("rawtypes") Class<? extends AbstractProject> jobType) {
             return true;
         }
 

@@ -24,19 +24,8 @@
 
 package org.jenkinsci.plugins.xunit;
 
-import hudson.DescriptorExtensionList;
-import hudson.Extension;
-import hudson.FilePath;
-import hudson.Launcher;
-import hudson.model.AbstractBuild;
-import hudson.model.BuildListener;
-import hudson.model.Result;
-import hudson.model.Run;
-import hudson.model.TaskListener;
-import hudson.tasks.BuildStepDescriptor;
-import hudson.tasks.BuildStepMonitor;
-import hudson.tasks.Builder;
-import jenkins.tasks.SimpleBuildStep;
+import java.io.IOException;
+
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
@@ -45,7 +34,20 @@ import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThresholdDescriptor;
 import org.kohsuke.stapler.DataBoundConstructor;
 
-import java.io.IOException;
+import hudson.DescriptorExtensionList;
+import hudson.Extension;
+import hudson.FilePath;
+import hudson.Launcher;
+import hudson.model.AbstractBuild;
+import hudson.model.AbstractProject;
+import hudson.model.BuildListener;
+import hudson.model.Result;
+import hudson.model.Run;
+import hudson.model.TaskListener;
+import hudson.tasks.BuildStepDescriptor;
+import hudson.tasks.BuildStepMonitor;
+import hudson.tasks.Builder;
+import jenkins.tasks.SimpleBuildStep;
 
 /**
  * @author Gregory Boissinot
@@ -56,11 +58,6 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
     private XUnitThreshold[] thresholds;
     private int thresholdMode;
     private ExtraConfiguration extraConfiguration;
-
-    /**
-     * Computed
-     */
-    private XUnitProcessor xUnitProcessor;
 
     public XUnitBuilder(TestType[] types, XUnitThreshold[] thresholds) {
         this.types = types;
@@ -146,7 +143,6 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
     }
 
     @Extension
-    @SuppressWarnings("unused")
     public static final class XUnitDescriptorBuilder extends BuildStepDescriptor<Builder> {
 
         public XUnitDescriptorBuilder() {
@@ -160,7 +156,7 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
         }
 
         @Override
-        public boolean isApplicable(Class type) {
+        public boolean isApplicable(@SuppressWarnings("rawtypes") Class<? extends AbstractProject> jobType) {
             return true;
         }
 

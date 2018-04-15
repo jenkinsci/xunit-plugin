@@ -24,32 +24,39 @@
 
 package org.jenkinsci.plugins.xunit;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.Serializable;
+
+import org.apache.tools.ant.DirectoryScanner;
+import org.apache.tools.ant.types.FileSet;
+import org.jenkinsci.lib.dtkit.model.InputMetric;
+import org.jenkinsci.lib.dtkit.type.TestType;
+import org.jenkinsci.plugins.xunit.exception.XUnitException;
+import org.jenkinsci.plugins.xunit.service.XUnitConversionService;
+import org.jenkinsci.plugins.xunit.service.XUnitLog;
+import org.jenkinsci.plugins.xunit.service.XUnitReportProcessorService;
+import org.jenkinsci.plugins.xunit.service.XUnitToolInfo;
+import org.jenkinsci.plugins.xunit.service.XUnitTransformer;
+import org.jenkinsci.plugins.xunit.service.XUnitValidationService;
+import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
+import org.jenkinsci.plugins.xunit.types.CustomType;
+
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Singleton;
+
 import hudson.FilePath;
 import hudson.Util;
 import hudson.model.AbstractBuild;
 import hudson.model.BuildListener;
-import hudson.model.Hudson;
 import hudson.model.Result;
 import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.remoting.VirtualChannel;
 import hudson.tasks.junit.TestResult;
 import hudson.tasks.junit.TestResultAction;
-import org.apache.tools.ant.DirectoryScanner;
-import org.apache.tools.ant.types.FileSet;
-import org.jenkinsci.lib.dtkit.model.InputMetric;
-import org.jenkinsci.lib.dtkit.type.TestType;
-import org.jenkinsci.plugins.xunit.exception.XUnitException;
-import org.jenkinsci.plugins.xunit.service.*;
-import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
-import org.jenkinsci.plugins.xunit.types.CustomType;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.Serializable;
+import jenkins.model.Jenkins;
 
 /**
  * @author Gregory Boissinot
@@ -199,13 +206,13 @@ public class XUnitProcessor implements Serializable {
         return xUnitReportService.isEmptyPattern(tool.getPattern());
     }
 
-    private String getExpandedResolvedPattern(TestType tool, Run build, TaskListener listener) throws IOException, InterruptedException {
+    private String getExpandedResolvedPattern(TestType tool, Run<?, ?> build, TaskListener listener) throws IOException, InterruptedException {
         String newExpandedPattern = tool.getPattern();
         newExpandedPattern = newExpandedPattern.replaceAll("[\t\r\n]+", " ");
         return Util.replaceMacro(newExpandedPattern, build.getEnvironment(listener));
     }
 
-    private XUnitToolInfo getXUnitToolInfoObject(final TestType tool, final String expandedPattern, final Run build, final FilePath workspace, final TaskListener listener) throws IOException, InterruptedException {
+    private XUnitToolInfo getXUnitToolInfoObject(final TestType tool, final String expandedPattern, final Run<?, ?> build, final FilePath workspace, final TaskListener listener) throws IOException, InterruptedException {
 
         InputMetric inputMetric = tool.getInputMetric();
         inputMetric = Guice.createInjector(new AbstractModule() {
@@ -219,7 +226,7 @@ public class XUnitProcessor implements Serializable {
         }).getInstance(inputMetric.getClass());
 
         return new XUnitToolInfo(
-                new FilePath(new File(Hudson.getInstance().getRootDir(), "userContent")),
+                new FilePath(new File(Jenkins.getActiveInstance().getRootDir(), "userContent")),
                 inputMetric,
                 expandedPattern,
                 tool.isSkipNoTestFiles(),
@@ -231,7 +238,7 @@ public class XUnitProcessor implements Serializable {
 
     }
 
-    private FilePath getCustomStylesheet(final TestType tool, final Run build, final FilePath workspace, final TaskListener listener) throws IOException, InterruptedException {
+    private FilePath getCustomStylesheet(final TestType tool, final Run<?, ?> build, final FilePath workspace, final TaskListener listener) throws IOException, InterruptedException {
 
         final String customXSLPath = Util.replaceMacro(((CustomType) tool).getCustomXSL(), build.getEnvironment(listener));
 
@@ -268,7 +275,7 @@ public class XUnitProcessor implements Serializable {
     }
 
     private TestResultAction getPreviousTestResultAction(Run<?, ?> build) {
-        Run previousBuild = build.getPreviousBuild();
+        Run<?, ?> previousBuild = build.getPreviousBuild();
         if (previousBuild == null) {
             return null;
         }
@@ -300,7 +307,7 @@ public class XUnitProcessor implements Serializable {
             }
 
             if (existingAction == null) {
-                build.getActions().add(action);
+                build.addAction(action);
             }
         }
     }
@@ -324,7 +331,9 @@ public class XUnitProcessor implements Serializable {
 
         try {
             return workspace.act(new jenkins.SlaveToMasterFileCallable<TestResult>() {
+                private static final long serialVersionUID = 1L;
 
+                @Override
                 public TestResult invoke(File ws, VirtualChannel channel) throws IOException {
                     final long nowSlave = System.currentTimeMillis();
                     File generatedJunitDir = new File(ws, XUnitDefaultValues.GENERATED_JUNIT_DIR);
