@@ -74,7 +74,7 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
      * @param ws      the Hudson workspace
      * @param channel the Hudson chanel
      * @return true or false if the conversion fails
-     * @throws IOException
+     * @throws IOException in case an error occurs during communication with the Jenkins node where this callable is executed.
      */
     @Override
     public Boolean invoke(File ws, VirtualChannel channel) throws IOException, InterruptedException {

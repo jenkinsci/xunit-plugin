@@ -77,14 +77,14 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
         this.extraConfiguration = new ExtraConfiguration(longTestTimeMargin);
     }
 
-    /**
+    /*
      * Needed to support Snippet Generator and Workflow properly.
      */
     public TestType[] getTools() {
         return types;
     }
 
-    /**
+    /*
      * Needed to support Snippet Generator and Workflow properly
      */
     public String getTestTimeMargin() {
