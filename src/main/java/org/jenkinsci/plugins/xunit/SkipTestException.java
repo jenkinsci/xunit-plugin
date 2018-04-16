@@ -27,5 +27,6 @@ package org.jenkinsci.plugins.xunit;
 /**
  * @author Gregory Boissinot
  */
+@SuppressWarnings("serial")
 public class SkipTestException extends InterruptedException {
 }

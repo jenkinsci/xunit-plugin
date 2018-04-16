@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+	<Match>
+		<Class name="org.jenkinsci.plugins.xunit.XUnitBuilder" />
+		<Bug pattern="EI_EXPOSE_REP" />
+		<!-- getter are needed only for Snippet Generator, are not APIs -->
+	</Match>
+	<Match>
+		<Class name="org.jenkinsci.plugins.xunit.XUnitPublisher" />
+		<Bug pattern="EI_EXPOSE_REP" />
+		<!-- getter are needed only for Snippet Generator, are not APIs -->
+	</Match>
+</FindBugsFilter>

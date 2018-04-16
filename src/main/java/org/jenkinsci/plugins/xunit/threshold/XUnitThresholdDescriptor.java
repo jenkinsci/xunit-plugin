@@ -26,7 +26,7 @@ package org.jenkinsci.plugins.xunit.threshold;
 
 import hudson.DescriptorExtensionList;
 import hudson.model.Descriptor;
-import hudson.model.Hudson;
+import jenkins.model.Jenkins;
 
 /**
  * @author Gregory Boissinot
@@ -37,24 +37,18 @@ public abstract class XUnitThresholdDescriptor<T extends XUnitThreshold> extends
         super(clazz);
     }
 
-    @SuppressWarnings("unused")
     public static DescriptorExtensionList<XUnitThreshold, XUnitThresholdDescriptor<?>> all() {
-        return Hudson.getInstance().getDescriptorList(XUnitThreshold.class);
+        return Jenkins.getActiveInstance().getDescriptorList(XUnitThreshold.class);
     }
 
-    @SuppressWarnings("unused")
     public abstract String getUnstableThresholdImgTitle();
 
-    @SuppressWarnings("unused")
     public abstract String getUnstableNewThresholdImgTitle();
 
-    @SuppressWarnings("unused")
     public abstract String getFailureThresholdImgTitle();
 
-    @SuppressWarnings("unused")
     public abstract String getFailureNewThresholdImgTitle();
 
-    @SuppressWarnings("unused")
     public abstract String getThresholdHelpMessage();
 
 }

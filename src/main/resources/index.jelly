@@ -21,6 +21,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
+<!--
+  This view is used to render the plugin list page.
+  Since we don't really have anything dynamic here, let's just use static HTML. 
+-->
+<?jelly escape-by-default='true'?>
 <div>
     This plugin makes it possible to record xUnit test reports.
 </div>

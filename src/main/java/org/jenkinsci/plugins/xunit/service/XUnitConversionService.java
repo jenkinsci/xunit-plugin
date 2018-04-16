@@ -24,25 +24,26 @@
 
 package org.jenkinsci.plugins.xunit.service;
 
-import com.google.inject.Inject;
-import hudson.FilePath;
+import java.io.File;
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.List;
+
 import org.jenkinsci.lib.dtkit.model.InputMetric;
 import org.jenkinsci.lib.dtkit.model.InputMetricXSL;
 import org.jenkinsci.lib.dtkit.util.converter.ConversionException;
 import org.jenkinsci.plugins.xunit.exception.XUnitException;
 import org.jenkinsci.plugins.xunit.types.CustomInputMetric;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.Serializable;
-import java.util.List;
+import com.google.inject.Inject;
+
+import hudson.FilePath;
 
 public class XUnitConversionService extends XUnitService implements Serializable {
 
     private XUnitLog xUnitLog;
 
     @Inject
-    @SuppressWarnings("unused")
     void load(XUnitLog xUnitLog) {
         this.xUnitLog = xUnitLog;
     }

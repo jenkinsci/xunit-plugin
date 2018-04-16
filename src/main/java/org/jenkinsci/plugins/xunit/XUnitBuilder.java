@@ -24,19 +24,9 @@
 
 package org.jenkinsci.plugins.xunit;
 
-import hudson.DescriptorExtensionList;
-import hudson.Extension;
-import hudson.FilePath;
-import hudson.Launcher;
-import hudson.model.AbstractBuild;
-import hudson.model.BuildListener;
-import hudson.model.Result;
-import hudson.model.Run;
-import hudson.model.TaskListener;
-import hudson.tasks.BuildStepDescriptor;
-import hudson.tasks.BuildStepMonitor;
-import hudson.tasks.Builder;
-import jenkins.tasks.SimpleBuildStep;
+import java.io.IOException;
+import java.util.Arrays;
+
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
@@ -45,7 +35,20 @@ import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThresholdDescriptor;
 import org.kohsuke.stapler.DataBoundConstructor;
 
-import java.io.IOException;
+import hudson.DescriptorExtensionList;
+import hudson.Extension;
+import hudson.FilePath;
+import hudson.Launcher;
+import hudson.model.AbstractBuild;
+import hudson.model.AbstractProject;
+import hudson.model.BuildListener;
+import hudson.model.Result;
+import hudson.model.Run;
+import hudson.model.TaskListener;
+import hudson.tasks.BuildStepDescriptor;
+import hudson.tasks.BuildStepMonitor;
+import hudson.tasks.Builder;
+import jenkins.tasks.SimpleBuildStep;
 
 /**
  * @author Gregory Boissinot
@@ -57,21 +60,15 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
     private int thresholdMode;
     private ExtraConfiguration extraConfiguration;
 
-    /**
-     * Computed
-     */
-    private XUnitProcessor xUnitProcessor;
-
-    public XUnitBuilder(TestType[] types, XUnitThreshold[] thresholds) {
-        this.types = types;
-        this.thresholds = thresholds;
+    public XUnitBuilder(TestType[] tools, XUnitThreshold[] thresholds) {
+        this.types = Arrays.copyOf(tools, tools.length);
+        this.thresholds = Arrays.copyOf(thresholds, thresholds.length);
         this.thresholdMode = 1;
     }
 
     @DataBoundConstructor
     public XUnitBuilder(TestType[] tools, XUnitThreshold[] thresholds, int thresholdMode, String testTimeMargin) {
-        this.types = tools;
-        this.thresholds = thresholds;
+        this(tools, thresholds);
         this.thresholdMode = thresholdMode;
         long longTestTimeMargin = XUnitDefaultValues.TEST_REPORT_TIME_MARGING;
         if (testTimeMargin != null && testTimeMargin.trim().length() != 0) {
@@ -114,13 +111,6 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
     }
 
     @Override
-    public boolean perform(final AbstractBuild<?, ?> build, Launcher launcher, final BuildListener listener)
-            throws InterruptedException, IOException {
-        perform(build, build.getWorkspace(), launcher, listener);
-        return true;
-    }
-
-    @Override
     public void perform(final Run<?, ?> build, FilePath workspace, Launcher launcher, final TaskListener listener)
             throws InterruptedException, IOException {
         XUnitProcessor xUnitProcessor = new XUnitProcessor(getTypes(), getThresholds(), getThresholdMode(), getExtraConfiguration());
@@ -146,7 +136,6 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
     }
 
     @Extension
-    @SuppressWarnings("unused")
     public static final class XUnitDescriptorBuilder extends BuildStepDescriptor<Builder> {
 
         public XUnitDescriptorBuilder() {
@@ -160,7 +149,7 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
         }
 
         @Override
-        public boolean isApplicable(Class type) {
+        public boolean isApplicable(@SuppressWarnings("rawtypes") Class<? extends AbstractProject> jobType) {
             return true;
         }
 

@@ -24,17 +24,18 @@
 
 package org.jenkinsci.plugins.xunit.threshold;
 
+import java.io.Serializable;
+
+import org.jenkinsci.plugins.xunit.service.XUnitLog;
+
 import hudson.DescriptorExtensionList;
 import hudson.ExtensionPoint;
 import hudson.model.Describable;
 import hudson.model.Descriptor;
-import hudson.model.Hudson;
 import hudson.model.Result;
 import hudson.model.Run;
 import hudson.tasks.junit.TestResultAction;
-import org.jenkinsci.plugins.xunit.service.XUnitLog;
-
-import java.io.Serializable;
+import jenkins.model.Jenkins;
 
 /**
  * @author Gregory Boissinot
@@ -59,13 +60,14 @@ public abstract class XUnitThreshold implements ExtensionPoint, Serializable, De
         this.failureNewThreshold = failureNewThreshold;
     }
 
+    @SuppressWarnings("unchecked")
+    @Override
     public Descriptor<XUnitThreshold> getDescriptor() {
-        return (XUnitThresholdDescriptor<? extends XUnitThreshold>) Hudson.getInstance().getDescriptor(getClass());
+        return Jenkins.getActiveInstance().getDescriptor(getClass());
     }
 
-    @SuppressWarnings("unused")
     public static DescriptorExtensionList<XUnitThreshold, XUnitThresholdDescriptor<?>> all() {
-        return Hudson.getInstance().<XUnitThreshold, XUnitThresholdDescriptor<?>>getDescriptorList(XUnitThreshold.class);
+        return Jenkins.getActiveInstance().<XUnitThreshold, XUnitThresholdDescriptor<?>>getDescriptorList(XUnitThreshold.class);
     }
 
     public String getUnstableThreshold() {
