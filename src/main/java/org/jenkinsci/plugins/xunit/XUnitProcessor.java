@@ -27,6 +27,7 @@ package org.jenkinsci.plugins.xunit;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.Arrays;
 
 import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
@@ -56,6 +57,7 @@ import hudson.model.TaskListener;
 import hudson.remoting.VirtualChannel;
 import hudson.tasks.junit.TestResult;
 import hudson.tasks.junit.TestResultAction;
+import hudson.util.IOUtils;
 import jenkins.model.Jenkins;
 
 /**
@@ -68,12 +70,12 @@ public class XUnitProcessor implements Serializable {
     private int thresholdMode;
     private ExtraConfiguration extraConfiguration;
 
-    public XUnitProcessor(TestType[] types, XUnitThreshold[] thresholds, int thresholdMode, ExtraConfiguration extraConfiguration) {
-        this.types = types;
-        if (types == null) {
+    public XUnitProcessor(TestType[] tools, XUnitThreshold[] thresholds, int thresholdMode, ExtraConfiguration extraConfiguration) {
+        if (tools == null) {
             throw new NullPointerException("The types section is required.");
         }
-        this.thresholds = thresholds;
+        this.types = Arrays.copyOf(tools, tools.length);
+        this.thresholds = Arrays.copyOf(thresholds, thresholds.length);
         this.thresholdMode = thresholdMode;
         this.extraConfiguration = extraConfiguration;
     }
@@ -337,8 +339,7 @@ public class XUnitProcessor implements Serializable {
                 public TestResult invoke(File ws, VirtualChannel channel) throws IOException {
                     final long nowSlave = System.currentTimeMillis();
                     File generatedJunitDir = new File(ws, XUnitDefaultValues.GENERATED_JUNIT_DIR);
-                    //Ignore return value
-                    generatedJunitDir.mkdirs();
+                    IOUtils.mkdirs(generatedJunitDir);
                     FileSet fs = Util.createFileSet(generatedJunitDir, junitFilePattern);
                     DirectoryScanner ds = fs.getDirectoryScanner();
                     String[] files = ds.getIncludedFiles();
@@ -348,15 +349,11 @@ public class XUnitProcessor implements Serializable {
                         return null;
 
                     }
-                    try {
-                        if (existingTestResults == null) {
-                            return new TestResult(buildTime + (nowSlave - nowMaster), ds, true);
-                        } else {
-                            existingTestResults.parse(buildTime + (nowSlave - nowMaster), ds);
-                            return existingTestResults;
-                        }
-                    } catch (IOException ioe) {
-                        throw new IOException(ioe);
+                    if (existingTestResults == null) {
+                        return new TestResult(buildTime + (nowSlave - nowMaster), ds, true);
+                    } else {
+                        existingTestResults.parse(buildTime + (nowSlave - nowMaster), ds);
+                        return existingTestResults;
                     }
                 }
 
@@ -372,16 +369,13 @@ public class XUnitProcessor implements Serializable {
     private Result getBuildStatus(Run<?, ?> build, XUnitLog xUnitLog) {
         Result curResult = getResultWithThreshold(xUnitLog, build);
         Result previousResultStep = build.getResult();
-        if (curResult != null) {
-            if (previousResultStep == null) {
-                return curResult;
-            }
-            if (previousResultStep != Result.NOT_BUILT && previousResultStep.isWorseOrEqualTo(curResult)) {
-                curResult = previousResultStep;
-            }
+        if (previousResultStep == null) {
             return curResult;
         }
-        return null;
+        if (previousResultStep != Result.NOT_BUILT && previousResultStep.isWorseOrEqualTo(curResult)) {
+            curResult = previousResultStep;
+        }
+        return curResult;
     }
 
     private Result getResultWithThreshold(XUnitLog log, Run<?, ?> build) {

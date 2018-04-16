@@ -157,6 +157,17 @@
     </scm>
 
     <build>
+    	<pluginManagement>
+    		<plugins>
+    			<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>findbugs-maven-plugin</artifactId>
+					<configuration>
+						<excludeFilterFile>findbugs-exclude.xml</excludeFilterFile>
+					</configuration>
+				</plugin>
+    		</plugins>
+    	</pluginManagement>
         <plugins>
             <plugin>
                 <artifactId>maven-dependency-plugin</artifactId>
@@ -199,13 +210,6 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <configuration>
-                    <additionalparam>-Xdoclint:none</additionalparam>
-                </configuration>
             </plugin>
         </plugins>
     </build>

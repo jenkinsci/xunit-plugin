@@ -25,6 +25,7 @@
 package org.jenkinsci.plugins.xunit;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
@@ -59,16 +60,15 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
     private int thresholdMode;
     private ExtraConfiguration extraConfiguration;
 
-    public XUnitBuilder(TestType[] types, XUnitThreshold[] thresholds) {
-        this.types = types;
-        this.thresholds = thresholds;
+    public XUnitBuilder(TestType[] tools, XUnitThreshold[] thresholds) {
+        this.types = Arrays.copyOf(tools, tools.length);
+        this.thresholds = Arrays.copyOf(thresholds, thresholds.length);
         this.thresholdMode = 1;
     }
 
     @DataBoundConstructor
     public XUnitBuilder(TestType[] tools, XUnitThreshold[] thresholds, int thresholdMode, String testTimeMargin) {
-        this.types = tools;
-        this.thresholds = thresholds;
+        this(tools, thresholds);
         this.thresholdMode = thresholdMode;
         long longTestTimeMargin = XUnitDefaultValues.TEST_REPORT_TIME_MARGING;
         if (testTimeMargin != null && testTimeMargin.trim().length() != 0) {
@@ -108,13 +108,6 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
             extraConfiguration = new ExtraConfiguration(XUnitDefaultValues.TEST_REPORT_TIME_MARGING);
         }
         return extraConfiguration;
-    }
-
-    @Override
-    public boolean perform(final AbstractBuild<?, ?> build, Launcher launcher, final BuildListener listener)
-            throws InterruptedException, IOException {
-        perform(build, build.getWorkspace(), launcher, listener);
-        return true;
     }
 
     @Override

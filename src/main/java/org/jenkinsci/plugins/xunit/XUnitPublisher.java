@@ -26,6 +26,7 @@ package org.jenkinsci.plugins.xunit;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.Arrays;
 
 import org.jenkinsci.lib.dryrun.DryRun;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
@@ -68,15 +69,14 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable, Si
     private ExtraConfiguration extraConfiguration;
 
     public XUnitPublisher(TestType[] types, XUnitThreshold[] thresholds) {
-        this.types = types;
-        this.thresholds = thresholds;
+        this.types = Arrays.copyOf(types, types.length);
+        this.thresholds = Arrays.copyOf(thresholds, thresholds.length);;
         this.thresholdMode = 1;
     }
 
     @DataBoundConstructor
     public XUnitPublisher(TestType[] tools, XUnitThreshold[] thresholds, int thresholdMode, String testTimeMargin) {
-        this.types = tools;
-        this.thresholds = thresholds;
+        this(tools, thresholds);
         this.thresholdMode = thresholdMode;
         long longTestTimeMargin = XUnitDefaultValues.TEST_REPORT_TIME_MARGING;
         if (testTimeMargin != null && testTimeMargin.trim().length() != 0) {
@@ -126,13 +126,6 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable, Si
             return new TestResultProjectAction(project);
         }
         return null;
-    }
-
-    @Override
-    public boolean perform(final AbstractBuild<?, ?> build, Launcher launcher, final BuildListener listener)
-            throws InterruptedException, IOException {
-        perform(build, build.getWorkspace(), launcher, listener);
-        return true;
     }
 
     @Override
