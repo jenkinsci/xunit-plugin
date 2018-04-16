@@ -277,7 +277,7 @@ public class XUnitProcessor implements Serializable {
     }
 
     private TestResultAction getPreviousTestResultAction(Run<?, ?> build) {
-        Run<?, ?> previousBuild = build.getPreviousBuild();
+        Run<?, ?> previousBuild = build.getPreviousCompletedBuild();
         if (previousBuild == null) {
             return null;
         }
