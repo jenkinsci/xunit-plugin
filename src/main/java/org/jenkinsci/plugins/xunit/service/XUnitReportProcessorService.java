@@ -92,12 +92,11 @@ public class XUnitReportProcessorService extends XUnitService implements Seriali
 
 
     /**
-     * Checks if all the finds files are new file
+     * Checks if all the finds files are new file.
      *
      * @param xUnitToolInfo the wrapped object
      * @param files         the file list
      * @param workspace     the root location of the file list
-     * @return true if all files are new, false otherwise
      */
     public void checkIfFindsFilesNewFiles(XUnitToolInfo xUnitToolInfo, List<String> files, File workspace) throws OldTestReportException {
 
