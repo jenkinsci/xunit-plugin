@@ -1,0 +1,16 @@
+<TestLog>
+  <TestSuite name="TestProject">
+    <TestSuite name="TestSuite" file="testsuite.cpp" line="10">
+      <TestCase name="test" file="testsuite.cpp" line="29">
+        <Message file="sources/coreinitialisation.cpp" line="52"><![CDATA[setRandomSeed(2618930540);]]></Message>
+        <Exception file="unknown location" line="0">
+          <![CDATA[memory access violation]]><LastCheckpoint file="testsuite.cpp" line="29"><![CDATA["test0" entry.]]></LastCheckpoint>
+        </Exception>
+        <Message file="./boost/test/impl/unit_test_log.ipp" line="198"><![CDATA[Test is aborted]]></Message>
+        <TestingTime>4504000</TestingTime>
+      </TestCase>
+      <Message file="./boost/test/impl/unit_test_log.ipp" line="198"><![CDATA[Test is aborted]]></Message>
+    </TestSuite>
+    <Message file="./boost/test/impl/unit_test_log.ipp" line="198"><![CDATA[Test is aborted]]></Message>
+  </TestSuite>
+</TestLog>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite tests="1" errors="1" failures="0" name="MergedTestSuite" skipped="0">
+   <testcase classname="TestProject.TestSuite.sources/coreinitialisation" name="test"
+             time="4.504">
+      <error>&#xD;[Exception] - 
+          memory access violation
+        "test0" entry.&#xD; == [File] - testsuite.cpp&#xD; == [Line] - 29&#xD;</error>
+      <system-out>&#xD;[Message] - setRandomSeed(2618930540);&#xD; == [File] - sources/coreinitialisation.cpp&#xD; == [Line] - 52&#xD;&#xD;[Message] - Test is aborted&#xD; == [File] - ./boost/test/impl/unit_test_log.ipp&#xD; == [Line] - 198&#xD;</system-out>
+      <system-err>&#xD;[Exception] - 
+          memory access violation
+        "test0" entry.&#xD; == [File] - testsuite.cpp&#xD; == [Line] - 29&#xD;</system-err>
+   </testcase>
+</testsuite>
