@@ -157,6 +157,7 @@ THE SOFTWARE.
             <xs:choice minOccurs="0" maxOccurs="unbounded">
                 <xs:element ref="TestCase" minOccurs="0" maxOccurs="unbounded"/>
                 <xs:element ref="TestSuite" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element ref="Message" minOccurs="0" maxOccurs="unbounded"/>
             </xs:choice>
             <xs:attribute name="name" type="xs:string" use="required"/>
             <xs:attribute name="result" type="xs:string" use="optional"/>
