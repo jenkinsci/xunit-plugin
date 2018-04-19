@@ -125,6 +125,11 @@ public class BoostTestTest extends AbstractTest {
 
     @Issue("JENKINS-42031")
     @Test
+    public void testTestCase18() throws Exception {
+        convertAndValidate(BoostTest.class, "boosttest/testcase18/testlog.xml", "boosttest/testcase18/junit-result.xml");
+    }
+
+    @Test
     public void testTestCase19() throws Exception {
         convertAndValidate(BoostTest.class, "boosttest/testcase19/testlog.xml", "boosttest/testcase19/junit-result.xml");
     }

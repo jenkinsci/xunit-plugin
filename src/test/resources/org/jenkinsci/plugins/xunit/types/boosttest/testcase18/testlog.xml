@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestLog>
+	<TestSuite name="MasterTestSuite">
+		<TestSuite name="TestSuite" line="0">
+			<TestCase name="TestCase" file="TestCase.cpp" line="0">
+				<Warning file="source/test_1.cpp" line="0">host not defined</Warning>
+				<Message file="source/test_1.cpp" line="0"><![CDATA[Test case TestCase did not check any assertions]]></Message>
+				<TestingTime>1</TestingTime>
+			</TestCase>
+		</TestSuite>
+	</TestSuite>
+</TestLog>

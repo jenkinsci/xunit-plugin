@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite tests="1" errors="0" failures="0" name="MergedTestSuite" skipped="0">
+   <testcase classname="MasterTestSuite.TestSuite.source/test_1" name="TestCase"
+             time="0.000001">
+      <system-out>&#xD;[Warning] - host not defined&#xD; == [File] - source/test_1.cpp&#xD; == [Line] - 0&#xD;&#xD;[Message] - Test case TestCase did not check any assertions&#xD; == [File] - source/test_1.cpp&#xD; == [Line] - 0&#xD;</system-out>
+   </testcase>
+</testsuite>
