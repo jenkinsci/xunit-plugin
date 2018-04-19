@@ -24,6 +24,7 @@ THE SOFTWARE.
 package org.jenkinsci.plugins.xunit.types;
 
 import org.junit.Test;
+import org.jvnet.hudson.test.Issue;
 
 public class BoostTestTest extends AbstractTest {
 
@@ -122,6 +123,7 @@ public class BoostTestTest extends AbstractTest {
         convertAndValidate(BoostTest.class, "boosttest/testcase17/testlog.xml", "boosttest/testcase17/junit-result.xml");
     }
 
+    @Issue("JENKINS-42031")
     @Test
     public void testTestCase19() throws Exception {
         convertAndValidate(BoostTest.class, "boosttest/testcase19/testlog.xml", "boosttest/testcase19/junit-result.xml");
