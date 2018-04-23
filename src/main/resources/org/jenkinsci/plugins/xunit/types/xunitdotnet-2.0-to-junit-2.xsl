@@ -56,7 +56,24 @@ THE SOFTWARE.
 
           <xsl:for-each select="collection/test">
 
-            <xsl:variable name="testMethodName" select="substring(@name, string-length(@type)+2)"/>
+            <!-- <xsl:variable name="testMethodName" select="substring(@name, string-length(@type)+2)"/> -->
+			<xsl:variable name="testMethodName">
+			  <xsl:choose>
+			    <xsl:when test="contains(@name, @type)">
+			      <xsl:choose>
+				    <xsl:when test="contains(@name, '.')">
+				      <xsl:value-of select="substring(@name, string-length(@type)+2)"/>
+				    </xsl:when>
+				    <xsl:otherwise>
+				      <xsl:value-of select="@name"/>
+				    </xsl:otherwise>
+				  </xsl:choose>
+			    </xsl:when>
+			    <xsl:otherwise>
+				  <xsl:value-of select="@name"/>
+			    </xsl:otherwise>
+			  </xsl:choose>
+			</xsl:variable>
 
             <testcase classname="{@type}" name="{$testMethodName}" time="{@time}">
 
