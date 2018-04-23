@@ -56,7 +56,7 @@ THE SOFTWARE.
 
           <xsl:for-each select="collection/test">
 
-            <xsl:variable name="testMethodName" select="substring(@name, string-length(@type)+2)"/>
+            <xsl:variable name="testMethodName" select="substring(@name, starts-with(@name, @type) * (string-length(@type)+2))"/>
 
             <testcase classname="{@type}" name="{$testMethodName}" time="{@time}">
 
