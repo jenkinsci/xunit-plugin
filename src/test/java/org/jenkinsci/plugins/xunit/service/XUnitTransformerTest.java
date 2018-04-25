@@ -127,7 +127,7 @@ public class XUnitTransformerTest {
         //Verifying mock interactions
         verify(xUnitReportProcessorServiceMock).findReports(any(XUnitToolInfo.class), eq(ws), (String) isNull());
         verify(xUnitValidationServiceMock, never()).validateInputFile(any(XUnitToolInfo.class), any(File.class));
-        verify(xUnitConversionServiceMock, never()).convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class));
+        verify(xUnitConversionServiceMock, never()).convert(any(XUnitToolInfo.class), any(File.class), any(File.class));
         verify(xUnitValidationServiceMock, never()).validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class));
     }
 
@@ -148,7 +148,7 @@ public class XUnitTransformerTest {
 
         //Verifying
         verify(xUnitValidationServiceMock, never()).validateInputFile(any(XUnitToolInfo.class), any(File.class));
-        verify(xUnitConversionServiceMock, never()).convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class));
+        verify(xUnitConversionServiceMock, never()).convert(any(XUnitToolInfo.class), any(File.class), any(File.class));
         verify(xUnitValidationServiceMock, never()).validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class));
 
         InOrder inOrder = inOrder(xUnitReportProcessorServiceMock);
@@ -186,7 +186,7 @@ public class XUnitTransformerTest {
 
         // Theses methods are never call
         verify(xUnitValidationServiceMock, never()).validateInputFile(any(XUnitToolInfo.class), any(File.class));
-        verify(xUnitConversionServiceMock, never()).convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class));
+        verify(xUnitConversionServiceMock, never()).convert(any(XUnitToolInfo.class), any(File.class), any(File.class));
         verify(xUnitValidationServiceMock, never()).validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class));
     }
 
@@ -220,7 +220,7 @@ public class XUnitTransformerTest {
 
         // Theses methods are never call
         verify(xUnitValidationServiceMock, never()).validateInputFile(any(XUnitToolInfo.class), any(File.class));
-        verify(xUnitConversionServiceMock, never()).convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class));
+        verify(xUnitConversionServiceMock, never()).convert(any(XUnitToolInfo.class), any(File.class), any(File.class));
         verify(xUnitValidationServiceMock, never()).validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class));
     }
 
@@ -246,7 +246,7 @@ public class XUnitTransformerTest {
 
         //Case: Right input validation, conversion and right output validation
         when(xUnitValidationServiceMock.validateInputFile(any(XUnitToolInfo.class), any(File.class))).thenReturn(true);
-        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class))).thenReturn(new File(tempWorkspace.getDir(), "output"));
+        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(new File(tempWorkspace.getDir(), "output"));
         when(xUnitValidationServiceMock.validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(true);
 
         //The process exits on true
@@ -259,7 +259,7 @@ public class XUnitTransformerTest {
         inOrderReport.verify(xUnitReportProcessorServiceMock).getCurrentReport(any(File.class), anyString());
 
         verify(xUnitValidationServiceMock).validateInputFile(any(XUnitToolInfo.class), any(File.class));
-        verify(xUnitConversionServiceMock).convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class));
+        verify(xUnitConversionServiceMock).convert(any(XUnitToolInfo.class), any(File.class), any(File.class));
         verify(xUnitValidationServiceMock).validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class));
     }
 
@@ -274,7 +274,7 @@ public class XUnitTransformerTest {
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
         //Case: Right input validation, conversion and right output validation
         when(xUnitValidationServiceMock.validateInputFile(any(XUnitToolInfo.class), any(File.class))).thenReturn(true);
-        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class))).thenReturn(new File(tempWorkspace.getDir(), "output"));
+        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(new File(tempWorkspace.getDir(), "output"));
         when(xUnitValidationServiceMock.validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(true);
 
         //Stop processing when there is an error
@@ -289,7 +289,7 @@ public class XUnitTransformerTest {
 
         //Case: Right input validation, conversion and right output validation
         when(xUnitValidationServiceMock.validateInputFile(any(XUnitToolInfo.class), any(File.class))).thenReturn(true);
-        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class))).thenReturn(new File(tempWorkspace.getDir(), "output"));
+        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(new File(tempWorkspace.getDir(), "output"));
         when(xUnitValidationServiceMock.validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(true);
 
         //The process exits on true
@@ -303,7 +303,7 @@ public class XUnitTransformerTest {
 
         verify(xUnitValidationServiceMock).checkFileIsNotEmpty(any(File.class));
         verify(xUnitValidationServiceMock).validateInputFile(any(XUnitToolInfo.class), any(File.class));
-        verify(xUnitConversionServiceMock).convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class));
+        verify(xUnitConversionServiceMock).convert(any(XUnitToolInfo.class), any(File.class), any(File.class));
         verify(xUnitValidationServiceMock).validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class));
     }
 
@@ -334,7 +334,7 @@ public class XUnitTransformerTest {
 
         //Case: Right input validation, conversion and right output validation
         when(xUnitValidationServiceMock.validateInputFile(any(XUnitToolInfo.class), any(File.class))).thenReturn(true);
-        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class))).thenReturn(new File(tempWorkspace.getDir(), "output"));
+        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(new File(tempWorkspace.getDir(), "output"));
         when(xUnitValidationServiceMock.validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(true);
 
         //The process exits on false
@@ -345,7 +345,7 @@ public class XUnitTransformerTest {
         verify(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class));
         verify(xUnitReportProcessorServiceMock, times(2)).getCurrentReport(any(File.class), anyString());
         verify(xUnitValidationServiceMock).validateInputFile(any(XUnitToolInfo.class), any(File.class));
-        verify(xUnitConversionServiceMock).convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class));
+        verify(xUnitConversionServiceMock).convert(any(XUnitToolInfo.class), any(File.class), any(File.class));
         verify(xUnitValidationServiceMock).validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class));
     }
 
@@ -377,7 +377,7 @@ public class XUnitTransformerTest {
 
         //Case: Right input validation, conversion and right output validation
         when(xUnitValidationServiceMock.validateInputFile(any(XUnitToolInfo.class), any(File.class))).thenReturn(true);
-        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class))).thenReturn(new File(tempWorkspace.getDir(), "output"));
+        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(new File(tempWorkspace.getDir(), "output"));
         when(xUnitValidationServiceMock.validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(true);
 
         //The process exits on false
@@ -388,7 +388,7 @@ public class XUnitTransformerTest {
         verify(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class));
         verify(xUnitReportProcessorServiceMock, times(2)).getCurrentReport(any(File.class), anyString());
         verify(xUnitValidationServiceMock).validateInputFile(any(XUnitToolInfo.class), any(File.class));
-        verify(xUnitConversionServiceMock).convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class));
+        verify(xUnitConversionServiceMock).convert(any(XUnitToolInfo.class), any(File.class), any(File.class));
         verify(xUnitValidationServiceMock).validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class));
     }
 
@@ -415,7 +415,7 @@ public class XUnitTransformerTest {
         //Case: Right input validation, conversion and right output validation
         when(xUnitValidationServiceMock.validateInputFile(any(XUnitToolInfo.class), any(File.class))).thenReturn(true);
         File targetFolder = new File(ws, "output");
-        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class))).thenReturn(targetFolder);
+        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(targetFolder);
         when(xUnitValidationServiceMock.validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(true);
 
         //The process exits on true
@@ -428,7 +428,7 @@ public class XUnitTransformerTest {
 
         verify(xUnitReportProcessorServiceMock, times(2)).getCurrentReport(eq(ws), anyString());
         verify(xUnitValidationServiceMock, times(2)).validateInputFile(any(XUnitToolInfo.class), any(File.class));
-        verify(xUnitConversionServiceMock, times(2)).convert(any(XUnitToolInfo.class), any(File.class), eq(ws), any(File.class));
+        verify(xUnitConversionServiceMock, times(2)).convert(any(XUnitToolInfo.class), any(File.class), any(File.class));
         verify(xUnitValidationServiceMock, times(2)).validateOutputFile(any(XUnitToolInfo.class), any(File.class), eq(targetFolder));
     }
 
@@ -454,7 +454,7 @@ public class XUnitTransformerTest {
 
         //Case: Right input validation, conversion and right output validation
         when(xUnitValidationServiceMock.validateInputFile(any(XUnitToolInfo.class), any(File.class))).thenReturn(true);
-        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class))).thenReturn(new File(tempWorkspace.getDir(), "output"));
+        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(new File(tempWorkspace.getDir(), "output"));
         when(xUnitValidationServiceMock.validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(true);
 
         //The process exits on true
@@ -467,7 +467,7 @@ public class XUnitTransformerTest {
 
         verify(xUnitReportProcessorServiceMock, times(2)).getCurrentReport(any(File.class), anyString());
         verify(xUnitValidationServiceMock, times(2)).validateInputFile(any(XUnitToolInfo.class), any(File.class));
-        verify(xUnitConversionServiceMock, times(2)).convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class));
+        verify(xUnitConversionServiceMock, times(2)).convert(any(XUnitToolInfo.class), any(File.class), any(File.class));
         verify(xUnitValidationServiceMock, times(2)).validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class));
     }
 
@@ -503,7 +503,7 @@ public class XUnitTransformerTest {
         inOrder.verify(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class));
         inOrder.verify(xUnitReportProcessorServiceMock).getCurrentReport(any(File.class), anyString());
         verify(xUnitValidationServiceMock).validateInputFile(any(XUnitToolInfo.class), any(File.class));
-        verify(xUnitConversionServiceMock, never()).convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class));
+        verify(xUnitConversionServiceMock, never()).convert(any(XUnitToolInfo.class), any(File.class), any(File.class));
         verify(xUnitValidationServiceMock, never()).validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class));
     }
 
@@ -539,7 +539,7 @@ public class XUnitTransformerTest {
         inOrder.verify(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class));
         inOrder.verify(xUnitReportProcessorServiceMock).getCurrentReport(any(File.class), anyString());
         verify(xUnitValidationServiceMock).validateInputFile(any(XUnitToolInfo.class), any(File.class));
-        verify(xUnitConversionServiceMock, never()).convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class));
+        verify(xUnitConversionServiceMock, never()).convert(any(XUnitToolInfo.class), any(File.class), any(File.class));
         verify(xUnitValidationServiceMock, never()).validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class));
     }
 
@@ -576,7 +576,7 @@ public class XUnitTransformerTest {
 
         //Right conversion and output validation
         File targetFolder = new File(ws, "output");
-        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class))).thenReturn(targetFolder);
+        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(targetFolder);
         when(xUnitValidationServiceMock.validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(true);
 
 
@@ -589,7 +589,7 @@ public class XUnitTransformerTest {
         verify(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), eq(ws));
         verify(xUnitReportProcessorServiceMock).getCurrentReport(ws, resultFiles.get(0));
         verify(xUnitValidationServiceMock).validateInputFile(any(XUnitToolInfo.class), eq(myInputFile1));
-        verify(xUnitConversionServiceMock, never()).convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class));
+        verify(xUnitConversionServiceMock, never()).convert(any(XUnitToolInfo.class), any(File.class), any(File.class));
         verify(xUnitValidationServiceMock, never()).validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class));
     }
 
@@ -623,7 +623,7 @@ public class XUnitTransformerTest {
         when(xUnitValidationServiceMock.validateInputFile(any(XUnitToolInfo.class), eq(myInputFile2))).thenReturn(true);
 
         //Right conversion and output validation
-        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class))).thenReturn(new File(tempWorkspace.getDir(), "output"));
+        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(new File(tempWorkspace.getDir(), "output"));
         when(xUnitValidationServiceMock.validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(true);
 
         //The process must exit on false
@@ -635,7 +635,7 @@ public class XUnitTransformerTest {
         verify(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class));
         verify(xUnitReportProcessorServiceMock, times(2)).getCurrentReport(any(File.class), anyString());
         verify(xUnitValidationServiceMock, times(2)).validateInputFile(any(XUnitToolInfo.class), any(File.class));
-        verify(xUnitConversionServiceMock).convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class));
+        verify(xUnitConversionServiceMock).convert(any(XUnitToolInfo.class), any(File.class), any(File.class));
         verify(xUnitValidationServiceMock).validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class));
     }
 
@@ -663,7 +663,7 @@ public class XUnitTransformerTest {
         //Case: Right input validation and conversion
         when(xUnitValidationServiceMock.validateInputFile(any(XUnitToolInfo.class), any(File.class))).thenReturn(true);
         File targetFolder = new File(ws, "output");
-        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class))).thenReturn(targetFolder);
+        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(targetFolder);
 
         //Wrong output validation
         when(xUnitValidationServiceMock.validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(false);
@@ -678,7 +678,7 @@ public class XUnitTransformerTest {
         inOrder.verify(xUnitReportProcessorServiceMock).getCurrentReport(ws, resultFiles.get(0));
         verify(xUnitValidationServiceMock).validateInputFile(any(XUnitToolInfo.class), eq(myInputFile));
         ArgumentCaptor<File> arguments = ArgumentCaptor.forClass(File.class);
-        verify(xUnitConversionServiceMock).convert(any(XUnitToolInfo.class), eq(myInputFile), eq(ws), arguments.capture());
+        verify(xUnitConversionServiceMock).convert(any(XUnitToolInfo.class), eq(myInputFile), arguments.capture());
         Assert.assertThat(arguments.getValue().getName(), CoreMatchers.endsWith(XUnitDefaultValues.GENERATED_JUNIT_DIR));
         verify(xUnitValidationServiceMock).validateOutputFile(any(XUnitToolInfo.class), eq(myInputFile), eq(targetFolder));
     }
@@ -707,7 +707,7 @@ public class XUnitTransformerTest {
         //Case: Right input validation and conversion
         when(xUnitValidationServiceMock.validateInputFile(any(XUnitToolInfo.class), any(File.class))).thenReturn(true);
         File targetFolder = new File(ws, "output");
-        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class))).thenReturn(targetFolder);
+        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(targetFolder);
 
         //Wrong output validation
         when(xUnitValidationServiceMock.validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(false);
@@ -723,7 +723,7 @@ public class XUnitTransformerTest {
 
         verify(xUnitValidationServiceMock).validateInputFile(any(XUnitToolInfo.class), eq(myInputFile));
         ArgumentCaptor<File> arguments = ArgumentCaptor.forClass(File.class);
-        verify(xUnitConversionServiceMock).convert(any(XUnitToolInfo.class), eq(myInputFile), eq(ws), arguments.capture());
+        verify(xUnitConversionServiceMock).convert(any(XUnitToolInfo.class), eq(myInputFile), arguments.capture());
         Assert.assertThat(arguments.getValue().getName(), CoreMatchers.endsWith(XUnitDefaultValues.GENERATED_JUNIT_DIR));
         verify(xUnitValidationServiceMock).validateOutputFile(any(XUnitToolInfo.class), eq(myInputFile), eq(targetFolder));
     }
@@ -752,7 +752,7 @@ public class XUnitTransformerTest {
         //Case: Right input validation and conversion
         when(xUnitValidationServiceMock.validateInputFile(any(XUnitToolInfo.class), any(File.class))).thenReturn(true);
         File targetFolder = new File(ws, "output");
-        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class))).thenReturn(targetFolder);
+        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(targetFolder);
 
         //Wrong output validation
         when(xUnitValidationServiceMock.validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(false);
@@ -769,7 +769,7 @@ public class XUnitTransformerTest {
 
         verify(xUnitValidationServiceMock).validateInputFile(any(XUnitToolInfo.class), eq(myInputFile));
         ArgumentCaptor<File> arguments = ArgumentCaptor.forClass(File.class);
-        verify(xUnitConversionServiceMock).convert(any(XUnitToolInfo.class), eq(myInputFile), eq(ws), arguments.capture());
+        verify(xUnitConversionServiceMock).convert(any(XUnitToolInfo.class), eq(myInputFile), arguments.capture());
         Assert.assertThat(arguments.getValue().getName(), CoreMatchers.endsWith(XUnitDefaultValues.GENERATED_JUNIT_DIR));
         verify(xUnitValidationServiceMock).validateOutputFile(any(XUnitToolInfo.class), eq(myInputFile), eq(targetFolder));
     }
@@ -796,7 +796,7 @@ public class XUnitTransformerTest {
 
         //Case: Right input validation and conversion
         when(xUnitValidationServiceMock.validateInputFile(any(XUnitToolInfo.class), any(File.class))).thenReturn(true);
-        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class))).thenReturn(new File(tempWorkspace.getDir(), "output"));
+        when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(new File(tempWorkspace.getDir(), "output"));
 
         //Wrong output validation
         when(xUnitValidationServiceMock.validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(false);
@@ -811,7 +811,7 @@ public class XUnitTransformerTest {
         inOrder.verify(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), any(File.class));
         inOrder.verify(xUnitReportProcessorServiceMock).getCurrentReport(any(File.class), anyString());
         verify(xUnitValidationServiceMock, times(2)).validateInputFile(any(XUnitToolInfo.class), any(File.class));
-        verify(xUnitConversionServiceMock, times(2)).convert(any(XUnitToolInfo.class), any(File.class), any(File.class), any(File.class));
+        verify(xUnitConversionServiceMock, times(2)).convert(any(XUnitToolInfo.class), any(File.class), any(File.class));
         verify(xUnitValidationServiceMock, times(2)).validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class));
     }
 

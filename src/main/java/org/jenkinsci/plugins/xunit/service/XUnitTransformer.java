@@ -29,14 +29,14 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import org.jenkinsci.lib.dtkit.util.validator.ValidationError;
 import org.jenkinsci.plugins.xunit.NoFoundTestException;
 import org.jenkinsci.plugins.xunit.OldTestReportException;
 import org.jenkinsci.plugins.xunit.SkipTestException;
 import org.jenkinsci.plugins.xunit.XUnitDefaultValues;
 import org.jenkinsci.remoting.RoleChecker;
-
-import com.google.inject.Inject;
 
 import hudson.FilePath;
 import hudson.remoting.VirtualChannel;
@@ -144,7 +144,7 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
                 }
 
                 //Convert the input file
-                File junitTargetFile = xUnitConversionService.convert(xUnitToolInfo, curFile, ws, junitOutputDir);
+                File junitTargetFile = xUnitConversionService.convert(xUnitToolInfo, curFile, junitOutputDir);
 
                 //Validates converted file
                 if (!xUnitValidationService.validateOutputFile(xUnitToolInfo, curFile, junitTargetFile)) {
