@@ -33,5 +33,10 @@ public class XUnitDefaultValues {
 
     public static final int MODE_PERCENT = 2;
 
-    public static final int TEST_REPORT_TIME_MARGING = 3000; //default to 3000ms
+    public static final int TEST_REPORT_TIME_MARGING = 3000; // default to 3000
+
+    public static final String JUNIT_FILE_PREFIX = "TEST-";
+
+    public static final String JUNIT_FILE_EXTENSION = ".xml";
+
 }
