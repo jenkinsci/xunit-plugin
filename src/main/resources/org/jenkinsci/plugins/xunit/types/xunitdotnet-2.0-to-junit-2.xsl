@@ -58,7 +58,7 @@ THE SOFTWARE.
 
             <xsl:variable name="testMethodName">
                 <xsl:choose>
-                <xsl:when test="contains(@name, '.')">
+                <xsl:when test="starts-with(@name, @type)">
                   <xsl:value-of select="substring(@name, string-length(@type)+2)"/>
                 </xsl:when>
                 <xsl:otherwise>
