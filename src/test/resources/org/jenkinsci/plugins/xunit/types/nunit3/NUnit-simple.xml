@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-run id="2" testcasecount="270" result="Passed" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="8" engine-version="3.2.0.0" clr-version="4.0.30319.42000" start-time="2016-06-04 16:57:40Z" end-time="2016-06-04 16:58:31Z" duration="50.641110">
+    <command-line><![CDATA[..\packages\NUnit.Console.3.2.0\bin\nunit3-console.exe  ..\RSelenium\RSelenium.csproj --config=France --where="method==AUT0025TestInvalidEmailInRecoverPasswordPage or method==AUT0513TestPrefixedSiteURLRedirect or method==AUT0010TestRegisterationNotAllowedWithEmptyFields"    --workers=9]]></command-line>
+    <filter>
+        <or>
+            <method>AUT0025TestInvalidEmailInRecoverPasswordPage</method>
+            <method>AUT0513TestPrefixedSiteURLRedirect</method>
+            <method>AUT0010TestRegisterationNotAllowedWithEmptyFields</method>
+        </or>
+    </filter>
+    <test-suite type="Project" id="2" name="RSelenium.csproj" fullname="C:\Program Files (x86)\Jenkins\workspace\InDevelopment\Selenium\RSelenium\RSelenium.csproj" testcasecount="270" result="Passed" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="8">
+        <test-suite type="Assembly" id="1-1393" name="RSelenium.exe" fullname="C:\Program Files (x86)\Jenkins\workspace\InDevelopment\Selenium\RSelenium\bin\France\RSelenium.exe" runstate="Runnable" testcasecount="270" result="Passed" start-time="2016-06-04 16:57:40Z" end-time="2016-06-04 16:58:31Z" duration="50.531917" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="8">
+            <environment framework-version="3.2.0.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 6.3.9600.0" platform="Win32NT" cwd="C:\Program Files (x86)\Jenkins\workspace\InDevelopment\Selenium\RSelenium" machine-name="RQA" user="SYSTEM" user-domain="WORKGROUP" culture="en-US" uiculture="en-US" os-architecture="x86" />
+            <settings>
+                <setting name="BasePath" value="C:\Program Files (x86)\Jenkins\workspace\InDevelopment\Selenium\RSelenium\bin\France\" />
+                <setting name="ActiveConfig" value="France" />
+                <setting name="WorkDirectory" value="C:\Program Files (x86)\Jenkins\workspace\InDevelopment\Selenium\RSelenium" />
+                <setting name="NumberOfTestWorkers" value="9" />
+                <setting name="ImageRuntimeVersion" value="4.0.30319" />
+                <setting name="ImageTargetFrameworkName" value=".NETFramework,Version=v4.5" />
+                <setting name="ImageRequiresX86" value="True" />
+                <setting name="RunAsX86" value="True" />
+                <setting name="ImageRequiresDefaultAppDomainAssemblyResolver" value="False" />
+            </settings>
+            <properties>
+                <property name="_PID" value="4244" />
+                <property name="_APPDOMAIN" value="test-domain-RSelenium.csproj" />
+            </properties>
+            <test-suite type="SetUpFixture" id="1-1000" name="RSelenium" fullname="RSelenium.SetUpFixture" classname="RSelenium.SetUpFixture" runstate="Runnable" testcasecount="270" result="Passed" start-time="2016-06-04 16:57:40Z" end-time="2016-06-04 16:58:31Z" duration="50.516980" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="8">
+                <output><![CDATA[Resetting test users: testuser@gmail.com, testuser1@gmail.com, testuser2@gmail.com, testuser3@gmail.com
+==== Test Parameters ====
+	Country: France
+	Environment: LIVE
+	Browser: FIREFOX
+	Driver: GRID
+	BaseUrl: http://www.mesannoncesfrance.fr
+]]></output>
+                <test-suite type="TestSuite" id="1-1396" name="Tests" fullname="RSelenium.Tests" runstate="Runnable" testcasecount="256" result="Passed" start-time="2016-06-04 16:57:42Z" end-time="2016-06-04 16:58:31Z" duration="48.505613" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="8">
+                    <test-suite type="TestFixture" id="1-1020" name="AfterLiveTestCases" fullname="RSelenium.Tests.AfterLiveTestCases" classname="RSelenium.Tests.AfterLiveTestCases" runstate="Runnable" testcasecount="2" result="Passed" start-time="2016-06-04 16:57:42Z" end-time="2016-06-04 16:58:29Z" duration="46.455452" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+                        <properties>
+                            <property name="ParallelScope" value="Fixtures" />
+                        </properties>
+                        <output><![CDATA[***Quitting browser at end of fixture
+]]></output>
+                        <test-case id="1-1022" name="AUT0513TestPrefixedSiteURLRedirect" fullname="RSelenium.Tests.AfterLiveTestCases.AUT0513TestPrefixedSiteURLRedirect" methodname="AUT0513TestPrefixedSiteURLRedirect" classname="RSelenium.Tests.AfterLiveTestCases" runstate="Runnable" seed="2083519019" result="Passed" start-time="2016-06-04 16:57:58Z" end-time="2016-06-04 16:58:28Z" duration="30.061148" asserts="0">
+                            <properties>
+                                <property name="Category" value="Desktop" />
+                                <property name="Category" value="AfterLiveTest" />
+                                <property name="Category" value="InDevelopment" />
+                            </properties>
+                            <output><![CDATA[==============================
+= Running Test: RSelenium.Tests.AfterLiveTestCases.AUT0513TestPrefixedSiteURLRedirect
+= Test Number: 1
+= Start Time: 2016/06/04 18:57:58
+= threadID: 1616
+= managedThreadId: 3
+[Test Case Description] : Check that the site URL redirect to live portal no matter the prefix used:- www.site URL- http://site URL/Ex:- http://www.allclassifieds.ca/ -http://allclassifieds.ca/ -www.allclassifieds.ca /All combinations should redirect to the Front Page of the live portal
+Testing url : http://mesannoncesfrance.fr/
+Testing url : http://www.mesannoncesfrance.fr/
+Testing url : www.mesannoncesfrance.fr/
+]]></output>
+                        </test-case>
+                    </test-suite>
+                    <test-suite type="TestFixture" id="1-1350" name="LoginTestCases" fullname="RSelenium.Tests.LoginTestCases" classname="RSelenium.Tests.LoginTestCases" runstate="Runnable" testcasecount="13" result="Passed" start-time="2016-06-04 16:57:42Z" end-time="2016-06-04 16:58:29Z" duration="46.851515" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="3">
+                        <properties>
+                            <property name="ParallelScope" value="Fixtures" />
+                        </properties>
+                        <output><![CDATA[***Quitting browser at end of fixture
+]]></output>
+                        <test-case id="1-1356" name="AUT0025TestInvalidEmailInRecoverPasswordPage" fullname="RSelenium.Tests.LoginTestCases.AUT0025TestInvalidEmailInRecoverPasswordPage" methodname="AUT0025TestInvalidEmailInRecoverPasswordPage" classname="RSelenium.Tests.LoginTestCases" runstate="Runnable" seed="247630258" result="Passed" start-time="2016-06-04 16:58:06Z" end-time="2016-06-04 16:58:29Z" duration="22.671978" asserts="3">
+                            <properties>
+                                <property name="Category" value="Desktop" />
+                                <property name="Category" value="Mobile" />
+                                <property name="Category" value="InDevelopment" />
+                            </properties>
+                            <output><![CDATA[==============================
+= Running Test: RSelenium.Tests.LoginTestCases.AUT0025TestInvalidEmailInRecoverPasswordPage
+= Test Number: 2
+= Start Time: 2016/06/04 18:58:06
+= threadID: 2208
+= managedThreadId: 21
+[Test Case Description] : Enter an invalid email address and press Send button. Check that a red colored error message is displayed and recovery instructions email is not sent
+]]></output>
+                        </test-case>
+                    </test-suite>
+                    <test-suite type="TestFixture" id="1-1371" name="RegisterTestCases" fullname="RSelenium.Tests.RegisterTestCases" classname="RSelenium.Tests.RegisterTestCases" runstate="Runnable" testcasecount="14" result="Passed" start-time="2016-06-04 16:57:42Z" end-time="2016-06-04 16:58:31Z" duration="48.466249" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="5">
+                        <properties>
+                            <property name="ParallelScope" value="Fixtures" />
+                        </properties>
+                        <output><![CDATA[***Quitting browser at end of fixture
+]]></output>
+                        <test-case id="1-1373" name="AUT0010TestRegisterationNotAllowedWithEmptyFields" fullname="RSelenium.Tests.RegisterTestCases.AUT0010TestRegisterationNotAllowedWithEmptyFields" methodname="AUT0010TestRegisterationNotAllowedWithEmptyFields" classname="RSelenium.Tests.RegisterTestCases" runstate="Runnable" seed="1998320721" result="Passed" start-time="2016-06-04 16:58:14Z" end-time="2016-06-04 16:58:30Z" duration="16.107856" asserts="5">
+                            <properties>
+                                <property name="Category" value="SmokeTest" />
+                                <property name="Category" value="Desktop" />
+                                <property name="Category" value="Mobile" />
+                            </properties>
+                            <output><![CDATA[==============================
+= Running Test: RSelenium.Tests.RegisterTestCases.AUT0010TestRegisterationNotAllowedWithEmptyFields
+= Test Number: 3
+= Start Time: 2016/06/04 18:58:14
+= threadID: 2112
+= managedThreadId: 19
+[Test Case Description] : Check the registration behavior by not filling up any data into the form.Press Register button without filling in any of the existing fields: Email, Password, Confirm Password->> Registration should not be allowed.Check that red colored error messages are displayed if the mandatory fields are empty and account registration cannot be performed.
+]]></output>
+                        </test-case>
+                    </test-suite>
+                </test-suite>
+            </test-suite>
+        </test-suite>
+    </test-suite>
+</test-run>

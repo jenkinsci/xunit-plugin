@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="RSelenium.Tests.AfterLiveTestCases" tests="1" time="46.455452" failures="0" errors="0"
+               skipped="0">
+        <testcase classname="RSelenium.Tests.AfterLiveTestCases"
+                  name="AUT0513TestPrefixedSiteURLRedirect"
+                  time="30.061148"/>
+    </testsuite>
+    <testsuite name="RSelenium.Tests.LoginTestCases" tests="1" time="46.851515" failures="0" errors="0"
+               skipped="0">
+        <testcase classname="RSelenium.Tests.LoginTestCases"
+                  name="AUT0025TestInvalidEmailInRecoverPasswordPage"
+                  time="22.671978"/>
+    </testsuite>
+    <testsuite name="RSelenium.Tests.RegisterTestCases" tests="1" time="48.466249" failures="0" errors="0"
+               skipped="0">
+        <testcase classname="RSelenium.Tests.RegisterTestCases"
+                  name="AUT0010TestRegisterationNotAllowedWithEmptyFields"
+                  time="16.107856"/>
+    </testsuite>
+</testsuites>

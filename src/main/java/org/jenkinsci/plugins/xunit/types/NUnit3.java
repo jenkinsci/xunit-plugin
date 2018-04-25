@@ -28,7 +28,7 @@ import org.jenkinsci.lib.dtkit.model.InputType;
 import org.jenkinsci.lib.dtkit.model.OutputMetric;
 import org.jenkinsci.plugins.xunit.types.model.JUnitModel;
 
-public class NUnit extends InputMetricXSL {
+public class NUnit3 extends InputMetricXSL {
 
     @Override
     public InputType getToolType() {
@@ -42,7 +42,7 @@ public class NUnit extends InputMetricXSL {
 
     @Override
     public String getToolVersion() {
-        return "2";
+        return "3";
     }
 
     @Override
@@ -52,7 +52,7 @@ public class NUnit extends InputMetricXSL {
 
     @Override
     public String getXslName() {
-        return "nunit-1.0-to-junit-2.xsl";
+        return "nunit-3.0-to-junit-2.xsl";
     }
 
     @Override
