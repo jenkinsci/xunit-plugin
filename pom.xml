@@ -8,7 +8,7 @@
     </parent>
 
     <artifactId>xunit</artifactId>
-    <version>1.103-SNAPSHOT</version>
+    <version>1.104-SNAPSHOT</version>
     <packaging>hpi</packaging>
     <name>xUnit plugin</name>
     <url>http://wiki.jenkins-ci.org/display/JENKINS/xUnit+Plugin</url>
@@ -31,6 +31,12 @@
                 <role>Project developer</role>
             </roles>
         </developer>
+        <developer>
+            <id>nfalco79</id>
+            <name>Nikolas Falco</name>
+            <email>nfalco79@hotmail.com</email>
+            <timezone>+1</timezone>
+        </developer>
     </developers>
 
 <properties>
@@ -43,9 +49,8 @@
         <xerces.version>2.9.1</xerces.version>
         <saxon.version>9.1.0.8</saxon.version>
         <dry.run.version>0.1</dry.run.version>
-        <junit.version>4.12</junit.version>
-        <xmlunit.version>1.3</xmlunit.version>
-        <mockito.version>1.8.5</mockito.version>
+        <xmlunit.version>1.6</xmlunit.version>
+        <mockito.version>2.17.0</mockito.version>
     </properties>
 
     <repositories>
@@ -105,12 +110,6 @@
             <version>${dry.run.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
 
         <dependency>
             <groupId>xmlunit</groupId>
@@ -121,7 +120,7 @@
 
         <dependency>
             <groupId>org.mockito</groupId>
-            <artifactId>mockito-all</artifactId>
+            <artifactId>mockito-core</artifactId>
             <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
@@ -159,12 +158,6 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.jenkins-ci.modules</groupId>
-            <artifactId>sshd</artifactId>
-            <version>2.0</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
     <scm>
@@ -218,13 +211,6 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <configuration>
-                    <additionalparam>-Xdoclint:none</additionalparam>
-                </configuration>
             </plugin>
         </plugins>
     </build>

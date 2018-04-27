@@ -58,21 +58,15 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
     private int thresholdMode;
     private ExtraConfiguration extraConfiguration;
 
-    /**
-     * Computed
-     */
-    private XUnitProcessor xUnitProcessor;
-
-    public XUnitBuilder(TestType[] types, XUnitThreshold[] thresholds) {
-        this.types = types;
-        this.thresholds = thresholds;
+    public XUnitBuilder(TestType[] tools, XUnitThreshold[] thresholds) {
+        this.types = Arrays.copyOf(tools, tools.length);
+        this.thresholds = Arrays.copyOf(thresholds, thresholds.length);
         this.thresholdMode = 1;
     }
 
     @DataBoundConstructor
     public XUnitBuilder(TestType[] tools, XUnitThreshold[] thresholds, int thresholdMode, String testTimeMargin) {
-        this.types = tools;
-        this.thresholds = thresholds;
+        this(tools, thresholds);
         this.thresholdMode = thresholdMode;
         long longTestTimeMargin = XUnitDefaultValues.TEST_REPORT_TIME_MARGING;
         if (testTimeMargin != null && testTimeMargin.trim().length() != 0) {
@@ -81,14 +75,14 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
         this.extraConfiguration = new ExtraConfiguration(longTestTimeMargin);
     }
 
-    /**
+    /*
      * Needed to support Snippet Generator and Workflow properly.
      */
     public TestType[] getTools() {
         return types;
     }
 
-    /**
+    /*
      * Needed to support Snippet Generator and Workflow properly
      */
     public String getTestTimeMargin() {
@@ -162,7 +156,7 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
         }
 
         @Override
-        public boolean isApplicable(Class type) {
+        public boolean isApplicable(@SuppressWarnings("rawtypes") Class<? extends AbstractProject> jobType) {
             return true;
         }
 

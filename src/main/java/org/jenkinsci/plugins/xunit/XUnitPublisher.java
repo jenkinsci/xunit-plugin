@@ -69,15 +69,14 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable, Si
     private ExtraConfiguration extraConfiguration;
 
     public XUnitPublisher(TestType[] types, XUnitThreshold[] thresholds) {
-        this.types = types;
-        this.thresholds = thresholds;
+        this.types = Arrays.copyOf(types, types.length);
+        this.thresholds = Arrays.copyOf(thresholds, thresholds.length);;
         this.thresholdMode = 1;
     }
 
     @DataBoundConstructor
     public XUnitPublisher(TestType[] tools, XUnitThreshold[] thresholds, int thresholdMode, String testTimeMargin) {
-        this.types = tools;
-        this.thresholds = thresholds;
+        this(tools, thresholds);
         this.thresholdMode = thresholdMode;
         long longTestTimeMargin = XUnitDefaultValues.TEST_REPORT_TIME_MARGING;
         if (testTimeMargin != null && testTimeMargin.trim().length() != 0) {
@@ -86,14 +85,14 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable, Si
         this.extraConfiguration = new ExtraConfiguration(longTestTimeMargin);
     }
 
-    /**
+    /*
      * Needed to support Snippet Generator and Workflow properly.
      */
     public TestType[] getTools() {
         return types;
     }
 
-    /**
+    /*
      * Needed to support Snippet Generator and Workflow properly
      */
     public String getTestTimeMargin() {
@@ -179,7 +178,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable, Si
         }
 
         @Override
-        public boolean isApplicable(Class type) {
+        public boolean isApplicable(@SuppressWarnings("rawtypes") Class<? extends AbstractProject> jobType) {
             return true;
         }
 
