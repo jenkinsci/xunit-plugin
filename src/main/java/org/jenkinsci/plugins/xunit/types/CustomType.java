@@ -30,6 +30,8 @@ import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
+import hudson.Extension;
+
 /**
  * @author Gregory Boissinot
  */

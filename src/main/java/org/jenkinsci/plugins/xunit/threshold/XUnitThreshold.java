@@ -24,11 +24,14 @@
 
 package org.jenkinsci.plugins.xunit.threshold;
 
+import java.io.Serializable;
+
+import org.jenkinsci.plugins.xunit.service.XUnitLog;
+
 import hudson.DescriptorExtensionList;
 import hudson.ExtensionPoint;
 import hudson.model.Describable;
 import hudson.model.Descriptor;
-import hudson.model.Hudson;
 import hudson.model.Result;
 import hudson.model.Run;
 import hudson.tasks.junit.TestResultAction;

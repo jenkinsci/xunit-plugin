@@ -26,12 +26,19 @@ THE SOFTWARE.
 package org.jenkinsci.plugins.xunit.types;
 
 import org.junit.Test;
+import org.jvnet.hudson.test.Issue;
 
 
 public class XunitDotNetTest extends AbstractTest {
 
     @Test
     public void testSimpleTransformationCase1() throws Exception {
-        convertAndValidate(XUnitDotNet.class, "xunitdotnet/xunit-simple.xml", "xunitdotnet/junit-simple.xml");
+        convertAndValidate(XUnitDotNet.class, "xunitdotnet/testcase1/xunit-simple.xml", "xunitdotnet/testcase1/junit-simple.xml");
+    }
+
+    @Issue("JENKINS-33385")
+    @Test
+    public void testWithoutPackageAtName() throws Exception {
+        convertAndValidate(XUnitDotNet.class, "xunitdotnet/testcase2/xunit-simple.xml", "xunitdotnet/testcase2/junit-simple.xml");
     }
 }

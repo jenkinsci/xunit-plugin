@@ -24,17 +24,17 @@
 
 package org.jenkinsci.plugins.xunit.service;
 
-import com.google.inject.Inject;
-import hudson.model.TaskListener;
-
 import java.io.Serializable;
+
+import com.google.inject.Inject;
+
+import hudson.model.TaskListener;
 
 public class XUnitLog implements Serializable {
 
     private TaskListener buildListener;
 
     @Inject
-    @SuppressWarnings("unused")
     void set(TaskListener buildListener) {
         this.buildListener = buildListener;
     }

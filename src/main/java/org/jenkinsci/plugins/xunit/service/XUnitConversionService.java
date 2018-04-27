@@ -24,25 +24,27 @@
 
 package org.jenkinsci.plugins.xunit.service;
 
-import com.google.inject.Inject;
-import hudson.FilePath;
-import org.jenkinsci.lib.dtkit.model.InputMetric;
-import org.jenkinsci.lib.dtkit.model.InputMetricXSL;
-import org.jenkinsci.lib.dtkit.util.converter.ConversionException;
-import org.jenkinsci.plugins.xunit.exception.XUnitException;
-import org.jenkinsci.plugins.xunit.types.CustomInputMetric;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
+import java.util.UUID;
+
+import javax.inject.Inject;
+
+import org.jenkinsci.lib.dtkit.model.InputMetric;
+import org.jenkinsci.lib.dtkit.model.InputMetricXSL;
+import org.jenkinsci.lib.dtkit.util.converter.ConversionException;
+import org.jenkinsci.plugins.xunit.XUnitDefaultValues;
+import org.jenkinsci.plugins.xunit.exception.XUnitException;
+import org.jenkinsci.plugins.xunit.types.CustomInputMetric;
+
+import hudson.FilePath;
 
 public class XUnitConversionService extends XUnitService implements Serializable {
-
     private XUnitLog xUnitLog;
 
     @Inject
-    @SuppressWarnings("unused")
     void load(XUnitLog xUnitLog) {
         this.xUnitLog = xUnitLog;
     }
@@ -50,29 +52,29 @@ public class XUnitConversionService extends XUnitService implements Serializable
     /**
      * Converts the inputFile into a JUnit output file
      *
-     * @param xUnitToolInfo        the xUnit info wrapper object
-     * @param inputFile            the input file to be converted
-     * @param workspace            the workspace
-     * @param junitOutputDirectory the output parent directory that contains the JUnit output file
+     * @param xUnitToolInfo
+     *            the xUnit info wrapper object
+     * @param inputFile
+     *            the input file to be converted
+     * @param junitOutputDirectory
+     *            the output parent directory that contains the JUnit output
+     *            file
      * @return the converted file
-     * @throws org.jenkinsci.plugins.xunit.exception.XUnitException an XUnitException is thrown if there is a conversion error.
+     * @throws org.jenkinsci.plugins.xunit.exception.XUnitException
+     *             in case of conversion error.
      */
-    @SuppressWarnings("ResultOfMethodCallIgnored")
-    public File convert(XUnitToolInfo xUnitToolInfo, File inputFile, File workspace, File junitOutputDirectory) throws XUnitException {
-
+    public File convert(XUnitToolInfo xUnitToolInfo, File inputFile, File junitOutputDirectory) throws XUnitException {
         InputMetric inputMetric = xUnitToolInfo.getInputMetric();
 
-        final String JUNIT_FILE_POSTFIX = ".xml";
-        final String JUNIT_FILE_PREFIX = "TEST-";
         File parent = new File(junitOutputDirectory, inputMetric.getToolName());
         if (!parent.exists() && !parent.mkdirs()) {
             throw new XUnitException("Can't create " + parent);
         }
-        File junitTargetFile = new File(parent, JUNIT_FILE_PREFIX + inputFile.hashCode() + JUNIT_FILE_POSTFIX);
-        try {
 
+        File junitTargetFile = getTargetFile(parent, inputFile);
+        try {
             if (inputMetric instanceof CustomInputMetric) {
-                return convertCustomInputMetric(xUnitToolInfo, inputFile, workspace, inputMetric, junitTargetFile);
+                return convertCustomInputMetric(xUnitToolInfo, inputFile, inputMetric, junitTargetFile);
             }
 
             if (inputMetric instanceof InputMetricXSL) {
@@ -91,7 +93,24 @@ public class XUnitConversionService extends XUnitService implements Serializable
         }
     }
 
-    private File convertCustomInputMetric(XUnitToolInfo xUnitToolInfo, File inputFile, File workspace, InputMetric inputMetric, File junitTargetFile) throws IOException, InterruptedException, XUnitException {
+    /**
+     * Provides a unique target file name given an input report.The same input
+     * file is intended not be converted twice time.
+     * <p>
+     * By default java >= 6 provides a version 4 UUID that ensure be unique in
+     * the same JVM instance. Since there are no more JVM that works with the
+     * same workspace is enough. Version 1 UUID use MAC address but since
+     * {@code XUnitProcessor} does not copy slave node report files back to
+     * master is not necessary ensure file be globally unique.
+     * 
+     * @return a node workspace unique file name
+     */
+    private File getTargetFile(File parent, File inputFile) {
+        String uniqueTestName = UUID.randomUUID().toString();
+        return new File(parent, XUnitDefaultValues.JUNIT_FILE_PREFIX + uniqueTestName + XUnitDefaultValues.JUNIT_FILE_EXTENSION);
+    }
+
+    private File convertCustomInputMetric(XUnitToolInfo xUnitToolInfo, File inputFile, InputMetric inputMetric, File junitTargetFile) throws IOException, InterruptedException, XUnitException {
         CustomInputMetric customInputMetric = (CustomInputMetric) inputMetric;
         customInputMetric.setCustomXSLFile(new File(xUnitToolInfo.getCusXSLFile().getRemote()));
         inputMetric.convert(inputFile, junitTargetFile);

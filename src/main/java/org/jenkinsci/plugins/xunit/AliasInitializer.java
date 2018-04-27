@@ -24,15 +24,16 @@
 
 package org.jenkinsci.plugins.xunit;
 
-import hudson.DescriptorExtensionList;
-import hudson.init.InitMilestone;
-import hudson.init.Initializer;
-import hudson.model.Hudson;
-import hudson.model.Items;
+import java.util.Iterator;
+
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 
-import java.util.Iterator;
+import hudson.DescriptorExtensionList;
+import hudson.init.InitMilestone;
+import hudson.init.Initializer;
+import hudson.model.Items;
+import jenkins.model.Jenkins;
 
 /**
  * @author Gregory Boissinot
@@ -40,10 +41,9 @@ import java.util.Iterator;
 public class AliasInitializer {
 
     @Initializer(before = InitMilestone.PLUGINS_STARTED)
-    @SuppressWarnings("unused")
     public static void addAliases() {
         Items.XSTREAM.alias("xunit", XUnitPublisher.class);
-        DescriptorExtensionList<TestType, TestTypeDescriptor<TestType>> extensionList = Hudson.getInstance().getDescriptorList(TestType.class);
+        DescriptorExtensionList<TestType, TestTypeDescriptor<TestType>> extensionList = Jenkins.getActiveInstance().getDescriptorList(TestType.class);
         for (Iterator<TestTypeDescriptor<TestType>> it = extensionList.iterator(); it.hasNext(); ) {
             Class<? extends TestType> classType = it.next().clazz;
             String className = getClassName(classType);

@@ -37,9 +37,9 @@ THE SOFTWARE.
             <xsl:with-param name="delimiter" select="'\'" />
           </xsl:call-template>
         </xsl:variable>
-        
+
         <xsl:variable name="assemblyName" select="substring-before($assemblyFileName,'.DLL')"/>
-        
+
         <xsl:variable name="timeStamp">
           <xsl:value-of select="concat(@run-date, 'T', @run-time)"/>
         </xsl:variable>
@@ -56,7 +56,16 @@ THE SOFTWARE.
 
           <xsl:for-each select="collection/test">
 
-            <xsl:variable name="testMethodName" select="substring(@name, string-length(@type)+2)"/>
+            <xsl:variable name="testMethodName">
+                <xsl:choose>
+                <xsl:when test="starts-with(@name, @type)">
+                  <xsl:value-of select="substring(@name, string-length(@type)+2)"/>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:value-of select="@name"/>
+                </xsl:otherwise>
+              </xsl:choose>
+            </xsl:variable>
 
             <testcase classname="{@type}" name="{$testMethodName}" time="{@time}">
 

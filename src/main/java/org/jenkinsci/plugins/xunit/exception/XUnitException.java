@@ -24,6 +24,7 @@
 
 package org.jenkinsci.plugins.xunit.exception;
 
+@SuppressWarnings("serial")
 public class XUnitException extends RuntimeException {
 
     public XUnitException(String message) {

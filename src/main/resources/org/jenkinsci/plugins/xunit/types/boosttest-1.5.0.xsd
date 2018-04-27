@@ -86,7 +86,7 @@ THE SOFTWARE.
             <xs:sequence>
                 <xs:element ref="Context" minOccurs="0" maxOccurs="1"/>
             </xs:sequence>
-            <xs:attribute name="line" type="xs:positiveInteger" use="required"/>
+            <xs:attribute name="line" type="xs:integer" use="required"/>
             <xs:attribute name="file" type="xs:string" use="required"/>
         </xs:complexType>
     </xs:element>
@@ -96,7 +96,7 @@ THE SOFTWARE.
             <xs:sequence>
                 <xs:element ref="Context" minOccurs="0" maxOccurs="1"/>
             </xs:sequence>
-            <xs:attribute name="line" type="xs:positiveInteger" use="required"/>
+            <xs:attribute name="line" type="xs:integer" use="required"/>
             <xs:attribute name="file" type="xs:string" use="required"/>
         </xs:complexType>
     </xs:element>
@@ -117,7 +117,7 @@ THE SOFTWARE.
             </xs:sequence>
             <xs:attribute name="name" type="xs:string" use="required"/>
             <xs:attribute name="result" type="xs:string" use="optional"/>
-            <xs:attribute name="line" type="xs:positiveInteger" use="optional"/>
+            <xs:attribute name="line" type="xs:integer" use="optional"/>
             <xs:attribute name="file" type="xs:string" use="optional"/>
             <xs:attribute name="assertions_passed" type="xs:integer" use="optional"/>
             <xs:attribute name="assertions_failed" type="xs:integer" use="optional"/>
@@ -157,10 +157,11 @@ THE SOFTWARE.
             <xs:choice minOccurs="0" maxOccurs="unbounded">
                 <xs:element ref="TestCase" minOccurs="0" maxOccurs="unbounded"/>
                 <xs:element ref="TestSuite" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element ref="Message" minOccurs="0" maxOccurs="unbounded"/>
             </xs:choice>
             <xs:attribute name="name" type="xs:string" use="required"/>
             <xs:attribute name="result" type="xs:string" use="optional"/>
-            <xs:attribute name="line" type="xs:positiveInteger" use="optional"/>
+            <xs:attribute name="line" type="xs:integer" use="optional"/>
             <xs:attribute name="file" type="xs:string" use="optional"/>
             <xs:attribute name="assertions_passed" type="xs:integer" use="optional"/>
             <xs:attribute name="assertions_failed" type="xs:integer" use="optional"/>

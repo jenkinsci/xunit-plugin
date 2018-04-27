@@ -24,32 +24,41 @@
 
 package org.jenkinsci.plugins.xunit;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.Arrays;
+
+import org.apache.tools.ant.DirectoryScanner;
+import org.apache.tools.ant.types.FileSet;
+import org.jenkinsci.lib.dtkit.model.InputMetric;
+import org.jenkinsci.lib.dtkit.type.TestType;
+import org.jenkinsci.plugins.xunit.exception.XUnitException;
+import org.jenkinsci.plugins.xunit.service.XUnitConversionService;
+import org.jenkinsci.plugins.xunit.service.XUnitLog;
+import org.jenkinsci.plugins.xunit.service.XUnitReportProcessorService;
+import org.jenkinsci.plugins.xunit.service.XUnitToolInfo;
+import org.jenkinsci.plugins.xunit.service.XUnitTransformer;
+import org.jenkinsci.plugins.xunit.service.XUnitValidationService;
+import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
+import org.jenkinsci.plugins.xunit.types.CustomType;
+
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Singleton;
+
 import hudson.FilePath;
 import hudson.Util;
 import hudson.model.AbstractBuild;
 import hudson.model.BuildListener;
-import hudson.model.Hudson;
 import hudson.model.Result;
 import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.remoting.VirtualChannel;
 import hudson.tasks.junit.TestResult;
 import hudson.tasks.junit.TestResultAction;
-import org.apache.tools.ant.DirectoryScanner;
-import org.apache.tools.ant.types.FileSet;
-import org.jenkinsci.lib.dtkit.model.InputMetric;
-import org.jenkinsci.lib.dtkit.type.TestType;
-import org.jenkinsci.plugins.xunit.exception.XUnitException;
-import org.jenkinsci.plugins.xunit.service.*;
-import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
-import org.jenkinsci.plugins.xunit.types.CustomType;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.Serializable;
+import hudson.util.IOUtils;
+import jenkins.model.Jenkins;
 
 /**
  * @author Gregory Boissinot
@@ -61,12 +70,12 @@ public class XUnitProcessor implements Serializable {
     private int thresholdMode;
     private ExtraConfiguration extraConfiguration;
 
-    public XUnitProcessor(TestType[] types, XUnitThreshold[] thresholds, int thresholdMode, ExtraConfiguration extraConfiguration) {
-        this.types = types;
-        if (types == null) {
+    public XUnitProcessor(TestType[] tools, XUnitThreshold[] thresholds, int thresholdMode, ExtraConfiguration extraConfiguration) {
+        if (tools == null) {
             throw new NullPointerException("The types section is required.");
         }
-        this.thresholds = thresholds;
+        this.types = Arrays.copyOf(tools, tools.length);
+        this.thresholds = Arrays.copyOf(thresholds, thresholds.length);
         this.thresholdMode = thresholdMode;
         this.extraConfiguration = extraConfiguration;
     }
@@ -199,13 +208,13 @@ public class XUnitProcessor implements Serializable {
         return xUnitReportService.isEmptyPattern(tool.getPattern());
     }
 
-    private String getExpandedResolvedPattern(TestType tool, Run build, TaskListener listener) throws IOException, InterruptedException {
+    private String getExpandedResolvedPattern(TestType tool, Run<?, ?> build, TaskListener listener) throws IOException, InterruptedException {
         String newExpandedPattern = tool.getPattern();
         newExpandedPattern = newExpandedPattern.replaceAll("[\t\r\n]+", " ");
         return Util.replaceMacro(newExpandedPattern, build.getEnvironment(listener));
     }
 
-    private XUnitToolInfo getXUnitToolInfoObject(final TestType tool, final String expandedPattern, final Run build, final FilePath workspace, final TaskListener listener) throws IOException, InterruptedException {
+    private XUnitToolInfo getXUnitToolInfoObject(final TestType tool, final String expandedPattern, final Run<?, ?> build, final FilePath workspace, final TaskListener listener) throws IOException, InterruptedException {
 
         InputMetric inputMetric = tool.getInputMetric();
         inputMetric = Guice.createInjector(new AbstractModule() {
@@ -219,7 +228,7 @@ public class XUnitProcessor implements Serializable {
         }).getInstance(inputMetric.getClass());
 
         return new XUnitToolInfo(
-                new FilePath(new File(Hudson.getInstance().getRootDir(), "userContent")),
+                new FilePath(new File(Jenkins.getActiveInstance().getRootDir(), "userContent")),
                 inputMetric,
                 expandedPattern,
                 tool.isSkipNoTestFiles(),
@@ -231,7 +240,7 @@ public class XUnitProcessor implements Serializable {
 
     }
 
-    private FilePath getCustomStylesheet(final TestType tool, final Run build, final FilePath workspace, final TaskListener listener) throws IOException, InterruptedException {
+    private FilePath getCustomStylesheet(final TestType tool, final Run<?, ?> build, final FilePath workspace, final TaskListener listener) throws IOException, InterruptedException {
 
         final String customXSLPath = Util.replaceMacro(((CustomType) tool).getCustomXSL(), build.getEnvironment(listener));
 
@@ -268,7 +277,7 @@ public class XUnitProcessor implements Serializable {
     }
 
     private TestResultAction getPreviousTestResultAction(Run<?, ?> build) {
-        Run previousBuild = build.getPreviousBuild();
+        Run<?, ?> previousBuild = build.getPreviousCompletedBuild();
         if (previousBuild == null) {
             return null;
         }
@@ -300,7 +309,7 @@ public class XUnitProcessor implements Serializable {
             }
 
             if (existingAction == null) {
-                build.getActions().add(action);
+                build.addAction(action);
             }
         }
     }
@@ -324,13 +333,13 @@ public class XUnitProcessor implements Serializable {
 
         try {
             return workspace.act(new jenkins.SlaveToMasterFileCallable<TestResult>() {
+                private static final long serialVersionUID = 1L;
 
                 @Override
                 public TestResult invoke(File ws, VirtualChannel channel) throws IOException {
                     final long nowSlave = System.currentTimeMillis();
                     File generatedJunitDir = new File(ws, XUnitDefaultValues.GENERATED_JUNIT_DIR);
-                    //Ignore return value
-                    generatedJunitDir.mkdirs();
+                    IOUtils.mkdirs(generatedJunitDir);
                     FileSet fs = Util.createFileSet(generatedJunitDir, junitFilePattern);
                     DirectoryScanner ds = fs.getDirectoryScanner();
                     String[] files = ds.getIncludedFiles();
@@ -340,15 +349,11 @@ public class XUnitProcessor implements Serializable {
                         return null;
 
                     }
-                    try {
-                        if (existingTestResults == null) {
-                            return new TestResult(buildTime + (nowSlave - nowMaster), ds, true);
-                        } else {
-                            existingTestResults.parse(buildTime + (nowSlave - nowMaster), ds);
-                            return existingTestResults;
-                        }
-                    } catch (IOException ioe) {
-                        throw new IOException(ioe);
+                    if (existingTestResults == null) {
+                        return new TestResult(buildTime + (nowSlave - nowMaster), ds, true);
+                    } else {
+                        existingTestResults.parse(buildTime + (nowSlave - nowMaster), ds);
+                        return existingTestResults;
                     }
                 }
 
@@ -364,16 +369,13 @@ public class XUnitProcessor implements Serializable {
     private Result getBuildStatus(Run<?, ?> build, XUnitLog xUnitLog) {
         Result curResult = getResultWithThreshold(xUnitLog, build);
         Result previousResultStep = build.getResult();
-        if (curResult != null) {
-            if (previousResultStep == null) {
-                return curResult;
-            }
-            if (previousResultStep != Result.NOT_BUILT && previousResultStep.isWorseOrEqualTo(curResult)) {
-                curResult = previousResultStep;
-            }
+        if (previousResultStep == null) {
             return curResult;
         }
-        return null;
+        if (previousResultStep != Result.NOT_BUILT && previousResultStep.isWorseOrEqualTo(curResult)) {
+            curResult = previousResultStep;
+        }
+        return curResult;
     }
 
     private Result getResultWithThreshold(XUnitLog log, Run<?, ?> build) {

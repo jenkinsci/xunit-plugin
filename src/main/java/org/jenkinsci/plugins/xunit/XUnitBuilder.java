@@ -26,6 +26,7 @@ package org.jenkinsci.plugins.xunit;
 
 import java.io.IOException;
 import java.util.Arrays;
+
 import hudson.DescriptorExtensionList;
 import hudson.Extension;
 import hudson.FilePath;
@@ -108,13 +109,6 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
             extraConfiguration = new ExtraConfiguration(XUnitDefaultValues.TEST_REPORT_TIME_MARGING);
         }
         return extraConfiguration;
-    }
-
-    @Override
-    public boolean perform(final AbstractBuild<?, ?> build, Launcher launcher, final BuildListener listener)
-            throws InterruptedException, IOException {
-        perform(build, build.getWorkspace(), launcher, listener);
-        return true;
     }
 
     @Override
