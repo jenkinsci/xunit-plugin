@@ -24,11 +24,14 @@
 
 package org.jenkinsci.plugins.xunit;
 
+import java.io.IOException;
+import java.util.Arrays;
 import hudson.DescriptorExtensionList;
 import hudson.Extension;
 import hudson.FilePath;
 import hudson.Launcher;
 import hudson.model.AbstractBuild;
+import hudson.model.AbstractProject;
 import hudson.model.BuildListener;
 import hudson.model.Result;
 import hudson.model.Run;
@@ -45,7 +48,6 @@ import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThresholdDescriptor;
 import org.kohsuke.stapler.DataBoundConstructor;
 
-import java.io.IOException;
 import org.jenkinsci.Symbol;
 
 /**
@@ -141,7 +143,6 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
     }
 
     @Extension
-    @SuppressWarnings("unused")
     @Symbol("ProcessxUnit")
     public static final class XUnitDescriptorBuilder extends BuildStepDescriptor<Builder> {
 

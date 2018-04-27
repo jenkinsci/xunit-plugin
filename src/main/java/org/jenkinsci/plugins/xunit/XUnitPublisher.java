@@ -24,6 +24,7 @@
 
 package org.jenkinsci.plugins.xunit;
 
+import java.util.Arrays;
 import hudson.DescriptorExtensionList;
 import hudson.Extension;
 import hudson.FilePath;
@@ -60,7 +61,6 @@ import org.jenkinsci.Symbol;
  *
  * @author Gregory Boissinot
  */
-@SuppressWarnings({"unchecked", "unused"})
 public class XUnitPublisher extends Recorder implements DryRun, Serializable, SimpleBuildStep {
 
     private TestType[] types;

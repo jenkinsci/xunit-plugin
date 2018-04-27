@@ -96,7 +96,7 @@ public class XUnitReportProcessorService extends XUnitService implements Seriali
      * @param xUnitToolInfo the wrapped object
      * @param files         the file list
      * @param workspace     the root location of the file list
-     * @return true if all files are new, false otherwise
+     * @throws OldTestReportException when the report file is not updated during this build is setup to fail  
      */
     public void checkIfFindsFilesNewFiles(XUnitToolInfo xUnitToolInfo, List<String> files, File workspace) throws OldTestReportException {
 
