@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="RSelenium.Tests.AfterLiveTestCases" tests="1" time="25.819336"
+               failures="0"
+               errors="0"
+               skipped="1">
+        <testcase classname="RSelenium.Tests.AfterLiveTestCases"
+                  name="AUT0513TestPrefixedSiteURLRedirect"
+                  time="3.514810">
+            <skipped/>
+            <system-out>Test intentionally ignored due to environment constraints.This test is only applicable for the Live Environment==============================
+                = Running Test: RSelenium.Tests.AfterLiveTestCases.AUT0513TestPrefixedSiteURLRedirect
+                = Test Number: 3
+                = Start Time: 2016/06/04 19:18:35
+                = threadID: 1088
+                = managedThreadId: 22
+                [Test Case Description] : Check that the site URL redirect to live portal no matter the prefix used:- www.site URL- http://site URL/Ex:- http://www.allclassifieds.ca/ -http://allclassifieds.ca/ -www.allclassifieds.ca /All combinations should redirect to the Front Page of the live portal
+            </system-out>
+        </testcase>
+    </testsuite>
+    <testsuite name="RSelenium.Tests.LoginTestCases" tests="1" time="35.692928"
+               failures="0"
+               errors="0"
+               skipped="0">
+        <testcase classname="RSelenium.Tests.LoginTestCases"
+                  name="AUT0027TestUnregisterUserRedirect"
+                  time="21.316192"/>
+    </testsuite>
+    <testsuite name="RSelenium.Tests.FilterTestCases" tests="1" time="39.269244"
+               failures="1"
+               errors="0"
+               skipped="0">
+        <testcase classname="RSelenium.Tests.FilterTestCases"
+                  name="AUT0140TestSingleYearAndReducedPriceFilterCombinationInCars"
+                  time="31.869764">
+            <failure>
+                MESSAGE:
+                OpenQA.Selenium.NoSuchElementException : Unable to locate element: {"method":"css selector","selector":"div.noUi-value-large[style='left: 100.00000%']"}
+                For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+                Build info: version: '2.52.0', revision: '4c2593c', time: '2016-02-11 19:06:42'
+                System info: host: 'Azure0604065212', ip: '10.1.1.4', os.name: 'Linux', os.arch: 'amd64', os.version: '3.19.0-33-generic', java.version: '1.7.0_95'
+                Driver info: driver.version: unknown
+                TearDown : NUnit.Framework.AssertionException :
+
+
+                +++++++++++++++++++
+                STACK TRACE:
+                at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+                at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+                at OpenQA.Selenium.Remote.RemoteWebElement.FindElement(String mechanism, String value)
+                at OpenQA.Selenium.Remote.RemoteWebElement.FindElementByCssSelector(String cssSelector)
+                at OpenQA.Selenium.By.&lt;&gt;c__DisplayClass1e.&lt;CssSelector&gt;b__1c(ISearchContext context)
+                at OpenQA.Selenium.By.FindElement(ISearchContext context)
+                at OpenQA.Selenium.Remote.RemoteWebElement.FindElement(By by)
+                at RSelenium.PageObjects.Components.SliderRangeFilter.get_SliderMax() in C:\Program Files (x86)\Jenkins\workspace\InDevelopment\Selenium\RSelenium\PageObjects\Components\Filter.cs:line 271
+                at RSelenium.PageObjects.Components.SliderRangeFilter.GetSliderMaxValue() in C:\Program Files (x86)\Jenkins\workspace\InDevelopment\Selenium\RSelenium\PageObjects\Components\Filter.cs:line 361
+                at RSelenium.PageObjects.Components.SliderRangeFilter.GetSliderIncrement() in C:\Program Files (x86)\Jenkins\workspace\InDevelopment\Selenium\RSelenium\PageObjects\Components\Filter.cs:line 365
+                at RSelenium.Tests.FilterTestCases.AUT0140TestSingleYearAndReducedPriceFilterCombinationInCars() in C:\Program Files (x86)\Jenkins\workspace\InDevelopment\Selenium\RSelenium\Tests\FilterTestCases.cs:line 379
+                --TearDown
+                at RSelenium.SeleniumBase.TestTearDown() in C:\Program Files (x86)\Jenkins\workspace\InDevelopment\Selenium\RSelenium\SeleniumBase.cs:line 101
+                +++++++++++++++++++
+                ==============================
+                = Running Test: RSelenium.Tests.FilterTestCases.AUT0140TestSingleYearAndReducedPriceFilterCombinationInCars
+                = Test Number: 1
+                = Start Time: 2016/06/04 19:18:20
+                = threadID: 2784
+                = managedThreadId: 20
+                [Test Case Description] : Go to Cars category and in Results page enter the same value from the both fields for year sliderange (From=To=2007) and check Reduced price box Check that the page is refreshed and the search is performed.
+                MAIN CATEGORY     Vehículos
+                CATEGORY     Autos y Camionetas
+                Filters available for category : Autos y Camionetas  are motoring__body_type, motoring__transmission, motoring__make, motoring__fuel_type, Category, Category, Category, Category, ad__price, motoring__engine_displacement_cubic_centimeters, motoring__mileage_kilometers, motoring__model_year
+                [[SCREENSHOT|/artifact/Selenium/RSelenium/bin/Mexico/screenshots/AUT0140TestSingleYearAndReducedPriceFilterCombinationInCars_00_20160604-19.18.48.png]]
+
+            </failure>
+        </testcase>
+    </testsuite>
+</testsuites>
