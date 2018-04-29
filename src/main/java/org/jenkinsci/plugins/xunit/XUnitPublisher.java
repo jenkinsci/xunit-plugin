@@ -24,19 +24,7 @@
 
 package org.jenkinsci.plugins.xunit;
 
-import java.io.IOException;
-import java.io.Serializable;
 import java.util.Arrays;
-
-import org.jenkinsci.lib.dryrun.DryRun;
-import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
-import org.jenkinsci.lib.dtkit.type.TestType;
-import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
-import org.jenkinsci.plugins.xunit.threshold.SkippedThreshold;
-import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
-import org.jenkinsci.plugins.xunit.threshold.XUnitThresholdDescriptor;
-import org.kohsuke.stapler.DataBoundConstructor;
-
 import hudson.DescriptorExtensionList;
 import hudson.Extension;
 import hudson.FilePath;
@@ -55,6 +43,18 @@ import hudson.tasks.Recorder;
 import hudson.tasks.junit.JUnitResultArchiver;
 import hudson.tasks.test.TestResultProjectAction;
 import jenkins.tasks.SimpleBuildStep;
+import org.jenkinsci.lib.dryrun.DryRun;
+import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
+import org.jenkinsci.lib.dtkit.type.TestType;
+import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
+import org.jenkinsci.plugins.xunit.threshold.SkippedThreshold;
+import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
+import org.jenkinsci.plugins.xunit.threshold.XUnitThresholdDescriptor;
+import org.kohsuke.stapler.DataBoundConstructor;
+
+import java.io.IOException;
+import java.io.Serializable;
+import org.jenkinsci.Symbol;
 
 /**
  * Class that converting custom reports to Junit reports and records them
@@ -156,6 +156,7 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable, Si
     }
 
     @Extension
+    @Symbol("xUnitPublisher")
     public static final class XUnitDescriptorPublisher extends BuildStepDescriptor<Publisher> {
 
         public XUnitDescriptorPublisher() {

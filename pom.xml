@@ -39,15 +39,19 @@
         </developer>
     </developers>
 
-    <properties>
+<properties>
+        <jenkins-test-harness.version>2.34</jenkins-test-harness.version>
+        <java.level>7</java.level>
+        <findbugs.failOnError>false</findbugs.failOnError>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <dtkit.frmk.version>2.0.0</dtkit.frmk.version>
         <xerces.version>2.9.1</xerces.version>
         <saxon.version>9.1.0.8</saxon.version>
         <dry.run.version>0.1</dry.run.version>
         <xmlunit.version>1.6</xmlunit.version>
         <mockito.version>2.17.0</mockito.version>
-        <jenkins.version>1.651.3</jenkins.version>
-    </properties>
+	      <jenkins.version>1.651.3</jenkins.version>
+  </properties>
 
     <repositories>
         <repository>
@@ -64,6 +68,11 @@
     </pluginRepositories>
 
     <dependencies>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>structs</artifactId>
+            <version>1.2</version>
+        </dependency>
         <dependency>
             <groupId>org.jenkins-ci.lib.dtkit</groupId>
             <artifactId>dtkit-metrics-model</artifactId>

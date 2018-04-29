@@ -35,6 +35,8 @@ import hudson.model.Descriptor;
 import hudson.model.Result;
 import hudson.model.Run;
 import hudson.tasks.junit.TestResultAction;
+import org.jenkinsci.plugins.xunit.service.XUnitLog;
+import java.io.Serializable;
 import jenkins.model.Jenkins;
 
 /**

@@ -27,14 +27,6 @@ package org.jenkinsci.plugins.xunit;
 import java.io.IOException;
 import java.util.Arrays;
 
-import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
-import org.jenkinsci.lib.dtkit.type.TestType;
-import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
-import org.jenkinsci.plugins.xunit.threshold.SkippedThreshold;
-import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
-import org.jenkinsci.plugins.xunit.threshold.XUnitThresholdDescriptor;
-import org.kohsuke.stapler.DataBoundConstructor;
-
 import hudson.DescriptorExtensionList;
 import hudson.Extension;
 import hudson.FilePath;
@@ -49,6 +41,15 @@ import hudson.tasks.BuildStepDescriptor;
 import hudson.tasks.BuildStepMonitor;
 import hudson.tasks.Builder;
 import jenkins.tasks.SimpleBuildStep;
+import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
+import org.jenkinsci.lib.dtkit.type.TestType;
+import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
+import org.jenkinsci.plugins.xunit.threshold.SkippedThreshold;
+import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
+import org.jenkinsci.plugins.xunit.threshold.XUnitThresholdDescriptor;
+import org.kohsuke.stapler.DataBoundConstructor;
+
+import org.jenkinsci.Symbol;
 
 /**
  * @author Gregory Boissinot
@@ -136,6 +137,7 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
     }
 
     @Extension
+    @Symbol("ProcessxUnit")
     public static final class XUnitDescriptorBuilder extends BuildStepDescriptor<Builder> {
 
         public XUnitDescriptorBuilder() {
