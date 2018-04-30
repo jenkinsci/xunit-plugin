@@ -28,9 +28,11 @@ import hudson.FilePath;
 import org.apache.commons.io.FileUtils;
 import org.jenkinsci.lib.dtkit.model.InputMetricOther;
 import org.jenkinsci.lib.dtkit.util.converter.ConversionException;
+import org.jenkinsci.lib.dtkit.util.validator.ErrorType;
 import org.jenkinsci.lib.dtkit.util.validator.ValidationError;
 import org.jenkinsci.lib.dtkit.util.validator.ValidationException;
 import org.jenkinsci.plugins.xunit.types.model.JUnit10;
+import org.xml.sax.SAXParseException;
 
 import java.io.File;
 import java.io.IOException;
@@ -59,14 +61,27 @@ public class JUnitInputMetric extends InputMetricOther {
         }
     }
 
+    /**
+     * Consider the file as invalid only if there is a fatal error, i.e. if is
+     * not possible for the application to process the document through to the end.
+     *
+     * @param inputXMLFile
+     * @return a boolean
+     * @throws ValidationException
+     * @see org.xml.sax.ErrorHandler#fatalError(SAXParseException)
+     */
     @Override
     public boolean validateInputFile(File inputXMLFile) throws ValidationException {
         final JUnit10 jUnit = new JUnit10();
         List<ValidationError> errors = jUnit.validate(inputXMLFile);
+        boolean isValid = true;
         for (ValidationError error : errors) {
-            System.out.println(error);
+            System.out.println(error + " type: " + error.getType());
+            if (error.getType() == ErrorType.FATAL_ERROR) {
+                isValid = false;
+            }
         }
-        return errors.isEmpty();
+        return isValid;
     }
 
     @Override
