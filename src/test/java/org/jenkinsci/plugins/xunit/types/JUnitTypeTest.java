@@ -26,4 +26,9 @@ public class JUnitTypeTest extends AbstractTest {
     public void testTestCase4() throws Exception {
         convertAndValidate(JUnitInputMetric.class, "junit/testcase4/input.xml", "junit/testcase4/input.xml");
     }
+
+    @Test
+    public void testTestCase5() throws Exception {
+    	convertAndValidate(JUnitInputMetric.class, "junit/testcase5/input.xml", "junit/testcase5/input.xml");
+    }
 }
