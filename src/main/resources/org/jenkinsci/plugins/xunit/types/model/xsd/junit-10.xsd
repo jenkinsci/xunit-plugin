@@ -63,6 +63,32 @@ THE SOFTWARE.
     <xs:element name="system-err" type="xs:string"/>
     <xs:element name="system-out" type="xs:string"/>
 
+    <xs:element name="rerunFailure">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:element ref="system-out" />
+                    <xs:element ref="system-err" />
+                </xs:choice>
+            </xs:sequence>
+            <xs:attribute name="type" type="xs:string" use="optional"/>
+            <xs:attribute name="message" type="xs:string" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="rerunError">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:element ref="system-out" />
+                    <xs:element ref="system-err" />
+                </xs:choice>
+            </xs:sequence>
+            <xs:attribute name="type" type="xs:string" use="optional"/>
+            <xs:attribute name="message" type="xs:string" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+
     <xs:element name="testcase">
         <xs:complexType>
             <xs:sequence>
@@ -70,6 +96,8 @@ THE SOFTWARE.
                     <xs:element ref="skipped"/>
                     <xs:element ref="error"/>
                     <xs:element ref="failure"/>
+                    <xs:element ref="rerunFailure" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="rerunError" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="system-out"/>
                     <xs:element ref="system-err"/>
                 </xs:choice>
