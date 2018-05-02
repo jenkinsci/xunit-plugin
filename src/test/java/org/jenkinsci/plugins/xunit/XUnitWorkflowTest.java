@@ -23,13 +23,15 @@ THE SOFTWARE.
 */
 package org.jenkinsci.plugins.xunit;
 
-import hudson.FilePath;
-import hudson.model.Result;
 import org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition;
 import org.jenkinsci.plugins.workflow.job.WorkflowJob;
 import org.junit.ClassRule;
 import org.junit.Test;
+import org.jvnet.hudson.test.Issue;
 import org.jvnet.hudson.test.JenkinsRule;
+
+import hudson.FilePath;
+import hudson.model.Result;
 
 public class XUnitWorkflowTest {
 
@@ -54,6 +56,18 @@ public class XUnitWorkflowTest {
                 + "}"));
 
         jenkinsRule.assertBuildStatus(Result.UNSTABLE, job.scheduleBuild2(0).get());
+    }
+
+    @Issue("JENKINS-51056")
+    @Test
+    public void xunitBuilderThresholdsAreOptional() throws Exception {
+        WorkflowJob job = getBaseJob("JENKINS-51056");
+        job.setDefinition(new CpsFlowDefinition(""
+                + "node {\n"
+                + "  step([$class: 'XUnitBuilder', tools: [[$class: 'GoogleTestType', pattern: 'input.xml']], thresholdMode: 1])\n"
+                + "}"));
+        
+        jenkinsRule.assertBuildStatus(Result.SUCCESS, job.scheduleBuild2(0).get());
     }
 
     @Test

@@ -27,6 +27,8 @@ package org.jenkinsci.plugins.xunit;
 import java.io.IOException;
 import java.util.Arrays;
 
+import javax.annotation.CheckForNull;
+
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
@@ -60,14 +62,14 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
     private int thresholdMode;
     private ExtraConfiguration extraConfiguration;
 
-    public XUnitBuilder(TestType[] tools, XUnitThreshold[] thresholds) {
-        this.types = Arrays.copyOf(tools, tools.length);
-        this.thresholds = Arrays.copyOf(thresholds, thresholds.length);
+    public XUnitBuilder(@CheckForNull TestType[] tools, @CheckForNull XUnitThreshold[] thresholds) {
+        this.types = (tools != null ? Arrays.copyOf(tools, tools.length) : new TestType[0]);
+        this.thresholds = (thresholds != null ? Arrays.copyOf(thresholds, thresholds.length) : new XUnitThreshold[0]);
         this.thresholdMode = 1;
     }
 
     @DataBoundConstructor
-    public XUnitBuilder(TestType[] tools, XUnitThreshold[] thresholds, int thresholdMode, String testTimeMargin) {
+    public XUnitBuilder(@CheckForNull TestType[] tools, @CheckForNull XUnitThreshold[] thresholds, int thresholdMode, @CheckForNull String testTimeMargin) {
         this(tools, thresholds);
         this.thresholdMode = thresholdMode;
         long longTestTimeMargin = XUnitDefaultValues.TEST_REPORT_TIME_MARGING;
