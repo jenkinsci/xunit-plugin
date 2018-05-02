@@ -24,12 +24,17 @@
 
 package org.jenkinsci.plugins.xunit.types;
 
-import hudson.Extension;
+import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
+import hudson.Extension;
+
 /**
+ * <a href="https://github.com/google/googletest">Google Test</a>, Google's C++
+ * test framework!
+ * 
  * @author David Hallas
  */
 public class GoogleTestType extends TestType {
@@ -39,6 +44,7 @@ public class GoogleTestType extends TestType {
         super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
     }
 
+    @Symbol("GoogleTest")
     @Extension
     public static class GoogleTestTypeDescriptor extends TestTypeDescriptor<GoogleTestType> {
 

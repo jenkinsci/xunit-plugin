@@ -24,11 +24,18 @@
 
 package org.jenkinsci.plugins.xunit.types;
 
-import hudson.Extension;
+import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
+import hudson.Extension;
+
+/**
+ * <a href="https://developer.gnome.org/glib/stable/gtester.html">gtester</a> is
+ * a utility to run unit tests that have been written using the GLib test
+ * framework.
+ */
 public class GTesterJunitHudsonTestType extends TestType {
 
     @DataBoundConstructor
@@ -36,6 +43,7 @@ public class GTesterJunitHudsonTestType extends TestType {
         super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
     }
 
+    @Symbol("gtester")
     @Extension
     public static class DescriptorImpl extends TestTypeDescriptor<GTesterJunitHudsonTestType> {
 

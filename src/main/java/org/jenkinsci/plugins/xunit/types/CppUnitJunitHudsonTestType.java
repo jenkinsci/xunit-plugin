@@ -24,11 +24,22 @@
 
 package org.jenkinsci.plugins.xunit.types;
 
-import hudson.Extension;
+import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
+import hudson.Extension;
+
+/**
+ * <a href="http://cppunit.sourceforge.net/doc/cvs/index.html">CppUnit</a> is a
+ * unit testing framework module for the C++ programming language.
+ * <p>
+ * The first port of JUnit to C++ was done by Michael Feathers. His versions can
+ * be found on the XProgramming software page. They are os-specific, so Jerome
+ * Lacoste provided a port to Unix/Solaris. His version can be found on the same
+ * page. The CppUnit project has combined and built on this work.
+ */
 public class CppUnitJunitHudsonTestType extends TestType {
 
     @DataBoundConstructor
@@ -36,6 +47,7 @@ public class CppUnitJunitHudsonTestType extends TestType {
         super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
     }
 
+    @Symbol("CppUnit")
     @Extension
     public static class DescriptorImpl extends TestTypeDescriptor<CppUnitJunitHudsonTestType> {
 

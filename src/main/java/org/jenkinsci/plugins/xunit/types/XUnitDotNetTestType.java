@@ -24,11 +24,20 @@
 
 package org.jenkinsci.plugins.xunit.types;
 
-import hudson.Extension;
+import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
+import hudson.Extension;
+
+/**
+ * <a href="https://xunit.github.io">xUnit.net</a> is a free, open source,
+ * community-focused unit testing tool for the .NET Framework.
+ * <p>
+ * Written by the original inventor of NUnit v2, xUnit.net is the latest
+ * technology for unit testing C#, F#, VB.NET and other .NET languages.
+ */
 public class XUnitDotNetTestType extends TestType {
 
     @DataBoundConstructor
@@ -36,6 +45,7 @@ public class XUnitDotNetTestType extends TestType {
         super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
     }
 
+    @Symbol("xUnitDotNet")
     @Extension
     public static class DescriptorImpl extends TestTypeDescriptor<XUnitDotNetTestType> {
 

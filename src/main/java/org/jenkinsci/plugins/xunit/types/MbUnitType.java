@@ -24,12 +24,18 @@
 
 package org.jenkinsci.plugins.xunit.types;
 
-import hudson.Extension;
+import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
+import hudson.Extension;
+
 /**
+ * <a href="https://github.com/Gallio/mbunit-v2">MbUnit</a> is an extensible
+ * unit testing framework for the .NET Framework that takes in and goes beyond
+ * xUnit pattern testing. MbUnit is part of the Gallio bundle.
+ * 
  * @author Gregory Boissinot
  */
 public class MbUnitType extends TestType {
@@ -39,6 +45,7 @@ public class MbUnitType extends TestType {
         super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
     }
 
+    @Symbol("MbUnit")
     @Extension
     public static class MbUnitTypeDescriptor extends TestTypeDescriptor<MbUnitType> {
 

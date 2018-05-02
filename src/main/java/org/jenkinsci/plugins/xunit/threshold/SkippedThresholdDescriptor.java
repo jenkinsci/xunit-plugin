@@ -24,11 +24,14 @@
 
 package org.jenkinsci.plugins.xunit.threshold;
 
+import org.jenkinsci.Symbol;
+
 import hudson.Extension;
 
 /**
  * @author Gregory Boissinot
  */
+@Symbol("skipped")
 @Extension
 public class SkippedThresholdDescriptor extends XUnitThresholdDescriptor<SkippedThreshold> {
 

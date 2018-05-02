@@ -24,10 +24,12 @@
 
 package org.jenkinsci.plugins.xunit.types;
 
-import hudson.Extension;
+import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
+
+import hudson.Extension;
 
 public class NUnit3TestType extends TestType {
 
@@ -36,6 +38,7 @@ public class NUnit3TestType extends TestType {
         super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
     }
 
+    @Symbol("NUnit3")
     @Extension
     public static class DescriptorImpl extends TestTypeDescriptor<NUnit3TestType> {
 

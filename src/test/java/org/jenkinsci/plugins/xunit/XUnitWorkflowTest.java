@@ -53,7 +53,7 @@ public class XUnitWorkflowTest {
         job.setDefinition(new CpsFlowDefinition(""
                 + "node {\n"
                 + "  step([$class: 'XUnitBuilder', testTimeMargin: '3000', thresholdMode: 1, thresholds: [[$class: 'FailedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '1'], [$class: 'SkippedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '']], tools: [[$class: 'GoogleTestType', deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml', skipNoTestFiles: false, stopProcessingIfError: true]]])\n"
-                + "}"));
+                + "}", true));
 
         jenkinsRule.assertBuildStatus(Result.UNSTABLE, job.scheduleBuild2(0).get());
     }
@@ -76,8 +76,23 @@ public class XUnitWorkflowTest {
         job.setDefinition(new CpsFlowDefinition(""
                 + "node {\n"
                 + "  step([$class: 'XUnitPublisher', testTimeMargin: '3000', thresholdMode: 1, thresholds: [[$class: 'FailedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '1'], [$class: 'SkippedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '']], tools: [[$class: 'GoogleTestType', deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml', skipNoTestFiles: false, stopProcessingIfError: true]]])\n"
-                + "}"));
+                + "}", true));
 
+        jenkinsRule.assertBuildStatus(Result.UNSTABLE, job.scheduleBuild2(0).get());
+    }
+
+    @Test
+    public void xunit() throws Exception {
+        WorkflowJob job = getBaseJob("readablePublisherPipeline");
+        job.setDefinition(new CpsFlowDefinition(""
+                + "node {\n"
+                + "  xunit(testTimeMargin: '3000',"
+                + "        thresholdMode: 1,"
+                + "        thresholds: [ failed(failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '1') ],"
+                + "        tools: [ GoogleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml', skipNoTestFiles: false, stopProcessingIfError: true) ]"
+                + "  )\n"
+                + "}", true));
+        
         jenkinsRule.assertBuildStatus(Result.UNSTABLE, job.scheduleBuild2(0).get());
     }
 }

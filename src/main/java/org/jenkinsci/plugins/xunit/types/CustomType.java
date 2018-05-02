@@ -24,6 +24,7 @@
 
 package org.jenkinsci.plugins.xunit.types;
 
+import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
@@ -47,6 +48,7 @@ public class CustomType extends TestType {
         return customXSL;
     }
 
+    @Symbol("Custom")
     @Extension
     public static class CustomInputMetricDescriptor extends TestTypeDescriptor<CustomType> {
 

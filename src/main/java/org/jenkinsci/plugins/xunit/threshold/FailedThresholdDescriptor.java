@@ -24,11 +24,14 @@
 
 package org.jenkinsci.plugins.xunit.threshold;
 
+import org.jenkinsci.Symbol;
+
 import hudson.Extension;
 
 /**
  * @author Gregory Boissinot
  */
+@Symbol("failed")
 @Extension
 public class FailedThresholdDescriptor extends XUnitThresholdDescriptor<FailedThreshold> {
 

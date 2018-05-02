@@ -41,7 +41,7 @@ public class QTestLibInputMetric extends InputMetricXSL {
 
     @Override
     public String getToolVersion() {
-        return "Version N/A";
+        return "Version 5.x";
     }
 
     @Override
