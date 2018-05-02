@@ -24,11 +24,18 @@
 
 package org.jenkinsci.plugins.xunit.types;
 
-import hudson.Extension;
+import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
+import hudson.Extension;
+
+/**
+ * <a href="https://phpunit.de">PHPUnit</a> is a programmer-oriented testing
+ * framework for PHP. It is an instance of the xUnit architecture for unit
+ * testing frameworks.
+ */
 public class PHPUnitJunitHudsonTestType extends TestType {
 
     @DataBoundConstructor
@@ -36,6 +43,7 @@ public class PHPUnitJunitHudsonTestType extends TestType {
         super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
     }
 
+    @Symbol("PHPUnit")
     @Extension
     public static class DescriptorImpl extends TestTypeDescriptor<PHPUnitJunitHudsonTestType> {
 

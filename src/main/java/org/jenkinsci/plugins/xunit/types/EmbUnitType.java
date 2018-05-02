@@ -24,12 +24,21 @@
 
 package org.jenkinsci.plugins.xunit.types;
 
-import hudson.Extension;
+import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
+import hudson.Extension;
+
 /**
+ * <a href="http://embunit.sourceforge.net/embunit">Embedded Unit</a> is unit
+ * testing framework for Embedded C System.
+ * <p>
+ * It's design was copied from JUnit and CUnit and more, and then adapted
+ * somewhat for Embedded C System. Embedded Unit does not require std C libs.
+ * All objects are allocated to const area.
+ * 
  * @author Gregory Boissinot
  */
 public class EmbUnitType extends TestType {
@@ -39,6 +48,7 @@ public class EmbUnitType extends TestType {
         super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
     }
 
+    @Symbol("embUnit")
     @Extension
     public static class EmbUnitTypeDescriptor extends TestTypeDescriptor<EmbUnitType> {
 

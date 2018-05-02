@@ -24,11 +24,19 @@
 
 package org.jenkinsci.plugins.xunit.types;
 
-import hudson.Extension;
+import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
+import hudson.Extension;
+
+/**
+ * <a href="http://valgrind.org">Valgrind</a> is an instrumentation framework for
+ * building dynamic analysis tools. There are Valgrind tools that can
+ * automatically detect many memory management and threading bugs, and profile
+ * your programs in detail.
+ */
 public class ValgrindJunitHudsonTestType extends TestType {
 
     @DataBoundConstructor
@@ -36,6 +44,7 @@ public class ValgrindJunitHudsonTestType extends TestType {
         super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
     }
 
+    @Symbol("Valgrind")
     @Extension
     public static class DescriptorImpl extends TestTypeDescriptor<ValgrindJunitHudsonTestType> {
 

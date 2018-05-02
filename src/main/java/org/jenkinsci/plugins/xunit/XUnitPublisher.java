@@ -30,6 +30,7 @@ import java.util.Arrays;
 
 import javax.annotation.CheckForNull;
 
+import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dryrun.DryRun;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
@@ -38,6 +39,8 @@ import org.jenkinsci.plugins.xunit.threshold.SkippedThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThresholdDescriptor;
 import org.kohsuke.stapler.DataBoundConstructor;
+
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 import hudson.DescriptorExtensionList;
 import hudson.Extension;
@@ -70,15 +73,10 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable, Si
     private int thresholdMode;
     private ExtraConfiguration extraConfiguration;
 
-    public XUnitPublisher(@CheckForNull TestType[] tools, @CheckForNull XUnitThreshold[] thresholds) {
-        this.types = (tools != null ? Arrays.copyOf(tools, tools.length) : new TestType[0]);
-        this.thresholds = (thresholds != null ? Arrays.copyOf(thresholds, thresholds.length) : new XUnitThreshold[0]);
-        this.thresholdMode = 1;
-    }
-
     @DataBoundConstructor
     public XUnitPublisher(@CheckForNull TestType[] tools, @CheckForNull XUnitThreshold[] thresholds, int thresholdMode, @CheckForNull String testTimeMargin) {
-        this(tools, thresholds);
+        this.types = (tools != null ? Arrays.copyOf(tools, tools.length) : new TestType[0]);
+        this.thresholds = (thresholds != null ? Arrays.copyOf(thresholds, thresholds.length) : new XUnitThreshold[0]);
         this.thresholdMode = thresholdMode;
         long longTestTimeMargin = XUnitDefaultValues.TEST_REPORT_TIME_MARGING;
         if (testTimeMargin != null && testTimeMargin.trim().length() != 0) {
@@ -151,12 +149,12 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable, Si
         return true;
     }
 
-
     @Override
     public BuildStepMonitor getRequiredMonitorService() {
         return BuildStepMonitor.NONE;
     }
 
+    @Symbol("xunit")
     @Extension
     public static final class XUnitDescriptorPublisher extends BuildStepDescriptor<Publisher> {
 

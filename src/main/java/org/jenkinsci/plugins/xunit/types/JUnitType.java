@@ -24,12 +24,18 @@
 
 package org.jenkinsci.plugins.xunit.types;
 
-import hudson.Extension;
+import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
+import hudson.Extension;
+
 /**
+ * <a href="https://junit.org">JUnit</a> is a simple framework to write
+ * repeatable tests. It is an instance of the xUnit architecture for unit
+ * testing frameworks.
+ * 
  * @author Gregory Boissinot
  */
 public class JUnitType extends TestType {
@@ -39,6 +45,7 @@ public class JUnitType extends TestType {
         super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
     }
 
+    @Symbol("JUnit")
     @Extension
     public static class JUnitTypeDescriptor extends TestTypeDescriptor<JUnitType> {
 

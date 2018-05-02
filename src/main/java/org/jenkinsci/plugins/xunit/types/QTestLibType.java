@@ -24,12 +24,20 @@
 
 package org.jenkinsci.plugins.xunit.types;
 
-import hudson.Extension;
+import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
+import hudson.Extension;
+
 /**
+ * <a href="http://doc.qt.io/qt-5/qtest-overview.html">Qt Test</a> is a
+ * framework for unit testing Qt based applications and libraries.
+ * <p>
+ * Qt Test provides all the functionality commonly found in unit testing
+ * frameworks as well as extensions for testing graphical user interfaces.
+ * 
  * @author Gregory Boissinot
  */
 public class QTestLibType extends TestType {
@@ -39,6 +47,7 @@ public class QTestLibType extends TestType {
         super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
     }
 
+    @Symbol("QtTest")
     @Extension
     public static class QTestLibTypeDescriptor extends TestTypeDescriptor<QTestLibType> {
 

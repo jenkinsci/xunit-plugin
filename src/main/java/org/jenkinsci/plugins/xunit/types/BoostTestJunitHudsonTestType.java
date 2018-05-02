@@ -24,11 +24,18 @@
 
 package org.jenkinsci.plugins.xunit.types;
 
-import hudson.Extension;
+import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
+import hudson.Extension;
+
+/**
+ * <a href="http://www.boost.org/doc/libs/release/libs/test">Boost.Test</a> is a
+ * C++03 and C++11/14 unit testing library, available on a wide range of
+ * platforms and compilers. The library is part of Boost.
+ */
 public class BoostTestJunitHudsonTestType extends TestType {
 
     @DataBoundConstructor
@@ -36,6 +43,7 @@ public class BoostTestJunitHudsonTestType extends TestType {
         super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
     }
 
+    @Symbol("BoostTest")
     @Extension
     public static class DescriptorImpl extends TestTypeDescriptor<BoostTestJunitHudsonTestType> {
 
