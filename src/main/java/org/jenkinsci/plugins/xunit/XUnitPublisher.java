@@ -28,6 +28,8 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.Arrays;
 
+import javax.annotation.CheckForNull;
+
 import org.jenkinsci.lib.dryrun.DryRun;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
@@ -68,14 +70,14 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable, Si
     private int thresholdMode;
     private ExtraConfiguration extraConfiguration;
 
-    public XUnitPublisher(TestType[] types, XUnitThreshold[] thresholds) {
-        this.types = Arrays.copyOf(types, types.length);
-        this.thresholds = Arrays.copyOf(thresholds, thresholds.length);;
+    public XUnitPublisher(@CheckForNull TestType[] tools, @CheckForNull XUnitThreshold[] thresholds) {
+        this.types = (tools != null ? Arrays.copyOf(tools, tools.length) : new TestType[0]);
+        this.thresholds = (thresholds != null ? Arrays.copyOf(thresholds, thresholds.length) : new XUnitThreshold[0]);
         this.thresholdMode = 1;
     }
 
     @DataBoundConstructor
-    public XUnitPublisher(TestType[] tools, XUnitThreshold[] thresholds, int thresholdMode, String testTimeMargin) {
+    public XUnitPublisher(@CheckForNull TestType[] tools, @CheckForNull XUnitThreshold[] thresholds, int thresholdMode, @CheckForNull String testTimeMargin) {
         this(tools, thresholds);
         this.thresholdMode = thresholdMode;
         long longTestTimeMargin = XUnitDefaultValues.TEST_REPORT_TIME_MARGING;
