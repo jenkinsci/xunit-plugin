@@ -24,12 +24,20 @@
 
 package org.jenkinsci.plugins.xunit.types;
 
-import hudson.Extension;
+import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
+import hudson.Extension;
+
 /**
+ * <a href="https://cmake.org/Wiki/CMake/Testing_With_CTest">CTest</a> is a
+ * testing tool distributed as a part of CMake. It can be used to automate
+ * updating (using CVS for example), configuring, building, testing, performing
+ * memory checking, performing coverage, and submitting results to a CDash or
+ * Dart dashboard system.
+ * 
  * @author Gregory Boissinot
  */
 public class CTestType extends TestType {
@@ -39,6 +47,7 @@ public class CTestType extends TestType {
         super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
     }
 
+    @Symbol("CTest")
     @Extension
     public static class CTestTypeDescriptor extends TestTypeDescriptor<CTestType> {
 

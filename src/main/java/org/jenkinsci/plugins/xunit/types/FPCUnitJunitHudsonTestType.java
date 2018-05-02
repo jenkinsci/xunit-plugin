@@ -24,11 +24,19 @@
 
 package org.jenkinsci.plugins.xunit.types;
 
-import hudson.Extension;
+import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
+import hudson.Extension;
+
+/**
+ * <a href="http://wiki.freepascal.org/fpcunit">FPCUni</a> is a unit testing
+ * framework a la DUnit/JUnit/SUnit. This allows you to quickly write a set of
+ * test for a (logical) unit of code (not necessarily the same as a Pascal unit,
+ * though often it is).
+ */
 public class FPCUnitJunitHudsonTestType extends TestType {
 
     @DataBoundConstructor
@@ -36,6 +44,7 @@ public class FPCUnitJunitHudsonTestType extends TestType {
         super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
     }
 
+    @Symbol("FPCUnit")
     @Extension
     public static class DescriptorImpl extends TestTypeDescriptor<FPCUnitJunitHudsonTestType> {
 

@@ -24,11 +24,20 @@
 
 package org.jenkinsci.plugins.xunit.types;
 
-import hudson.Extension;
+import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
+import hudson.Extension;
+
+/**
+ * <a href="http://cunit.sourceforge.net">CUnit</a> is a lightweight system for
+ * writing, administering, and running unit tests in C.
+ * <p>
+ * It provides C programmers a basic testing functionality with a flexible
+ * variety of user interfaces.
+ */
 public class CUnitJunitHudsonTestType extends TestType {
 
     @DataBoundConstructor
@@ -36,6 +45,7 @@ public class CUnitJunitHudsonTestType extends TestType {
         super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
     }
 
+    @Symbol("CUnit")
     @Extension
     public static class DescriptorImpl extends TestTypeDescriptor<CUnitJunitHudsonTestType> {
 

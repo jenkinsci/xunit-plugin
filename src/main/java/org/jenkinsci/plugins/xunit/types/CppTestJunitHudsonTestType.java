@@ -24,11 +24,18 @@
 
 package org.jenkinsci.plugins.xunit.types;
 
-import hudson.Extension;
+import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
+import hudson.Extension;
+
+/**
+ * <a href="http://cpptest.sourceforge.net">CppTest</a> is a portable and
+ * powerful, yet simple, unit testing framework for handling automated tests in
+ * C++. The focus lies on usability and extendability.
+ */
 public class CppTestJunitHudsonTestType extends TestType {
 
     @DataBoundConstructor
@@ -36,6 +43,7 @@ public class CppTestJunitHudsonTestType extends TestType {
         super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
     }
 
+    @Symbol("CppTest")
     @Extension
     public static class DescriptorImpl extends TestTypeDescriptor<CppTestJunitHudsonTestType> {
 

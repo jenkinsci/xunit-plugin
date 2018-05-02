@@ -24,11 +24,20 @@
 
 package org.jenkinsci.plugins.xunit.types;
 
-import hudson.Extension;
+import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
+import hudson.Extension;
+
+/**
+ * <a href=
+ * "http://docs.adacore.com/live/wave/aunit/html/aunit_cb/aunit_cb.html">AUnit</a>
+ * is a unit testing framework of the xUnit family for the Ada language,
+ * originally developed by Ed Falis and maintained by AdaCore, distributed
+ * together with GNAT.
+ */
 public class AUnitJunitHudsonTestType extends TestType {
 
     @DataBoundConstructor
@@ -36,6 +45,7 @@ public class AUnitJunitHudsonTestType extends TestType {
         super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
     }
 
+    @Symbol("AUnit")
     @Extension
     public static class DescriptorImpl extends TestTypeDescriptor<AUnitJunitHudsonTestType> {
 

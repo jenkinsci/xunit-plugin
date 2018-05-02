@@ -62,15 +62,10 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
     private int thresholdMode;
     private ExtraConfiguration extraConfiguration;
 
-    public XUnitBuilder(@CheckForNull TestType[] tools, @CheckForNull XUnitThreshold[] thresholds) {
-        this.types = (tools != null ? Arrays.copyOf(tools, tools.length) : new TestType[0]);
-        this.thresholds = (thresholds != null ? Arrays.copyOf(thresholds, thresholds.length) : new XUnitThreshold[0]);
-        this.thresholdMode = 1;
-    }
-
     @DataBoundConstructor
     public XUnitBuilder(@CheckForNull TestType[] tools, @CheckForNull XUnitThreshold[] thresholds, int thresholdMode, @CheckForNull String testTimeMargin) {
-        this(tools, thresholds);
+        this.types = (tools != null ? Arrays.copyOf(tools, tools.length) : new TestType[0]);
+        this.thresholds = (thresholds != null ? Arrays.copyOf(thresholds, thresholds.length) : new XUnitThreshold[0]);
         this.thresholdMode = thresholdMode;
         long longTestTimeMargin = XUnitDefaultValues.TEST_REPORT_TIME_MARGING;
         if (testTimeMargin != null && testTimeMargin.trim().length() != 0) {

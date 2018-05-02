@@ -24,11 +24,17 @@
 
 package org.jenkinsci.plugins.xunit.types;
 
-import hudson.Extension;
+import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
+import hudson.Extension;
+
+/**
+ * <a href="http://nunit.org">NUnit</a> is a unit-testing framework for all .Net
+ * languages.
+ */
 public class NUnitJunitHudsonTestType extends TestType {
 
     @DataBoundConstructor
@@ -36,6 +42,7 @@ public class NUnitJunitHudsonTestType extends TestType {
         super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
     }
 
+    @Symbol("NUnit2")
     @Extension
     public static class DescriptorImpl extends TestTypeDescriptor<NUnitJunitHudsonTestType> {
 

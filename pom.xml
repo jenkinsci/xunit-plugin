@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>2.37</version>
+        <version>3.9</version>
     </parent>
 
     <artifactId>xunit</artifactId>
@@ -41,12 +41,12 @@
 
     <properties>
         <dtkit.frmk.version>2.0.0</dtkit.frmk.version>
-        <xerces.version>2.9.1</xerces.version>
         <saxon.version>9.1.0.8</saxon.version>
         <dry.run.version>0.1</dry.run.version>
         <xmlunit.version>1.6</xmlunit.version>
         <mockito.version>2.17.0</mockito.version>
         <jenkins.version>1.651.3</jenkins.version>
+        <java.level>7</java.level>
     </properties>
 
     <repositories>
@@ -63,6 +63,26 @@
         </pluginRepository>
     </pluginRepositories>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.jenkins-ci</groupId>
+                <artifactId>annotation-indexer</artifactId>
+                <version>1.9</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jenkins-ci.plugins.workflow</groupId>
+                <artifactId>workflow-api</artifactId>
+                <version>2.19</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jenkins-ci.plugins.workflow</groupId>
+                <artifactId>workflow-step-api</artifactId>
+                <version>2.12</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.jenkins-ci.lib.dtkit</groupId>
@@ -75,7 +95,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
         <dependency>
             <groupId>org.jenkins-ci.lib.dtkit</groupId>
             <artifactId>dtkit-metrics-util</artifactId>
@@ -87,7 +106,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
         <dependency>
             <groupId>org.jenkins-ci.lib.dtkit</groupId>
             <artifactId>dtkit-metrics-hudson-api</artifactId>
@@ -100,34 +118,17 @@
             <version>${dry.run.version}</version>
         </dependency>
 
-
-        <dependency>
-            <groupId>xmlunit</groupId>
-            <artifactId>xmlunit</artifactId>
-            <version>${xmlunit.version}</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>${mockito.version}</version>
-            <scope>test</scope>
-        </dependency>
-
         <dependency>
             <groupId>net.sourceforge.saxon</groupId>
             <artifactId>saxon</artifactId>
             <version>${saxon.version}</version>
         </dependency>
-
         <dependency>
             <groupId>net.sourceforge.saxon</groupId>
             <artifactId>saxon</artifactId>
             <version>${saxon.version}</version>
             <classifier>s9api</classifier>
         </dependency>
-
         <dependency>
             <groupId>net.sourceforge.saxon</groupId>
             <artifactId>saxon</artifactId>
@@ -142,12 +143,49 @@
         </dependency>
 
         <dependency>
-            <groupId>org.jenkins-ci.plugins.workflow</groupId>
-            <artifactId>workflow-aggregator</artifactId>
-            <version>1.7</version>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>structs</artifactId>
+            <version>1.13</version>
+        </dependency>
+
+        <dependency>
+            <groupId>xmlunit</groupId>
+            <artifactId>xmlunit</artifactId>
+            <version>${xmlunit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
 
+        <!-- dependencies to get pipeline work with Jenkins 1.x -->
+        <dependency>
+            <groupId>org.jenkins-ci.plugins.workflow</groupId>
+            <artifactId>workflow-cps</artifactId>
+            <version>2.32</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins.workflow</groupId>
+            <artifactId>workflow-job</artifactId>
+            <version>2.11</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins.workflow</groupId>
+            <artifactId>workflow-durable-task-step</artifactId>
+            <version>2.13</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins.workflow</groupId>
+            <artifactId>workflow-basic-steps</artifactId>
+            <version>2.6</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <scm>
@@ -157,17 +195,17 @@
     </scm>
 
     <build>
-    	<pluginManagement>
-    		<plugins>
-    			<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>findbugs-maven-plugin</artifactId>
-					<configuration>
-						<excludeFilterFile>findbugs-exclude.xml</excludeFilterFile>
-					</configuration>
-				</plugin>
-    		</plugins>
-    	</pluginManagement>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>findbugs-maven-plugin</artifactId>
+                    <configuration>
+                        <excludeFilterFile>findbugs-exclude.xml</excludeFilterFile>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin>
                 <artifactId>maven-dependency-plugin</artifactId>
