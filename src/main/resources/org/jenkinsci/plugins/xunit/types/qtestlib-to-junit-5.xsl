@@ -42,7 +42,7 @@ THE SOFTWARE.
         <xsl:variable name="msecsTest">
             <xsl:choose>
                 <xsl:when test="Duration">
-                    <xsl:value-of select="Duration/@msecs"/>
+                    <xsl:value-of select="translate(Duration/@msecs,',','.')"/>
                 </xsl:when>
                 <xsl:otherwise>0</xsl:otherwise>
             </xsl:choose>
@@ -68,7 +68,7 @@ THE SOFTWARE.
         <xsl:variable name="msecsFunction">
             <xsl:choose>
                 <xsl:when test="Duration">
-                    <xsl:value-of select="Duration/@msecs"/>
+                    <xsl:value-of select="translate(Duration/@msecs,',','.')"/>
                 </xsl:when>
                 <xsl:otherwise>0</xsl:otherwise>
             </xsl:choose>
