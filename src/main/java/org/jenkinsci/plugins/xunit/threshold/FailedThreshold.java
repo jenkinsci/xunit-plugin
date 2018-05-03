@@ -24,23 +24,20 @@
 
 package org.jenkinsci.plugins.xunit.threshold;
 
+import org.jenkinsci.plugins.xunit.service.XUnitLog;
+import org.kohsuke.stapler.DataBoundConstructor;
+
 import hudson.model.Result;
 import hudson.model.Run;
 import hudson.tasks.junit.TestResultAction;
-import org.jenkinsci.plugins.xunit.service.XUnitLog;
-import org.kohsuke.stapler.DataBoundConstructor;
 
 /**
  * @author Gregory Boissinot
  */
 public class FailedThreshold extends XUnitThreshold {
 
-    public FailedThreshold() {
-    }
-
     @DataBoundConstructor
-    public FailedThreshold(String unstableThreshold, String unstableNewThreshold, String failureThreshold, String failureNewThreshold) {
-        super(unstableThreshold, unstableNewThreshold, failureThreshold, failureNewThreshold);
+    public FailedThreshold() {
     }
 
     @Override

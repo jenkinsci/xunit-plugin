@@ -74,6 +74,9 @@ THE SOFTWARE.
                         <f:textbox field="failureNewThreshold"/>
                     </td>
                 </tr>
+                <tr class="validation-error-area">
+                    <td width="80" style="vertical-align:middle"></td><td colspan="4"></td>
+                </tr>
             </tbody>
 
         </table>
