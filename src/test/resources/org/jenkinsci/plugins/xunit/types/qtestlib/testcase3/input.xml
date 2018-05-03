@@ -1,0 +1,19 @@
+<TestCase name="MyTests">
+    <Environment>
+        <QtVersion>5.3.2</QtVersion>
+        <QTestVersion>5.3.2</QTestVersion>
+    </Environment>
+    <TestFunction name="durationInteger">
+        <Incident type="pass" file="" line="0" />
+        <Duration msecs="1" />
+    </TestFunction>
+    <TestFunction name="durationFloatDot">
+        <Incident type="pass" file="" line="0" />
+        <Duration msecs="1.567" />
+    </TestFunction>
+    <TestFunction name="durationFloatComma">
+        <Incident type="pass" file="" line="0" />
+        <Duration msecs="1,567" />
+    </TestFunction>
+    <Duration msecs="4,134" />
+</TestCase>
