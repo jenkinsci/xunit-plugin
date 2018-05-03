@@ -1,0 +1,9 @@
+language: java
+
+sudo: false
+
+jdk:
+  - openjdk8
+
+after_success:
+- mvn test jacoco:report coveralls:report -Pcoverage
