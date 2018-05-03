@@ -27,9 +27,11 @@ package org.jenkinsci.plugins.xunit.threshold;
 import java.io.Serializable;
 
 import org.jenkinsci.plugins.xunit.service.XUnitLog;
+import org.kohsuke.stapler.DataBoundSetter;
 
 import hudson.DescriptorExtensionList;
 import hudson.ExtensionPoint;
+import hudson.Util;
 import hudson.model.Describable;
 import hudson.model.Descriptor;
 import hudson.model.Result;
@@ -43,21 +45,18 @@ import jenkins.model.Jenkins;
 public abstract class XUnitThreshold implements ExtensionPoint, Serializable, Describable<XUnitThreshold> {
 
     private String unstableThreshold;
-
     private String unstableNewThreshold;
-
     private String failureThreshold;
-
     private String failureNewThreshold;
 
     protected XUnitThreshold() {
     }
 
     public XUnitThreshold(String unstableThreshold, String unstableNewThreshold, String failureThreshold, String failureNewThreshold) {
-        this.unstableThreshold = unstableThreshold;
-        this.unstableNewThreshold = unstableNewThreshold;
-        this.failureThreshold = failureThreshold;
-        this.failureNewThreshold = failureNewThreshold;
+        this.setUnstableThreshold(unstableThreshold);
+        this.setUnstableNewThreshold(unstableNewThreshold);
+        this.setFailureThreshold(failureThreshold);
+        this.setFailureNewThreshold(failureNewThreshold);
     }
 
     @SuppressWarnings("unchecked")
@@ -74,16 +73,36 @@ public abstract class XUnitThreshold implements ExtensionPoint, Serializable, De
         return unstableThreshold;
     }
 
+    @DataBoundSetter
+    public void setUnstableThreshold(String unstableThreshold) {
+        this.unstableThreshold = Util.fixEmptyAndTrim(unstableThreshold);
+    }
+
     public String getUnstableNewThreshold() {
         return unstableNewThreshold;
+    }
+
+    @DataBoundSetter
+    public void setUnstableNewThreshold(String unstableNewThreshold) {
+        this.unstableNewThreshold = Util.fixEmptyAndTrim(unstableNewThreshold);
     }
 
     public String getFailureThreshold() {
         return failureThreshold;
     }
 
+    @DataBoundSetter
+    public void setFailureThreshold(String failureThreshold) {
+        this.failureThreshold = Util.fixEmptyAndTrim(failureThreshold);
+    }
+
     public String getFailureNewThreshold() {
         return failureNewThreshold;
+    }
+
+    @DataBoundSetter
+    public void setFailureNewThreshold(String failureNewThreshold) {
+        this.failureNewThreshold = Util.fixEmptyAndTrim(failureNewThreshold);
     }
 
     public abstract Result getResultThresholdNumber(XUnitLog log,
@@ -100,61 +119,58 @@ public abstract class XUnitThreshold implements ExtensionPoint, Serializable, De
                                            int testCount,
                                            int newTestCount) {
 
-        String thresholdErrorMessage = "The %s number of tests for this category exceeds the specified '%s' threshold value.";
         if (isValid(getFailureThreshold())
                 && (convertToInteger(getFailureThreshold()) < testCount)) {
-            log.infoConsoleLogger(String.format(thresholdErrorMessage, "total", "failure"));
+            log.infoConsoleLogger(Messages.XUnitThreshold_thresholdErrorMessage("total", "failure"));
             return Result.FAILURE;
         }
 
         if (isValid(getFailureNewThreshold())
                 && (convertToInteger(getFailureNewThreshold()) < newTestCount)) {
-            log.infoConsoleLogger(String.format(thresholdErrorMessage, "new", "new failure"));
+            log.infoConsoleLogger(Messages.XUnitThreshold_thresholdErrorMessage("new", "new failure"));
             return Result.FAILURE;
         }
 
         if (isValid(getUnstableThreshold())
                 && (convertToInteger(getUnstableThreshold()) < testCount)) {
-            log.infoConsoleLogger(String.format(thresholdErrorMessage, "total", "unstable"));
+            log.infoConsoleLogger(Messages.XUnitThreshold_thresholdErrorMessage("total", "unstable"));
             return Result.UNSTABLE;
         }
 
         if (isValid(getUnstableNewThreshold())
                 && (convertToInteger(getUnstableNewThreshold()) < newTestCount)) {
-            log.infoConsoleLogger(String.format(thresholdErrorMessage, "new", "new unstable"));
+            log.infoConsoleLogger(Messages.XUnitThreshold_thresholdErrorMessage("new", "new unstable"));
             return Result.UNSTABLE;
         }
 
         return Result.SUCCESS;
-
     }
 
     public Result getResultThresholdPercent(XUnitLog log,
                                             double testPercent,
                                             double newTestPercent) {
 
-        String thresholdErrorMessage = "The percent %s tests for this category exceeds the specified '%s' threshold percent value.";
         if (isValid(getFailureThreshold())
-                && (convertToIntegerPercent(getFailureThreshold()) < testPercent)) {
-            log.infoConsoleLogger(String.format(thresholdErrorMessage, "of the total number of", "failure"));
+                && (convertToInteger(getFailureThreshold()) < testPercent)) {
+            log.infoConsoleLogger(Messages.XUnitThreshold_percentThresholdErrorMessage("of the total number of", "failure"));
             return Result.FAILURE;
         }
 
         if (isValid(getFailureNewThreshold())
-                && (convertToIntegerPercent(getFailureNewThreshold()) < newTestPercent)) {
-            log.infoConsoleLogger(String.format(thresholdErrorMessage, "of the new number of", "new failure"));
+                && (convertToInteger(getFailureNewThreshold()) < newTestPercent)) {
+            log.infoConsoleLogger(Messages.XUnitThreshold_percentThresholdErrorMessage("of the new number of", "new failure"));
             return Result.FAILURE;
         }
 
         if (isValid(getUnstableThreshold())
-                && (convertToIntegerPercent(getUnstableThreshold()) < testPercent)) {
-            log.infoConsoleLogger(String.format(thresholdErrorMessage, "of", "unstable"));
+                && (convertToInteger(getUnstableThreshold()) < testPercent)) {
+            log.infoConsoleLogger(Messages.XUnitThreshold_percentThresholdErrorMessage("of", "unstable"));
             return Result.UNSTABLE;
         }
 
         if (isValid(getUnstableNewThreshold())
-                && (convertToIntegerPercent(getUnstableNewThreshold()) < newTestPercent)) {
-            log.infoConsoleLogger(String.format(thresholdErrorMessage, "of the new number of", "new unstable"));
+                && (convertToInteger(getUnstableNewThreshold()) < newTestPercent)) {
+            log.infoConsoleLogger(Messages.XUnitThreshold_percentThresholdErrorMessage("of the new number of", "new unstable"));
             return Result.UNSTABLE;
         }
 
@@ -165,17 +181,8 @@ public abstract class XUnitThreshold implements ExtensionPoint, Serializable, De
         return Integer.parseInt(threshold);
     }
 
-    private int convertToIntegerPercent(String threshold) {
-        String thresholdRemoved = threshold.replace("%", "");
-        return Integer.parseInt(thresholdRemoved);
-    }
-
     private boolean isValid(String threshold) {
         if (threshold == null) {
-            return false;
-        }
-
-        if (threshold.trim().length() == 0) {
             return false;
         }
 
@@ -187,4 +194,5 @@ public abstract class XUnitThreshold implements ExtensionPoint, Serializable, De
 
         return true;
     }
+
 }
