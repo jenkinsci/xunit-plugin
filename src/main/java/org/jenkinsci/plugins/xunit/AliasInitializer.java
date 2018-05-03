@@ -40,10 +40,10 @@ import jenkins.model.Jenkins;
  */
 public class AliasInitializer {
 
-    @Initializer(before = InitMilestone.PLUGINS_STARTED)
-    public static void addAliases() {
+    @Initializer(before = InitMilestone.JOB_LOADED)
+    public static void init(Jenkins jenkins) {
         Items.XSTREAM.alias("xunit", XUnitPublisher.class);
-        DescriptorExtensionList<TestType, TestTypeDescriptor<TestType>> extensionList = Jenkins.getActiveInstance().getDescriptorList(TestType.class);
+        DescriptorExtensionList<TestType, TestTypeDescriptor<TestType>> extensionList = jenkins.getDescriptorList(TestType.class);
         for (Iterator<TestTypeDescriptor<TestType>> it = extensionList.iterator(); it.hasNext(); ) {
             Class<? extends TestType> classType = it.next().clazz;
             String className = getClassName(classType);

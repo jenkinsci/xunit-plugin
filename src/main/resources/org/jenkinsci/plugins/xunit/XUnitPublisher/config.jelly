@@ -25,17 +25,15 @@ THE SOFTWARE.
 <j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form" xmlns:u="/util">
 
     <f:block>
-        <f:hetero-list name="tools" descriptors="${descriptor.listXUnitTypeDescriptors}" items="${instance.types}"/>
+        <f:hetero-list name="tools" descriptors="${descriptor.listXUnitTypeDescriptors}" items="${instance.tools}"/>
     </f:block>
 
     <f:block>
         <j:set var="listXUnitThresholdInstance" value="${instance.thresholds}"/>
-        <j:if test="${listXUnitThresholdInstance == null}">
+        <j:if test="${listXUnitThresholdInstance == null || listXUnitThresholdInstance.size() == 0}">
             <j:set var="listXUnitThresholdInstance" value="${descriptor.listXUnitThresholdInstance}"/>
         </j:if>
-        <j:if test="${listXUnitThresholdInstance.size() == 0}">
-            <j:set var="listXUnitThresholdInstance" value="${descriptor.listXUnitThresholdInstance}"/>
-        </j:if>
+
         <u:hetero-list-readonly name="thresholds" descriptors="${descriptor.listXUnitThresholdDescriptors}"
                                 items="${listXUnitThresholdInstance}"/>
 
@@ -65,11 +63,11 @@ THE SOFTWARE.
                 <table width="100%" border='0' cellspacing='0' padding="0">
                     <tr>
                         <td width="50%" style="${td}">
-                            <label>Give the report time margin value (default to 3000) in ms, before to fail if not new
+                            <label>Give the report time margin value in ms (default to 3000), before to fail if not new
                                 (unless the option 'Fail the build if test results were not updated this run' is
                                 checked).
                             </label>
-                            <f:textbox name="testTimeMargin" value="${instance.extraConfiguration.testTimeMargin}"/>
+                            <f:number name="testTimeMargin" value="${instance.extraConfiguration.testTimeMargin}" default="3000"/>
                         </td>
                         <td width="50%" style="${td}"/>
                     </tr>

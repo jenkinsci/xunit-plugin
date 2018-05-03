@@ -24,8 +24,14 @@
 
 package org.jenkinsci.plugins.xunit.threshold;
 
+import javax.annotation.CheckForNull;
+
+import org.kohsuke.stapler.QueryParameter;
+
 import hudson.DescriptorExtensionList;
+import hudson.Util;
 import hudson.model.Descriptor;
+import hudson.util.FormValidation;
 import jenkins.model.Jenkins;
 
 /**
@@ -50,5 +56,32 @@ public abstract class XUnitThresholdDescriptor<T extends XUnitThreshold> extends
     public abstract String getFailureNewThresholdImgTitle();
 
     public abstract String getThresholdHelpMessage();
+
+    public FormValidation doCheckUnstableThreshold(@CheckForNull @QueryParameter(fixEmpty = true) final String unstableThreshold) {
+        return validate(unstableThreshold);
+    }
+
+    public FormValidation doCheckUnstableNewThreshold(@CheckForNull @QueryParameter(fixEmpty = true) final String unstableNewThreshold) {
+        return validate(unstableNewThreshold);
+    }
+
+    public FormValidation doCheckFailureThreshold(@CheckForNull @QueryParameter(fixEmpty = true) final String failureThreshold) {
+        return validate(failureThreshold);
+    }
+
+    public FormValidation doCheckFailureNewThreshold(@CheckForNull @QueryParameter(fixEmpty = true) final String failureNewThreshold) {
+        return validate(failureNewThreshold);
+    }
+
+    private FormValidation validate(final String threshold) {
+        if (Util.fixEmptyAndTrim(threshold) != null) {
+            try {
+                Integer.parseInt(threshold);
+            } catch (NumberFormatException e) {
+                return FormValidation.error(Messages.XUnitThresholdDescriptor_checkThreshold(threshold));
+            }
+        }
+        return FormValidation.ok();
+    }
 
 }

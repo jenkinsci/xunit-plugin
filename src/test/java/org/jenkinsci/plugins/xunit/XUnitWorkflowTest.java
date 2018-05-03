@@ -88,7 +88,7 @@ public class XUnitWorkflowTest {
                 + "node {\n"
                 + "  xunit(testTimeMargin: '3000',"
                 + "        thresholdMode: 1,"
-                + "        thresholds: [ failed(failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '1') ],"
+                + "        thresholds: [ failed(unstableThreshold: '1'), skipped() ],"
                 + "        tools: [ GoogleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml', skipNoTestFiles: false, stopProcessingIfError: true) ]"
                 + "  )\n"
                 + "}", true));
