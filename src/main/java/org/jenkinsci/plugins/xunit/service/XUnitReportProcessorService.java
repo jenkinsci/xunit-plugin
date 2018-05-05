@@ -55,7 +55,7 @@ public class XUnitReportProcessorService extends XUnitService implements Seriali
      * @return true if empty or blank, false otherwise
      */
     public boolean isEmptyPattern(String pattern) {
-        return pattern == null || pattern.trim().length() == 0;
+        return Util.fixEmptyAndTrim(pattern) == null;
     }
 
     /**
