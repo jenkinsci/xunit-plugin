@@ -29,7 +29,6 @@ import java.util.Arrays;
 
 import javax.annotation.CheckForNull;
 
-import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
@@ -56,8 +55,12 @@ import hudson.tasks.Builder;
 import jenkins.tasks.SimpleBuildStep;
 
 /**
+ * Class that converting custom reports to Junit reports and records them.
+ * 
  * @author Gregory Boissinot
+ * @deprecated Use {@link XUnitPublisher} instead of this.
  */
+@Deprecated
 public class XUnitBuilder extends Builder implements SimpleBuildStep {
 
     @XStreamAlias("types")

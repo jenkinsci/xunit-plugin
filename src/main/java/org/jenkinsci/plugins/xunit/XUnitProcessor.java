@@ -29,6 +29,9 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.Arrays;
 
+import javax.annotation.CheckForNull;
+import javax.annotation.Nonnull;
+
 import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
 import org.jenkinsci.lib.dtkit.model.InputMetric;
@@ -65,17 +68,20 @@ import jenkins.model.Jenkins;
  */
 public class XUnitProcessor implements Serializable {
     private static final long serialVersionUID = 1L;
-    private TestType[] types;
+    private TestType[] tools;
     private XUnitThreshold[] thresholds;
     private int thresholdMode;
     private ExtraConfiguration extraConfiguration;
 
-    public XUnitProcessor(TestType[] tools, XUnitThreshold[] thresholds, int thresholdMode, ExtraConfiguration extraConfiguration) {
+    public XUnitProcessor(@Nonnull TestType[] tools, @CheckForNull XUnitThreshold[] thresholds, int thresholdMode, @Nonnull ExtraConfiguration extraConfiguration) {
         if (tools == null) {
-            throw new NullPointerException("The types section is required.");
+            throw new IllegalArgumentException("The tools section is required.");
         }
-        this.types = Arrays.copyOf(tools, tools.length);
-        this.thresholds = Arrays.copyOf(thresholds, thresholds.length);
+        if (extraConfiguration == null) {
+            throw new IllegalArgumentException("The extra configuration is required.");
+        }
+        this.tools = Arrays.copyOf(tools, tools.length);
+        this.thresholds = thresholds != null ? Arrays.copyOf(thresholds, thresholds.length) : new XUnitThreshold[0];
         this.thresholdMode = thresholdMode;
         this.extraConfiguration = extraConfiguration;
     }
@@ -142,7 +148,7 @@ public class XUnitProcessor implements Serializable {
     private boolean performTests(XUnitLog xUnitLog, Run<?, ?> build, FilePath workspace, TaskListener listener) throws IOException, InterruptedException, StopTestProcessingException {
         XUnitReportProcessorService xUnitReportService = getXUnitReportProcessorServiceObject(listener);
         boolean findTest = false;
-        for (TestType tool : types) {
+        for (TestType tool : tools) {
             xUnitLog.infoConsoleLogger("Processing " + tool.getDescriptor().getDisplayName());
 
             if (!isEmptyGivenPattern(xUnitReportService, tool)) {
@@ -415,7 +421,7 @@ public class XUnitProcessor implements Serializable {
     private void processDeletion(boolean dryRun, FilePath workspace, XUnitLog xUnitLog) throws XUnitException {
         try {
             boolean keepJUnitDirectory = false;
-            for (TestType tool : types) {
+            for (TestType tool : tools) {
                 InputMetric inputMetric = tool.getInputMetric();
 
                 if (dryRun || tool.isDeleteOutputFiles()) {
@@ -428,10 +434,8 @@ public class XUnitProcessor implements Serializable {
             if (!keepJUnitDirectory) {
                 workspace.child(XUnitDefaultValues.GENERATED_JUNIT_DIR).deleteRecursive();
             }
-        } catch (IOException ioe) {
-            throw new XUnitException("Problem on deletion", ioe);
-        } catch (InterruptedException ie) {
-            throw new XUnitException("Problem on deletion", ie);
+        } catch (IOException | InterruptedException e) {
+            throw new XUnitException("Problem on deletion", e);
         }
     }
 
