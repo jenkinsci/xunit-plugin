@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite errors="0" failures="2" tests="14" name="aunit">
+    <testcase classname="Test Stack" name="Push" time="0.000"/>
+    <testcase classname="Test Stack" name="Pop" time="0.000"/>
+    <testcase classname="Test Stack" name="Length" time="0.000"/>
+    <testcase classname="Test Stack" name="Top" time="0.000"/>
+    <testcase classname="Test Stack" name="Next_To_Top" time="0.000"/>
+    <testcase classname="Test Operations" name="Addition.Pop" time="0.000"/>
+    <testcase classname="Test Operations" name="Addition.Push" time="0.000"/>
+    <testcase classname="Test Operations" name="Addition.Execute" time="0.000"/>
+    <testcase classname="Test Operations" name="Subtraction.Pop" time="0.000"/>
+    <testcase classname="Test Operations" name="Subtraction.Push" time="0.000"/>
+    <testcase classname="Test Operations" name="Subtraction.Execute" time="0.000"/>
+    <testcase classname="Test Operands" name="Ints.Image" time="0.000"/>
+    <testcase classname="Test Operands" name="Ints.Value" time="0.000">
+        <failure message="test not implemented" type="Assertion">test not implemented</failure>
+        <system-err>
+            [File] - operands-ints-test.adb
+            [Line] - 23
+        </system-err>
+    </testcase>
+    <testcase classname="Test Operands" name="Ints.Set" time="0.000">
+        <failure message="test not implemented" type="Assertion">test not implemented</failure>
+        <system-err>
+            [File] - operands-ints-test.adb
+            [Line] - 29
+        </system-err>
+    </testcase>
+</testsuite>

@@ -22,8 +22,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    <xsl:output method="xml" indent="yes"/>
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xunit="http://www.xunit.org">
+
+    <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
+    <xsl:decimal-format decimal-separator="." grouping-separator=","/>
 
     <xsl:template match="/">
         <xsl:element name="testsuite">
@@ -65,7 +67,7 @@ THE SOFTWARE.
                         <xsl:value-of select="substring-after(Name, '.')"/>
                     </xsl:attribute>
 
-                    <xsl:attribute name="time">0</xsl:attribute>
+                    <xsl:attribute name="time">0.000</xsl:attribute>
                 </xsl:when>
 
                 <xsl:otherwise>
@@ -75,7 +77,7 @@ THE SOFTWARE.
                         <xsl:value-of select="Name"/>
                     </xsl:attribute>
 
-                    <xsl:attribute name="time">0</xsl:attribute>
+                    <xsl:attribute name="time">0.000</xsl:attribute>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:element>
@@ -94,7 +96,7 @@ THE SOFTWARE.
                         <xsl:value-of select="substring-after(Name, '.')"/>
                     </xsl:attribute>
 
-                    <xsl:attribute name="time">0</xsl:attribute>
+                    <xsl:attribute name="time">0.000</xsl:attribute>
                 </xsl:when>
 
                 <xsl:otherwise>
@@ -104,7 +106,7 @@ THE SOFTWARE.
                         <xsl:value-of select="Name"/>
                     </xsl:attribute>
 
-                    <xsl:attribute name="time">0</xsl:attribute>
+                    <xsl:attribute name="time">0.000</xsl:attribute>
                 </xsl:otherwise>
             </xsl:choose>
 
