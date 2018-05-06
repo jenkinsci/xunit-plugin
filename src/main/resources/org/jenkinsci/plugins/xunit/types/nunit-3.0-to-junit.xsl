@@ -22,8 +22,19 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xunit="http://www.xunit.org">
     <xsl:output method="xml" indent="yes" encoding="UTF-8"/>
+    <xsl:decimal-format decimal-separator="." grouping-separator=","/>
+
+    <xsl:function name="xunit:junit-time" as="xs:string">
+        <xsl:param name="value" as="xs:double?" />
+
+        <xsl:variable name="time" as="xs:double">
+            <xsl:value-of select="translate(string($value),',','.')" />
+        </xsl:variable>
+        <xsl:value-of select="format-number($time, '0.000')" />
+    </xsl:function>
+
     <xsl:template match="/test-run">
         <!--<xsl:variable name="hostname" select="./environment/@machine-name"/>-->
         <testsuites>
@@ -33,16 +44,17 @@ THE SOFTWARE.
                     <xsl:variable name="classname" select="./@classname" />
                     <testsuite name="{$classname}"
                                tests="{@total}"
-                               time="{@duration}"
+                               time="{xunit:junit-time(@duration)}"
                                failures="{@failed}"
                                errors="0"
                                skipped="{@skipped}">
-                        <!-- skipped="{count(*/test-case[@executed='False'])}"> -->
                         <xsl:for-each select=".//test-case">
                             <xsl:variable name="testcaseName" select="./@name" />
                             <testcase classname="{$classname}" name="{$testcaseName}">
                                 <xsl:if test="@duration!=''">
-                                    <xsl:attribute name="time"><xsl:value-of select="@duration" /></xsl:attribute>
+                                    <xsl:attribute name="time">
+                                        <xsl:value-of select="xunit:junit-time(@duration)" />
+                                    </xsl:attribute>
                                 </xsl:if>
 
                                 <xsl:variable name="generalfailure" select="./failure" />

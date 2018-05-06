@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-    <testsuite name="RSelenium.Tests.AfterLiveTestCases" tests="1" time="25.819336"
-               failures="0"
-               errors="0"
-               skipped="1">
-        <testcase classname="RSelenium.Tests.AfterLiveTestCases"
-                  name="AUT0513TestPrefixedSiteURLRedirect"
-                  time="3.514810">
+    <testsuite name="RSelenium.Tests.AfterLiveTestCases" tests="1" time="25.819" failures="0" errors="0" skipped="1">
+        <testcase classname="RSelenium.Tests.AfterLiveTestCases" name="AUT0513TestPrefixedSiteURLRedirect" time="3.515">
             <skipped/>
             <system-out>Test intentionally ignored due to environment constraints.This test is only applicable for the Live Environment==============================
                 = Running Test: RSelenium.Tests.AfterLiveTestCases.AUT0513TestPrefixedSiteURLRedirect
@@ -18,21 +13,11 @@
             </system-out>
         </testcase>
     </testsuite>
-    <testsuite name="RSelenium.Tests.LoginTestCases" tests="1" time="35.692928"
-               failures="0"
-               errors="0"
-               skipped="0">
-        <testcase classname="RSelenium.Tests.LoginTestCases"
-                  name="AUT0027TestUnregisterUserRedirect"
-                  time="21.316192"/>
+    <testsuite name="RSelenium.Tests.LoginTestCases" tests="1" time="35.693" failures="0" errors="0" skipped="0">
+        <testcase classname="RSelenium.Tests.LoginTestCases" name="AUT0027TestUnregisterUserRedirect" time="21.316"/>
     </testsuite>
-    <testsuite name="RSelenium.Tests.FilterTestCases" tests="1" time="39.269244"
-               failures="1"
-               errors="0"
-               skipped="0">
-        <testcase classname="RSelenium.Tests.FilterTestCases"
-                  name="AUT0140TestSingleYearAndReducedPriceFilterCombinationInCars"
-                  time="31.869764">
+    <testsuite name="RSelenium.Tests.FilterTestCases" tests="1" time="39.269" failures="1" errors="0" skipped="0">
+        <testcase classname="RSelenium.Tests.FilterTestCases" name="AUT0140TestSingleYearAndReducedPriceFilterCombinationInCars" time="31.870">
             <failure>
                 MESSAGE:
                 OpenQA.Selenium.NoSuchElementException : Unable to locate element: {"method":"css selector","selector":"div.noUi-value-large[style='left: 100.00000%']"}
