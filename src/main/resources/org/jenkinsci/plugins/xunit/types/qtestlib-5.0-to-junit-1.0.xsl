@@ -22,16 +22,24 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xunit="http://www.xunit.org">
     <!-- for details interpreting unit test results http://qt-project.org/wiki/Writing_Unit_Tests -->
     <xsl:output method="xml" indent="yes"/>
     <xsl:decimal-format decimal-separator="." grouping-separator=","/>
 
+    <xsl:function name="xunit:junit-time" as="xs:string">
+        <xsl:param name="value" as="xs:double?" />
+
+        <xsl:variable name="time" as="xs:double">
+            <xsl:value-of select="translate(string($value),',','.')" />
+        </xsl:variable>
+        <xsl:value-of select="format-number($time, '0.000')" />
+    </xsl:function>
+
     <!-- misc variables -->
     <xsl:variable name="classname" select="/TestCase/@name"/>
     <xsl:variable name="total-tests" select="count(/TestCase/TestFunction)"/>
-    <xsl:variable name="total-failures"
-                  select="count(/TestCase/TestFunction/Incident[@type='fail'])+count(/TestCase/TestFunction/Incident[@type='xpass'])"/>
+    <xsl:variable name="total-failures" select="count(/TestCase/TestFunction/Incident[@type='fail'])+count(/TestCase/TestFunction/Incident[@type='xpass'])"/>
 
     <!-- main template call -->
     <xsl:template match="/">
@@ -48,7 +56,7 @@ THE SOFTWARE.
             </xsl:choose>
         </xsl:variable>
         <testsuite name="{$classname}" tests="{$total-tests}" failures="{$total-failures}" errors="0"
-                   time="{format-number($msecsTest div 1000,'0.000')}">
+                   time="{xunit:junit-time($msecsTest div 1000)}">
             <xsl:apply-templates select="Environment"/>
             <xsl:apply-templates select="TestFunction"/>
             <xsl:call-template name="display-system-out"/>
@@ -73,7 +81,7 @@ THE SOFTWARE.
                 <xsl:otherwise>0</xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
-        <testcase classname="{$classname}" name="{@name}" time="{format-number($msecsFunction div 1000,'0.000')}">
+        <testcase classname="{$classname}" name="{@name}" time="{xunit:junit-time($msecsFunction div 1000)}">
             <!-- we need to use choose here, because jenkins cannot not handle fail and afterwards skip -->
             <xsl:choose>
                 <!-- handle fail -->
