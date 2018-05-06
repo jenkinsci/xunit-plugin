@@ -23,38 +23,36 @@
 
 package org.jenkinsci.plugins.xunit.types;
 
+import java.util.Arrays;
+import java.util.Collection;
+
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
-
+@RunWith(Parameterized.class)
 public class NUnitTest extends AbstractTest {
 
-    @Test
-    public void testTransformation() throws Exception {
-        convertAndValidate(NUnit.class, "nunit/NUnit-simple.xml", "nunit/JUnit-simple.xml");
+    @Parameters(name = "{0}")
+    public static Collection<Object[]> data() {
+        return Arrays.asList(new Object[][] { { "simple transformation", 1 }, //
+                                              { "failures transformation", 2 }, //
+                                              { "MultiNamespace transformation", 3 }, //
+                                              { "test transformed of ignored", 4 }, //
+                                              { "JENKINS-1077", 5 }, //
+                                              { "JENKINS-8492", 6 }
+        });
     }
 
-    @Test
-    public void testTransformationFailure() throws Exception {
-        convertAndValidate(NUnit.class, "nunit/NUnit-failure.xml", "nunit/JUnit-failure.xml");
+    public NUnitTest(String testName, int testNumber) {
+        super(NUnit.class, resolveInput("nunit", testNumber), resolveOutput("nunit", testNumber));
     }
 
+    @Override
     @Test
-    public void testTransformationMultiNamespace() throws Exception {
-        convertAndValidate(NUnit.class, "nunit/NUnit-multinamespace.xml", "nunit/JUnit-multinamespace.xml");
+    public void verifyXSLT() throws Exception {
+        super.verifyXSLT();
     }
 
-    @Test
-    public void testTransformedIgnored() throws Exception {
-        convertAndValidate(NUnit.class, "nunit/NUnit-ignored.xml", "nunit/JUnit-ignored.xml");
-    }
-
-    @Test
-    public void testTransformedIssue1077() throws Exception {
-        convertAndValidate(NUnit.class, "nunit/NUnit-issue1077.xml", "nunit/JUnit-issue1077.xml");
-    }
-
-    @Test
-    public void testTransformedIssue8492() throws Exception {
-        convertAndValidate(NUnit.class, "nunit/NUnit-issue8492.xml", "nunit/JUnit-issue8492.xml");
-    }
 }

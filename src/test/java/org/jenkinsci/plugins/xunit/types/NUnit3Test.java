@@ -23,18 +23,32 @@
 
 package org.jenkinsci.plugins.xunit.types;
 
-import org.junit.Test;
+import java.util.Arrays;
+import java.util.Collection;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
+
+@RunWith(Parameterized.class)
 public class NUnit3Test extends AbstractTest {
 
-    @Test
-    public void testTransformation() throws Exception {
-        convertAndValidate(NUnit3.class, "nunit3/testcase1/input.xml", "nunit3/testcase1/result.xml");
+    @Parameters(name = "{0}")
+    public static Collection<Object[]> data() {
+        return Arrays.asList(new Object[][] { { "simple transformation", 1 }, //
+                                              { "test transformed of ignored", 2 } //
+        });
     }
 
+    public NUnit3Test(String testName, int testNumber) {
+        super(NUnit3.class, resolveInput("nunit3", testNumber), resolveOutput("nunit3", testNumber));
+    }
+
+    @Override
     @Test
-    public void testTransformedIgnored() throws Exception {
-        convertAndValidate(NUnit3.class, "nunit3/testcase2/input.xml", "nunit3/testcase2/result.xml");
+    public void verifyXSLT() throws Exception {
+        super.verifyXSLT();
     }
 
 }

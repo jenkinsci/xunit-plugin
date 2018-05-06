@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-    <testsuite name="UnitTests.OtherMainClassTest" tests="3" time="0.001" failures="0"
-               errors="0"
-               skipped="2">
+    <testsuite name="UnitTests.OtherMainClassTest" tests="3" time="0.001" failures="0" errors="0" skipped="2">
         <testcase classname="UnitTests.OtherMainClassTest" name="TestIgnored">
             <skipped message=""/>
         </testcase>
