@@ -32,7 +32,7 @@ import org.jenkinsci.plugins.xunit.types.model.JUnitModel;
 /**
  * @author Gregory Boissinot
  */
-public class QTestLibInputMetric extends InputMetricXSL {
+public class QTestLib extends InputMetricXSL {
 
     @Override
     public InputType getToolType() {
@@ -56,7 +56,7 @@ public class QTestLibInputMetric extends InputMetricXSL {
 
     @Override
     public String getXslName() {
-        return "qtestlib-to-junit-5.xsl";
+        return "qtestlib-5.0-to-junit-1.0.xsl";
     }
 
     @Override

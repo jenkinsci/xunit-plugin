@@ -23,28 +23,36 @@
  */
 package org.jenkinsci.plugins.xunit.types;
 
+import java.util.Arrays;
+import java.util.Collection;
+
 import org.junit.Test;
-import org.jvnet.hudson.test.Issue;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
 /**
  * @author Gregory Boissinot
  */
-public class QTestlibTypeTest extends AbstractTest {
+@RunWith(Parameterized.class)
+public class QTestLibTest extends AbstractTest {
 
-    @Test
-    public void testTestCase1() throws Exception {
-        convertAndValidate(QTestLibInputMetric.class, "qtestlib/testcase1/input.xml", "qtestlib/testcase1/result.xml");
+    @Parameters(name = "{0}")
+    public static Collection<Object[]> data() {
+        return Arrays.asList(new Object[][] { { "testcase1", 1 }, //
+                                              { "testcase2", 2 }, //
+                                              { "JENKINS-35660 verify_that_duration_converted_correctly", 3 } //
+        });
     }
 
-    @Test
-    public void testTestCase2() throws Exception {
-        convertAndValidate(QTestLibInputMetric.class, "qtestlib/testcase2/input.xml", "qtestlib/testcase2/result.xml");
+    public QTestLibTest(String testName, int testNumber) {
+        super(QTestLib.class, resolveInput("qtestlib", testNumber), resolveOutput("qtestlib", testNumber));
     }
 
-    @Issue("JENKINS-35660")
+    @Override
     @Test
-    public void verify_that_duration_converted_correctly() throws Exception {
-        convertAndValidate(QTestLibInputMetric.class, "qtestlib/testcase2/input.xml", "qtestlib/testcase2/result.xml");
+    public void verifyXSLT() throws Exception {
+        super.verifyXSLT();
     }
 
 }

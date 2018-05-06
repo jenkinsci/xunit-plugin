@@ -52,7 +52,7 @@ public class QTestLibType extends TestType {
     public static class QTestLibTypeDescriptor extends TestTypeDescriptor<QTestLibType> {
 
         public QTestLibTypeDescriptor() {
-            super(QTestLibType.class, QTestLibInputMetric.class);
+            super(QTestLibType.class, QTestLib.class);
         }
 
     }
