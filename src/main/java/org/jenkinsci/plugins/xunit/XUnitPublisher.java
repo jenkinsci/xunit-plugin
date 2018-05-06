@@ -62,7 +62,7 @@ import hudson.tasks.test.TestResultProjectAction;
 import jenkins.tasks.SimpleBuildStep;
 
 /**
- * Class that converting custom reports to Junit reports and records them
+ * Class that converting custom reports to Junit reports and records them.
  *
  * @author Gregory Boissinot
  */
