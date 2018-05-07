@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="SampleTest" file="/tmp/sample/test.php" tests="2" assertions="0" errors="0" failures="0" skipped="2" time="0.001725">
+    <testcase name="testSkippingTest" class="SampleTest" classname="SampleTest" file="/tmp/sample/test.php" line="7" assertions="0" time="0.001648">
+      <skipped/>
+    </testcase>
+    <testcase name="testSkippingTestWithReason" class="SampleTest" classname="SampleTest" file="/tmp/sample/test.php" line="12" assertions="0" time="0.000077">
+      <skipped/>
+    </testcase>
+  </testsuite>
+</testsuites>
