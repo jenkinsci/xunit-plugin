@@ -23,28 +23,29 @@
 * THE SOFTWARE.                                                                *
 *******************************************************************************/
 -->
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-        >
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xunit="http://www.xunit.org">
 
     <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
+    <xsl:decimal-format decimal-separator="." grouping-separator=","/>
 
+    <xsl:function name="xunit:if-empty" as="xs:string">
+        <xsl:param name="value" as="xs:string?" />
+        <xsl:param name="default" as="xs:anyAtomicType" />
+        <xsl:value-of select="if (string($value) != '') then string($value) else $default" />
+    </xsl:function>
 
-    <!--<xsl:template match="testsuite">-->
+    <xsl:function name="xunit:junit-time" as="xs:string">
+        <xsl:param name="value" as="xs:string?" />
 
-    <!--<xsl:variable name="outputName" select="./@name"/>-->
-    <!--<xsl:result-document href="file:///{$outputDir}/{$outputName}.xml" method="xml">-->
-    <!--<xsl:copy-of select="."/>-->
-    <!--</xsl:result-document>-->
-    <!--</xsl:if>-->
-
-    <!--<xsl:apply-templates select="testsuite"/>-->
-    <!--</xsl:template>-->
-
+        <xsl:variable name="time" as="xs:double">
+            <xsl:value-of select="translate($value,',','.')" />
+        </xsl:variable>
+        <xsl:value-of select="format-number($time, '0.000')" />
+    </xsl:function>
 
     <xsl:template match="testsuite">
 
         <xsl:if test="testcase">
-
 
             <xsl:element name="testsuite">
 
@@ -65,21 +66,18 @@
                 </xsl:attribute>
 
                 <xsl:attribute name="skipped">
-                    <xsl:if test="@skipped">
-                        <xsl:value-of select="@skipped"/>
-                    </xsl:if>
-                    <xsl:if test="@skip">
-                        <xsl:value-of select="@skip"/>
-                    </xsl:if>
+                    <xsl:value-of select="xunit:if-empty(@skipped, xunit:if-empty(@skip, '0'))" />
                 </xsl:attribute>
 
                 <xsl:attribute name="time">
-                    <xsl:value-of select="@time"/>
+                    <xsl:value-of select="xunit:junit-time(@time)"/>
                 </xsl:attribute>
 
-                <xsl:attribute name="timestamp">
-                    <xsl:value-of select="@timestamp"/>
-                </xsl:attribute>
+                <xsl:if test="string(@timestamp) != ''">
+                    <xsl:attribute name="timestamp">
+                        <xsl:value-of select="@timestamp" />
+                    </xsl:attribute>
+                </xsl:if>
 
                 <xsl:if test="properties">
                     <xsl:element name="properties">
@@ -102,15 +100,9 @@
                 <xsl:for-each select="testcase">
                     <xsl:element name="testcase">
 
-                        <xsl:if test="@class != ''">
+                        <xsl:if test="@class or @classname">
                             <xsl:attribute name="classname">
-                                <xsl:value-of select="@class"/>
-                            </xsl:attribute>
-                        </xsl:if>
-
-                        <xsl:if test="@classname">
-                            <xsl:attribute name="classname">
-                                <xsl:value-of select="@classname"/>
+                                <xsl:value-of select="xunit:if-empty(@class, xunit:if-empty(@classname, '0'))"/>
                             </xsl:attribute>
                         </xsl:if>
 
@@ -119,11 +111,7 @@
                         </xsl:attribute>
 
                         <xsl:attribute name="time">
-                            <xsl:value-of select="@time"/>
-                        </xsl:attribute>
-
-                        <xsl:attribute name="assertions">
-                            <xsl:value-of select="@assertions"/>
+                            <xsl:value-of select="xunit:junit-time(@time)"/>
                         </xsl:attribute>
 
                         <xsl:if test="error">
@@ -138,6 +126,10 @@
 
                                 <xsl:value-of select="error"/>
                             </xsl:element>
+                        </xsl:if>
+
+                        <xsl:if test="skipped">
+                            <xsl:element name="skipped" />
                         </xsl:if>
 
                         <xsl:if test="failure">
@@ -196,6 +188,5 @@
             <xsl:apply-templates select="testsuite"/>
         </xsl:element>
     </xsl:template>
-
 
 </xsl:stylesheet>

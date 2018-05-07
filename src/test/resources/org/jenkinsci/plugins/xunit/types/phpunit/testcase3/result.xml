@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="ConfigInc" tests="2" failures="0" errors="0" skipped="0" time="0.121">
+        <testcase classname="ConfigInc" name="testPHP_debug_exception_handler" time="0.105"/>
+        <testcase classname="ConfigInc" name="testPHP_release_exception_handler" time="0.016"/>
+    </testsuite>
+    <testsuite name="CheckedFieldTest" tests="7" failures="0" errors="0" skipped="0" time="0.163">
+        <testcase classname="CheckedFieldTest" name="testInvalidRegExpRaisesException" time="0.056"/>
+        <testcase classname="CheckedFieldTest" name="testDefaultValue" time="0.017"/>
+        <testcase classname="CheckedFieldTest" name="testIsValid" time="0.018"/>
+        <testcase classname="CheckedFieldTest" name="testBlankAllowsNullOrEmptyStringValue" time="0.023"/>
+        <testcase classname="CheckedFieldTest" name="testNonBlankDoesNotAllowBlankValue" time="0.016"/>
+        <testcase classname="CheckedFieldTest" name="testNumericValueIsValid" time="0.018"/>
+        <testcase classname="CheckedFieldTest" name="testToStringReturnsValue" time="0.015"/>
+    </testsuite>
+    <testsuite name="UrlRouterTest" tests="5" failures="0" errors="0" skipped="0" time="0.182">
+        <testcase classname="UrlRouterTest" name="testMatches" time="0.045"/>
+        <testcase classname="UrlRouterTest" name="testRequest200" time="0.059"/>
+        <testcase classname="UrlRouterTest" name="testRequest303" time="0.022"/>
+        <testcase classname="UrlRouterTest" name="testRequest404" time="0.025"/>
+        <testcase classname="UrlRouterTest" name="testReverse" time="0.030"/>
+    </testsuite>
+    <testsuite name="CartTest" tests="18" failures="0" errors="0" skipped="0" time="1.580">
+        <testcase classname="CartTest" name="testIsEmpty" time="0.084"/>
+        <testcase classname="CartTest" name="testGetItemsCount" time="0.088"/>
+        <testcase classname="CartTest" name="testAddItem" time="0.090"/>
+        <testcase classname="CartTest" name="testRemoveItem" time="0.076"/>
+        <testcase classname="CartTest" name="testSetItemQuantity" time="0.082"/>
+        <testcase classname="CartTest" name="testGetSubTotal" time="0.081"/>
+        <testcase classname="CartTest" name="testGetTotalWeight" time="0.076"/>
+        <testcase classname="CartTest" name="testGetShippingArea" time="0.071"/>
+        <testcase classname="CartTest" name="testSetShippingArea" time="0.093"/>
+        <testcase classname="CartTest" name="testShippingCostToVariousAreas" time="0.102"/>
+        <testcase classname="CartTest" name="testFreeShippingToFrance" time="0.121"/>
+        <testcase classname="CartTest" name="testHasInsurance" time="0.072"/>
+        <testcase classname="CartTest" name="testEnableInsurance" time="0.069"/>
+        <testcase classname="CartTest" name="testGetInsuranceAmount" time="0.083"/>
+        <testcase classname="CartTest" name="testGetGiftCode" time="0.071"/>
+        <testcase classname="CartTest" name="testUseGiftCode" time="0.085"/>
+        <testcase classname="CartTest" name="testGetGiftReduction" time="0.075"/>
+        <testcase classname="CartTest" name="testGetTotal" time="0.160"/>
+    </testsuite>
+    <testsuite name="SogenactifRequestTest" tests="5" failures="0" errors="0" skipped="0" time="2.359">
+        <testcase classname="SogenactifRequestTest" name="testFetch" time="2.159"/>
+        <testcase classname="SogenactifRequestTest" name="testRequiredFields" time="0.108"/>
+    </testsuite>
+    <testsuite name="SogenactifRequestTest::testAmountIsInSmallestUnitOfTheCurrency" tests="3" failures="0" errors="0" skipped="0" time="0.092">
+        <testcase name="testAmountIsInSmallestUnitOfTheCurrency with data set #0" time="0.035"/>
+        <testcase name="testAmountIsInSmallestUnitOfTheCurrency with data set #1" time="0.029"/>
+        <testcase name="testAmountIsInSmallestUnitOfTheCurrency with data set #2" time="0.029"/>
+    </testsuite>
+    <testsuite name="MoneyTest" tests="12" failures="0" errors="0" skipped="0" time="0.332">
+        <testcase classname="MoneyTest" name="testConstructorIntAmountInSmallestCurrencyUnit" time="0.033"/>
+        <testcase classname="MoneyTest" name="testConstructorRoundingFloatAmount" time="0.058"/>
+        <testcase classname="MoneyTest" name="testConstructorSmartStringAmountInput" time="0.058"/>
+        <testcase classname="MoneyTest" name="test__get" time="0.019"/>
+        <testcase classname="MoneyTest" name="test__set" time="0.019"/>
+        <testcase classname="MoneyTest" name="testGetAmountString" time="0.018"/>
+        <testcase classname="MoneyTest" name="testGetAmountInSmallestCurrencyUnit" time="0.020"/>
+        <testcase classname="MoneyTest" name="testAdd" time="0.024"/>
+        <testcase classname="MoneyTest" name="testMultiply" time="0.019"/>
+        <testcase classname="MoneyTest" name="testConvertTo" time="0.022"/>
+        <testcase classname="MoneyTest" name="test__toString" time="0.026"/>
+        <testcase classname="MoneyTest" name="testToHtml" time="0.018"/>
+    </testsuite>
+    <testsuite name="ItemCategoryTest" tests="1" failures="0" errors="0" skipped="0" time="0.114">
+        <testcase classname="ItemCategoryTest" name="testIterateThroughValidItemsOnly" time="0.114"/>
+    </testsuite>
+    <testsuite name="PaymentFormTest" tests="17" failures="0" errors="0" skipped="0" time="3.704">
+        <testcase classname="PaymentFormTest" name="testMinimalValidForm" time="0.097"/>
+        <testcase classname="PaymentFormTest" name="testNonPostedFormHasNoError" time="0.098"/>
+        <testcase classname="PaymentFormTest" name="testAmountIsRequired" time="0.148"/>
+        <testcase classname="PaymentFormTest" name="testValidFormGeneratePayPalArray" time="0.090"/>
+        <testcase classname="PaymentFormTest" name="testValidFormGeneratSogenactifForm" time="1.462"/>
+    </testsuite>
+    <testsuite name="PaymentFormTest::testTinyAndLargeAmountsAreInvalid" tests="12" failures="0" errors="0" skipped="0" time="1.809">
+        <testcase name="testTinyAndLargeAmountsAreInvalid with data set #0" time="0.149"/>
+        <testcase name="testTinyAndLargeAmountsAreInvalid with data set #1" time="0.150"/>
+        <testcase name="testTinyAndLargeAmountsAreInvalid with data set #2" time="0.150"/>
+        <testcase name="testTinyAndLargeAmountsAreInvalid with data set #3" time="0.149"/>
+        <testcase name="testTinyAndLargeAmountsAreInvalid with data set #4" time="0.149"/>
+        <testcase name="testTinyAndLargeAmountsAreInvalid with data set #5" time="0.150"/>
+        <testcase name="testTinyAndLargeAmountsAreInvalid with data set #6" time="0.149"/>
+        <testcase name="testTinyAndLargeAmountsAreInvalid with data set #7" time="0.149"/>
+        <testcase name="testTinyAndLargeAmountsAreInvalid with data set #8" time="0.149"/>
+        <testcase name="testTinyAndLargeAmountsAreInvalid with data set #9" time="0.165"/>
+        <testcase name="testTinyAndLargeAmountsAreInvalid with data set #10" time="0.150"/>
+        <testcase name="testTinyAndLargeAmountsAreInvalid with data set #11" time="0.149"/>
+    </testsuite>
+    <testsuite name="ItemTest" tests="2" failures="0" errors="0" skipped="0" time="0.097">
+        <testcase classname="ItemTest" name="testUrlSlugifiesTheTitle" time="0.066"/>
+        <testcase classname="ItemTest" name="testIsOutOfStock" time="0.031"/>
+    </testsuite>
+    <testsuite name="DocumentTest" tests="1" failures="0" errors="0" skipped="0" time="17.321">
+        <testcase classname="DocumentTest" name="testFetch" time="17.321"/>
+    </testsuite>
+    <testsuite name="CategoryDocumentTest" tests="1" failures="0" errors="0" skipped="0" time="33.602">
+        <testcase classname="CategoryDocumentTest" name="testFetch" time="33.602"/>
+    </testsuite>
+    <testsuite name="PayPalPaymentTest" tests="4" failures="0" errors="0" skipped="0" time="0.107">
+        <testcase classname="PayPalPaymentTest" name="testValidateNvpFields" time="0.057"/>
+        <testcase classname="PayPalPaymentTest" name="testGetExpressCheckoutDetails" time="0.016"/>
+        <testcase classname="PayPalPaymentTest" name="testDoExpressCheckoutPayment" time="0.016"/>
+        <testcase classname="PayPalPaymentTest" name="testGetLastPaymentDetails" time="0.018"/>
+    </testsuite>
+</testsuites>

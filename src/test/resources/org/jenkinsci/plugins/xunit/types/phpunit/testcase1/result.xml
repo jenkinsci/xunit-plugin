@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="CalculatorTest" tests="1" failures="0" errors="0" skipped="0" time="0.001">
+        <testcase classname="CalculatorTest" name="testAdd" time="0.001" />
+    </testsuite>
+</testsuites>

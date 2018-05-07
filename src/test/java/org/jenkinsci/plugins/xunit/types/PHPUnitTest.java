@@ -23,52 +23,39 @@
 
 package org.jenkinsci.plugins.xunit.types;
 
-import org.junit.Test;
+import java.util.Arrays;
+import java.util.Collection;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
+
+@RunWith(Parameterized.class)
 public class PHPUnitTest extends AbstractTest {
 
-    @Test
-    public void testcase1() throws Exception {
-        convertAndValidate(PHPUnit.class, "phpunit/testcase1/testresult.xml", "phpunit/testcase1/junit-result.xml");
+    @Parameters(name = "{0}")
+    public static Collection<Object[]> data() {
+        return Arrays.asList(new Object[][] { { "testcase1", 1 }, //
+                                              { "testcase2", 2 }, //
+                                              { "testcase3", 3 }, //
+                                              { "testcase4", 4 }, //
+                                              { "testcase5", 5 }, //
+                                              { "testcase6", 6 }, //
+                                              { "testcase7", 7 }, //
+                                              { "JENKINS-42715 skipped test using PHPUnit 5.4", 8 }, //
+                                              { "JENKINS-42715 skipped test using PHPUnit 6+", 9 }, //
+        });
     }
 
-    @Test
-    public void testcase2() throws Exception {
-        convertAndValidate(PHPUnit.class, "phpunit/testcase2/testresult.xml", "phpunit/testcase2/junit-result.xml");
+    public PHPUnitTest(String testName, int testNumber) {
+        super(PHPUnit.class, resolveInput("phpunit", testNumber), resolveOutput("phpunit", testNumber));
     }
 
+    @Override
     @Test
-    public void testcase3() throws Exception {
-        convertAndValidate(PHPUnit.class, "phpunit/testcase3/testresult.xml", "phpunit/testcase3/junit-result.xml");
+    public void verifyXSLT() throws Exception {
+        super.verifyXSLT();
     }
 
-    @Test
-    public void testcase4() throws Exception {
-        convertAndValidate(PHPUnit.class, "phpunit/testcase4/testresult.xml", "phpunit/testcase4/junit-result.xml");
-    }
-
-    @Test
-    public void testcase5() throws Exception {
-        convertAndValidate(PHPUnit.class, "phpunit/testcase5/testresult.xml", "phpunit/testcase5/junit-result.xml");
-    }
-
-    @Test
-    public void testcase6() throws Exception {
-        convertAndValidate(PHPUnit.class, "phpunit/testcase6/testresult.xml", "phpunit/testcase6/junit-result.xml");
-    }
-
-    @Test
-    public void testcase7() throws Exception {
-        convertAndValidate(PHPUnit.class, "phpunit/testcase7/testresult.xml", "phpunit/testcase7/junit-result.xml");
-    }
-
-    @Test
-    public void testcase8() throws Exception {
-        convertAndValidate(PHPUnit.class, "phpunit/testcase8/testresult.xml", "phpunit/testcase8/junit-result.xml");
-    }
-
-    @Test
-    public void testcase9() throws Exception {
-        convertAndValidate(PHPUnit.class, "phpunit/testcase9/testresult.xml", "phpunit/testcase9/junit-result.xml");
-    }
 }

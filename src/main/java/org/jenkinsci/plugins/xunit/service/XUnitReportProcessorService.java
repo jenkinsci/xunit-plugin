@@ -77,7 +77,7 @@ public class XUnitReportProcessorService extends XUnitService implements Seriali
         if (xunitFiles.length == 0) {
             String msg = "[" + toolName + "] - No test report file(s) were found with the pattern '"
                     + pattern + "' relative to '" + parentPath + "' for the testing framework '" + toolName + "'."
-                    + "  Did you enter a pattern relative to the correct directory?"
+                    + "  Did you enter a pattern relative to (and within) the workspace directory?"
                     + "  Did you generate the result report(s) for '" + toolName + "'?";
             xUnitLog.infoConsoleLogger(msg);
             infoSystemLogger(msg);

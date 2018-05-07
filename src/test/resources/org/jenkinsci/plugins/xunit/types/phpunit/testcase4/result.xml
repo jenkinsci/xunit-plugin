@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="Object_FreezerTest" tests="28" failures="0" errors="0" skipped="0" time="0.260">
+        <testcase classname="Object_FreezerTest" name="testFreezingAnObjectWorks" time="0.022" />
+        <testcase classname="Object_FreezerTest" name="testFreezingAnObjectOfAnExtendedClassWorks" time="0.005" />
+        <testcase classname="Object_FreezerTest" name="testFreezingAnObjectThatAggregatesAResourceWorks" time="0.004" />
+        <testcase classname="Object_FreezerTest" name="testFreezingAnObjectThatAggregatesOtherObjectsWorks" time="0.008" />
+        <testcase classname="Object_FreezerTest" name="testFreezingAnObjectThatAggregatesOtherObjectsInAnArrayWorks" time="0.006" />
+        <testcase classname="Object_FreezerTest" name="testFreezingAnObjectThatAggregatesOtherObjectsInANestedArrayWorks" time="0.006" />
+        <testcase classname="Object_FreezerTest" name="testFreezingAnObjectGraphThatContainsCyclesWorks" time="0.010" />
+        <testcase classname="Object_FreezerTest" name="testFreezingAnObjectGraphThatContainsCyclesWorks2" time="0.010" />
+        <testcase classname="Object_FreezerTest" name="testFreezingAndThawingAnObjectWorks" time="0.006" />
+        <testcase classname="Object_FreezerTest" name="testRepeatedlyFreezingAndThawingAnObjectWorks" time="0.007" />
+        <testcase classname="Object_FreezerTest" name="testFreezingAndThawingAnObjectOfAnExtendedClassWorks" time="0.006" />
+        <testcase classname="Object_FreezerTest" name="testFreezingAndThawingAnObjectThatAggregatesOtherObjectsWorks" time="0.010" />
+        <testcase classname="Object_FreezerTest" name="testRepeatedlyFreezingAndThawingAnObjectThatAggregatesOtherObjectsWorks" time="0.014" />
+        <testcase classname="Object_FreezerTest" name="testFreezingAndThawingAnObjectThatAggregatesOtherObjectsInAnArrayWorks" time="0.008" />
+        <testcase classname="Object_FreezerTest" name="testFreezingAndThawingAnObjectThatAggregatesOtherObjectsInANestedArrayWorks" time="0.008" />
+        <testcase classname="Object_FreezerTest" name="testFreezingAndThawingAnObjectGraphThatContainsCyclesWorks" time="0.063" />
+        <testcase classname="Object_FreezerTest" name="testFreezingAndThawingAnObjectGraphThatContainsCyclesWorks2" time="0.027" />
+        <testcase classname="Object_FreezerTest" name="testConstructorIsNotCalledWhenAnObjectIsThawed" time="0.005" />
+        <testcase classname="Object_FreezerTest" name="testExceptionIsThrownIfNotAnObjectIsPassedAsFirstArgumentToFreeze" time="0.003" />
+        <testcase classname="Object_FreezerTest" name="testExceptionIsThrownWhenClassCouldNotBeFound" time="0.003" />
+        <testcase classname="Object_FreezerTest" name="testConstructorWithDefaultArguments" time="0.006" />
+        <testcase classname="Object_FreezerTest" name="testExceptionIsRaisedForInvalidConstructorArguments" time="0.003" />
+        <testcase classname="Object_FreezerTest" name="testNonDirtyObjectIsRecognizedAsNotBeingDirty" time="0.004" />
+        <testcase classname="Object_FreezerTest" name="testDirtyObjectIsRecognizedAsBeingDirty" time="0.003" />
+        <testcase classname="Object_FreezerTest" name="testDirtyObjectIsRecognizedAsBeingDirty2" time="0.003" />
+        <testcase classname="Object_FreezerTest" name="testDirtyObjectIsRecognizedAsBeingDirty3" time="0.004" />
+        <testcase classname="Object_FreezerTest" name="testExceptionIsThrownIfNotAnObjectIsPassedAsFirstArgumentToIsDirty" time="0.003" />
+        <testcase classname="Object_FreezerTest" name="testExceptionIsThrownIfNotABooleanIsPassedAsSecondArgumentToIsDirty" time="0.003" />
+    </testsuite>
+    <testsuite name="Object_Freezer_Storage_CouchDB_WithLazyLoadTest" tests="12" failures="0" errors="0" skipped="0" time="1.823">
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithLazyLoadTest" name="testStoringAndFetchingAnObjectThatAggregatesOtherObjectsWorks" time="1.416" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithLazyLoadTest" name="testStoringAndFetchingAnObjectThatAggregatesOtherObjectsWorks2" time="0.038" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithLazyLoadTest" name="testStoringAndFetchingAnObjectThatAggregatesOtherObjectsWorks3" time="0.045" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithLazyLoadTest" name="testStoringAndFetchingAnObjectThatAggregatesOtherObjectsWorks4" time="0.038" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithLazyLoadTest" name="testStoringAndFetchingAnObjectThatAggregatesOtherObjectsInAnArrayWorks" time="0.033" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithLazyLoadTest" name="testStoringAndFetchingAnObjectThatAggregatesOtherObjectsInAnArrayWorks2" time="0.041" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithLazyLoadTest" name="testStoringAndFetchingAnObjectThatAggregatesOtherObjectsInAnArrayWorks3" time="0.036" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithLazyLoadTest" name="testStoringAndFetchingAnObjectThatAggregatesOtherObjectsInANestedArrayWorks" time="0.031" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithLazyLoadTest" name="testStoringAndFetchingAnObjectThatAggregatesOtherObjectsInANestedArrayWorks2" time="0.032" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithLazyLoadTest" name="testStoringAndFetchingAnObjectThatAggregatesOtherObjectsInANestedArrayWorks3" time="0.033" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithLazyLoadTest" name="testStoringAndFetchingAnObjectGraphThatContainsCyclesWorks" time="0.041" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithLazyLoadTest" name="testStoringAndFetchingAnObjectGraphThatContainsCyclesWorks2" time="0.040" />
+    </testsuite>
+    <testsuite name="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest" tests="19" failures="0" errors="0" skipped="0" time="0.636">
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest" name="testStoringAnObjectWorks" time="0.028" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest" name="testStoringAnObjectThatAggregatesOtherObjectsWorks" time="0.033" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest" name="testStoringAnObjectThatAggregatesOtherObjectsInAnArrayWorks" time="0.033" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest" name="testStoringAnObjectThatAggregatesOtherObjectsInANestedArrayWorks" time="0.029" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest" name="testStoringAnObjectGraphThatContainsCyclesWorks" time="0.033" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest" name="testStoringAnObjectGraphThatContainsCyclesWorks2" time="0.034" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest" name="testStoringAndFetchingAnObjectWorks" time="0.030" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest" name="testStoringAndFetchingAnObjectWorks2" time="0.028" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest" name="testStoringAndFetchingAnObjectThatAggregatesOtherObjectsWorks" time="0.039" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest" name="testStoringAndFetchingAnObjectThatAggregatesOtherObjectsInAnArrayWorks" time="0.033" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest" name="testStoringAndFetchingAnObjectThatAggregatesOtherObjectsInANestedArrayWorks" time="0.032" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest" name="testStoringAndFetchingAnObjectGraphThatContainsCyclesWorks" time="0.097" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest" name="testStoringAndFetchingAnObjectGraphThatContainsCyclesWorks2" time="0.059" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest" name="testExceptionIsThrownIfFirstConstructorArgumentIsNotAString" time="0.022" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest" name="testExceptionIsThrownIfFourthConstructorArgumentIsNotABoolean" time="0.019" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest" name="testExceptionIsThrownIfFifthConstructorArgumentIsNotAString" time="0.019" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest" name="testExceptionIsThrownIfSixthConstructorArgumentIsNotAnInteger" time="0.022" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest" name="testExceptionIsThrownIfObjectCouldNotBeFetched" time="0.023" />
+        <testcase classname="Object_Freezer_Storage_CouchDB_WithoutLazyLoadTest" name="testExceptionIsThrownIfConnectionFails" time="0.022" />
+    </testsuite>
+    <testsuite name="Object_Freezer_UtilTest" tests="3" failures="0" errors="0" skipped="0" time="0.004">
+        <testcase classname="Object_Freezer_UtilTest" name="testAttributesOfAnObjectCanBeRead" time="0.001" />
+        <testcase classname="Object_Freezer_UtilTest" name="testAttributesOfAnObjectWithAggregatedObjectCanBeRead" time="0.002" />
+        <testcase classname="Object_Freezer_UtilTest" name="testExceptionIsThrownIfNotAnObjectIsPassedToReadAttributes" time="0.001" />
+    </testsuite>
+    <testsuite name="Object_Freezer_IdGenerator_UUIDTest" tests="1" failures="0" errors="0" skipped="0" time="0.002">
+        <testcase classname="Object_Freezer_IdGenerator_UUIDTest" name="testReturnValueOfUuidIsUnique" time="0.002" />
+    </testsuite>
+    <testsuite name="Object_Freezer_HashGenerator_NonRecursiveSHA1Test" tests="9" failures="0" errors="0" skipped="0" time="0.029">
+        <testcase classname="Object_Freezer_HashGenerator_NonRecursiveSHA1Test" name="testObjectCanBeHashed" time="0.003" />
+        <testcase classname="Object_Freezer_HashGenerator_NonRecursiveSHA1Test" name="testHashedObjectCanBeHashed" time="0.003" />
+        <testcase classname="Object_Freezer_HashGenerator_NonRecursiveSHA1Test" name="testObjectWithAggregatedResourceCanBeHashed" time="0.003" />
+        <testcase classname="Object_Freezer_HashGenerator_NonRecursiveSHA1Test" name="testObjectWithAggregatedObjectCanBeHashed" time="0.004" />
+        <testcase classname="Object_Freezer_HashGenerator_NonRecursiveSHA1Test" name="testObjectThatAggregatesOtherObjectsInAnArrayCanBeHashed" time="0.003" />
+        <testcase classname="Object_Freezer_HashGenerator_NonRecursiveSHA1Test" name="testObjectThatAggregatesOtherObjectsInANestedArrayCanBeHashed" time="0.003" />
+        <testcase classname="Object_Freezer_HashGenerator_NonRecursiveSHA1Test" name="testObjectGraphThatContainsCyclesCanBeHashed" time="0.005" />
+        <testcase classname="Object_Freezer_HashGenerator_NonRecursiveSHA1Test" name="testObjectGraphThatContainsCyclesCanBeHashed2" time="0.003" />
+        <testcase classname="Object_Freezer_HashGenerator_NonRecursiveSHA1Test" name="testExceptionIsThrownIfNotAnObjectIsPassedToGetHash" time="0.002" />
+    </testsuite>
+    <testsuite name="Object_Freezer_CacheTest" tests="3" failures="0" errors="0" skipped="0" time="0.003">
+        <testcase classname="Object_Freezer_CacheTest" name="testPut" time="0.001" />
+        <testcase classname="Object_Freezer_CacheTest" name="testGet" time="0.001" />
+        <testcase classname="Object_Freezer_CacheTest" name="testGetReturnsFalseForNotExistingId" time="0.001" />
+    </testsuite>
+    <testsuite name="Object_Freezer_StorageTest" tests="3" failures="0" errors="0" skipped="0" time="0.011">
+        <testcase classname="Object_Freezer_StorageTest" name="testConstructorWithDefaultArguments" time="0.007" />
+        <testcase classname="Object_Freezer_StorageTest" name="testExceptionIsThrownIfNotAnObjectIsPassedAsArgumentToStore" time="0.002" />
+        <testcase classname="Object_Freezer_StorageTest" name="testExceptionIsThrownIfNotAStringIsPassedAsArgumentToFetch" time="0.002" />
+    </testsuite>
+</testsuites>
