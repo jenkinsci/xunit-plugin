@@ -1,6 +1,13 @@
 package org.jenkinsci.plugins.xunit.types;
 
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.MessageFormat;
+
 import org.custommonkey.xmlunit.Diff;
 import org.custommonkey.xmlunit.XMLUnit;
 import org.jenkinsci.lib.dtkit.model.InputMetric;
@@ -8,19 +15,52 @@ import org.jenkinsci.lib.dtkit.model.InputMetricFactory;
 import org.jenkinsci.lib.dtkit.util.validator.ValidationError;
 import org.junit.Assert;
 import org.junit.Before;
-
-import java.io.*;
+import org.junit.Rule;
+import org.junit.rules.TemporaryFolder;
 
 /**
  * @author Gregory Boissinot
  */
 public abstract class AbstractTest {
 
+    @Rule
+    public TemporaryFolder file = new TemporaryFolder();
+
+    public static String resolveInput(String packageName, int testNumber) {
+        return MessageFormat.format("{0}/testcase{1}/input.xml", packageName, testNumber);
+    }
+
+    public static String resolveOutput(String packageName, int testNumber) {
+        return MessageFormat.format("{0}/testcase{1}/result.xml", packageName, testNumber);
+    }
+
+    private final String input;
+    private final String expectedResult;
+    private final Class<? extends InputMetric> metricClass;
+
+    public AbstractTest() {
+        // TODO remove when all test will be adapted
+        input = null;
+        expectedResult = null;
+        metricClass = null;
+    }
+
+    protected AbstractTest(Class<? extends InputMetric> metricClass, String input, String expectedResult) {
+        this.input = input;
+        this.expectedResult = expectedResult;
+        this.metricClass = metricClass;
+    }
+
     @Before
     public void setUp() {
         XMLUnit.setIgnoreWhitespace(true);
         XMLUnit.setNormalizeWhitespace(true);
         XMLUnit.setIgnoreComments(true);
+    }
+
+//    @Test
+    public void verifyXSLT() throws Exception {
+        convertAndValidate(metricClass, input, expectedResult);
     }
 
     private String readXmlAsString(File input)
@@ -49,7 +89,7 @@ public abstract class AbstractTest {
     protected void convertAndValidate(Class<? extends InputMetric> metricClass, String inputXMLPath, String expectedResultPath) throws Exception {
         InputMetric inputMetric = InputMetricFactory.getInstance(metricClass);
 
-        File outputXMLFile = File.createTempFile("result", "xml");
+        File outputXMLFile = file.newFile();
         File inputXMLFile = new File(this.getClass().getResource(inputXMLPath).toURI());
 
         //The input file must be valid
@@ -61,8 +101,8 @@ public abstract class AbstractTest {
 
         inputMetric.convert(inputXMLFile, outputXMLFile);
         XMLUnit.setIgnoreWhitespace(true);
-        Diff myDiff = new Diff(readXmlAsString(new File(this.getClass().getResource(expectedResultPath).toURI())), readXmlAsString(outputXMLFile));
-        Assert.assertTrue("XSL transformation did not work" + myDiff, myDiff.similar());
+        Diff myDiff = new Diff(readXmlAsString(outputXMLFile), readXmlAsString(new File(this.getClass().getResource(expectedResultPath).toURI())));
+        Assert.assertTrue("XSL transformation did not work " + myDiff, myDiff.similar());
 
         //The generated output file must be valid
         boolean outputResult = inputMetric.validateOutputFile(outputXMLFile);
@@ -70,9 +110,6 @@ public abstract class AbstractTest {
             System.out.println(validatorError);
         }
         Assert.assertTrue(outputResult);
-
-        outputXMLFile.deleteOnExit();
-
     }
 
     protected void convertAndValidate(String inputXMLPath, String inputXSLPath, String expectedResultPath) throws Exception {

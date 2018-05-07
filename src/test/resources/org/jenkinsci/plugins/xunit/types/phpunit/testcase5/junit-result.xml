@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuites>
-    <testsuite name="DbTest" tests="1" failures="0" errors="0" skipped="" time="0.032417" timestamp="">
-        <testcase classname="DbTest" name="testConnection" time="0.032417" assertions="2"/>
-    </testsuite>
-</testsuites>

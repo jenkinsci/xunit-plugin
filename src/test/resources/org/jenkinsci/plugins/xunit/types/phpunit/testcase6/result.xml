@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="DbTest" tests="1" failures="0" errors="0" skipped="0" time="0.032">
+        <testcase classname="DbTest" name="testConnection" time="0.032"/>
+    </testsuite>
+</testsuites>
