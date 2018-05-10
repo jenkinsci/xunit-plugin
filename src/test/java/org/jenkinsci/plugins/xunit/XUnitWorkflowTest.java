@@ -65,7 +65,7 @@ public class XUnitWorkflowTest {
         job.setDefinition(new CpsFlowDefinition(""
                 + "node {\n"
                 + "  step([$class: 'XUnitBuilder', tools: [[$class: 'GoogleTestType', pattern: 'input.xml']], thresholdMode: 1])\n"
-                + "}"));
+                + "}", true));
         
         jenkinsRule.assertBuildStatus(Result.SUCCESS, job.scheduleBuild2(0).get());
     }
@@ -80,9 +80,22 @@ public class XUnitWorkflowTest {
 
         jenkinsRule.assertBuildStatus(Result.UNSTABLE, job.scheduleBuild2(0).get());
     }
+//    node('master') {
+//        stage('1') {
+//            step([$class: 'XUnitBuilder',
+//                          thresholds: [[$class: 'FailedThreshold', failureThreshold: "1"]],
+//                           tools: [[$class: 'JUnitType', pattern: "tmp.xml"]]])
+//        }
+//        stage('2') {
+//            step([$class: 'XUnitBuilder',
+//                          thresholds: [[$class: 'FailedThreshold', failureThreshold: "0"]],
+//                           tools: [[$class: 'JUnitType', pattern: "tmp2.xml"]]])       
+//        }
+//    }
 
+    @Issue("JENKINS-37611")
     @Test
-    public void xunit() throws Exception {
+    public void xunitPipelineStepDefinition() throws Exception {
         WorkflowJob job = getBaseJob("readablePublisherPipeline");
         job.setDefinition(new CpsFlowDefinition(""
                 + "node {\n"
