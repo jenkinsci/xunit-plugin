@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="Bank.AccountTest" tests="11" failures="1" errors="0" skipped="1" time="0.156">
+        <testcase classname="Bank.AccountTest" name="SetGetInterestRate" time="0.047" />
+        <testcase classname="Bank.AccountTest" name="TestAlwaysFails" time="0.016">
+            <failure>
+                MESSAGE:
+                This test always fails.
+                +++++++++++++++++++
+                STACK TRACE:
+                at Bank.AccountTest.TestAlwaysFails() in c:\Jenkins_Home\jobs\NUnit_Quick_Learning\workspace\NUnit_Quick_Learn_1\AccountNUTest.cs:line 308
+            </failure>
+        </testcase>
+        <testcase classname="Bank.AccountTest" name="TestAlwaysIgnored">
+            <skipped />
+        </testcase>
+        <testcase classname="Bank.AccountTest" name="TestApplyInterest" time="0.000" />
+        <testcase classname="Bank.AccountTest" name="TestApplyPenalty" time="0.016" />
+        <testcase classname="Bank.AccountTest" name="TestInsufficientFundsOnWithdrawl" time="0.000" />
+        <testcase classname="Bank.AccountTest" name="TestInsufficientFundsWithdrawal" time="0.000" />
+        <testcase classname="Bank.AccountTest" name="TestInterestCalculation" time="0.000" />
+        <testcase classname="Bank.AccountTest" name="TransferFunds" time="0.000" />
+        <testcase classname="Bank.AccountTest" name="TransferWithInsufficientFunds" time="0.016" />
+        <testcase classname="Bank.AccountTest" name="TransferWithInsufficientFundsAtomicity" time="0.000" />
+    </testsuite>
+</testsuites>

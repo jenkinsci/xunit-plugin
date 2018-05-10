@@ -2,7 +2,7 @@
 <!--
 The MIT License (MIT)
 
-Copyright (c) 2017, Alex Schwantes
+Copyright (c) 2017, Alex Schwantes, Nikolas Falco
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -35,6 +35,11 @@ THE SOFTWARE.
         <xsl:value-of select="format-number($time, '0.000')" />
     </xsl:function>
 
+    <xsl:function name="xunit:is-empty" as="xs:boolean">
+        <xsl:param name="value" as="xs:string?" />
+        <xsl:value-of select="string($value) != ''" />
+    </xsl:function>
+
     <xsl:template match="/test-run">
         <!--<xsl:variable name="hostname" select="./environment/@machine-name"/>-->
         <testsuites>
@@ -55,6 +60,19 @@ THE SOFTWARE.
                                     <xsl:attribute name="time">
                                         <xsl:value-of select="xunit:junit-time(@duration)" />
                                     </xsl:attribute>
+                                </xsl:if>
+
+                                <xsl:if test="@result='Skipped' or @result='Inconclusive'" >
+                                    <skipped>
+                                        <xsl:if test="xunit:is-empty(./reason/message)">
+                                            <xsl:attribute name="message">
+                                                <xsl:value-of select="./reason/message"/>
+                                            </xsl:attribute>
+                                        </xsl:if>
+                                    </skipped>
+                                    <system-out>
+                                        <xsl:value-of select="./output" />
+                                    </system-out>
                                 </xsl:if>
 
                                 <xsl:variable name="generalfailure" select="./failure" />
@@ -85,13 +103,6 @@ OUTPUT:
                                             </xsl:otherwise>
                                         </xsl:choose>
                                     </failure>
-                                </xsl:if>
-                                <xsl:if test="@result='Skipped' or @result='Inconclusive'" >
-                                    <skipped/>
-                                    <system-out>
-                                        <xsl:value-of select="./reason/message"/>
-                                        <xsl:value-of select="./output" />
-                                    </system-out>
                                 </xsl:if>
                             </testcase>
                         </xsl:for-each>

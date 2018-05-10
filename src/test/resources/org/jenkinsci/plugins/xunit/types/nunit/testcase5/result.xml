@@ -4,9 +4,8 @@
         <testcase classname="AdministrationPasswordTest" name="testChangePasswordFailEmptyForm" time="5.065"/>
         <testcase classname="AdministrationPasswordTest" name="testChangePasswordFailOldPasswordKO" time="5.066"/>
         <testcase classname="AdministrationPasswordTest" name="testChangePasswordFailNewPasswordTooShort" time="5.049"/>
-        <testcase classname="AdministrationPasswordTest" name="testChangePasswordFailNewPasswordNotRepeated"
-                  time="5.05"/>
+        <testcase classname="AdministrationPasswordTest" name="testChangePasswordFailNewPasswordNotRepeated" time="5.050"/>
         <testcase classname="AdministrationPasswordTest" name="testChangePasswordFailNewPasswordKO" time="5.066"/>
-        <testcase classname="AdministrationPasswordTest" name="testChangePassword" time="10.1"/>
+        <testcase classname="AdministrationPasswordTest" name="testChangePassword" time="10.100"/>
     </testsuite>
 </testsuites>
