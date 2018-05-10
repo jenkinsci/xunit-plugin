@@ -22,9 +22,29 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
-<xsl:stylesheet version="1.0"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    <xsl:output method="xml" indent="yes"/>
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xunit="http://www.xunit.org">
+    <xsl:output method="xml" indent="yes" encoding="UTF-8"/>
+    <xsl:decimal-format decimal-separator="." grouping-separator=","/>
+
+    <xsl:function name="xunit:junit-time" as="xs:string">
+        <xsl:param name="value" as="xs:double?" />
+
+        <xsl:variable name="time" as="xs:double">
+            <xsl:value-of select="translate(string($value),',','.')" />
+        </xsl:variable>
+        <xsl:value-of select="format-number($time, '0.000')" />
+    </xsl:function>
+
+    <xsl:function name="xunit:if-empty" as="xs:string">
+        <xsl:param name="value" as="xs:string?" />
+        <xsl:param name="default" as="xs:anyAtomicType" />
+        <xsl:value-of select="if (string($value) != '') then string($value) else $default" />
+    </xsl:function>
+
+    <xsl:function name="xunit:is-empty" as="xs:boolean">
+        <xsl:param name="value" as="xs:string?" />
+        <xsl:value-of select="string($value) != ''" />
+    </xsl:function>
 
     <xsl:template match="/test-results">
         <testsuites>
@@ -59,7 +79,7 @@ THE SOFTWARE.
 							   >
 					   <xsl:if test="@time!=''">
 							<xsl:attribute name="time">
-								<xsl:value-of select="@time"/>
+								<xsl:value-of select="xunit:junit-time(@time)"/>
 							</xsl:attribute>
 						</xsl:if>
                         <xsl:for-each select="*/test-case">
@@ -80,12 +100,21 @@ THE SOFTWARE.
                                       name="{$testcaseName}">
                                 <xsl:if test="@time!=''">
                                     <xsl:attribute name="time">
-                                        <xsl:value-of select="@time"/>
+                                        <xsl:value-of select="xunit:junit-time(@time)"/>
                                     </xsl:attribute>
                                 </xsl:if>
 
-                                <xsl:variable name="generalfailure"
-                                              select="./failure"/>
+                                <xsl:if test="@executed='False'">
+                                    <skipped>
+                                        <xsl:if test="xunit:is-empty(./reason/message)">
+                                            <xsl:attribute name="message">
+                                                <xsl:value-of select="./reason/message"/>
+                                            </xsl:attribute>
+                                        </xsl:if>
+                                    </skipped>
+                                </xsl:if>
+
+                                <xsl:variable name="generalfailure" select="./failure"/>
 
                                 <xsl:if test="./failure">
                                     <xsl:variable name="failstack"
@@ -93,28 +122,21 @@ THE SOFTWARE.
                                     <failure>
                                         <xsl:choose>
                                             <xsl:when test="$failstack &gt; 0 or not($generalfailure)">
-                                                MESSAGE:
-                                                <xsl:value-of select="./failure/message"/>
-                                                +++++++++++++++++++
-                                                STACK TRACE:
-                                                <xsl:value-of select="./failure/stack-trace"/>
+MESSAGE:
+<xsl:value-of select="./failure/message"/>
++++++++++++++++++++
+STACK TRACE:
+<xsl:value-of select="./failure/stack-trace"/>
                                             </xsl:when>
                                             <xsl:otherwise>
-                                                MESSAGE:
-                                                <xsl:value-of select="$generalfailure/message"/>
-                                                +++++++++++++++++++
-                                                STACK TRACE:
-                                                <xsl:value-of select="$generalfailure/stack-trace"/>
+MESSAGE:
+<xsl:value-of select="$generalfailure/message"/>
++++++++++++++++++++
+STACK TRACE:
+<xsl:value-of select="$generalfailure/stack-trace"/>
                                             </xsl:otherwise>
                                         </xsl:choose>
                                     </failure>
-                                </xsl:if>
-                                <xsl:if test="@executed='False'">
-                                    <skipped>
-                                        <xsl:attribute name="message">
-                                            <xsl:value-of select="./reason/message"/>
-                                        </xsl:attribute>
-                                    </skipped>
                                 </xsl:if>
                             </testcase>
                         </xsl:for-each>

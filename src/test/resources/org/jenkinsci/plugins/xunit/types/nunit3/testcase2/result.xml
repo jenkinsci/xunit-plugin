@@ -2,8 +2,8 @@
 <testsuites>
     <testsuite name="RSelenium.Tests.AfterLiveTestCases" tests="1" time="25.819" failures="0" errors="0" skipped="1">
         <testcase classname="RSelenium.Tests.AfterLiveTestCases" name="AUT0513TestPrefixedSiteURLRedirect" time="3.515">
-            <skipped/>
-            <system-out>Test intentionally ignored due to environment constraints.This test is only applicable for the Live Environment==============================
+            <skipped message="Test intentionally ignored due to environment constraints.This test is only applicable for the Live Environment"/>
+            <system-out>==============================
                 = Running Test: RSelenium.Tests.AfterLiveTestCases.AUT0513TestPrefixedSiteURLRedirect
                 = Test Number: 3
                 = Start Time: 2016/06/04 19:18:35

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Jenkins_Home\jobs\NUnit_Quick_Learning\workspace\NUnit_Quick_Learn_1\bin\Debug\NUnit_Quick_Learn_1.dll" total="10" errors="0" failures="1" not-run="1" inconclusive="0" ignored="1" skipped="0" invalid="0" date="2011-09-02" time="15:18:41">
+  <environment nunit-version="2.5.10.11092" clr-version="2.0.50727.3623" os-version="Microsoft Windows NT 5.1.2600 Service Pack 3" platform="Win32NT" cwd="C:\Jenkins_Home\jobs\NUnit_Quick_Learning\workspace" machine-name="WOCDUSL3H1462" user="jwerner8" user-domain="NA" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="C:\Jenkins_Home\jobs\NUnit_Quick_Learning\workspace\NUnit_Quick_Learn_1\bin\Debug\NUnit_Quick_Learn_1.dll" executed="True" result="Failure" success="False" time="0.172" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="Bank" executed="True" result="Failure" success="False" time="0.156" asserts="0">
+        <results>
+          <test-suite type="TestFixture" name="AccountTest" executed="True" result="Failure" success="False" time="0.156" asserts="0">
+            <results>
+              <test-case name="Bank.AccountTest.SetGetInterestRate" executed="True" result="Success" success="True" time="0.047" asserts="3" />
+              <test-case name="Bank.AccountTest.TestAlwaysFails" executed="True" result="Failure" success="False" time="0.016" asserts="0">
+                <failure>
+                  <message><![CDATA[This test always fails.]]></message>
+                  <stack-trace><![CDATA[at Bank.AccountTest.TestAlwaysFails() in c:\Jenkins_Home\jobs\NUnit_Quick_Learning\workspace\NUnit_Quick_Learn_1\AccountNUTest.cs:line 308
+]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case name="Bank.AccountTest.TestAlwaysIgnored" executed="False" result="Ignored">
+                <reason>
+                  <message><![CDATA[]]></message>
+                </reason>
+              </test-case>
+              <test-case name="Bank.AccountTest.TestApplyInterest" executed="True" result="Success" success="True" time="0.000" asserts="3" />
+              <test-case name="Bank.AccountTest.TestApplyPenalty" executed="True" result="Success" success="True" time="0.016" asserts="8" />
+              <test-case name="Bank.AccountTest.TestInsufficientFundsOnWithdrawl" executed="True" result="Success" success="True" time="0.000" asserts="5" />
+              <test-case name="Bank.AccountTest.TestInsufficientFundsWithdrawal" executed="True" result="Success" success="True" time="0.000" asserts="5" />
+              <test-case name="Bank.AccountTest.TestInterestCalculation" executed="True" result="Success" success="True" time="0.000" asserts="3" />
+              <test-case name="Bank.AccountTest.TransferFunds" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+              <test-case name="Bank.AccountTest.TransferWithInsufficientFunds" executed="True" result="Success" success="True" time="0.016" asserts="0" />
+              <test-case name="Bank.AccountTest.TransferWithInsufficientFundsAtomicity" executed="True" result="Success" success="True" time="0.000" asserts="5" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

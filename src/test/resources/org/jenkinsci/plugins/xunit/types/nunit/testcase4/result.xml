@@ -2,7 +2,7 @@
 <testsuites>
     <testsuite name="UnitTests.OtherMainClassTest" tests="3" time="0.001" failures="0" errors="0" skipped="2">
         <testcase classname="UnitTests.OtherMainClassTest" name="TestIgnored">
-            <skipped message=""/>
+            <skipped />
         </testcase>
         <testcase classname="UnitTests.OtherMainClassTest" name="TestIgnoredWithText">
             <skipped message="Dont do this"/>
