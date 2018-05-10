@@ -1,11 +1,12 @@
 package org.jenkinsci.plugins.xunit.service;
 
+import java.io.File;
+import java.io.FileOutputStream;
+
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
-
-import java.io.File;
-import java.io.FileOutputStream;
+import org.junit.rules.TemporaryFolder;
 
 
 /**
@@ -18,7 +19,7 @@ public class XUnitValidationServiceTest {
      * Helper class for creating temporary workspace.
      */
     @Rule
-    public TempWorkspace tempWorkspace = new TempWorkspace();
+    public TemporaryFolder folderRule = new TemporaryFolder();
 
     /**
      * System Under Test (SUT).
@@ -27,7 +28,7 @@ public class XUnitValidationServiceTest {
 
     @Test
     public void CheckFileIsNotEmpty_GivenEmptyFile_ReturnsFalse() throws Exception {
-        File testFile = new File(tempWorkspace.getDir(), "empty.txt");
+        File testFile = new File(folderRule.newFolder(), "empty.txt");
         boolean created = testFile.createNewFile();
         Assert.assertTrue(created);
 
@@ -52,7 +53,7 @@ public class XUnitValidationServiceTest {
      * @throws Exception when there is a problem with writing to the file.
      */
     private File CreateNotEmtyFile() throws Exception {
-        File testFile = new File(tempWorkspace.getDir(), "notempty.txt");
+        File testFile = new File(folderRule.newFolder(), "notempty.txt");
 
         FileOutputStream stream = new FileOutputStream(testFile);
         stream.write("This is just not empty test file!".getBytes());

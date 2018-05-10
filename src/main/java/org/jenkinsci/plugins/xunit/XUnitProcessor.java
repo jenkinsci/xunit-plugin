@@ -26,8 +26,8 @@ package org.jenkinsci.plugins.xunit;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.Arrays;
+import java.util.UUID;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -66,12 +66,13 @@ import jenkins.model.Jenkins;
 /**
  * @author Gregory Boissinot
  */
-public class XUnitProcessor implements Serializable {
-    private static final long serialVersionUID = 1L;
-    private TestType[] tools;
-    private XUnitThreshold[] thresholds;
-    private int thresholdMode;
-    private ExtraConfiguration extraConfiguration;
+public class XUnitProcessor {
+
+    private final TestType[] tools;
+    private final XUnitThreshold[] thresholds;
+    private final int thresholdMode;
+    private final ExtraConfiguration extraConfiguration;
+    private final String processorId;
 
     public XUnitProcessor(@Nonnull TestType[] tools, @CheckForNull XUnitThreshold[] thresholds, int thresholdMode, @Nonnull ExtraConfiguration extraConfiguration) {
         if (tools == null) {
@@ -84,6 +85,7 @@ public class XUnitProcessor implements Serializable {
         this.thresholds = thresholds != null ? Arrays.copyOf(thresholds, thresholds.length) : new XUnitThreshold[0];
         this.thresholdMode = thresholdMode;
         this.extraConfiguration = extraConfiguration;
+        this.processorId = UUID.randomUUID().toString();
     }
 
     public boolean performXunit(boolean dryRun, AbstractBuild<?, ?> build, BuildListener listener)
@@ -265,7 +267,8 @@ public class XUnitProcessor implements Serializable {
     }
 
     private XUnitTransformer getXUnitTransformerObject(final XUnitToolInfo xUnitToolInfo, final TaskListener listener) {
-        return Guice.createInjector(new AbstractModule() {
+        // TODO why use Guice in this manner it's the quite the same of instantiate classes directly
+        XUnitTransformer transformer = Guice.createInjector(new AbstractModule() {
             @Override
             protected void configure() {
                 bind(TaskListener.class).toInstance(listener);
@@ -276,6 +279,8 @@ public class XUnitProcessor implements Serializable {
                 bind(XUnitReportProcessorService.class).in(Singleton.class);
             }
         }).getInstance(XUnitTransformer.class);
+        transformer.setProcessorId(processorId);
+        return transformer;
     }
 
     private TestResultAction getTestResultAction(Run<?, ?> build) {
@@ -344,7 +349,7 @@ public class XUnitProcessor implements Serializable {
                 @Override
                 public TestResult invoke(File ws, VirtualChannel channel) throws IOException {
                     final long nowSlave = System.currentTimeMillis();
-                    File generatedJunitDir = new File(ws, XUnitDefaultValues.GENERATED_JUNIT_DIR);
+                    File generatedJunitDir = new File(new File(ws, XUnitDefaultValues.GENERATED_JUNIT_DIR), processorId);
                     IOUtils.mkdirs(generatedJunitDir);
                     FileSet fs = Util.createFileSet(generatedJunitDir, junitFilePattern);
                     DirectoryScanner ds = fs.getDirectoryScanner();
@@ -420,19 +425,21 @@ public class XUnitProcessor implements Serializable {
 
     private void processDeletion(boolean dryRun, FilePath workspace, XUnitLog xUnitLog) throws XUnitException {
         try {
+            FilePath generatedJunitDir = workspace.child(XUnitDefaultValues.GENERATED_JUNIT_DIR).child(processorId);
+
             boolean keepJUnitDirectory = false;
             for (TestType tool : tools) {
                 InputMetric inputMetric = tool.getInputMetric();
 
                 if (dryRun || tool.isDeleteOutputFiles()) {
-                    workspace.child(XUnitDefaultValues.GENERATED_JUNIT_DIR + "/" + inputMetric.getToolName()).deleteRecursive();
+                    generatedJunitDir.child(inputMetric.getToolName()).deleteRecursive();
                 } else {
                     //Mark the tool file parent directory to no deletion
                     keepJUnitDirectory = true;
                 }
             }
             if (!keepJUnitDirectory) {
-                workspace.child(XUnitDefaultValues.GENERATED_JUNIT_DIR).deleteRecursive();
+                generatedJunitDir.deleteRecursive();
             }
         } catch (IOException | InterruptedException e) {
             throw new XUnitException("Problem on deletion", e);

@@ -26,7 +26,6 @@ package org.jenkinsci.plugins.xunit.service;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -42,17 +41,14 @@ import hudson.FilePath;
 import hudson.remoting.VirtualChannel;
 import jenkins.security.Roles;
 
-public class XUnitTransformer extends XUnitService implements FilePath.FileCallable<Boolean>, Serializable {
+public class XUnitTransformer extends XUnitService implements FilePath.FileCallable<Boolean> {
 
     private XUnitReportProcessorService xUnitReportProcessorService;
-
     private XUnitConversionService xUnitConversionService;
-
     private XUnitValidationService xUnitValidationService;
-
     private XUnitToolInfo xUnitToolInfo;
-
     private XUnitLog xUnitLog;
+    private String processorId;
 
     @Inject
     void load(
@@ -79,8 +75,10 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
     @Override
     public Boolean invoke(File ws, VirtualChannel channel) throws IOException, InterruptedException {
         try {
-
             File junitOutputDir = new File(ws, XUnitDefaultValues.GENERATED_JUNIT_DIR);
+            if (processorId != null) {
+                junitOutputDir = new File(junitOutputDir, processorId);
+            }
             if (!junitOutputDir.exists() && !junitOutputDir.mkdirs()) {
                 String msg = "Can't create the path " + junitOutputDir + ". Maybe the directory already exists.";
                 xUnitLog.warningConsoleLogger(msg);
@@ -190,5 +188,13 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
     @Override
     public void checkRoles(RoleChecker checker) throws SecurityException {
         checker.check(this, Roles.SLAVE);
+    }
+
+    public String getProcessorId() {
+        return processorId;
+    }
+
+    public void setProcessorId(String processorId) {
+        this.processorId = processorId;
     }
 }
