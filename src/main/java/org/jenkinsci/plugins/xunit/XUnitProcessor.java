@@ -68,6 +68,52 @@ import jenkins.model.Jenkins;
  */
 public class XUnitProcessor {
 
+    /**
+     * Parse generated JUnit report on a slave node.
+     * <p>
+     * This class is external to ensure serialisation is not broken as anonymous
+     * class requires that whole outer class was serialisable too.
+     **/
+    private static final class ReportParser extends jenkins.SlaveToMasterFileCallable<TestResult> {
+        private static final long serialVersionUID = 1L;
+
+        private final String junitFilePattern;
+        private final long buildTime;
+        private final long nowMaster;
+        private final TestResult existingTestResults;
+        private final String processorId;
+
+        public ReportParser(long buildTime, @Nonnull String junitFilePattern, long nowMaster, TestResult existingTestResults, String processorId) {
+            this.buildTime = buildTime;
+            this.junitFilePattern = junitFilePattern;
+            this.nowMaster = nowMaster;
+            this.existingTestResults = existingTestResults;
+            this.processorId = processorId;
+        }
+
+        @Override
+        public TestResult invoke(File ws, VirtualChannel channel) throws IOException {
+            final long nowSlave = System.currentTimeMillis();
+            File generatedJunitDir = new File(new File(ws, XUnitDefaultValues.GENERATED_JUNIT_DIR), processorId);
+            IOUtils.mkdirs(generatedJunitDir);
+            FileSet fs = Util.createFileSet(generatedJunitDir, junitFilePattern);
+            DirectoryScanner ds = fs.getDirectoryScanner();
+            String[] files = ds.getIncludedFiles();
+
+            if (files.length == 0) {
+                // no test result. Most likely a configuration error or fatal problem
+                return null;
+
+            }
+            if (existingTestResults == null) {
+                return new TestResult(buildTime + (nowSlave - nowMaster), ds, true);
+            } else {
+                existingTestResults.parse(buildTime + (nowSlave - nowMaster), ds);
+                return existingTestResults;
+            }
+        }
+    }
+
     private final TestType[] tools;
     private final XUnitThreshold[] thresholds;
     private final int thresholdMode;
@@ -97,7 +143,6 @@ public class XUnitProcessor {
             throws IOException, InterruptedException {
         final XUnitLog xUnitLog = getXUnitLogObject(listener);
         try {
-
             xUnitLog.infoConsoleLogger("Starting to record.");
 
             boolean continueTestProcessing;
@@ -343,37 +388,9 @@ public class XUnitProcessor {
             throws XUnitException {
 
         try {
-            return workspace.act(new jenkins.SlaveToMasterFileCallable<TestResult>() {
-                private static final long serialVersionUID = 1L;
-
-                @Override
-                public TestResult invoke(File ws, VirtualChannel channel) throws IOException {
-                    final long nowSlave = System.currentTimeMillis();
-                    File generatedJunitDir = new File(new File(ws, XUnitDefaultValues.GENERATED_JUNIT_DIR), processorId);
-                    IOUtils.mkdirs(generatedJunitDir);
-                    FileSet fs = Util.createFileSet(generatedJunitDir, junitFilePattern);
-                    DirectoryScanner ds = fs.getDirectoryScanner();
-                    String[] files = ds.getIncludedFiles();
-
-                    if (files.length == 0) {
-                        // no test result. Most likely a configuration error or fatal problem
-                        return null;
-
-                    }
-                    if (existingTestResults == null) {
-                        return new TestResult(buildTime + (nowSlave - nowMaster), ds, true);
-                    } else {
-                        existingTestResults.parse(buildTime + (nowSlave - nowMaster), ds);
-                        return existingTestResults;
-                    }
-                }
-
-            });
-
-        } catch (IOException ioe) {
-            throw new XUnitException(ioe.getMessage(), ioe);
-        } catch (InterruptedException ie) {
-            throw new XUnitException(ie.getMessage(), ie);
+            return workspace.act(new ReportParser(buildTime, junitFilePattern, nowMaster, existingTestResults, processorId));
+        } catch (IOException | InterruptedException e) {
+            throw new XUnitException(e.getMessage(), e);
         }
     }
 
@@ -421,7 +438,6 @@ public class XUnitProcessor {
 
         return Result.SUCCESS;
     }
-
 
     private void processDeletion(boolean dryRun, FilePath workspace, XUnitLog xUnitLog) throws XUnitException {
         try {
