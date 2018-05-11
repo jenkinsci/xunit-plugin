@@ -32,6 +32,6 @@
             <system-out/>
             <system-err/>
         </testcase>
-        <testcase classname="Sample.Tests.SampleTests" name="SampleTests.RowTest(0)" time="0"/>
+        <testcase classname="Sample.Tests.SampleTests" name="SampleTests.RowTest(0)" time="0.000"/>
     </testsuite>
 </testsuites>

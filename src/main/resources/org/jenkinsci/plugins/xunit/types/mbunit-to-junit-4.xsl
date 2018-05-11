@@ -1,29 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-****************************************
-Author: Bradley Grainger
-Copyright 2012 Logos Bible Software
+The MIT License (MIT)
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
-of the Software, and to permit persons to whom the Software is furnished to do
-so, subject to the following conditions:
+Copyright (c) 2012, Bradley Grainger, Falco Nikolas
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-****************************************
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 -->
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xunit="http://www.xunit.org">
+    <xsl:output method="xml" indent="yes" encoding="UTF-8"/>
+    <xsl:decimal-format decimal-separator="." grouping-separator=","/>
+
+    <xsl:function name="xunit:junit-time" as="xs:string">
+        <xsl:param name="value" as="xs:double?" />
+
+        <xsl:variable name="time" as="xs:double">
+            <xsl:value-of select="translate(string($value),',','.')" />
+        </xsl:variable>
+        <xsl:value-of select="format-number($time, '0.000')" />
+    </xsl:function>
+
+    <xsl:function name="xunit:is-empty" as="xs:boolean">
+        <xsl:param name="value" as="xs:string?" />
+        <xsl:value-of select="string($value) != ''" />
+    </xsl:function>
+
     <xsl:template match="/">
         <testsuites>
             <xsl:for-each select=".//assembly">
@@ -49,10 +65,10 @@ SOFTWARE.
                         </xsl:choose>
                     </xsl:variable>
                     <testsuite skipped="0" failures="{$errorsCount + $errorsCountTearDown}"
-                               errors="{$errorsCount + $errorsCountTearDown}" time="{@duration}"
+                               errors="{$errorsCount + $errorsCountTearDown}" time="{xunit:junit-time(@duration)}"
                                tests="{1+$tearDownCount}" name="{$package}.AssemblyInitialize">
                         <testcase classname="{$package}.AssemblyInitialize" name="AssemblyInitialize.SetUp"
-                                  time="{@duration}">
+                                  time="{xunit:junit-time(@duration)}">
                             <xsl:if test="@result = 'failure'">
                                 <failure type="{exception/@type}" message="{exception/message}">
                                     <xsl:value-of select="exception/stack-trace"/>
@@ -69,7 +85,7 @@ SOFTWARE.
                             <xsl:variable name="className" select="@name"/>
                             <!--<xsl:variable name="testNameDown" select="substring-after(@name, concat($package , '.'))" />-->
                             <testcase classname="{$package}.AssemblyInitialize" name="AssemblyInitialize.TearDown"
-                                      time="{@duration}">
+                                      time="{xunit:junit-time(@duration)}">
                                 <xsl:if test="@result = 'failure'">
                                     <failure type="{exception/@type}" message="{exception/message}">
                                         <xsl:value-of select="exception/stack-trace"/>
@@ -90,10 +106,10 @@ SOFTWARE.
                     <xsl:variable name="className" select="@name"/>
                     <testsuite skipped="{counter/@skip-count + counter/@ignore-count}"
                                failures="{counter/@failure-count}" errors="{counter/@failure-count}"
-                               time="{counter/@duration}" tests="{counter/@run-count}" name="{@type}">
+                               time="{counter/xunit:junit-time(@duration)}" tests="{counter/@run-count}" name="{@type}">
                         <!-- Setup -->
                         <xsl:for-each select=".//set-up">
-                            <testcase classname="{$package}.{$className}" name="{@name}" time="{@duration}">
+                            <testcase classname="{$package}.{$className}" name="{@name}" time="{xunit:junit-time(@duration)}">
                                 <xsl:if test="@result = 'failure'">
                                     <failure type="{exception/@type}" message="{exception/message}">
                                         <xsl:value-of select="exception/stack-trace"/>
@@ -111,7 +127,7 @@ SOFTWARE.
                         <!--<xsl:for-each select="runs/run[@result != 'ignore']">-->
                         <xsl:for-each select="runs/run">
                             <!-- testsuite "package" attribute is actually ignore, package really comes from classname, if it is qualified-->
-                            <testcase classname="{$package}.{$className}" name="{@name}" time="{@duration}">
+                            <testcase classname="{$package}.{$className}" name="{@name}" time="{xunit:junit-time(@duration)}">
                                 <xsl:if test="@result = 'failure'">
                                     <failure type="{exception/@type}" message="{exception/message}">
                                         <xsl:value-of select="exception/stack-trace"/>
@@ -130,7 +146,7 @@ SOFTWARE.
                         </xsl:for-each>
                         <!-- Tear Down -->
                         <xsl:for-each select=".//tear-down">
-                            <testcase classname="{$package}.{$className}" name="{@name}" time="{@duration}">
+                            <testcase classname="{$package}.{$className}" name="{@name}" time="{xunit:junit-time(@duration)}">
                                 <xsl:if test="@result = 'failure'">
                                     <failure type="{exception/@type}" message="{exception/message}">
                                         <xsl:value-of select="exception/stack-trace"/>
