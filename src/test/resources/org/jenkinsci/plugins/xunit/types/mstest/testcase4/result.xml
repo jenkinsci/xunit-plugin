@@ -2,8 +2,8 @@
 <testsuites
         >
     <testsuite name="MSTestSuite" tests="2" time="0" failures="1" errors="0" skipped="0">
-        <testcase classname="TestProject1.UnitTest1" name="TestMethod1" time="0.018195"/>
-        <testcase classname="TestProject1.UnitTest1" name="TestMethod2" time="0.1018105">
+        <testcase classname="TestProject1.UnitTest1" name="TestMethod1" time="0.018"/>
+        <testcase classname="TestProject1.UnitTest1" name="TestMethod2" time="0.102">
             <failure>
                 MESSAGE:
                 Assert.Fail failed.

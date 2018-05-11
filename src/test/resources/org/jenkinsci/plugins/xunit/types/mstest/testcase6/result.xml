@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="MSTestSuite" tests="15" time="0" failures="1" errors="0" skipped="1">
+        <testcase classname="AccountTest2.AccountTest" name="AccountConstructorTest" time="0.051" />
+        <testcase classname="AccountTest2.AccountTest" name="AddToBalanceTest" time="0.015" />
+        <testcase classname="AccountTest2.AccountTest" name="ApplyInterestTest" time="0.003" />
+        <testcase classname="AccountTest2.AccountTest" name="ApplyPenaltyTest" time="0.003" />
+        <testcase classname="AccountTest2.AccountTest" name="BalanceTest" time="0.001" />
+        <testcase classname="AccountTest2.AccountTest" name="CalculateInterestTest" time="0.002" />
+        <testcase classname="AccountTest2.AccountTest" name="DepositTest" time="0.002" />
+        <testcase classname="AccountTest2.AccountTest" name="InterestRateTest" time="0.001" />
+        <testcase classname="AccountTest2.AccountTest" name="MinimumBalanceTest" time="0.001" />
+        <testcase classname="AccountTest2.AccountTest" name="MTestFail" time="0.060">
+            <failure>
+                MESSAGE:
+                Assert.Fail failed. Always fails
+                +++++++++++++++++++
+                STACK TRACE:
+                at AccountTest2.AccountTest.MTestFail() in c:\Jenkins_Home\jobs\NUnit_Quick_Learning\workspace\AccountTest2\AccountMTest.cs:line 253
+            </failure>
+        </testcase>
+        <testcase classname="AccountTest2.AccountTest" name="MTestInconclusive" time="0.002">
+            <skipped />
+            <system-out>
+                MESSAGE:
+                Assert.Inconclusive failed. Inconclusive result
+                +++++++++++++++++++
+                STACK TRACE:
+                at AccountTest2.AccountTest.MTestInconclusive() in c:\Jenkins_Home\jobs\NUnit_Quick_Learning\workspace\AccountTest2\AccountMTest.cs:line 247
+            </system-out>
+        </testcase>
+        <testcase classname="AccountTest2.AccountTest" name="TransferFundsTest" time="0.003" />
+        <testcase classname="AccountTest2.AccountTest" name="WithdrawTest" time="0.002" />
+        <testcase classname="AccountTest2.InsufficientFundsExceptionTest" name="InsufficientFundsExceptionConstructorTest" time="0.003" />
+        <testcase classname="AccountTest2.OverdrawnExceptionTest" name="OverdrawnExceptionConstructorTest" time="0.002" />
+    </testsuite>
+</testsuites>

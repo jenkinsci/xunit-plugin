@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
     <testsuite name="MSTestSuite" tests="2" time="0" failures="1" errors="0" skipped="0">
-        <testcase classname="GoodGuyTest.GoodGuyTest" name="TestYell" time="0.0437026">
+        <testcase classname="GoodGuyTest.GoodGuyTest" name="TestYell" time="0.044">
             <failure>
                 MESSAGE:
                 Assert.AreEqual failed. Expected:&lt;lala!&gt;. Actual:&lt;Lele!!&gt;.
@@ -10,6 +10,6 @@
                 at GoodGuyTest.GoodGuyTest.TestYell() in C:\PostIt\MultipleTests\GoodGuyTest\GoodGuyTest.cs:line 16
             </failure>
         </testcase>
-        <testcase classname="ProjectNumberOneTest.BoringGuyTest" name="TestYell" time="0.0230074"/>
+        <testcase classname="ProjectNumberOneTest.BoringGuyTest" name="TestYell" time="0.023"/>
     </testsuite>
 </testsuites>
