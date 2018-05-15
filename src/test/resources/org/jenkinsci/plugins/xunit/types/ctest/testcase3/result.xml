@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xunit="http://www.xunit.org">
+   <testsuite name="CTest" tests="2" time="382.000" failures="0" errors="0" skipped="1">
+      <testcase classname="projectroot.libs.QVtkVisualization.tests" name="LoggingSinkTests.loggingSinkTest_CallLoggingCallback" time="0.007">
+         <system-out>Note: Google Test filter = LoggingSinkTests.loggingSinkTest_CallLoggingCallback
+[==========] Running 1 test from 1 test case.
+[----------] Global test environment set-up.
+[----------] 1 test from LoggingSinkTests
+[ RUN ] LoggingSinkTests.loggingSinkTest_CallLoggingCallback
+[ OK ] LoggingSinkTests.loggingSinkTest_CallLoggingCallback (0 ms)
+[----------] 1 test from LoggingSinkTests (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test case ran. (0 ms total)
+[ PASSED ] 1 test.</system-out>
+      </testcase>
+      <testcase classname="projectroot.tools.simulator.test"
+                name="simulator.SimulatorTest.readEventFile_mediaDetectedEvent_oneSignalEmitted"
+                time="0.000">
+         <skipped/>
+         <system-out>Disabled</system-out>
+      </testcase>
+   </testsuite>
+</testsuites>

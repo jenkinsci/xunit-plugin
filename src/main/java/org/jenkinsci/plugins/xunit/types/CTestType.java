@@ -52,7 +52,7 @@ public class CTestType extends TestType {
     public static class CTestTypeDescriptor extends TestTypeDescriptor<CTestType> {
 
         public CTestTypeDescriptor() {
-            super(CTestType.class, CTestInputMetric.class);
+            super(CTestType.class, CTest.class);
         }
 
     }
