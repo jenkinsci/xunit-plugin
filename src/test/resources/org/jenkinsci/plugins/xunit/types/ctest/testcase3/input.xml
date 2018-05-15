@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20180515-1731-Experimental"
+	Name="(empty)"
+	Generator="ctest-3.11.0"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Linux"
+	Hostname="3tnavBuild"
+	OSRelease="4.4.0-116-generic"
+	OSVersion="#140-Ubuntu SMP Mon Feb 12 21:23:04 UTC 2018"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="44"
+	ProcessorCacheSize="12288"
+	NumberOfLogicalCPU="8"
+	NumberOfPhysicalCPU="8"
+	TotalVirtualMemory="979"
+	TotalPhysicalMemory="7982"
+	LogicalProcessorsPerPhysical="1"
+	ProcessorClockFrequency="3458"
+	>
+	<Testing>
+		<StartDateTime>May 15 10:31 PDT</StartDateTime>
+		<StartTestTime>1526405497</StartTestTime>
+		<TestList>
+			<Test>./libs/QVtkVisualization/tests/LoggingSinkTests.loggingSinkTest_CallLoggingCallback</Test>
+			<Test>./tools/simulator/test/simulator.SimulatorTest.readEventFile_mediaDetectedEvent_oneSignalEmitted</Test>
+		</TestList>
+		<Test Status="passed">
+			<Name>LoggingSinkTests.loggingSinkTest_CallLoggingCallback</Name>
+			<Path>./libs/QVtkVisualization/tests</Path>
+			<FullName>./libs/QVtkVisualization/tests/LoggingSinkTests.loggingSinkTest_CallLoggingCallback</FullName>
+			<FullCommandLine>/home/ctc/jenkins/workspace/build_TNAV-dev_Pull-Request/build/libs/QVtkVisualization/tests/QVtkVisualizationTestPublicAPI "--gtest_filter=LoggingSinkTests.loggingSinkTest_CallLoggingCallback"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.0074303</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/home/ctc/jenkins/workspace/build_TNAV-dev_Pull-Request/build/libs/QVtkVisualization/tests/QVtkVisualizationTestPublicAPI "--gtest_filter=LoggingSinkTests.loggingSinkTest_CallLoggingCallback"</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value>Note: Google Test filter = LoggingSinkTests.loggingSinkTest_CallLoggingCallback
+[==========] Running 1 test from 1 test case.
+[----------] Global test environment set-up.
+[----------] 1 test from LoggingSinkTests
+[ RUN      ] LoggingSinkTests.loggingSinkTest_CallLoggingCallback
+[       OK ] LoggingSinkTests.loggingSinkTest_CallLoggingCallback (0 ms)
+[----------] 1 test from LoggingSinkTests (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test case ran. (0 ms total)
+[  PASSED  ] 1 test.
+</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<Test Status="notrun">
+			<Name>simulator.SimulatorTest.readEventFile_mediaDetectedEvent_oneSignalEmitted</Name>
+			<Path>./tools/simulator/test</Path>
+			<FullName>./tools/simulator/test/simulator.SimulatorTest.readEventFile_mediaDetectedEvent_oneSignalEmitted</FullName>
+			<FullCommandLine></FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Disabled</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value></Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value>Disabled</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<EndDateTime>May 15 10:37 PDT</EndDateTime>
+		<EndTestTime>1526405879</EndTestTime>
+		<ElapsedMinutes>6</ElapsedMinutes>
+	</Testing>
+</Site>

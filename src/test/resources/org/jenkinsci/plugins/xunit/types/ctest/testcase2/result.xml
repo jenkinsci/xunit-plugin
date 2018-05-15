@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <testsuites>
-    <testsuite name="CTest" tests="1" time="0" failures="1" errors="0" skipped="0">
-        <testcase classname="projectroot" name="app_gl_default_sb" time="">
+    <testsuite name="CTest" tests="1" time="1.000" failures="0" errors="0" skipped="1">
+        <testcase classname="projectroot" name="app_gl_default_sb" time="0.000">
             <skipped/>
             <system-out>Run application...
                 DRY_RUN=yes /var/lib/hudson/workspace/apitrace-mac-test/apps/gl/tri -sb

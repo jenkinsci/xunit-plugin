@@ -22,26 +22,52 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    <xsl:output method="xml" indent="yes"/>
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xunit="http://www.xunit.org">
+    <xsl:output method="xml" indent="yes" encoding="UTF-8"/>
+    <xsl:decimal-format decimal-separator="." grouping-separator=","/>
+
+    <xsl:function name="xunit:junit-time" as="xs:string">
+        <xsl:param name="value" as="xs:double?" />
+
+        <xsl:variable name="time" as="xs:double">
+            <xsl:value-of select="translate(string($value),',','.')" />
+        </xsl:variable>
+        <xsl:value-of select="format-number($time, '0.000')" />
+    </xsl:function>
+
+    <xsl:function name="xunit:if-empty" as="xs:string">
+        <xsl:param name="value" as="xs:string?" />
+        <xsl:param name="default" as="xs:anyAtomicType" />
+        <xsl:value-of select="if (string($value) != '') then string($value) else $default" />
+    </xsl:function>
+
+    <xsl:function name="xunit:is-empty" as="xs:boolean">
+        <xsl:param name="value" as="xs:string?" />
+        <xsl:value-of select="string($value) != ''" />
+    </xsl:function>
+
     <xsl:template match="/">
         <testsuites>
             <xsl:variable name="buildName" select="//Site/@BuildName"/>
+            <xsl:variable name="buildTime" select="(//Site/Testing/EndTestTime - //Site/Testing/StartTestTime)"/>
             <xsl:variable name="numberOfTests" select="count(//Site/Testing/Test)"/>
-            <xsl:variable name="numberOfFailures" select="count(//Site/Testing/Test[@Status!='passed'])"/>
+            <xsl:variable name="numberOfFailures" select="count(//Site/Testing/Test[@Status='failed'])"/>
+            <xsl:variable name="numberOfSkipped" select="count(//Site/Testing/Test[@Status='notrun'])"/>
             <testsuite name="CTest"
-                       tests="{$numberOfTests}" time="0"
-                       failures="{$numberOfFailures}" errors="0"
-                       skipped="0">
+                       tests="{$numberOfTests}"
+                       time="{xunit:junit-time($buildTime)}"
+                       failures="{$numberOfFailures}"
+                       errors="0"
+                       skipped="{$numberOfSkipped}">
                 <xsl:for-each select="//Site/Testing/Test">
                     <xsl:variable name="testName" select="translate(Name, '-', '_')"/>
-                    <xsl:variable name="duration" select="Results/NamedMeasurement[@name='Execution Time']/Value"/>
+                    <xsl:variable name="duration" select="number(xunit:if-empty(Results/NamedMeasurement[@name='Execution Time']/Value, 0))"/>
                     <xsl:variable name="status" select="@Status"/>
                     <xsl:variable name="output" select="Results/Measurement/Value"/>
                     <xsl:variable name="className" select="translate(Path, '/.', '.')"/>
                     <testcase classname="projectroot{$className}"
                               name="{$testName}"
-                              time="{$duration}">
+                              time="{xunit:junit-time($duration)}">
                         <xsl:choose>
                             <xsl:when test="@Status='passed'"/>
                             <xsl:when test="@Status='notrun'">

@@ -32,7 +32,7 @@ import org.jenkinsci.plugins.xunit.types.model.JUnitModel;
 /**
  * @author Gregory Boissinot
  */
-public class CTestInputMetric extends InputMetricXSL {
+public class CTest extends InputMetricXSL {
 
     @Override
     public InputType getToolType() {
@@ -41,7 +41,7 @@ public class CTestInputMetric extends InputMetricXSL {
 
     @Override
     public String getToolVersion() {
-        return "Version N/A";
+        return "Version 3.x";
     }
 
     @Override

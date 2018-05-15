@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-    <testsuite name="CTest" tests="11" time="0" failures="4" errors="0" skipped="0">
-        <testcase classname="projectroot" name="cppcheck" time="1.65417">
+    <testsuite name="CTest" tests="11" time="3.000" failures="4" errors="0" skipped="0">
+        <testcase classname="projectroot" name="cppcheck" time="1.654">
             <system-out>
                 Microsoft (R) Visual C++ Express Edition Version 9.0.30729.1.
                 Copyright (C) Microsoft Corp 2007. All rights reserved.
@@ -18,18 +18,17 @@
                 ========== Build: 1 succeeded, 0 failed, 1 up-to-date, 0 skipped ==========
             </system-out>
         </testcase>
-        <testcase classname="projectrootE_.foo.sources" name="FileSystem_testU" time="0.0970097">
+        <testcase classname="projectrootE_.foo.sources" name="FileSystem_testU" time="0.097">
             <system-out/>
         </testcase>
-        <testcase classname="projectrootE_.foo.sources" name="Logging_testU" time="0.0710068">
+        <testcase classname="projectrootE_.foo.sources" name="Logging_testU" time="0.071">
             <system-out>-- TODO: implement a test if it possible
             </system-out>
         </testcase>
-        <testcase classname="projectrootE_.foo.sources" name="MD5_testU" time="0.0730076">
+        <testcase classname="projectrootE_.foo.sources" name="MD5_testU" time="0.073">
             <system-out/>
         </testcase>
-        <testcase classname="projectrootE_.foo.sources" name="ScriptWriter_testU"
-                  time="0.0920086">
+        <testcase classname="projectrootE_.foo.sources" name="ScriptWriter_testU" time="0.092">
             <failure>CMake Error at modules/testU/ScriptWriter-testU.cmake:28 (BAR_script_write_add_to_path):
                 Unknown CMake command "BAR_script_write_add_to_path".
 
@@ -41,11 +40,10 @@
 
             </system-out>
         </testcase>
-        <testcase classname="projectrootE_.foo.sources" name="String_testU" time="0.0980091">
+        <testcase classname="projectrootE_.foo.sources" name="String_testU" time="0.098">
             <system-out/>
         </testcase>
-        <testcase classname="projectrootE_.foo.sources" name="WGET_testU_MD5_fail"
-                  time="0.0760078">
+        <testcase classname="projectrootE_.foo.sources" name="WGET_testU_MD5_fail" time="0.076">
             <failure>-- Download of file://\\wsrvmov003\Softs\packages/BuildSystemTests/WGET-test-wrong-md5.txt failed
                 with message: [37]"couldn't read a file:// file"
             </failure>
@@ -53,7 +51,7 @@
                 failed with message: [37]"couldn't read a file:// file"
             </system-out>
         </testcase>
-        <testcase classname="projectrootE_.foo.sources" name="WGET_testU_noMD5" time="0.0820084">
+        <testcase classname="projectrootE_.foo.sources" name="WGET_testU_noMD5" time="0.082">
             <failure>-- Download of file://\\wsrvmov003\Softs\packages/BuildSystemTests/WGET-test-wrong-md5.txt failed
                 with message: [37]"couldn't read a file:// file"
                 CMake Error at modules/Logging.cmake:121 (message):
@@ -81,7 +79,7 @@
 
             </system-out>
         </testcase>
-        <testcase classname="projectrootE_.foo.sources" name="WGET_testU" time="0.115011">
+        <testcase classname="projectrootE_.foo.sources" name="WGET_testU" time="0.115">
             <failure>-- Download of file://\\wsrvmov003\Softs\packages/BuildSystemTests/WGET-test-md5.txt failed with
                 message: [37]"couldn't read a file:// file"
                 CMake Error at modules/Logging.cmake:121 (message):
@@ -109,14 +107,14 @@
 
             </system-out>
         </testcase>
-        <testcase classname="projectroot.tests" name="helloexe_shared" time="0.168016">
+        <testcase classname="projectroot.tests" name="helloexe_shared" time="0.168">
             <system-out>Hello BAR
                 Hello lib shared
                 BAR version from hellolib : 2.4.2
                 BAR version from helloexe : 2.4.2
             </system-out>
         </testcase>
-        <testcase classname="projectroot.tests" name="helloexe_static" time="0.124012">
+        <testcase classname="projectroot.tests" name="helloexe_static" time="0.124">
             <system-out>Hello BAR
                 Hello lib static
                 BAR version from hellolib : 2.4.2
