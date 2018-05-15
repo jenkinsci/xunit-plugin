@@ -1,26 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-    <testsuite name="MSTestSuite" tests="4" time="0" failures="2" errors="0" skipped="0">
-        <testcase classname="FunctionsTest.FibonacciTest" name="CalculaFibonacci" time="0.004"/>
+    <testsuite name="MSTestSuite" tests="4" time="0.188" failures="2" errors="0" skipped="0">
+        <testcase classname="FunctionsTest.FibonacciTest" name="CalculaFibonacci" time="0.004" />
         <testcase classname="FunctionsTest.FibonacciTest" name="CalculaFibonacci_2" time="0.036">
-            <failure>
-                MESSAGE:
-                Assert.AreEqual failed. Expected:&lt;2&gt;. Actual:&lt;1&gt;.
-                +++++++++++++++++++
-                STACK TRACE:
-                at FunctionsTest.FibonacciTest.CalculaFibonacci_2() in
-                E:\Koiti\Dev\GitHudsonTest\FunctionsTest\FibonacciTest.cs:line 72
+            <failure message="Assert.AreEqual failed. Expected:&lt;2&gt;. Actual:&lt;1&gt;. "> at FunctionsTest.FibonacciTest.CalculaFibonacci_2() in E:\Koiti\Dev\GitHudsonTest\FunctionsTest\FibonacciTest.cs:line 72
             </failure>
         </testcase>
-        <testcase classname="FunctionsTest.SpecialCharRemoverTest" name="RemoveSpecialChar" time="0.001"/>
+        <testcase classname="FunctionsTest.SpecialCharRemoverTest" name="RemoveSpecialChar" time="0.001" />
         <testcase classname="FunctionsTest.SpecialCharRemoverTest" name="REmoveSpecialChar2" time="0.001">
-            <failure>
-                MESSAGE:
-                Assert.AreEqual failed. Expected:&lt;pao&gt;. Actual:&lt;paao&gt;.
-                +++++++++++++++++++
-                STACK TRACE:
-                at FunctionsTest.SpecialCharRemoverTest.REmoveSpecialChar2() in
-                E:\Koiti\Dev\GitHudsonTest\FunctionsTest\SpecialCharRemoverTest.cs:line 76
+            <failure message="Assert.AreEqual failed. Expected:&lt;pao&gt;. Actual:&lt;paao&gt;. "> at FunctionsTest.SpecialCharRemoverTest.REmoveSpecialChar2() in E:\Koiti\Dev\GitHudsonTest\FunctionsTest\SpecialCharRemoverTest.cs:line 76
             </failure>
         </testcase>
     </testsuite>

@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="b7d6fbcf-b582-4d1b-b6e7-3c51830d4c5a" name="jwerner8@WOCDUSL3H1462 2011-09-02 15:18:44" runUser="NA\jwerner8" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="f0e3cf4b-b231-4f80-b605-9e11366c97ea">
+    <Deployment userDeploymentRoot="C:\Jenkins_Home\jobs\NUnit_Quick_Learning\workspace" useDefaultDeploymentRoot="false" runDeploymentRoot="jwerner8_WOCDUSL3H1462 2011-09-02 15_18_44" />
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-09-02T15:18:44.2650235-04:00" queuing="2011-09-02T15:18:45.2024875-04:00" start="2011-09-02T15:18:45.4212291-04:00" finish="2011-09-02T15:18:46.8742983-04:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="15" executed="14" passed="13" error="0" failed="1" timeout="0" aborted="0" inconclusive="1" passedButRunAborted="0" notRunnable="0" notExecuted="1" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="BalanceTest" storage="accounttest2\bin\debug\accounttest2.dll" id="635e92b2-8697-7404-b301-08978f8a415e">
+      <DeploymentItems>
+        <DeploymentItem filename="NUnit_Quick_Learn_1.dll" />
+      </DeploymentItems>
+      <Execution id="24acf653-d5f1-4043-bfa1-8c97fd147111" />
+      <TestMethod codeBase="C:/Jenkins_Home/jobs/NUnit_Quick_Learning/workspace/AccountTest2/bin/Debug/AccountTest2.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AccountTest2.AccountTest, AccountTest2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="BalanceTest" />
+    </UnitTest>
+    <UnitTest name="MinimumBalanceTest" storage="accounttest2\bin\debug\accounttest2.dll" id="7d0a2973-fc22-d3e0-effb-6f521e71d246">
+      <Execution id="dafed2fe-e2a8-4ff6-b4c5-64ee0dc512e6" />
+      <TestMethod codeBase="C:/Jenkins_Home/jobs/NUnit_Quick_Learning/workspace/AccountTest2/bin/Debug/AccountTest2.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AccountTest2.AccountTest, AccountTest2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="MinimumBalanceTest" />
+    </UnitTest>
+    <UnitTest name="WithdrawTest" storage="accounttest2\bin\debug\accounttest2.dll" id="53928f54-d512-c5a8-e380-f7669a2cddf4">
+      <Execution id="b08eebe5-071c-452b-ab7c-a03c427b3dc1" />
+      <TestMethod codeBase="C:/Jenkins_Home/jobs/NUnit_Quick_Learning/workspace/AccountTest2/bin/Debug/AccountTest2.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AccountTest2.AccountTest, AccountTest2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="WithdrawTest" />
+    </UnitTest>
+    <UnitTest name="AddToBalanceTest" storage="accounttest2\bin\debug\accounttest2.dll" id="9a97f905-3b2f-d791-acbf-eda121548609">
+      <DeploymentItems>
+        <DeploymentItem filename="NUnit_Quick_Learn_1.dll" />
+      </DeploymentItems>
+      <Execution id="0bec432d-2ea1-4da0-808c-9ad8078c7c81" />
+      <TestMethod codeBase="C:/Jenkins_Home/jobs/NUnit_Quick_Learning/workspace/AccountTest2/bin/Debug/AccountTest2.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AccountTest2.AccountTest, AccountTest2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AddToBalanceTest" />
+    </UnitTest>
+    <UnitTest name="DepositTest" storage="accounttest2\bin\debug\accounttest2.dll" id="64973849-3a2c-428f-ada2-5aac999145bf">
+      <Execution id="4cd6127c-46d1-4087-9927-647872544f50" />
+      <TestMethod codeBase="C:/Jenkins_Home/jobs/NUnit_Quick_Learning/workspace/AccountTest2/bin/Debug/AccountTest2.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AccountTest2.AccountTest, AccountTest2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="DepositTest" />
+    </UnitTest>
+    <UnitTest name="ApplyInterestTest" storage="accounttest2\bin\debug\accounttest2.dll" id="db704eac-0cfc-8c18-e447-40d1ab8a1091">
+      <Execution id="06ceb396-6f34-466c-b0c0-fa33838d108e" />
+      <TestMethod codeBase="C:/Jenkins_Home/jobs/NUnit_Quick_Learning/workspace/AccountTest2/bin/Debug/AccountTest2.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AccountTest2.AccountTest, AccountTest2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ApplyInterestTest" />
+    </UnitTest>
+    <UnitTest name="AccountConstructorTest" storage="accounttest2\bin\debug\accounttest2.dll" id="25f5ecc6-1125-d8d8-077e-7acd08baad1c">
+      <Execution id="189d534a-5895-492a-ad47-540e3b0665f2" />
+      <TestMethod codeBase="C:/Jenkins_Home/jobs/NUnit_Quick_Learning/workspace/AccountTest2/bin/Debug/AccountTest2.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AccountTest2.AccountTest, AccountTest2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AccountConstructorTest" />
+    </UnitTest>
+    <UnitTest name="MTestFail" storage="accounttest2\bin\debug\accounttest2.dll" id="82181e57-5de0-0e89-7b2c-480ba60f6b38">
+      <Execution id="b786733d-269f-4812-a94f-9167f3c25c92" />
+      <TestMethod codeBase="C:/Jenkins_Home/jobs/NUnit_Quick_Learning/workspace/AccountTest2/bin/Debug/AccountTest2.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AccountTest2.AccountTest, AccountTest2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="MTestFail" />
+    </UnitTest>
+    <UnitTest name="MTestInconclusive" storage="accounttest2\bin\debug\accounttest2.dll" id="3fc66e56-10ee-eb08-8a52-53d2f8cfb25e">
+      <Execution id="eb720de2-69fa-40dd-92b9-631312609074" />
+      <TestMethod codeBase="C:/Jenkins_Home/jobs/NUnit_Quick_Learning/workspace/AccountTest2/bin/Debug/AccountTest2.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AccountTest2.AccountTest, AccountTest2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="MTestInconclusive" />
+    </UnitTest>
+    <UnitTest name="MTestNotExecuted" storage="accounttest2\bin\debug\accounttest2.dll" id="6f2e7a7c-a88c-ead2-fcba-b7f72966d89a">
+      <Execution id="40f32998-a234-4154-b1be-253487a4d309" />
+      <TestMethod codeBase="C:/Jenkins_Home/jobs/NUnit_Quick_Learning/workspace/AccountTest2/bin/Debug/AccountTest2.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AccountTest2.AccountTest, AccountTest2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="MTestNotExecuted" />
+    </UnitTest>
+    <UnitTest name="ApplyPenaltyTest" storage="accounttest2\bin\debug\accounttest2.dll" id="21403e46-353e-dc0c-a231-c294dde42299">
+      <Execution id="d4c2440d-b702-4834-b8aa-873aa1be17c2" />
+      <TestMethod codeBase="C:/Jenkins_Home/jobs/NUnit_Quick_Learning/workspace/AccountTest2/bin/Debug/AccountTest2.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AccountTest2.AccountTest, AccountTest2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ApplyPenaltyTest" />
+    </UnitTest>
+    <UnitTest name="OverdrawnExceptionConstructorTest" storage="accounttest2\bin\debug\accounttest2.dll" id="dc81a67d-d7ae-43e8-f09e-377d4a2fd9d8">
+      <Execution id="338ad25b-9444-4076-b6a0-93d388f54731" />
+      <TestMethod codeBase="C:/Jenkins_Home/jobs/NUnit_Quick_Learning/workspace/AccountTest2/bin/Debug/AccountTest2.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AccountTest2.OverdrawnExceptionTest, AccountTest2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="OverdrawnExceptionConstructorTest" />
+    </UnitTest>
+    <UnitTest name="InsufficientFundsExceptionConstructorTest" storage="accounttest2\bin\debug\accounttest2.dll" id="36212028-0c02-199d-d82f-d45736fa2814">
+      <Execution id="dacad342-e6fc-4469-b525-64b8ee0e5afb" />
+      <TestMethod codeBase="C:/Jenkins_Home/jobs/NUnit_Quick_Learning/workspace/AccountTest2/bin/Debug/AccountTest2.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AccountTest2.InsufficientFundsExceptionTest, AccountTest2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="InsufficientFundsExceptionConstructorTest" />
+    </UnitTest>
+    <UnitTest name="CalculateInterestTest" storage="accounttest2\bin\debug\accounttest2.dll" id="a8157256-3f51-305f-0591-7372555b214c">
+      <Execution id="117ec472-afa8-4c39-b418-a09b8200a8cd" />
+      <TestMethod codeBase="C:/Jenkins_Home/jobs/NUnit_Quick_Learning/workspace/AccountTest2/bin/Debug/AccountTest2.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AccountTest2.AccountTest, AccountTest2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CalculateInterestTest" />
+    </UnitTest>
+    <UnitTest name="TransferFundsTest" storage="accounttest2\bin\debug\accounttest2.dll" id="421e9e66-ba52-c620-303d-109eb43299b2">
+      <Execution id="cb2eab5a-792c-4b57-afb5-f494586808ba" />
+      <TestMethod codeBase="C:/Jenkins_Home/jobs/NUnit_Quick_Learning/workspace/AccountTest2/bin/Debug/AccountTest2.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AccountTest2.AccountTest, AccountTest2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TransferFundsTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="25f5ecc6-1125-d8d8-077e-7acd08baad1c" executionId="189d534a-5895-492a-ad47-540e3b0665f2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9a97f905-3b2f-d791-acbf-eda121548609" executionId="0bec432d-2ea1-4da0-808c-9ad8078c7c81" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="db704eac-0cfc-8c18-e447-40d1ab8a1091" executionId="06ceb396-6f34-466c-b0c0-fa33838d108e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="21403e46-353e-dc0c-a231-c294dde42299" executionId="d4c2440d-b702-4834-b8aa-873aa1be17c2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="635e92b2-8697-7404-b301-08978f8a415e" executionId="24acf653-d5f1-4043-bfa1-8c97fd147111" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a8157256-3f51-305f-0591-7372555b214c" executionId="117ec472-afa8-4c39-b418-a09b8200a8cd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="64973849-3a2c-428f-ada2-5aac999145bf" executionId="4cd6127c-46d1-4087-9927-647872544f50" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6f2e7a7c-a88c-ead2-fcba-b7f72966d89a" executionId="40f32998-a234-4154-b1be-253487a4d309" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7d0a2973-fc22-d3e0-effb-6f521e71d246" executionId="dafed2fe-e2a8-4ff6-b4c5-64ee0dc512e6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="82181e57-5de0-0e89-7b2c-480ba60f6b38" executionId="b786733d-269f-4812-a94f-9167f3c25c92" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3fc66e56-10ee-eb08-8a52-53d2f8cfb25e" executionId="eb720de2-69fa-40dd-92b9-631312609074" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="421e9e66-ba52-c620-303d-109eb43299b2" executionId="cb2eab5a-792c-4b57-afb5-f494586808ba" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="53928f54-d512-c5a8-e380-f7669a2cddf4" executionId="b08eebe5-071c-452b-ab7c-a03c427b3dc1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="36212028-0c02-199d-d82f-d45736fa2814" executionId="dacad342-e6fc-4469-b525-64b8ee0e5afb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="dc81a67d-d7ae-43e8-f09e-377d4a2fd9d8" executionId="338ad25b-9444-4076-b6a0-93d388f54731" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="189d534a-5895-492a-ad47-540e3b0665f2" testId="25f5ecc6-1125-d8d8-077e-7acd08baad1c" testName="AccountConstructorTest" computerName="WOCDUSL3H1462" duration="00:00:00.0510768" startTime="2011-09-02T15:18:45.4524779-04:00" endTime="2011-09-02T15:18:46.4368151-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="189d534a-5895-492a-ad47-540e3b0665f2">
+    </UnitTestResult>
+    <UnitTestResult executionId="0bec432d-2ea1-4da0-808c-9ad8078c7c81" testId="9a97f905-3b2f-d791-acbf-eda121548609" testName="AddToBalanceTest" computerName="WOCDUSL3H1462" duration="00:00:00.0151591" startTime="2011-09-02T15:18:46.4524395-04:00" endTime="2011-09-02T15:18:46.4836883-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0bec432d-2ea1-4da0-808c-9ad8078c7c81">
+    </UnitTestResult>
+    <UnitTestResult executionId="06ceb396-6f34-466c-b0c0-fa33838d108e" testId="db704eac-0cfc-8c18-e447-40d1ab8a1091" testName="ApplyInterestTest" computerName="WOCDUSL3H1462" duration="00:00:00.0025955" startTime="2011-09-02T15:18:46.4836883-04:00" endTime="2011-09-02T15:18:46.4993127-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="06ceb396-6f34-466c-b0c0-fa33838d108e">
+    </UnitTestResult>
+    <UnitTestResult executionId="d4c2440d-b702-4834-b8aa-873aa1be17c2" testId="21403e46-353e-dc0c-a231-c294dde42299" testName="ApplyPenaltyTest" computerName="WOCDUSL3H1462" duration="00:00:00.0029271" startTime="2011-09-02T15:18:46.5149371-04:00" endTime="2011-09-02T15:18:46.5305615-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d4c2440d-b702-4834-b8aa-873aa1be17c2">
+    </UnitTestResult>
+    <UnitTestResult executionId="24acf653-d5f1-4043-bfa1-8c97fd147111" testId="635e92b2-8697-7404-b301-08978f8a415e" testName="BalanceTest" computerName="WOCDUSL3H1462" duration="00:00:00.0007950" startTime="2011-09-02T15:18:46.5461859-04:00" endTime="2011-09-02T15:18:46.5461859-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="24acf653-d5f1-4043-bfa1-8c97fd147111">
+    </UnitTestResult>
+    <UnitTestResult executionId="117ec472-afa8-4c39-b418-a09b8200a8cd" testId="a8157256-3f51-305f-0591-7372555b214c" testName="CalculateInterestTest" computerName="WOCDUSL3H1462" duration="00:00:00.0019225" startTime="2011-09-02T15:18:46.5618103-04:00" endTime="2011-09-02T15:18:46.5774347-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="117ec472-afa8-4c39-b418-a09b8200a8cd">
+    </UnitTestResult>
+    <UnitTestResult executionId="4cd6127c-46d1-4087-9927-647872544f50" testId="64973849-3a2c-428f-ada2-5aac999145bf" testName="DepositTest" computerName="WOCDUSL3H1462" duration="00:00:00.0024338" startTime="2011-09-02T15:18:46.5774347-04:00" endTime="2011-09-02T15:18:46.5930591-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4cd6127c-46d1-4087-9927-647872544f50">
+    </UnitTestResult>
+    <UnitTestResult executionId="40f32998-a234-4154-b1be-253487a4d309" testId="6f2e7a7c-a88c-ead2-fcba-b7f72966d89a" testName="MTestNotExecuted" computerName="WOCDUSL3H1462" duration="00:00:00.0005682" startTime="2011-09-02T15:18:46.5930591-04:00" endTime="2011-09-02T15:18:46.6086835-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="40f32998-a234-4154-b1be-253487a4d309">
+    </UnitTestResult>
+    <UnitTestResult executionId="dafed2fe-e2a8-4ff6-b4c5-64ee0dc512e6" testId="7d0a2973-fc22-d3e0-effb-6f521e71d246" testName="MinimumBalanceTest" computerName="WOCDUSL3H1462" duration="00:00:00.0005534" startTime="2011-09-02T15:18:46.6086835-04:00" endTime="2011-09-02T15:18:46.6243079-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="dafed2fe-e2a8-4ff6-b4c5-64ee0dc512e6">
+    </UnitTestResult>
+    <UnitTestResult executionId="b786733d-269f-4812-a94f-9167f3c25c92" testId="82181e57-5de0-0e89-7b2c-480ba60f6b38" testName="MTestFail" computerName="WOCDUSL3H1462" duration="00:00:00.0598048" startTime="2011-09-02T15:18:46.6243079-04:00" endTime="2011-09-02T15:18:46.7024299-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b786733d-269f-4812-a94f-9167f3c25c92">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Fail failed. Always fails</Message>
+          <StackTrace>   at AccountTest2.AccountTest.MTestFail() in c:\Jenkins_Home\jobs\NUnit_Quick_Learning\workspace\AccountTest2\AccountMTest.cs:line 253
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="eb720de2-69fa-40dd-92b9-631312609074" testId="3fc66e56-10ee-eb08-8a52-53d2f8cfb25e" testName="MTestInconclusive" computerName="WOCDUSL3H1462" duration="00:00:00.0015675" startTime="2011-09-02T15:18:46.7024299-04:00" endTime="2011-09-02T15:18:46.7180543-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="eb720de2-69fa-40dd-92b9-631312609074">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. Inconclusive result</Message>
+          <StackTrace>   at AccountTest2.AccountTest.MTestInconclusive() in c:\Jenkins_Home\jobs\NUnit_Quick_Learning\workspace\AccountTest2\AccountMTest.cs:line 247
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="cb2eab5a-792c-4b57-afb5-f494586808ba" testId="421e9e66-ba52-c620-303d-109eb43299b2" testName="TransferFundsTest" computerName="WOCDUSL3H1462" duration="00:00:00.0027771" startTime="2011-09-02T15:18:46.7180543-04:00" endTime="2011-09-02T15:18:46.7336787-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cb2eab5a-792c-4b57-afb5-f494586808ba">
+    </UnitTestResult>
+    <UnitTestResult executionId="b08eebe5-071c-452b-ab7c-a03c427b3dc1" testId="53928f54-d512-c5a8-e380-f7669a2cddf4" testName="WithdrawTest" computerName="WOCDUSL3H1462" duration="00:00:00.0017588" startTime="2011-09-02T15:18:46.7493031-04:00" endTime="2011-09-02T15:18:46.7493031-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b08eebe5-071c-452b-ab7c-a03c427b3dc1">
+    </UnitTestResult>
+    <UnitTestResult executionId="dacad342-e6fc-4469-b525-64b8ee0e5afb" testId="36212028-0c02-199d-d82f-d45736fa2814" testName="InsufficientFundsExceptionConstructorTest" computerName="WOCDUSL3H1462" duration="00:00:00.0027408" startTime="2011-09-02T15:18:46.7649275-04:00" endTime="2011-09-02T15:18:46.7805519-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="dacad342-e6fc-4469-b525-64b8ee0e5afb">
+    </UnitTestResult>
+    <UnitTestResult executionId="338ad25b-9444-4076-b6a0-93d388f54731" testId="dc81a67d-d7ae-43e8-f09e-377d4a2fd9d8" testName="OverdrawnExceptionConstructorTest" computerName="WOCDUSL3H1462" duration="00:00:00.0021815" startTime="2011-09-02T15:18:46.7805519-04:00" endTime="2011-09-02T15:18:46.7961763-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="338ad25b-9444-4076-b6a0-93d388f54731">
+    </UnitTestResult>
+  </Results>
+</TestRun>

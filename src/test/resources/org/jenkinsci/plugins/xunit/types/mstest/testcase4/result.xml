@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites
-        >
-    <testsuite name="MSTestSuite" tests="2" time="0" failures="1" errors="0" skipped="0">
-        <testcase classname="TestProject1.UnitTest1" name="TestMethod1" time="0.018"/>
+<testsuites>
+    <testsuite name="MSTestSuite" tests="2" time="0.992" failures="1" errors="0" skipped="0">
+        <testcase classname="TestProject1.UnitTest1" name="TestMethod1" time="0.018" />
         <testcase classname="TestProject1.UnitTest1" name="TestMethod2" time="0.102">
-            <failure>
-                MESSAGE:
-                Assert.Fail failed.
-                +++++++++++++++++++
-                STACK TRACE:
-                at TestProject1.UnitTest1.TestMethod2() in c:\users\carlos\documents\visual studio
-                2010\Projects\TestProject1\TestProject1\UnitTest1.cs:line 71
+            <failure message="Assert.Fail failed. "> at TestProject1.UnitTest1.TestMethod2() in c:\users\carlos\documents\visual studio 2010\Projects\TestProject1\TestProject1\UnitTest1.cs:line 71
             </failure>
         </testcase>
     </testsuite>
