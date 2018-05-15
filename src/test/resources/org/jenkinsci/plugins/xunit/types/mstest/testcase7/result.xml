@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-    <testsuite name="MSTestSuite" tests="15" time="1.453" failures="1" errors="0" skipped="1">
+    <testsuite name="MSTestSuite" tests="15" time="1.453" failures="1" errors="0" skipped="2">
         <testcase classname="AccountTest2.AccountTest" name="AccountConstructorTest" time="0.051" />
         <testcase classname="AccountTest2.AccountTest" name="AddToBalanceTest" time="0.015" />
         <testcase classname="AccountTest2.AccountTest" name="ApplyInterestTest" time="0.003" />
@@ -8,7 +8,9 @@
         <testcase classname="AccountTest2.AccountTest" name="BalanceTest" time="0.001" />
         <testcase classname="AccountTest2.AccountTest" name="CalculateInterestTest" time="0.002" />
         <testcase classname="AccountTest2.AccountTest" name="DepositTest" time="0.002" />
-        <testcase classname="AccountTest2.AccountTest" name="InterestRateTest" time="0.001" />
+        <testcase classname="AccountTest2.AccountTest" name="MTestNotExecuted" time="0.001">
+            <skipped />
+        </testcase>
         <testcase classname="AccountTest2.AccountTest" name="MinimumBalanceTest" time="0.001" />
         <testcase classname="AccountTest2.AccountTest" name="MTestFail" time="0.060">
             <failure message="Assert.Fail failed. Always fails"> at AccountTest2.AccountTest.MTestFail() in c:\Jenkins_Home\jobs\NUnit_Quick_Learning\workspace\AccountTest2\AccountMTest.cs:line 253

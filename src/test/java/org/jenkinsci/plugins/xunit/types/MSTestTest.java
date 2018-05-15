@@ -41,7 +41,8 @@ public class MSTestTest extends AbstractTest {
                                               { "mstest_4_tests_2_classes", 3 }, //
                                               { "mstest_vs_2010", 4 }, //
                                               { "mstest_more_than_one_minute_test", 5 }, //
-                                              { "JENKINS-10911", 6 } //
+                                              { "JENKINS-10911", 6 }, //
+                                              { "JENKINS-13113 tests with outcome NotExecuted are counted as skipped", 7 } //
         });
     }
 
