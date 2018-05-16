@@ -24,7 +24,11 @@
 
 package org.jenkinsci.plugins.xunit.types;
 
-import hudson.FilePath;
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.commons.io.FileUtils;
 import org.jenkinsci.lib.dtkit.model.InputMetricOther;
 import org.jenkinsci.lib.dtkit.util.converter.ConversionException;
@@ -32,10 +36,7 @@ import org.jenkinsci.lib.dtkit.util.validator.ValidationError;
 import org.jenkinsci.lib.dtkit.util.validator.ValidationException;
 import org.jenkinsci.plugins.xunit.types.model.JUnit10;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
-import java.util.Map;
+import hudson.FilePath;
 
 /**
  * @author Gregory Boissinot
@@ -63,9 +64,9 @@ public class JUnitInputMetric extends InputMetricOther {
     public boolean validateInputFile(File inputXMLFile) throws ValidationException {
         final JUnit10 jUnit = new JUnit10();
         List<ValidationError> errors = jUnit.validate(inputXMLFile);
-        for (ValidationError error : errors) {
-            System.out.println(error);
-        }
+
+        setInputValidationErrors(errors);
+
         return errors.isEmpty();
     }
 
