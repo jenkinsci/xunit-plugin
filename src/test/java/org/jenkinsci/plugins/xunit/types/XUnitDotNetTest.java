@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014, Gregory Boissinot, Falco Nikolas
+ * Copyright (c) 2017, Jedidja Bourgeois, Dave Hamilton, Falco Nikolas
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -31,25 +31,20 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
+
 @RunWith(Parameterized.class)
-public class PHPUnitTest extends AbstractTest {
+public class XUnitDotNetTest extends AbstractTest {
 
     @Parameters(name = "{0}")
     public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][] { { "testcase1", 1 }, //
-                                              { "testcase2", 2 }, //
-                                              { "testcase3", 3 }, //
-                                              { "testcase4", 4 }, //
-                                              { "testcase5", 5 }, //
-                                              { "testcase6", 6 }, //
-                                              { "testcase7", 7 }, //
-                                              { "JENKINS-42715 skipped test using PHPUnit 5.4", 8 }, //
-                                              { "JENKINS-42715 skipped test using PHPUnit 6+", 9 }, //
+        return Arrays.asList(new Object[][] { { "simple transformation", 1 }, //
+                                              { "JENKINS-33385 testcase does not have package at name", 2 }, //
+                                              { "OS culture aware, use comma instead dot as decimal separator", 3 } //
         });
     }
 
-    public PHPUnitTest(String testName, int testNumber) {
-        super(PHPUnit.class, resolveInput("phpunit", testNumber), resolveOutput("phpunit", testNumber));
+    public XUnitDotNetTest(String testName, int testNumber) {
+        super(XUnitDotNet.class, resolveInput("xunitdotnet", testNumber), resolveOutput("xunitdotnet", testNumber));
     }
 
     @Override

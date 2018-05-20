@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="MyProject.Tests" tests="3" time="0.288" timestamp="2014-12-18T14:34:32" failures="1" errors="0" skipped="1">
+        <properties>
+            <property name="environment" value="64-bit .NET 4.0.30319.18444 [collection-per-class, parallel]" />
+            <property name="test-framework" value="xUnit.net 2.0.0.2785" />
+            <property name="config-file" value="C:\Jenkins\jobs\my-project\workspace\MyProject\xunit\xunit.console.exe.Config" />
+        </properties>
+        <testcase classname="MyProject.Tests.SampleFact" name="SuccessfulTestWithTrait" time="35.524" />
+    </testsuite>
+</testsuites>

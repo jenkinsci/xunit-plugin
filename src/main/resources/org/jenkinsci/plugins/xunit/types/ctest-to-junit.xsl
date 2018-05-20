@@ -27,10 +27,17 @@ THE SOFTWARE.
     <xsl:decimal-format decimal-separator="." grouping-separator=","/>
 
     <xsl:function name="xunit:junit-time" as="xs:string">
-        <xsl:param name="value" as="xs:double?" />
+        <xsl:param name="value" as="xs:anyAtomicType?" />
 
         <xsl:variable name="time" as="xs:double">
-            <xsl:value-of select="translate(string($value),',','.')" />
+            <xsl:choose>
+                <xsl:when test="$value instance of xs:double">
+                    <xsl:value-of select="$value" />
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="translate(string($value), ',', '.')" />
+                </xsl:otherwise>
+            </xsl:choose>
         </xsl:variable>
         <xsl:value-of select="format-number($time, '0.000')" />
     </xsl:function>
