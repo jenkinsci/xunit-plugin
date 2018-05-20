@@ -1,0 +1,258 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ResultsSession time="06/09/15 15:53:58" toolName="C++test" toolVer="9.5.3.61">
+    <TestConfig name="Run Unit Tests with Memory Monitoring (1)" pseudoUrl="c++test.file:/D:/Parasoft/config/RunUnitTestswithMemoryMonitoring.properties" />
+    <Authors />
+    <VersionInfos>
+        <StorageInfo ownerId="com.parasoft.xtest.checkers.api.execution" resultId="IExecutionViolation" ver="2" />
+        <StorageInfo ownerId="com.parasoft.xtest.checkers.api.execution" resultId="InsureViolation" ver="3" />
+        <StorageInfo ownerId="com.parasoft.xtest.checkers.api.codereview" resultId="ICodeReviewUndefinedAuthorsInfo" ver="1" />
+        <StorageInfo ownerId="com.parasoft.xtest.checkers.api.codereview" resultId="ICodeReviewScannerInfo" ver="2" />
+        <StorageInfo ownerId="com.parasoft.xtest.checkers.api.generation" resultId="IGenerationInfo" ver="2" />
+        <StorageInfo ownerId="com.parasoft.xtest.checkers.api.generation" resultId="IGenerationProjectInfo" ver="2" />
+        <StorageInfo ownerId="com.parasoft.xtest.checkers.api.scope" resultId="IScopeProjectInfo" ver="3" />
+        <StorageInfo ownerId="com.parasoft.xtest.checkers.api.standards" resultId="IMetricsViolation" ver="2" />
+        <StorageInfo ownerId="com.parasoft.xtest.checkers.api.standards" resultId="IFlowAnalysisViolation" ver="2" />
+        <StorageInfo ownerId="com.parasoft.xtest.checkers.api.standards" resultId="ICodingStandardsViolation" ver="2" />
+        <StorageInfo ownerId="com.parasoft.xtest.checkers.api.standards" resultId="IMetricEstimationInfo" ver="2" />
+        <StorageInfo ownerId="com.parasoft.xtest.checkers.api.standards" resultId="IDupCodeViolation" ver="2" />
+    </VersionInfos>
+
+    <Scope>
+        <ProjectInformations>
+            <ScopeProjectInfo fltFiles="32" fltLns="11910" project="amcctip/amcctip" totFiles="32" totLns="11910" />
+        </ProjectInformations>
+    </Scope>
+
+    <Exec ownerId="com.parasoft.xtest.checkers.api.execution" time="0:00:22">
+        <Goals>
+            <Goal mode="1" name="Unit Test Problems" type="0" />
+            <Goal mode="1" name="Unit Test Outcomes" type="3" />
+            <Goal mode="1" name="Runtime Error Detection Violations" type="5" />
+        </Goals>
+
+        <ExecViols />
+
+        <History>
+            <Graph id="tsks">
+                <Categories>
+                    <Category authPos="3" color="orange" name="Fix Runtime Error Detection Violations" pos="3" />
+                    <Category authPos="2" color="red" name="Fix Unit Test Problems" pos="2" />
+                    <Category authPos="4" color="blue" name="Review Unit Test Outcomes" pos="4" />
+                </Categories>
+                <Total secSer="1" title="" xTitle="Date" yTitle="Tasks" yTitle2="Review Unit Test Outcomes">
+                    <X>06-09-15,</X>
+                    <Y>0,0,0,</Y>
+                    <Delta>0,0,0,</Delta>
+                </Total>
+            </Graph>
+            <Graph id="tc">
+                <Categories>
+                    <Category color="gray" name="Total" pos="0" />
+                    <Category color="green" name="Passed" pos="1" />
+                    <Category color="red" name="Failed" pos="2" />
+                </Categories>
+                <Total secSer="1" title="" xTitle="Date" yTitle="Total" yTitle2="Failed">
+                    <X>06-09-15,</X>
+                    <Y>0,0,0,</Y>
+                    <Delta>0,0,0,</Delta>
+                </Total>
+            </Graph>
+        </History>
+
+        <Categories>
+            <Category desc="" id="5" label="Fix Runtime Error Detection Violations" label0="Fix Runtime Error Detection" label1="Violations" name="Runtime Error Detection Violations">
+                <SubCategory id="9" name="Runtime Violations" short="runtime violation" />
+                <SubCategory id="17" name="Memory" short="Memory" />
+            </Category>
+            <Category
+                desc="This represents the tasks arising from tests that have already been reviewed. This includes exceptions that have been marked as expected, assertion failures from previously reviewed tests, and any other kind of unexpected behavior that needs to be looked at (such as timeouts)."
+                id="0" label="Fix Unit Test Problems" label0="Fix Unit Test" label1="Problems" name="Unit Test Problems">
+                <SubCategory id="0" name="Runtime Exceptions" short="exception" />
+                <SubCategory id="1" name="Assertion Failures" short="failure" />
+                <SubCategory id="14" name="Execution Problems" short="execution problem" />
+                <SubCategory id="15" name="Test Problems" short="test problem" />
+            </Category>
+            <Category
+                desc="These are outcomes from automatically generated tests that did not result in exceptions or assertion failures. The user just has to review and ensure that the outcome is appropriate (and convert them to assertions if they are not already represented as assertions)."
+                id="3" label="Review Unit Test Outcomes" label0="Review Unit Test" label1="Outcomes" name="Unit Test Outcomes">
+                <SubCategory id="6" name="Unverified Outcomes" short="unverified outcome" />
+            </Category>
+        </Categories>
+        <Summary>
+            <Total>
+                <CategoryErrors authCount="" authUrgCount="" cat="5" count="0">
+                    <SubCategoryErrors authCount="" authUrgCount="" count="0" subCat="9" />
+                    <SubCategoryErrors authCount="" authUrgCount="" count="0" subCat="17" />
+                </CategoryErrors>
+                <CategoryErrors authCount="" authUrgCount="" cat="0" count="0">
+                    <SubCategoryErrors authCount="" authUrgCount="" count="0" subCat="0" />
+                    <SubCategoryErrors authCount="" authUrgCount="" count="0" subCat="1" />
+                    <SubCategoryErrors authCount="" authUrgCount="" count="0" subCat="14" />
+                    <SubCategoryErrors authCount="" authUrgCount="" count="0" subCat="15" />
+                </CategoryErrors>
+                <CategoryErrors authCount="" authUrgCount="" cat="3" count="0">
+                    <SubCategoryErrors authCount="" authUrgCount="" count="0" subCat="6" />
+                </CategoryErrors>
+            </Total>
+            <Projects />
+        </Summary>
+        <Coverage>
+            <Types>
+                <CvgType cvgDecor="marker" dispCvg="executable lines" dispId="LC" dispName="Line Coverage" dispNoCvg="no executable lines" id="LC" />
+            </Types>
+            <CvgStats>
+                <CvgInfo elem="Total" exp="1" num="0" total="2583" val="0">
+                    <CvgInfo elem="amcctip" exp="1" num="0" total="2583" val="0">
+                        <CvgInfo elem="Source Files" exp="1" num="0" total="2583" val="0">
+                            <CvgInfo elem="8assist.c" loc="amcctip/amcctip/Source Files/8assist.c" num="0" total="25" val="0">
+                                <CvgInfo elem="usSTS8_RestituerListeFormule" num="0" total="25" val="0" />
+                            </CvgInfo>
+                            <CvgInfo elem="8bacte.c" loc="amcctip/amcctip/Source Files/8bacte.c" num="0" total="160" val="0">
+                                <CvgInfo elem="pstSTS8_InitActe" num="0" total="31" val="0" />
+                                <CvgInfo elem="usSTS8_CalculerMontantAMC" num="0" total="100" val="0" />
+                                <CvgInfo elem="usSTS8_ControlerDonneesActe" num="0" total="18" val="0" />
+                                <CvgInfo elem="usSTS8_LibererActe" num="0" total="11" val="0" />
+                            </CvgInfo>
+                            <CvgInfo elem="8bdonex.c" loc="amcctip/amcctip/Source Files/8bdonex.c" num="0" total="353" val="0">
+                                <CvgInfo elem="usSTS8_LectureParamDansTable" num="0" total="77" val="0" />
+                                <CvgInfo elem="usSTS8_PrechargeTableGarantie" num="0" total="27" val="0" />
+                                <CvgInfo elem="usSTS8_RechercheGarantie" num="0" total="139" val="0" />
+                                <CvgInfo elem="usSTS8_SoumettreDiagnostic" num="0" total="110" val="0" />
+                            </CvgInfo>
+                            <CvgInfo elem="8bfactu.c" loc="amcctip/amcctip/Source Files/8bfactu.c" num="0" total="704" val="0">
+                                <CvgInfo elem="usSTS8_AnalyserFacture" num="0" total="82" val="0" />
+                                <CvgInfo elem="usSTS8_CalculerTotalAMC" num="0" total="33" val="0" />
+                                <CvgInfo elem="usSTS8_ControlerDiagnostic" num="0" total="15" val="0" />
+                                <CvgInfo elem="usSTS8_ControlerPresenceFormule" num="0" total="23" val="0" />
+                                <CvgInfo elem="usSTS8_DecodageZCC" num="0" total="204" val="0" />
+                                <CvgInfo elem="usSTS8_FormaterZout" num="0" total="39" val="0" />
+                                <CvgInfo elem="usSTS8_GarderActeUnique" num="0" total="22" val="0" />
+                                <CvgInfo elem="usSTS8_InitFacture" num="0" total="41" val="0" />
+                                <CvgInfo elem="usSTS8_LectureParamDansRUF" num="0" total="86" val="0" />
+                                <CvgInfo elem="usSTS8_LibererFacture" num="0" total="8" val="0" />
+                                <CvgInfo elem="usSTS8_TraiterActes" num="0" total="55" val="0" />
+                                <CvgInfo elem="usSTS8_VerifCompatibiliteTableCarte" num="0" total="39" val="0" />
+                                <CvgInfo elem="usSTS8_VerifGarantiesEnCarte" num="0" total="13" val="0" />
+                                <CvgInfo elem="usSTS8_VerifPieceJustificativeAMC" num="0" total="20" val="0" />
+                                <CvgInfo elem="usSTS8_VerifTiersPayant" num="0" total="14" val="0" />
+                                <CvgInfo elem="usSTS8_VerifZoneMutuelle" num="0" total="10" val="0" />
+                            </CvgInfo>
+                            <CvgInfo elem="8bgroupe.c" loc="amcctip/amcctip/Source Files/8bgroupe.c" num="0" total="730" val="0">
+                                <CvgInfo elem="usSTS8_Analyse109" num="0" total="37" val="0" />
+                                <CvgInfo elem="usSTS8_Analyse111" num="0" total="43" val="0" />
+                                <CvgInfo elem="usSTS8_Analyse1120" num="0" total="14" val="0" />
+                                <CvgInfo elem="usSTS8_Analyse1180" num="0" total="19" val="0" />
+                                <CvgInfo elem="usSTS8_Analyse1321" num="0" total="16" val="0" />
+                                <CvgInfo elem="usSTS8_Analyse1610" num="0" total="42" val="0" />
+                                <CvgInfo elem="usSTS8_Analyse1620" num="0" total="42" val="0" />
+                                <CvgInfo elem="usSTS8_Analyse1630" num="0" total="42" val="0" />
+                                <CvgInfo elem="usSTS8_Analyse2020" num="0" total="11" val="0" />
+                                <CvgInfo elem="usSTS8_Analyse3710" num="0" total="64" val="0" />
+                                <CvgInfo elem="usSTS8_Analyse3730" num="0" total="11" val="0" />
+                                <CvgInfo elem="usSTS8_Analyse3731" num="0" total="11" val="0" />
+                                <CvgInfo elem="usSTS8_Analyse3800" num="0" total="11" val="0" />
+                                <CvgInfo elem="usSTS8_EcrireDescFormule" num="0" total="34" val="0" />
+                                <CvgInfo elem="usSTS8_Formate1321" num="0" total="12" val="0" />
+                                <CvgInfo elem="usSTS8_Formate1450" num="0" total="17" val="0" />
+                                <CvgInfo elem="usSTS8_Formate1610" num="0" total="16" val="0" />
+                                <CvgInfo elem="usSTS8_Formate1620" num="0" total="16" val="0" />
+                                <CvgInfo elem="usSTS8_Formate1630" num="0" total="16" val="0" />
+                                <CvgInfo elem="usSTS8_Formate1910" num="0" total="17" val="0" />
+                                <CvgInfo elem="usSTS8_Formate2010" num="0" total="14" val="0" />
+                                <CvgInfo elem="usSTS8_Formate3710" num="0" total="31" val="0" />
+                                <CvgInfo elem="usSTS8_Formate3715" num="0" total="35" val="0" />
+                                <CvgInfo elem="usSTS8_Formate3760" num="0" total="44" val="0" />
+                                <CvgInfo elem="usSTS8_FormateDiagnostic" num="0" total="21" val="0" />
+                                <CvgInfo elem="usSTS8_InitDescFormule" num="0" total="11" val="0" />
+                                <CvgInfo elem="usSTS8_InitDiagnostic" num="0" total="6" val="0" />
+                                <CvgInfo elem="usSTS8_InitParametreC" num="0" total="3" val="0" />
+                                <CvgInfo elem="usSTS8_InitParametreD" num="0" total="5" val="0" />
+                                <CvgInfo elem="usSTS8_InitParametreL" num="0" total="3" val="0" />
+                                <CvgInfo elem="usSTS8_InitParametreS" num="0" total="3" val="0" />
+                                <CvgInfo elem="usSTS8_InitParametreU" num="0" total="3" val="0" />
+                                <CvgInfo elem="usSTS8_InitVersion" num="0" total="4" val="0" />
+                                <CvgInfo elem="usSTS8_LectureL" num="0" total="9" val="0" />
+                                <CvgInfo elem="usSTS8_LectureU" num="0" total="9" val="0" />
+                                <CvgInfo elem="usSTS8_LibererDescFormule" num="0" total="9" val="0" />
+                                <CvgInfo elem="usSTS8_LibererDiagnostic" num="0" total="6" val="0" />
+                                <CvgInfo elem="usSTS8_LireChaineEtendue" num="0" total="23" val="0" />
+                            </CvgInfo>
+                            <CvgInfo elem="8lib.c" loc="amcctip/amcctip/Source Files/8lib.c" num="0" total="211" val="0">
+                                <CvgInfo elem="usSTS8_GenererADM" num="0" total="43" val="0" />
+                                <CvgInfo elem="usSTS8_InitLIB" num="0" total="68" val="0" />
+                                <CvgInfo elem="usSTS8_TermLIB" num="0" total="18" val="0" />
+                                <CvgInfo elem="usSTS8_VerifierPackage" num="0" total="28" val="0" />
+                                <CvgInfo elem="vSTS8_LireIni" num="0" total="54" val="0" />
+                            </CvgInfo>
+                            <CvgInfo elem="8libraryextern.c" loc="amcctip/amcctip/Source Files/8libraryextern.c" num="0" total="44" val="0">
+                                <CvgInfo elem="usSTS8_ChargementDesLibrairiesExterne" num="0" total="10" val="0" />
+                                <CvgInfo elem="usSTS8_CloseLibrary" num="0" total="7" val="0" />
+                                <CvgInfo elem="usSTS8_DeChargementDesLibrairiesExtern" num="0" total="5" val="0" />
+                                <CvgInfo elem="usSTS8_GetStatuslibrairieExtern" num="0" total="6" val="0" />
+                                <CvgInfo elem="usSTS8_OpenLibrary" num="0" total="16" val="0" />
+                            </CvgInfo>
+                            <CvgInfo elem="8main.c" loc="amcctip/amcctip/Source Files/8main.c" num="0" total="44" val="0">
+                                <CvgInfo elem="DllMain" num="0" total="12" val="0" />
+                                <CvgInfo elem="STS8_AllouerZoneMem" num="0" total="4" val="0" />
+                                <CvgInfo elem="STS8_Assistance" num="0" total="4" val="0" />
+                                <CvgInfo elem="STS8_InitLIB" num="0" total="4" val="0" />
+                                <CvgInfo elem="STS8_InitTrace" num="0" total="4" val="0" />
+                                <CvgInfo elem="STS8_LibererZoneMem" num="0" total="3" val="0" />
+                                <CvgInfo elem="STS8_LireVersion" num="0" total="4" val="0" />
+                                <CvgInfo elem="STS8_Tarification" num="0" total="4" val="0" />
+                                <CvgInfo elem="STS8_TermLIB" num="0" total="5" val="0" />
+                            </CvgInfo>
+                            <CvgInfo elem="8mem.c" loc="amcctip/amcctip/Source Files/8mem.c" num="0" total="52" val="0">
+                                <CvgInfo elem="pvSTS8_malloc" num="0" total="6" val="0" />
+                                <CvgInfo elem="pvSTS8_realloc" num="0" total="7" val="0" />
+                                <CvgInfo elem="usSTS8_AllouerReAllouerZoneMem" num="0" total="15" val="0" />
+                                <CvgInfo elem="usSTS8_AllouerZoneMem" num="0" total="12" val="0" />
+                                <CvgInfo elem="vSTS8_free" num="0" total="4" val="0" />
+                                <CvgInfo elem="vSTS8_LibererZoneMem" num="0" total="8" val="0" />
+                            </CvgInfo>
+                            <CvgInfo elem="8tarifi.c" loc="amcctip/amcctip/Source Files/8tarifi.c" num="0" total="73" val="0">
+                                <CvgInfo elem="usSTS8_Tarification" num="0" total="73" val="0" />
+                            </CvgInfo>
+                            <CvgInfo elem="8trace.c" loc="amcctip/amcctip/Source Files/8trace.c" num="0" total="42" val="0">
+                                <CvgInfo elem="usSTS8_InitTrace" num="0" total="42" val="0" />
+                            </CvgInfo>
+                            <CvgInfo elem="8utile.c" loc="amcctip/amcctip/Source Files/8utile.c" num="0" total="76" val="0">
+                                <CvgInfo elem="usSTS8_ascii2hexa" num="0" total="56" val="0" />
+                                <CvgInfo elem="usSTS8_TranscodeRuf" num="0" total="11" val="0" />
+                                <CvgInfo elem="usSTS8_TranscrireCRSI" num="0" total="9" val="0" />
+                            </CvgInfo>
+                            <CvgInfo elem="8version.c" loc="amcctip/amcctip/Source Files/8version.c" num="0" total="69" val="0">
+                                <CvgInfo elem="usSTS8_LireVersion" num="0" total="69" val="0" />
+                            </CvgInfo>
+                        </CvgInfo>
+                    </CvgInfo>
+                </CvgInfo>
+            </CvgStats>
+
+            <History>
+                <Graph id="cvg">
+                    <Categories>
+                        <Category color="red" name="Executable Total Lines" pos="0" />
+                        <Category color="green" name="Executable Covered Lines" pos="1" />
+                        <Category color="blue" name="Percentage" pos="2" />
+                    </Categories>
+                    <Total secSer="1" title="" xTitle="Date" yTitle="Lines" yTitle2="Percentage">
+                        <X>06-09-15,</X>
+                        <Y>2583,0,0,</Y>
+                        <Delta>2583,0,0,</Delta>
+                    </Total>
+                </Graph>
+            </History>
+
+
+        </Coverage>
+        <TestingProcessProblems>
+            <CppAnalysisProblem tested="amcctip/amcctip">
+                <ErrorList>
+                    <Error val="Test execution: error linking test executable for Test unit for selected sources." />
+                </ErrorList>
+            </CppAnalysisProblem>
+        </TestingProcessProblems>
+    </Exec>
+    <AssocUrls />
+</ResultsSession>

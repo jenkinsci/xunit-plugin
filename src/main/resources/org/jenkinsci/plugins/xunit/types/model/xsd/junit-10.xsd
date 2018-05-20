@@ -104,14 +104,8 @@ THE SOFTWARE.
             </xs:sequence>
             <xs:attribute name="name" type="xs:string" use="required"/>
             <xs:attribute name="time" type="xs:string" use="optional"/>
-            <xs:attribute name="timestamp" type="xs:string" use="optional"/>
             <xs:attribute name="classname" type="xs:string" use="optional"/>
-            <xs:attribute name="status" type="xs:string" use="optional"/>
-            <xs:attribute name="class" type="xs:string" use="optional"/>
-            <xs:attribute name="file" type="xs:string" use="optional"/>
-            <xs:attribute name="log" type="xs:string" use="optional"/>
             <xs:attribute name="group" type="xs:string" use="optional"/>
-            <xs:attribute name="url" type="xs:string" use="optional"/>
         </xs:complexType>
     </xs:element>
 
@@ -129,15 +123,12 @@ THE SOFTWARE.
             <xs:attribute name="failures" type="xs:string" use="optional"/>
             <xs:attribute name="errors" type="xs:string" use="optional"/>
             <xs:attribute name="time" type="xs:string" use="optional"/>
-            <xs:attribute name="disabled" type="xs:string" use="optional"/>
             <xs:attribute name="skipped" type="xs:string" use="optional"/>
-            <xs:attribute name="skips" type="xs:string" use="optional"/>
             <xs:attribute name="timestamp" type="xs:string" use="optional"/>
             <xs:attribute name="hostname" type="xs:string" use="optional"/>
             <xs:attribute name="id" type="xs:string" use="optional"/>
             <xs:attribute name="package" type="xs:string" use="optional"/>
             <xs:attribute name="file" type="xs:string" use="optional"/>
-            <xs:attribute name="skip" type="xs:string" use="optional"/>
             <xs:attribute name="log" type="xs:string" use="optional"/>
             <xs:attribute name="url" type="xs:string" use="optional"/>
         </xs:complexType>
@@ -152,7 +143,6 @@ THE SOFTWARE.
             <xs:attribute name="time" type="xs:string" use="optional"/>
             <xs:attribute name="tests" type="xs:string" use="optional"/>
             <xs:attribute name="failures" type="xs:string" use="optional"/>
-            <xs:attribute name="disabled" type="xs:string" use="optional"/>
             <xs:attribute name="errors" type="xs:string" use="optional"/>
         </xs:complexType>
     </xs:element>

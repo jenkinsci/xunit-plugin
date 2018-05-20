@@ -42,7 +42,7 @@ public class ValidInputMetricXSLTest {
     public static void loadList() {
         listInputMetric.add(AUnit.class);
         listInputMetric.add(BoostTest.class);
-        listInputMetric.add(CppTestUnit.class);
+        listInputMetric.add(CppTest.class);
         listInputMetric.add(CppUnit.class);
         listInputMetric.add(FPCUnit.class);
         listInputMetric.add(MSTest.class);

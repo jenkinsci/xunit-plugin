@@ -6,8 +6,7 @@
     <VersionInfos>
         <StorageInfo ownerId="com.parasoft.xtest.checkers.api.execution" resultId="IExecutionViolation" ver="2"/>
         <StorageInfo ownerId="com.parasoft.xtest.checkers.api.execution" resultId="InsureViolation" ver="3"/>
-        <StorageInfo ownerId="com.parasoft.xtest.checkers.api.codereview" resultId="ICodeReviewUndefinedAuthorsInfo"
-                     ver="1"/>
+        <StorageInfo ownerId="com.parasoft.xtest.checkers.api.codereview" resultId="ICodeReviewUndefinedAuthorsInfo" ver="1"/>
         <StorageInfo ownerId="com.parasoft.xtest.checkers.api.codereview" resultId="ICodeReviewScannerInfo" ver="2"/>
         <StorageInfo ownerId="com.parasoft.xtest.checkers.api.generation" resultId="IGenerationInfo" ver="2"/>
         <StorageInfo ownerId="com.parasoft.xtest.checkers.api.generation" resultId="IGenerationProjectInfo" ver="2"/>
@@ -6425,10 +6424,8 @@
             </ExecViol>
         </ExecViols>
 
-
         <Categories>
-            <Category desc="" id="5" label="Fix Runtime Error Detection Violations" label0="Fix Runtime Error Detection"
-                      label1="Violations" name="Runtime Error Detection Violations">
+            <Category desc="" id="5" label="Fix Runtime Error Detection Violations" label0="Fix Runtime Error Detection" label1="Violations" name="Runtime Error Detection Violations">
                 <SubCategory id="9" name="Runtime Violations" short="runtime violation"/>
                 <SubCategory id="17" name="Portability" short="Portability"/>
                 <SubCategory id="16" name="Database" short="Database"/>

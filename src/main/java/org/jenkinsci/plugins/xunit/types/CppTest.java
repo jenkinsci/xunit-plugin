@@ -28,7 +28,7 @@ import org.jenkinsci.lib.dtkit.model.InputType;
 import org.jenkinsci.lib.dtkit.model.OutputMetric;
 import org.jenkinsci.plugins.xunit.types.model.JUnitModel;
 
-public class CppTestUnit extends InputMetricXSL {
+public class CppTest extends InputMetricXSL {
 
     @Override
     public InputType getToolType() {
