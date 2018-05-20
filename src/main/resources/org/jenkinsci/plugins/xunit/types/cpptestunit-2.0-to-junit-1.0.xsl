@@ -1,65 +1,156 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-/*******************************************************************************
-* Copyright (c) 2011 Thales Corporate Services SAS                             *
-* Author : Gregory Boissinot, Aravindan Mahendran                              *
-*                                                                              *
-* Permission is hereby granted, free of charge, to any person obtaining a copy *
-* of this software and associated documentation files (the "Software"), to deal*
-* in the Software without restriction, including without limitation the rights *
-* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell    *
-* copies of the Software, and to permit persons to whom the Software is        *
-* furnished to do so, subject to the following conditions:                     *
-*                                                                              *
-* The above copyright notice and this permission notice shall be included in   *
-* all copies or substantial portions of the Software.                          *
-*                                                                              *
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR   *
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,     *
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE  *
-* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER       *
-* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,*
-* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN    *
-* THE SOFTWARE.                                                                *
-*******************************************************************************/
--->
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+The MIT License (MIT)
 
-    <xsl:output method="xml" encoding="UTF-8" indent="yes"/>
+Copyright (c) 2011, Gregory Boissinot, Aravindan Mahendran
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xunit="http://www.xunit.org">
+    <xsl:output method="xml" indent="yes" encoding="UTF-8" cdata-section-elements="system-out system-err failure"/>
+    <xsl:decimal-format decimal-separator="." grouping-separator=","/>
+
+    <xsl:function name="xunit:junit-time" as="xs:string">
+        <xsl:param name="value" as="xs:double?" />
+
+        <xsl:variable name="time" as="xs:double">
+            <xsl:value-of select="translate(string($value),',','.')" />
+        </xsl:variable>
+        <xsl:value-of select="format-number($time, '0.000')" />
+    </xsl:function>
+
+    <xsl:function name="xunit:millis-from-time" as="xs:double">
+        <xsl:param name="value" as="xs:string?" />
+
+        <xsl:variable name="formattedTime" select="xunit:if-empty(replace(translate($value,',','.'), '^(\d:.+)', '0$1'), '00:00:00')" />
+        <xsl:variable name="time" select="xs:time($formattedTime)" />
+        <xsl:value-of select="hours-from-time($time)*3600 + minutes-from-time($time)*60 + seconds-from-time($time)" />
+    </xsl:function>
+
+    <xsl:function name="xunit:if-empty" as="xs:string">
+        <xsl:param name="value" as="xs:string?" />
+        <xsl:param name="default" as="xs:anyAtomicType?" />
+        <xsl:value-of select="if (string($value) != '') then string($value) else $default" />
+    </xsl:function>
+
+    <xsl:function name="xunit:is-empty" as="xs:boolean">
+        <xsl:param name="value" as="xs:string?" />
+        <xsl:value-of select="string($value) != ''" />
+    </xsl:function>
 
     <xsl:template match="/">
-        <testsuite name="{ResultsSession/Exec/Summary/Projects/Project/@name}" time="0"
-                   tests="{Summary/Projects/Project/@testCases}"
-                   failures="{ResultsSession/Exec/Summary/Projects/Project/@fail}">
-            <xsl:apply-templates select="ResultsSession/Exec"></xsl:apply-templates>
-            <xsl:apply-templates select="ResultsSession/ExecutedTestsDetails"></xsl:apply-templates>
-        </testsuite>
+        <xsl:variable name="testCount" select="ResultsSession/Exec/Summary/Projects/Project/@testCases" />
+        <xsl:variable name="failureCount" select="ResultsSession/Exec/Summary/Projects/Project/@fail" />
+        <xsl:variable name="suiteName" select="ResultsSession/Exec/Summary/Projects/Project/@name" />
+        <xsl:variable name="totalTime" select="xunit:junit-time(xunit:millis-from-time(ResultsSession/Exec/@time))" />
+
+        <xsl:choose>
+            <xsl:when test="ResultsSession/Exec/TestingProcessProblems">
+                <!-- No tests was run -->
+                <testsuite name="{ResultsSession/TestConfig/@name}"
+                            time="{$totalTime}"
+                            tests="0"
+                            failures="0">
+                    <xsl:element name="system-err">
+                        <xsl:value-of select="ResultsSession/Exec/TestingProcessProblems/CppAnalysisProblem/ErrorList/Error/@val"/>
+                    </xsl:element>
+                </testsuite>
+            </xsl:when>
+            <xsl:when test="ResultsSession/ExecutedTestsDetails">
+                <!-- CppTest 9.x -->
+                <testsuites name="{$suiteName}"
+                            time="{$totalTime}"
+                            tests="{$testCount}"
+                            failures="{$failureCount}">
+                    <xsl:apply-templates select="ResultsSession/ExecutedTestsDetails/Total/Project/TestSuite">
+                        <xsl:with-param name="suiteName" select="$suiteName" />
+                    </xsl:apply-templates>
+                </testsuites>
+            </xsl:when>
+            <xsl:otherwise>
+                <!-- CppTest 7.x -->
+                <testsuite name="{$suiteName}"
+                            time="{$totalTime}"
+                            tests="{$testCount}"
+                            failures="{$failureCount}">
+                    <xsl:call-template name="TestCase_7x">
+                        <xsl:with-param name="violations" select="ResultsSession/Exec/ExecViols"/>
+                    </xsl:call-template>
+                </testsuite>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
-    <xsl:template match="Exec">
-        <xsl:apply-templates select="*"/>
+    <xsl:template name="TestCase_7x">
+        <xsl:param name="violations" />
+
+        <xsl:for-each select="$violations/ExecViol">
+            <xsl:variable name="suiteName" select="substring-before(@testName, '::')" />
+            <xsl:variable name="testName" select="substring-after(@testName, '::')" />
+
+            <testcase classname="{$suiteName}" name="{$testName}" time="{xunit:junit-time(0)}">
+                <xsl:apply-templates select="Thr" />
+            </testcase>
+        </xsl:for-each>
     </xsl:template>
 
-    <xsl:template match="Goals">
-        <properties>
-            <xsl:apply-templates select="Goal"/>
-        </properties>
+    <xsl:template match="TestSuite">
+        <xsl:param name="suiteName" as="xs:string?" />
+
+        <xsl:variable name="suiteName" select="concat($suiteName, '.', @name)" />
+        <xsl:choose>
+            <xsl:when test="count(TestSuite) > 0">
+                <xsl:apply-templates select="TestSuite">
+                    <xsl:with-param name="suiteName" select="$suiteName" />
+                </xsl:apply-templates>
+            </xsl:when>
+            <xsl:otherwise>
+                <testsuite name="{$suiteName}"
+                           time="{xunit:junit-time(0)}"
+                           tests="{@pass + @fail}"
+                           failures="{@fail}">
+                    <xsl:apply-templates select="Test">
+                        <xsl:with-param name="fullSuiteName" select="$suiteName" />
+                        <xsl:with-param name="suiteName" select="@name" />
+                    </xsl:apply-templates>
+                </testsuite>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
-    <xsl:template match="Goal">
-        <property name="{@name}" value="{@type}"/>
-    </xsl:template>
+    <xsl:template match="Test">
+        <xsl:param name="suiteName" as="xs:string?" />
+        <xsl:param name="fullSuiteName" as="xs:string?" />
 
-    <xsl:template match="ExecViols">
-        <xsl:apply-templates select="ExecViol"/>
+        <xsl:variable name="testName" select="if (starts-with(@name, $suiteName)) then substring(@name, string-length($suiteName) + 3) else @name" />
+        <xsl:variable name="testId" select="@id" />
+        <testcase name="{$testName}"
+                  classname="{xunit:if-empty($fullSuiteName, $suiteName)}"
+                  time="{xunit:junit-time(xunit:millis-from-time(@time))}">
+            <xsl:if test="@pass != 1">
+                <xsl:apply-templates select="//Exec/ExecViols/ExecViol[@testId = $testId]" />
+            </xsl:if>
+        </testcase>
     </xsl:template>
 
     <xsl:template match="ExecViol">
-        <xsl:if test="@cat!=6">
-            <testcase classname="{@locFile}" name="{@testName}" time="0">
-                <xsl:apply-templates select="Thr"/>
-            </testcase>
-        </xsl:if>
+        <xsl:apply-templates select="Thr"/>
     </xsl:template>
 
     <xsl:template match="Thr">
@@ -67,42 +158,13 @@
     </xsl:template>
 
     <xsl:template match="ThrPart">
-        <failure type="{@clName}" message="{@detMsg}"/>
-        <system-err>
-            <xsl:text>Trace </xsl:text>
+        <failure type="{@clName}" message="{@detMsg}">
             <xsl:apply-templates select="Trace"/>
-        </system-err>
+        </failure>
     </xsl:template>
 
     <xsl:template match="Trace">
-        <xsl:text>Line :</xsl:text>
-        <xsl:value-of select="@ln"/>
-        <xsl:text>    File :</xsl:text>
-        <xsl:value-of select="@fileName"/>
-    </xsl:template>
-
-    <xsl:template match="ExecutedTestsDetails">
-        <xsl:apply-templates select="Total"/>
-    </xsl:template>
-
-    <xsl:template match="Total">
-        <xsl:apply-templates select="Project"/>
-    </xsl:template>
-
-    <xsl:template match="Project">
-        <xsl:apply-templates select="TestSuite"/>
-    </xsl:template>
-
-    <xsl:template match="TestSuite">
-        <xsl:apply-templates select="*"/>
-    </xsl:template>
-
-    <xsl:template match="Test">
-        <xsl:variable name="fullTestName"><xsl:value-of select="/ResultsSession/Exec/Summary/Projects/Project/@name"/>JUnitTestSuite
-        </xsl:variable>
-        <xsl:if test="@pass=1">
-            <testcase name="{@name}" classname="{$fullTestName}" time="0"/>
-        </xsl:if>
+	at <xsl:value-of select="@fileName"/>:<xsl:value-of select="@ln"/>
     </xsl:template>
 
 </xsl:stylesheet>

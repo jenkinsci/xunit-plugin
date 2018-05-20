@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014, Gregory Boissinot
+ * Copyright (c) 2017, Gregory Boissinot, Falco Nikolas
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,41 +21,35 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
 package org.jenkinsci.plugins.xunit.types;
 
-import org.jenkinsci.Symbol;
-import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
-import org.jenkinsci.lib.dtkit.type.TestType;
-import org.kohsuke.stapler.DataBoundConstructor;
+import java.util.Arrays;
+import java.util.Collection;
 
-import hudson.Extension;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
-/**
- * <a href="http://cpptest.sourceforge.net">CppTest</a> is a portable and
- * powerful, yet simple, unit testing framework for handling automated tests in
- * C++. The focus lies on usability and extendability.
- */
-public class CppTestJunitHudsonTestType extends TestType {
+@RunWith(Parameterized.class)
+public class CppTestTest extends AbstractTest {
 
-    @DataBoundConstructor
-    public CppTestJunitHudsonTestType(String pattern, boolean skipNoTestFiles, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
-        super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
+    @Parameters(name = "testcase{1}: {0}")
+    public static Collection<Object[]> data() {
+        return Arrays.asList(new Object[][] { { "testcase1", 1 }, //
+                                              { "mix execution of pass and fail tests", 2 }, //
+                                              { "testcase3", 3 } //
+        });
     }
 
-    @Symbol("CppTest")
-    @Extension
-    public static class DescriptorImpl extends TestTypeDescriptor<CppTestJunitHudsonTestType> {
-
-        public DescriptorImpl() {
-            super(CppTestJunitHudsonTestType.class, CppTest.class);
-        }
-
+    public CppTestTest(String testName, int testNumber) {
+        super(CppTest.class, resolveInput("cpptest", testNumber), resolveOutput("cpptest", testNumber));
     }
 
     @Override
-    public Object readResolve() {
-        return super.readResolve();
+    @Test
+    public void verifyXSLT() throws Exception {
+        super.verifyXSLT();
     }
 
 }
