@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ATM Sample" time="6.000" tests="20" failures="0">
+    <testcase classname="TestSuite_ATM_cxx_5d3c8e3f" name="test_ATM_1" time="0.000" />
+    <testcase classname="TestSuite_ATM_cxx_5d3c8e3f" name="test_fillUserRequest_1" time="0.000" />
+    <testcase classname="TestSuite_ATM_cxx_5d3c8e3f" name="test_viewAccount_1" time="0.000" />
+    <testcase classname="TestSuite_Account_cxx_61665f58" name="test_debit_1" time="0.000" />
+    <testcase classname="TestSuite_Account_cxx_61665f58" name="test_deposit_1" time="0.000" />
+    <testcase classname="TestSuite_Bank_cxx_b93040ae" name="test_Bank_1" time="0.000" />
+    <testcase classname="TestSuite_Bank_cxx_b93040ae" name="test_addAccount_1" time="0.000" />
+    <testcase classname="TestSuite_Bank_cxx_b93040ae" name="test_getAccount_1" time="0.000" />
+    <testcase classname="TestSuite_Account_hxx_5bfab86e" name="test_Account_1" time="0.000" />
+    <testcase classname="TestSuite_Account_hxx_5bfab86e" name="test_Account_3" time="0.000" />
+    <testcase classname="TestSuite_Account_hxx_5bfab86e" name="test_getAccountNumber_1" time="0.000" />
+    <testcase classname="TestSuite_Account_hxx_5bfab86e" name="test_getBalance_1" time="0.000" />
+    <testcase classname="TestSuite_Account_hxx_5bfab86e" name="test_getPassword_1" time="0.000" />
+    <testcase classname="TestSuite_Account_hxx_5bfab86e" name="test_setAccountNumber_1" time="0.000" />
+    <testcase classname="TestSuite_Account_hxx_5bfab86e" name="test_setPassword_1" time="0.000" />
+</testsuite>

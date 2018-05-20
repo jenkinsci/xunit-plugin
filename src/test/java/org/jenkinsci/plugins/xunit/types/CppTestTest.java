@@ -38,7 +38,11 @@ public class CppTestTest extends AbstractTest {
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] { { "testcase1", 1 }, //
                                               { "mix execution of pass and fail tests", 2 }, //
-                                              { "testcase3", 3 } //
+                                              { "testcase3", 3 }, //
+                                              { "7.x all test successed", 4 }, //
+                                              { "7.x all test succeed, no CLI options", 5 }, //
+                                              { "7.x one test fails with 2 assertions", 6 }, //
+                                              { "7.x one test fails with 1 assertion", 7 }, //
         });
     }
 

@@ -101,7 +101,7 @@ public abstract class AbstractTest {
 
         inputMetric.convert(inputXMLFile, outputXMLFile);
         XMLUnit.setIgnoreWhitespace(true);
-        Diff myDiff = new Diff(readXmlAsString(new File(this.getClass().getResource(expectedResultPath).toURI())), readXmlAsString(outputXMLFile));
+        Diff myDiff = new Diff(readXmlAsString(outputXMLFile), readXmlAsString(new File(this.getClass().getResource(expectedResultPath).toURI())));
         Assert.assertTrue("XSL transformation did not work " + myDiff, myDiff.similar());
 
         //The generated output file must be valid

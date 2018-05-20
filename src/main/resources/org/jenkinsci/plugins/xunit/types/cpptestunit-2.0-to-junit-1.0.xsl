@@ -38,7 +38,8 @@ THE SOFTWARE.
     <xsl:function name="xunit:millis-from-time" as="xs:double">
         <xsl:param name="value" as="xs:string?" />
 
-        <xsl:variable name="formattedTime" select="xunit:if-empty(replace(translate($value,',','.'), '^(\d:.+)', '0$1'), '00:00:00')" />
+        <xsl:variable name="formattedTime" select="xunit:if-empty(string($value), '00:00:00')" />
+        <xsl:variable name="formattedTime" select="replace(translate($formattedTime,',','.'), '^(\d:.+)', '0$1')" />
         <xsl:variable name="time" select="xs:time($formattedTime)" />
         <xsl:value-of select="hours-from-time($time)*3600 + minutes-from-time($time)*60 + seconds-from-time($time)" />
     </xsl:function>
@@ -53,6 +54,8 @@ THE SOFTWARE.
         <xsl:param name="value" as="xs:string?" />
         <xsl:value-of select="string($value) != ''" />
     </xsl:function>
+
+    <xsl:key name="testCaseId" match="/ResultsSession/Exec/ExecViols/ExecViol" use="@testCaseId" />
 
     <xsl:template match="/">
         <xsl:variable name="testCount" select="ResultsSession/Exec/Summary/Projects/Project/@testCases" />
@@ -73,7 +76,6 @@ THE SOFTWARE.
                 </testsuite>
             </xsl:when>
             <xsl:when test="ResultsSession/ExecutedTestsDetails">
-                <!-- CppTest 9.x -->
                 <testsuites name="{$suiteName}"
                             time="{$totalTime}"
                             tests="{$testCount}"
@@ -84,7 +86,7 @@ THE SOFTWARE.
                 </testsuites>
             </xsl:when>
             <xsl:otherwise>
-                <!-- CppTest 7.x -->
+                <!-- CppTest 7.x no CLI options-->
                 <testsuite name="{$suiteName}"
                             time="{$totalTime}"
                             tests="{$testCount}"
@@ -100,12 +102,14 @@ THE SOFTWARE.
     <xsl:template name="TestCase_7x">
         <xsl:param name="violations" />
 
-        <xsl:for-each select="$violations/ExecViol">
+        <xsl:for-each select="$violations/ExecViol[generate-id() = generate-id(key('testCaseId', @testCaseId)[1])]">
             <xsl:variable name="suiteName" select="substring-before(@testName, '::')" />
             <xsl:variable name="testName" select="substring-after(@testName, '::')" />
 
             <testcase classname="{$suiteName}" name="{$testName}" time="{xunit:junit-time(0)}">
-                <xsl:apply-templates select="Thr" />
+                <xsl:if test="@cat != 6">
+                    <xsl:apply-templates select="Thr" />
+                </xsl:if>
             </testcase>
         </xsl:for-each>
     </xsl:template>
@@ -121,8 +125,14 @@ THE SOFTWARE.
                 </xsl:apply-templates>
             </xsl:when>
             <xsl:otherwise>
+                <xsl:variable name="suiteTime">
+                    <xsl:for-each select=".//Test/@time">
+                        <xsl:value-of select="xunit:millis-from-time(.)" />
+                    </xsl:for-each>
+                </xsl:variable>
+
                 <testsuite name="{$suiteName}"
-                           time="{xunit:junit-time(0)}"
+                           time="{xunit:junit-time($suiteTime)}"
                            tests="{@pass + @fail}"
                            failures="{@fail}">
                     <xsl:apply-templates select="Test">
