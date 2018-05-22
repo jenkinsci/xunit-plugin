@@ -62,7 +62,6 @@ public class XUnitTransformerTest {
 
     @Before
     public void beforeTest() throws IOException {
-        when(buildListenerMock.getLogger()).thenReturn(new PrintStream(new ByteArrayOutputStream()));
         when(xUnitToolInfoMock.getInputMetric()).thenReturn(new MyInputMetric());
 
         xUnitTransformer = Guice.createInjector(Stage.DEVELOPMENT, new AbstractModule() {

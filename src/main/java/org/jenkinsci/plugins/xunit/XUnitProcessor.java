@@ -143,22 +143,22 @@ public class XUnitProcessor {
             throws IOException, InterruptedException {
         final XUnitLog xUnitLog = getXUnitLogObject(listener);
         try {
-            xUnitLog.infoConsoleLogger("Starting to record.");
+            xUnitLog.info("Starting to record.");
 
             boolean continueTestProcessing;
             try {
                 continueTestProcessing = performTests(xUnitLog, build, workspace, listener);
             } catch (StopTestProcessingException e) {
                 build.setResult(Result.FAILURE);
-                xUnitLog.infoConsoleLogger("There are errors when processing test results.");
-                xUnitLog.infoConsoleLogger("Skipping tests recording.");
-                xUnitLog.infoConsoleLogger("Stop build.");
+                xUnitLog.info("There are errors when processing test results.");
+                xUnitLog.info("Skipping tests recording.");
+                xUnitLog.info("Stop build.");
                 return true;
             }
 
             if (!continueTestProcessing) {
-                xUnitLog.infoConsoleLogger("There are errors when processing test results.");
-                xUnitLog.infoConsoleLogger("Skipping tests recording.");
+                xUnitLog.info("There are errors when processing test results.");
+                xUnitLog.info("Skipping tests recording.");
                 return true;
             }
 
@@ -167,17 +167,17 @@ public class XUnitProcessor {
             Result result = getBuildStatus(build, xUnitLog);
             if (result != null) {
                 if (!dryRun) {
-                    xUnitLog.infoConsoleLogger("Setting the build status to " + result);
+                    xUnitLog.info("Setting the build status to " + result);
                     build.setResult(result);
                 } else {
-                    xUnitLog.infoConsoleLogger("Through the xUnit plugin, the build status will be set to " + result.toString());
+                    xUnitLog.info("Through the xUnit plugin, the build status will be set to " + result.toString());
                 }
             }
-            xUnitLog.infoConsoleLogger("Stopping recording.");
+            xUnitLog.info("Stopping recording.");
             return true;
 
         } catch (XUnitException xe) {
-            xUnitLog.errorConsoleLogger("The plugin hasn't been performed correctly: " + xe.getMessage());
+            xUnitLog.error("The plugin hasn't been performed correctly: " + xe.getMessage());
             build.setResult(Result.FAILURE);
             return false;
         }
@@ -196,7 +196,7 @@ public class XUnitProcessor {
         XUnitReportProcessorService xUnitReportService = getXUnitReportProcessorServiceObject(listener);
         boolean findTest = false;
         for (TestType tool : tools) {
-            xUnitLog.infoConsoleLogger("Processing " + tool.getDescriptor().getDisplayName());
+            xUnitLog.info("Processing " + tool.getDescriptor().getDisplayName());
 
             if (!isEmptyGivenPattern(xUnitReportService, tool)) {
                 String expandedPattern = getExpandedResolvedPattern(tool, build, listener);
@@ -218,26 +218,26 @@ public class XUnitProcessor {
                         ie = (InterruptedException) originalException;
 
                     if (ie instanceof NoFoundTestException) {
-                        xUnitLog.infoConsoleLogger("Failing BUILD.");
+                        xUnitLog.info("Failing BUILD.");
                         throw new StopTestProcessingException();
                     }
 
                     if (ie instanceof SkipTestException) {
-                        xUnitLog.infoConsoleLogger("Skipping the metric tool processing.");
+                        xUnitLog.info("Skipping the metric tool processing.");
                         continue;
                     }
 
                     if (ie instanceof OldTestReportException) {
-                        xUnitLog.infoConsoleLogger("Failing BUILD.");
+                        xUnitLog.info("Failing BUILD.");
                         throw new StopTestProcessingException();
                     }
 
-                    xUnitLog.warningConsoleLogger("Caught exception of unexpected type " + ie.getClass() + ", rethrowing");
+                    xUnitLog.warn("Caught exception of unexpected type " + ie.getClass() + ", rethrowing");
                     throw ie;
                 }
 
                 if (!result && xUnitToolInfo.isStopProcessingIfError()) {
-                    xUnitLog.infoConsoleLogger("Failing BUILD because 'set build failed if errors' option is activated.");
+                    xUnitLog.info("Failing BUILD because 'set build failed if errors' option is activated.");
                     throw new StopTestProcessingException();
                 }
             }
@@ -361,7 +361,7 @@ public class XUnitProcessor {
             }
 
             if (result.getPassCount() == 0 && result.getFailCount() == 0) {
-                xUnitLog.warningConsoleLogger("All test reports are empty.");
+                xUnitLog.warn("All test reports are empty.");
             }
 
             if (existingAction == null) {
@@ -423,7 +423,7 @@ public class XUnitProcessor {
 
         if (thresholds != null) {
             for (XUnitThreshold threshold : thresholds) {
-                log.infoConsoleLogger(String.format("Check '%s' threshold.", threshold.getDescriptor().getDisplayName()));
+                log.info(String.format("Check '%s' threshold.", threshold.getDescriptor().getDisplayName()));
                 Result result;
                 if (XUnitDefaultValues.MODE_PERCENT == thresholdMode) {
                     result = threshold.getResultThresholdPercent(log, build, testResultAction, previousTestResultAction);

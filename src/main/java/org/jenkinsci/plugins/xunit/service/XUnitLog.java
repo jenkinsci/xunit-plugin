@@ -31,39 +31,40 @@ import com.google.inject.Inject;
 import hudson.model.TaskListener;
 
 public class XUnitLog implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private TaskListener buildListener;
 
     @Inject
-    void set(TaskListener buildListener) {
+    public XUnitLog(TaskListener buildListener) {
         this.buildListener = buildListener;
     }
 
     /**
-     * Log an info output to the console logger
+     * Log an info output to the console logger.
      *
      * @param message The message to be outputted
      */
-    public void infoConsoleLogger(String message) {
-        buildListener.getLogger().println("[xUnit] [INFO] - " + message);
+    public void info(String message) {
+        buildListener.getLogger().println("INFO: " + message);
     }
 
     /**
-     * Log an error output to the console logger
+     * Log an error output to the console logger.
      *
      * @param message The message to be outputted
      */
-    public void errorConsoleLogger(String message) {
-        buildListener.getLogger().println("[xUnit] [ERROR] - " + message);
+    public void error(String message) {
+        buildListener.error(message);
     }
 
     /**
-     * Log a warning output to the console logger
+     * Log a warning output to the console logger.
      *
      * @param message The message to be outputted
      */
-    public void warningConsoleLogger(String message) {
-        buildListener.getLogger().println("[xUnit] [WARNING] - " + message);
+    public void warn(String message) {
+        buildListener.getLogger().println("WARNING: " + message);
     }
 
 }

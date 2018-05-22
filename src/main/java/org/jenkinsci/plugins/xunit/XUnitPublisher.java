@@ -25,13 +25,11 @@
 package org.jenkinsci.plugins.xunit;
 
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.Arrays;
 
 import javax.annotation.CheckForNull;
 
 import org.jenkinsci.Symbol;
-import org.jenkinsci.lib.dryrun.DryRun;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
@@ -46,11 +44,8 @@ import hudson.DescriptorExtensionList;
 import hudson.Extension;
 import hudson.FilePath;
 import hudson.Launcher;
-import hudson.model.AbstractBuild;
 import hudson.model.AbstractProject;
 import hudson.model.Action;
-import hudson.model.BuildListener;
-import hudson.model.Result;
 import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.tasks.BuildStepDescriptor;
@@ -66,7 +61,7 @@ import jenkins.tasks.SimpleBuildStep;
  *
  * @author Gregory Boissinot
  */
-public class XUnitPublisher extends Recorder implements DryRun, Serializable, SimpleBuildStep {
+public class XUnitPublisher extends Recorder implements SimpleBuildStep {
 
     @XStreamAlias("types")
     private TestType[] tools;
@@ -127,20 +122,6 @@ public class XUnitPublisher extends Recorder implements DryRun, Serializable, Si
             throws InterruptedException, IOException {
         XUnitProcessor xUnitProcessor = new XUnitProcessor(getTools(), getThresholds(), getThresholdMode(), getExtraConfiguration());
         xUnitProcessor.performXUnit(false, build, workspace, listener);
-    }
-
-    @Override
-    public boolean performDryRun(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener)
-            throws InterruptedException, IOException {
-        try {
-            XUnitProcessor xUnitProcessor = new XUnitProcessor(getTools(), getThresholds(), getThresholdMode(), getExtraConfiguration());
-            xUnitProcessor.performXUnit(true, build, build.getWorkspace(), listener);
-        } catch (Throwable t) {
-            listener.getLogger().println("[ERROR] - There is an error: " + t.getCause().getMessage());
-        }
-        //Always exit on success (returned code and status)
-        build.setResult(Result.SUCCESS);
-        return true;
     }
 
     @Override

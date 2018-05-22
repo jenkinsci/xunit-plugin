@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
 package org.jenkinsci.plugins.xunit.service;
 
 import java.io.File;
@@ -35,13 +34,12 @@ import org.jenkinsci.plugins.xunit.NoFoundTestException;
 import org.jenkinsci.plugins.xunit.OldTestReportException;
 import org.jenkinsci.plugins.xunit.SkipTestException;
 import org.jenkinsci.plugins.xunit.XUnitDefaultValues;
-import org.jenkinsci.remoting.RoleChecker;
 
-import hudson.FilePath;
 import hudson.remoting.VirtualChannel;
-import jenkins.security.Roles;
+import jenkins.MasterToSlaveFileCallable;
 
-public class XUnitTransformer extends XUnitService implements FilePath.FileCallable<Boolean> {
+public class XUnitTransformer extends MasterToSlaveFileCallable<Boolean> {
+    private static final long serialVersionUID = -8111801428220302087L;
 
     private XUnitReportProcessorService xUnitReportProcessorService;
     private XUnitConversionService xUnitConversionService;
@@ -51,12 +49,11 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
     private String processorId;
 
     @Inject
-    void load(
-            XUnitReportProcessorService xUnitReportProcessorService,
-            XUnitConversionService xUnitConversionService,
-            XUnitValidationService xUnitValidationService,
-            XUnitToolInfo xUnitToolInfo,
-            XUnitLog xUnitLog) {
+    public XUnitTransformer(XUnitReportProcessorService xUnitReportProcessorService,
+                            XUnitConversionService xUnitConversionService,
+                            XUnitValidationService xUnitValidationService,
+                            XUnitToolInfo xUnitToolInfo,
+                            XUnitLog xUnitLog) {
         this.xUnitReportProcessorService = xUnitReportProcessorService;
         this.xUnitValidationService = xUnitValidationService;
         this.xUnitConversionService = xUnitConversionService;
@@ -81,8 +78,7 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
             }
             if (!junitOutputDir.exists() && !junitOutputDir.mkdirs()) {
                 String msg = "Can't create the path " + junitOutputDir + ". Maybe the directory already exists.";
-                xUnitLog.warningConsoleLogger(msg);
-                warningSystemLogger(msg);
+                xUnitLog.warn(msg);
             }
 
             String metricName = xUnitToolInfo.getInputMetric().getToolName();
@@ -92,14 +88,13 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
             int nbTestFiles = resultFiles.size();
             if (nbTestFiles == 0 && xUnitToolInfo.isSkipNoTestFiles()) {
                 String msg = "No test reports found for the metric '" + metricName + "' with the resolved pattern '" + xUnitToolInfo.getExpandedPattern() + "'.";
-                xUnitLog.warningConsoleLogger(msg);
+                xUnitLog.warn(msg);
                 throw new SkipTestException();
             }
 
             if (nbTestFiles == 0) {
                 String msg = "No test reports found for the metric '" + metricName + "' with the resolved pattern '" + xUnitToolInfo.getExpandedPattern() + "'. Configuration error?.";
-                xUnitLog.errorConsoleLogger(msg);
-                errorSystemLogger(msg);
+                xUnitLog.error(msg);
                 throw new NoFoundTestException();
             }
 
@@ -117,12 +112,10 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
                     //Ignore the empty result file (some reason)
                     String msg = "The result file '" + curFile.getPath() + "' for the metric '" + metricName + "' is empty. The result file has been skipped.";
                     if (isStopProcessingIfError) {
-                        xUnitLog.errorConsoleLogger(msg);
-                        errorSystemLogger(msg);
+                        xUnitLog.error(msg);
                         return false;
                     } else {
                         atLeastOneWarningOrError = true;
-                        errorSystemLogger(msg);
                         continue;
                     }
                 }
@@ -131,12 +124,10 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
                 if (!xUnitValidationService.validateInputFile(xUnitToolInfo, curFile)) {
                     String msg = "The result file '" + curFile + "' for the metric '" + metricName + "' is not valid. The result file has been skipped.";
                     if (isStopProcessingIfError) {
-                        xUnitLog.errorConsoleLogger(msg);
-                        errorSystemLogger(msg);
+                        xUnitLog.error(msg);
                         return false;
                     } else {
                         atLeastOneWarningOrError = true;
-                        errorSystemLogger(msg);
                         continue;
                     }
                 }
@@ -147,23 +138,21 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
                 //Validates converted file
                 if (!xUnitValidationService.validateOutputFile(xUnitToolInfo, curFile, junitTargetFile)) {
                     String msg = "The converted file for the result file '" + curFile + "' (during conversion process for the metric '" + metricName + "') is not valid. The report file has been skipped.";
-                    xUnitLog.errorConsoleLogger(msg);
-                    errorSystemLogger(msg);
+                    xUnitLog.error(msg);
                     for (ValidationError validatorError : xUnitToolInfo.getInputMetric().getOutputValidationErrors()) {
-                        xUnitLog.errorConsoleLogger(validatorError.getMessage());
+                        xUnitLog.error(validatorError.getMessage());
                     }
                     if (isStopProcessingIfError) {
                         return false;
                     } else {
                         atLeastOneWarningOrError = true;
-                        errorSystemLogger(msg);
                     }
                 }
             }
 
             if (atLeastOneWarningOrError) {
                 String msg = "There is at least one problem. Check the Jenkins system log for more information. (if you don't have configured yet the system log before, you have to rebuild).";
-                xUnitLog.errorConsoleLogger(msg);
+                xUnitLog.error(msg);
                 return false;
             }
 
@@ -176,18 +165,12 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
         } catch (Exception xe) {
             String msg = xe.getMessage();
             if (msg != null) {
-                xUnitLog.errorConsoleLogger(msg);
+                xUnitLog.error(msg);
             }
-            xe.printStackTrace();
             throw new IOException("There are some problems during the conversion into JUnit reports: ", xe);
         }
 
         return true;
-    }
-
-    @Override
-    public void checkRoles(RoleChecker checker) throws SecurityException {
-        checker.check(this, Roles.SLAVE);
     }
 
     public String getProcessorId() {
@@ -197,4 +180,5 @@ public class XUnitTransformer extends XUnitService implements FilePath.FileCalla
     public void setProcessorId(String processorId) {
         this.processorId = processorId;
     }
+
 }
