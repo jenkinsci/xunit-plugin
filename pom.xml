@@ -42,7 +42,6 @@
     <properties>
         <dtkit.frmk.version>2.0.0</dtkit.frmk.version>
         <saxon.version>9.1.0.8</saxon.version>
-        <dry.run.version>0.1</dry.run.version>
         <xmlunit.version>1.6</xmlunit.version>
         <mockito.version>2.17.0</mockito.version>
         <jenkins.version>1.651.3</jenkins.version>
@@ -110,12 +109,6 @@
             <groupId>org.jenkins-ci.lib.dtkit</groupId>
             <artifactId>dtkit-metrics-hudson-api</artifactId>
             <version>${dtkit.frmk.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.jenkins-ci.lib</groupId>
-            <artifactId>dry-run-lib</artifactId>
-            <version>${dry.run.version}</version>
         </dependency>
 
         <dependency>

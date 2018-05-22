@@ -121,25 +121,25 @@ public abstract class XUnitThreshold implements ExtensionPoint, Serializable, De
 
         if (isValid(getFailureThreshold())
                 && (convertToInteger(getFailureThreshold()) < testCount)) {
-            log.infoConsoleLogger(Messages.XUnitThreshold_thresholdErrorMessage("total", "failure"));
+            log.info(Messages.XUnitThreshold_thresholdErrorMessage("total", "failure"));
             return Result.FAILURE;
         }
 
         if (isValid(getFailureNewThreshold())
                 && (convertToInteger(getFailureNewThreshold()) < newTestCount)) {
-            log.infoConsoleLogger(Messages.XUnitThreshold_thresholdErrorMessage("new", "new failure"));
+            log.info(Messages.XUnitThreshold_thresholdErrorMessage("new", "new failure"));
             return Result.FAILURE;
         }
 
         if (isValid(getUnstableThreshold())
                 && (convertToInteger(getUnstableThreshold()) < testCount)) {
-            log.infoConsoleLogger(Messages.XUnitThreshold_thresholdErrorMessage("total", "unstable"));
+            log.info(Messages.XUnitThreshold_thresholdErrorMessage("total", "unstable"));
             return Result.UNSTABLE;
         }
 
         if (isValid(getUnstableNewThreshold())
                 && (convertToInteger(getUnstableNewThreshold()) < newTestCount)) {
-            log.infoConsoleLogger(Messages.XUnitThreshold_thresholdErrorMessage("new", "new unstable"));
+            log.info(Messages.XUnitThreshold_thresholdErrorMessage("new", "new unstable"));
             return Result.UNSTABLE;
         }
 
@@ -152,25 +152,25 @@ public abstract class XUnitThreshold implements ExtensionPoint, Serializable, De
 
         if (isValid(getFailureThreshold())
                 && (convertToInteger(getFailureThreshold()) < testPercent)) {
-            log.infoConsoleLogger(Messages.XUnitThreshold_percentThresholdErrorMessage("of the total number of", "failure"));
+            log.info(Messages.XUnitThreshold_percentThresholdErrorMessage("of the total number of", "failure"));
             return Result.FAILURE;
         }
 
         if (isValid(getFailureNewThreshold())
                 && (convertToInteger(getFailureNewThreshold()) < newTestPercent)) {
-            log.infoConsoleLogger(Messages.XUnitThreshold_percentThresholdErrorMessage("of the new number of", "new failure"));
+            log.info(Messages.XUnitThreshold_percentThresholdErrorMessage("of the new number of", "new failure"));
             return Result.FAILURE;
         }
 
         if (isValid(getUnstableThreshold())
                 && (convertToInteger(getUnstableThreshold()) < testPercent)) {
-            log.infoConsoleLogger(Messages.XUnitThreshold_percentThresholdErrorMessage("of", "unstable"));
+            log.info(Messages.XUnitThreshold_percentThresholdErrorMessage("of", "unstable"));
             return Result.UNSTABLE;
         }
 
         if (isValid(getUnstableNewThreshold())
                 && (convertToInteger(getUnstableNewThreshold()) < newTestPercent)) {
-            log.infoConsoleLogger(Messages.XUnitThreshold_percentThresholdErrorMessage("of the new number of", "new unstable"));
+            log.info(Messages.XUnitThreshold_percentThresholdErrorMessage("of the new number of", "new unstable"));
             return Result.UNSTABLE;
         }
 

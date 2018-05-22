@@ -25,7 +25,7 @@ public class XUnitConversionServiceTest {
         XUnitToolInfo toolInfo = mock(XUnitToolInfo.class);
         when(toolInfo.getInputMetric()).thenReturn(new JUnitInputMetric());
 
-        XUnitConversionService service = new XUnitConversionService();
+        XUnitConversionService service = new XUnitConversionService(mock(XUnitLog.class));
         File reportFile = service.convert(toolInfo, inputFile, destFolder);
         File reportFile2 = service.convert(toolInfo, inputFile, destFolder);
         Assert.assertNotEquals(reportFile.getAbsolutePath(), reportFile2.getAbsolutePath());

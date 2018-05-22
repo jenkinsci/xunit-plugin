@@ -39,12 +39,12 @@ import com.google.inject.Inject;
 import hudson.Util;
 
 
-public class XUnitReportProcessorService extends XUnitService implements Serializable {
+public class XUnitReportProcessorService implements Serializable {
 
     private XUnitLog xUnitLog;
 
     @Inject
-    void set(XUnitLog xUnitLog) {
+    public XUnitReportProcessorService(XUnitLog xUnitLog) {
         this.xUnitLog = xUnitLog;
     }
 
@@ -79,13 +79,11 @@ public class XUnitReportProcessorService extends XUnitService implements Seriali
                     + pattern + "' relative to '" + parentPath + "' for the testing framework '" + toolName + "'."
                     + "  Did you enter a pattern relative to (and within) the workspace directory?"
                     + "  Did you generate the result report(s) for '" + toolName + "'?";
-            xUnitLog.infoConsoleLogger(msg);
-            infoSystemLogger(msg);
+            xUnitLog.info(msg);
         } else {
             String msg = "[" + toolName + "] - " + xunitFiles.length + " test report file(s) were found with the pattern '"
                     + pattern + "' relative to '" + parentPath + "' for the testing framework '" + toolName + "'.";
-            xUnitLog.infoConsoleLogger(msg);
-            infoSystemLogger(msg);
+            xUnitLog.info(msg);
         }
         return Arrays.asList(xunitFiles);
     }
@@ -97,12 +95,12 @@ public class XUnitReportProcessorService extends XUnitService implements Seriali
      * @param xUnitToolInfo the wrapped object
      * @param files         the file list
      * @param workspace     the root location of the file list
-     * @throws OldTestReportException when the report file is not updated during this build is setup to fail  
+     * @throws OldTestReportException when the report file is not updated during this build is setup to fail
      */
     public void checkIfFindsFilesNewFiles(XUnitToolInfo xUnitToolInfo, List<String> files, File workspace) throws OldTestReportException {
 
         if (xUnitToolInfo.isFailIfNotNew()) {
-            ArrayList<File> oldResults = new ArrayList<File>();
+            ArrayList<File> oldResults = new ArrayList<>();
             for (String value : files) {
                 File reportFile = new File(workspace, value);
                 // if the file was not updated this build, that is a problem
@@ -118,8 +116,7 @@ public class XUnitReportProcessorService extends XUnitService implements Seriali
                     String msg = "Clock on this slave is out of sync with the master, and therefore \n" +
                             "I can't figure out what test results are new and what are old.\n" +
                             "Please keep the slave clock in sync with the master.";
-                    xUnitLog.errorConsoleLogger(msg);
-                    errorSystemLogger(msg);
+                    xUnitLog.error(msg);
                     throw new OldTestReportException();
                 }
 
@@ -133,8 +130,7 @@ public class XUnitReportProcessorService extends XUnitService implements Seriali
                     );
                 }
                 String msg = stringBuilder.toString();
-                xUnitLog.errorConsoleLogger(msg);
-                errorSystemLogger(msg);
+                xUnitLog.error(msg);
                 throw new OldTestReportException();
             }
         }

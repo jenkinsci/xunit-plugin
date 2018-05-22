@@ -33,10 +33,19 @@ import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 
-public class XUnitValidationService extends XUnitService implements Serializable {
+import javax.inject.Inject;
+
+public class XUnitValidationService implements Serializable {
+
+    private XUnitLog xUnitLog;
+
+    @Inject
+    public XUnitValidationService(XUnitLog xUnitLog) {
+        this.xUnitLog = xUnitLog;
+    }
 
     /**
-     * Checks if the current input file is not empty
+     * Checks if the current input file is not empty.
      *
      * @param inputFile the input file
      * @return true if not empty, false otherwise
@@ -50,25 +59,25 @@ public class XUnitValidationService extends XUnitService implements Serializable
     }
 
     /**
-     * Validates an input file
+     * Validates an input file.
      *
      * @param xUnitToolInfo the xUnit tool info wrapper
-     * @param inputFile     the current input file
+     * @param inputFile the current input file
      * @return true if the validation is success, false otherwise
-     * @throws XUnitException an XUnitException when there are validation exceptions
+     * @throws XUnitException an XUnitException when there are validation
+     *         exceptions
      */
     public boolean validateInputFile(XUnitToolInfo xUnitToolInfo, File inputFile) throws XUnitException {
 
         InputMetric inputMetric = xUnitToolInfo.getInputMetric();
 
-        //Validates the input file (not empty)
+        // Validates the input file (not empty)
         try {
             if (!inputMetric.validateInputFile(inputFile)) {
-
-                //Ignores invalid files
-                warningSystemLogger("The file '" + inputFile + "' is an invalid file.");
+                // ignores invalid files
+                xUnitLog.warn("The file '" + inputFile + "' is an invalid file.");
                 for (ValidationError validatorError : inputMetric.getInputValidationErrors()) {
-                    warningSystemLogger(validatorError.toString());
+                    xUnitLog.warn(validatorError.toString());
                 }
 
                 return false;
@@ -79,26 +88,26 @@ public class XUnitValidationService extends XUnitService implements Serializable
         return true;
     }
 
-
     /**
      * Validates the converted file against a JUnit format
      *
-     * @param xUnitToolInfo   the xUnit info wrapper object
-     * @param inputFile       the input metric from the conversion
+     * @param xUnitToolInfo the xUnit info wrapper object
+     * @param inputFile the input metric from the conversion
      * @param junitTargetFile the converted input file
      * @return true if the validation is success, false otherwise
-     * @throws XUnitException an XUnitException when there are validation exceptions
+     * @throws XUnitException an XUnitException when there are validation
+     *         exceptions
      */
     public boolean validateOutputFile(XUnitToolInfo xUnitToolInfo, File inputFile, File junitTargetFile) throws XUnitException {
         InputMetric inputMetric = xUnitToolInfo.getInputMetric();
 
         try {
-            //Validates the output
+            // Validates the output
             boolean validateOutput = inputMetric.validateOutputFile(junitTargetFile);
             if (!validateOutput) {
-                warningSystemLogger("The converted file for the input file '" + inputFile + "' doesn't match the JUnit format");
+                xUnitLog.warn("The converted file for the input file '" + inputFile + "' doesn't match the JUnit format");
                 for (ValidationError validatorError : inputMetric.getOutputValidationErrors()) {
-                    warningSystemLogger(validatorError.toString());
+                    xUnitLog.warn(validatorError.toString());
                 }
                 return false;
             }

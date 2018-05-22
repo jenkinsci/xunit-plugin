@@ -41,11 +41,11 @@ import org.jenkinsci.plugins.xunit.types.CustomInputMetric;
 
 import hudson.FilePath;
 
-public class XUnitConversionService extends XUnitService implements Serializable {
+public class XUnitConversionService implements Serializable {
     private XUnitLog xUnitLog;
 
     @Inject
-    void load(XUnitLog xUnitLog) {
+    public XUnitConversionService(XUnitLog xUnitLog) {
         this.xUnitLog = xUnitLog;
     }
 
@@ -71,7 +71,7 @@ public class XUnitConversionService extends XUnitService implements Serializable
             throw new XUnitException("Can't create " + parent);
         }
 
-        File junitTargetFile = getTargetFile(parent, inputFile);
+        File junitTargetFile = getTargetFile(parent);
         try {
             if (inputMetric instanceof CustomInputMetric) {
                 return convertCustomInputMetric(xUnitToolInfo, inputFile, inputMetric, junitTargetFile);
@@ -84,12 +84,8 @@ public class XUnitConversionService extends XUnitService implements Serializable
             inputMetric.convert(inputFile, junitTargetFile);
             return junitTargetFile;
 
-        } catch (ConversionException ce) {
-            throw new XUnitException("Conversion error " + ce.getMessage(), ce);
-        } catch (InterruptedException ie) {
-            throw new XUnitException("Conversion error " + ie.getMessage(), ie);
-        } catch (IOException ie) {
-            throw new XUnitException("Conversion error " + ie.getMessage(), ie);
+        } catch (ConversionException | InterruptedException | IOException e) {
+            throw new XUnitException("Conversion error " + e.getMessage(), e);
         }
     }
 
@@ -102,15 +98,17 @@ public class XUnitConversionService extends XUnitService implements Serializable
      * same workspace is enough. Version 1 UUID use MAC address but since
      * {@code XUnitProcessor} does not copy slave node report files back to
      * master is not necessary ensure file be globally unique.
-     * 
+     *
+     * @param parent the parent folder under which create converted reports
+     *
      * @return a node workspace unique file name
      */
-    private File getTargetFile(File parent, File inputFile) {
+    private File getTargetFile(File parent) {
         String uniqueTestName = UUID.randomUUID().toString();
         return new File(parent, XUnitDefaultValues.JUNIT_FILE_PREFIX + uniqueTestName + XUnitDefaultValues.JUNIT_FILE_EXTENSION);
     }
 
-    private File convertCustomInputMetric(XUnitToolInfo xUnitToolInfo, File inputFile, InputMetric inputMetric, File junitTargetFile) throws IOException, InterruptedException, XUnitException {
+    private File convertCustomInputMetric(XUnitToolInfo xUnitToolInfo, File inputFile, InputMetric inputMetric, File junitTargetFile) {
         CustomInputMetric customInputMetric = (CustomInputMetric) inputMetric;
         customInputMetric.setCustomXSLFile(new File(xUnitToolInfo.getCusXSLFile().getRemote()));
         inputMetric.convert(inputFile, junitTargetFile);
@@ -122,12 +120,12 @@ public class XUnitConversionService extends XUnitService implements Serializable
         FilePath userXSLFilePath = xUnitToolInfo.getUserContentRoot().child(inputMetricXSL.getUserContentXSLDirRelativePath());
 
         if (userXSLFilePath.exists()) {
-            xUnitLog.infoConsoleLogger("Using the native embedded stylesheet in JENKINS_HOME.");
+            xUnitLog.info("Using the native embedded stylesheet in JENKINS_HOME.");
             try {
                 return convertInputMetricXSLWithUserXSL(inputFile, junitTargetFile, inputMetricXSL, userXSLFilePath);
             } catch (XUnitException xe) {
-                xUnitLog.errorConsoleLogger("Error occurs on the use of the user stylesheet: " + xe.getMessage());
-                xUnitLog.infoConsoleLogger("Trying to use the native embedded stylesheet.");
+                xUnitLog.error("Error occurs on the use of the user stylesheet: " + xe.getMessage());
+                xUnitLog.info("Trying to use the native embedded stylesheet.");
                 inputMetric.convert(inputFile, junitTargetFile);
                 return junitTargetFile;
             }
@@ -138,9 +136,7 @@ public class XUnitConversionService extends XUnitService implements Serializable
     }
 
     private File convertInputMetricXSLWithUserXSL(File inputFile, File junitTargetFile, InputMetricXSL inputMetricXSL, FilePath userXSLFilePath) throws XUnitException {
-
         try {
-
             List<FilePath> filePathList = userXSLFilePath.list();
             if (filePathList.isEmpty()) {
                 throw new XUnitException(String.format("There are no XSLs in '%s'", userXSLFilePath.getRemote()));
@@ -155,9 +151,7 @@ public class XUnitConversionService extends XUnitService implements Serializable
 
             throw new XUnitException(String.format("There are no XSLs in '%s'", userXSLFilePath.getRemote()));
 
-        } catch (IOException e) {
-            throw new XUnitException("Error in the use of the user stylesheet", e);
-        } catch (InterruptedException e) {
+        } catch (IOException | InterruptedException e) {
             throw new XUnitException("Error in the use of the user stylesheet", e);
         }
     }
