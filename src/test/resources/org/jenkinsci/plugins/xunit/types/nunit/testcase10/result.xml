@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="Test.A2lToFkt.DiagRA-MC Quick" tests="7" failures="0" errors="0" skipped="0" time="13.413" group="fast">
+        <testcase classname="Test.A2lToFkt.DiagRA-MC Quick" name="RunParser.A2L with EOL at EOF (42%)" time="0.375" group="fast" />
+        <testcase classname="Test.A2lToFkt.DiagRA-MC Quick" name="RunParser.A2L with UTF8-BOM (42%)" time="0.234" group="fast" />
+        <testcase classname="Test.A2lToFkt.DiagRA-MC Quick" name="RunParser.A2L without EOL at EOF (42%)" time="0.203" group="fast" />
+        <testcase classname="Test.A2lToFkt.DiagRA-MC Quick" name="RunParser.ASAM ASAP2 Demo V161 (53%)" time="0.453" group="fast" />
+        <testcase classname="Test.A2lToFkt.DiagRA-MC Quick" name="RunParser.00GV31_CR_p (54%)" time="9.641" group="fast" />
+        <testcase classname="Test.A2lToFkt.DiagRA-MC Quick" name="RunParser.MT92C_GDI_P2p0_4CYL_T3_TURBO_LO2 (54%)" time="0.500" group="fast" />
+        <testcase classname="Test.A2lToFkt.DiagRA-MC Quick" name="RunParser.PL72-M_1_5_60a (54%)" time="1.984" group="fast" />
+    </testsuite>
+    <testsuite name="Test.A2lToFkt.DiagRA-D Quick" tests="7" failures="0" errors="0" skipped="0" time="12.763" group="fast">
+        <testcase classname="Test.A2lToFkt.DiagRA-D Quick" name="RunParser.A2L with EOL at EOF (42%)" time="0.375" group="fast" />
+        <testcase classname="Test.A2lToFkt.DiagRA-D Quick" name="RunParser.A2L with UTF8-BOM (42%)" time="0.188" group="fast" />
+        <testcase classname="Test.A2lToFkt.DiagRA-D Quick" name="RunParser.A2L without EOL at EOF (42%)" time="0.140" group="fast" />
+        <testcase classname="Test.A2lToFkt.DiagRA-D Quick" name="RunParser.ASAM ASAP2 Demo V161 (53%)" time="0.453" group="fast" />
+        <testcase classname="Test.A2lToFkt.DiagRA-D Quick" name="RunParser.00GV31_CR_p (54%)" time="9.235" group="fast" />
+        <testcase classname="Test.A2lToFkt.DiagRA-D Quick" name="RunParser.MT92C_GDI_P2p0_4CYL_T3_TURBO_LO2 (54%)" time="0.406" group="fast" />
+        <testcase classname="Test.A2lToFkt.DiagRA-D Quick" name="RunParser.PL72-M_1_5_60a (54%)" time="1.969" group="fast" />
+    </testsuite>
+</testsuites>

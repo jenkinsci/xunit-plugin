@@ -3,13 +3,9 @@
     <testsuite name="Bank.AccountTest" tests="11" failures="1" errors="0" skipped="1" time="0.156">
         <testcase classname="Bank.AccountTest" name="SetGetInterestRate" time="0.047" />
         <testcase classname="Bank.AccountTest" name="TestAlwaysFails" time="0.016">
-            <failure>
-                MESSAGE:
-                This test always fails.
-                +++++++++++++++++++
-                STACK TRACE:
+            <failure message="This test always fails."><![CDATA[
                 at Bank.AccountTest.TestAlwaysFails() in c:\Jenkins_Home\jobs\NUnit_Quick_Learning\workspace\NUnit_Quick_Learn_1\AccountNUTest.cs:line 308
-            </failure>
+            ]]></failure>
         </testcase>
         <testcase classname="Bank.AccountTest" name="TestAlwaysIgnored">
             <skipped />

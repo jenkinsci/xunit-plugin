@@ -11,5 +11,9 @@
         <properties>
             <property name="APARTMENT_STATE" value="STA"/>
         </properties>
+        <reason>
+            <message>Suite does not contains any test</message>
+        </reason>
+        <results />
     </test-suite>
 </test-results>

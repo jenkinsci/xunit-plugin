@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="NUnit.Tests.Assemblies.MockTestFixture" tests="6" failures="0" errors="0" skipped="3" time="0.000" group="FixtureCategory">
+        <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="ExplicitlyRunTest" group="Special">
+            <skipped message="Explicit selection required" />
+        </testcase>
+        <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="MockTest1" time="0.000" />
+        <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="MockTest2" time="0.000" group="MockCategory" />
+        <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="MockTest3" time="0.000" group="MockCategory AnotherCategory" />
+        <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="MockTest4" group="Foo">
+            <skipped message="ignoring this test method for now" />
+        </testcase>
+        <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="MockTest5">
+            <skipped message="Method MockTest5's signature is not correct: it must be a public method." />
+        </testcase>
+    </testsuite>
+    <testsuite name="NUnit.Tests.IgnoredFixture" tests="3" failures="0" errors="0" skipped="3" time="0.000">
+        <testcase classname="NUnit.Tests.IgnoredFixture" name="Test1">
+            <skipped />
+        </testcase>
+        <testcase classname="NUnit.Tests.IgnoredFixture" name="Test2">
+            <skipped />
+        </testcase>
+        <testcase classname="NUnit.Tests.IgnoredFixture" name="Test3">
+            <skipped />
+        </testcase>
+    </testsuite>
+    <testsuite name="NUnit.Tests.Singletons.OneTestCase" tests="1" failures="0" errors="0" skipped="0" time="0.000">
+        <testcase classname="NUnit.Tests.Singletons.OneTestCase" name="TestCase" time="0.000" />
+    </testsuite>
+    <testsuite name="NUnit.Tests.TestAssembly.MockTestFixture" tests="1" failures="0" errors="0" skipped="0" time="0.000">
+        <testcase classname="NUnit.Tests.TestAssembly.MockTestFixture" name="MyTest" time="0.000" />
+    </testsuite>
+</testsuites>

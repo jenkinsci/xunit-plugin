@@ -42,7 +42,7 @@ public class NUnit extends InputMetricXSL {
 
     @Override
     public String getToolVersion() {
-        return "2";
+        return "2.x";
     }
 
     @Override
@@ -52,14 +52,15 @@ public class NUnit extends InputMetricXSL {
 
     @Override
     public String getXslName() {
-        return "nunit-1.0-to-junit-2.xsl";
+        return "nunit-2.x-to-junit.xsl";
     }
 
     @Override
     public String[] getInputXsdNameList() {
-        return null;
+        return new String[] { "nunit-2.x.xsd" };
     }
 
+    @Override
     public OutputMetric getOutputFormatType() {
         return JUnitModel.LATEST;
     }

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="NUnit.Tests.Assemblies.MockTestFixture" tests="10" failures="1" errors="2" skipped="1" time="0.582" group="FixtureCategory">
+        <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="FailingTest" time="0.013">
+            <failure message="Intentional failure"><![CDATA[at NUnit.Tests.Assemblies.MockTestFixture.FailingTest () [0x00000] in /home/charlie/Dev/NUnit/nunit-2.5/work/src/tests/mock-assembly/MockAssembly.cs:121
+]]></failure>
+        </testcase>
+        <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="InconclusiveTest" time="0.001" />
+        <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="MockTest1" time="0.000" />
+        <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="MockTest2" time="0.000" group="MockCategory" />
+        <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="MockTest3" time="0.001" group="AnotherCategory MockCategory" />
+        <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="MockTest4" group="Foo">
+            <skipped message="ignoring this test method for now" />
+        </testcase>
+        <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="MockTest5">
+            <error message="Method is not public" />
+        </testcase>
+        <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="NotRunnableTest">
+            <error message="No arguments were provided" />
+        </testcase>
+        <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="TestWithException" time="0.001" />
+        <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="TestWithManyProperties" time="0.000" />
+    </testsuite>
+    <testsuite name="NUnit.Tests.BadFixture" tests="1" failures="0" errors="1" skipped="0">
+        <testcase classname="NUnit.Tests.BadFixture" name="SomeTest">
+            <error message="No suitable constructor was found" />
+        </testcase>
+    </testsuite>
+    <testsuite name="NUnit.Tests.FixtureWithTestCases.GenericMethod" tests="2" failures="0" errors="0" skipped="0" time="0.013">
+        <testcase classname="NUnit.Tests.FixtureWithTestCases.GenericMethod" name="&lt;Double&gt;(9.2d,11.7d)" time="0.007" />
+        <testcase classname="NUnit.Tests.FixtureWithTestCases.GenericMethod" name="&lt;Int32&gt;(2,4)" time="0.001" />
+    </testsuite>
+    <testsuite name="NUnit.Tests.FixtureWithTestCases.MethodWithParameters" tests="2" failures="0" errors="0" skipped="0" time="0.011">
+        <testcase classname="NUnit.Tests.FixtureWithTestCases.MethodWithParameters" name="(9,11)" time="0.003" />
+        <testcase classname="NUnit.Tests.FixtureWithTestCases.MethodWithParameters" name="(2,2)" time="0.000" />
+    </testsuite>
+    <testsuite name="NUnit.Tests.GenericFixture&lt;Double&gt;(11.5d)" tests="2" failures="0" errors="0" skipped="0" time="0.011">
+        <testcase classname="NUnit.Tests.GenericFixture&lt;Double&gt;(11.5d)" name="Test1" time="0.000" />
+        <testcase classname="NUnit.Tests.GenericFixture&lt;Double&gt;(11.5d)" name="Test2" time="0.000" />
+    </testsuite>
+    <testsuite name="NUnit.Tests.GenericFixture&lt;Int32&gt;(5)" tests="2" failures="0" errors="0" skipped="0" time="0.001">
+        <testcase classname="NUnit.Tests.GenericFixture&lt;Int32&gt;(5)" name="Test1" time="0.000" />
+        <testcase classname="NUnit.Tests.GenericFixture&lt;Int32&gt;(5)" name="Test2" time="0.000" />
+    </testsuite>
+    <testsuite name="NUnit.Tests.IgnoredFixture" tests="3" failures="0" errors="0" skipped="3">
+        <testcase classname="NUnit.Tests.IgnoredFixture" name="Test1">
+            <skipped />
+        </testcase>
+        <testcase classname="NUnit.Tests.IgnoredFixture" name="Test2">
+            <skipped />
+        </testcase>
+        <testcase classname="NUnit.Tests.IgnoredFixture" name="Test3">
+            <skipped />
+        </testcase>
+    </testsuite>
+    <testsuite name="NUnit.Tests.ParameterizedFixture(42)" tests="2" failures="0" errors="0" skipped="0" time="0.048">
+        <testcase classname="NUnit.Tests.ParameterizedFixture(42)" name="Test1" time="0.000" />
+        <testcase classname="NUnit.Tests.ParameterizedFixture(42)" name="Test2" time="0.000" />
+    </testsuite>
+    <testsuite name="NUnit.Tests.ParameterizedFixture(5)" tests="2" failures="0" errors="0" skipped="0" time="0.007">
+        <testcase classname="NUnit.Tests.ParameterizedFixture(5)" name="Test1" time="0.000" />
+        <testcase classname="NUnit.Tests.ParameterizedFixture(5)" name="Test2" time="0.000" />
+    </testsuite>
+    <testsuite name="NUnit.Tests.Singletons.OneTestCase" tests="1" failures="0" errors="0" skipped="0" time="0.001">
+        <testcase classname="NUnit.Tests.Singletons.OneTestCase" name="TestCase" time="0.000" />
+    </testsuite>
+    <testsuite name="NUnit.Tests.TestAssembly.MockTestFixture" tests="1" failures="0" errors="0" skipped="0" time="0.001">
+        <testcase classname="NUnit.Tests.TestAssembly.MockTestFixture" name="MyTest" time="0.000" />
+    </testsuite>
+</testsuites>
