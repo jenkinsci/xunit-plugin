@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ATM Sample" time="6.000" tests="20" failures="0">
+<testsuite name="ATM Sample" time="6.000" tests="20" failures="0" errors="0">
     <testcase classname="TestSuite_ATM_cxx_5d3c8e3f" name="test_ATM_1" time="0.000" />
     <testcase classname="TestSuite_ATM_cxx_5d3c8e3f" name="test_fillUserRequest_1" time="0.000" />
     <testcase classname="TestSuite_ATM_cxx_5d3c8e3f" name="test_viewAccount_1" time="0.000" />

@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Run Unit Tests with Memory Monitoring (1)" time="22.000" tests="0" failures="0">
+<testsuite name="Run Unit Tests with Memory Monitoring (1)" time="22.000" tests="0" failures="0" errors="0">
     <system-err><![CDATA[Test execution: error linking test executable for Test unit for selected sources.]]></system-err>
 </testsuite>
