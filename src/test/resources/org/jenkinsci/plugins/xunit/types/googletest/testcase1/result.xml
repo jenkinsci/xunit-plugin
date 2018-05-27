@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-    <testsuite name="TestAbsTimer" tests="2">
+    <testsuite name="TestAbsTimer" tests="2" failures="0" skipped="0" errors="0" time="0.001">
         <testcase name="Basic" time="0.001" classname="TestAbsTimer"/>
-        <testcase name="InvalidTime" time="0.3" classname="TestAbsTimer"/>
+        <testcase name="InvalidTime" time="0.300" classname="TestAbsTimer"/>
     </testsuite>
-    <testsuite name="AppCreator" tests="1">
-        <testcase name="Basic" time="1.42" classname="AppCreator"/>
+    <testsuite name="AppCreator" tests="1" failures="0" skipped="0" errors="0" time="0.000">
+        <testcase name="Basic" time="1.420" classname="AppCreator"/>
     </testsuite>
 </testsuites>
