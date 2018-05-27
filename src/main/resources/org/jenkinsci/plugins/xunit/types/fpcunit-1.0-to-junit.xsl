@@ -22,8 +22,46 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    <xsl:output method="xml" indent="yes"/>
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xunit="http://www.xunit.org">
+    <xsl:output method="xml" indent="yes" encoding="UTF-8" cdata-section-elements="system-out system-err"/>
+    <xsl:decimal-format decimal-separator="." grouping-separator=","/>
+
+    <xsl:function name="xunit:junit-time" as="xs:string">
+        <xsl:param name="value" as="xs:anyAtomicType?" />
+
+        <xsl:variable name="time" as="xs:double">
+            <xsl:choose>
+                <xsl:when test="$value instance of xs:double">
+                    <xsl:value-of select="$value" />
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="translate(string($value), ',', '.')" />
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <xsl:value-of select="format-number($time, '0.000')" />
+    </xsl:function>
+
+    <xsl:function name="xunit:if-empty" as="xs:string">
+        <xsl:param name="value" as="xs:string?" />
+        <xsl:param name="default" as="xs:anyAtomicType?" />
+        <xsl:value-of select="if (string($value) != '') then string($value) else $default" />
+    </xsl:function>
+
+    <xsl:function name="xunit:is-empty" as="xs:boolean">
+        <xsl:param name="value" as="xs:string?" />
+        <xsl:value-of select="string($value) != ''" />
+    </xsl:function>
+
+    <xsl:function name="xunit:millis-from-time" as="xs:double">
+        <xsl:param name="value" as="xs:string?" />
+
+        <xsl:variable name="formattedTime" select="xunit:if-empty(string($value), '00:00:00')" />
+        <xsl:variable name="formattedTime" select="replace(translate($formattedTime,',','.'), '^(\d:.+)', '0$1')" />
+        <xsl:variable name="time" select="xs:time($formattedTime)" />
+        <xsl:value-of select="hours-from-time($time)*3600 + minutes-from-time($time)*60 + seconds-from-time($time)" />
+    </xsl:function>
+
     <xsl:template match="/">
         <testsuites>
             <xsl:for-each select="TestResults[1]//TestListing[1]//TestSuite">
@@ -35,7 +73,7 @@ THE SOFTWARE.
                         <xsl:value-of select="@NumberOfRunTests"/>
                     </xsl:attribute>
                     <xsl:attribute name="time">
-                        <xsl:value-of select="@ElapsedTime"/>
+                        <xsl:value-of select="xunit:junit-time(xunit:millis-from-time(@ElapsedTime))"/>
                     </xsl:attribute>
                     <xsl:attribute name="failures">
                         <xsl:value-of select="@NumberOfFailures"/>
@@ -55,7 +93,7 @@ THE SOFTWARE.
                                 <xsl:value-of select="@Name"/>
                             </xsl:attribute>
                             <xsl:attribute name="time">
-                                <xsl:value-of select="@ElapsedTime"/>
+                                <xsl:value-of select="xunit:junit-time(xunit:millis-from-time(@ElapsedTime))"/>
                             </xsl:attribute>
                             <xsl:if test="@Result='Failed'">
                                 <failure>

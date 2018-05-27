@@ -52,7 +52,7 @@ public class FPCUnit extends InputMetricXSL {
 
     @Override
     public String getXslName() {
-        return "fpcunit-1.0-to-junit-1.0.xsl";
+        return "fpcunit-1.0-to-junit.xsl";
     }
 
     @Override
