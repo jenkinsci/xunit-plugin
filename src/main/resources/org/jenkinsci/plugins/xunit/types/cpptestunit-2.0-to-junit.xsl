@@ -76,7 +76,8 @@ THE SOFTWARE.
                 <testsuite name="{ResultsSession/TestConfig/@name}"
                             time="{$totalTime}"
                             tests="0"
-                            failures="0">
+                            failures="0"
+                            errors="0">
                     <xsl:element name="system-err">
                         <xsl:value-of select="ResultsSession/Exec/TestingProcessProblems/CppAnalysisProblem/ErrorList/Error/@val"/>
                     </xsl:element>
@@ -86,7 +87,8 @@ THE SOFTWARE.
                 <testsuites name="{$suiteName}"
                             time="{$totalTime}"
                             tests="{$testCount}"
-                            failures="{$failureCount}">
+                            failures="{$failureCount}"
+                            errors="0">
                     <xsl:apply-templates select="ResultsSession/ExecutedTestsDetails/Total/Project/TestSuite">
                         <xsl:with-param name="suiteName" select="$suiteName" />
                     </xsl:apply-templates>
@@ -97,7 +99,8 @@ THE SOFTWARE.
                 <testsuite name="{$suiteName}"
                             time="{$totalTime}"
                             tests="{$testCount}"
-                            failures="{$failureCount}">
+                            failures="{$failureCount}"
+                            errors="0">
                     <xsl:call-template name="TestCase_7x">
                         <xsl:with-param name="violations" select="ResultsSession/Exec/ExecViols"/>
                     </xsl:call-template>
@@ -141,7 +144,8 @@ THE SOFTWARE.
                 <testsuite name="{$suiteName}"
                            time="{xunit:junit-time($suiteTime)}"
                            tests="{@pass + @fail}"
-                           failures="{@fail}">
+                           failures="{@fail}"
+                           errors="0">
                     <xsl:apply-templates select="Test">
                         <xsl:with-param name="fullSuiteName" select="$suiteName" />
                         <xsl:with-param name="suiteName" select="@name" />
