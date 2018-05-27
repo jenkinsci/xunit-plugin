@@ -42,7 +42,10 @@ public class NUnitTest extends AbstractTest {
                                               { "test transformed of ignored", 4 }, //
                                               { "JENKINS-1077", 5 }, //
                                               { "JENKINS-8492", 6 }, //
-                                              { "JENKINS-10911 skipped are ignored when failure is present before", 7 }
+                                              { "JENKINS-10911 skipped are ignored when failure is present before", 7 }, //
+                                              { "Sample provided by http://nunit.org/files/testresult_25.txt", 8 }, //
+                                              { "Sample provided by the 2.4.8 distribution", 9 }, //
+                                              { "JENKINS-51481 report produced by DUnit to NUnit logger", 10 }
         });
     }
 

@@ -24,10 +24,10 @@
         </testsuite>
         <testcase name="testMutuallyExclusiveBooleans" classname="FiltersTest" time="11.944" />
     </testsuite>
-    <testsuite name="FiltersTest: internet explorer" tests="16" failures="0" errors="1" time="243.923011">
+    <testsuite name="FiltersTest: internet explorer" tests="16" failures="0" errors="1" time="243.923">
         <testcase name="testOnFilterByDateBehavesLikeOr" classname="FiltersTest" time="34.795" />
         <testcase name="testFilterByTimestampsDoesntTakeIntoAccountTime" classname="FiltersTest" time="22.823" />
-        <testsuite name="FiltersTest::testFilterByNull" tests="5" failures="0" errors="1" time="79.679187">
+        <testsuite name="FiltersTest::testFilterByNull" tests="5" failures="0" errors="1" time="79.679">
             <testcase name="testFilterByNull with data set #0" time="12.300" />
             <testcase name="testFilterByNull with data set #1" time="33.122">
                 <error type="PHPUnit_Extensions_Selenium2TestCase_WebDriverException">

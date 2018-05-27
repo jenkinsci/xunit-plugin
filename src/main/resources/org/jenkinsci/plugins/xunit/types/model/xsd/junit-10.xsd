@@ -26,22 +26,22 @@ THE SOFTWARE.
 
     <xs:element name="failure">
         <xs:complexType mixed="true">
-            <xs:attribute name="type" type="xs:string" use="optional"/>
-            <xs:attribute name="message" type="xs:string" use="optional"/>
+            <xs:attribute name="type" type="xs:string"/>
+            <xs:attribute name="message" type="xs:string"/>
         </xs:complexType>
     </xs:element>
 
     <xs:element name="error">
         <xs:complexType mixed="true">
-            <xs:attribute name="type" type="xs:string" use="optional"/>
-            <xs:attribute name="message" type="xs:string" use="optional"/>
+            <xs:attribute name="type" type="xs:string"/>
+            <xs:attribute name="message" type="xs:string"/>
         </xs:complexType>
     </xs:element>
 
     <xs:element name="skipped">
         <xs:complexType mixed="true">
-            <xs:attribute name="type" type="xs:string" use="optional"/>
-            <xs:attribute name="message" type="xs:string" use="optional"/>
+            <xs:attribute name="type" type="xs:string"/>
+            <xs:attribute name="message" type="xs:string"/>
         </xs:complexType>
     </xs:element>
 
@@ -71,8 +71,8 @@ THE SOFTWARE.
                     <xs:element ref="system-err" />
                 </xs:choice>
             </xs:sequence>
-            <xs:attribute name="type" type="xs:string" use="optional"/>
-            <xs:attribute name="message" type="xs:string" use="optional"/>
+            <xs:attribute name="type" type="xs:string"/>
+            <xs:attribute name="message" type="xs:string"/>
         </xs:complexType>
     </xs:element>
 
@@ -84,8 +84,8 @@ THE SOFTWARE.
                     <xs:element ref="system-err" />
                 </xs:choice>
             </xs:sequence>
-            <xs:attribute name="type" type="xs:string" use="optional"/>
-            <xs:attribute name="message" type="xs:string" use="optional"/>
+            <xs:attribute name="type" type="xs:string"/>
+            <xs:attribute name="message" type="xs:string"/>
         </xs:complexType>
     </xs:element>
 
@@ -103,9 +103,9 @@ THE SOFTWARE.
                 </xs:choice>
             </xs:sequence>
             <xs:attribute name="name" type="xs:string" use="required"/>
-            <xs:attribute name="time" type="xs:string" use="optional"/>
-            <xs:attribute name="classname" type="xs:string" use="optional"/>
-            <xs:attribute name="group" type="xs:string" use="optional"/>
+            <xs:attribute name="time" type="xs:string"/>
+            <xs:attribute name="classname" type="xs:string"/>
+            <xs:attribute name="group" type="xs:string"/>
         </xs:complexType>
     </xs:element>
 
@@ -118,32 +118,45 @@ THE SOFTWARE.
                 <xs:element ref="system-out"/>
                 <xs:element ref="system-err"/>
             </xs:choice>
-            <xs:attribute name="name" type="xs:string" use="optional"/>
+            <xs:attribute name="name" type="xs:string" use="required"/>
             <xs:attribute name="tests" type="xs:string" use="required"/>
-            <xs:attribute name="failures" type="xs:string" use="optional"/>
-            <xs:attribute name="errors" type="xs:string" use="optional"/>
-            <xs:attribute name="time" type="xs:string" use="optional"/>
-            <xs:attribute name="skipped" type="xs:string" use="optional"/>
-            <xs:attribute name="timestamp" type="xs:string" use="optional"/>
-            <xs:attribute name="hostname" type="xs:string" use="optional"/>
-            <xs:attribute name="id" type="xs:string" use="optional"/>
-            <xs:attribute name="package" type="xs:string" use="optional"/>
-            <xs:attribute name="file" type="xs:string" use="optional"/>
-            <xs:attribute name="log" type="xs:string" use="optional"/>
-            <xs:attribute name="url" type="xs:string" use="optional"/>
+            <xs:attribute name="failures" type="xs:string" use="required"/>
+            <xs:attribute name="errors" type="xs:string" use="required"/>
+            <xs:attribute name="group" type="xs:string" />
+            <xs:attribute name="time">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="(([0-9]{0,3},)*[0-9]{3}|[0-9]{0,3})*(\.[0-9]{0,3})?" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="skipped" type="xs:string" />
+            <xs:attribute name="timestamp" type="xs:string" />
+            <xs:attribute name="hostname" type="xs:string" />
+            <xs:attribute name="id" type="xs:string" />
+            <xs:attribute name="package" type="xs:string" />
+            <xs:attribute name="file" type="xs:string"/>
+            <xs:attribute name="log" type="xs:string"/>
+            <xs:attribute name="url" type="xs:string"/>
         </xs:complexType>
     </xs:element>
 
     <xs:element name="testsuites">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="testsuite" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element ref="testsuite" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
-            <xs:attribute name="name" type="xs:string" use="optional"/>
-            <xs:attribute name="time" type="xs:string" use="optional"/>
-            <xs:attribute name="tests" type="xs:string" use="optional"/>
-            <xs:attribute name="failures" type="xs:string" use="optional"/>
-            <xs:attribute name="errors" type="xs:string" use="optional"/>
+            <xs:attribute name="name" type="xs:string" />
+            <xs:attribute name="time">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="(([0-9]{0,3},)*[0-9]{3}|[0-9]{0,3})*(\.[0-9]{0,3})?" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="tests" type="xs:string" />
+            <xs:attribute name="failures" type="xs:string" />
+            <xs:attribute name="errors" type="xs:string" />
         </xs:complexType>
     </xs:element>
 

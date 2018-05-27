@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<test-results name="F:\Jenkins\workspace\R38 2018 KW18@2\A2lToFkt\UnitTests\Exe\A2lToFkt.UnitTest.exe" total="14" errors="0" failures="0" ignored="0" inconclusive="0" not-run="0" skipped="0" invalid="0" date="2018-05-22" time="26.176">
+  <culture-info current-culture="en" current-uiculture="en" />
+  <test-suite type="Assembly" name="A2lToFkt.UnitTest.exe" executed="true" result="Success" success="True" time="26.176" asserts="0">
+    <results>
+        <test-suite type="Namespace" name="Test" executed="true" result="Success" success="True" time="26.176" asserts="0" >
+          <results>
+              <test-suite type="Namespace" name="A2lToFkt" executed="true" result="Success" success="True" time="26.176" asserts="0" >
+                <results>
+                    <test-suite type="Fixture" name="DiagRA-MC Quick" executed="True" result="Success" success="True" time="13.413" >
+                      <categories>
+                        <category name="fast" />
+                      </categories>
+                      <results>
+                        <test-case name="RunParser.A2L with EOL at EOF (42%)" executed="True" result="Success" success="True" time="0.375" asserts="0" >
+                          <categories>
+                            <category name="fast" />
+                          </categories>
+                        </test-case>
+                        <test-case name="RunParser.A2L with UTF8-BOM (42%)" executed="True" result="Success" success="True" time="0.234" asserts="0" >
+                          <categories>
+                            <category name="fast" />
+                          </categories>
+                        </test-case>
+                        <test-case name="RunParser.A2L without EOL at EOF (42%)" executed="True" result="Success" success="True" time="0.203" asserts="0" >
+                          <categories>
+                            <category name="fast" />
+                          </categories>
+                        </test-case>
+                        <test-case name="RunParser.ASAM ASAP2 Demo V161 (53%)" executed="True" result="Success" success="True" time="0.453" asserts="0" >
+                          <categories>
+                            <category name="fast" />
+                          </categories>
+                        </test-case>
+                        <test-case name="RunParser.00GV31_CR_p (54%)" executed="True" result="Success" success="True" time="9.641" asserts="0" >
+                          <categories>
+                            <category name="fast" />
+                          </categories>
+                        </test-case>
+                        <test-case name="RunParser.MT92C_GDI_P2p0_4CYL_T3_TURBO_LO2 (54%)" executed="True" result="Success" success="True" time="0.500" asserts="0" >
+                          <categories>
+                            <category name="fast" />
+                          </categories>
+                        </test-case>
+                        <test-case name="RunParser.PL72-M_1_5_60a (54%)" executed="True" result="Success" success="True" time="1.984" asserts="0" >
+                          <categories>
+                            <category name="fast" />
+                          </categories>
+                        </test-case>
+                      </results>
+                    </test-suite>
+                    <test-suite type="Fixture" name="DiagRA-D Quick" executed="True" result="Success" success="True" time="12.763" >
+                      <categories>
+                        <category name="fast" />
+                      </categories>
+                      <results>
+                        <test-case name="RunParser.A2L with EOL at EOF (42%)" executed="True" result="Success" success="True" time="0.375" asserts="0" >
+                          <categories>
+                            <category name="fast" />
+                          </categories>
+                        </test-case>
+                        <test-case name="RunParser.A2L with UTF8-BOM (42%)" executed="True" result="Success" success="True" time="0.188" asserts="0" >
+                          <categories>
+                            <category name="fast" />
+                          </categories>
+                        </test-case>
+                        <test-case name="RunParser.A2L without EOL at EOF (42%)" executed="True" result="Success" success="True" time="0.140" asserts="0" >
+                          <categories>
+                            <category name="fast" />
+                          </categories>
+                        </test-case>
+                        <test-case name="RunParser.ASAM ASAP2 Demo V161 (53%)" executed="True" result="Success" success="True" time="0.453" asserts="0" >
+                          <categories>
+                            <category name="fast" />
+                          </categories>
+                        </test-case>
+                        <test-case name="RunParser.00GV31_CR_p (54%)" executed="True" result="Success" success="True" time="9.235" asserts="0" >
+                          <categories>
+                            <category name="fast" />
+                          </categories>
+                        </test-case>
+                        <test-case name="RunParser.MT92C_GDI_P2p0_4CYL_T3_TURBO_LO2 (54%)" executed="True" result="Success" success="True" time="0.406" asserts="0" >
+                          <categories>
+                            <category name="fast" />
+                          </categories>
+                        </test-case>
+                        <test-case name="RunParser.PL72-M_1_5_60a (54%)" executed="True" result="Success" success="True" time="1.969" asserts="0" >
+                          <categories>
+                            <category name="fast" />
+                          </categories>
+                        </test-case>
+                      </results>
+                    </test-suite>
+                </results>
+              </test-suite>
+          </results>
+        </test-suite>
+    </results>
+  </test-suite>
+</test-results>
