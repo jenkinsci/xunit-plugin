@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+    <testsuite name="" tests="46" time="0.011" failures="0" errors="0" skipped="0"/>
+    <testsuite name="TTestTLModelUnit" tests="1" time="0.000" failures="0" errors="0" skipped="0">
+        <testcase classname="TTestTLModelUnit" name="TestRunTL" time="0.000"/>
+    </testsuite>
+    <testsuite name="TestTBin" tests="3" time="0.000" failures="0" errors="0" skipped="0">
+        <testcase classname="TestTBin" name="TestgetLatitudeStepSize" time="0.000"/>
+        <testcase classname="TestTBin" name="TestgetLongitudeStepSize" time="0.000"/>
+        <testcase classname="TestTBin" name="TestisInsideBin" time="0.000"/>
+    </testsuite>
+</testsuites>
