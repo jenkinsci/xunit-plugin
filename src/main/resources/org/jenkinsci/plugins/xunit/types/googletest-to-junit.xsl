@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 The MIT License (MIT)
 
@@ -21,8 +22,31 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    <xsl:output method="xml" indent="yes" cdata-section-elements="system-out"/>
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xunit="http://www.xunit.org">
+    <xsl:output method="xml" indent="yes" encoding="UTF-8" cdata-section-elements="system-out system-err"/>
+    <xsl:decimal-format decimal-separator="." grouping-separator=","/>
+
+    <xsl:function name="xunit:junit-time" as="xs:string">
+        <xsl:param name="value" as="xs:anyAtomicType?" />
+
+        <xsl:variable name="time" as="xs:double">
+            <xsl:choose>
+                <xsl:when test="$value instance of xs:double">
+                    <xsl:value-of select="$value" />
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="translate(string($value), ',', '.')" />
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <xsl:value-of select="format-number($time, '0.000')" />
+    </xsl:function>
+
+    <xsl:function name="xunit:is-empty" as="xs:boolean">
+        <xsl:param name="value" as="xs:string?" />
+        <xsl:value-of select="string($value) != ''" />
+    </xsl:function>
+
     <xsl:template match="/">
         <xsl:apply-templates/>
     </xsl:template>
@@ -38,6 +62,18 @@ THE SOFTWARE.
             </xsl:attribute>
             <xsl:attribute name="tests">
                 <xsl:value-of select="@tests"/>
+            </xsl:attribute>
+            <xsl:attribute name="failures">
+                <xsl:value-of select="@failures"/>
+            </xsl:attribute>
+            <xsl:attribute name="errors">
+                <xsl:value-of select="@errors"/>
+            </xsl:attribute>
+            <xsl:attribute name="skipped">
+                <xsl:value-of select="@disabled"/>
+            </xsl:attribute>
+            <xsl:attribute name="time">
+                <xsl:value-of select="xunit:junit-time(@time)"/>
             </xsl:attribute>
             <xsl:apply-templates select="testcase"/>
         </testsuite>
@@ -57,7 +93,7 @@ THE SOFTWARE.
                 </xsl:otherwise>
             </xsl:choose>
             <xsl:attribute name="time">
-                <xsl:value-of select="@time"/>
+                <xsl:value-of select="xunit:junit-time(@time)"/>
             </xsl:attribute>
             <xsl:attribute name="classname">
                 <xsl:value-of select="@classname"/>
@@ -103,7 +139,5 @@ THE SOFTWARE.
             </xsl:if>
         </testcase>
     </xsl:template>
-    <!-- this swallows all unmatched text -->
-    <!-- <xsl:template match="text()|@*"/>-->
 </xsl:stylesheet>
 

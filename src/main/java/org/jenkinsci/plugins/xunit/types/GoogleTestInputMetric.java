@@ -56,7 +56,7 @@ public class GoogleTestInputMetric extends InputMetricXSL {
 
     @Override
     public String getXslName() {
-        return "googletest-to-junit-4.xsl";
+        return "googletest-to-junit.xsl";
     }
 
     @Override
