@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<test-results total="75" errors="0" failures="0" not-run="3" inconclusive="0" ignored="3" skipped="0" invalid="0" name="neptune" date="2018-05-22" time="03:57:52">
+  <environment nunit-version="2.6.3.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="D:\Jenkins\workspace\integration_7.2.1_nightly\tests\installs\Value" machine-name="FR1PSWBLD11" user="jenkins.sophis" user-domain="MISYSROOT" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+
+  <test-suite type="Assembly" name="D:\Jenkins\workspace\integration_7.2.1_nightly\tests\installs\Value\Sophis.Compliance.SystemTests.dll" executed="True" result="Inconclusive" success="False" time="68.371" asserts="0">
+    <results>
+      <test-suite type="TestFixture" name="CheckComplianceSessionFeature" description="CheckComplianceSession" executed="True" result="Inconclusive" success="False" time="0.562" asserts="0">
+        <categories>
+          <category name="NeedsFramework" />
+          <category name="RisqueUser:TestUser1" />
+        </categories>
+        <results>
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceSessionFeature.AskForAPost_TradeCheckOnPortfoliosUKEquityFundMCEFraneluxEqFund" description="Ask for a Post-Trade check on portfolios ('UK Equity Fund (MCE)', 'Franelux Eq Fund')" executed="False" result="Ignored">
+            <reason>
+              <message><![CDATA[]]></message>
+            </reason>
+          </test-case>
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceSessionFeature.AskForAPre_TradeCheck3IGROUPPLC100InUKEquity" description="Ask for a Pre-Trade check ('3I GROUP PLC' : 100 in 'UK Equity')" executed="False" result="Ignored">
+            <reason>
+              <message><![CDATA[]]></message>
+            </reason>
+          </test-case>
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceSessionFeature.AskForAPre_TradeCheckTwice" description="Ask for a Pre-Trade check twice" executed="False" result="Ignored">
+            <reason>
+              <message><![CDATA[]]></message>
+            </reason>
+          </test-case>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="CheckComplianceRulesLocallyFeature" description="Check Compliance rules locally" executed="True" result="Success" success="True" time="67.795" asserts="0">
+        <categories>
+          <category name="RisqueUserPrefs:ComplianceTemplate/CompliancePrefs" />
+          <category name="RisqueUser:TestUser1" />
+          <category name="NeedsToInitializeComplianceLocally" />
+        </categories>
+        <results>
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckBenchmarkDeviationRuleOnValueWithNon_NumericExplanatoryColumns" description="Check Benchmark Deviation rule on value with non-numeric explanatory columns" executed="True" result="Success" success="True" time="43.780" asserts="374" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckBenchmarkDeviationRuleWithCriteriaFund" description="Check Benchmark Deviation rule with Criteria (Fund)" executed="True" result="Success" success="True" time="0.106" asserts="9" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckBenchmarkDeviationRuleWithCriteriaInstrumentCode" description="Check Benchmark Deviation rule with Criteria (Instrument Code)" executed="True" result="Success" success="True" time="0.105" asserts="309" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckDetailedCashBalanceRule" description="Check Detailed Cash Balance rule" executed="True" result="Success" success="True" time="1.037" asserts="5" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleOnRatioWithCriteriaPortfolioCurrencyOnNumberOfSecuritiesMarketValue_Currency" description="Check Min/Max rule on ratio with Criteria (Portfolio/Currency) on Number of securities / Market Value . Currency" executed="True" result="Success" success="True" time="0.067" asserts="24" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleOnRatioWithCriteriaWholePerimeterOnAssetValueWholePerimeter_NAV" description="Check Min/Max rule on ratio with Criteria (Whole Perimeter) on Asset value / Whole Perimeter . NAV" executed="True" result="Success" success="True" time="0.057" asserts="9" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleOnValueNoRestriction" description="Check Min/Max rule on value (No restriction)" executed="True" result="Success" success="True" time="0.049" asserts="7" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleOnValueRestrictionInsideFundBenchmark" description="Check Min/Max rule on value (Restriction = Inside Fund Benchmark)" executed="True" result="Success" success="True" time="0.059" asserts="7" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleOnValueRestrictionOutsideFundBenchmark" description="Check Min/Max rule on value (Restriction = Outside Fund Benchmark)" executed="True" result="Success" success="True" time="0.059" asserts="7" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleOnValueRestrictionOutsideStrategyBenchmark" description="Check Min/Max rule on value (Restriction = Outside Strategy Benchmark)" executed="True" result="Success" success="True" time="0.057" asserts="7" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleOnValueWithAdvancedLimits" description="Check Min/Max rule on value with advanced limits" executed="True" result="Success" success="True" time="0.058" asserts="15" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleOnValueWithNon_NumericExplanatoryColumns" description="Check Min/Max rule on value with non-numeric explanatory columns" executed="True" result="Success" success="True" time="0.062" asserts="93" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleWithLogicOperationOnRatingsBetweenAAAndBBB" description="Check Min/Max rule with logic operation on ratings (Between AA+ and BBB+)" executed="True" result="Success" success="True" time="0.053" asserts="23" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleWithLogicOperationOnRatingsEqualToAA" description="Check Min/Max rule with logic operation on ratings (Equal To AA)" executed="True" result="Success" success="True" time="0.044" asserts="11" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleWithLogicOperationOnRatingsGreaterOrEqualToAA_" description="Check Min/Max rule with logic operation on ratings (Greater Or Equal To AA-)" executed="True" result="Success" success="True" time="0.048" asserts="23" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleWithLogicOperationOnRatingsGreaterThanBBB" description="Check Min/Max rule with logic operation on ratings (Greater Than BBB+)" executed="True" result="Success" success="True" time="0.047" asserts="23" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleWithLogicOperationOnRatingsInAAAABBB" description="Check Min/Max rule with logic operation on ratings (In AA+,AA,BBB+)" executed="True" result="Success" success="True" time="0.047" asserts="23" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleWithLogicOperationOnRatingsIsNotNull" description="Check Min/Max rule with logic operation on ratings (Is Not Null)" executed="True" result="Success" success="True" time="0.047" asserts="31" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleWithLogicOperationOnRatingsIsNull" description="Check Min/Max rule with logic operation on ratings (Is Null)" executed="True" result="Success" success="True" time="0.053" asserts="51" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleWithLogicOperationOnRatingsLessOrEqualToAA_" description="Check Min/Max rule with logic operation on ratings (Less Or Equal To AA-)" executed="True" result="Success" success="True" time="0.052" asserts="63" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleWithLogicOperationOnRatingsLessThanAA_" description="Check Min/Max rule with logic operation on ratings (Less Than AA-)" executed="True" result="Success" success="True" time="0.053" asserts="59" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleWithLogicOperationOnRatingsNotBetweenAAAndAA_" description="Check Min/Max rule with logic operation on ratings (Not Between AA and AA-)" executed="True" result="Success" success="True" time="0.056" asserts="55" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleWithLogicOperationOnRatingsNotEqualToAA" description="Check Min/Max rule with logic operation on ratings (Not Equal To AA+)" executed="True" result="Success" success="True" time="0.054" asserts="63" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleWithLogicOperationOnRatingsNotInAAAABBB_" description="Check Min/Max rule with logic operation on ratings (Not In AA+,AA,BBB-)" executed="True" result="Success" success="True" time="0.053" asserts="59" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleWithTradeCriteria" description="Check Min/Max rule with trade criteria" executed="True" result="Success" success="True" time="1.215" asserts="15" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckParametricVaRRuleWithCriteriaFund" description="Check ParametricVaR rule with Criteria (Fund)" executed="True" result="Success" success="True" time="2.123" asserts="7" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckParametricVaRRuleWithCriteriaFundBloombergCountry" description="Check ParametricVaR rule with Criteria (Fund/Bloomberg Country)" executed="True" result="Success" success="True" time="3.481" asserts="33" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckParametricVaRRuleWithCriteriaFundBloombergCountryAndInOfMarketValue" description="Check ParametricVaR rule with Criteria (Fund/Bloomberg Country) and in % of Market Value" executed="True" result="Success" success="True" time="3.479" asserts="33" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckParametricVaRRuleWithCriteriaFundCurrency" description="Check ParametricVaR rule with Criteria (Fund/Currency)" executed="True" result="Success" success="True" time="3.487" asserts="18" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckParametricVaRRuleWithCriteriaFundCurrencyInstrumentCode" description="Check ParametricVaR rule with Criteria (Fund/Currency/Instrument Code)" executed="True" result="Success" success="True" time="4.177" asserts="309" />
+          <test-case name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckParametricVaRRuleWithCriteriaFundMaturity" description="Check ParametricVaR rule with Criteria (Fund/Maturity)" executed="True" result="Success" success="True" time="3.424" asserts="8" />
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

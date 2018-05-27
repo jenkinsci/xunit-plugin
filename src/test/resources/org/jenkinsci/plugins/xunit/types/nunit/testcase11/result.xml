@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="CheckComplianceSessionFeature" tests="3" failures="0" errors="0" skipped="3" time="0.562" group="NeedsFramework RisqueUser:TestUser1">
+        <testcase classname="CheckComplianceSessionFeature" name="Sophis.Compliance.SystemTests.CheckComplianceSessionFeature.AskForAPost_TradeCheckOnPortfoliosUKEquityFundMCEFraneluxEqFund">
+            <skipped />
+        </testcase>
+        <testcase classname="CheckComplianceSessionFeature" name="Sophis.Compliance.SystemTests.CheckComplianceSessionFeature.AskForAPre_TradeCheck3IGROUPPLC100InUKEquity">
+            <skipped />
+        </testcase>
+        <testcase classname="CheckComplianceSessionFeature" name="Sophis.Compliance.SystemTests.CheckComplianceSessionFeature.AskForAPre_TradeCheckTwice">
+            <skipped />
+        </testcase>
+    </testsuite>
+    <testsuite name="CheckComplianceRulesLocallyFeature" tests="31" failures="0" errors="0" skipped="0" time="67.795"
+        group="RisqueUserPrefs:ComplianceTemplate/CompliancePrefs RisqueUser:TestUser1 NeedsToInitializeComplianceLocally">
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckBenchmarkDeviationRuleOnValueWithNon_NumericExplanatoryColumns"
+            time="43.780" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckBenchmarkDeviationRuleWithCriteriaFund" time="0.106" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckBenchmarkDeviationRuleWithCriteriaInstrumentCode"
+            time="0.105" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckDetailedCashBalanceRule" time="1.037" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleOnRatioWithCriteriaPortfolioCurrencyOnNumberOfSecuritiesMarketValue_Currency"
+            time="0.067" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleOnRatioWithCriteriaWholePerimeterOnAssetValueWholePerimeter_NAV"
+            time="0.057" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleOnValueNoRestriction" time="0.049" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleOnValueRestrictionInsideFundBenchmark"
+            time="0.059" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleOnValueRestrictionOutsideFundBenchmark"
+            time="0.059" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleOnValueRestrictionOutsideStrategyBenchmark"
+            time="0.057" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleOnValueWithAdvancedLimits" time="0.058" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleOnValueWithNon_NumericExplanatoryColumns"
+            time="0.062" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleWithLogicOperationOnRatingsBetweenAAAndBBB"
+            time="0.053" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleWithLogicOperationOnRatingsEqualToAA"
+            time="0.044" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleWithLogicOperationOnRatingsGreaterOrEqualToAA_"
+            time="0.048" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleWithLogicOperationOnRatingsGreaterThanBBB"
+            time="0.047" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleWithLogicOperationOnRatingsInAAAABBB"
+            time="0.047" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleWithLogicOperationOnRatingsIsNotNull"
+            time="0.047" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleWithLogicOperationOnRatingsIsNull" time="0.053" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleWithLogicOperationOnRatingsLessOrEqualToAA_"
+            time="0.052" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleWithLogicOperationOnRatingsLessThanAA_"
+            time="0.053" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleWithLogicOperationOnRatingsNotBetweenAAAndAA_"
+            time="0.056" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleWithLogicOperationOnRatingsNotEqualToAA"
+            time="0.054" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleWithLogicOperationOnRatingsNotInAAAABBB_"
+            time="0.053" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckMinMaxRuleWithTradeCriteria" time="1.215" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckParametricVaRRuleWithCriteriaFund" time="2.123" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckParametricVaRRuleWithCriteriaFundBloombergCountry"
+            time="3.481" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckParametricVaRRuleWithCriteriaFundBloombergCountryAndInOfMarketValue"
+            time="3.479" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckParametricVaRRuleWithCriteriaFundCurrency" time="3.487" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckParametricVaRRuleWithCriteriaFundCurrencyInstrumentCode"
+            time="4.177" />
+        <testcase classname="CheckComplianceRulesLocallyFeature" name="Sophis.Compliance.SystemTests.CheckComplianceRulesLocallyFeature.CheckParametricVaRRuleWithCriteriaFundMaturity" time="3.424" />
+    </testsuite>
+</testsuites>

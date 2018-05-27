@@ -145,11 +145,11 @@ THE SOFTWARE.
             <xsl:for-each select="*/test-case">
                 <xsl:variable name="testName">
                     <xsl:choose>
-                        <xsl:when test="contains(@name, concat($suiteName, '.'))">
+                        <xsl:when test="starts-with(@name, concat($suiteName, '.'))">
                             <xsl:value-of select="substring(@name, string-length($suiteName) + 2)"/>
                         </xsl:when>
-                        <xsl:when test="contains(@name, $suiteName)">
-                            <xsl:value-of select="substring-after(@name, $suiteName)"/>
+                        <xsl:when test="starts-with(@name, $suiteName)">
+                            <xsl:value-of select="substring(@name, string-length($suiteName) + 1)"/>
                         </xsl:when>
                         <xsl:otherwise>
                             <xsl:value-of select="@name"/>
