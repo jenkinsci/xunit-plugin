@@ -45,7 +45,9 @@ public class NUnitTest extends AbstractTest {
                                               { "JENKINS-10911 skipped are ignored when failure is present before", 7 }, //
                                               { "Sample provided by http://nunit.org/files/testresult_25.txt", 8 }, //
                                               { "Sample provided by the 2.4.8 distribution", 9 }, //
-                                              { "JENKINS-51481 report produced by DUnit to NUnit logger", 10 }
+                                              { "JENKINS-51481 report produced by DUnit to NUnit logger", 10 }, //
+                                              { "JENKINS-JENKINS-51556 works", 11 }, //
+                                              { "JENKINS-JENKINS-51556 cause JEP-200 issue", 12 } //
         });
     }
 

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<test-results total="75" errors="0" failures="0" not-run="3" inconclusive="0" ignored="3" skipped="0" invalid="0" name="neptune" date="2018-05-22" time="03:57:52">
+  <environment nunit-version="2.6.3.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="D:\Jenkins\workspace\integration_7.2.1_nightly\tests\installs\Value" machine-name="FR1PSWBLD11" user="jenkins.sophis" user-domain="MISYSROOT" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="D:\Jenkins\workspace\integration_7.2.1_nightly\tests\installs\Value\SystemTests.Strategies.dll" executed="True" result="Success" success="True" time="4.942" asserts="0">
+    <results>
+      <test-suite type="TestFixture" name="StrategyCashAllocationFeature" description="Strategy Cash Allocation" executed="True" result="Success" success="True" time="4.942" asserts="0">
+        <categories>
+          <category name="NeedsAPI" />
+        </categories>
+        <results>
+          <test-case name="Sophis.Strategies.StrategyCashAllocationFeature.SweepFundStrategiesCash" description="Sweep fund strategies cash" executed="True" result="Success" success="True" time="3.402" asserts="6">
+            <categories>
+              <category name="ScenarioStrategyCashAllocationSweep" />
+            </categories>
+          </test-case>
+          <test-case name="Sophis.Strategies.StrategyCashAllocationFeature.TransferCashFromFundToStrategies" description="Transfer cash from fund to strategies" executed="True" result="Success" success="True" time="1.530" asserts="18">
+            <categories>
+              <category name="ScenarioStrategyCashAllocationFundTransfer" />
+            </categories>
+          </test-case>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
