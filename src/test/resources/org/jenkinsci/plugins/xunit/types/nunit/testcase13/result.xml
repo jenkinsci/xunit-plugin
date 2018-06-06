@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="TMService.UnitTests.ServiceCompositionTests" tests="8" failures="0" errors="0" skipped="0" time="1.859">
+        <testcase classname="TMService.UnitTests.ServiceCompositionTests" name="CanGetAllSpringObjects" time="1.768" />
+        <testcase classname="TMService.UnitTests.ServiceCompositionTests" name="CanGetSettingsProperty_AmisAvailabilityTimerSeconds" time="0.009" />
+        <testcase classname="TMService.UnitTests.ServiceCompositionTests" name="CanGetSettingsProperty_IntegrityCheckTimeSpanSeconds" time="0.009" />
+        <testcase classname="TMService.UnitTests.ServiceCompositionTests" name="CanGetSettingsProperty_OperationalStatusEnableAutomaticDistanceHandling" time="0.007" />
+        <testcase classname="TMService.UnitTests.ServiceCompositionTests" name="CanGetSettingsProperty_SendAmisAvailabilityMessage" time="0.016" />
+        <testcase classname="TMService.UnitTests.ServiceCompositionTests" name="CanGetSettingsProperty_SyncOnlyAvailableResources" time="0.005" />
+        <testcase classname="TMService.UnitTests.ServiceCompositionTests" name="CanGetSettingsProperty_UserId" time="0.005" />
+        <testcase classname="TMService.UnitTests.ServiceCompositionTests" name="ShouldBeAbleToGetWorkingPosition" time="0.015" />
+    </testsuite>
+    <testsuite name="TMService.UnitTests.TMServiceSettingsTests" tests="4" failures="0" errors="0" skipped="0" time="0.133">
+        <testcase classname="TMService.UnitTests.TMServiceSettingsTests" name="CanGetAllSpringObjects" time="0.099" />
+        <testcase classname="TMService.UnitTests.TMServiceSettingsTests" name="CanGetSettingsObject" time="0.008" />
+        <testcase classname="TMService.UnitTests.TMServiceSettingsTests" name="ShouldBeAbleToGetInstanceFromComposition" time="0.015" />
+        <testcase classname="TMService.UnitTests.TMServiceSettingsTests" name="ShouldBeAbleToGetWorkingPosition" time="0.002" />
+    </testsuite>
+    <testsuite name="TMService.UnitTests.TMServiceTests" tests="3" failures="0" errors="0" skipped="3" time="0.007">
+        <testcase classname="TMService.UnitTests.TMServiceTests" name="ShouldBeAbleToInitializeHendelseHelper">
+            <skipped />
+        </testcase>
+        <testcase classname="TMService.UnitTests.TMServiceTests" name="ShouldBeAbleToInitializeRessursHelper">
+            <skipped />
+        </testcase>
+        <testcase classname="TMService.UnitTests.TMServiceTests" name="ShouldBeAbleToInitializeRessursTeamHelper">
+            <skipped />
+        </testcase>
+    </testsuite>
+</testsuites>
+
