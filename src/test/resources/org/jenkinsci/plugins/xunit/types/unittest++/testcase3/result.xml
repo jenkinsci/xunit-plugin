@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite errors="4" failures="4" tests="106" name="unittest" timestamp="2421.447">
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\DonkeyTrader\donkey_trader.plv" name="LoadSave" time="43.996" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\DonkeyTrader\donkey_trader.plv" name="XMLDiff" time="0.059" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\FairgroundDemo\FairgroundDemo.plv" name="LoadSave" time="216.723" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\FairgroundDemo\FairgroundDemo.plv" name="XMLDiff" time="0.035">
+        <failure message="Mismatching attribute values on LEVELFILE/INSTANCES/Dog/m_localMatrix/m_elements/&#xD;&#xA;Value[1] '-8.25015078E-08' vs '-8.61836966E-08' (diff 3.682189E-09 exceeds max 8.250151E-12)&#xD;&#xA;Value[2] '-2.89179418E-08' vs '-1.46668535E-08' (diff 1.425109E-08 exceeds max 2.891794E-12)&#xD;&#xA;Value[5] '0.943707049' vs '0.985826373' (diff 0.04211932 exceeds max 9.437071E-05)&#xD;&#xA;Value[6] '0.330782533' vs '0.167769134' (diff 0.1630134 exceeds max 3.307825E-05)&#xD;&#xA;Value[9] '0.330782533' vs '0.167769134' (diff 0.1630134 exceeds max 3.307825E-05)&#xD;&#xA;Value[10] '-0.943707049' vs '-0.985826373' (diff 0.04211932 exceeds max 9.437071E-05)&#xD;&#xA;XML Diff failed&#xD;&#xA;" />
+    </testcase>
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\FairgroundDemo\TutorialFiles\FairgroundTutorial.plv" name="LoadSave"
+        time="100.042" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\FairgroundDemo\TutorialFiles\FairgroundTutorial.plv" name="XMLDiff" time="0.052" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\FairgroundDemo\TutorialFiles\FairgroundTutorialCompleted.plv" name="LoadSave"
+        time="80.328" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\FairgroundDemo\TutorialFiles\FairgroundTutorialCompleted.plv" name="XMLDiff"
+        time="0.058" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\Samples\cubes.plv" name="LoadSave" time="29.891" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\Samples\cubes.plv" name="XMLDiff" time="0.006" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\Samples\physicsCollisionCallback.plv" name="LoadSave" time="46.777" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\Samples\physicsCollisionCallback.plv" name="XMLDiff" time="0.000" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\Samples\Audio\AudioSampleLevel.plv" name="LoadSave" time="39.282" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\Samples\Audio\AudioSampleLevel.plv" name="XMLDiff" time="0.000" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\Samples\BoxMan\boxman_animated.plv" name="LoadSave" time="90.160" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\Samples\BoxMan\boxman_animated.plv" name="XMLDiff" time="0.007" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\Samples\BoxMan\boxman_character.plv" name="LoadSave" time="26.825" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\Samples\BoxMan\boxman_character.plv" name="XMLDiff" time="0.001" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\Samples\BoxMan\boxman_character_script.plv" name="LoadSave" time="21.428" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\Samples\BoxMan\boxman_character_script.plv" name="XMLDiff" time="0.001" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\Samples\BoxMan\boxman_character_trigger_script.plv" name="LoadSave" time="29.967" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\Samples\BoxMan\boxman_character_trigger_script.plv" name="XMLDiff" time="0.002" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\Samples\Navigation\NavRoom.plv" name="LoadSave" time="78.016" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\Samples\Navigation\NavRoom.plv" name="XMLDiff" time="0.007" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\Samples\Scripting\raster.plv" name="LoadSave" time="69.314" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\Samples\Scripting\raster.plv" name="XMLDiff" time="0.002" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\Samples\Sprite\sprites.plv" name="LoadSave" time="287.142" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\Samples\Sprite\sprites.plv" name="XMLDiff" time="0.000" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\SpaceStation\SpaceStation.plv" name="LoadSave" time="377.153" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Media\SpaceStation\SpaceStation.plv" name="XMLDiff" time="0.404" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\AddDeleteAndUndoAsset.plecs" name="Run" time="26.198" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\AddDeleteAndUndoAsset.plecs.plv" name="XMLDiff"
+        time="0.000" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\ApplyAllPostEffects.plecs" name="Run" time="64.698" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\ApplyAllPostEffects.plecs.plv" name="XMLDiff"
+        time="0.001" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\AttachAndDelete.plecs" name="Run" time="25.070" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\AttachAndDelete.plecs.plv" name="XMLDiff" time="0.000" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\AttachAndDeleteAndUndo.plecs" name="Run" time="19.244" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\AttachAndDeleteAndUndo.plecs.plv" name="XMLDiff"
+        time="0.000" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\AttachAndUndo.plecs" name="Run" time="20.079" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\AttachAndUndo.plecs.plv" name="XMLDiff" time="0.000" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateCircularReferenceWithCustomComponents.plecs"
+        name="Run" time="19.387" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateCircularReferenceWithCustomComponents.plecs.plv"
+        name="XMLDiff" time="0.000" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateComponents.plecs" name="Run" time="85.079" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateComponents.plecs.plv" name="XMLDiff" time="0.000" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateComponentWithCustomPointer.plecs" name="Run"
+        time="24.736" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateComponentWithCustomPointer.plecs.plv"
+        name="XMLDiff" time="0.137" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateDynamicComponentAndInstance.plecs" name="Run"
+        time="26.782" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateDynamicComponentAndInstance.plecs.plv"
+        name="XMLDiff" time="0.057" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateDynamicComponentWithLink.plecs" name="Run"
+        time="17.403" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateDynamicComponentWithLink.plecs.plv" name="XMLDiff"
+        time="0.360" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateEmptyComponent.plecs" name="Run" time="24.206" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateEmptyComponent.plecs.plv" name="XMLDiff"
+        time="0.075" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateEmptyEmitter.plecs" name="Run" time="38.860" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateEmptyEmitter.plecs.plv" name="XMLDiff"
+        time="0.409" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateGroup.plecs" name="Run" time="24.921" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateGroup.plecs.plv" name="XMLDiff" time="0.027" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateLight.plecs" name="Run" time="22.586" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateLight.plecs.plv" name="XMLDiff" time="0.269" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateLocator.plecs" name="Run" time="22.573" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateLocator.plecs.plv" name="XMLDiff" time="0.188" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateLODGroupWithPhysics.plecs" name="Run"
+        time="45.512" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateLODGroupWithPhysics.plecs.plv" name="XMLDiff"
+        time="0.137" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateMeshEmitter.plecs" name="Run" time="19.223" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateMeshEmitter.plecs.plv" name="XMLDiff"
+        time="0.397" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateMeshEmitterInstance.plecs" name="Run"
+        time="21.030" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateMeshEmitterInstance.plecs.plv" name="XMLDiff"
+        time="1.004" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateMeshInstanceWithPhysics.plecs" name="Run"
+        time="24.560" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateMeshInstanceWithPhysics.plecs.plv" name="XMLDiff"
+        time="0.413" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateNavMesh.plecs" name="Run" time="15.695" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateNavMesh.plecs.plv" name="XMLDiff" time="0.198" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateNewComponentTypeOfEveryType.plecs" name="Run"
+        time="16.660" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateNewComponentTypeOfEveryType.plecs.plv"
+        name="XMLDiff" time="0.110" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateOccluder.plecs" name="Run" time="14.520" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateOccluder.plecs.plv" name="XMLDiff" time="0.276" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateOrtho.plecs" name="Run" time="15.088" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateOrtho.plecs.plv" name="XMLDiff" time="0.228" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreatePersp.plecs" name="Run" time="15.749" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreatePersp.plecs.plv" name="XMLDiff" time="0.085" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateSpriteEmitter.plecs" name="Run" time="16.840" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateSpriteEmitter.plecs.plv" name="XMLDiff"
+        time="0.005" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateSpriteEmitterInstance.plecs" name="Run"
+        time="17.165" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateSpriteEmitterInstance.plecs.plv" name="XMLDiff"
+        time="0.022" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateTrigger.plecs" name="Run" time="18.320" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\CreateTrigger.plecs.plv" name="XMLDiff" time="0.000" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\DeleteAssetWithRemainingInstance.plecs" name="Run"
+        time="15.204" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\DeleteAssetWithRemainingInstance.plecs.plv"
+        name="XMLDiff" time="0.000" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\DeleteLinkedCustomComponentAndUndo.plecs" name="Run"
+        time="15.144" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\DeleteLinkedCustomComponentAndUndo.plecs.plv"
+        name="XMLDiff" time="0.000" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\ExportAndReimportEmptyParticleSystem.plecs"
+        name="Run" time="15.910" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\ExportAndReimportEmptyParticleSystem.plecs.plv"
+        name="XMLDiff" time="0.001">
+        <failure
+            message="Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_emissions/)&#xD;&#xA;Original: 1&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_updates/)&#xD;&#xA;Original: 1&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_geomGens/)&#xD;&#xA;Original: 4&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_emissionState/)&#xD;&#xA;Original: 1&#xD;&#xA; PROPERTY name=m_objectTypes&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_updateState/)&#xD;&#xA;Original: 1&#xD;&#xA; PROPERTY name=m_objectTypes&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_geomGenState/)&#xD;&#xA;Original: 1&#xD;&#xA; PROPERTY name=m_objectTypes&#xD;&#xA;Copy: 0&#xD;&#xA;XML Diff failed&#xD;&#xA;" />
+    </testcase>
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\LoadPLVCs.plecs" name="Run" time="17.652" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\LoadPLVCs.plecs.plv" name="XMLDiff" time="0.001">
+        <failure
+            message="Mismatching element count on ASSETS nodes (LEVELFILE/ASSETS/)&#xD;&#xA;Original: 1&#xD;&#xA; FILE id=3b2343a4-0d7b-475a-9b3c-f3375e29c46e&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on COMPONENTS nodes (LEVELFILE/EMBEDDEDASSETS/COMPONENTS/)&#xD;&#xA;Original: 2&#xD;&#xA; COMPONENT id=2640d332-8545-4962-898c-c946c7948e99&#xD;&#xA; COMPONENT id=88ce65ca-688c-4197-9c69-9ca115f1dc82&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on INSTANCES nodes (LEVELFILE/INSTANCES/)&#xD;&#xA;Original: 15&#xD;&#xA; INSTANCE id=09453a8d-09a1-4180-b1fc-7b1f3e6b1dcf&#xD;&#xA; INSTANCE id=8237077c-70ba-4280-9f81-8c8835b34224&#xD;&#xA; INSTANCE id=a59305db-b87e-4c7e-ab06-bbf311abdd63&#xD;&#xA; INSTANCE id=2b70650f-d6da-46e9-89bb-d3d949c5704a&#xD;&#xA; INSTANCE id=e71aecaa-850d-41a4-8ca3-3d2c6bc0f6e0&#xD;&#xA; INSTANCE id=b55f72d6-9b36-42b1-af5f-abd94fcf1df8&#xD;&#xA; INSTANCE id=3ce98afd-42ac-4a2a-baba-7e4892bc361c&#xD;&#xA; INSTANCE id=defa34b9-80fa-448e-b47e-650657d2d240&#xD;&#xA; INSTANCE id=74bb13a8-758a-473d-8327-ff5043aaf0e5&#xD;&#xA; INSTANCE id=c5c38acb-44b6-4023-812e-d40d09019759&#xD;&#xA; INSTANCE id=0e575631-77b5-4b1a-b5c9-71dc115b173d&#xD;&#xA; INSTANCE id=506a930a-e79b-474d-87fb-f10af52bfb90&#xD;&#xA; INSTANCE id=46cf4b63-5ee8-4421-bfaf-3fc1a59a2618&#xD;&#xA; INSTANCE id=7e0a8fd6-cee4-4cf6-8837-2164c25d9d6f&#xD;&#xA; INSTANCE id=1d17e1bb-2896-4ba4-a544-60f3d01f212f&#xD;&#xA;Copy: 0&#xD;&#xA;XML Diff failed&#xD;&#xA;" />
+    </testcase>
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\LoadPLVPs.plecs" name="Run" time="15.260" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\LoadPLVPs.plecs.plv" name="XMLDiff" time="0.001">
+        <failure
+            message="Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_emissions/)&#xD;&#xA;Original: 2&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_updates/)&#xD;&#xA;Original: 3&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_geomGens/)&#xD;&#xA;Original: 1&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_emissionState/)&#xD;&#xA;Original: 1&#xD;&#xA; PROPERTY name=m_objectTypes&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_updateState/)&#xD;&#xA;Original: 1&#xD;&#xA; PROPERTY name=m_objectTypes&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_geomGenState/)&#xD;&#xA;Original: 1&#xD;&#xA; PROPERTY name=m_objectTypes&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_emissions/)&#xD;&#xA;Original: 1&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_updates/)&#xD;&#xA;Original: 2&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_geomGens/)&#xD;&#xA;Original: 4&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_emissionState/)&#xD;&#xA;Original: 1&#xD;&#xA; PROPERTY name=m_objectTypes&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_updateState/)&#xD;&#xA;Original: 1&#xD;&#xA; PROPERTY name=m_objectTypes&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_geomGenState/)&#xD;&#xA;Original: 1&#xD;&#xA; PROPERTY name=m_objectTypes&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_emissions/)&#xD;&#xA;Original: 1&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_updates/)&#xD;&#xA;Original: 1&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_geomGens/)&#xD;&#xA;Original: 4&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_emissionState/)&#xD;&#xA;Original: 1&#xD;&#xA; PROPERTY name=m_objectTypes&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_updateState/)&#xD;&#xA;Original: 1&#xD;&#xA; PROPERTY name=m_objectTypes&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_geomGenState/)&#xD;&#xA;Original: 1&#xD;&#xA; PROPERTY name=m_objectTypes&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_emissions/)&#xD;&#xA;Original: 1&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_updates/)&#xD;&#xA;Original: 1&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_geomGens/)&#xD;&#xA;Original: 4&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA; PROPERTY name=ELEMENT&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_emissionState/)&#xD;&#xA;Original: 1&#xD;&#xA; PROPERTY name=m_objectTypes&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_updateState/)&#xD;&#xA;Original: 1&#xD;&#xA; PROPERTY name=m_objectTypes&#xD;&#xA;Copy: 0&#xD;&#xA;Mismatching element count on PROPERTY nodes (LEVELFILE/EMBEDDEDASSETS/PARTICLES/EMITTER/m_geomGenState/)&#xD;&#xA;Original: 1&#xD;&#xA; PROPERTY name=m_objectTypes&#xD;&#xA;Copy: 0&#xD;&#xA;XML Diff failed&#xD;&#xA;" />
+    </testcase>
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\NewLevelWithTwoEmitters.plecs" name="Run" time="15.410" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\NewLevelWithTwoEmitters.plecs.plv" name="XMLDiff"
+        time="0.004" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\RedoSettingOfComponentPropertyAfterUndoingComponentCreation.plecs"
+        name="Run" time="19.229" />
+    <testcase
+        classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\RedoSettingOfComponentPropertyAfterUndoingComponentCreation.plecs.plv"
+        name="XMLDiff" time="0.000" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\RemoveSplineControlPoint.plecs" name="Run" time="17.133" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\RemoveSplineControlPoint.plecs.plv" name="XMLDiff"
+        time="0.001" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\TemplatizeLightWithAnimatableComponentAndDupe.plecs"
+        name="Run" time="14.960" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\TemplatizeLightWithAnimatableComponentAndDupe.plecs.plv"
+        name="XMLDiff" time="0.000" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\UndoDeleteOfLoadedDAE.plecs" name="Run" time="14.029" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\UndoDeleteOfLoadedDAE.plecs.plv" name="XMLDiff"
+        time="0.001" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\UndoDeleteOfPreviouslyInUseComponent.plecs"
+        name="Run" time="17.247" />
+    <testcase classname="c:\JCI\workspace\PLETesting-Live\CONFIG\Release\VSVERSION\2012\P E\Tests\Scripts\PhyreLevelEditor\UndoDeleteOfPreviouslyInUseComponent.plecs.plv"
+        name="XMLDiff" time="0.000" />
+</testsuite>

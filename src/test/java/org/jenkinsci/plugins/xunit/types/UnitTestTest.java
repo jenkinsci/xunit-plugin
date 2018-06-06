@@ -1,46 +1,55 @@
-/*******************************************************************************
- * Copyright (c) 2010 Thales Corporate Services SAS                             *
- * Author : Gregory Boissinot                                                   *
- *                                                                              *
- * Permission is hereby granted, free of charge, to any person obtaining a copy *
- * of this software and associated documentation files (the "Software"), to deal*
- * in the Software without restriction, including without limitation the rights *
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell    *
- * copies of the Software, and to permit persons to whom the Software is        *
- * furnished to do so, subject to the following conditions:                     *
- *                                                                              *
- * The above copyright notice and this permission notice shall be included in   *
- * all copies or substantial portions of the Software.                          *
- *                                                                              *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR   *
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,     *
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE  *
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER       *
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,*
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN    *
- * THE SOFTWARE.                                                                *
- *******************************************************************************/
-
+/*
+ * The MIT License (MIT)
+ *
+ * Copyright (c) 2010, Gregory Boissinot, Nikolas Falco
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
 package org.jenkinsci.plugins.xunit.types;
 
-import org.junit.Test;
+import java.util.Arrays;
+import java.util.Collection;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
+
+@RunWith(Parameterized.class)
 public class UnitTestTest extends AbstractTest {
 
-    @Test
-    public void testcase1() throws Exception {
-        convertAndValidate(UnitTest.class, "unitTest++/testcase1/testresult.xml", "unitTest++/testcase1/junit-result.xml");
+    @Parameters(name = "testcase{1}: {0}")
+    public static Collection<Object[]> data() {
+        return Arrays.asList(new Object[][] { { "testcase1", 1 }, //
+                                              { "testcase2", 2 }, //
+                                              { "testcase3", 3 } //
+        });
     }
 
-    @Test
-    public void testcase2() throws Exception {
-        convertAndValidate(UnitTest.class, "unitTest++/testcase2/result.xml", "unitTest++/testcase2/junit-result.xml");
+    public UnitTestTest(String testName, int testNumber) {
+        super(UnitTest.class, resolveInput("unittest++", testNumber), resolveOutput("unittest++", testNumber));
     }
 
+    @Override
     @Test
-    public void testcase3() throws Exception {
-        convertAndValidate(UnitTest.class, "unitTest++/testcase3/result.xml", "unitTest++/testcase3/junit-result.xml");
+    public void verifyXSLT() throws Exception {
+        super.verifyXSLT();
     }
-
 
 }
