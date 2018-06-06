@@ -69,7 +69,7 @@ THE SOFTWARE.
         <xsl:variable name="nunitVersion">
             <xsl:choose>
                 <xsl:when test="/test-results/environment">
-                    <xsl:analyze-string regex="(2\.\d+)" select="/test-results/environment/@nunit-version">
+                    <xsl:analyze-string regex="^(\d+\.\d+)" select="/test-results/environment/@nunit-version">
                         <xsl:matching-substring>
                             <xsl:value-of select="regex-group(1)" />
                         </xsl:matching-substring>

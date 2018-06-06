@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\jks\ws\Classic-AMIS_2.50.X_Build\Classic-AMIS-AmisTM7\TMService.UnitTests\bin\Debug\TMService.UnitTests.dll" total="15" errors="0" failures="0" not-run="3" inconclusive="0" ignored="3" skipped="0" invalid="0" date="2018-05-28" time="07:57:25">
+  <environment nunit-version="3.6.0.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 6.3.9600.0" platform="Win32NT" cwd="C:\jks\ws\Classic-AMIS_2.50.X_Build\Classic-AMIS-AmisTM7\target" machine-name="CHDEV1074" user="SRV_Jenkins" user-domain="INTERN" />
+  <culture-info current-culture="nb-NO" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="C:\jks\ws\Classic-AMIS_2.50.X_Build\Classic-AMIS-AmisTM7\TMService.UnitTests\bin\Debug\TMService.UnitTests.dll" executed="True" result="Success" success="True" time="2.019" asserts="0">
+    <properties>
+      <property name="_PID" value="6892" />
+      <property name="_APPDOMAIN" value="domain-" />
+    </properties>
+    <results>
+      <test-suite type="Namespace" name="TMService" executed="True" result="Success" success="True" time="2.006" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="UnitTests" executed="True" result="Success" success="True" time="2.006" asserts="0">
+            <results>
+              <test-suite type="TestFixture" name="ServiceCompositionTests" executed="True" result="Success" success="True" time="1.859" asserts="0">
+                <results>
+                  <test-case name="TMService.UnitTests.ServiceCompositionTests.CanGetAllSpringObjects" executed="True" result="Success" success="True" time="1.768" asserts="0" />
+                  <test-case name="TMService.UnitTests.ServiceCompositionTests.CanGetSettingsProperty_AmisAvailabilityTimerSeconds" executed="True" result="Success" success="True" time="0.009" asserts="1" />
+                  <test-case name="TMService.UnitTests.ServiceCompositionTests.CanGetSettingsProperty_IntegrityCheckTimeSpanSeconds" executed="True" result="Success" success="True" time="0.009" asserts="1" />
+                  <test-case name="TMService.UnitTests.ServiceCompositionTests.CanGetSettingsProperty_OperationalStatusEnableAutomaticDistanceHandling" executed="True" result="Success" success="True" time="0.007" asserts="1" />
+                  <test-case name="TMService.UnitTests.ServiceCompositionTests.CanGetSettingsProperty_SendAmisAvailabilityMessage" executed="True" result="Success" success="True" time="0.016" asserts="1" />
+                  <test-case name="TMService.UnitTests.ServiceCompositionTests.CanGetSettingsProperty_SyncOnlyAvailableResources" executed="True" result="Success" success="True" time="0.005" asserts="1" />
+                  <test-case name="TMService.UnitTests.ServiceCompositionTests.CanGetSettingsProperty_UserId" executed="True" result="Success" success="True" time="0.005" asserts="1" />
+                  <test-case name="TMService.UnitTests.ServiceCompositionTests.ShouldBeAbleToGetWorkingPosition" executed="True" result="Success" success="True" time="0.015" asserts="1" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="TMServiceSettingsTests" executed="True" result="Success" success="True" time="0.133" asserts="0">
+                <results>
+                  <test-case name="TMService.UnitTests.TMServiceSettingsTests.CanGetAllSpringObjects" executed="True" result="Success" success="True" time="0.099" asserts="0" />
+                  <test-case name="TMService.UnitTests.TMServiceSettingsTests.CanGetSettingsObject" executed="True" result="Success" success="True" time="0.008" asserts="1" />
+                  <test-case name="TMService.UnitTests.TMServiceSettingsTests.ShouldBeAbleToGetInstanceFromComposition" executed="True" result="Success" success="True" time="0.015" asserts="1" />
+                  <test-case name="TMService.UnitTests.TMServiceSettingsTests.ShouldBeAbleToGetWorkingPosition" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="TMServiceTests" executed="True" result="Inconclusive" success="False" time="0.007" asserts="0">
+                <results>
+                  <test-case name="TMService.UnitTests.TMServiceTests.ShouldBeAbleToInitializeHendelseHelper" executed="False" result="Ignored">
+                    <properties>
+                      <property name="_IGNOREREASON" value="" />
+                    </properties>
+                    <reason>
+                      <message><![CDATA[]]></message>
+                    </reason>
+                  </test-case>
+                  <test-case name="TMService.UnitTests.TMServiceTests.ShouldBeAbleToInitializeRessursHelper" executed="False" result="Ignored">
+                    <properties>
+                      <property name="_IGNOREREASON" value="" />
+                    </properties>
+                    <reason>
+                      <message><![CDATA[]]></message>
+                    </reason>
+                  </test-case>
+                  <test-case name="TMService.UnitTests.TMServiceTests.ShouldBeAbleToInitializeRessursTeamHelper" executed="False" result="Ignored">
+                    <properties>
+                      <property name="_IGNOREREASON" value="" />
+                    </properties>
+                    <reason>
+                      <message><![CDATA[]]></message>
+                    </reason>
+                  </test-case>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
