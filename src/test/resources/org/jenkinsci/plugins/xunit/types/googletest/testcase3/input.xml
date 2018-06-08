@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite name="nosetests" tests="3" errors="0" failures="0" skip="0"><testcase classname="test.test_xxx.TestAlternative" name="test_alternative" time="0.011"><system-out><![CDATA[Test data stripped out.
+]]></system-out></testcase><testcase classname="test.test_xxx.TestAlternative" name="test_low" time="0.009"><system-out><![CDATA[Test data stripped out.
+]]></system-out></testcase><testcase classname="test.test_xxx.TestAlternative" name="test_high" time="0.010"><system-out><![CDATA[Test data stripped out.
+]]></system-out></testcase><testcase classname="test.test_book_gripper_alternative.TestAlternative" name="test_box_length_known_book" time="0.004"><system-out><![CDATA[Test data stripped out.
+]]></system-out></testcase></testsuite>
