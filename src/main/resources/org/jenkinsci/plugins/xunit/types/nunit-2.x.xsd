@@ -13,7 +13,7 @@
 	</xs:complexType>
 	<xs:element name="message" type="xs:string" />
 	<xs:complexType name="resultsType">
-		<xs:choice>
+		<xs:choice maxOccurs="unbounded">
 			<xs:element name="test-suite" type="test-suiteType" maxOccurs="unbounded" />
 			<xs:element name="test-case" type="test-caseType" maxOccurs="unbounded" minOccurs="0" />
 		</xs:choice>

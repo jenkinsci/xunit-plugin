@@ -1,0 +1,1000 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite -->
+<test-results name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll" total="295" errors="0" failures="0" not-run="2"
+    inconclusive="0" ignored="2" skipped="0" invalid="0" date="2018-06-07" time="15:48:40">
+    <environment nunit-version="2.6.4.14350" clr-version="4.0.30319.17020" os-version="Unix 4.15.17.1" platform="Unix"
+        cwd="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release" machine-name="ba-xenial-jenkins" user="jenkins" user-domain="ba-xenial-jenkins" />
+    <culture-info current-culture="" current-uiculture="" />
+    <test-suite type="Test Project" name="" executed="True" result="Success" success="True" time="1118.796" asserts="0">
+        <results>
+            <test-suite type="Assembly" name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll" executed="True" result="Success"
+                success="True" time="1117.899" asserts="0">
+                <results>
+                    <test-suite type="Namespace" name="LfMerge" executed="True" result="Success" success="True" time="1117.893" asserts="0">
+                        <results>
+                            <test-suite type="Namespace" name="Core" executed="True" result="Success" success="True" time="1117.893" asserts="0">
+                                <results>
+                                    <test-suite type="SetUpFixture" name="Tests" executed="True" result="Success" success="True" time="1117.882" asserts="0">
+                                        <results>
+                                            <test-suite type="Namespace" name="Actions" executed="True" result="Success" success="True" time="1078.691" asserts="0">
+                                                <results>
+                                                    <test-suite type="TestFixture" name="ActionTests" executed="True" result="Success" success="True" time="0.643"
+                                                        asserts="0">
+                                                        <results>
+                                                            <test-suite type="ParameterizedTest" name="EnumerateActionsStartingWith" executed="True" result="Success"
+                                                                success="True" time="0.432" asserts="0">
+                                                                <results>
+                                                                    <test-case name="LfMerge.Core.Tests.Actions.ActionTests.EnumerateActionsStartingWith(TransferFdoToMongo,None)"
+                                                                        executed="True" result="Success" success="True" time="0.391" asserts="1" />
+                                                                    <test-case name="LfMerge.Core.Tests.Actions.ActionTests.EnumerateActionsStartingWith(Edit,TransferFdoToMongo)"
+                                                                        executed="True" result="Success" success="True" time="0.005" asserts="1" />
+                                                                    <test-case name="LfMerge.Core.Tests.Actions.ActionTests.EnumerateActionsStartingWith(Synchronize,Edit)"
+                                                                        executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                                                                    <test-case name="LfMerge.Core.Tests.Actions.ActionTests.EnumerateActionsStartingWith(Commit,Synchronize)"
+                                                                        executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                                                                    <test-case name="LfMerge.Core.Tests.Actions.ActionTests.EnumerateActionsStartingWith(TransferMongoToFdo,Commit)"
+                                                                        executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                                                                    <test-case name="LfMerge.Core.Tests.Actions.ActionTests.EnumerateActionsStartingWith(EnsureClone,TransferMongoToFdo)"
+                                                                        executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                                                                    <test-case name="LfMerge.Core.Tests.Actions.ActionTests.EnumerateActionsStartingWith(None,EnsureClone)"
+                                                                        executed="True" result="Success" success="True" time="0.006" asserts="1" />
+                                                                </results>
+                                                            </test-suite>
+                                                            <test-suite type="ParameterizedTest" name="GetActionFromQueue" executed="True" result="Success" success="True"
+                                                                time="0.019" asserts="0">
+                                                                <results>
+                                                                    <test-case name="LfMerge.Core.Tests.Actions.ActionTests.GetActionFromQueue(Synchronize,Synchronize)"
+                                                                        executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                                                                    <test-case name="LfMerge.Core.Tests.Actions.ActionTests.GetActionFromQueue(Edit,Edit)" executed="True"
+                                                                        result="Success" success="True" time="0.010" asserts="1" />
+                                                                    <test-case name="LfMerge.Core.Tests.Actions.ActionTests.GetActionFromQueue(None,None)" executed="True"
+                                                                        result="Success" success="True" time="0.003" asserts="1" />
+                                                                </results>
+                                                            </test-suite>
+                                                            <test-suite type="ParameterizedTest" name="NextAction" executed="True" result="Success" success="True" time="0.022"
+                                                                asserts="0">
+                                                                <results>
+                                                                    <test-case name="LfMerge.Core.Tests.Actions.ActionTests.NextAction(Synchronize,LfMerge.Core.Actions.ActionNames[])"
+                                                                        executed="True" result="Success" success="True" time="0.016" asserts="1" />
+                                                                    <test-case name="LfMerge.Core.Tests.Actions.ActionTests.NextAction(Edit,LfMerge.Core.Actions.ActionNames[])"
+                                                                        executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                                                                </results>
+                                                            </test-suite>
+                                                            <test-suite type="ParameterizedTest" name="State" executed="True" result="Success" success="True" time="0.133"
+                                                                asserts="0">
+                                                                <results>
+                                                                    <test-case name="LfMerge.Core.Tests.Actions.ActionTests.State(TransferFdoToMongo,SYNCING)" executed="True"
+                                                                        result="Success" success="True" time="0.018" asserts="2" />
+                                                                    <test-case name="LfMerge.Core.Tests.Actions.ActionTests.State(Edit,SYNCING)" executed="True" result="Success"
+                                                                        success="True" time="0.004" asserts="2" />
+                                                                    <test-case name="LfMerge.Core.Tests.Actions.ActionTests.State(Commit,SYNCING)" executed="True" result="Success"
+                                                                        success="True" time="0.004" asserts="2" />
+                                                                    <test-case name="LfMerge.Core.Tests.Actions.ActionTests.State(TransferMongoToFdo,SYNCING)" executed="True"
+                                                                        result="Success" success="True" time="0.103" asserts="2" />
+                                                                </results>
+                                                            </test-suite>
+                                                            <test-suite type="ParameterizedTest" name="State_SkipsHoldState" executed="True" result="Success" success="True"
+                                                                time="0.027" asserts="0">
+                                                                <results>
+                                                                    <test-case name="LfMerge.Core.Tests.Actions.ActionTests.State_SkipsHoldState(TransferFdoToMongo)"
+                                                                        executed="True" result="Success" success="True" time="0.007" asserts="1" />
+                                                                    <test-case name="LfMerge.Core.Tests.Actions.ActionTests.State_SkipsHoldState(Edit)" executed="True"
+                                                                        result="Success" success="True" time="0.004" asserts="1" />
+                                                                    <test-case name="LfMerge.Core.Tests.Actions.ActionTests.State_SkipsHoldState(Synchronize)" executed="True"
+                                                                        result="Success" success="True" time="0.004" asserts="1" />
+                                                                    <test-case name="LfMerge.Core.Tests.Actions.ActionTests.State_SkipsHoldState(Commit)" executed="True"
+                                                                        result="Success" success="True" time="0.004" asserts="1" />
+                                                                    <test-case name="LfMerge.Core.Tests.Actions.ActionTests.State_SkipsHoldState(TransferMongoToFdo)"
+                                                                        executed="True" result="Success" success="True" time="0.004" asserts="1" />
+                                                                </results>
+                                                            </test-suite>
+                                                        </results>
+                                                    </test-suite>
+                                                    <test-suite type="TestFixture" name="EnsureCloneActionBridgeIntegrationTests" executed="True" result="Success"
+                                                        success="True" time="39.793" asserts="0">
+                                                        <categories>
+                                                            <category name="IntegrationTests" />
+                                                        </categories>
+                                                        <results>
+                                                            <test-case name="LfMerge.Core.Tests.Actions.EnsureCloneActionBridgeIntegrationTests.Error_CloneHasHigherModelVersion"
+                                                                executed="True" result="Success" success="True" time="3.738" asserts="9" />
+                                                            <test-case name="LfMerge.Core.Tests.Actions.EnsureCloneActionBridgeIntegrationTests.Error_NoBranch_OlderSupportedBranch"
+                                                                executed="True" result="Success" success="True" time="3.827" asserts="6" />
+                                                            <test-case name="LfMerge.Core.Tests.Actions.EnsureCloneActionBridgeIntegrationTests.Error_NoBranch_UnsupportedBranch"
+                                                                executed="True" result="Success" success="True" time="3.779" asserts="8" />
+                                                            <test-case name="LfMerge.Core.Tests.Actions.EnsureCloneActionBridgeIntegrationTests.Error_NoCommitsInRepository"
+                                                                executed="True" result="Success" success="True" time="0.585" asserts="6" />
+                                                            <test-case name="LfMerge.Core.Tests.Actions.EnsureCloneActionBridgeIntegrationTests.Error_NotAFlexProject"
+                                                                executed="True" result="Success" success="True" time="0.487" asserts="5" />
+                                                            <test-case name="LfMerge.Core.Tests.Actions.EnsureCloneActionBridgeIntegrationTests.Success_AlreadyOnIt"
+                                                                executed="True" result="Success" success="True" time="2.820" asserts="7" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Actions.EnsureCloneActionBridgeIntegrationTests.Success_DirectoryAlreadyExists_ShouldRecreateFwdataFile"
+                                                                executed="True" result="Success" success="True" time="20.577" asserts="6" />
+                                                            <test-case name="LfMerge.Core.Tests.Actions.EnsureCloneActionBridgeIntegrationTests.Success_Update" executed="True"
+                                                                result="Success" success="True" time="3.970" asserts="9" />
+                                                        </results>
+                                                    </test-suite>
+                                                    <test-suite type="TestFixture" name="EnsureCloneActionTests" executed="True" result="Success" success="True" time="0.418"
+                                                        asserts="0">
+                                                        <results>
+                                                            <test-case name="LfMerge.Core.Tests.Actions.EnsureCloneActionTests.EnsureClone_NonExistingProject_SetsStateOnHold"
+                                                                executed="True" result="Success" success="True" time="0.025" asserts="2" />
+                                                            <test-case name="LfMerge.Core.Tests.Actions.EnsureCloneActionTests.EnsureClone_ProjectDirExistHgDoesntExist_ClonesProject"
+                                                                executed="True" result="Success" success="True" time="0.016" asserts="3" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Actions.EnsureCloneActionTests.EnsureClone_ProjectThatHasAPreviouslyClonedDate_DoesNotRunInitialClone"
+                                                                executed="True" result="Success" success="True" time="0.024" asserts="2" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Actions.EnsureCloneActionTests.EnsureClone_ProjectThatHasAPreviouslyClonedDateButDoesNotHaveAnSRProjectCode_RunsInitialClone"
+                                                                executed="True" result="Success" success="True" time="0.030" asserts="2" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Actions.EnsureCloneActionTests.EnsureClone_ProjectThatHasNeverBeenCloned_RunsInitialClone"
+                                                                executed="True" result="Success" success="True" time="0.012" asserts="2" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Actions.EnsureCloneActionTests.EnsureClone_ProjectThatHasPreviousUserData_DoesNotRunInitialClone"
+                                                                executed="True" result="Success" success="True" time="0.232" asserts="2" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Actions.EnsureCloneActionTests.EnsureClone_StateFileDoesntExistAndStateCloning_CloneProject"
+                                                                executed="True" result="Success" success="True" time="0.024" asserts="5" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Actions.EnsureCloneActionTests.EnsureClone_StateFileDoesntExistAndStateNotCloning_ClonesProject"
+                                                                executed="True" result="Success" success="True" time="0.016" asserts="6" />
+                                                            <test-case name="LfMerge.Core.Tests.Actions.EnsureCloneActionTests.EnsureClone_StateFileExistsStateCloning_CloneProject"
+                                                                executed="True" result="Success" success="True" time="0.023" asserts="4" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Actions.EnsureCloneActionTests.EnsureClone_StateFileExistsStateNotCloning_DoesntCloneProject"
+                                                                executed="True" result="Success" success="True" time="0.007" asserts="4" />
+                                                        </results>
+                                                    </test-suite>
+                                                    <test-suite type="Namespace" name="Infrastructure" executed="True" result="Success" success="True" time="0.026"
+                                                        asserts="0">
+                                                        <results>
+                                                            <test-suite type="TestFixture" name="ChorusHelperTests" executed="True" result="Success" success="True" time="0.025"
+                                                                asserts="0">
+                                                                <results>
+                                                                    <test-case name="LfMerge.Core.Tests.Actions.Infrastructure.ChorusHelperTests.GetSyncUri_NameWithSpace"
+                                                                        executed="True" result="Success" success="True" time="0.006" asserts="1" />
+                                                                    <test-case name="LfMerge.Core.Tests.Actions.Infrastructure.ChorusHelperTests.GetSyncUri_SimpleName"
+                                                                        executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Actions.Infrastructure.ChorusHelperTests.RemoteDataIsForDifferentModelVersion_DifferentVersion"
+                                                                        executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Actions.Infrastructure.ChorusHelperTests.RemoteDataIsForDifferentModelVersion_SameVersion"
+                                                                        executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                                                                    <test-case name="LfMerge.Core.Tests.Actions.Infrastructure.ChorusHelperTests.SetModelVersion"
+                                                                        executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                                                                </results>
+                                                            </test-suite>
+                                                        </results>
+                                                    </test-suite>
+                                                    <test-suite type="TestFixture" name="SynchronizeActionBridgeIntegrationTests" executed="True" result="Success"
+                                                        success="True" time="175.067" asserts="0">
+                                                        <categories>
+                                                            <category name="IntegrationTests" />
+                                                        </categories>
+                                                        <results>
+                                                            <test-case name="LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests.Error_DifferentBranch"
+                                                                executed="True" result="Success" success="True" time="3.426" asserts="8" />
+                                                            <test-case name="LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests.Error_InvalidUtf8InXml"
+                                                                executed="True" result="Success" success="True" time="5.731" asserts="6" />
+                                                            <test-case name="LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests.Error_NewerBranch"
+                                                                executed="True" result="Success" success="True" time="3.899" asserts="10" />
+                                                            <test-case name="LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests.Error_NoCommitsInRepository"
+                                                                executed="True" result="Success" success="True" time="1.011" asserts="7" />
+                                                            <test-case name="LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests.Error_NoHgRepo" executed="True"
+                                                                result="Success" success="True" time="0.140" asserts="2" />
+                                                            <test-case name="LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests.Error_WrongXmlEncoding"
+                                                                executed="True" result="Success" success="True" time="7.214" asserts="6" />
+                                                            <test-case name="LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests.MissingFwDataFixer_Throws"
+                                                                executed="True" result="Success" success="True" time="0.146" asserts="1" />
+                                                            <test-case name="LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests.Success_ChangesFromOthersNoChangesFromUs"
+                                                                executed="True" result="Success" success="True" time="64.823" asserts="11" />
+                                                            <test-case name="LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests.Success_ChangesFromUsNoChangesFromOthers"
+                                                                executed="True" result="Success" success="True" time="43.587" asserts="10" />
+                                                            <test-case name="LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests.Success_NoNewChangesFromOthersAndUs"
+                                                                executed="True" result="Success" success="True" time="45.079" asserts="10" />
+                                                        </results>
+                                                    </test-suite>
+                                                    <test-suite type="TestFixture" name="SynchronizeActionTests" executed="True" result="Success" success="True" time="862.731"
+                                                        asserts="0">
+                                                        <categories>
+                                                            <category name="IntegrationTests" />
+                                                            <category name="LongRunning" />
+                                                        </categories>
+                                                        <results>
+                                                            <test-case name="LfMerge.Core.Tests.Actions.SynchronizeActionTests.SynchronizeAction_LFDataChangedLDDataChanged_LFWins"
+                                                                executed="True" result="Success" success="True" time="155.765" asserts="10" />
+                                                            <test-case name="LfMerge.Core.Tests.Actions.SynchronizeActionTests.SynchronizeAction_LFDataChangedLDEntryDeleted_LFWins"
+                                                                executed="True" result="Success" success="True" time="180.260" asserts="19" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Actions.SynchronizeActionTests.SynchronizeAction_LFDataChangedLDOtherDataChanged_ModifiedDateUpdated"
+                                                                executed="True" result="Success" success="True" time="161.142" asserts="9" />
+                                                            <test-case name="LfMerge.Core.Tests.Actions.SynchronizeActionTests.SynchronizeAction_LFDataDeleted_EntryRemoved"
+                                                                executed="True" result="Success" success="True" time="57.902" asserts="11" />
+                                                            <test-case name="LfMerge.Core.Tests.Actions.SynchronizeActionTests.SynchronizeAction_LFDataDeletedLDDataChanged_LDWins"
+                                                                executed="True" result="Success" success="True" time="119.520" asserts="14" />
+                                                            <test-case name="LfMerge.Core.Tests.Actions.SynchronizeActionTests.SynchronizeAction_LFEntryDeletedLDDataChanged_LDWins"
+                                                                executed="True" result="Success" success="True" time="182.802" asserts="16" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Actions.SynchronizeActionTests.TransferMongoToFdoAction_NoChangedData_DateModifiedUnchanged"
+                                                                executed="True" result="Success" success="True" time="5.322" asserts="1" />
+                                                        </results>
+                                                    </test-suite>
+                                                </results>
+                                            </test-suite>
+                                            <test-suite type="TestFixture" name="BidirectionalDictionaryTests" executed="True" result="Success" success="True" time="0.041"
+                                                asserts="0">
+                                                <results>
+                                                    <test-case name="LfMerge.Core.Tests.BidirectionalDictionaryTests.AddDoubleDuplicate_WillFail" executed="True" result="Success"
+                                                        success="True" time="0.006" asserts="2" />
+                                                    <test-case name="LfMerge.Core.Tests.BidirectionalDictionaryTests.AddDoubleDuplicate_WillNotChangeDict" executed="True"
+                                                        result="Success" success="True" time="0.001" asserts="6" />
+                                                    <test-case name="LfMerge.Core.Tests.BidirectionalDictionaryTests.AddSingleDuplicate_InFirstPosition_WillFail"
+                                                        executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                                                    <test-case name="LfMerge.Core.Tests.BidirectionalDictionaryTests.AddSingleDuplicate_InFirstPosition_WillNotChangeDict"
+                                                        executed="True" result="Success" success="True" time="0.001" asserts="6" />
+                                                    <test-case name="LfMerge.Core.Tests.BidirectionalDictionaryTests.AddSingleDuplicate_InSecondPosition_WillFail"
+                                                        executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                                                    <test-case name="LfMerge.Core.Tests.BidirectionalDictionaryTests.AddSingleDuplicate_InSecondPosition_WillNotChangeDict"
+                                                        executed="True" result="Success" success="True" time="0.001" asserts="6" />
+                                                    <test-case name="LfMerge.Core.Tests.BidirectionalDictionaryTests.Keys_AfterDeletionByFirst_ReturnsTwoKeys" executed="True"
+                                                        result="Success" success="True" time="0.003" asserts="1" />
+                                                    <test-case name="LfMerge.Core.Tests.BidirectionalDictionaryTests.Keys_AfterDeletionBySecond_ReturnsTwoKeys" executed="True"
+                                                        result="Success" success="True" time="0.001" asserts="1" />
+                                                    <test-case name="LfMerge.Core.Tests.BidirectionalDictionaryTests.Keys_AfterInsertion_ReturnsFourKeys" executed="True"
+                                                        result="Success" success="True" time="0.000" asserts="1" />
+                                                    <test-case name="LfMerge.Core.Tests.BidirectionalDictionaryTests.Keys_ReturnsAllThreeKeys" executed="True" result="Success"
+                                                        success="True" time="0.000" asserts="1" />
+                                                    <test-case name="LfMerge.Core.Tests.BidirectionalDictionaryTests.RemoveKeyValuePair_OfExistingItem_ChangesCount"
+                                                        executed="True" result="Success" success="True" time="0.002" asserts="2" />
+                                                    <test-case name="LfMerge.Core.Tests.BidirectionalDictionaryTests.RemoveKeyValuePair_OfExistingItem_Succeeds" executed="True"
+                                                        result="Success" success="True" time="0.000" asserts="1" />
+                                                    <test-case name="LfMerge.Core.Tests.BidirectionalDictionaryTests.RemoveKeyValuePair_OfNonexistentItem_Fails" executed="True"
+                                                        result="Success" success="True" time="0.000" asserts="1" />
+                                                    <test-case name="LfMerge.Core.Tests.BidirectionalDictionaryTests.RemoveKeyValuePair_OfNonexistentItemByFirstValue_DoesNotChangeCount"
+                                                        executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                                                    <test-case
+                                                        name="LfMerge.Core.Tests.BidirectionalDictionaryTests.RemoveKeyValuePair_OfNonexistentItemBySecondValue_DoesNotChangeCount"
+                                                        executed="True" result="Success" success="True" time="0.000" asserts="2" />
+                                                    <test-case name="LfMerge.Core.Tests.BidirectionalDictionaryTests.Values_AfterDeletionByFirst_ReturnsTwoValues"
+                                                        executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                                                    <test-case name="LfMerge.Core.Tests.BidirectionalDictionaryTests.Values_AfterDeletionBySecond_ReturnsTwoValues"
+                                                        executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                                                    <test-case name="LfMerge.Core.Tests.BidirectionalDictionaryTests.Values_AfterInsertion_ReturnsFourValues" executed="True"
+                                                        result="Success" success="True" time="0.000" asserts="1" />
+                                                    <test-case name="LfMerge.Core.Tests.BidirectionalDictionaryTests.Values_ReturnsAllThreeValues" executed="True" result="Success"
+                                                        success="True" time="0.000" asserts="1" />
+                                                </results>
+                                            </test-suite>
+                                            <test-suite type="SetUpFixture" name="Fdo" executed="True" result="Success" success="True" time="37.721" asserts="0">
+                                                <results>
+                                                    <test-suite type="Namespace" name="DataConverters" executed="True" result="Success" success="True" time="4.310"
+                                                        asserts="0">
+                                                        <results>
+                                                            <test-suite type="TestFixture" name="ConvertFdoToMongoCustomFieldTests" executed="True" result="Success"
+                                                                success="True" time="2.431" asserts="0">
+                                                                <results>
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertFdoToMongoCustomFieldTests.GetCustomFieldForThisCmObject_ShouldGetMultiListRef"
+                                                                        executed="True" result="Success" success="True" time="2.397" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertFdoToMongoCustomFieldTests.GetCustomFieldForThisCmObject_ShouldGetSingleLineAll"
+                                                                        executed="True" result="Success" success="True" time="0.017" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertFdoToMongoCustomFieldTests.GetCustomFieldsForThisCmObject_ShouldGetCustomFieldSettings"
+                                                                        executed="True" result="Success" success="True" time="0.013" asserts="2" />
+                                                                </results>
+                                                            </test-suite>
+                                                            <test-suite type="TestFixture" name="ConvertMongoToFdoTsStringsTests" executed="True" result="Success"
+                                                                success="True" time="1.867" asserts="0">
+                                                                <results>
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_ContainsAngleBrackets"
+                                                                        executed="True" result="Success" success="True" time="0.017" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_ContainsBrTags"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_ContainsBrTagsStripped"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_ContainsHtml"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_OneGuidOneStyle"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="1" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_TwoGuids"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="1" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_TwoGuidsOneStyle"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="1" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_TwoGuidsTwoStylesNoLangs"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="1" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_TwoGuidsTwoStylesOneLang"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_TwoGuidsTwoStylesTwoLangs"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_TwoLangs"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_TwoStyles"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="1" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_TwoStylesTwoLangsOneOtherProperty"
+                                                                        executed="True" result="Success" success="True" time="0.011" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_TwoStylesTwoLangsTwoOtherProperties"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_TwoStylesTwoLangsTwoOtherPropertiesEscaped"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_ZeroSpans"
+                                                                        executed="True" result="Success" success="True" time="0.009" asserts="1" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_ContainsAngleBrackets"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="12" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_ContainsBrTags"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="12" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_ContainsBrTagsStripped"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="12" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_ContainsHtml"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="12" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_OneGuidOneStyle"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="12" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_TwoGuids"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="6" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_TwoGuidsOneStyle"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="12" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_TwoGuidsTwoStylesNoLangs"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="18" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_TwoGuidsTwoStylesOneLang"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="18" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_TwoGuidsTwoStylesTwoLangs"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="18" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_TwoLangs"
+                                                                        executed="True" result="Success" success="True" time="0.011" asserts="18" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_TwoStyles"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="18" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_TwoStylesTwoLangsOneOtherProperty"
+                                                                        executed="True" result="Success" success="True" time="0.011" asserts="22" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_TwoStylesTwoLangsTwoOtherProperties"
+                                                                        executed="True" result="Success" success="True" time="0.016" asserts="24" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_TwoStylesTwoLangsTwoOtherPropertiesEscaped"
+                                                                        executed="True" result="Success" success="True" time="0.011" asserts="24" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_ZeroSpans"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="6" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_ContainsAngleBrackets"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="2" />
+                                                                    <test-case name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_ContainsBrTags"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_ContainsBrTagsStripped"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="2" />
+                                                                    <test-case name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_ContainsHtml"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_OneGuidOneStyle"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="1" />
+                                                                    <test-case name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_TwoGuids"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="1" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_TwoGuidsOneStyle"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="1" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_TwoGuidsTwoStylesNoLangs"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="1" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_TwoGuidsTwoStylesOneLang"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="1" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_TwoGuidsTwoStylesTwoLangs"
+                                                                        executed="True" result="Success" success="True" time="0.009" asserts="1" />
+                                                                    <test-case name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_TwoLangs"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="1" />
+                                                                    <test-case name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_TwoStyles"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="1" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_TwoStylesTwoLangsOneOtherProperty"
+                                                                        executed="True" result="Success" success="True" time="0.009" asserts="1" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_TwoStylesTwoLangsTwoOtherProperties"
+                                                                        executed="True" result="Success" success="True" time="0.016" asserts="1" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_TwoStylesTwoLangsTwoOtherPropertiesEscaped"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="1" />
+                                                                    <test-case name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_ZeroSpans"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="1" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_ContainsAngleBrackets"
+                                                                        executed="True" result="Success" success="True" time="0.011" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_ContainsBrTags"
+                                                                        executed="True" result="Success" success="True" time="0.016" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_ContainsBrTagsStripped"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_ContainsHtml"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_OneGuidOneStyle"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_TwoGuids"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_TwoGuidsOneStyle"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_TwoGuidsTwoStylesNoLangs"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_TwoGuidsTwoStylesOneLang"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_TwoGuidsTwoStylesTwoLangs"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_TwoLangs"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="1" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_TwoStyles"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="1" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_TwoStylesTwoLangsTwoOtherProperties"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="1" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_TwoStylesTwoLangsTwoOtherPropertiesEscaped"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="1" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_ZeroSpans"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="1" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_ContainsAngleBrackets"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="10" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_ContainsBrTags"
+                                                                        executed="True" result="Success" success="True" time="0.016" asserts="10" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_ContainsBrTagsStripped"
+                                                                        executed="True" result="Success" success="True" time="0.016" asserts="10" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_ContainsHtml"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="10" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_OneGuidOneStyle"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="22" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_TwoGuids"
+                                                                        executed="True" result="Success" success="True" time="0.011" asserts="23" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_TwoGuidsOneStyle"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="23" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_TwoGuidsTwoStylesNoLangs"
+                                                                        executed="True" result="Success" success="True" time="0.011" asserts="23" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_TwoGuidsTwoStylesOneLang"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="23" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_TwoGuidsTwoStylesTwoLangs"
+                                                                        executed="True" result="Success" success="True" time="0.011" asserts="23" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_TwoLangs"
+                                                                        executed="True" result="Success" success="True" time="0.016" asserts="21" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_TwoStyles"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="21" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_TwoStylesTwoLangsOneOtherProperty"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="21" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_TwoStylesTwoLangsTwoOtherProperties"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="21" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_TwoStylesTwoLangsTwoOtherPropertiesEscaped"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="21" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_ZeroSpans"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="5" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_ContainsAngleBrackets"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_ContainsBrTags"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_ContainsBrTagsStripped"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_ContainsHtml"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_OneGuidOneStyle"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_TwoGuids"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="1" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_TwoGuidsOneStyle"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_TwoGuidsTwoStylesNoLangs"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_TwoGuidsTwoStylesOneLang"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_TwoGuidsTwoStylesTwoLangs"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_TwoLangs"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="1" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_TwoStyles"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_TwoStylesTwoLangsOneOtherProperty"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_TwoStylesTwoLangsTwoOtherProperties"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_TwoStylesTwoLangsTwoOtherPropertiesEscaped"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_ZeroSpans"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="1" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_ContainsAngleBrackets"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_ContainsBrTags"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_ContainsBrTagsStripped"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_ContainsHtml"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_OneGuidOneStyle"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_TwoGuids"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_TwoGuidsOneStyle"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_TwoGuidsTwoStylesNoLangs"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_TwoGuidsTwoStylesOneLang"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_TwoGuidsTwoStylesTwoLangs"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_TwoLangs"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_TwoStyles"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_TwoStylesTwoLangsOneOtherProperty"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_TwoStylesTwoLangsTwoOtherProperties"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_TwoStylesTwoLangsTwoOtherPropertiesEscaped"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_ZeroSpans"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="1" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringCanRoundTripFdoToMongoToFdo_ContainsAngleBrackets"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringCanRoundTripFdoToMongoToFdo_ContainsAngleBracketsEscaped"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringCanRoundTripFdoToMongoToFdo_ContainsBrTags"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="4" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringCanRoundTripFdoToMongoToFdo_ContainsBrTagsEscaped"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringCanRoundTripFdoToMongoToFdo_ContainsHtml"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringCanRoundTripFdoToMongoToFdo_ContainsHtmlEscaped"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringCanRoundTripFdoToMongoToFdo_SingleRunString"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringCanRoundTripFdoToMongoToFdo_StringWithThreeLanguages"
+                                                                        executed="True" result="Success" success="True" time="0.017" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringCanRoundTripFdoToMongoToFdo_StringWithThreeLanguagesAndArbitraryProperties"
+                                                                        executed="True" result="Success" success="True" time="0.011" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringCanRoundTripFdoToMongoToFdo_StringWithThreeLanguagesAndObjectDataAndArbitraryProperties"
+                                                                        executed="True" result="Success" success="True" time="0.019" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringCanRoundTripFdoToMongoToFdo_StringWithTwoLanguages"
+                                                                        executed="True" result="Success" success="True" time="0.017" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringsAreHtmlEscapedWhenConvertedToSpanText_ContainsAngleBrackets"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringsAreHtmlEscapedWhenConvertedToSpanText_ContainsHtml"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="2" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringsAreHtmlUnescapedWhenConvertedBackFromSpanText_ContainsAngleBrackets"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="1" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringsAreHtmlUnescapedWhenConvertedBackFromSpanText_ContainsHtml"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="1" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringsCanRoundTripMongoToFdoToMongo_ContainsAngleBrackets"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringsCanRoundTripMongoToFdoToMongo_ContainsBrTags"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringsCanRoundTripMongoToFdoToMongo_ContainsBrTagsStripped"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringsCanRoundTripMongoToFdoToMongo_ContainsHtml"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringsCanRoundTripMongoToFdoToMongo_SingleRunString"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringsCanRoundTripMongoToFdoToMongo_StringWithThreeLanguages"
+                                                                        executed="True" result="Success" success="True" time="0.015" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringsCanRoundTripMongoToFdoToMongo_StringWithThreeLanguagesAndArbitraryProperties"
+                                                                        executed="True" result="Success" success="True" time="0.010" asserts="3" />
+                                                                    <test-case
+                                                                        name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringsCanRoundTripMongoToFdoToMongo_StringWithTwoLanguages"
+                                                                        executed="True" result="Success" success="True" time="0.014" asserts="3" />
+                                                                </results>
+                                                            </test-suite>
+                                                        </results>
+                                                    </test-suite>
+                                                    <test-suite type="TestFixture" name="TransferFdoToMongoActionTests" executed="True" result="Success" success="True"
+                                                        time="7.460" asserts="0">
+                                                        <results>
+                                                            <test-case name="LfMerge.Core.Tests.Fdo.TransferFdoToMongoActionTests.Action_IsInitialClone_ShouldPopulateMongoInputSystems"
+                                                                executed="True" result="Success" success="True" time="1.848" asserts="8" />
+                                                            <test-case name="LfMerge.Core.Tests.Fdo.TransferFdoToMongoActionTests.Action_IsInitialClone_ShouldUpdateDates"
+                                                                executed="True" result="Success" success="True" time="0.695" asserts="7" />
+                                                            <test-case name="LfMerge.Core.Tests.Fdo.TransferFdoToMongoActionTests.Action_NoDataChanged_ShouldUpdateCustomFieldConfig"
+                                                                executed="True" result="Success" success="True" time="0.676" asserts="4" />
+                                                            <test-case name="LfMerge.Core.Tests.Fdo.TransferFdoToMongoActionTests.Action_NoDataChanged_ShouldUpdateLexemes"
+                                                                executed="True" result="Success" success="True" time="0.682" asserts="4" />
+                                                            <test-case name="LfMerge.Core.Tests.Fdo.TransferFdoToMongoActionTests.Action_NoDataChanged_ShouldUpdatePictures"
+                                                                executed="True" result="Success" success="True" time="0.696" asserts="6" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Fdo.TransferFdoToMongoActionTests.Action_WithEmptyMongoGrammar_ShouldPopulateMongoGrammarFromFdoGrammar"
+                                                                executed="True" result="Success" success="True" time="0.784" asserts="4" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Fdo.TransferFdoToMongoActionTests.Action_WithPreviousMongoGrammarWithGuids_ShouldReplaceItemsFromLfGrammarWithItemsFromFdoGrammar"
+                                                                executed="True" result="Success" success="True" time="0.680" asserts="3" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Fdo.TransferFdoToMongoActionTests.Action_WithPreviousMongoGrammarWithMatchingGuids_ShouldBeUpdatedFromFdoGrammar"
+                                                                executed="True" result="Success" success="True" time="0.692" asserts="7" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Fdo.TransferFdoToMongoActionTests.Action_WithPreviousMongoGrammarWithNoGuids_ShouldStillReplaceItemsFromLfGrammarWithItemsFromFdoGrammar"
+                                                                executed="True" result="Success" success="True" time="0.695" asserts="3" />
+                                                        </results>
+                                                    </test-suite>
+                                                    <test-suite type="TestFixture" name="TransferMongoToFdoActionTests" executed="True" result="Success" success="True"
+                                                        time="25.710" asserts="0">
+                                                        <results>
+                                                            <test-case name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_ChangedWithSampleData_ShouldUpdatePictures"
+                                                                executed="True" result="Success" success="True" time="1.564" asserts="21" />
+                                                            <test-case name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_RunTwice_ShouldNotDuplicatePictures"
+                                                                executed="True" result="Success" success="True" time="1.186" asserts="10" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_RunTwiceWithOneNewEntryEachTime_ShouldCountTwoAddedInTotal"
+                                                                executed="True" result="Success" success="True" time="0.371" asserts="8" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_RunTwiceWithTheSameEntryDeletedEachTime_ShouldCountJustOneDeletedInTotal"
+                                                                executed="True" result="Success" success="True" time="1.634" asserts="8" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_RunTwiceWithTheSameEntryModifiedEachTime_ShouldCountTwoModifiedInTotal"
+                                                                executed="True" result="Success" success="True" time="1.941" asserts="8" />
+                                                            <test-case name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_Should_UpdateDefinitions"
+                                                                executed="True" result="Success" success="True" time="0.610" asserts="4" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_WithEmptyMongoGrammar_ShouldPreserveFdoGrammarEntries"
+                                                                executed="True" result="Success" success="True" time="0.179" asserts="4" />
+                                                            <test-case name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_WithNoChangesFromMongo_ShouldCountZeroChanges"
+                                                                executed="True" result="Success" success="True" time="0.173" asserts="4" />
+                                                            <test-case name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_WithOneDeletedEntry_ShouldCountOneDeleted"
+                                                                executed="True" result="Success" success="True" time="0.878" asserts="4" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_WithOneDeletedEntry_ShouldNotCountThatDeletedEntryOnSecondRun"
+                                                                executed="True" result="Success" success="True" time="1.053" asserts="8" />
+                                                            <test-case name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_WithOneModifiedEntry_ShouldCountOneModified"
+                                                                executed="True" result="Success" success="True" time="1.253" asserts="4" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_WithOneModifiedEntry_ShouldNotCountThatModifiedEntryOnSecondRun"
+                                                                executed="True" result="Success" success="True" time="1.412" asserts="8" />
+                                                            <test-case name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_WithOneNewEntry_ShouldCountOneAdded"
+                                                                executed="True" result="Success" success="True" time="0.178" asserts="4" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_WithOneNewEntry_ShouldNotCountThatNewEntryOnSecondRun"
+                                                                executed="True" result="Success" success="True" time="0.343" asserts="8" />
+                                                            <test-case name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_WithTwoDeletedEntries_ShouldCountTwoDeleted"
+                                                                executed="True" result="Success" success="True" time="0.901" asserts="4" />
+                                                            <test-case name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_WithTwoModifiedEntries_ShouldCountTwoModified"
+                                                                executed="True" result="Success" success="True" time="1.389" asserts="4" />
+                                                            <test-case name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_WithTwoNewEntries_ShouldCountTwoAdded"
+                                                                executed="True" result="Success" success="True" time="0.176" asserts="4" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.CustomMultiListRef_WithTwoOriginalItemsSettingJustTheFirstItem_ShouldDeleteTheSecond"
+                                                                executed="True" result="Success" success="True" time="1.255" asserts="8" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.CustomMultiListRef_WithTwoOriginalItemsSettingJustTheSecondItem_ShouldDeleteTheFirst"
+                                                                executed="True" result="Success" success="True" time="1.242" asserts="8" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.CustomMultiListRef_WithTwoOriginalItemsSettingNoneOfThem_ShouldDeleteBoth"
+                                                                executed="True" result="Success" success="True" time="1.247" asserts="3" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.CustomMultiListRef_WithTwoOriginalItemsSettingTheSameItems_ShouldRemainUnchanged"
+                                                                executed="True" result="Success" success="True" time="1.255" asserts="13" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.CustomMultiListRef_WithZeroOriginalItemsSettingADifferentItem_ShouldAlsoReturnThatOneItem"
+                                                                executed="True" result="Success" success="True" time="1.367" asserts="8" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.CustomMultiListRef_WithZeroOriginalItemsSettingJustOneItem_ShouldReturnThatOneItem"
+                                                                executed="True" result="Success" success="True" time="1.262" asserts="8" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.CustomMultiListRef_WithZeroOriginalItemsSettingNoneOfThem_ShouldAddNone"
+                                                                executed="True" result="Success" success="True" time="1.552" asserts="3" />
+                                                            <test-case
+                                                                name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.CustomMultiListRef_WithZeroOriginalItemsSettingTwoItems_ShouldRemainUnchanged"
+                                                                executed="True" result="Success" success="True" time="1.245" asserts="13" />
+                                                        </results>
+                                                    </test-suite>
+                                                </results>
+                                            </test-suite>
+                                            <test-suite type="TestFixture" name="LanguageDepotProjectTests" executed="False" result="Ignored">
+                                                <reason>
+                                                    <message><![CDATA[Ignoring tests because MongoDB doesn't seem to be running on localhost:27017.]]></message>
+                                                </reason>
+                                                <results>
+                                                    <test-case name="LfMerge.Core.Tests.LanguageDepotProjectTests.ExistingProject" executed="False" result="Ignored">
+                                                        <reason>
+                                                            <message><![CDATA[Ignoring tests because MongoDB doesn't seem to be running on localhost:27017.]]></message>
+                                                        </reason>
+                                                    </test-case>
+                                                    <test-case name="LfMerge.Core.Tests.LanguageDepotProjectTests.NonexistingProject" executed="False" result="Ignored">
+                                                        <reason>
+                                                            <message><![CDATA[Ignoring tests because MongoDB doesn't seem to be running on localhost:27017.]]></message>
+                                                        </reason>
+                                                    </test-case>
+                                                </results>
+                                            </test-suite>
+                                            <test-suite type="Namespace" name="LanguageForge" executed="True" result="Inconclusive" success="False" time="0.067" asserts="0">
+                                                <results>
+                                                    <test-suite type="Namespace" name="Infrastructure" executed="True" result="Inconclusive" success="False" time="0.066"
+                                                        asserts="0">
+                                                        <results>
+                                                            <test-suite type="TestFixture" name="LanguageForgeProxyTests" executed="True" result="Inconclusive" success="False"
+                                                                time="0.065" asserts="0">
+                                                                <categories>
+                                                                    <category name="IntegrationTests" />
+                                                                </categories>
+                                                            </test-suite>
+                                                        </results>
+                                                    </test-suite>
+                                                </results>
+                                            </test-suite>
+                                            <test-suite type="TestFixture" name="LfMergeSettingsTests" executed="True" result="Success" success="True" time="0.020"
+                                                asserts="0">
+                                                <results>
+                                                    <test-case name="LfMerge.Core.Tests.LfMergeSettingsTests.FdoDirs_AbsolutePathsRemainAbsolute" executed="True" result="Success"
+                                                        success="True" time="0.004" asserts="3" />
+                                                    <test-case name="LfMerge.Core.Tests.LfMergeSettingsTests.FdoDirs_RelativePathsAreSubdirsOfBasedir" executed="True"
+                                                        result="Success" success="True" time="0.001" asserts="3" />
+                                                    <test-suite type="ParameterizedTest" name="GetQueueDirectory_Correct" executed="True" result="Success" success="True"
+                                                        time="0.008" asserts="0">
+                                                        <results>
+                                                            <test-case name="LfMerge.Core.Tests.LfMergeSettingsTests.GetQueueDirectory_Correct(None,null)" executed="True"
+                                                                result="Success" success="True" time="0.002" asserts="1" />
+                                                            <test-case name="LfMerge.Core.Tests.LfMergeSettingsTests.GetQueueDirectory_Correct(Synchronize,&quot;syncqueue&quot;)"
+                                                                executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                                                            <test-case name="LfMerge.Core.Tests.LfMergeSettingsTests.GetQueueDirectory_Correct(Edit,&quot;editqueue&quot;)"
+                                                                executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                                                        </results>
+                                                    </test-suite>
+                                                    <test-case name="LfMerge.Core.Tests.LfMergeSettingsTests.GetStateFileName_Correct" executed="True" result="Success"
+                                                        success="True" time="0.002" asserts="2" />
+                                                    <test-case name="LfMerge.Core.Tests.LfMergeSettingsTests.StateDirectory_Correct" executed="True" result="Success"
+                                                        success="True" time="0.001" asserts="1" />
+                                                </results>
+                                            </test-suite>
+                                            <test-suite type="TestFixture" name="ProcessingStateTests" executed="True" result="Success" success="True" time="0.156"
+                                                asserts="0">
+                                                <results>
+                                                    <test-case name="LfMerge.Core.Tests.ProcessingStateTests.Deserialize_EmptyStateFile_DoesntThrow" executed="True"
+                                                        result="Success" success="True" time="0.015" asserts="2" />
+                                                    <test-case name="LfMerge.Core.Tests.ProcessingStateTests.Deserialize_InvalidStateFile_DoesntThrow" executed="True"
+                                                        result="Success" success="True" time="0.011" asserts="2" />
+                                                    <test-case name="LfMerge.Core.Tests.ProcessingStateTests.Deserialize_NonexistingStateFile_ReturnsCloning" executed="True"
+                                                        result="Success" success="True" time="0.004" asserts="2" />
+                                                    <test-case name="LfMerge.Core.Tests.ProcessingStateTests.Deserialize_ValidStateFile_MatchesState" executed="True"
+                                                        result="Success" success="True" time="0.061" asserts="1" />
+                                                    <test-case name="LfMerge.Core.Tests.ProcessingStateTests.Serialization_Roundtrip" executed="True" result="Success"
+                                                        success="True" time="0.026" asserts="1" />
+                                                    <test-case name="LfMerge.Core.Tests.ProcessingStateTests.State_SettingProperty_ChangesLastStateChangeTicks" executed="True"
+                                                        result="Success" success="True" time="0.008" asserts="1" />
+                                                    <test-case name="LfMerge.Core.Tests.ProcessingStateTests.State_SettingProperty_SerializesState" executed="True"
+                                                        result="Success" success="True" time="0.024" asserts="1" />
+                                                </results>
+                                            </test-suite>
+                                            <test-suite type="Namespace" name="Queues" executed="True" result="Success" success="True" time="1.121" asserts="0">
+                                                <results>
+                                                    <test-suite type="TestFixture" name="QueueTests" executed="True" result="Success" success="True" time="1.119"
+                                                        asserts="0">
+                                                        <results>
+                                                            <test-case name="LfMerge.Core.Tests.Queues.QueueTests.Ctor_CantCreateQueueForNone" executed="True" result="Success"
+                                                                success="True" time="0.005" asserts="0" />
+                                                            <test-suite type="ParameterizedTest" name="CurrentAction_Works" executed="True" result="Success" success="True"
+                                                                time="0.008" asserts="0">
+                                                                <results>
+                                                                    <test-case name="LfMerge.Core.Tests.Queues.QueueTests.CurrentAction_Works(Synchronize,Synchronize)"
+                                                                        executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                                                                    <test-case name="LfMerge.Core.Tests.Queues.QueueTests.CurrentAction_Works(Edit,Edit)" executed="True"
+                                                                        result="Success" success="True" time="0.003" asserts="1" />
+                                                                </results>
+                                                            </test-suite>
+                                                            <test-case name="LfMerge.Core.Tests.Queues.QueueTests.DequeueProject_NonExistingProject_Ignored" executed="True"
+                                                                result="Success" success="True" time="0.004" asserts="1" />
+                                                            <test-case name="LfMerge.Core.Tests.Queues.QueueTests.DequeueProject_Works" executed="True" result="Success"
+                                                                success="True" time="0.015" asserts="2" />
+                                                            <test-case name="LfMerge.Core.Tests.Queues.QueueTests.EnqueueProject_Works" executed="True" result="Success"
+                                                                success="True" time="0.005" asserts="5" />
+                                                            <test-case name="LfMerge.Core.Tests.Queues.QueueTests.FirstQueueWithWork_AllQueuesEmpty_ReturnsNull" executed="True"
+                                                                result="Success" success="True" time="0.003" asserts="1" />
+                                                            <test-case name="LfMerge.Core.Tests.Queues.QueueTests.FirstQueueWithWork_ReturnsNonEmptyQueue" executed="True"
+                                                                result="Success" success="True" time="0.004" asserts="3" />
+                                                            <test-suite type="ParameterizedTest" name="GetQueueFromAction" executed="True" result="Success" success="True"
+                                                                time="0.024" asserts="0">
+                                                                <results>
+                                                                    <test-case name="LfMerge.Core.Tests.Queues.QueueTests.GetQueueFromAction(TransferFdoToMongo,None)"
+                                                                        executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                                                                    <test-case name="LfMerge.Core.Tests.Queues.QueueTests.GetQueueFromAction(Edit,None)" executed="True"
+                                                                        result="Success" success="True" time="0.003" asserts="1" />
+                                                                    <test-case name="LfMerge.Core.Tests.Queues.QueueTests.GetQueueFromAction(Synchronize,Synchronize)"
+                                                                        executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                                                                    <test-case name="LfMerge.Core.Tests.Queues.QueueTests.GetQueueFromAction(Commit,None)" executed="True"
+                                                                        result="Success" success="True" time="0.003" asserts="1" />
+                                                                    <test-case name="LfMerge.Core.Tests.Queues.QueueTests.GetQueueFromAction(TransferMongoToFdo,Synchronize)"
+                                                                        executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                                                                    <test-case name="LfMerge.Core.Tests.Queues.QueueTests.GetQueueFromAction(None,None)" executed="True"
+                                                                        result="Success" success="True" time="0.003" asserts="1" />
+                                                                </results>
+                                                            </test-suite>
+                                                            <test-case name="LfMerge.Core.Tests.Queues.QueueTests.IsEmpty_ExistingFiles_ReturnsNotEmpty" executed="True"
+                                                                result="Success" success="True" time="0.004" asserts="1" />
+                                                            <test-case name="LfMerge.Core.Tests.Queues.QueueTests.IsEmpty_NoFiles_ReturnsEmpty" executed="True" result="Success"
+                                                                success="True" time="0.003" asserts="1" />
+                                                            <test-case name="LfMerge.Core.Tests.Queues.QueueTests.NextQueueWithWork_AllQueuesEmpty_ReturnsNull" executed="True"
+                                                                result="Success" success="True" time="0.008" asserts="1" />
+                                                            <test-case name="LfMerge.Core.Tests.Queues.QueueTests.NextQueueWithWork_CurrentNonEmpty_ReturnsCurrent"
+                                                                executed="True" result="Success" success="True" time="0.004" asserts="3" />
+                                                            <test-case name="LfMerge.Core.Tests.Queues.QueueTests.NextQueueWithWork_NonEmptyQueue_WrapAround" executed="True"
+                                                                result="Success" success="True" time="0.004" asserts="3" />
+                                                            <test-case name="LfMerge.Core.Tests.Queues.QueueTests.NextQueueWithWork_ReturnsNonEmptyQueue" executed="True"
+                                                                result="Success" success="True" time="0.004" asserts="3" />
+                                                            <test-case name="LfMerge.Core.Tests.Queues.QueueTests.QueuedProjects_ReturnsOldestFirst" executed="True"
+                                                                result="Success" success="True" time="1.006" asserts="3" />
+                                                        </results>
+                                                    </test-suite>
+                                                </results>
+                                            </test-suite>
+                                        </results>
+                                    </test-suite>
+                                </results>
+                            </test-suite>
+                        </results>
+                    </test-suite>
+                </results>
+            </test-suite>
+            <test-suite type="Assembly" name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Tests.dll" executed="True" result="Success"
+                success="True" time="0.441" asserts="0">
+                <results>
+                    <test-suite type="Namespace" name="LfMerge" executed="True" result="Success" success="True" time="0.435" asserts="0">
+                        <results>
+                            <test-suite type="Namespace" name="Tests" executed="True" result="Success" success="True" time="0.432" asserts="0">
+                                <results>
+                                    <test-suite type="TestFixture" name="OptionsTests" executed="True" result="Success" success="True" time="0.083" asserts="0">
+                                        <results>
+                                            <test-suite type="ParameterizedTest" name="FirstProjectAndStopAfterFirstProject" executed="True" result="Success" success="True"
+                                                time="0.059" asserts="0">
+                                                <results>
+                                                    <test-case name="LfMerge.Tests.OptionsTests.Prio project specified" executed="True" result="Success" success="True"
+                                                        time="0.040" asserts="1" />
+                                                    <test-case name="LfMerge.Tests.OptionsTests.No arguments" executed="True" result="Success" success="True" time="0.000"
+                                                        asserts="1" />
+                                                </results>
+                                            </test-suite>
+                                            <test-suite type="ParameterizedTest" name="ParseArgs" executed="True" result="Success" success="True" time="0.004" asserts="0">
+                                                <results>
+                                                    <test-case name="LfMerge.Tests.OptionsTests.Prio project specified" executed="True" result="Success" success="True"
+                                                        time="0.001" asserts="1" />
+                                                    <test-case name="LfMerge.Tests.OptionsTests.No arguments" executed="True" result="Success" success="True" time="0.000"
+                                                        asserts="1" />
+                                                </results>
+                                            </test-suite>
+                                            <test-suite type="ParameterizedTest" name="ParseInvalidArgs" executed="True" result="Success" success="True" time="0.005"
+                                                asserts="0">
+                                                <results>
+                                                    <test-case name="LfMerge.Tests.OptionsTests.Invalid args" executed="True" result="Success" success="True" time="0.004"
+                                                        asserts="1" />
+                                                </results>
+                                            </test-suite>
+                                        </results>
+                                    </test-suite>
+                                    <test-suite type="TestFixture" name="QueueIntegrationTests" executed="True" result="Success" success="True" time="0.341" asserts="0">
+                                        <results>
+                                            <test-suite type="ParameterizedTest" name="QueuedProjects_PriorityProject_ReturnsPriorityBeforeNext" executed="True" result="Success"
+                                                success="True" time="0.339" asserts="0">
+                                                <results>
+                                                    <test-case
+                                                        name="LfMerge.Tests.QueueIntegrationTests.QueuedProjects_PriorityProject_ReturnsPriorityBeforeNext(&quot;projd&quot;,System.String[])"
+                                                        executed="True" result="Success" success="True" time="0.311" asserts="1" />
+                                                    <test-case
+                                                        name="LfMerge.Tests.QueueIntegrationTests.QueuedProjects_PriorityProject_ReturnsPriorityBeforeNext(&quot;projc&quot;,System.String[])"
+                                                        executed="True" result="Success" success="True" time="0.005" asserts="1" />
+                                                    <test-case
+                                                        name="LfMerge.Tests.QueueIntegrationTests.QueuedProjects_PriorityProject_ReturnsPriorityBeforeNext(&quot;projb&quot;,System.String[])"
+                                                        executed="True" result="Success" success="True" time="0.004" asserts="1" />
+                                                    <test-case
+                                                        name="LfMerge.Tests.QueueIntegrationTests.QueuedProjects_PriorityProject_ReturnsPriorityBeforeNext(&quot;proja&quot;,System.String[])"
+                                                        executed="True" result="Success" success="True" time="0.010" asserts="1" />
+                                                </results>
+                                            </test-suite>
+                                        </results>
+                                    </test-suite>
+                                </results>
+                            </test-suite>
+                        </results>
+                    </test-suite>
+                </results>
+            </test-suite>
+        </results>
+    </test-suite>
+</test-results>
