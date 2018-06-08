@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.ActionTests.EnumerateActionsStartingWith"
+        tests="7" failures="0" errors="0" skipped="0" time="0.432">
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.ActionTests.EnumerateActionsStartingWith"
+            name="LfMerge.Core.Tests.Actions.ActionTests.EnumerateActionsStartingWith(TransferFdoToMongo,None)" time="0.391" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.ActionTests.EnumerateActionsStartingWith"
+            name="LfMerge.Core.Tests.Actions.ActionTests.EnumerateActionsStartingWith(Edit,TransferFdoToMongo)" time="0.005" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.ActionTests.EnumerateActionsStartingWith"
+            name="LfMerge.Core.Tests.Actions.ActionTests.EnumerateActionsStartingWith(Synchronize,Edit)" time="0.003" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.ActionTests.EnumerateActionsStartingWith"
+            name="LfMerge.Core.Tests.Actions.ActionTests.EnumerateActionsStartingWith(Commit,Synchronize)" time="0.003" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.ActionTests.EnumerateActionsStartingWith"
+            name="LfMerge.Core.Tests.Actions.ActionTests.EnumerateActionsStartingWith(TransferMongoToFdo,Commit)" time="0.003" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.ActionTests.EnumerateActionsStartingWith"
+            name="LfMerge.Core.Tests.Actions.ActionTests.EnumerateActionsStartingWith(EnsureClone,TransferMongoToFdo)" time="0.003" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.ActionTests.EnumerateActionsStartingWith"
+            name="LfMerge.Core.Tests.Actions.ActionTests.EnumerateActionsStartingWith(None,EnsureClone)" time="0.006" />
+    </testsuite>
+    <testsuite name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.ActionTests.GetActionFromQueue"
+        tests="3" failures="0" errors="0" skipped="0" time="0.019">
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.ActionTests.GetActionFromQueue"
+            name="LfMerge.Core.Tests.Actions.ActionTests.GetActionFromQueue(Synchronize,Synchronize)" time="0.003" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.ActionTests.GetActionFromQueue"
+            name="LfMerge.Core.Tests.Actions.ActionTests.GetActionFromQueue(Edit,Edit)" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.ActionTests.GetActionFromQueue"
+            name="LfMerge.Core.Tests.Actions.ActionTests.GetActionFromQueue(None,None)" time="0.003" />
+    </testsuite>
+    <testsuite name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.ActionTests.NextAction" tests="2"
+        failures="0" errors="0" skipped="0" time="0.022">
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.ActionTests.NextAction"
+            name="LfMerge.Core.Tests.Actions.ActionTests.NextAction(Synchronize,LfMerge.Core.Actions.ActionNames[])" time="0.016" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.ActionTests.NextAction"
+            name="LfMerge.Core.Tests.Actions.ActionTests.NextAction(Edit,LfMerge.Core.Actions.ActionNames[])" time="0.003" />
+    </testsuite>
+    <testsuite name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.ActionTests.State" tests="4"
+        failures="0" errors="0" skipped="0" time="0.133">
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.ActionTests.State" name="LfMerge.Core.Tests.Actions.ActionTests.State(TransferFdoToMongo,SYNCING)"
+            time="0.018" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.ActionTests.State" name="LfMerge.Core.Tests.Actions.ActionTests.State(Edit,SYNCING)"
+            time="0.004" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.ActionTests.State" name="LfMerge.Core.Tests.Actions.ActionTests.State(Commit,SYNCING)"
+            time="0.004" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.ActionTests.State" name="LfMerge.Core.Tests.Actions.ActionTests.State(TransferMongoToFdo,SYNCING)"
+            time="0.103" />
+    </testsuite>
+    <testsuite name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.ActionTests.State_SkipsHoldState"
+        tests="5" failures="0" errors="0" skipped="0" time="0.027">
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.ActionTests.State_SkipsHoldState"
+            name="LfMerge.Core.Tests.Actions.ActionTests.State_SkipsHoldState(TransferFdoToMongo)" time="0.007" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.ActionTests.State_SkipsHoldState"
+            name="LfMerge.Core.Tests.Actions.ActionTests.State_SkipsHoldState(Edit)" time="0.004" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.ActionTests.State_SkipsHoldState"
+            name="LfMerge.Core.Tests.Actions.ActionTests.State_SkipsHoldState(Synchronize)" time="0.004" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.ActionTests.State_SkipsHoldState"
+            name="LfMerge.Core.Tests.Actions.ActionTests.State_SkipsHoldState(Commit)" time="0.004" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.ActionTests.State_SkipsHoldState"
+            name="LfMerge.Core.Tests.Actions.ActionTests.State_SkipsHoldState(TransferMongoToFdo)" time="0.004" />
+    </testsuite>
+    <testsuite name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.EnsureCloneActionBridgeIntegrationTests"
+        tests="8" failures="0" errors="0" skipped="0" time="39.793" group="IntegrationTests">
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.EnsureCloneActionBridgeIntegrationTests"
+            name="LfMerge.Core.Tests.Actions.EnsureCloneActionBridgeIntegrationTests.Error_CloneHasHigherModelVersion" time="3.738" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.EnsureCloneActionBridgeIntegrationTests"
+            name="LfMerge.Core.Tests.Actions.EnsureCloneActionBridgeIntegrationTests.Error_NoBranch_OlderSupportedBranch" time="3.827" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.EnsureCloneActionBridgeIntegrationTests"
+            name="LfMerge.Core.Tests.Actions.EnsureCloneActionBridgeIntegrationTests.Error_NoBranch_UnsupportedBranch" time="3.779" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.EnsureCloneActionBridgeIntegrationTests"
+            name="LfMerge.Core.Tests.Actions.EnsureCloneActionBridgeIntegrationTests.Error_NoCommitsInRepository" time="0.585" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.EnsureCloneActionBridgeIntegrationTests"
+            name="LfMerge.Core.Tests.Actions.EnsureCloneActionBridgeIntegrationTests.Error_NotAFlexProject" time="0.487" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.EnsureCloneActionBridgeIntegrationTests"
+            name="LfMerge.Core.Tests.Actions.EnsureCloneActionBridgeIntegrationTests.Success_AlreadyOnIt" time="2.820" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.EnsureCloneActionBridgeIntegrationTests"
+            name="LfMerge.Core.Tests.Actions.EnsureCloneActionBridgeIntegrationTests.Success_DirectoryAlreadyExists_ShouldRecreateFwdataFile" time="20.577" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.EnsureCloneActionBridgeIntegrationTests"
+            name="LfMerge.Core.Tests.Actions.EnsureCloneActionBridgeIntegrationTests.Success_Update" time="3.970" />
+    </testsuite>
+    <testsuite name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.EnsureCloneActionTests" tests="10"
+        failures="0" errors="0" skipped="0" time="0.418">
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.EnsureCloneActionTests"
+            name="LfMerge.Core.Tests.Actions.EnsureCloneActionTests.EnsureClone_NonExistingProject_SetsStateOnHold" time="0.025" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.EnsureCloneActionTests"
+            name="LfMerge.Core.Tests.Actions.EnsureCloneActionTests.EnsureClone_ProjectDirExistHgDoesntExist_ClonesProject" time="0.016" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.EnsureCloneActionTests"
+            name="LfMerge.Core.Tests.Actions.EnsureCloneActionTests.EnsureClone_ProjectThatHasAPreviouslyClonedDate_DoesNotRunInitialClone" time="0.024" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.EnsureCloneActionTests"
+            name="LfMerge.Core.Tests.Actions.EnsureCloneActionTests.EnsureClone_ProjectThatHasAPreviouslyClonedDateButDoesNotHaveAnSRProjectCode_RunsInitialClone" time="0.030" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.EnsureCloneActionTests"
+            name="LfMerge.Core.Tests.Actions.EnsureCloneActionTests.EnsureClone_ProjectThatHasNeverBeenCloned_RunsInitialClone" time="0.012" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.EnsureCloneActionTests"
+            name="LfMerge.Core.Tests.Actions.EnsureCloneActionTests.EnsureClone_ProjectThatHasPreviousUserData_DoesNotRunInitialClone" time="0.232" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.EnsureCloneActionTests"
+            name="LfMerge.Core.Tests.Actions.EnsureCloneActionTests.EnsureClone_StateFileDoesntExistAndStateCloning_CloneProject" time="0.024" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.EnsureCloneActionTests"
+            name="LfMerge.Core.Tests.Actions.EnsureCloneActionTests.EnsureClone_StateFileDoesntExistAndStateNotCloning_ClonesProject" time="0.016" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.EnsureCloneActionTests"
+            name="LfMerge.Core.Tests.Actions.EnsureCloneActionTests.EnsureClone_StateFileExistsStateCloning_CloneProject" time="0.023" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.EnsureCloneActionTests"
+            name="LfMerge.Core.Tests.Actions.EnsureCloneActionTests.EnsureClone_StateFileExistsStateNotCloning_DoesntCloneProject" time="0.007" />
+    </testsuite>
+    <testsuite name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.Infrastructure.ChorusHelperTests"
+        tests="5" failures="0" errors="0" skipped="0" time="0.025">
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.Infrastructure.ChorusHelperTests"
+            name="LfMerge.Core.Tests.Actions.Infrastructure.ChorusHelperTests.GetSyncUri_NameWithSpace" time="0.006" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.Infrastructure.ChorusHelperTests"
+            name="LfMerge.Core.Tests.Actions.Infrastructure.ChorusHelperTests.GetSyncUri_SimpleName" time="0.003" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.Infrastructure.ChorusHelperTests"
+            name="LfMerge.Core.Tests.Actions.Infrastructure.ChorusHelperTests.RemoteDataIsForDifferentModelVersion_DifferentVersion" time="0.003" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.Infrastructure.ChorusHelperTests"
+            name="LfMerge.Core.Tests.Actions.Infrastructure.ChorusHelperTests.RemoteDataIsForDifferentModelVersion_SameVersion" time="0.003" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.Infrastructure.ChorusHelperTests"
+            name="LfMerge.Core.Tests.Actions.Infrastructure.ChorusHelperTests.SetModelVersion" time="0.003" />
+    </testsuite>
+    <testsuite name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests"
+        tests="10" failures="0" errors="0" skipped="0" time="175.067" group="IntegrationTests">
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests"
+            name="LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests.Error_DifferentBranch" time="3.426" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests"
+            name="LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests.Error_InvalidUtf8InXml" time="5.731" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests"
+            name="LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests.Error_NewerBranch" time="3.899" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests"
+            name="LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests.Error_NoCommitsInRepository" time="1.011" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests"
+            name="LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests.Error_NoHgRepo" time="0.140" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests"
+            name="LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests.Error_WrongXmlEncoding" time="7.214" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests"
+            name="LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests.MissingFwDataFixer_Throws" time="0.146" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests"
+            name="LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests.Success_ChangesFromOthersNoChangesFromUs" time="64.823" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests"
+            name="LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests.Success_ChangesFromUsNoChangesFromOthers" time="43.587" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests"
+            name="LfMerge.Core.Tests.Actions.SynchronizeActionBridgeIntegrationTests.Success_NoNewChangesFromOthersAndUs" time="45.079" />
+    </testsuite>
+    <testsuite name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.SynchronizeActionTests" tests="7"
+        failures="0" errors="0" skipped="0" time="862.731" group="IntegrationTests LongRunning">
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.SynchronizeActionTests"
+            name="LfMerge.Core.Tests.Actions.SynchronizeActionTests.SynchronizeAction_LFDataChangedLDDataChanged_LFWins" time="155.765" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.SynchronizeActionTests"
+            name="LfMerge.Core.Tests.Actions.SynchronizeActionTests.SynchronizeAction_LFDataChangedLDEntryDeleted_LFWins" time="180.260" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.SynchronizeActionTests"
+            name="LfMerge.Core.Tests.Actions.SynchronizeActionTests.SynchronizeAction_LFDataChangedLDOtherDataChanged_ModifiedDateUpdated" time="161.142" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.SynchronizeActionTests"
+            name="LfMerge.Core.Tests.Actions.SynchronizeActionTests.SynchronizeAction_LFDataDeleted_EntryRemoved" time="57.902" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.SynchronizeActionTests"
+            name="LfMerge.Core.Tests.Actions.SynchronizeActionTests.SynchronizeAction_LFDataDeletedLDDataChanged_LDWins" time="119.520" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.SynchronizeActionTests"
+            name="LfMerge.Core.Tests.Actions.SynchronizeActionTests.SynchronizeAction_LFEntryDeletedLDDataChanged_LDWins" time="182.802" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Actions.SynchronizeActionTests"
+            name="LfMerge.Core.Tests.Actions.SynchronizeActionTests.TransferMongoToFdoAction_NoChangedData_DateModifiedUnchanged" time="5.322" />
+    </testsuite>
+    <testsuite name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.BidirectionalDictionaryTests" tests="19"
+        failures="0" errors="0" skipped="0" time="0.041">
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.BidirectionalDictionaryTests"
+            name="LfMerge.Core.Tests.BidirectionalDictionaryTests.AddDoubleDuplicate_WillFail" time="0.006" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.BidirectionalDictionaryTests"
+            name="LfMerge.Core.Tests.BidirectionalDictionaryTests.AddDoubleDuplicate_WillNotChangeDict" time="0.001" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.BidirectionalDictionaryTests"
+            name="LfMerge.Core.Tests.BidirectionalDictionaryTests.AddSingleDuplicate_InFirstPosition_WillFail" time="0.000" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.BidirectionalDictionaryTests"
+            name="LfMerge.Core.Tests.BidirectionalDictionaryTests.AddSingleDuplicate_InFirstPosition_WillNotChangeDict" time="0.001" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.BidirectionalDictionaryTests"
+            name="LfMerge.Core.Tests.BidirectionalDictionaryTests.AddSingleDuplicate_InSecondPosition_WillFail" time="0.000" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.BidirectionalDictionaryTests"
+            name="LfMerge.Core.Tests.BidirectionalDictionaryTests.AddSingleDuplicate_InSecondPosition_WillNotChangeDict" time="0.001" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.BidirectionalDictionaryTests"
+            name="LfMerge.Core.Tests.BidirectionalDictionaryTests.Keys_AfterDeletionByFirst_ReturnsTwoKeys" time="0.003" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.BidirectionalDictionaryTests"
+            name="LfMerge.Core.Tests.BidirectionalDictionaryTests.Keys_AfterDeletionBySecond_ReturnsTwoKeys" time="0.001" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.BidirectionalDictionaryTests"
+            name="LfMerge.Core.Tests.BidirectionalDictionaryTests.Keys_AfterInsertion_ReturnsFourKeys" time="0.000" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.BidirectionalDictionaryTests"
+            name="LfMerge.Core.Tests.BidirectionalDictionaryTests.Keys_ReturnsAllThreeKeys" time="0.000" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.BidirectionalDictionaryTests"
+            name="LfMerge.Core.Tests.BidirectionalDictionaryTests.RemoveKeyValuePair_OfExistingItem_ChangesCount" time="0.002" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.BidirectionalDictionaryTests"
+            name="LfMerge.Core.Tests.BidirectionalDictionaryTests.RemoveKeyValuePair_OfExistingItem_Succeeds" time="0.000" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.BidirectionalDictionaryTests"
+            name="LfMerge.Core.Tests.BidirectionalDictionaryTests.RemoveKeyValuePair_OfNonexistentItem_Fails" time="0.000" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.BidirectionalDictionaryTests"
+            name="LfMerge.Core.Tests.BidirectionalDictionaryTests.RemoveKeyValuePair_OfNonexistentItemByFirstValue_DoesNotChangeCount" time="0.000" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.BidirectionalDictionaryTests"
+            name="LfMerge.Core.Tests.BidirectionalDictionaryTests.RemoveKeyValuePair_OfNonexistentItemBySecondValue_DoesNotChangeCount" time="0.000" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.BidirectionalDictionaryTests"
+            name="LfMerge.Core.Tests.BidirectionalDictionaryTests.Values_AfterDeletionByFirst_ReturnsTwoValues" time="0.003" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.BidirectionalDictionaryTests"
+            name="LfMerge.Core.Tests.BidirectionalDictionaryTests.Values_AfterDeletionBySecond_ReturnsTwoValues" time="0.000" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.BidirectionalDictionaryTests"
+            name="LfMerge.Core.Tests.BidirectionalDictionaryTests.Values_AfterInsertion_ReturnsFourValues" time="0.000" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.BidirectionalDictionaryTests"
+            name="LfMerge.Core.Tests.BidirectionalDictionaryTests.Values_ReturnsAllThreeValues" time="0.000" />
+    </testsuite>
+    <testsuite name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertFdoToMongoCustomFieldTests"
+        tests="3" failures="0" errors="0" skipped="0" time="2.431">
+        <testcase
+            classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertFdoToMongoCustomFieldTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertFdoToMongoCustomFieldTests.GetCustomFieldForThisCmObject_ShouldGetMultiListRef" time="2.397" />
+        <testcase
+            classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertFdoToMongoCustomFieldTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertFdoToMongoCustomFieldTests.GetCustomFieldForThisCmObject_ShouldGetSingleLineAll" time="0.017" />
+        <testcase
+            classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertFdoToMongoCustomFieldTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertFdoToMongoCustomFieldTests.GetCustomFieldsForThisCmObject_ShouldGetCustomFieldSettings" time="0.013" />
+    </testsuite>
+    <testsuite name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+        tests="134" failures="0" errors="0" skipped="0" time="1.867">
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_ContainsAngleBrackets" time="0.017" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_ContainsBrTags" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_ContainsBrTagsStripped" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_ContainsHtml" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_OneGuidOneStyle" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_TwoGuids" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_TwoGuidsOneStyle" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_TwoGuidsTwoStylesNoLangs" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_TwoGuidsTwoStylesOneLang" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_TwoGuidsTwoStylesTwoLangs" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_TwoLangs" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_TwoStyles" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_TwoStylesTwoLangsOneOtherProperty" time="0.011" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_TwoStylesTwoLangsTwoOtherProperties" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_TwoStylesTwoLangsTwoOtherPropertiesEscaped" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanClassifySpansByLanguage_ZeroSpans" time="0.009" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_ContainsAngleBrackets" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_ContainsBrTags" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_ContainsBrTagsStripped" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_ContainsHtml" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_OneGuidOneStyle" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_TwoGuids" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_TwoGuidsOneStyle" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_TwoGuidsTwoStylesNoLangs" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_TwoGuidsTwoStylesOneLang" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_TwoGuidsTwoStylesTwoLangs" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_TwoLangs" time="0.011" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_TwoStyles" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_TwoStylesTwoLangsOneOtherProperty" time="0.011" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_TwoStylesTwoLangsTwoOtherProperties" time="0.016" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_TwoStylesTwoLangsTwoOtherPropertiesEscaped" time="0.011" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanCreateTsStringsFromSpans_ZeroSpans" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_ContainsAngleBrackets" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_ContainsBrTags" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_ContainsBrTagsStripped" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_ContainsHtml" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_OneGuidOneStyle" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_TwoGuids" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_TwoGuidsOneStyle" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_TwoGuidsTwoStylesNoLangs" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_TwoGuidsTwoStylesOneLang" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_TwoGuidsTwoStylesTwoLangs" time="0.009" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_TwoLangs" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_TwoStyles" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_TwoStylesTwoLangsOneOtherProperty" time="0.009" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_TwoStylesTwoLangsTwoOtherProperties" time="0.016" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_TwoStylesTwoLangsTwoOtherPropertiesEscaped" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanDetectSpans_ZeroSpans" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_ContainsAngleBrackets" time="0.011" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_ContainsBrTags" time="0.016" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_ContainsBrTagsStripped" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_ContainsHtml" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_OneGuidOneStyle" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_TwoGuids" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_TwoGuidsOneStyle" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_TwoGuidsTwoStylesNoLangs" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_TwoGuidsTwoStylesOneLang" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_TwoGuidsTwoStylesTwoLangs" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_TwoLangs" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_TwoStyles" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_TwoStylesTwoLangsTwoOtherProperties" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_TwoStylesTwoLangsTwoOtherPropertiesEscaped" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractGuidsFromSpans_ZeroSpans" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_ContainsAngleBrackets" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_ContainsBrTags" time="0.016" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_ContainsBrTagsStripped" time="0.016" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_ContainsHtml" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_OneGuidOneStyle" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_TwoGuids" time="0.011" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_TwoGuidsOneStyle" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_TwoGuidsTwoStylesNoLangs" time="0.011" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_TwoGuidsTwoStylesOneLang" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_TwoGuidsTwoStylesTwoLangs" time="0.011" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_TwoLangs" time="0.016" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_TwoStyles" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_TwoStylesTwoLangsOneOtherProperty" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_TwoStylesTwoLangsTwoOtherProperties" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_TwoStylesTwoLangsTwoOtherPropertiesEscaped" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractRunsFromSpans_ZeroSpans" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_ContainsAngleBrackets" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_ContainsBrTags" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_ContainsBrTagsStripped" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_ContainsHtml" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_OneGuidOneStyle" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_TwoGuids" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_TwoGuidsOneStyle" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_TwoGuidsTwoStylesNoLangs" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_TwoGuidsTwoStylesOneLang" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_TwoGuidsTwoStylesTwoLangs" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_TwoLangs" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_TwoStyles" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_TwoStylesTwoLangsOneOtherProperty" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_TwoStylesTwoLangsTwoOtherProperties" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_TwoStylesTwoLangsTwoOtherPropertiesEscaped" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractStylesFromSpans_ZeroSpans" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_ContainsAngleBrackets" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_ContainsBrTags" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_ContainsBrTagsStripped" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_ContainsHtml" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_OneGuidOneStyle" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_TwoGuids" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_TwoGuidsOneStyle" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_TwoGuidsTwoStylesNoLangs" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_TwoGuidsTwoStylesOneLang" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_TwoGuidsTwoStylesTwoLangs" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_TwoLangs" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_TwoStyles" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_TwoStylesTwoLangsOneOtherProperty" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_TwoStylesTwoLangsTwoOtherProperties" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_TwoStylesTwoLangsTwoOtherPropertiesEscaped" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.CanExtractTextInsideSpans_ZeroSpans" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringCanRoundTripFdoToMongoToFdo_ContainsAngleBrackets" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringCanRoundTripFdoToMongoToFdo_ContainsAngleBracketsEscaped" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringCanRoundTripFdoToMongoToFdo_ContainsBrTags" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringCanRoundTripFdoToMongoToFdo_ContainsBrTagsEscaped" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringCanRoundTripFdoToMongoToFdo_ContainsHtml" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringCanRoundTripFdoToMongoToFdo_ContainsHtmlEscaped" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringCanRoundTripFdoToMongoToFdo_SingleRunString" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringCanRoundTripFdoToMongoToFdo_StringWithThreeLanguages" time="0.017" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringCanRoundTripFdoToMongoToFdo_StringWithThreeLanguagesAndArbitraryProperties" time="0.011" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringCanRoundTripFdoToMongoToFdo_StringWithThreeLanguagesAndObjectDataAndArbitraryProperties"
+            time="0.019" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringCanRoundTripFdoToMongoToFdo_StringWithTwoLanguages" time="0.017" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringsAreHtmlEscapedWhenConvertedToSpanText_ContainsAngleBrackets" time="0.014" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringsAreHtmlEscapedWhenConvertedToSpanText_ContainsHtml" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringsAreHtmlUnescapedWhenConvertedBackFromSpanText_ContainsAngleBrackets" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringsAreHtmlUnescapedWhenConvertedBackFromSpanText_ContainsHtml" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringsCanRoundTripMongoToFdoToMongo_ContainsAngleBrackets" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringsCanRoundTripMongoToFdoToMongo_ContainsBrTags" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringsCanRoundTripMongoToFdoToMongo_ContainsBrTagsStripped" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringsCanRoundTripMongoToFdoToMongo_ContainsHtml" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringsCanRoundTripMongoToFdoToMongo_SingleRunString" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringsCanRoundTripMongoToFdoToMongo_StringWithThreeLanguages" time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringsCanRoundTripMongoToFdoToMongo_StringWithThreeLanguagesAndArbitraryProperties" time="0.010" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests"
+            name="LfMerge.Core.Tests.Fdo.DataConverters.ConvertMongoToFdoTsStringsTests.TsStringsCanRoundTripMongoToFdoToMongo_StringWithTwoLanguages" time="0.014" />
+    </testsuite>
+    <testsuite name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferFdoToMongoActionTests"
+        tests="9" failures="0" errors="0" skipped="0" time="7.460">
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferFdoToMongoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferFdoToMongoActionTests.Action_IsInitialClone_ShouldPopulateMongoInputSystems" time="1.848" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferFdoToMongoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferFdoToMongoActionTests.Action_IsInitialClone_ShouldUpdateDates" time="0.695" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferFdoToMongoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferFdoToMongoActionTests.Action_NoDataChanged_ShouldUpdateCustomFieldConfig" time="0.676" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferFdoToMongoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferFdoToMongoActionTests.Action_NoDataChanged_ShouldUpdateLexemes" time="0.682" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferFdoToMongoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferFdoToMongoActionTests.Action_NoDataChanged_ShouldUpdatePictures" time="0.696" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferFdoToMongoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferFdoToMongoActionTests.Action_WithEmptyMongoGrammar_ShouldPopulateMongoGrammarFromFdoGrammar" time="0.784" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferFdoToMongoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferFdoToMongoActionTests.Action_WithPreviousMongoGrammarWithGuids_ShouldReplaceItemsFromLfGrammarWithItemsFromFdoGrammar" time="0.680" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferFdoToMongoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferFdoToMongoActionTests.Action_WithPreviousMongoGrammarWithMatchingGuids_ShouldBeUpdatedFromFdoGrammar" time="0.692" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferFdoToMongoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferFdoToMongoActionTests.Action_WithPreviousMongoGrammarWithNoGuids_ShouldStillReplaceItemsFromLfGrammarWithItemsFromFdoGrammar" time="0.695" />
+    </testsuite>
+    <testsuite name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests"
+        tests="25" failures="0" errors="0" skipped="0" time="25.710">
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_ChangedWithSampleData_ShouldUpdatePictures" time="1.564" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_RunTwice_ShouldNotDuplicatePictures" time="1.186" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_RunTwiceWithOneNewEntryEachTime_ShouldCountTwoAddedInTotal" time="0.371" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_RunTwiceWithTheSameEntryDeletedEachTime_ShouldCountJustOneDeletedInTotal" time="1.634" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_RunTwiceWithTheSameEntryModifiedEachTime_ShouldCountTwoModifiedInTotal" time="1.941" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_Should_UpdateDefinitions" time="0.610" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_WithEmptyMongoGrammar_ShouldPreserveFdoGrammarEntries" time="0.179" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_WithNoChangesFromMongo_ShouldCountZeroChanges" time="0.173" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_WithOneDeletedEntry_ShouldCountOneDeleted" time="0.878" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_WithOneDeletedEntry_ShouldNotCountThatDeletedEntryOnSecondRun" time="1.053" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_WithOneModifiedEntry_ShouldCountOneModified" time="1.253" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_WithOneModifiedEntry_ShouldNotCountThatModifiedEntryOnSecondRun" time="1.412" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_WithOneNewEntry_ShouldCountOneAdded" time="0.178" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_WithOneNewEntry_ShouldNotCountThatNewEntryOnSecondRun" time="0.343" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_WithTwoDeletedEntries_ShouldCountTwoDeleted" time="0.901" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_WithTwoModifiedEntries_ShouldCountTwoModified" time="1.389" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.Action_WithTwoNewEntries_ShouldCountTwoAdded" time="0.176" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.CustomMultiListRef_WithTwoOriginalItemsSettingJustTheFirstItem_ShouldDeleteTheSecond" time="1.255" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.CustomMultiListRef_WithTwoOriginalItemsSettingJustTheSecondItem_ShouldDeleteTheFirst" time="1.242" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.CustomMultiListRef_WithTwoOriginalItemsSettingNoneOfThem_ShouldDeleteBoth" time="1.247" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.CustomMultiListRef_WithTwoOriginalItemsSettingTheSameItems_ShouldRemainUnchanged" time="1.255" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.CustomMultiListRef_WithZeroOriginalItemsSettingADifferentItem_ShouldAlsoReturnThatOneItem" time="1.367" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.CustomMultiListRef_WithZeroOriginalItemsSettingJustOneItem_ShouldReturnThatOneItem" time="1.262" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.CustomMultiListRef_WithZeroOriginalItemsSettingNoneOfThem_ShouldAddNone" time="1.552" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests"
+            name="LfMerge.Core.Tests.Fdo.TransferMongoToFdoActionTests.CustomMultiListRef_WithZeroOriginalItemsSettingTwoItems_ShouldRemainUnchanged" time="1.245" />
+    </testsuite>
+    <testsuite name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.LanguageDepotProjectTests" tests="2"
+        failures="0" errors="0" skipped="2">
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.LanguageDepotProjectTests" name="LfMerge.Core.Tests.LanguageDepotProjectTests.ExistingProject">
+            <skipped message="Ignoring tests because MongoDB doesn't seem to be running on localhost:27017." />
+        </testcase>
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.LanguageDepotProjectTests" name="LfMerge.Core.Tests.LanguageDepotProjectTests.NonexistingProject">
+            <skipped message="Ignoring tests because MongoDB doesn't seem to be running on localhost:27017." />
+        </testcase>
+    </testsuite>
+    <testsuite name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.LfMergeSettingsTests" tests="4"
+        failures="0" errors="0" skipped="0" time="0.020">
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.LfMergeSettingsTests" name="LfMerge.Core.Tests.LfMergeSettingsTests.FdoDirs_AbsolutePathsRemainAbsolute"
+            time="0.004" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.LfMergeSettingsTests" name="LfMerge.Core.Tests.LfMergeSettingsTests.FdoDirs_RelativePathsAreSubdirsOfBasedir"
+            time="0.001" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.LfMergeSettingsTests" name="LfMerge.Core.Tests.LfMergeSettingsTests.GetStateFileName_Correct"
+            time="0.002" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.LfMergeSettingsTests" name="LfMerge.Core.Tests.LfMergeSettingsTests.StateDirectory_Correct"
+            time="0.001" />
+    </testsuite>
+    <testsuite name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.LfMergeSettingsTests.GetQueueDirectory_Correct"
+        tests="3" failures="0" errors="0" skipped="0" time="0.008">
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.LfMergeSettingsTests.GetQueueDirectory_Correct"
+            name="LfMerge.Core.Tests.LfMergeSettingsTests.GetQueueDirectory_Correct(None,null)" time="0.002" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.LfMergeSettingsTests.GetQueueDirectory_Correct"
+            name="LfMerge.Core.Tests.LfMergeSettingsTests.GetQueueDirectory_Correct(Synchronize,&#34;syncqueue&#34;)" time="0.001" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.LfMergeSettingsTests.GetQueueDirectory_Correct"
+            name="LfMerge.Core.Tests.LfMergeSettingsTests.GetQueueDirectory_Correct(Edit,&#34;editqueue&#34;)" time="0.001" />
+    </testsuite>
+    <testsuite name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.ProcessingStateTests" tests="7"
+        failures="0" errors="0" skipped="0" time="0.156">
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.ProcessingStateTests" name="LfMerge.Core.Tests.ProcessingStateTests.Deserialize_EmptyStateFile_DoesntThrow"
+            time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.ProcessingStateTests" name="LfMerge.Core.Tests.ProcessingStateTests.Deserialize_InvalidStateFile_DoesntThrow"
+            time="0.011" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.ProcessingStateTests" name="LfMerge.Core.Tests.ProcessingStateTests.Deserialize_NonexistingStateFile_ReturnsCloning"
+            time="0.004" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.ProcessingStateTests" name="LfMerge.Core.Tests.ProcessingStateTests.Deserialize_ValidStateFile_MatchesState"
+            time="0.061" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.ProcessingStateTests" name="LfMerge.Core.Tests.ProcessingStateTests.Serialization_Roundtrip"
+            time="0.026" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.ProcessingStateTests" name="LfMerge.Core.Tests.ProcessingStateTests.State_SettingProperty_ChangesLastStateChangeTicks"
+            time="0.008" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.ProcessingStateTests" name="LfMerge.Core.Tests.ProcessingStateTests.State_SettingProperty_SerializesState"
+            time="0.024" />
+    </testsuite>
+    <testsuite name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Queues.QueueTests" tests="13" failures="0"
+        errors="0" skipped="0" time="1.119">
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Queues.QueueTests" name="LfMerge.Core.Tests.Queues.QueueTests.Ctor_CantCreateQueueForNone"
+            time="0.005" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Queues.QueueTests" name="LfMerge.Core.Tests.Queues.QueueTests.DequeueProject_NonExistingProject_Ignored"
+            time="0.004" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Queues.QueueTests" name="LfMerge.Core.Tests.Queues.QueueTests.DequeueProject_Works"
+            time="0.015" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Queues.QueueTests" name="LfMerge.Core.Tests.Queues.QueueTests.EnqueueProject_Works"
+            time="0.005" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Queues.QueueTests" name="LfMerge.Core.Tests.Queues.QueueTests.FirstQueueWithWork_AllQueuesEmpty_ReturnsNull"
+            time="0.003" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Queues.QueueTests" name="LfMerge.Core.Tests.Queues.QueueTests.FirstQueueWithWork_ReturnsNonEmptyQueue"
+            time="0.004" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Queues.QueueTests" name="LfMerge.Core.Tests.Queues.QueueTests.IsEmpty_ExistingFiles_ReturnsNotEmpty"
+            time="0.004" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Queues.QueueTests" name="LfMerge.Core.Tests.Queues.QueueTests.IsEmpty_NoFiles_ReturnsEmpty"
+            time="0.003" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Queues.QueueTests" name="LfMerge.Core.Tests.Queues.QueueTests.NextQueueWithWork_AllQueuesEmpty_ReturnsNull"
+            time="0.008" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Queues.QueueTests" name="LfMerge.Core.Tests.Queues.QueueTests.NextQueueWithWork_CurrentNonEmpty_ReturnsCurrent"
+            time="0.004" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Queues.QueueTests" name="LfMerge.Core.Tests.Queues.QueueTests.NextQueueWithWork_NonEmptyQueue_WrapAround"
+            time="0.004" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Queues.QueueTests" name="LfMerge.Core.Tests.Queues.QueueTests.NextQueueWithWork_ReturnsNonEmptyQueue"
+            time="0.004" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Queues.QueueTests" name="LfMerge.Core.Tests.Queues.QueueTests.QueuedProjects_ReturnsOldestFirst"
+            time="1.006" />
+    </testsuite>
+    <testsuite name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Queues.QueueTests.CurrentAction_Works"
+        tests="2" failures="0" errors="0" skipped="0" time="0.008">
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Queues.QueueTests.CurrentAction_Works"
+            name="LfMerge.Core.Tests.Queues.QueueTests.CurrentAction_Works(Synchronize,Synchronize)" time="0.003" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Queues.QueueTests.CurrentAction_Works"
+            name="LfMerge.Core.Tests.Queues.QueueTests.CurrentAction_Works(Edit,Edit)" time="0.003" />
+    </testsuite>
+    <testsuite name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Queues.QueueTests.GetQueueFromAction"
+        tests="6" failures="0" errors="0" skipped="0" time="0.024">
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Queues.QueueTests.GetQueueFromAction"
+            name="LfMerge.Core.Tests.Queues.QueueTests.GetQueueFromAction(TransferFdoToMongo,None)" time="0.003" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Queues.QueueTests.GetQueueFromAction"
+            name="LfMerge.Core.Tests.Queues.QueueTests.GetQueueFromAction(Edit,None)" time="0.003" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Queues.QueueTests.GetQueueFromAction"
+            name="LfMerge.Core.Tests.Queues.QueueTests.GetQueueFromAction(Synchronize,Synchronize)" time="0.003" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Queues.QueueTests.GetQueueFromAction"
+            name="LfMerge.Core.Tests.Queues.QueueTests.GetQueueFromAction(Commit,None)" time="0.003" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Queues.QueueTests.GetQueueFromAction"
+            name="LfMerge.Core.Tests.Queues.QueueTests.GetQueueFromAction(TransferMongoToFdo,Synchronize)" time="0.003" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Core.Tests.dll.LfMerge.Core.Tests.Queues.QueueTests.GetQueueFromAction"
+            name="LfMerge.Core.Tests.Queues.QueueTests.GetQueueFromAction(None,None)" time="0.003" />
+    </testsuite>
+    <testsuite name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Tests.dll.LfMerge.Tests.OptionsTests.FirstProjectAndStopAfterFirstProject"
+        tests="2" failures="0" errors="0" skipped="0" time="0.059">
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Tests.dll.LfMerge.Tests.OptionsTests.FirstProjectAndStopAfterFirstProject"
+            name="LfMerge.Tests.OptionsTests.Prio project specified" time="0.040" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Tests.dll.LfMerge.Tests.OptionsTests.FirstProjectAndStopAfterFirstProject"
+            name="LfMerge.Tests.OptionsTests.No arguments" time="0.000" />
+    </testsuite>
+    <testsuite name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Tests.dll.LfMerge.Tests.OptionsTests.ParseArgs" tests="2" failures="0"
+        errors="0" skipped="0" time="0.004">
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Tests.dll.LfMerge.Tests.OptionsTests.ParseArgs" name="LfMerge.Tests.OptionsTests.Prio project specified"
+            time="0.001" />
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Tests.dll.LfMerge.Tests.OptionsTests.ParseArgs" name="LfMerge.Tests.OptionsTests.No arguments"
+            time="0.000" />
+    </testsuite>
+    <testsuite name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Tests.dll.LfMerge.Tests.OptionsTests.ParseInvalidArgs" tests="1"
+        failures="0" errors="0" skipped="0" time="0.005">
+        <testcase classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Tests.dll.LfMerge.Tests.OptionsTests.ParseInvalidArgs" name="LfMerge.Tests.OptionsTests.Invalid args"
+            time="0.004" />
+    </testsuite>
+    <testsuite
+        name="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Tests.dll.LfMerge.Tests.QueueIntegrationTests.QueuedProjects_PriorityProject_ReturnsPriorityBeforeNext"
+        tests="4" failures="0" errors="0" skipped="0" time="0.339">
+        <testcase
+            classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Tests.dll.LfMerge.Tests.QueueIntegrationTests.QueuedProjects_PriorityProject_ReturnsPriorityBeforeNext"
+            name="LfMerge.Tests.QueueIntegrationTests.QueuedProjects_PriorityProject_ReturnsPriorityBeforeNext(&#34;projd&#34;,System.String[])" time="0.311" />
+        <testcase
+            classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Tests.dll.LfMerge.Tests.QueueIntegrationTests.QueuedProjects_PriorityProject_ReturnsPriorityBeforeNext"
+            name="LfMerge.Tests.QueueIntegrationTests.QueuedProjects_PriorityProject_ReturnsPriorityBeforeNext(&#34;projc&#34;,System.String[])" time="0.005" />
+        <testcase
+            classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Tests.dll.LfMerge.Tests.QueueIntegrationTests.QueuedProjects_PriorityProject_ReturnsPriorityBeforeNext"
+            name="LfMerge.Tests.QueueIntegrationTests.QueuedProjects_PriorityProject_ReturnsPriorityBeforeNext(&#34;projb&#34;,System.String[])" time="0.004" />
+        <testcase
+            classname="/home/jenkins/workspace/LfMerge-Linux-any-qa-release/output/Release/LfMerge.Tests.dll.LfMerge.Tests.QueueIntegrationTests.QueuedProjects_PriorityProject_ReturnsPriorityBeforeNext"
+            name="LfMerge.Tests.QueueIntegrationTests.QueuedProjects_PriorityProject_ReturnsPriorityBeforeNext(&#34;proja&#34;,System.String[])" time="0.010" />
+    </testsuite>
+</testsuites>
