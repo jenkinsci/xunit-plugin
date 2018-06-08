@@ -23,8 +23,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xunit="http://www.xunit.org">
-    <xsl:output method="xml" indent="yes" encoding="UTF-8" cdata-section-elements="failure skipped" />
-    <xsl:decimal-format decimal-separator="." grouping-separator="," />
+    <xsl:output method="xml" indent="yes" encoding="UTF-8" cdata-section-elements="system-out system-err failure"/>
+    <xsl:decimal-format decimal-separator="." grouping-separator=","/>
 
     <xsl:function name="xunit:junit-time" as="xs:string">
         <xsl:param name="value" as="xs:anyAtomicType?" />
@@ -35,11 +35,17 @@ THE SOFTWARE.
                     <xsl:value-of select="$value" />
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:value-of select="translate(string($value), ',', '.')" />
+                    <xsl:value-of select="translate(string(xunit:if-empty($value, 0)), ',', '.')" />
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
         <xsl:value-of select="format-number($time, '0.000')" />
+    </xsl:function>
+
+    <xsl:function name="xunit:if-empty" as="xs:string">
+        <xsl:param name="value" as="xs:anyAtomicType?" />
+        <xsl:param name="default" as="xs:anyAtomicType" />
+        <xsl:value-of select="if (string($value) != '') then string($value) else $default" />
     </xsl:function>
 
     <xsl:function name="xunit:is-empty" as="xs:boolean">
@@ -47,10 +53,10 @@ THE SOFTWARE.
         <xsl:value-of select="string($value) != ''" />
     </xsl:function>
 
+
     <xsl:template match="/assemblies">
         <testsuites>
             <xsl:for-each select="assembly">
-
                 <xsl:variable name="assemblyFileName">
                     <xsl:call-template name="substring-after-last">
                         <xsl:with-param name="string" select="@name" />
@@ -89,10 +95,9 @@ THE SOFTWARE.
 
                             <xsl:if test="./failure">
                                 <failure>
-                                    MESSAGE:
-                                    <xsl:value-of select="normalize-space(./failure/message)" />
-                                    +++++++++++++++++++
-                                    STACK TRACE:
+                                    <xsl:attribute name="message">
+                                        <xsl:value-of select="normalize-space(./failure/message)" />
+                                    </xsl:attribute>
                                     <xsl:value-of select="normalize-space(./failure/stack-trace)" />
                                 </failure>
                             </xsl:if>
@@ -100,15 +105,15 @@ THE SOFTWARE.
                             <xsl:if test="@result='Skip'">
                                 <skipped>
                                     <xsl:attribute name="message">
-                    <xsl:value-of select="normalize-space(./reason)" />
-                  </xsl:attribute>
+                                        <xsl:value-of select="normalize-space(./reason)" />
+                                    </xsl:attribute>
                                 </skipped>
                             </xsl:if>
 
                         </testcase>
                     </xsl:for-each>
-                </testsuite>
 
+                </testsuite>
             </xsl:for-each>
         </testsuites>
     </xsl:template>

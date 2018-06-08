@@ -53,7 +53,7 @@ public class XUnitDotNet extends InputMetricXSL {
 
     @Override
     public String getXslName() {
-        return "xunitdotnet-2.0-to-junit-2.xsl";
+        return "xunitdotnet-2.0-to-junit.xsl";
     }
 
     @Override
@@ -61,6 +61,7 @@ public class XUnitDotNet extends InputMetricXSL {
         return null;
     }
 
+    @Override
     public OutputMetric getOutputFormatType() {
         return JUnitModel.LATEST;
     }

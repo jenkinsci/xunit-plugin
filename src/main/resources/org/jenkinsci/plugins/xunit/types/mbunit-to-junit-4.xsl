@@ -23,7 +23,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xunit="http://www.xunit.org">
-    <xsl:output method="xml" indent="yes" encoding="UTF-8"/>
+    <xsl:output method="xml" indent="yes" encoding="UTF-8" cdata-section-elements="system-out system-err failure"/>
     <xsl:decimal-format decimal-separator="." grouping-separator=","/>
 
     <xsl:function name="xunit:junit-time" as="xs:string">
@@ -35,11 +35,17 @@ THE SOFTWARE.
                     <xsl:value-of select="$value" />
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:value-of select="translate(string($value), ',', '.')" />
+                    <xsl:value-of select="translate(string(xunit:if-empty($value, 0)), ',', '.')" />
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
         <xsl:value-of select="format-number($time, '0.000')" />
+    </xsl:function>
+
+    <xsl:function name="xunit:if-empty" as="xs:string">
+        <xsl:param name="value" as="xs:anyAtomicType?" />
+        <xsl:param name="default" as="xs:anyAtomicType" />
+        <xsl:value-of select="if (string($value) != '') then string($value) else $default" />
     </xsl:function>
 
     <xsl:function name="xunit:is-empty" as="xs:boolean">

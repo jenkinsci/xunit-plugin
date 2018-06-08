@@ -35,11 +35,22 @@ THE SOFTWARE.
                     <xsl:value-of select="$value" />
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:value-of select="translate(string($value), ',', '.')" />
+                    <xsl:value-of select="translate(string(xunit:if-empty($value, 0)), ',', '.')" />
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
         <xsl:value-of select="format-number($time, '0.000')" />
+    </xsl:function>
+
+    <xsl:function name="xunit:if-empty" as="xs:string">
+        <xsl:param name="value" as="xs:anyAtomicType?" />
+        <xsl:param name="default" as="xs:anyAtomicType" />
+        <xsl:value-of select="if (string($value) != '') then string($value) else $default" />
+    </xsl:function>
+
+    <xsl:function name="xunit:is-empty" as="xs:boolean">
+        <xsl:param name="value" as="xs:string?" />
+        <xsl:value-of select="string($value) != ''" />
     </xsl:function>
 
     <xsl:function name="xunit:millis-from-time" as="xs:double">
@@ -49,17 +60,6 @@ THE SOFTWARE.
         <xsl:variable name="formattedTime" select="replace(translate($formattedTime,',','.'), '^(\d:.+)', '0$1')" />
         <xsl:variable name="time" select="xs:time($formattedTime)" />
         <xsl:value-of select="hours-from-time($time)*3600 + minutes-from-time($time)*60 + seconds-from-time($time)" />
-    </xsl:function>
-
-    <xsl:function name="xunit:if-empty" as="xs:string">
-        <xsl:param name="value" as="xs:string?" />
-        <xsl:param name="default" as="xs:anyAtomicType?" />
-        <xsl:value-of select="if (string($value) != '') then string($value) else $default" />
-    </xsl:function>
-
-    <xsl:function name="xunit:is-empty" as="xs:boolean">
-        <xsl:param name="value" as="xs:string?" />
-        <xsl:value-of select="string($value) != ''" />
     </xsl:function>
 
     <xsl:key name="testCaseId" match="/ResultsSession/Exec/ExecViols/ExecViol" use="@testCaseId" />

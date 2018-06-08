@@ -43,8 +43,8 @@ THE SOFTWARE.
     </xsl:function>
 
     <xsl:function name="xunit:if-empty" as="xs:string">
-        <xsl:param name="value" as="xs:string?" />
-        <xsl:param name="default" as="xs:anyAtomicType?" />
+        <xsl:param name="value" as="xs:anyAtomicType?" />
+        <xsl:param name="default" as="xs:anyAtomicType" />
         <xsl:value-of select="if (string($value) != '') then string($value) else $default" />
     </xsl:function>
 
