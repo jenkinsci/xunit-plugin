@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="KundM.Api.Csv.UnitTest" tests="" time="0.000" timestamp="2018-06-07T20:33:38" failures="" errors="" skipped="">
+        <properties>
+            <property name="environment" value="64-bit .NET 4.0.30319.42000 [collection-per-class, parallel (4 threads)]" />
+            <property name="test-framework" value="xUnit.net 2.2.0.3545" />
+            <property name="config-file" value="E:\Jenkins2\workspace\KundM.Api.Csv\KundM.Api.Csv-Build\packages\xunit.runner.console.2.2.0\tools\xunit.console.exe.Config" />
+        </properties>
+    </testsuite>
+</testsuites>

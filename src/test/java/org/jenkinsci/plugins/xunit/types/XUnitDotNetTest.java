@@ -39,7 +39,8 @@ public class XUnitDotNetTest extends AbstractTest {
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] { { "simple transformation", 1 }, //
                                               { "JENKINS-33385 testcase does not have package at name", 2 }, //
-                                              { "OS culture aware, use comma instead dot as decimal separator", 3 } //
+                                              { "OS culture aware, use comma instead dot as decimal separator", 3 }, //
+                                              { "JENKINS-51797 xUnit.Net v2 parse error when time attribute is missing", 4 } //
         });
     }
 
