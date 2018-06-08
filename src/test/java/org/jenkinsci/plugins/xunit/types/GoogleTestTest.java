@@ -32,16 +32,17 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 @RunWith(Parameterized.class)
-public class GoogleTestTypeTest extends AbstractTest {
+public class GoogleTestTest extends AbstractTest {
 
     @Parameters(name = "testcase{1}: {0}")
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] { { "testTestCase1", 1 }, //
-                                              { "testTestCase2", 2 } //
+                                              { "testTestCase2", 2 }, //
+                                              { "JENKINS-51798 ", 3 }, //
         });
     }
 
-    public GoogleTestTypeTest(String testName, int testNumber) {
+    public GoogleTestTest(String testName, int testNumber) {
         super(GoogleTestInputMetric.class, resolveInput("googletest", testNumber), resolveOutput("googletest", testNumber));
     }
 

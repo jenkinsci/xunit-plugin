@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="nosetests" tests="3" failures="0" errors="0" skipped="0" time="0.000">
+    <testcase name="test_alternative" time="0.011" classname="test.test_xxx.TestAlternative" />
+    <testcase name="test_low" time="0.009" classname="test.test_xxx.TestAlternative" />
+    <testcase name="test_high" time="0.010" classname="test.test_xxx.TestAlternative" />
+    <testcase name="test_box_length_known_book" time="0.004" classname="test.test_book_gripper_alternative.TestAlternative" />
+</testsuite>
