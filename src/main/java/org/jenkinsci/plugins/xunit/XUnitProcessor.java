@@ -60,6 +60,7 @@ import hudson.model.Result;
 import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.remoting.VirtualChannel;
+import hudson.tasks.junit.CumulativeTestResultAction;
 import hudson.tasks.junit.TestResult;
 import hudson.tasks.junit.TestResultAction;
 import jenkins.model.Jenkins;
@@ -81,18 +82,15 @@ public class XUnitProcessor {
         private final String junitFilePattern;
         private final long buildTime;
         private final long nowMaster;
-        private final TestResult existingTestResults;
         private final String processorId;
 
         public ReportParserCallable(long buildTime,
                                     @Nonnull String junitFilePattern,
                                     long nowMaster,
-                                    TestResult existingTestResults,
                                     String processorId) {
             this.buildTime = buildTime;
             this.junitFilePattern = junitFilePattern;
             this.nowMaster = nowMaster;
-            this.existingTestResults = existingTestResults;
             this.processorId = processorId;
         }
 
@@ -111,12 +109,7 @@ public class XUnitProcessor {
                 return null;
 
             }
-            if (existingTestResults == null) {
-                return new TestResult(buildTime + (nowSlave - nowMaster), ds, true);
-            } else {
-                existingTestResults.parse(buildTime + (nowSlave - nowMaster), ds);
-                return existingTestResults;
-            }
+            return new TestResult(buildTime + (nowSlave - nowMaster), ds, true);
         }
     }
 
@@ -125,6 +118,7 @@ public class XUnitProcessor {
     private final int thresholdMode;
     private final ExtraConfiguration extraConfiguration;
     private final String processorId;
+    private XUnitLog logger;
 
     public XUnitProcessor(@Nonnull TestType[] tools,
                           @CheckForNull XUnitThreshold[] thresholds,
@@ -144,44 +138,44 @@ public class XUnitProcessor {
     }
 
     public void process(Run<?, ?> build, FilePath workspace, TaskListener listener) throws IOException, InterruptedException {
-        final XUnitLog xUnitLog = new XUnitLog(listener);
-        xUnitLog.info("Starting to record.");
+        logger = new XUnitLog(listener);
+        logger.info("Starting to record.");
 
-        boolean success = processTestsReport(xUnitLog, build, workspace, listener);
+        boolean success = processTestsReport(build, workspace, listener);
 
         if (!success) {
-            xUnitLog.info("Skipping tests recording.");
+            logger.info("Skipping tests recording.");
             return;
         }
 
-        recordTestResult(build, workspace, listener, xUnitLog);
-        processDeletion(workspace, xUnitLog);
-        Result result = getBuildStatus(build, xUnitLog);
+        TestResult testResult = recordTestResult(build, workspace, listener);
+
+        processDeletion(workspace);
+        Result result = getBuildStatus(testResult, build);
         if (result != null) {
-            xUnitLog.info("Setting the build status to " + result);
+            logger.info("Setting the build status to " + result);
             build.setResult(result);
         }
-        xUnitLog.info("Stopping recording.");
+        logger.info("Stopping recording.");
     }
 
-    private boolean processTestsReport(XUnitLog xUnitLog,
-                                       Run<?, ?> build,
+    private boolean processTestsReport(Run<?, ?> build,
                                        FilePath workspace,
                                        TaskListener listener) throws IOException, InterruptedException {
-        XUnitReportProcessorService xUnitReportService = new XUnitReportProcessorService(xUnitLog);
+        XUnitReportProcessorService xUnitReportService = new XUnitReportProcessorService(logger);
         for (TestType tool : tools) {
-            xUnitLog.info("Processing " + tool.getDescriptor().getDisplayName());
+            logger.info("Processing " + tool.getDescriptor().getDisplayName());
 
             if (!isEmptyGivenPattern(xUnitReportService, tool)) {
                 String expandedPattern = getExpandedResolvedPattern(tool, build, listener);
-                XUnitToolInfo xUnitToolInfo = buildXUnitToolInfo(tool, expandedPattern, build, workspace, listener, xUnitLog);
-                XUnitTransformerCallable xUnitTransformer = newXUnitTransformer(xUnitToolInfo, xUnitLog);
+                XUnitToolInfo xUnitToolInfo = buildXUnitToolInfo(tool, expandedPattern, build, workspace, listener);
+                XUnitTransformerCallable xUnitTransformer = newXUnitTransformer(xUnitToolInfo);
                 try {
                     workspace.act(xUnitTransformer);
                     return true;
                 } catch (NoTestFoundException e) {
                     if (xUnitToolInfo.isSkipNoTestFiles()) {
-                        xUnitLog.info(e.getMessage());
+                        logger.info(e.getMessage());
                         continue;
                     }
                     throw e;
@@ -207,8 +201,7 @@ public class XUnitProcessor {
                                              final String pattern,
                                              final Run<?, ?> build,
                                              final FilePath workspace,
-                                             final TaskListener listener,
-                                             final XUnitLog xUnitLog) throws IOException, InterruptedException {
+                                             final TaskListener listener) throws IOException, InterruptedException {
 
         InputMetric inputMetric = tool.getInputMetric();
         inputMetric = Guice.createInjector(new AbstractModule() {
@@ -225,20 +218,20 @@ public class XUnitProcessor {
         if (tool instanceof CustomType) {
             xslContent = getCustomStylesheet(tool, build, workspace, listener);
         } else if (inputMetric instanceof InputMetricXSL) {
-            xslContent = getUserStylesheet(tool, xUnitLog);
+            xslContent = getUserStylesheet(tool);
         }
         return new XUnitToolInfo(inputMetric, pattern, tool.isSkipNoTestFiles(), tool.isFailIfNotNew(), tool.isDeleteOutputFiles(), tool.isStopProcessingIfError(), build.getTimeInMillis(), this.extraConfiguration.getTestTimeMargin(), xslContent);
 
     }
 
-    private String getUserStylesheet(final TestType tool, final XUnitLog xUnitLog) throws IOException, InterruptedException {
+    private String getUserStylesheet(final TestType tool) throws IOException, InterruptedException {
         InputMetricXSL inputMetricXSL = (InputMetricXSL) tool.getInputMetric();
         File userContent = new File(Jenkins.getActiveInstance().getRootDir(), "userContent");
         File userXSLFilePath = new File(userContent, inputMetricXSL.getUserContentXSLDirRelativePath());
         if (!userXSLFilePath.exists()) {
             return null;
         }
-        xUnitLog.info("Using the custom user stylesheet in JENKINS_HOME.");
+        logger.info("Using the custom user stylesheet in JENKINS_HOME.");
         FilePath xslFile = new FilePath(userXSLFilePath);
         return IOUtils.toString(xslFile.read(), "UTF-8");
     }
@@ -264,7 +257,7 @@ public class XUnitProcessor {
         return IOUtils.toString(customXSLFilePath.read(), "UTF-8");
     }
 
-    private XUnitTransformerCallable newXUnitTransformer(final XUnitToolInfo xUnitToolInfo, final XUnitLog xUnitLog) {
+    private XUnitTransformerCallable newXUnitTransformer(final XUnitToolInfo xUnitToolInfo) {
         // TODO why use Guice in this manner it's the quite the same of
         // instantiate classes directly
         XUnitTransformerCallable transformer = Guice.createInjector(new AbstractModule() {
@@ -273,7 +266,7 @@ public class XUnitProcessor {
                 bind(XUnitToolInfo.class).toInstance(xUnitToolInfo);
                 bind(XUnitValidationService.class).in(Singleton.class);
                 bind(XUnitConversionService.class).in(Singleton.class);
-                bind(XUnitLog.class).toInstance(xUnitLog);
+                bind(XUnitLog.class).toInstance(logger);
                 bind(XUnitReportProcessorService.class).in(Singleton.class);
             }
         }).getInstance(XUnitTransformerCallable.class);
@@ -281,46 +274,41 @@ public class XUnitProcessor {
         return transformer;
     }
 
-    private TestResultAction getTestResultAction(Run<?, ?> build) {
-        return build.getAction(TestResultAction.class);
-    }
-
-    private TestResultAction getPreviousTestResultAction(Run<?, ?> build) {
+    private TestResult getPreviousTestResult(Run<?, ?> build) {
         Run<?, ?> previousBuild = build.getPreviousCompletedBuild();
         if (previousBuild == null) {
             return null;
         }
-        return getTestResultAction(previousBuild);
+        return previousBuild.getAction(TestResultAction.class).getResult();
     }
 
-    private void recordTestResult(Run<?, ?> build, FilePath workspace, TaskListener listener, XUnitLog xUnitLog) throws IOException, InterruptedException {
+    private TestResult recordTestResult(Run<?, ?> build,
+                                        FilePath workspace,
+                                        TaskListener listener) throws IOException, InterruptedException {
         TestResultAction existingAction = build.getAction(TestResultAction.class);
         final long buildTime = build.getTimestamp().getTimeInMillis();
         final long nowMaster = System.currentTimeMillis();
 
-        TestResult existingTestResults = null;
-        if (existingAction != null) {
-            existingTestResults = existingAction.getResult();
-        }
-
-        TestResult result = getTestResult(workspace, "**/TEST-*.xml", existingTestResults, buildTime, nowMaster);
+        TestResult result = getTestResult(workspace, "**/TEST-*.xml", buildTime, nowMaster);
         if (result != null) {
             TestResultAction action;
             if (existingAction == null) {
                 action = new TestResultAction(build, result, listener);
             } else {
                 action = existingAction;
-                action.setResult(result, listener);
+                new CumulativeTestResultAction(existingAction).mergeResult(result, listener);
             }
 
             if (result.getPassCount() == 0 && result.getFailCount() == 0) {
-                xUnitLog.warn("All test reports are empty.");
+                logger.warn("All test reports are empty.");
             }
 
             if (existingAction == null) {
                 build.addAction(action);
             }
         }
+
+        return result;
     }
 
     /**
@@ -328,7 +316,6 @@ public class XUnitProcessor {
      *
      * @param workspace the build's workspace
      * @param junitFilePattern the JUnit search pattern
-     * @param existingTestResults the existing test result
      * @param buildTime the build time
      * @param nowMaster the time on master
      * @return the test result object
@@ -337,15 +324,15 @@ public class XUnitProcessor {
      */
     private TestResult getTestResult(final FilePath workspace,
                                      final String junitFilePattern,
-                                     final TestResult existingTestResults,
                                      final long buildTime,
                                      final long nowMaster) throws IOException, InterruptedException {
 
-        return workspace.act(new ReportParserCallable(buildTime, junitFilePattern, nowMaster, existingTestResults, processorId));
+        return workspace.act(new ReportParserCallable(buildTime, junitFilePattern, nowMaster, processorId));
     }
 
-    private Result getBuildStatus(Run<?, ?> build, XUnitLog xUnitLog) {
-        Result curResult = getResultWithThreshold(xUnitLog, build);
+    @Nonnull
+    private Result getBuildStatus(TestResult result, Run<?, ?> build) {
+        Result curResult = processResultThreshold(result, build);
         Result previousResultStep = build.getResult();
         if (previousResultStep == null) {
             return curResult;
@@ -356,29 +343,18 @@ public class XUnitProcessor {
         return curResult;
     }
 
-    private Result getResultWithThreshold(XUnitLog log, Run<?, ?> build) {
-        TestResultAction testResultAction = getTestResultAction(build);
-        TestResultAction previousTestResultAction = getPreviousTestResultAction(build);
-        if (testResultAction == null) {
-            return Result.FAILURE;
-        } else {
-            return processResultThreshold(log, build, testResultAction, previousTestResultAction);
-        }
-    }
-
-    private Result processResultThreshold(XUnitLog log,
-                                          Run<?, ?> build,
-                                          TestResultAction testResultAction,
-                                          TestResultAction previousTestResultAction) {
+    @Nonnull
+    private Result processResultThreshold(TestResult testResult, Run<?, ?> build) {
+        TestResult previousTestResult = getPreviousTestResult(build);
 
         if (thresholds != null) {
             for (XUnitThreshold threshold : thresholds) {
-                log.info(String.format("Check '%s' threshold.", threshold.getDescriptor().getDisplayName()));
+                logger.info(String.format("Check '%s' threshold.", threshold.getDescriptor().getDisplayName()));
                 Result result;
                 if (XUnitDefaultValues.MODE_PERCENT == thresholdMode) {
-                    result = threshold.getResultThresholdPercent(log, build, testResultAction, previousTestResultAction);
+                    result = threshold.getResultThresholdPercent(logger, build, testResult, previousTestResult);
                 } else {
-                    result = threshold.getResultThresholdNumber(log, build, testResultAction, previousTestResultAction);
+                    result = threshold.getResultThresholdNumber(logger, build, testResult, previousTestResult);
                 }
                 if (result.isWorseThan(Result.SUCCESS)) {
                     return result;
@@ -389,22 +365,22 @@ public class XUnitProcessor {
         return Result.SUCCESS;
     }
 
-    private void processDeletion(FilePath workspace, XUnitLog xUnitLog) throws IOException, InterruptedException {
-        FilePath generatedJunitDir = workspace.child(XUnitDefaultValues.GENERATED_JUNIT_DIR).child(processorId);
+    private void processDeletion(FilePath workspace) throws IOException, InterruptedException {
+        FilePath generatedJUnitDir = workspace.child(XUnitDefaultValues.GENERATED_JUNIT_DIR).child(processorId);
 
         boolean keepJUnitDirectory = false;
         for (TestType tool : tools) {
             InputMetric inputMetric = tool.getInputMetric();
 
             if (tool.isDeleteOutputFiles()) {
-                generatedJunitDir.child(inputMetric.getToolName()).deleteRecursive();
+                generatedJUnitDir.child(inputMetric.getToolName()).deleteRecursive();
             } else {
                 // Mark the tool file parent directory to no deletion
                 keepJUnitDirectory = true;
             }
         }
         if (!keepJUnitDirectory) {
-            generatedJunitDir.deleteRecursive();
+            generatedJUnitDir.deleteRecursive();
         }
     }
 

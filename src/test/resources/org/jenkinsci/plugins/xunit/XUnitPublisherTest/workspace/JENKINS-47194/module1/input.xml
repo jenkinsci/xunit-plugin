@@ -1,0 +1,12 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<testsuite name="JENKINS-47194-module1" tests="4" failures="1" errors="1" time="0.000">
+    <properties />
+    <testcase name="test1" classname="modules1.MyTest" time="0.000">
+        <failure message="failure for test1" />
+    </testcase>
+    <testcase name="test2" classname="modules1.MyTest" time="0.000">
+        <error message="error for test2" />
+    </testcase>
+    <testcase name="test3" classname="modules1.MyTest" time="0.000" />
+    <testcase name="test4" classname="modules1.MyTest" time="0.000" />
+</testsuite>
