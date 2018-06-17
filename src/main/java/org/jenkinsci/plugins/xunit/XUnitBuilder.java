@@ -43,10 +43,7 @@ import hudson.DescriptorExtensionList;
 import hudson.Extension;
 import hudson.FilePath;
 import hudson.Launcher;
-import hudson.model.AbstractBuild;
 import hudson.model.AbstractProject;
-import hudson.model.BuildListener;
-import hudson.model.Result;
 import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.tasks.BuildStepDescriptor;
@@ -56,7 +53,7 @@ import jenkins.tasks.SimpleBuildStep;
 
 /**
  * Class that converting custom reports to Junit reports and records them.
- * 
+ *
  * @author Gregory Boissinot
  * @deprecated Use {@link XUnitPublisher} instead of this.
  */
@@ -111,20 +108,7 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
     public void perform(final Run<?, ?> build, FilePath workspace, Launcher launcher, final TaskListener listener)
             throws InterruptedException, IOException {
         XUnitProcessor xUnitProcessor = new XUnitProcessor(getTools(), getThresholds(), getThresholdMode(), getExtraConfiguration());
-        xUnitProcessor.performXUnit(false, build, workspace, listener);
-    }
-
-    public boolean performDryRun(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener)
-            throws InterruptedException, IOException {
-        try {
-            XUnitProcessor xUnitProcessor = new XUnitProcessor(getTools(), getThresholds(), getThresholdMode(), getExtraConfiguration());
-            xUnitProcessor.performXUnit(true, build, build.getWorkspace(), listener);
-        } catch (Throwable t) {
-            listener.getLogger().println("[ERROR] - There is an error: " + t.getCause().getMessage());
-        }
-        //Always exit on success (returned code and status)
-        build.setResult(Result.SUCCESS);
-        return true;
+        xUnitProcessor.process(build, workspace, listener);
     }
 
     @Override

@@ -1,10 +1,13 @@
 package org.jenkinsci.plugins.xunit.service;
 
-import com.google.inject.AbstractModule;
-import com.google.inject.Guice;
-import com.google.inject.Singleton;
-import hudson.Util;
-import hudson.model.TaskListener;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.PrintStream;
+import java.util.List;
+
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.model.InputMetricType;
 import org.jenkinsci.lib.dtkit.model.InputMetricXSL;
@@ -13,22 +16,23 @@ import org.jenkinsci.lib.dtkit.model.OutputMetric;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.xunit.types.model.JUnitModel;
 import org.junit.Assert;
-import org.junit.BeforeClass;
+import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TemporaryFolder;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintStream;
-import java.util.List;
+import com.google.inject.AbstractModule;
+import com.google.inject.Guice;
+import com.google.inject.Singleton;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import hudson.Util;
+import hudson.model.TaskListener;
 
 public class XUnitReportProcessorServiceTest {
 
-    private static XUnitReportProcessorService xUnitReportProcessorService;
-
+    private XUnitReportProcessorService xUnitReportProcessorService;
+    @Rule
+    public TemporaryFolder folderRule = new TemporaryFolder();
 
     public static class MyInputMetric extends InputMetricXSL {
         @Override
@@ -73,6 +77,7 @@ public class XUnitReportProcessorServiceTest {
             super(MyTestType.class, MyInputMetric.class);
         }
 
+        @Override
         public String getId() {
             return MyInputMetric.class.toString();
         }
@@ -84,14 +89,15 @@ public class XUnitReportProcessorServiceTest {
             super(pattern, faildedIfNotNew, deleteOutputFiles);
         }
 
+        @Override
         public TestTypeDescriptor<? extends TestType> getDescriptor() {
             return new MyTestTypeDescriptor();
         }
     }
 
 
-    @BeforeClass
-    public static void init() {
+    @Before
+    public void setup() {
         final TaskListener listenerMock = mock(TaskListener.class);
         when(listenerMock.getLogger()).thenReturn(new PrintStream(new ByteArrayOutputStream()));
         xUnitReportProcessorService = Guice.createInjector(new AbstractModule() {
@@ -112,24 +118,23 @@ public class XUnitReportProcessorServiceTest {
     }
 
     @Test
-    @SuppressWarnings("ResultOfMethodCallIgnored")
-    public void findReportsOneFile() throws IOException {
-        File dir = Util.createTempDir();
-        File f1 = new File(dir, "a.txt");
-        try {
-            f1.createNewFile();
+    public void findReportsOneFile() throws Exception {
+        File f1 = folderRule.newFile("a.txt");
+        XUnitToolInfo xUnitToolInfoMock = mock(XUnitToolInfo.class);
+        when(xUnitToolInfoMock.getInputMetric()).thenReturn(new MyInputMetric());
 
-            XUnitToolInfo xUnitToolInfoMock = mock(XUnitToolInfo.class);
-            when(xUnitToolInfoMock.getInputMetric()).thenReturn(new MyInputMetric());
+        List<String> xUnitFiles = xUnitReportProcessorService.findReports(xUnitToolInfoMock, f1.getParentFile(), "*.txt");
+        Assert.assertFalse(xUnitFiles.isEmpty());
+        Assert.assertEquals(1, xUnitFiles.size());
+        Assert.assertEquals(f1.getName(), xUnitFiles.get(0));
+    }
 
-            List<String> xUnitFiles = xUnitReportProcessorService.findReports(xUnitToolInfoMock, dir, "*.txt");
-            Assert.assertFalse(xUnitFiles.isEmpty());
-            Assert.assertEquals(1, xUnitFiles.size());
-            Assert.assertEquals(f1.getName(), xUnitFiles.get(0));
-        } finally {
-            f1.delete();
-            dir.delete();
-        }
+    @Test(expected = NoTestFoundException.class)
+    public void verify_processor_throws_exception_if_no_reports_was_found() throws Exception {
+        XUnitToolInfo xUnitToolInfoMock = mock(XUnitToolInfo.class);
+        when(xUnitToolInfoMock.getInputMetric()).thenReturn(new MyInputMetric());
+
+        xUnitReportProcessorService.findReports(xUnitToolInfoMock, folderRule.newFolder(), "*.xml");
     }
 
 }

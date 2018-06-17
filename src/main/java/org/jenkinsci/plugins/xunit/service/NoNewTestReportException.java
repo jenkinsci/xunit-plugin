@@ -21,17 +21,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+package org.jenkinsci.plugins.xunit.service;
 
-package org.jenkinsci.plugins.xunit.exception;
-
+/**
+ * Signals that there are not new report found for this run.
+ *
+ * @author Gregory Boissinot
+ */
 @SuppressWarnings("serial")
-public class XUnitException extends Exception {
+public class NoNewTestReportException extends TransformerException {
 
-    public XUnitException(String message) {
+    public NoNewTestReportException(String message) {
         super(message);
     }
 
-    public XUnitException(String message, Throwable cause) {
-        super(message, cause);
-    }
 }

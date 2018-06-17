@@ -24,18 +24,18 @@
 
 package org.jenkinsci.plugins.xunit.service;
 
-import org.jenkinsci.lib.dtkit.model.InputMetric;
-import org.jenkinsci.lib.dtkit.util.validator.ValidationError;
-import org.jenkinsci.lib.dtkit.util.validator.ValidationException;
-import org.jenkinsci.plugins.xunit.exception.XUnitException;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 
 import javax.inject.Inject;
 
+import org.jenkinsci.lib.dtkit.model.InputMetric;
+import org.jenkinsci.lib.dtkit.util.validator.ValidationError;
+import org.jenkinsci.lib.dtkit.util.validator.ValidationException;
+
 public class XUnitValidationService implements Serializable {
+    private static final long serialVersionUID = -5322330246285295896L;
 
     private XUnitLog xUnitLog;
 
@@ -64,10 +64,8 @@ public class XUnitValidationService implements Serializable {
      * @param xUnitToolInfo the xUnit tool info wrapper
      * @param inputFile the current input file
      * @return true if the validation is success, false otherwise
-     * @throws XUnitException an XUnitException when there are validation
-     *         exceptions
      */
-    public boolean validateInputFile(XUnitToolInfo xUnitToolInfo, File inputFile) throws XUnitException {
+    public boolean validateInputFile(XUnitToolInfo xUnitToolInfo, File inputFile) {
 
         InputMetric inputMetric = xUnitToolInfo.getInputMetric();
 
@@ -83,7 +81,7 @@ public class XUnitValidationService implements Serializable {
                 return false;
             }
         } catch (ValidationException ve) {
-            throw new XUnitException("Validation error on input", ve);
+            xUnitLog.error(ve.getMessage());
         }
         return true;
     }
@@ -95,10 +93,8 @@ public class XUnitValidationService implements Serializable {
      * @param inputFile the input metric from the conversion
      * @param junitTargetFile the converted input file
      * @return true if the validation is success, false otherwise
-     * @throws XUnitException an XUnitException when there are validation
-     *         exceptions
      */
-    public boolean validateOutputFile(XUnitToolInfo xUnitToolInfo, File inputFile, File junitTargetFile) throws XUnitException {
+    public boolean validateOutputFile(XUnitToolInfo xUnitToolInfo, File inputFile, File junitTargetFile) {
         InputMetric inputMetric = xUnitToolInfo.getInputMetric();
 
         try {
@@ -113,7 +109,7 @@ public class XUnitValidationService implements Serializable {
             }
 
         } catch (ValidationException ve) {
-            throw new XUnitException("Validation error on output", ve);
+            xUnitLog.error(ve.getMessage());
         }
 
         return true;

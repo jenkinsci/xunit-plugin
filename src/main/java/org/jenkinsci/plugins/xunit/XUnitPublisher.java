@@ -32,6 +32,7 @@ import javax.annotation.CheckForNull;
 import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
+import org.jenkinsci.plugins.xunit.service.TransformerException;
 import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
 import org.jenkinsci.plugins.xunit.threshold.SkippedThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
@@ -46,6 +47,7 @@ import hudson.FilePath;
 import hudson.Launcher;
 import hudson.model.AbstractProject;
 import hudson.model.Action;
+import hudson.model.Result;
 import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.tasks.BuildStepDescriptor;
@@ -120,8 +122,14 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
     @Override
     public void perform(final Run<?, ?> build, FilePath workspace, Launcher launcher, final TaskListener listener)
             throws InterruptedException, IOException {
-        XUnitProcessor xUnitProcessor = new XUnitProcessor(getTools(), getThresholds(), getThresholdMode(), getExtraConfiguration());
-        xUnitProcessor.performXUnit(false, build, workspace, listener);
+        try {
+            XUnitProcessor xUnitProcessor = new XUnitProcessor(getTools(), getThresholds(), getThresholdMode(), getExtraConfiguration());
+            xUnitProcessor.process(build, workspace, listener);
+        } catch(TransformerException e) {
+            // also if we throws AbortException the all published steps are always performed. I prefer hide stacktrace.
+            listener.error("The plugin hasn't been performed correctly: " + e.getMessage());
+            build.setResult(Result.FAILURE);
+        }
     }
 
     @Override

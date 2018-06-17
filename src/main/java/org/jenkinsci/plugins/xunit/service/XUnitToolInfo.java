@@ -30,53 +30,43 @@ import org.jenkinsci.lib.dtkit.model.InputMetric;
 import java.io.Serializable;
 
 public class XUnitToolInfo implements Serializable {
-
-    private FilePath userContentRoot;
+    private static final long serialVersionUID = 8171724502903934676L;
 
     private final InputMetric inputMetric;
-
-    private final String expandedPattern;
-
+    private final String pattern;
     private final boolean skipNoTestFiles;
-
     private final boolean failIfNotNew;
-
     private final boolean deleteOutputFiles;
-
-    private boolean stopProcessingIfError;
-
+    private final boolean stopProcessingIfError;
     private final long buildTime;
-
     private final long testTimeMargin;
+    private final String xslContent;
 
-    private FilePath cusXSLFile;
-
-    public XUnitToolInfo(FilePath userContentRoot, InputMetric inputMetric,
-                         String expandedPattern, Boolean skipNoTestFiles, Boolean failIfNotNew,
+    public XUnitToolInfo(InputMetric inputMetric,
+                         String pattern, Boolean skipNoTestFiles, Boolean failIfNotNew,
                          Boolean deleteOutputFiles, Boolean stopProcessingIfError,
-                         long buildTime, long testTimeMargin, FilePath cusXSLFile) {
-        this.userContentRoot = userContentRoot;
+                         long buildTime, long testTimeMargin, String xslContent) {
         this.inputMetric = inputMetric;
-        this.expandedPattern = expandedPattern;
+        this.pattern = pattern;
         this.skipNoTestFiles = skipNoTestFiles;
         this.failIfNotNew = failIfNotNew;
         this.deleteOutputFiles = deleteOutputFiles;
         this.stopProcessingIfError = stopProcessingIfError;
         this.buildTime = buildTime;
         this.testTimeMargin = testTimeMargin;
-        this.cusXSLFile = cusXSLFile;
+        this.xslContent = xslContent;
     }
 
-    public FilePath getCusXSLFile() {
-        return cusXSLFile;
+    public String getXSLFile() {
+        return xslContent;
     }
 
     public InputMetric getInputMetric() {
         return inputMetric;
     }
 
-    public String getExpandedPattern() {
-        return expandedPattern;
+    public String getPattern() {
+        return pattern;
     }
 
     public long getBuildTime() {
@@ -97,10 +87,6 @@ public class XUnitToolInfo implements Serializable {
 
     public boolean isStopProcessingIfError() {
         return stopProcessingIfError;
-    }
-
-    public FilePath getUserContentRoot() {
-        return userContentRoot;
     }
 
     public long getTestTimeMargin() {
