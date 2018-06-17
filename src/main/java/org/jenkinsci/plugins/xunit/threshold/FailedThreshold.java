@@ -29,7 +29,7 @@ import org.kohsuke.stapler.DataBoundConstructor;
 
 import hudson.model.Result;
 import hudson.model.Run;
-import hudson.tasks.junit.TestResultAction;
+import hudson.tasks.junit.TestResult;
 
 /**
  * @author Gregory Boissinot
@@ -41,7 +41,7 @@ public class FailedThreshold extends XUnitThreshold {
     }
 
     @Override
-    public Result getResultThresholdNumber(XUnitLog log, Run<?, ?> build, TestResultAction testResultAction, TestResultAction previousTestResultAction) {
+    public Result getResultThresholdNumber(XUnitLog log, Run<?, ?> build, TestResult testResultAction, TestResult previousTestResultAction) {
 
         int failedCount = testResultAction.getFailCount();
 
@@ -56,7 +56,7 @@ public class FailedThreshold extends XUnitThreshold {
     }
 
     @Override
-    public Result getResultThresholdPercent(XUnitLog log, Run<?, ?> build, TestResultAction testResultAction, TestResultAction previousTestResultAction) {
+    public Result getResultThresholdPercent(XUnitLog log, Run<?, ?> build, TestResult testResultAction, TestResult previousTestResultAction) {
 
         double count = testResultAction.getTotalCount();
 

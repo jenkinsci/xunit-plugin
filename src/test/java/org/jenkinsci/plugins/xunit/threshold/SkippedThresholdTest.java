@@ -26,12 +26,15 @@ package org.jenkinsci.plugins.xunit.threshold;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
+import java.lang.reflect.Field;
+
 import org.jenkinsci.plugins.xunit.service.XUnitLog;
 import org.junit.Test;
 
 import hudson.model.Result;
 import hudson.model.Run;
-import hudson.tasks.junit.TestResultAction;
+import hudson.tasks.junit.TestResult;
+import hudson.util.ReflectionUtils;
 
 public class SkippedThresholdTest {
 
@@ -42,17 +45,28 @@ public class SkippedThresholdTest {
 
         int totalTests = 100;
 
-        TestResultAction actualResult = mock(TestResultAction.class);
-        when(actualResult.getTotalCount()).thenReturn(totalTests);
-        when(actualResult.getSkipCount()).thenReturn(9);
+        TestResult actualResult = new TestResult();
+        setTotalCount(actualResult, totalTests);
+        setSkippedCount(actualResult, 9);
 
-        TestResultAction previousResult = mock(TestResultAction.class);
-        when(previousResult.getTotalCount()).thenReturn(totalTests);
-        when(previousResult.getSkipCount()).thenReturn(5);
+        TestResult previousResult = new TestResult();
+        setTotalCount(previousResult, totalTests);
+        setSkippedCount(previousResult, 5);
 
         skippedThreshold.getResultThresholdPercent(mock(XUnitLog.class), mock(Run.class), actualResult, previousResult);
 
         verify(skippedThreshold).getResultThresholdPercent(any(XUnitLog.class), eq(9d), eq(4d));
+    }
+
+    private void setTotalCount(TestResult result, Object value) {
+        Field field = ReflectionUtils.findField(TestResult.class, "totalTests");
+        field.setAccessible(true);
+        ReflectionUtils.setField(field, result, value);
+    }
+    private void setSkippedCount(TestResult result, Object value) {
+        Field field = ReflectionUtils.findField(TestResult.class, "skippedTestsCounter");
+        field.setAccessible(true);
+        ReflectionUtils.setField(field, result, value);
     }
 
 }

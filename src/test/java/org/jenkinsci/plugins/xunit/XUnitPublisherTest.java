@@ -28,7 +28,7 @@ import java.io.IOException;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
-import org.jenkinsci.plugins.xunit.types.GoogleTestType;
+import org.jenkinsci.plugins.xunit.types.JUnitType;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -39,16 +39,17 @@ import org.jvnet.hudson.test.recipes.LocalData;
 import hudson.FilePath;
 import hudson.Launcher;
 import hudson.model.AbstractProject;
+import hudson.model.FreeStyleBuild;
 import hudson.model.FreeStyleProject;
 import hudson.model.Result;
 import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.tasks.BuildStepDescriptor;
 import hudson.tasks.Publisher;
+import hudson.tasks.junit.TestResultAction;
 
 public class XUnitPublisherTest {
 
-    @SuppressWarnings("serial")
     public static class SpyXUnitPublisher extends XUnitPublisher {
 
         public SpyXUnitPublisher(TestType[] tools, XUnitThreshold[] thresholds, int thresholdMode, String testTimeMargin) {
@@ -83,20 +84,32 @@ public class XUnitPublisherTest {
     @LocalData
     @Issue("JENKINS-47194")
     @Test
-    public void different_build_steps_use_separate_output_folders() throws Exception {
-        // FreeStyleProject job = getBaseJob("JENKINS-47194");
+    public void different_build_steps_use_separate_output_folders_and_use_new_instance_of_TestResult_against_validate_thresholds() throws Exception {
         FreeStyleProject job = jenkinsRule.jenkins.createProject(FreeStyleProject.class, "JENKINS-47194");
 
-        TestType[] tools = new TestType[] { new GoogleTestType("input.xml", false, false, false, true) };
+        TestType[] tools1 = new TestType[] { new JUnitType("module1/*.xml", false, false, false, true) };
 
         XUnitThreshold threshold1 = new FailedThreshold();
         threshold1.setFailureThreshold("2");
-        job.getPublishersList().add(new SpyXUnitPublisher(tools, new XUnitThreshold[] { threshold1 }, 1, "3000"));
+        // this publisher should not fails since the failure threshold is equals
+        // to that of the failed counter of the test result
+        job.getPublishersList().add(new SpyXUnitPublisher(tools1, new XUnitThreshold[] { threshold1 }, 1, "3000"));
 
+        TestType[] tools2 = new TestType[] { new JUnitType("module2/*.xml", false, false, false, true) };
         XUnitThreshold threshold2 = new FailedThreshold();
-        threshold2.setFailureThreshold("0");
-        job.getPublishersList().add(new XUnitPublisher(tools, new XUnitThreshold[] { threshold2 }, 1, "3000"));
+        threshold2.setFailureThreshold("2");
+        // this publisher should not fails since the failure threshold is equals
+        // to that of the failed counter of the test result. The failed count
+        // should not takes in account any results from previous publishers
+        job.getPublishersList().add(new XUnitPublisher(tools2, new XUnitThreshold[] { threshold2 }, 1, "3000"));
 
-        jenkinsRule.assertBuildStatus(Result.FAILURE, job.scheduleBuild2(0).get());
+        FreeStyleBuild build = job.scheduleBuild2(0).get();
+        jenkinsRule.assertBuildStatus(Result.SUCCESS, build);
+
+        TestResultAction testResultAction = build.getAction(TestResultAction.class);
+        Assert.assertNotNull(testResultAction);
+        Assert.assertEquals(9, testResultAction.getTotalCount());
+        Assert.assertEquals(4, testResultAction.getFailCount());
     }
+
 }

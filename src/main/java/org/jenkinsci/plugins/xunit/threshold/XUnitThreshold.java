@@ -36,7 +36,7 @@ import hudson.model.Describable;
 import hudson.model.Descriptor;
 import hudson.model.Result;
 import hudson.model.Run;
-import hudson.tasks.junit.TestResultAction;
+import hudson.tasks.junit.TestResult;
 import jenkins.model.Jenkins;
 
 /**
@@ -107,13 +107,13 @@ public abstract class XUnitThreshold implements ExtensionPoint, Serializable, De
 
     public abstract Result getResultThresholdNumber(XUnitLog log,
                                                     Run<?, ?> build,
-                                                    TestResultAction testResultAction,
-                                                    TestResultAction previousTestResultAction);
+                                                    TestResult testResultAction,
+                                                    TestResult previousTestResultAction);
 
     public abstract Result getResultThresholdPercent(XUnitLog log,
                                                      Run<?, ?> build,
-                                                     TestResultAction testResultAction,
-                                                     TestResultAction previousTestResultAction);
+                                                     TestResult testResultAction,
+                                                     TestResult previousTestResultAction);
 
     public Result getResultThresholdNumber(XUnitLog log,
                                            int testCount,
