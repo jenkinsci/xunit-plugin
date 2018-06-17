@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCase name="MyQtTestTestProjectTest">
+  <Environment>
+    <QtVersion>5.4.0</QtVersion>
+    <QtBuild>Qt 5.4.0 (i386&#x002D;little_endian&#x002D;ilp32 shared (dynamic) debug build; by MSVC 2010)</QtBuild>
+    <QTestVersion>5.4.0</QTestVersion>
+  </Environment>
+  <TestFunction name="initTestCase">
+    <Incident type="pass" file="" line="0" />
+    <Duration msecs="0.021315"/>
+  </TestFunction>
+  <TestFunction name="testCase1">
+    <Incident type="pass" file="" line="0" />
+    <Duration msecs="0.036315"/>
+  </TestFunction>
+  <TestFunction name="sort_test">
+    <Incident type="fail" file="..\MyQtTestTestProject\tst_myqttesttestprojecttest.cpp" line="44">
+      <DataTag><![CDATA[set 1]]></DataTag>
+      <Description>
+        <![CDATA[Compared values are not the same
+   Actual   (input) : 1
+   Expected (result): 0]]>
+      </Description>
+    </Incident>
+    <Incident type="fail" file="..\MyQtTestTestProject\tst_myqttesttestprojecttest.cpp" line="44">
+      <DataTag><![CDATA[set 2]]></DataTag>
+      <Description>
+        <![CDATA[Compared values are not the same
+   Actual   (input) : 1
+   Expected (result): 0]]>
+      </Description>
+    </Incident>
+    <Incident type="fail" file="..\MyQtTestTestProject\tst_myqttesttestprojecttest.cpp" line="44">
+      <DataTag><![CDATA[set 3]]></DataTag>
+      <Description>
+        <![CDATA[Compared values are not the same
+   Actual   (input) : 1
+   Expected (result): 0]]>
+      </Description>
+    </Incident>
+    <Duration msecs="0.078946"/>
+  </TestFunction>
+  <TestFunction name="cleanupTestCase">
+    <Incident type="pass" file="" line="0" />
+    <Duration msecs="0.007894"/>
+  </TestFunction>
+  <Duration msecs="0.239998"/>
+</TestCase>

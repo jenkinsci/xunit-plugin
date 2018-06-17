@@ -41,7 +41,9 @@ public class QTestLibTest extends AbstractTest {
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] { { "testcase1", 1 }, //
                                               { "testcase2", 2 }, //
-                                              { "JENKINS-35660 verify_that_duration_converted_correctly", 3 } //
+                                              { "JENKINS-35660 verify_that_duration_converted_correctly", 3 }, //
+                                              { "boh", 4 }, //
+                                              { "JENKINS-51604 support for multiple Incident", 5 } //
         });
     }
 

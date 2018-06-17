@@ -1,148 +1,902 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tst_QString" tests="118" failures="0" errors="0" time="0.000">
+<testsuite name="tst_QString" tests="118" failures="0" errors="0" skipped="0" time="0.000">
     <properties>
-        <property name="QtVersion" value="5.0.0"/>
-        <property name="QTestVersion" value="5.0.0"/>
+        <property name="QtVersion" value="5.0.0" />
+        <property name="QTestVersion" value="5.0.0" />
     </properties>
-    <testcase classname="tst_QString" name="initTestCase" time="0.000"/>
-    <testcase classname="tst_QString" name="fromStdString" time="0.000"/>
-    <testcase classname="tst_QString" name="toStdString" time="0.000"/>
-    <testcase classname="tst_QString" name="check_QTextIOStream" time="0.000"/>
-    <testcase classname="tst_QString" name="check_QTextStream" time="0.000"/>
-    <testcase classname="tst_QString" name="check_QDataStream" time="0.000"/>
-    <testcase classname="tst_QString" name="fromRawData" time="0.000"/>
-    <testcase classname="tst_QString" name="setRawData" time="0.000"/>
-    <testcase classname="tst_QString" name="endsWith" time="0.000"/>
-    <testcase classname="tst_QString" name="startsWith" time="0.000"/>
-    <testcase classname="tst_QString" name="setNum" time="0.000"/>
-    <testcase classname="tst_QString" name="toDouble" time="0.000"/>
-    <testcase classname="tst_QString" name="toFloat" time="0.000"/>
-    <testcase classname="tst_QString" name="toLong" time="0.000"/>
-    <testcase classname="tst_QString" name="toULong" time="0.000"/>
-    <testcase classname="tst_QString" name="toLongLong" time="0.000"/>
-    <testcase classname="tst_QString" name="toULongLong" time="0.000"/>
-    <testcase classname="tst_QString" name="toUInt" time="0.000"/>
-    <testcase classname="tst_QString" name="toInt" time="0.000"/>
-    <testcase classname="tst_QString" name="toShort" time="0.000"/>
-    <testcase classname="tst_QString" name="toUShort" time="0.000"/>
-    <testcase classname="tst_QString" name="replace_qchar_qchar" time="0.000"/>
-    <testcase classname="tst_QString" name="replace_qchar_qstring" time="0.000"/>
-    <testcase classname="tst_QString" name="replace_uint_uint" time="0.000"/>
-    <testcase classname="tst_QString" name="replace_uint_uint_extra" time="0.000"/>
-    <testcase classname="tst_QString" name="replace_string" time="0.000"/>
-    <testcase classname="tst_QString" name="replace_regexp" time="0.000"/>
-    <testcase classname="tst_QString" name="remove_uint_uint" time="0.000"/>
-    <testcase classname="tst_QString" name="remove_string" time="0.000"/>
-    <testcase classname="tst_QString" name="remove_regexp" time="0.000"/>
-    <testcase classname="tst_QString" name="swap" time="0.000"/>
-    <testcase classname="tst_QString" name="prepend" time="0.000"/>
-    <testcase classname="tst_QString" name="prepend_bytearray" time="0.000"/>
-    <testcase classname="tst_QString" name="append" time="0.000"/>
-    <testcase classname="tst_QString" name="append_bytearray" time="0.000"/>
-    <testcase classname="tst_QString" name="operator_pluseq_bytearray" time="0.000"/>
-    <testcase classname="tst_QString" name="operator_eqeq_bytearray" time="0.000"/>
-    <testcase classname="tst_QString" name="operator_eqeq_nullstring" time="0.000"/>
-    <testcase classname="tst_QString" name="operator_smaller" time="0.000"/>
-    <testcase classname="tst_QString" name="insert" time="0.000"/>
-    <testcase classname="tst_QString" name="simplified" time="0.000"/>
-    <testcase classname="tst_QString" name="trimmed" time="0.000"/>
+    <testcase classname="tst_QString" name="initTestCase" time="0.000" />
+    <testcase classname="tst_QString" name="fromStdString" time="0.000" />
+    <testcase classname="tst_QString" name="toStdString" time="0.000" />
+    <testcase classname="tst_QString" name="check_QTextIOStream" time="0.000" />
+    <testcase classname="tst_QString" name="check_QTextStream" time="0.000" />
+    <testcase classname="tst_QString" name="check_QDataStream" time="0.000" />
+    <testcase classname="tst_QString" name="fromRawData" time="0.000" />
+    <testcase classname="tst_QString" name="setRawData" time="0.000" />
+    <testcase classname="tst_QString" name="endsWith" time="0.000" />
+    <testcase classname="tst_QString" name="startsWith" time="0.000" />
+    <testcase classname="tst_QString" name="setNum" time="0.000" />
+    <testcase classname="tst_QString" name="toDouble" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::toDouble(ok00) 
+[PASS] tst_QString::toDouble(ok01) 
+[PASS] tst_QString::toDouble(ok02) 
+[PASS] tst_QString::toDouble(ok03) 
+[PASS] tst_QString::toDouble(ok04) 
+[PASS] tst_QString::toDouble(ok05) 
+[PASS] tst_QString::toDouble(ok06) 
+[PASS] tst_QString::toDouble(ok07) 
+[PASS] tst_QString::toDouble(ok08) 
+[PASS] tst_QString::toDouble(ok09) 
+[PASS] tst_QString::toDouble(ok10) 
+[PASS] tst_QString::toDouble(ok11) 
+[PASS] tst_QString::toDouble(wrong00) 
+[PASS] tst_QString::toDouble(wrong01) 
+[PASS] tst_QString::toDouble(wrong02) 
+[PASS] tst_QString::toDouble(wrong03) 
+[PASS] tst_QString::toDouble(wrong04) 
+[PASS] tst_QString::toDouble(wrong05) 
+[PASS] tst_QString::toDouble(wrong06) 
+[PASS] tst_QString::toDouble(wrong07) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="toFloat" time="0.000" />
+    <testcase classname="tst_QString" name="toLong" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::toLong(default) 
+[PASS] tst_QString::toLong(empty) 
+[PASS] tst_QString::toLong(normal) 
+[PASS] tst_QString::toLong(long_max) 
+[PASS] tst_QString::toLong(negative) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="toULong" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::toULong(default) 
+[PASS] tst_QString::toULong(empty) 
+[PASS] tst_QString::toULong(ulong1) 
+[PASS] tst_QString::toULong(ulong2) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="toLongLong" time="0.000" />
+    <testcase classname="tst_QString" name="toULongLong" time="0.000" />
+    <testcase classname="tst_QString" name="toUInt" time="0.000" />
+    <testcase classname="tst_QString" name="toInt" time="0.000" />
+    <testcase classname="tst_QString" name="toShort" time="0.000" />
+    <testcase classname="tst_QString" name="toUShort" time="0.000" />
+    <testcase classname="tst_QString" name="replace_qchar_qchar" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::replace_qchar_qchar(1) 
+[PASS] tst_QString::replace_qchar_qchar(2) 
+[PASS] tst_QString::replace_qchar_qchar(3) 
+[PASS] tst_QString::replace_qchar_qchar(4) 
+[PASS] tst_QString::replace_qchar_qchar(5) 
+[PASS] tst_QString::replace_qchar_qchar(6) 
+[PASS] tst_QString::replace_qchar_qchar(7) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="replace_qchar_qstring" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::replace_qchar_qstring(1) 
+[PASS] tst_QString::replace_qchar_qstring(2) 
+[PASS] tst_QString::replace_qchar_qstring(3) 
+[PASS] tst_QString::replace_qchar_qstring(4) 
+[PASS] tst_QString::replace_qchar_qstring(5) 
+[PASS] tst_QString::replace_qchar_qstring(6) 
+[PASS] tst_QString::replace_qchar_qstring(7) 
+[PASS] tst_QString::replace_qchar_qstring(8) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="replace_uint_uint" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::replace_uint_uint(rem00) 
+[PASS] tst_QString::replace_uint_uint(rem01) 
+[PASS] tst_QString::replace_uint_uint(rem04) 
+[PASS] tst_QString::replace_uint_uint(rem05) 
+[PASS] tst_QString::replace_uint_uint(rem06) 
+[PASS] tst_QString::replace_uint_uint(rep00) 
+[PASS] tst_QString::replace_uint_uint(rep01) 
+[PASS] tst_QString::replace_uint_uint(rep02) 
+[PASS] tst_QString::replace_uint_uint(rep03) 
+[PASS] tst_QString::replace_uint_uint(rep04) 
+[PASS] tst_QString::replace_uint_uint(rep05) 
+[PASS] tst_QString::replace_uint_uint(rep06) 
+[PASS] tst_QString::replace_uint_uint(rep07) 
+[PASS] tst_QString::replace_uint_uint(rep08) 
+[PASS] tst_QString::replace_uint_uint(rep09) 
+[PASS] tst_QString::replace_uint_uint(rep10) 
+[PASS] tst_QString::replace_uint_uint(rep11) 
+[PASS] tst_QString::replace_uint_uint(rep12) 
+[PASS] tst_QString::replace_uint_uint(rep13) 
+[PASS] tst_QString::replace_uint_uint(rep14) 
+[PASS] tst_QString::replace_uint_uint(rep15) 
+[PASS] tst_QString::replace_uint_uint(no overflow) 
+[PASS] tst_QString::replace_uint_uint(overflow) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="replace_uint_uint_extra" time="0.000" />
+    <testcase classname="tst_QString" name="replace_string" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::replace_string(rem00) 
+[PASS] tst_QString::replace_string(rem01) 
+[PASS] tst_QString::replace_string(rem02) 
+[PASS] tst_QString::replace_string(rem03) 
+[PASS] tst_QString::replace_string(rem04) 
+[PASS] tst_QString::replace_string(rem05) 
+[PASS] tst_QString::replace_string(rem06) 
+[PASS] tst_QString::replace_string(rem07) 
+[PASS] tst_QString::replace_string(rem08) 
+[PASS] tst_QString::replace_string(rem09) 
+[PASS] tst_QString::replace_string(rem10) 
+[PASS] tst_QString::replace_string(rem11) 
+[PASS] tst_QString::replace_string(rem12) 
+[PASS] tst_QString::replace_string(rem13) 
+[PASS] tst_QString::replace_string(rem14) 
+[PASS] tst_QString::replace_string(rem15) 
+[PASS] tst_QString::replace_string(rem16) 
+[PASS] tst_QString::replace_string(rem17) 
+[PASS] tst_QString::replace_string(rem18) 
+[PASS] tst_QString::replace_string(rem19) 
+[PASS] tst_QString::replace_string(rem20) 
+[PASS] tst_QString::replace_string(rem21) 
+[PASS] tst_QString::replace_string(rem22) 
+[PASS] tst_QString::replace_string(rep00) 
+[PASS] tst_QString::replace_string(rep01) 
+[PASS] tst_QString::replace_string(rep02) 
+[PASS] tst_QString::replace_string(rep03) 
+[PASS] tst_QString::replace_string(rep04) 
+[PASS] tst_QString::replace_string(rep05) 
+[PASS] tst_QString::replace_string(rep06) 
+[PASS] tst_QString::replace_string(rep07) 
+[PASS] tst_QString::replace_string(rep08) 
+[PASS] tst_QString::replace_string(rep09) 
+[PASS] tst_QString::replace_string(rep10) 
+[PASS] tst_QString::replace_string(rep11) 
+[PASS] tst_QString::replace_string(rep12) 
+[PASS] tst_QString::replace_string(rep13) 
+[PASS] tst_QString::replace_string(rep14) 
+[PASS] tst_QString::replace_string(rep15) 
+[PASS] tst_QString::replace_string(rep16) 
+[PASS] tst_QString::replace_string(rep17) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="replace_regexp" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::replace_regexp(rem00) 
+[PASS] tst_QString::replace_regexp(rem01) 
+[PASS] tst_QString::replace_regexp(rem02) 
+[PASS] tst_QString::replace_regexp(rem03) 
+[PASS] tst_QString::replace_regexp(rem04) 
+[PASS] tst_QString::replace_regexp(rem05) 
+[PASS] tst_QString::replace_regexp(rep00) 
+[PASS] tst_QString::replace_regexp(rep01) 
+[PASS] tst_QString::replace_regexp(rep02) 
+[PASS] tst_QString::replace_regexp(rep03) 
+[PASS] tst_QString::replace_regexp(backref00) 
+[PASS] tst_QString::replace_regexp(backref01) 
+[PASS] tst_QString::replace_regexp(backref02) 
+[PASS] tst_QString::replace_regexp(backref03) 
+[PASS] tst_QString::replace_regexp(backref04) 
+[PASS] tst_QString::replace_regexp(backref05) 
+[PASS] tst_QString::replace_regexp(backref06) 
+[PASS] tst_QString::replace_regexp(backref07) 
+[PASS] tst_QString::replace_regexp(backref08) 
+[PASS] tst_QString::replace_regexp(backref09) 
+[PASS] tst_QString::replace_regexp(backref10) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="remove_uint_uint" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::remove_uint_uint(rem00) 
+[PASS] tst_QString::remove_uint_uint(rem01) 
+[PASS] tst_QString::remove_uint_uint(rem04) 
+[PASS] tst_QString::remove_uint_uint(rem05) 
+[PASS] tst_QString::remove_uint_uint(rem06) 
+[PASS] tst_QString::remove_uint_uint(rep00) 
+[PASS] tst_QString::remove_uint_uint(rep01) 
+[PASS] tst_QString::remove_uint_uint(rep02) 
+[PASS] tst_QString::remove_uint_uint(rep03) 
+[PASS] tst_QString::remove_uint_uint(rep04) 
+[PASS] tst_QString::remove_uint_uint(rep05) 
+[PASS] tst_QString::remove_uint_uint(rep06) 
+[PASS] tst_QString::remove_uint_uint(rep07) 
+[PASS] tst_QString::remove_uint_uint(rep08) 
+[PASS] tst_QString::remove_uint_uint(rep09) 
+[PASS] tst_QString::remove_uint_uint(rep10) 
+[PASS] tst_QString::remove_uint_uint(rep11) 
+[PASS] tst_QString::remove_uint_uint(rep12) 
+[PASS] tst_QString::remove_uint_uint(rep13) 
+[PASS] tst_QString::remove_uint_uint(rep14) 
+[PASS] tst_QString::remove_uint_uint(rep15) 
+[PASS] tst_QString::remove_uint_uint(no overflow) 
+[PASS] tst_QString::remove_uint_uint(overflow) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="remove_string" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::remove_string(rem00) 
+[PASS] tst_QString::remove_string(rem01) 
+[PASS] tst_QString::remove_string(rem02) 
+[PASS] tst_QString::remove_string(rem03) 
+[PASS] tst_QString::remove_string(rem04) 
+[PASS] tst_QString::remove_string(rem05) 
+[PASS] tst_QString::remove_string(rem06) 
+[PASS] tst_QString::remove_string(rem07) 
+[PASS] tst_QString::remove_string(rem08) 
+[PASS] tst_QString::remove_string(rem09) 
+[PASS] tst_QString::remove_string(rem10) 
+[PASS] tst_QString::remove_string(rem11) 
+[PASS] tst_QString::remove_string(rem12) 
+[PASS] tst_QString::remove_string(rem13) 
+[PASS] tst_QString::remove_string(rem14) 
+[PASS] tst_QString::remove_string(rem15) 
+[PASS] tst_QString::remove_string(rem16) 
+[PASS] tst_QString::remove_string(rem17) 
+[PASS] tst_QString::remove_string(rem18) 
+[PASS] tst_QString::remove_string(rem19) 
+[PASS] tst_QString::remove_string(rem20) 
+[PASS] tst_QString::remove_string(rem21) 
+[PASS] tst_QString::remove_string(rem22) 
+[PASS] tst_QString::remove_string(rep00) 
+[PASS] tst_QString::remove_string(rep01) 
+[PASS] tst_QString::remove_string(rep02) 
+[PASS] tst_QString::remove_string(rep03) 
+[PASS] tst_QString::remove_string(rep04) 
+[PASS] tst_QString::remove_string(rep05) 
+[PASS] tst_QString::remove_string(rep06) 
+[PASS] tst_QString::remove_string(rep07) 
+[PASS] tst_QString::remove_string(rep08) 
+[PASS] tst_QString::remove_string(rep09) 
+[PASS] tst_QString::remove_string(rep10) 
+[PASS] tst_QString::remove_string(rep11) 
+[PASS] tst_QString::remove_string(rep12) 
+[PASS] tst_QString::remove_string(rep13) 
+[PASS] tst_QString::remove_string(rep14) 
+[PASS] tst_QString::remove_string(rep15) 
+[PASS] tst_QString::remove_string(rep16) 
+[PASS] tst_QString::remove_string(rep17) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="remove_regexp" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::remove_regexp(rem00) 
+[PASS] tst_QString::remove_regexp(rem01) 
+[PASS] tst_QString::remove_regexp(rem02) 
+[PASS] tst_QString::remove_regexp(rem03) 
+[PASS] tst_QString::remove_regexp(rem04) 
+[PASS] tst_QString::remove_regexp(rem05) 
+[PASS] tst_QString::remove_regexp(rep00) 
+[PASS] tst_QString::remove_regexp(rep01) 
+[PASS] tst_QString::remove_regexp(rep02) 
+[PASS] tst_QString::remove_regexp(rep03) 
+[PASS] tst_QString::remove_regexp(backref00) 
+[PASS] tst_QString::remove_regexp(backref01) 
+[PASS] tst_QString::remove_regexp(backref02) 
+[PASS] tst_QString::remove_regexp(backref03) 
+[PASS] tst_QString::remove_regexp(backref04) 
+[PASS] tst_QString::remove_regexp(backref05) 
+[PASS] tst_QString::remove_regexp(backref06) 
+[PASS] tst_QString::remove_regexp(backref07) 
+[PASS] tst_QString::remove_regexp(backref08) 
+[PASS] tst_QString::remove_regexp(backref09) 
+[PASS] tst_QString::remove_regexp(backref10) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="swap" time="0.000" />
+    <testcase classname="tst_QString" name="prepend" time="0.000" />
+    <testcase classname="tst_QString" name="prepend_bytearray" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::prepend_bytearray(emptyString) 
+[PASS] tst_QString::prepend_bytearray(emptyByteArray) 
+[PASS] tst_QString::prepend_bytearray(nonAsciiByteArray) 
+[PASS] tst_QString::prepend_bytearray(nonAsciiByteArray2) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="append" time="0.000" />
+    <testcase classname="tst_QString" name="append_bytearray" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::append_bytearray(notTerminated_0) 
+[PASS] tst_QString::append_bytearray(notTerminated_1) 
+[PASS] tst_QString::append_bytearray(notTerminated_2) 
+[PASS] tst_QString::append_bytearray(emptyString) 
+[PASS] tst_QString::append_bytearray(emptyByteArray) 
+[PASS] tst_QString::append_bytearray(nonAsciiByteArray) 
+[PASS] tst_QString::append_bytearray(nonAsciiByteArray2) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="operator_pluseq_bytearray" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::operator_pluseq_bytearray(notTerminated_0) 
+[PASS] tst_QString::operator_pluseq_bytearray(notTerminated_1) 
+[PASS] tst_QString::operator_pluseq_bytearray(notTerminated_2) 
+[PASS] tst_QString::operator_pluseq_bytearray(emptyString) 
+[PASS] tst_QString::operator_pluseq_bytearray(emptyByteArray) 
+[PASS] tst_QString::operator_pluseq_bytearray(nonAsciiByteArray) 
+[PASS] tst_QString::operator_pluseq_bytearray(nonAsciiByteArray2) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="operator_eqeq_bytearray" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::operator_eqeq_bytearray(1) 
+[PASS] tst_QString::operator_eqeq_bytearray(2) 
+[PASS] tst_QString::operator_eqeq_bytearray(3) 
+[PASS] tst_QString::operator_eqeq_bytearray(4) 
+[PASS] tst_QString::operator_eqeq_bytearray(4-bis) 
+[PASS] tst_QString::operator_eqeq_bytearray(4-tre) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="operator_eqeq_nullstring" time="0.000" />
+    <testcase classname="tst_QString" name="operator_smaller" time="0.000" />
+    <testcase classname="tst_QString" name="insert" time="0.000" />
+    <testcase classname="tst_QString" name="simplified" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::simplified(null) 
+[PASS] tst_QString::simplified(empty) 
+[PASS] tst_QString::simplified(one char) 
+[PASS] tst_QString::simplified(one word) 
+[PASS] tst_QString::simplified(chars trivial) 
+[PASS] tst_QString::simplified(words trivial) 
+[PASS] tst_QString::simplified(allspace) 
+[PASS] tst_QString::simplified(char trailing) 
+[PASS] tst_QString::simplified(char trailing tab) 
+[PASS] tst_QString::simplified(char multitrailing) 
+[PASS] tst_QString::simplified(char multitrailing tab) 
+[PASS] tst_QString::simplified(char leading) 
+[PASS] tst_QString::simplified(char leading tab) 
+[PASS] tst_QString::simplified(char multileading) 
+[PASS] tst_QString::simplified(char multileading tab) 
+[PASS] tst_QString::simplified(chars apart) 
+[PASS] tst_QString::simplified(words apart) 
+[PASS] tst_QString::simplified(enclosed word) 
+[PASS] tst_QString::simplified(enclosed chars apart) 
+[PASS] tst_QString::simplified(enclosed words apart) 
+[PASS] tst_QString::simplified(chars apart posttab) 
+[PASS] tst_QString::simplified(chars apart pretab) 
+[PASS] tst_QString::simplified(many words) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="trimmed" time="0.000" />
     <testcase classname="tst_QString" name="toUpper" time="0.000">
-        <system-out>
-            <![CDATA[XFAIL : tst_qstring.cpp:1807 :: test doesn't work with ICU support, since QChar is unaware of any locale]]></system-out>
+        <system-out><![CDATA[
+[XFAIL] tst_QString::toUpper
+                test doesn't work with ICU support, since QChar is unaware of any locale at tst_qstring.cpp(1807)]]></system-out>
     </testcase>
     <testcase classname="tst_QString" name="toLower" time="0.000">
-        <system-out>
-            <![CDATA[XFAIL : tst_qstring.cpp:1866 :: test doesn't work with ICU support, since QChar is unaware of any locale]]></system-out>
+        <system-out><![CDATA[
+[XFAIL] tst_QString::toLower
+                test doesn't work with ICU support, since QChar is unaware of any locale at tst_qstring.cpp(1866)]]></system-out>
     </testcase>
-    <testcase classname="tst_QString" name="toCaseFolded" time="0.000"/>
-    <testcase classname="tst_QString" name="rightJustified" time="0.000"/>
-    <testcase classname="tst_QString" name="leftJustified" time="0.000"/>
-    <testcase classname="tst_QString" name="mid" time="0.000"/>
-    <testcase classname="tst_QString" name="right" time="0.000"/>
-    <testcase classname="tst_QString" name="left" time="0.000"/>
-    <testcase classname="tst_QString" name="midRef" time="0.000"/>
-    <testcase classname="tst_QString" name="rightRef" time="0.000"/>
-    <testcase classname="tst_QString" name="leftRef" time="0.000"/>
-    <testcase classname="tst_QString" name="stringRef" time="0.000"/>
-    <testcase classname="tst_QString" name="contains" time="0.000"/>
-    <testcase classname="tst_QString" name="count" time="0.000"/>
-    <testcase classname="tst_QString" name="lastIndexOf" time="0.000"/>
+    <testcase classname="tst_QString" name="toCaseFolded" time="0.000" />
+    <testcase classname="tst_QString" name="rightJustified" time="0.000" />
+    <testcase classname="tst_QString" name="leftJustified" time="0.000" />
+    <testcase classname="tst_QString" name="mid" time="0.000" />
+    <testcase classname="tst_QString" name="right" time="0.000" />
+    <testcase classname="tst_QString" name="left" time="0.000" />
+    <testcase classname="tst_QString" name="midRef" time="0.000" />
+    <testcase classname="tst_QString" name="rightRef" time="0.000" />
+    <testcase classname="tst_QString" name="leftRef" time="0.000" />
+    <testcase classname="tst_QString" name="stringRef" time="0.000" />
+    <testcase classname="tst_QString" name="contains" time="0.000" />
+    <testcase classname="tst_QString" name="count" time="0.000" />
+    <testcase classname="tst_QString" name="lastIndexOf" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::lastIndexOf(-1) 
+[PASS] tst_QString::lastIndexOf(1) 
+[PASS] tst_QString::lastIndexOf(2) 
+[PASS] tst_QString::lastIndexOf(3) 
+[PASS] tst_QString::lastIndexOf(4) 
+[PASS] tst_QString::lastIndexOf(5) 
+[PASS] tst_QString::lastIndexOf(6) 
+[PASS] tst_QString::lastIndexOf(7) 
+[PASS] tst_QString::lastIndexOf(8) 
+[PASS] tst_QString::lastIndexOf(9) 
+[PASS] tst_QString::lastIndexOf(10) 
+[PASS] tst_QString::lastIndexOf(11) 
+[PASS] tst_QString::lastIndexOf(12) 
+[PASS] tst_QString::lastIndexOf(13) 
+[PASS] tst_QString::lastIndexOf(14) 
+[PASS] tst_QString::lastIndexOf(15) 
+[PASS] tst_QString::lastIndexOf(16) 
+[PASS] tst_QString::lastIndexOf(17) 
+[PASS] tst_QString::lastIndexOf(19) 
+[PASS] tst_QString::lastIndexOf(20) 
+[PASS] tst_QString::lastIndexOf(21) 
+[PASS] tst_QString::lastIndexOf(22) 
+[PASS] tst_QString::lastIndexOf(24) 
+[PASS] tst_QString::lastIndexOf(25) 
+[PASS] tst_QString::lastIndexOf(26) 
+[PASS] tst_QString::lastIndexOf(27) 
+[PASS] tst_QString::lastIndexOf(28) ]]></system-out>
+    </testcase>
     <testcase classname="tst_QString" name="indexOf" time="0.000">
-        <system-out>
-            <![CDATA[XFAIL : tst_qstring.cpp:1167 :: QRegularExpression does not support case folding]]>
-            <![CDATA[XFAIL : tst_qstring.cpp:1167 :: QRegularExpression does not support case folding]]></system-out>
+        <system-out><![CDATA[
+[PASS] tst_QString::indexOf(data0) 
+[PASS] tst_QString::indexOf(data1) 
+[PASS] tst_QString::indexOf(data2) 
+[PASS] tst_QString::indexOf(data3) 
+[PASS] tst_QString::indexOf(data4) 
+[PASS] tst_QString::indexOf(data5) 
+[PASS] tst_QString::indexOf(data6) 
+[PASS] tst_QString::indexOf(data7) 
+[PASS] tst_QString::indexOf(data8) 
+[PASS] tst_QString::indexOf(data9) 
+[PASS] tst_QString::indexOf(data10) 
+[PASS] tst_QString::indexOf(data11) 
+[PASS] tst_QString::indexOf(data12) 
+[PASS] tst_QString::indexOf(data13) 
+[PASS] tst_QString::indexOf(data14) 
+[PASS] tst_QString::indexOf(data15) 
+[PASS] tst_QString::indexOf(data16) 
+[PASS] tst_QString::indexOf(data17) 
+[PASS] tst_QString::indexOf(data20) 
+[PASS] tst_QString::indexOf(data21) 
+[PASS] tst_QString::indexOf(data22) 
+[PASS] tst_QString::indexOf(data23) 
+[PASS] tst_QString::indexOf(data24) 
+[PASS] tst_QString::indexOf(data25) 
+[PASS] tst_QString::indexOf(data26) 
+[PASS] tst_QString::indexOf(data27) 
+[PASS] tst_QString::indexOf(data28) 
+[PASS] tst_QString::indexOf(data29) 
+[PASS] tst_QString::indexOf(data30) 
+[PASS] tst_QString::indexOf(data31) 
+[PASS] tst_QString::indexOf(data32) 
+[PASS] tst_QString::indexOf(data33) 
+[PASS] tst_QString::indexOf(data34) 
+[PASS] tst_QString::indexOf(data35) 
+[PASS] tst_QString::indexOf(data36) 
+[PASS] tst_QString::indexOf(data37) 
+[PASS] tst_QString::indexOf(data40) 
+[PASS] tst_QString::indexOf(data41) 
+[PASS] tst_QString::indexOf(data42) 
+[PASS] tst_QString::indexOf(data43) 
+[PASS] tst_QString::indexOf(data44) 
+[PASS] tst_QString::indexOf(data45) 
+[PASS] tst_QString::indexOf(data46) 
+[PASS] tst_QString::indexOf(data47) 
+[PASS] tst_QString::indexOf(data48) 
+[PASS] tst_QString::indexOf(data49) 
+[PASS] tst_QString::indexOf(data50) 
+[PASS] tst_QString::indexOf(data51) 
+[PASS] tst_QString::indexOf(data52) 
+[PASS] tst_QString::indexOf(data53) 
+[PASS] tst_QString::indexOf(data54) 
+[PASS] tst_QString::indexOf(data55) 
+[PASS] tst_QString::indexOf(data56) 
+[PASS] tst_QString::indexOf(data57) 
+[XFAIL] tst_QString::indexOf(data58) QRegularExpression does not support case folding at tst_qstring.cpp(1167)
+[PASS] tst_QString::indexOf(data58) 
+[XFAIL] tst_QString::indexOf(data59) QRegularExpression does not support case folding at tst_qstring.cpp(1167)
+[PASS] tst_QString::indexOf(data59) 
+[PASS] tst_QString::indexOf(BoyerMooreStressTest) 
+[PASS] tst_QString::indexOf(BoyerMooreStressTest2) 
+[PASS] tst_QString::indexOf(BoyerMooreStressTest3) 
+[PASS] tst_QString::indexOf(BoyerMooreStressTest4) 
+[PASS] tst_QString::indexOf(BoyerMooreStressTest5) 
+[PASS] tst_QString::indexOf(BoyerMooreStressTest6) 
+[PASS] tst_QString::indexOf(BoyerMooreStressTest7) 
+[PASS] tst_QString::indexOf(BoyerMooreInsensitiveStressTest) ]]></system-out>
     </testcase>
-    <testcase classname="tst_QString" name="indexOf2" time="0.000"/>
-    <testcase classname="tst_QString" name="sprintf" time="0.000"/>
-    <testcase classname="tst_QString" name="fill" time="0.000"/>
-    <testcase classname="tst_QString" name="truncate" time="0.000"/>
-    <testcase classname="tst_QString" name="constructor" time="0.000"/>
-    <testcase classname="tst_QString" name="constructorQByteArray" time="0.000"/>
-    <testcase classname="tst_QString" name="STL" time="0.000"/>
-    <testcase classname="tst_QString" name="isEmpty" time="0.000"/>
-    <testcase classname="tst_QString" name="isNull" time="0.000"/>
-    <testcase classname="tst_QString" name="acc_01" time="0.000"/>
-    <testcase classname="tst_QString" name="length" time="0.000"/>
-    <testcase classname="tst_QString" name="utf8" time="0.000"/>
-    <testcase classname="tst_QString" name="fromUtf8" time="0.000"/>
-    <testcase classname="tst_QString" name="nullFromUtf8" time="0.000"/>
-    <testcase classname="tst_QString" name="fromLocal8Bit" time="0.000"/>
-    <testcase classname="tst_QString" name="local8Bit" time="0.000"/>
-    <testcase classname="tst_QString" name="fromLatin1Roundtrip" time="0.000"/>
-    <testcase classname="tst_QString" name="toLatin1Roundtrip" time="0.000"/>
-    <testcase classname="tst_QString" name="stringRef_toLatin1Roundtrip" time="0.000"/>
-    <testcase classname="tst_QString" name="stringRef_utf8" time="0.000"/>
-    <testcase classname="tst_QString" name="stringRef_local8Bit" time="0.000"/>
-    <testcase classname="tst_QString" name="fromLatin1" time="0.000"/>
-    <testcase classname="tst_QString" name="fromAscii" time="0.000"/>
+    <testcase classname="tst_QString" name="indexOf2" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::indexOf2(data0) 
+[PASS] tst_QString::indexOf2(data1) 
+[PASS] tst_QString::indexOf2(data2) 
+[PASS] tst_QString::indexOf2(data3) 
+[PASS] tst_QString::indexOf2(data4) 
+[PASS] tst_QString::indexOf2(data5) 
+[PASS] tst_QString::indexOf2(data6) 
+[PASS] tst_QString::indexOf2(data7) 
+[PASS] tst_QString::indexOf2(data8) 
+[PASS] tst_QString::indexOf2(data9) 
+[PASS] tst_QString::indexOf2(data10) 
+[PASS] tst_QString::indexOf2(data11) 
+[PASS] tst_QString::indexOf2(data12) 
+[PASS] tst_QString::indexOf2(data13) 
+[PASS] tst_QString::indexOf2(data14) 
+[PASS] tst_QString::indexOf2(data15) 
+[PASS] tst_QString::indexOf2(data16) 
+[PASS] tst_QString::indexOf2(data17) 
+[PASS] tst_QString::indexOf2(data18) 
+[PASS] tst_QString::indexOf2(data19) 
+[PASS] tst_QString::indexOf2(data30) 
+[PASS] tst_QString::indexOf2(data31) 
+[PASS] tst_QString::indexOf2(data32) 
+[PASS] tst_QString::indexOf2(data33) 
+[PASS] tst_QString::indexOf2(data34) 
+[PASS] tst_QString::indexOf2(data35) 
+[PASS] tst_QString::indexOf2(data36) 
+[PASS] tst_QString::indexOf2(data37) 
+[PASS] tst_QString::indexOf2(data40) 
+[PASS] tst_QString::indexOf2(data41) 
+[PASS] tst_QString::indexOf2(data42) 
+[PASS] tst_QString::indexOf2(data43) 
+[PASS] tst_QString::indexOf2(data44) 
+[PASS] tst_QString::indexOf2(data45) 
+[PASS] tst_QString::indexOf2(data46) 
+[PASS] tst_QString::indexOf2(data47) 
+[PASS] tst_QString::indexOf2(data48) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="sprintf" time="0.000" />
+    <testcase classname="tst_QString" name="fill" time="0.000" />
+    <testcase classname="tst_QString" name="truncate" time="0.000" />
+    <testcase classname="tst_QString" name="constructor" time="0.000" />
+    <testcase classname="tst_QString" name="constructorQByteArray" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::constructorQByteArray(1) 
+[PASS] tst_QString::constructorQByteArray(2) 
+[PASS] tst_QString::constructorQByteArray(3) 
+[PASS] tst_QString::constructorQByteArray(4) 
+[PASS] tst_QString::constructorQByteArray(4-bis) 
+[PASS] tst_QString::constructorQByteArray(4-tre) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="STL" time="0.000" />
+    <testcase classname="tst_QString" name="isEmpty" time="0.000" />
+    <testcase classname="tst_QString" name="isNull" time="0.000" />
+    <testcase classname="tst_QString" name="acc_01" time="0.000" />
+    <testcase classname="tst_QString" name="length" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::length(data0) 
+[PASS] tst_QString::length(data1) 
+[PASS] tst_QString::length(data2) 
+[PASS] tst_QString::length(data3) 
+[PASS] tst_QString::length(data4) 
+[PASS] tst_QString::length(data5) 
+[PASS] tst_QString::length(data6) 
+[PASS] tst_QString::length(data7) 
+[PASS] tst_QString::length(data8) 
+[PASS] tst_QString::length(data9) 
+[PASS] tst_QString::length(data10) 
+[PASS] tst_QString::length(data11) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="utf8" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::utf8(str0) 
+[PASS] tst_QString::utf8(str1) 
+[PASS] tst_QString::utf8(str2) 
+[PASS] tst_QString::utf8(str3) 
+[PASS] tst_QString::utf8(surrogate) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="fromUtf8" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::fromUtf8(str0) 
+[PASS] tst_QString::fromUtf8(str0-len) 
+[PASS] tst_QString::fromUtf8(str1) 
+[PASS] tst_QString::fromUtf8(str1-len) 
+[PASS] tst_QString::fromUtf8(str2) 
+[PASS] tst_QString::fromUtf8(str2-len) 
+[PASS] tst_QString::fromUtf8(str3) 
+[PASS] tst_QString::fromUtf8(str3-len) 
+[PASS] tst_QString::fromUtf8(invalid utf8) 
+[PASS] tst_QString::fromUtf8(invalid utf8-len) 
+[PASS] tst_QString::fromUtf8(invalid utf8 2) 
+[PASS] tst_QString::fromUtf8(invalid utf8-len 2) 
+[PASS] tst_QString::fromUtf8(null-1) 
+[PASS] tst_QString::fromUtf8(null0) 
+[PASS] tst_QString::fromUtf8(null5) 
+[PASS] tst_QString::fromUtf8(empty-1) 
+[PASS] tst_QString::fromUtf8(empty0) 
+[PASS] tst_QString::fromUtf8(empty5) 
+[PASS] tst_QString::fromUtf8(other-1) 
+[PASS] tst_QString::fromUtf8(other5) 
+[PASS] tst_QString::fromUtf8(surrogate) 
+[PASS] tst_QString::fromUtf8(surrogate-len) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="nullFromUtf8" time="0.000" />
+    <testcase classname="tst_QString" name="fromLocal8Bit" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::fromLocal8Bit(stringlen99) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="local8Bit" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::local8Bit(nullString) 
+[PASS] tst_QString::local8Bit(emptyString) 
+[PASS] tst_QString::local8Bit(string) 
+[PASS] tst_QString::local8Bit(longString) 
+[PASS] tst_QString::local8Bit(someNonAlphaChars) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="fromLatin1Roundtrip" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::fromLatin1Roundtrip(null) 
+[PASS] tst_QString::fromLatin1Roundtrip(empty) 
+[PASS] tst_QString::fromLatin1Roundtrip(ascii-only) 
+[PASS] tst_QString::fromLatin1Roundtrip(ascii+control) 
+[PASS] tst_QString::fromLatin1Roundtrip(ascii+nul) 
+[PASS] tst_QString::fromLatin1Roundtrip(non-ascii) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="toLatin1Roundtrip" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::toLatin1Roundtrip(null) 
+[PASS] tst_QString::toLatin1Roundtrip(empty) 
+[PASS] tst_QString::toLatin1Roundtrip(ascii-only) 
+[PASS] tst_QString::toLatin1Roundtrip(ascii+control) 
+[PASS] tst_QString::toLatin1Roundtrip(ascii+nul) 
+[PASS] tst_QString::toLatin1Roundtrip(non-ascii) 
+[PASS] tst_QString::toLatin1Roundtrip(non-latin1a) 
+[PASS] tst_QString::toLatin1Roundtrip(non-latin1b) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="stringRef_toLatin1Roundtrip" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::stringRef_toLatin1Roundtrip(null) 
+[PASS] tst_QString::stringRef_toLatin1Roundtrip(empty) 
+[PASS] tst_QString::stringRef_toLatin1Roundtrip(ascii-only) 
+[PASS] tst_QString::stringRef_toLatin1Roundtrip(ascii+control) 
+[PASS] tst_QString::stringRef_toLatin1Roundtrip(ascii+nul) 
+[PASS] tst_QString::stringRef_toLatin1Roundtrip(non-ascii) 
+[PASS] tst_QString::stringRef_toLatin1Roundtrip(non-latin1a) 
+[PASS] tst_QString::stringRef_toLatin1Roundtrip(non-latin1b) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="stringRef_utf8" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::stringRef_utf8(str0) 
+[PASS] tst_QString::stringRef_utf8(str1) 
+[PASS] tst_QString::stringRef_utf8(str2) 
+[PASS] tst_QString::stringRef_utf8(str3) 
+[PASS] tst_QString::stringRef_utf8(surrogate) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="stringRef_local8Bit" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::stringRef_local8Bit(nullString) 
+[PASS] tst_QString::stringRef_local8Bit(emptyString) 
+[PASS] tst_QString::stringRef_local8Bit(string) 
+[PASS] tst_QString::stringRef_local8Bit(longString) 
+[PASS] tst_QString::stringRef_local8Bit(someNonAlphaChars) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="fromLatin1" time="0.000" />
+    <testcase classname="tst_QString" name="fromAscii" time="0.000" />
     <testcase classname="tst_QString" name="arg" time="0.000">
-        <system-err>
-            <![CDATA[QWARN : QString::arg: Argument missing: "" , 0 ]]>
-            <![CDATA[QWARN : QString::arg: Argument missing: "" , 0 ]]>
-            <![CDATA[QWARN : QString::arg: Argument missing: " " , 0 ]]>
-            <![CDATA[QWARN : QString::arg: Argument missing: "%" , 0 ]]>
-            <![CDATA[QWARN : QString::arg: Argument missing: "%%" , 0 ]]>
-            <![CDATA[QWARN : QString::arg: Argument missing: "%%%" , 0 ]]></system-err>
+        <system-out><![CDATA[
+[QWARN] QString::arg: Argument missing: "" , 0 
+[QWARN] QString::arg: Argument missing: "" , 0 
+[QWARN] QString::arg: Argument missing: " " , 0 
+[QWARN] QString::arg: Argument missing: "%" , 0 
+[QWARN] QString::arg: Argument missing: "%%" , 0 
+[QWARN] QString::arg: Argument missing: "%%%" , 0 ]]></system-out>
     </testcase>
-    <testcase classname="tst_QString" name="number" time="0.000"/>
-    <testcase classname="tst_QString" name="arg_fillChar" time="0.000"/>
-    <testcase classname="tst_QString" name="capacity" time="0.000"/>
-    <testcase classname="tst_QString" name="section" time="0.000"/>
-    <testcase classname="tst_QString" name="double_conversion" time="0.000"/>
-    <testcase classname="tst_QString" name="integer_conversion" time="0.000"/>
-    <testcase classname="tst_QString" name="tortureSprintfDouble" time="0.000"/>
-    <testcase classname="tst_QString" name="toNum" time="0.000"/>
+    <testcase classname="tst_QString" name="number" time="0.000" />
+    <testcase classname="tst_QString" name="arg_fillChar" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::arg_fillChar(str0) 
+[PASS] tst_QString::arg_fillChar(str1) 
+[PASS] tst_QString::arg_fillChar(str2) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="capacity" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::capacity(data0) 
+[PASS] tst_QString::capacity(data1) 
+[PASS] tst_QString::capacity(data2) 
+[PASS] tst_QString::capacity(data3) 
+[PASS] tst_QString::capacity(data4) 
+[PASS] tst_QString::capacity(data5) 
+[PASS] tst_QString::capacity(data6) 
+[PASS] tst_QString::capacity(data7) 
+[PASS] tst_QString::capacity(data8) 
+[PASS] tst_QString::capacity(data9) 
+[PASS] tst_QString::capacity(data10) 
+[PASS] tst_QString::capacity(data11) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="section" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::section(data0) 
+[PASS] tst_QString::section(data1) 
+[PASS] tst_QString::section(data2) 
+[PASS] tst_QString::section(data3) 
+[PASS] tst_QString::section(data4) 
+[PASS] tst_QString::section(data5) 
+[PASS] tst_QString::section(data6) 
+[PASS] tst_QString::section(data7) 
+[PASS] tst_QString::section(data8) 
+[PASS] tst_QString::section(data9) 
+[PASS] tst_QString::section(data10) 
+[PASS] tst_QString::section(data11) 
+[PASS] tst_QString::section(data12) 
+[PASS] tst_QString::section(foo1) 
+[PASS] tst_QString::section(foo2) 
+[PASS] tst_QString::section(foo3) 
+[PASS] tst_QString::section(foo1rx) 
+[PASS] tst_QString::section(foo2rx) 
+[PASS] tst_QString::section(foo3rx) 
+[PASS] tst_QString::section(qmake_path) 
+[PASS] tst_QString::section(qmake_pathrx) 
+[PASS] tst_QString::section(data13) 
+[PASS] tst_QString::section(data14) 
+[PASS] tst_QString::section(data15) 
+[PASS] tst_QString::section(data16) 
+[PASS] tst_QString::section(normal1) 
+[PASS] tst_QString::section(normal2) 
+[PASS] tst_QString::section(normal3) 
+[PASS] tst_QString::section(normal4) 
+[PASS] tst_QString::section(normal5) 
+[PASS] tst_QString::section(rx1) 
+[PASS] tst_QString::section(rx2) 
+[PASS] tst_QString::section(rx3) 
+[PASS] tst_QString::section(rx4) 
+[PASS] tst_QString::section(rx5) 
+[PASS] tst_QString::section(data17) 
+[PASS] tst_QString::section(data18) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="double_conversion" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::double_conversion(C 1) 
+[PASS] tst_QString::double_conversion(C 1.0) 
+[PASS] tst_QString::double_conversion(C 1.234) 
+[PASS] tst_QString::double_conversion(C 1.234e-10) 
+[PASS] tst_QString::double_conversion(C 1.234E10) 
+[PASS] tst_QString::double_conversion(C 1e10) 
+[PASS] tst_QString::double_conversion(C empty) 
+[PASS] tst_QString::double_conversion(C null) 
+[PASS] tst_QString::double_conversion(C .) 
+[PASS] tst_QString::double_conversion(C 1e) 
+[PASS] tst_QString::double_conversion(C 1,) 
+[PASS] tst_QString::double_conversion(C 1,0) 
+[PASS] tst_QString::double_conversion(C 1,000) 
+[PASS] tst_QString::double_conversion(C 1e1.0) 
+[PASS] tst_QString::double_conversion(C 1e+) 
+[PASS] tst_QString::double_conversion(C 1e-) 
+[PASS] tst_QString::double_conversion(de_DE 1,0) 
+[PASS] tst_QString::double_conversion(de_DE 1,234) 
+[PASS] tst_QString::double_conversion(de_DE 1,234e-10) 
+[PASS] tst_QString::double_conversion(de_DE 1,234E10) 
+[PASS] tst_QString::double_conversion(C .1) 
+[PASS] tst_QString::double_conversion(C -.1) 
+[PASS] tst_QString::double_conversion(C 1.) 
+[PASS] tst_QString::double_conversion(C 1.E10) 
+[PASS] tst_QString::double_conversion(C 1e+10) 
+[PASS] tst_QString::double_conversion(C   1) 
+[PASS] tst_QString::double_conversion(C 1  ) 
+[PASS] tst_QString::double_conversion(ar_SA) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="integer_conversion" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::integer_conversion(C empty 0) 
+[PASS] tst_QString::integer_conversion(C empty 8) 
+[PASS] tst_QString::integer_conversion(C empty 10) 
+[PASS] tst_QString::integer_conversion(C empty 16) 
+[PASS] tst_QString::integer_conversion(C null 0) 
+[PASS] tst_QString::integer_conversion(C null 8) 
+[PASS] tst_QString::integer_conversion(C null 10) 
+[PASS] tst_QString::integer_conversion(C null 16) 
+[PASS] tst_QString::integer_conversion(C   -0xf 0) 
+[PASS] tst_QString::integer_conversion(C -0xf   0) 
+[PASS] tst_QString::integer_conversion(C 	0xf	 0) 
+[PASS] tst_QString::integer_conversion(C   -010 0) 
+[PASS] tst_QString::integer_conversion(C 010   0) 
+[PASS] tst_QString::integer_conversion(C 	-010	 0) 
+[PASS] tst_QString::integer_conversion(C   123 10) 
+[PASS] tst_QString::integer_conversion(C 123   10) 
+[PASS] tst_QString::integer_conversion(C 	123	 10) 
+[PASS] tst_QString::integer_conversion(C   -0xf 16) 
+[PASS] tst_QString::integer_conversion(C -0xf   16) 
+[PASS] tst_QString::integer_conversion(C 	0xf	 16) 
+[PASS] tst_QString::integer_conversion(C -0 0) 
+[PASS] tst_QString::integer_conversion(C -0 8) 
+[PASS] tst_QString::integer_conversion(C -0 10) 
+[PASS] tst_QString::integer_conversion(C -0 16) 
+[PASS] tst_QString::integer_conversion(C 1.234 10) 
+[PASS] tst_QString::integer_conversion(C 1,234 10) 
+[PASS] tst_QString::integer_conversion(C 0x 0) 
+[PASS] tst_QString::integer_conversion(C 0x 16) 
+[PASS] tst_QString::integer_conversion(C 10 0) 
+[PASS] tst_QString::integer_conversion(C 010 0) 
+[PASS] tst_QString::integer_conversion(C 0x10 0) 
+[PASS] tst_QString::integer_conversion(C 10 8) 
+[PASS] tst_QString::integer_conversion(C 010 8) 
+[PASS] tst_QString::integer_conversion(C 0x10 8) 
+[PASS] tst_QString::integer_conversion(C 10 10) 
+[PASS] tst_QString::integer_conversion(C 010 10) 
+[PASS] tst_QString::integer_conversion(C 0x10 10) 
+[PASS] tst_QString::integer_conversion(C 10 16) 
+[PASS] tst_QString::integer_conversion(C 010 16) 
+[PASS] tst_QString::integer_conversion(C 0x10 16) 
+[PASS] tst_QString::integer_conversion(C -10 0) 
+[PASS] tst_QString::integer_conversion(C -010 0) 
+[PASS] tst_QString::integer_conversion(C -0x10 0) 
+[PASS] tst_QString::integer_conversion(C -10 8) 
+[PASS] tst_QString::integer_conversion(C -010 8) 
+[PASS] tst_QString::integer_conversion(C -0x10 8) 
+[PASS] tst_QString::integer_conversion(C -10 10) 
+[PASS] tst_QString::integer_conversion(C -010 10) 
+[PASS] tst_QString::integer_conversion(C -0x10 10) 
+[PASS] tst_QString::integer_conversion(C -10 16) 
+[PASS] tst_QString::integer_conversion(C -010 16) 
+[PASS] tst_QString::integer_conversion(C -0x10 16) 
+[PASS] tst_QString::integer_conversion(ar_SA 1234 0) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="tortureSprintfDouble" time="0.000" />
+    <testcase classname="tst_QString" name="toNum" time="0.000" />
     <testcase classname="tst_QString" name="localeAwareCompare" time="0.000">
-        <system-out>
-            <![CDATA[XFAIL : tst_qstring.cpp:4615 :: ICU disagrees with test]]></system-out>
+        <system-out><![CDATA[
+[XFAIL] tst_QString::localeAwareCompare(c1) ICU disagrees with test at tst_qstring.cpp(4615)
+[PASS] tst_QString::localeAwareCompare(c1) 
+[PASS] tst_QString::localeAwareCompare(c2) 
+[PASS] tst_QString::localeAwareCompare(c3) 
+[PASS] tst_QString::localeAwareCompare(english1) 
+[PASS] tst_QString::localeAwareCompare(english2) 
+[PASS] tst_QString::localeAwareCompare(english3) 
+[PASS] tst_QString::localeAwareCompare(swedish1) 
+[PASS] tst_QString::localeAwareCompare(swedish2) 
+[PASS] tst_QString::localeAwareCompare(swedish3) 
+[PASS] tst_QString::localeAwareCompare(swedish4) 
+[PASS] tst_QString::localeAwareCompare(german1) 
+[PASS] tst_QString::localeAwareCompare(german2) 
+[PASS] tst_QString::localeAwareCompare(german3) ]]></system-out>
     </testcase>
-    <testcase classname="tst_QString" name="split" time="0.000"/>
-    <testcase classname="tst_QString" name="split_regexp" time="0.000"/>
-    <testcase classname="tst_QString" name="fromUtf16" time="0.000"/>
-    <testcase classname="tst_QString" name="latin1String" time="0.000"/>
-    <testcase classname="tst_QString" name="nanAndInf" time="0.000"/>
-    <testcase classname="tst_QString" name="compare" time="0.000"/>
-    <testcase classname="tst_QString" name="resizeAfterFromRawData" time="0.000"/>
-    <testcase classname="tst_QString" name="resizeAfterReserve" time="0.000"/>
-    <testcase classname="tst_QString" name="resizeWithNegative" time="0.000"/>
-    <testcase classname="tst_QString" name="truncateWithNegative" time="0.000"/>
-    <testcase classname="tst_QString" name="QCharRefMutableUnicode" time="0.000"/>
-    <testcase classname="tst_QString" name="QCharRefDetaching" time="0.000"/>
-    <testcase classname="tst_QString" name="sprintfZU" time="0.000"/>
-    <testcase classname="tst_QString" name="repeatedSignature" time="0.000"/>
-    <testcase classname="tst_QString" name="repeated" time="0.000"/>
-    <testcase classname="tst_QString" name="compareRef" time="0.000"/>
-    <testcase classname="tst_QString" name="arg_locale" time="0.000"/>
-    <testcase classname="tst_QString" name="toUpperLower_icu" time="0.000"/>
-    <testcase classname="tst_QString" name="eightBitLiterals" time="0.000"/>
-    <testcase classname="tst_QString" name="reserve" time="0.000"/>
-    <testcase classname="tst_QString" name="toHtmlEscaped" time="0.000"/>
-    <testcase classname="tst_QString" name="operatorGreaterWithQLatin1String" time="0.000"/>
-    <testcase classname="tst_QString" name="compareQLatin1Strings" time="0.000"/>
-    <testcase classname="tst_QString" name="fromQLatin1StringWithLength" time="0.000"/>
-    <testcase classname="tst_QString" name="assignQLatin1String" time="0.000"/>
-    <testcase classname="tst_QString" name="isRightToLeft" time="0.000"/>
-    <testcase classname="tst_QString" name="cleanupTestCase" time="0.000"/>
-    <system-out/>
-    <system-err/>
+    <testcase classname="tst_QString" name="split" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::split(1) 
+[PASS] tst_QString::split(2) 
+[PASS] tst_QString::split(one-empty) 
+[PASS] tst_QString::split(two-empty) 
+[PASS] tst_QString::split(three-empty) 
+[PASS] tst_QString::split(all-empty) 
+[PASS] tst_QString::split(sep-empty) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="split_regexp" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::split_regexp(data01) 
+[PASS] tst_QString::split_regexp(data02) 
+[PASS] tst_QString::split_regexp(data03) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="fromUtf16" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::fromUtf16(str0) 
+[PASS] tst_QString::fromUtf16(str0-len) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="latin1String" time="0.000" />
+    <testcase classname="tst_QString" name="nanAndInf" time="0.000" />
+    <testcase classname="tst_QString" name="compare" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::compare(data0) 
+[PASS] tst_QString::compare(data1) 
+[PASS] tst_QString::compare(data2) 
+[PASS] tst_QString::compare(data3) 
+[PASS] tst_QString::compare(data4) 
+[PASS] tst_QString::compare(data5) 
+[PASS] tst_QString::compare(data6) 
+[PASS] tst_QString::compare(data7) 
+[PASS] tst_QString::compare(data8) 
+[PASS] tst_QString::compare(data8) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="resizeAfterFromRawData" time="0.000" />
+    <testcase classname="tst_QString" name="resizeAfterReserve" time="0.000" />
+    <testcase classname="tst_QString" name="resizeWithNegative" time="0.000" />
+    <testcase classname="tst_QString" name="truncateWithNegative" time="0.000" />
+    <testcase classname="tst_QString" name="QCharRefMutableUnicode" time="0.000" />
+    <testcase classname="tst_QString" name="QCharRefDetaching" time="0.000" />
+    <testcase classname="tst_QString" name="sprintfZU" time="0.000" />
+    <testcase classname="tst_QString" name="repeatedSignature" time="0.000" />
+    <testcase classname="tst_QString" name="repeated" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::repeated(data1) 
+[PASS] tst_QString::repeated(data2) 
+[PASS] tst_QString::repeated(data3) 
+[PASS] tst_QString::repeated(data4) 
+[PASS] tst_QString::repeated(data5) 
+[PASS] tst_QString::repeated(data6) 
+[PASS] tst_QString::repeated(data7) 
+[PASS] tst_QString::repeated(data8) 
+[PASS] tst_QString::repeated(data9) 
+[PASS] tst_QString::repeated(data10) 
+[PASS] tst_QString::repeated(data11) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="compareRef" time="0.000" />
+    <testcase classname="tst_QString" name="arg_locale" time="0.000" />
+    <testcase classname="tst_QString" name="toUpperLower_icu" time="0.000" />
+    <testcase classname="tst_QString" name="eightBitLiterals" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::eightBitLiterals(null) 
+[PASS] tst_QString::eightBitLiterals(empty) 
+[PASS] tst_QString::eightBitLiterals(regular) 
+[PASS] tst_QString::eightBitLiterals(non-ascii) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="reserve" time="0.000" />
+    <testcase classname="tst_QString" name="toHtmlEscaped" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::toHtmlEscaped(1) 
+[PASS] tst_QString::toHtmlEscaped(2) 
+[PASS] tst_QString::toHtmlEscaped(3) 
+[PASS] tst_QString::toHtmlEscaped(4) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="operatorGreaterWithQLatin1String" time="0.000" />
+    <testcase classname="tst_QString" name="compareQLatin1Strings" time="0.000" />
+    <testcase classname="tst_QString" name="fromQLatin1StringWithLength" time="0.000" />
+    <testcase classname="tst_QString" name="assignQLatin1String" time="0.000" />
+    <testcase classname="tst_QString" name="isRightToLeft" time="0.000">
+        <system-out><![CDATA[
+[PASS] tst_QString::isRightToLeft(null) 
+[PASS] tst_QString::isRightToLeft(empty) 
+[PASS] tst_QString::isRightToLeft(numbers-only) 
+[PASS] tst_QString::isRightToLeft(latin1-only) 
+[PASS] tst_QString::isRightToLeft(numbers-latin1) 
+[PASS] tst_QString::isRightToLeft(arabic-only) 
+[PASS] tst_QString::isRightToLeft(numbers-arabic) 
+[PASS] tst_QString::isRightToLeft(numbers-latin1-arabic) 
+[PASS] tst_QString::isRightToLeft(numbers-arabic-latin1) 
+[PASS] tst_QString::isRightToLeft(surrogates-VS-CJK) 
+[PASS] tst_QString::isRightToLeft(surrogates-cypriot) ]]></system-out>
+    </testcase>
+    <testcase classname="tst_QString" name="cleanupTestCase" time="0.000" />
 </testsuite>

@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="MyTests" tests="3" failures="0" errors="0" time="0.004">
+<testsuite name="MyTests" tests="3" failures="0" errors="0" skipped="0" time="0.004">
     <properties>
-        <property name="QtVersion" value="5.3.2"/>
-        <property name="QTestVersion" value="5.3.2"/>
+        <property name="QtVersion" value="5.3.2" />
+        <property name="QTestVersion" value="5.3.2" />
     </properties>
-    <testcase classname="MyTests" name="durationInteger" time="0.001"/>
-    <testcase classname="MyTests" name="durationFloatDot" time="0.002"/>
-    <testcase classname="MyTests" name="durationFloatComma" time="0.002"/>
-    <system-out/>
-    <system-err/>
+    <testcase classname="MyTests" name="durationInteger" time="0.001" />
+    <testcase classname="MyTests" name="durationFloatDot" time="0.002" />
+    <testcase classname="MyTests" name="durationFloatComma" time="0.002" />
 </testsuite>

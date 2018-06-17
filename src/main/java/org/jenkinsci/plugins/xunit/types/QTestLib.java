@@ -56,7 +56,7 @@ public class QTestLib extends InputMetricXSL {
 
     @Override
     public String getXslName() {
-        return "qtestlib-5.0-to-junit-1.0.xsl";
+        return "qtestlib-5.0-to-junit.xsl";
     }
 
     @Override
