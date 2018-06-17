@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014, Gregory Boissinot
+ * Copyright (c) 2018, Falco Nikolas
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,17 +21,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+package org.jenkinsci.plugins.xunit.service;
 
-package org.jenkinsci.plugins.xunit.exception;
+import java.io.IOException;
 
 @SuppressWarnings("serial")
-public class XUnitException extends Exception {
+public class TransformerException extends IOException {
 
-    public XUnitException(String message) {
+    public TransformerException(String message) {
         super(message);
     }
 
-    public XUnitException(String message, Throwable cause) {
-        super(message, cause);
-    }
 }

@@ -21,17 +21,17 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+package org.jenkinsci.plugins.xunit.service;
 
-package org.jenkinsci.plugins.xunit.exception;
-
+/**
+ * Signals that a test report file has an empty context.
+ *
+ * @author Nikolas Falco
+ */
 @SuppressWarnings("serial")
-public class XUnitException extends Exception {
+public class EmptyReportFileException extends TransformerException {
 
-    public XUnitException(String message) {
+    public EmptyReportFileException(String message) {
         super(message);
-    }
-
-    public XUnitException(String message, Throwable cause) {
-        super(message, cause);
     }
 }

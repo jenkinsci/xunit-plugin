@@ -32,14 +32,13 @@ import java.util.List;
 
 import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
-import org.jenkinsci.plugins.xunit.OldTestReportException;
 
 import com.google.inject.Inject;
 
 import hudson.Util;
 
-
 public class XUnitReportProcessorService implements Serializable {
+    private static final long serialVersionUID = 2640258179567685368L;
 
     private XUnitLog xUnitLog;
 
@@ -62,12 +61,12 @@ public class XUnitReportProcessorService implements Serializable {
      * Gets all reports from the given parent path and the pattern.
      *
      * @param xUnitToolInfo the xunit tool wrapper
-     * @param parentPath    parent
-     * @param pattern       pattern to search files
+     * @param parentPath parent
+     * @param pattern pattern to search files
      * @return an array of strings
+     * @throws NoTestFoundException when not report files were founded
      */
-    public List<String> findReports(XUnitToolInfo xUnitToolInfo, File parentPath, String pattern) {
-
+    public List<String> findReports(XUnitToolInfo xUnitToolInfo, File parentPath, String pattern) throws NoTestFoundException {
         String toolName = xUnitToolInfo.getInputMetric().getLabel();
 
         FileSet fs = Util.createFileSet(parentPath, pattern);
@@ -79,7 +78,7 @@ public class XUnitReportProcessorService implements Serializable {
                     + pattern + "' relative to '" + parentPath + "' for the testing framework '" + toolName + "'."
                     + "  Did you enter a pattern relative to (and within) the workspace directory?"
                     + "  Did you generate the result report(s) for '" + toolName + "'?";
-            xUnitLog.info(msg);
+            throw new NoTestFoundException(msg);
         } else {
             String msg = "[" + toolName + "] - " + xunitFiles.length + " test report file(s) were found with the pattern '"
                     + pattern + "' relative to '" + parentPath + "' for the testing framework '" + toolName + "'.";
@@ -88,16 +87,16 @@ public class XUnitReportProcessorService implements Serializable {
         return Arrays.asList(xunitFiles);
     }
 
-
     /**
      * Checks if all the finds files are new file.
      *
      * @param xUnitToolInfo the wrapped object
-     * @param files         the file list
-     * @param workspace     the root location of the file list
-     * @throws OldTestReportException when the report file is not updated during this build is setup to fail
+     * @param files the file list
+     * @param workspace the root location of the file list
+     * @throws NoNewTestReportException when the report file is not updated
+     *         during this build is setup to fail
      */
-    public void checkIfFindsFilesNewFiles(XUnitToolInfo xUnitToolInfo, List<String> files, File workspace) throws OldTestReportException {
+    public void checkIfFindsFilesNewFiles(XUnitToolInfo xUnitToolInfo, List<String> files, File workspace) throws NoNewTestReportException {
 
         if (xUnitToolInfo.isFailIfNotNew()) {
             ArrayList<File> oldResults = new ArrayList<>();
@@ -112,26 +111,22 @@ public class XUnitReportProcessorService implements Serializable {
             if (!oldResults.isEmpty()) {
                 long localTime = System.currentTimeMillis();
                 if (localTime < xUnitToolInfo.getBuildTime() - 1000) {
-                    // build time is in the the future. clock on this slave must be running behind
+                    // build time is in the the future. clock on this slave must
+                    // be running behind
                     String msg = "Clock on this slave is out of sync with the master, and therefore \n" +
                             "I can't figure out what test results are new and what are old.\n" +
                             "Please keep the slave clock in sync with the master.";
-                    xUnitLog.error(msg);
-                    throw new OldTestReportException();
+                    throw new NoNewTestReportException(msg);
                 }
 
                 StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.append(
-                        String.format("Test reports were found but not all of them are new. Did all the tests run?%n"));
+                stringBuilder.append(String.format("Test reports were found but not all of them are new. Did all the tests run?%n"));
                 for (File f : oldResults) {
-                    stringBuilder.append(
-                            String.format("  * %s is %s old%n", f,
-                                    Util.getTimeSpanString(xUnitToolInfo.getBuildTime() - f.lastModified()))
-                    );
+                    stringBuilder.append(String.format("  * %s is %s old%n", f, Util.getTimeSpanString(xUnitToolInfo.getBuildTime()
+                            - f.lastModified())));
                 }
                 String msg = stringBuilder.toString();
-                xUnitLog.error(msg);
-                throw new OldTestReportException();
+                throw new NoNewTestReportException(msg);
             }
         }
     }

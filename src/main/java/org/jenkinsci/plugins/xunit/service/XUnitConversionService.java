@@ -32,6 +32,7 @@ import java.util.UUID;
 
 import javax.inject.Inject;
 
+import org.apache.commons.io.FileUtils;
 import org.jenkinsci.lib.dtkit.model.InputMetric;
 import org.jenkinsci.lib.dtkit.model.InputMetricXSL;
 import org.jenkinsci.lib.dtkit.util.converter.ConversionException;
@@ -42,6 +43,8 @@ import org.jenkinsci.plugins.xunit.types.CustomInputMetric;
 import hudson.FilePath;
 
 public class XUnitConversionService implements Serializable {
+    private static final long serialVersionUID = 6019846684040298718L;
+
     private XUnitLog xUnitLog;
 
     @Inject
@@ -60,35 +63,39 @@ public class XUnitConversionService implements Serializable {
      *            the output parent directory that contains the JUnit output
      *            file
      * @return the converted file
-     * @throws org.jenkinsci.plugins.xunit.exception.XUnitException
-     *             in case of conversion error.
+     * @throws ConversionException when conversion errors occurs.
+     * @throws IOException when converted reports could not be created or written.
      */
-    public File convert(XUnitToolInfo xUnitToolInfo, File inputFile, File junitOutputDirectory) throws XUnitException {
+    public File convert(XUnitToolInfo xUnitToolInfo, File inputFile, File junitOutputDirectory) throws IOException  {
         InputMetric inputMetric = xUnitToolInfo.getInputMetric();
 
         File parent = new File(junitOutputDirectory, inputMetric.getToolName());
-        if (!parent.exists() && !parent.mkdirs()) {
-            throw new XUnitException("Can't create " + parent);
-        }
+        FileUtils.forceMkdir(parent);
 
         File junitTargetFile = getTargetFile(parent);
         try {
-            if (inputMetric instanceof CustomInputMetric) {
-                return convertCustomInputMetric(xUnitToolInfo, inputFile, inputMetric, junitTargetFile);
+            if (inputMetric instanceof InputMetricXSL && xUnitToolInfo.getXSLFile() != null) {
+                convertCustomMetric(xUnitToolInfo, inputFile, inputMetric, junitTargetFile);
+            } else {
+                inputMetric.convert(inputFile, junitTargetFile);
             }
-
-            if (inputMetric instanceof InputMetricXSL) {
-                return convertInputMetricXSL(xUnitToolInfo, inputFile, inputMetric, junitTargetFile);
-            }
-
-            inputMetric.convert(inputFile, junitTargetFile);
             return junitTargetFile;
 
         } catch (ConversionException e) {
             Throwable cause = e.getCause();
-            throw new XUnitException("Conversion error: " + (cause != null ? cause.getMessage() : e.getMessage()));
-        } catch (InterruptedException | IOException e) {
-            throw new XUnitException("Conversion error: " + e.getMessage(), e);
+            throw new TransformerException("Conversion error: " + (cause != null ? cause.getMessage() : e.getMessage()));
+        }
+    }
+
+    private void convertCustomMetric(XUnitToolInfo xUnitToolInfo, File inputFile, InputMetric inputMetric, File junitTargetFile) {
+        InputMetricXSL inputMetricXSL = (InputMetricXSL) inputMetric;
+        try {
+            inputMetricXSL.convert(inputFile, junitTargetFile, xUnitToolInfo.getXSLFile(), null);
+        } catch (Exception xe) {
+            xUnitLog.error("Error occurs on the use of the user stylesheet: " + xe.getMessage());
+            xUnitLog.info("Fallback on the native embedded stylesheet.");
+
+            inputMetric.convert(inputFile, junitTargetFile);
         }
     }
 
@@ -109,54 +116,6 @@ public class XUnitConversionService implements Serializable {
     private File getTargetFile(File parent) {
         String uniqueTestName = UUID.randomUUID().toString();
         return new File(parent, XUnitDefaultValues.JUNIT_FILE_PREFIX + uniqueTestName + XUnitDefaultValues.JUNIT_FILE_EXTENSION);
-    }
-
-    private File convertCustomInputMetric(XUnitToolInfo xUnitToolInfo, File inputFile, InputMetric inputMetric, File junitTargetFile) {
-        CustomInputMetric customInputMetric = (CustomInputMetric) inputMetric;
-        customInputMetric.setCustomXSLFile(new File(xUnitToolInfo.getCusXSLFile().getRemote()));
-        inputMetric.convert(inputFile, junitTargetFile);
-        return junitTargetFile;
-    }
-
-    private File convertInputMetricXSL(XUnitToolInfo xUnitToolInfo, File inputFile, InputMetric inputMetric, File junitTargetFile) throws IOException, InterruptedException {
-        InputMetricXSL inputMetricXSL = (InputMetricXSL) inputMetric;
-        FilePath userXSLFilePath = xUnitToolInfo.getUserContentRoot().child(inputMetricXSL.getUserContentXSLDirRelativePath());
-
-        if (userXSLFilePath.exists()) {
-            xUnitLog.info("Using the native embedded stylesheet in JENKINS_HOME.");
-            try {
-                return convertInputMetricXSLWithUserXSL(inputFile, junitTargetFile, inputMetricXSL, userXSLFilePath);
-            } catch (XUnitException xe) {
-                xUnitLog.error("Error occurs on the use of the user stylesheet: " + xe.getMessage());
-                xUnitLog.info("Trying to use the native embedded stylesheet.");
-                inputMetric.convert(inputFile, junitTargetFile);
-                return junitTargetFile;
-            }
-        }
-
-        inputMetric.convert(inputFile, junitTargetFile);
-        return junitTargetFile;
-    }
-
-    private File convertInputMetricXSLWithUserXSL(File inputFile, File junitTargetFile, InputMetricXSL inputMetricXSL, FilePath userXSLFilePath) throws XUnitException {
-        try {
-            List<FilePath> filePathList = userXSLFilePath.list();
-            if (filePathList.isEmpty()) {
-                throw new XUnitException(String.format("There are no XSLs in '%s'", userXSLFilePath.getRemote()));
-            }
-
-            for (FilePath file : userXSLFilePath.list()) {
-                if (!file.isDirectory()) {
-                    inputMetricXSL.convert(inputFile, junitTargetFile, file.readToString(), null);
-                    return junitTargetFile;
-                }
-            }
-
-            throw new XUnitException(String.format("There are no XSLs in '%s'", userXSLFilePath.getRemote()));
-
-        } catch (IOException | InterruptedException e) {
-            throw new XUnitException("Error in the use of the user stylesheet", e);
-        }
     }
 
 }
