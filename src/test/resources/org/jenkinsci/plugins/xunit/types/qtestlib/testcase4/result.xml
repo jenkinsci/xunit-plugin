@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ThirdCase_test" tests="5" failures="2" errors="0" skipped="0" time="0.000">
+    <properties>
+        <property name="QtVersion" value="4.8.7" />
+        <property name="QTestVersion" value="4.8.7" />
+    </properties>
+    <testcase classname="ThirdCase_test" name="initTestCase" time="0.000" />
+    <testcase classname="ThirdCase_test" name="consecutiveFailureStopOnFirst" time="0.000">
+        <failure message="&#xA;            failure 1&#xA;        " />
+        <system-out><![CDATA[
+[FAIL] ThirdCase_test::consecutiveFailureStopOnFirstfailure 1 at moc/../thirdCase.hh(12)]]></system-out>
+    </testcase>
+    <testcase classname="ThirdCase_test" name="failureOnCompareStopOnFirst" time="0.000">
+        <failure message="&#xA;            Compared values are not the same&#xA;   Actual (1): 1&#xA;   Expected (2): 2&#xA;        " />
+        <system-out><![CDATA[
+[FAIL] ThirdCase_test::failureOnCompareStopOnFirstCompared values are not the same
+   Actual (1): 1
+   Expected (2): 2 at moc/../thirdCase.hh(17)]]></system-out>
+    </testcase>
+    <testcase classname="ThirdCase_test" name="expectedFailureButContinue" time="0.000">
+        <system-out><![CDATA[
+[XFAIL] ThirdCase_test::expectedFailureButContinueWill fix in the next release at moc/../thirdCase.hh(24)]]></system-out>
+    </testcase>
+    <testcase classname="ThirdCase_test" name="cleanupTestCase" time="0.000" />
+</testsuite>

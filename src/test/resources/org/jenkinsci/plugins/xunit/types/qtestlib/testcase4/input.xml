@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<TestCase name="ThirdCase_test">
+    <Environment>
+        <QtVersion>4.8.7</QtVersion>
+        <QTestVersion>4.8.7</QTestVersion>
+    </Environment>
+    <TestFunction name="initTestCase">
+        <Incident type="pass" file="" line="0" />
+    </TestFunction>
+    <TestFunction name="consecutiveFailureStopOnFirst">
+        <Incident type="fail" file="moc/../thirdCase.hh" line="12">
+            <Description><![CDATA[failure 1]]></Description>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="failureOnCompareStopOnFirst">
+        <Incident type="fail" file="moc/../thirdCase.hh" line="17">
+            <Description><![CDATA[Compared values are not the same
+   Actual (1): 1
+   Expected (2): 2]]></Description>
+        </Incident>
+    </TestFunction>
+    <TestFunction name="expectedFailureButContinue">
+        <Incident type="xfail" file="moc/../thirdCase.hh" line="24">
+            <Description><![CDATA[Will fix in the next release]]></Description>
+        </Incident>
+        <Incident type="pass" file="" line="0" />
+    </TestFunction>
+    <TestFunction name="cleanupTestCase">
+        <Incident type="pass" file="" line="0" />
+    </TestFunction>
+</TestCase>

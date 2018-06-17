@@ -1,0 +1,30 @@
+<testsuite name="MyQtTestTestProjectTest" tests="4" failures="1" errors="0" skipped="0" time="0.000">
+    <properties>
+        <property name="QtVersion" value="5.4.0" />
+        <property name="QtBuild" value="Qt 5.4.0 (i386-little_endian-ilp32 shared (dynamic) debug build; by MSVC 2010)" />
+        <property name="QTestVersion" value="5.4.0" />
+    </properties>
+    <testcase classname="MyQtTestTestProjectTest" name="initTestCase" time="0.000" />
+    <testcase classname="MyQtTestTestProjectTest" name="testCase1" time="0.000" />
+    <testcase classname="MyQtTestTestProjectTest" name="sort_test" time="0.000">
+        <failure
+            message="&#xA;      set 1&#xA;      &#xA;        Compared values are not the same&#xA;   Actual   (input) : 1&#xA;   Expected (result): 0&#xA;      &#xA;    &#xA;      set 2&#xA;      &#xA;        Compared values are not the same&#xA;   Actual   (input) : 1&#xA;   Expected (result): 0&#xA;      &#xA;    &#xA;      set 3&#xA;      &#xA;        Compared values are not the same&#xA;   Actual   (input) : 1&#xA;   Expected (result): 0&#xA;      &#xA;    " />
+        <system-out><![CDATA[
+[FAIL] MyQtTestTestProjectTest::sort_test(set 1) 
+        Compared values are not the same
+   Actual   (input) : 1
+   Expected (result): 0
+       at ..\MyQtTestTestProject\tst_myqttesttestprojecttest.cpp(44)
+[FAIL] MyQtTestTestProjectTest::sort_test(set 2) 
+        Compared values are not the same
+   Actual   (input) : 1
+   Expected (result): 0
+       at ..\MyQtTestTestProject\tst_myqttesttestprojecttest.cpp(44)
+[FAIL] MyQtTestTestProjectTest::sort_test(set 3) 
+        Compared values are not the same
+   Actual   (input) : 1
+   Expected (result): 0
+       at ..\MyQtTestTestProject\tst_myqttesttestprojecttest.cpp(44)]]></system-out>
+    </testcase>
+    <testcase classname="MyQtTestTestProjectTest" name="cleanupTestCase" time="0.000" />
+</testsuite>
