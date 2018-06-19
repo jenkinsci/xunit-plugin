@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="UnitTest" tests="5" time="92.728" timestamp="2018-06-15T18:07:56" failures="0" errors="0" skipped="0">
+        <properties>
+            <property name="environment" value="32-bit .NET 4.0.30319.42000 [collection-per-class, parallel (2 threads)]" />
+            <property name="test-framework" value="xUnit.net 2.3.1.3858" />
+            <property name="config-file" value="C:\jenkins\workspace\Pipeline-Test-Client\UnitTest.dll.config" />
+        </properties>
+        <testcase classname="UnitTest.UnitTest" name="Uninstall application if it is installed." time="48.391" />
+        <testcase classname="UnitTest.UnitTest" name="Install application." time="33.145" />
+        <testcase classname="UnitTest.UnitTest" name="Check if all installed files are there." time="3.040" />
+        <testcase classname="UnitTest.UnitTest" name="Check if the files were signed." time="4.723" />
+        <testcase classname="UnitTest.UnitTest" name="Check if the app is running." time="3.028" />
+    </testsuite>
+</testsuites>
+
