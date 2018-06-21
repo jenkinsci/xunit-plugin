@@ -59,7 +59,7 @@ THE SOFTWARE.
             <xsl:for-each select="//test-suite">
                 <xsl:choose>
                     <xsl:when test="results/test-case">
-                        <xsl:apply-templates select="."/>
+                        <xsl:apply-templates select="current()"/>
                     </xsl:when>
                 </xsl:choose>
             </xsl:for-each>
@@ -70,7 +70,7 @@ THE SOFTWARE.
         <xsl:variable name="nunitVersion">
             <xsl:choose>
                 <xsl:when test="/test-results/environment">
-                    <xsl:analyze-string regex="^(\d+\.\d+)" select="/test-results/environment/@nunit-version">
+                    <xsl:analyze-string regex="^[^0-9]*(\d+\.\d+)" select="/test-results/environment/@nunit-version">
                         <xsl:matching-substring>
                             <xsl:value-of select="regex-group(1)" />
                         </xsl:matching-substring>

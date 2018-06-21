@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<test-results name="Test results" errors="0" inconclusive="0" ignored="0" invalid="0" not-run="0" date="2018-06-21" time="09:29:29" total="30" failures="0" skipped="6">
+  <environment os-version="unknown" platform="unknown" cwd="unknown" machine-name="unknown" user="unknown" user-domain="unknown" nunit-version="xUnit.net 2.1.0.3179" clr-version="64-bit .NET 4.0.30319.42000 [collection-per-class, non-parallel]" />
+  <culture-info current-culture="unknown" current-uiculture="unknown" />
+  <test-suite type="Assemblies" name="xUnit.net Tests" executed="True" success="True" result="Success" time="113.916">
+    <results>
+      <test-suite type="Assembly" executed="True" name="c:\jenkins\workspace\Fiscal\Master\T1-Latest\Net-T1Txp\bin\T1Txp.Tests.DLL" result="Success" success="True" time="113.916">
+        <results>
+          <test-suite type="TestCollection" executed="True" name="Test collection for WK.T1Txp.Tests.LastUsedFormsManagerTest1" result="Success" success="True" time="0.000">
+            <results>
+              <test-case name="WK.T1Txp.Tests.LastUsedFormsManagerTest1.LoadAndSaveWorkspace" executed="False" result="Skipped" time="0">
+                <reason>
+                  <message>TaxReturn module is not ready</message>
+                </reason>
+              </test-case>
+            </results>
+          </test-suite>
+          <test-suite type="TestCollection" executed="True" name="Test collection for WK.T1Txp.Tests.UFLTest" result="Success" success="True" time="14.418">
+            <results>
+              <test-case name="WK.T1Txp.Tests.UFLTest.TestUFLUtils(formName: \&quot;QTP1Line414Form\&quot;)" executed="True" result="Success" success="True" time="12.5919833" />
+              <test-case name="WK.T1Txp.Tests.UFLTest.TestUFL(formName: \&quot;QTP1Line414Form\&quot;, formNumber: 491, accessCode: \&quot;Q414\&quot;)" executed="True" result="Success" success="True" time="1.8256291" />
+            </results>
+          </test-suite>
+          <test-suite type="TestCollection" executed="True" name="Test collection for WK.T1Txp.Tests.ClientFileManagerTests" result="Success" success="True" time="76.628">
+            <results>
+              <test-case name="WK.T1Txp.Tests.ClientFileManagerTests.BackupFilesAndGetVersionInfoTest(filename: \&quot;epclientfile\&quot;)" executed="True" result="Success" success="True" time="55.9813217" />
+              <test-case name="WK.T1Txp.Tests.ClientFileManagerTests.OpenAndCloseClientFileTest(filename: \&quot;epclientfile\&quot;)" executed="True" result="Success" success="True" time="2.9555172" />
+              <test-case name="WK.T1Txp.Tests.ClientFileManagerTests.NewAndCloseClientFileTest(filename: \&quot;File1.118\&quot;)" executed="True" result="Success" success="True" time="2.9854317" />
+              <test-case name="WK.T1Txp.Tests.ClientFileManagerTests.GetClientFileByFilePathTest(filename: \&quot;epclientfile\&quot;)" executed="True" result="Success" success="True" time="2.8222797" />
+              <test-case name="WK.T1Txp.Tests.ClientFileManagerTests.GetVersionInfoTest(filename: \&quot;epclientfile\&quot;)" executed="True" result="Success" success="True" time="2.4603614" />
+              <test-case name="WK.T1Txp.Tests.ClientFileManagerTests.GetCurrentClientFileAndMoreTest(filename1: \&quot;epclientfile\&quot;, filename2: \&quot;fhom-01\&quot;)" executed="True" result="Success" success="True" time="3.4065308" />
+              <test-case name="WK.T1Txp.Tests.ClientFileManagerTests.UpdateProdDateAndMoreTest(filename: \&quot;epclientfile\&quot;)" executed="True" result="Success" success="True" time="2.646517" />
+              <test-case name="WK.T1Txp.Tests.ClientFileManagerTests.AddInsertDeleteClientFileTest(filename1: \&quot;epclientfile\&quot;, filename2: \&quot;fhom-01\&quot;)" executed="True" result="Success" success="True" time="3.3698709" />
+            </results>
+          </test-suite>
+          <test-suite type="TestCollection" executed="True" name="Test collection for WK.T1Txp.Tests.MenuManagerTest" result="Success" success="True" time="1.548">
+            <results>
+              <test-case name="WK.T1Txp.Tests.MenuManagerTest.TestMenuManager" executed="True" result="Success" success="True" time="0.0046012" />
+              <test-case name="WK.T1Txp.Tests.MenuManagerTest.TestMenuManagerAdd" executed="True" result="Success" success="True" time="1.5429667" />
+            </results>
+          </test-suite>
+          <test-suite type="TestCollection" executed="True" name="Test collection for WK.T1Txp.Tests.TTPT1TaxApplicationTest" result="Success" success="True" time="6.672">
+            <results>
+              <test-case name="WK.T1Txp.Tests.TTPT1TaxApplicationTest.TestGetTaxpayerNameByReturnId" executed="True" result="Success" success="True" time="1.5780603" />
+              <test-case name="WK.T1Txp.Tests.TTPT1TaxApplicationTest.DoSaveClientFile(saveOptions: optSaveAll)" executed="True" result="Success" success="True" time="1.9002531" />
+              <test-case name="WK.T1Txp.Tests.TTPT1TaxApplicationTest.TestGetPath" executed="True" result="Success" success="True" time="1.6096808" />
+              <test-case name="WK.T1Txp.Tests.TTPT1TaxApplicationTest.TestBackupFile" executed="False" result="Skipped" time="0">
+                <reason>
+                  <message>TODO GEM: fix this test: problem with epclientfile access</message>
+                </reason>
+              </test-case>
+              <test-case name="WK.T1Txp.Tests.TTPT1TaxApplicationTest.TestGetNewFileApplicationExtension" executed="True" result="Success" success="True" time="1.58407" />
+              <test-case name="WK.T1Txp.Tests.TTPT1TaxApplicationTest.DoOpenClientFilesTest" executed="False" result="Skipped" time="0">
+                <reason>
+                  <message>TODO GEM: fix this test</message>
+                </reason>
+              </test-case>
+              <test-case name="WK.T1Txp.Tests.TTPT1TaxApplicationTest.DoNewClientFileTest" executed="False" result="Skipped" time="0">
+                <reason>
+                  <message>TODO GEM: fix this test: see ClientFileManager.SetCurrentFileIndex with invalidIndex</message>
+                </reason>
+              </test-case>
+              <test-case name="WK.T1Txp.Tests.TTPT1TaxApplicationTest.DoOpenClientFileTest" executed="False" result="Skipped" time="0">
+                <reason>
+                  <message>TODO GEM: fix this test</message>
+                </reason>
+              </test-case>
+            </results>
+          </test-suite>
+          <test-suite type="TestCollection" executed="True" name="Test collection for WK.T1Txp.Tests.PrintFormatTest" result="Success" success="True" time="2.454">
+            <results>
+              <test-case name="WK.T1Txp.Tests.PrintFormatTest.CreateDefaultPrintFormatRecordFromResTest(oldFileName: \&quot;2015 print format.fmt\&quot;, formName: \&quot;INFOForm\&quot;, wpParam: wpAlways, copyNumber: 5)" executed="True" result="Success" success="True" time="1.8986243" />
+              <test-case name="WK.T1Txp.Tests.PrintFormatTest.RollForwardTemplateTest(oldFileName: \&quot;2015 print format.fmt\&quot;, formName: \&quot;INFOForm\&quot;, wpParam: wpAlways, copyNumber: 5)" executed="True" result="Success" success="True" time="0.4530653" />
+              <test-case name="WK.T1Txp.Tests.PrintFormatTest.SaveToFile_CustomizedTest(aSourcefile: \&quot;Print Format_Customized.fmt\&quot;, sourceDescription: \&quot;English description\&quot;, TaxprepPrintService: False, formName: \&quot;CCEForm\&quot;, wpParam1: wpWhenApplicable, printerName1: \&quot;Microsoft XPS Document Writer\&quot;, printerBin1: 15, aTargetFile: \&quot;Saved Print Format.fmt\&quot;, targetDescription: \&quot;French description\&quot;, wpParam2: wpAlways, printerName2: \&quot;default\&quot;, printerBin2: -1)" executed="True" result="Success" success="True" time="0.1021153" />
+              <test-case name="WK.T1Txp.Tests.PrintFormatTest.LoadFromFileTest" executed="False" result="Skipped" time="0">
+                <reason>
+                  <message>assert window caused by returnstatus alias missing</message>
+                </reason>
+              </test-case>
+            </results>
+          </test-suite>
+          <test-suite type="TestCollection" executed="True" name="Test collection for WK.T1Txp.Tests.ConfigurationTest" result="Success" success="True" time="3.670">
+            <results>
+              <test-case name="WK.T1Txp.Tests.ConfigurationTest.TestSetUserConfiguration" executed="True" result="Success" success="True" time="3.669863" />
+            </results>
+          </test-suite>
+          <test-suite type="TestCollection" executed="True" name="Test collection for WK.T1Txp.Tests.CellDescriptionTest" result="Success" success="True" time="2.694">
+            <results>
+              <test-case name="WK.T1Txp.Tests.CellDescriptionTest.TestAppendBooleanOptions" executed="True" result="Success" success="True" time="2.6935134" />
+            </results>
+          </test-suite>
+          <test-suite type="TestCollection" executed="True" name="Test collection for WK.T1Txp.Tests.ResourceManagerTest" result="Success" success="True" time="5.588">
+            <results>
+              <test-case name="WK.T1Txp.Tests.ResourceManagerTest.TestGetStringCch(stringPath: \&quot;ConfigAdvance\\Rows\\insConvertConfig\&quot;, stringId: \&quot;Caption\&quot;, stringEnglish: \&quot;Prompt to retrieve the configuration on startup\&quot;, stringFrench: \&quot;Proposer de récupérer la configuration au démarrag\&quot;...)" executed="True" result="Success" success="True" time="2.0836347" />
+              <test-case name="WK.T1Txp.Tests.ResourceManagerTest.TestGetStrings(stringPath: \&quot;Application\\About\\Memo\&quot;, count: 6, firstEng: \&quot;You may use the Taxprep program and related materi\&quot;..., firstFre: \&quot;Vous pouvez utiliser le logiciel Taxprep et les do\&quot;...)" executed="True" result="Success" success="True" time="1.5863289" />
+              <test-case name="WK.T1Txp.Tests.ResourceManagerTest.TestGetMessage(messageID: \&quot;MSG851\&quot;, messageEnglish: \&quot;You do not have the rights required to execute thi\&quot;..., messageFrench: \&quot;Vous ne possédez pas les droits requis pour exécut\&quot;...)" executed="True" result="Success" success="True" time="1.9179928" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

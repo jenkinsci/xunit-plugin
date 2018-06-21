@@ -49,7 +49,8 @@ public class NUnitTest extends AbstractTest {
                                               { "JENKINS-51556 works", 11 }, //
                                               { "JENKINS-51556 cause JEP-200 issue", 12 }, //
                                               { "JENKINS-51561 NUnit 3.x produce report in NUnit 2.x format", 13 }, //
-                                              { "JENKINS-51767", 14 } //
+                                              { "JENKINS-51767", 14 }, //
+                                              { "JENKINS-52107", 15 } //
         });
     }
 
