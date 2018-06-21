@@ -279,7 +279,11 @@ public class XUnitProcessor {
         if (previousBuild == null) {
             return null;
         }
-        return previousBuild.getAction(TestResultAction.class).getResult();
+        TestResultAction previousAction = previousBuild.getAction(TestResultAction.class);
+        if (previousAction == null) {
+            return null;
+        }
+        return previousAction.getResult();
     }
 
     private TestResult recordTestResult(Run<?, ?> build,
