@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="Test collection for WK.T1Txp.Tests.LastUsedFormsManagerTest1" tests="1" failures="0" errors="0" skipped="0" time="0.000">
+        <testcase classname="Test collection for WK.T1Txp.Tests.LastUsedFormsManagerTest1" name="WK.T1Txp.Tests.LastUsedFormsManagerTest1.LoadAndSaveWorkspace" time="0.000" />
+    </testsuite>
+    <testsuite name="Test collection for WK.T1Txp.Tests.UFLTest" tests="2" failures="0" errors="0" skipped="0" time="14.418">
+        <testcase classname="Test collection for WK.T1Txp.Tests.UFLTest" name="WK.T1Txp.Tests.UFLTest.TestUFLUtils(formName: \&#34;QTP1Line414Form\&#34;)" time="12.592" />
+        <testcase classname="Test collection for WK.T1Txp.Tests.UFLTest" name="WK.T1Txp.Tests.UFLTest.TestUFL(formName: \&#34;QTP1Line414Form\&#34;, formNumber: 491, accessCode: \&#34;Q414\&#34;)"
+            time="1.826" />
+    </testsuite>
+    <testsuite name="Test collection for WK.T1Txp.Tests.ClientFileManagerTests" tests="8" failures="0" errors="0" skipped="0" time="76.628">
+        <testcase classname="Test collection for WK.T1Txp.Tests.ClientFileManagerTests" name="WK.T1Txp.Tests.ClientFileManagerTests.BackupFilesAndGetVersionInfoTest(filename: \&#34;epclientfile\&#34;)"
+            time="55.981" />
+        <testcase classname="Test collection for WK.T1Txp.Tests.ClientFileManagerTests" name="WK.T1Txp.Tests.ClientFileManagerTests.OpenAndCloseClientFileTest(filename: \&#34;epclientfile\&#34;)"
+            time="2.956" />
+        <testcase classname="Test collection for WK.T1Txp.Tests.ClientFileManagerTests" name="WK.T1Txp.Tests.ClientFileManagerTests.NewAndCloseClientFileTest(filename: \&#34;File1.118\&#34;)"
+            time="2.985" />
+        <testcase classname="Test collection for WK.T1Txp.Tests.ClientFileManagerTests" name="WK.T1Txp.Tests.ClientFileManagerTests.GetClientFileByFilePathTest(filename: \&#34;epclientfile\&#34;)"
+            time="2.822" />
+        <testcase classname="Test collection for WK.T1Txp.Tests.ClientFileManagerTests" name="WK.T1Txp.Tests.ClientFileManagerTests.GetVersionInfoTest(filename: \&#34;epclientfile\&#34;)"
+            time="2.460" />
+        <testcase classname="Test collection for WK.T1Txp.Tests.ClientFileManagerTests" name="WK.T1Txp.Tests.ClientFileManagerTests.GetCurrentClientFileAndMoreTest(filename1: \&#34;epclientfile\&#34;, filename2: \&#34;fhom-01\&#34;)"
+            time="3.407" />
+        <testcase classname="Test collection for WK.T1Txp.Tests.ClientFileManagerTests" name="WK.T1Txp.Tests.ClientFileManagerTests.UpdateProdDateAndMoreTest(filename: \&#34;epclientfile\&#34;)"
+            time="2.647" />
+        <testcase classname="Test collection for WK.T1Txp.Tests.ClientFileManagerTests" name="WK.T1Txp.Tests.ClientFileManagerTests.AddInsertDeleteClientFileTest(filename1: \&#34;epclientfile\&#34;, filename2: \&#34;fhom-01\&#34;)"
+            time="3.370" />
+    </testsuite>
+    <testsuite name="Test collection for WK.T1Txp.Tests.MenuManagerTest" tests="2" failures="0" errors="0" skipped="0" time="1.548">
+        <testcase classname="Test collection for WK.T1Txp.Tests.MenuManagerTest" name="WK.T1Txp.Tests.MenuManagerTest.TestMenuManager" time="0.005" />
+        <testcase classname="Test collection for WK.T1Txp.Tests.MenuManagerTest" name="WK.T1Txp.Tests.MenuManagerTest.TestMenuManagerAdd" time="1.543" />
+    </testsuite>
+    <testsuite name="Test collection for WK.T1Txp.Tests.TTPT1TaxApplicationTest" tests="8" failures="0" errors="0" skipped="0" time="6.672">
+        <testcase classname="Test collection for WK.T1Txp.Tests.TTPT1TaxApplicationTest" name="WK.T1Txp.Tests.TTPT1TaxApplicationTest.TestGetTaxpayerNameByReturnId" time="1.578" />
+        <testcase classname="Test collection for WK.T1Txp.Tests.TTPT1TaxApplicationTest" name="WK.T1Txp.Tests.TTPT1TaxApplicationTest.DoSaveClientFile(saveOptions: optSaveAll)" time="1.900" />
+        <testcase classname="Test collection for WK.T1Txp.Tests.TTPT1TaxApplicationTest" name="WK.T1Txp.Tests.TTPT1TaxApplicationTest.TestGetPath" time="1.610" />
+        <testcase classname="Test collection for WK.T1Txp.Tests.TTPT1TaxApplicationTest" name="WK.T1Txp.Tests.TTPT1TaxApplicationTest.TestBackupFile" time="0.000" />
+        <testcase classname="Test collection for WK.T1Txp.Tests.TTPT1TaxApplicationTest" name="WK.T1Txp.Tests.TTPT1TaxApplicationTest.TestGetNewFileApplicationExtension" time="1.584" />
+        <testcase classname="Test collection for WK.T1Txp.Tests.TTPT1TaxApplicationTest" name="WK.T1Txp.Tests.TTPT1TaxApplicationTest.DoOpenClientFilesTest" time="0.000" />
+        <testcase classname="Test collection for WK.T1Txp.Tests.TTPT1TaxApplicationTest" name="WK.T1Txp.Tests.TTPT1TaxApplicationTest.DoNewClientFileTest" time="0.000" />
+        <testcase classname="Test collection for WK.T1Txp.Tests.TTPT1TaxApplicationTest" name="WK.T1Txp.Tests.TTPT1TaxApplicationTest.DoOpenClientFileTest" time="0.000" />
+    </testsuite>
+    <testsuite name="Test collection for WK.T1Txp.Tests.PrintFormatTest" tests="4" failures="0" errors="0" skipped="0" time="2.454">
+        <testcase classname="Test collection for WK.T1Txp.Tests.PrintFormatTest"
+            name="WK.T1Txp.Tests.PrintFormatTest.CreateDefaultPrintFormatRecordFromResTest(oldFileName: \&#34;2015 print format.fmt\&#34;, formName: \&#34;INFOForm\&#34;, wpParam: wpAlways, copyNumber: 5)"
+            time="1.899" />
+        <testcase classname="Test collection for WK.T1Txp.Tests.PrintFormatTest"
+            name="WK.T1Txp.Tests.PrintFormatTest.RollForwardTemplateTest(oldFileName: \&#34;2015 print format.fmt\&#34;, formName: \&#34;INFOForm\&#34;, wpParam: wpAlways, copyNumber: 5)" time="0.453" />
+        <testcase classname="Test collection for WK.T1Txp.Tests.PrintFormatTest"
+            name="WK.T1Txp.Tests.PrintFormatTest.SaveToFile_CustomizedTest(aSourcefile: \&#34;Print Format_Customized.fmt\&#34;, sourceDescription: \&#34;English description\&#34;, TaxprepPrintService: False, formName: \&#34;CCEForm\&#34;, wpParam1: wpWhenApplicable, printerName1: \&#34;Microsoft XPS Document Writer\&#34;, printerBin1: 15, aTargetFile: \&#34;Saved Print Format.fmt\&#34;, targetDescription: \&#34;French description\&#34;, wpParam2: wpAlways, printerName2: \&#34;default\&#34;, printerBin2: -1)"
+            time="0.102" />
+        <testcase classname="Test collection for WK.T1Txp.Tests.PrintFormatTest" name="WK.T1Txp.Tests.PrintFormatTest.LoadFromFileTest" time="0.000" />
+    </testsuite>
+    <testsuite name="Test collection for WK.T1Txp.Tests.ConfigurationTest" tests="1" failures="0" errors="0" skipped="0" time="3.670">
+        <testcase classname="Test collection for WK.T1Txp.Tests.ConfigurationTest" name="WK.T1Txp.Tests.ConfigurationTest.TestSetUserConfiguration" time="3.670" />
+    </testsuite>
+    <testsuite name="Test collection for WK.T1Txp.Tests.CellDescriptionTest" tests="1" failures="0" errors="0" skipped="0" time="2.694">
+        <testcase classname="Test collection for WK.T1Txp.Tests.CellDescriptionTest" name="WK.T1Txp.Tests.CellDescriptionTest.TestAppendBooleanOptions" time="2.694" />
+    </testsuite>
+    <testsuite name="Test collection for WK.T1Txp.Tests.ResourceManagerTest" tests="3" failures="0" errors="0" skipped="0" time="5.588">
+        <testcase classname="Test collection for WK.T1Txp.Tests.ResourceManagerTest"
+            name="WK.T1Txp.Tests.ResourceManagerTest.TestGetStringCch(stringPath: \&#34;ConfigAdvance\\Rows\\insConvertConfig\&#34;, stringId: \&#34;Caption\&#34;, stringEnglish: \&#34;Prompt to retrieve the configuration on startup\&#34;, stringFrench: \&#34;Proposer de récupérer la configuration au démarrag\&#34;...)"
+            time="2.084" />
+        <testcase classname="Test collection for WK.T1Txp.Tests.ResourceManagerTest"
+            name="WK.T1Txp.Tests.ResourceManagerTest.TestGetStrings(stringPath: \&#34;Application\\About\\Memo\&#34;, count: 6, firstEng: \&#34;You may use the Taxprep program and related materi\&#34;..., firstFre: \&#34;Vous pouvez utiliser le logiciel Taxprep et les do\&#34;...)"
+            time="1.586" />
+        <testcase classname="Test collection for WK.T1Txp.Tests.ResourceManagerTest"
+            name="WK.T1Txp.Tests.ResourceManagerTest.TestGetMessage(messageID: \&#34;MSG851\&#34;, messageEnglish: \&#34;You do not have the rights required to execute thi\&#34;..., messageFrench: \&#34;Vous ne possédez pas les droits requis pour exécut\&#34;...)"
+            time="1.918" />
+    </testsuite>
+</testsuites>
+
