@@ -27,6 +27,7 @@ package org.jenkinsci.plugins.xunit;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.UUID;
 
@@ -233,7 +234,9 @@ public class XUnitProcessor {
         }
         logger.info("Using the custom user stylesheet in JENKINS_HOME.");
         FilePath xslFile = new FilePath(userXSLFilePath);
-        return IOUtils.toString(xslFile.read(), "UTF-8");
+        try (InputStream is = xslFile.read()) {
+            return IOUtils.toString(is, "UTF-8");
+        }
     }
 
     private String getCustomStylesheet(final TestType tool,
@@ -254,7 +257,9 @@ public class XUnitProcessor {
             throw new FileNotFoundException("The given xsl '" + customXSLPath + "'doesn't exist.");
         }
         // FIXME it is on slave
-        return IOUtils.toString(customXSLFilePath.read(), "UTF-8");
+        try (InputStream is = customXSLFilePath.read()) {
+            return IOUtils.toString(is, "UTF-8");
+        }
     }
 
     private XUnitTransformerCallable newXUnitTransformer(final XUnitToolInfo xUnitToolInfo) {
