@@ -28,6 +28,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.UUID;
 
@@ -61,7 +63,6 @@ import hudson.model.Result;
 import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.remoting.VirtualChannel;
-import hudson.tasks.junit.CumulativeTestResultAction;
 import hudson.tasks.junit.TestResult;
 import hudson.tasks.junit.TestResultAction;
 import jenkins.model.Jenkins;
@@ -254,7 +255,7 @@ public class XUnitProcessor {
         }
 
         if (!customXSLFilePath.exists()) {
-            throw new FileNotFoundException("The given xsl '" + customXSLPath + "'doesn't exist.");
+            throw new FileNotFoundException(Messages.xUnitProcessor_xslFileNotFound(customXSLPath));
         }
         // FIXME it is on slave
         try (InputStream is = customXSLFilePath.read()) {
@@ -305,11 +306,14 @@ public class XUnitProcessor {
                 action = new TestResultAction(build, result, listener);
             } else {
                 action = existingAction;
-                new CumulativeTestResultAction(existingAction).mergeResult(result, listener);
+                // TODO remove when move to junit 1.24
+//              action.mergeResult(result, listener);
+                merge(action, result, listener);
             }
 
+            result.tally(); // force re-calculus of counters
             if (result.getPassCount() == 0 && result.getFailCount() == 0) {
-                logger.warn("All test reports are empty.");
+                logger.warn(Messages.xUnitProcessor_emptyReport());
             }
 
             if (existingAction == null) {
@@ -318,6 +322,17 @@ public class XUnitProcessor {
         }
 
         return result;
+    }
+
+    private void merge(TestResultAction action, TestResult result, TaskListener listener) {
+        try {
+            // move to reflection to bypass sandbox
+            Method mergeMethod = TestResultAction.class.getDeclaredMethod("mergeResult", TestResult.class, TaskListener.class);
+            mergeMethod.setAccessible(true);
+            mergeMethod.invoke(action, result, listener);
+        } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+            throw new IllegalStateException("Impossible to merge JUnit result to previous steps");
+        }
     }
 
     /**
@@ -358,7 +373,7 @@ public class XUnitProcessor {
 
         if (thresholds != null) {
             for (XUnitThreshold threshold : thresholds) {
-                logger.info(String.format("Check '%s' threshold.", threshold.getDescriptor().getDisplayName()));
+                logger.info(Messages.xUnitProcessor_checkThreshold(threshold.getDescriptor().getDisplayName()));
                 Result result;
                 if (XUnitDefaultValues.MODE_PERCENT == thresholdMode) {
                     result = threshold.getResultThresholdPercent(logger, build, testResult, previousTestResult);

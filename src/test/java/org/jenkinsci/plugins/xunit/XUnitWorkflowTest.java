@@ -25,18 +25,20 @@ package org.jenkinsci.plugins.xunit;
 
 import org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition;
 import org.jenkinsci.plugins.workflow.job.WorkflowJob;
-import org.junit.ClassRule;
+import org.jenkinsci.plugins.workflow.job.WorkflowRun;
+import org.junit.Rule;
 import org.junit.Test;
 import org.jvnet.hudson.test.Issue;
 import org.jvnet.hudson.test.JenkinsRule;
+import org.jvnet.hudson.test.recipes.LocalData;
 
 import hudson.FilePath;
 import hudson.model.Result;
 
 public class XUnitWorkflowTest {
 
-    @ClassRule
-    public static JenkinsRule jenkinsRule = new JenkinsRule();
+    @Rule
+    public JenkinsRule jenkinsRule = new JenkinsRule();
 
     private WorkflowJob getBaseJob(String jobName) throws Exception {
         WorkflowJob job = jenkinsRule.jenkins.createProject(WorkflowJob.class, jobName);
@@ -80,18 +82,6 @@ public class XUnitWorkflowTest {
 
         jenkinsRule.assertBuildStatus(Result.UNSTABLE, job.scheduleBuild2(0).get());
     }
-//    node('master') {
-//        stage('1') {
-//            step([$class: 'XUnitBuilder',
-//                          thresholds: [[$class: 'FailedThreshold', failureThreshold: "1"]],
-//                           tools: [[$class: 'JUnitType', pattern: "tmp.xml"]]])
-//        }
-//        stage('2') {
-//            step([$class: 'XUnitBuilder',
-//                          thresholds: [[$class: 'FailedThreshold', failureThreshold: "0"]],
-//                           tools: [[$class: 'JUnitType', pattern: "tmp2.xml"]]])       
-//        }
-//    }
 
     @Issue("JENKINS-37611")
     @Test
@@ -105,7 +95,43 @@ public class XUnitWorkflowTest {
                 + "        tools: [ GoogleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml', skipNoTestFiles: false, stopProcessingIfError: true) ]"
                 + "  )\n"
                 + "}", true));
-        
+
         jenkinsRule.assertBuildStatus(Result.UNSTABLE, job.scheduleBuild2(0).get());
     }
+
+    @LocalData
+    @Issue("JENKINS-52202")
+    @Test
+    public void xunitParallelStep() throws Exception {
+        WorkflowJob job = jenkinsRule.jenkins.createProject(WorkflowJob.class, "JENKINS-52202");
+
+        job.setDefinition(new CpsFlowDefinition(""
+                + "node {\n"
+                + "  parallel(\n"
+                + "    dateiEins: {\n"
+                + "        dir('file1') {\n"
+                + "          xunit(testTimeMargin: '3000',\n"
+                + "                thresholdMode: 1,\n"
+                + "                thresholds: [ failed(failureThreshold: '1') ],\n"
+                + "                tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: 'TEST-*.xml', skipNoTestFiles: false, stopProcessingIfError: true)]\n"
+                + "          )\n"
+                + "        }\n"
+                + "    },\n"
+                + "    dateiZwei: {\n"
+                + "        dir('file2') {\n"
+                + "          xunit(testTimeMargin: '3000',\n"
+                + "                thresholdMode: 1,\n"
+                + "                thresholds: [ failed(failureThreshold: '1') ],\n"
+                + "                tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: 'TEST-*.xml', skipNoTestFiles: false, stopProcessingIfError: true)]\n"
+                + "          )\n"
+                + "        }\n"
+                + "    }\n"
+                + "  )\n"
+                + "}", true));
+        WorkflowRun run = job.scheduleBuild2(0).get();
+        jenkinsRule.getLog(run);
+        jenkinsRule.assertBuildStatus(Result.SUCCESS, run);
+        jenkinsRule.assertLogNotContains(Messages.xUnitProcessor_emptyReport(), run);
+    }
+
 }
