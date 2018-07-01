@@ -55,7 +55,7 @@ public class FailedThresholdDescriptor extends XUnitThresholdDescriptor<FailedTh
 
     @Override
     public String getUnstableNewThresholdImgTitle() {
-        return Messages.failureNewThreshold_failedTests();
+        return Messages.unstableNewThreshold_failedTests();
     }
 
     @Override

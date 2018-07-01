@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014, Gregory Boissinot
+ * Copyright (c) 2018, Falco Nikolas
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -28,49 +28,45 @@ import org.jenkinsci.Symbol;
 
 import hudson.Extension;
 
-/**
- * @author Gregory Boissinot
- */
-@Symbol("skipped")
+@Symbol("passed")
 @Extension
-public class SkippedThresholdDescriptor extends XUnitThresholdDescriptor<SkippedThreshold> {
+public class PassedThresholdDescriptor extends XUnitThresholdDescriptor<PassedThreshold> {
 
-    public SkippedThresholdDescriptor() {
-        super(SkippedThreshold.class);
+    public PassedThresholdDescriptor() {
+        super(PassedThreshold.class);
     }
 
-    public SkippedThresholdDescriptor(Class<? extends XUnitThreshold> clazz) {
+    public PassedThresholdDescriptor(Class<? extends XUnitThreshold> clazz) {
         super(clazz);
     }
 
     @Override
     public String getDisplayName() {
-        return Messages.displayName_skippedTests();
+        return Messages.PassedThreshold_displayName();
     }
 
     @Override
     public String getUnstableThresholdImgTitle() {
-        return Messages.unstableThreshold_skippedTests();
+        return Messages.PassedThreshold_unstableThreshold();
     }
 
     @Override
     public String getUnstableNewThresholdImgTitle() {
-        return Messages.unstableNewThreshold_skippedTests();
+        return Messages.PassedThreshold_unstableNewThreshold();
     }
 
     @Override
     public String getFailureThresholdImgTitle() {
-        return Messages.failureThreshold_skippedTests();
+        return Messages.PassedThreshold_failureThreshold();
     }
 
     @Override
     public String getFailureNewThresholdImgTitle() {
-        return Messages.failureNewThreshold_skippedTests();
+        return Messages.PassedThreshold_failureNewThreshold();
     }
 
     @Override
     public String getThresholdHelpMessage() {
-        return Messages.thresholdHelpMessage_skippedTests();
+        return Messages.PassedThreshold_thresholdHelpMessage();
     }
-
 }

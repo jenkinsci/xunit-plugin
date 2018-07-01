@@ -66,7 +66,7 @@ public abstract class XUnitThreshold implements ExtensionPoint, Serializable, De
     }
 
     public static DescriptorExtensionList<XUnitThreshold, XUnitThresholdDescriptor<?>> all() {
-        return Jenkins.getActiveInstance().<XUnitThreshold, XUnitThresholdDescriptor<?>>getDescriptorList(XUnitThreshold.class);
+        return Jenkins.getActiveInstance().<XUnitThreshold, XUnitThresholdDescriptor<?>> getDescriptorList(XUnitThreshold.class);
     }
 
     public String getUnstableThreshold() {
@@ -115,69 +115,63 @@ public abstract class XUnitThreshold implements ExtensionPoint, Serializable, De
                                                      TestResult testResultAction,
                                                      TestResult previousTestResultAction);
 
-    public Result getResultThresholdNumber(XUnitLog log,
-                                           int testCount,
-                                           int newTestCount) {
+    public abstract boolean isValidThreshold(double threshold, double value);
 
-        if (isValid(getFailureThreshold())
-                && (convertToInteger(getFailureThreshold()) < testCount)) {
-            log.info(Messages.XUnitThreshold_thresholdErrorMessage("total", "failure"));
+    public Result getResultThresholdNumber(XUnitLog log, int testCount, int newTestCount) {
+
+        String thresholdName = this.getDescriptor().getDisplayName();
+
+        if (isValid(getFailureThreshold()) && !isValidThreshold(asInteger(getFailureThreshold()), testCount)) {
+            log.info(Messages.XUnitThreshold_threshold_message(thresholdName, Messages.XUnitThreshold_failureThreshold_name()));
             return Result.FAILURE;
         }
 
-        if (isValid(getFailureNewThreshold())
-                && (convertToInteger(getFailureNewThreshold()) < newTestCount)) {
-            log.info(Messages.XUnitThreshold_thresholdErrorMessage("new", "new failure"));
+        if (isValid(getFailureNewThreshold()) && !isValidThreshold(asInteger(getFailureNewThreshold()), newTestCount)) {
+            log.info(Messages.XUnitThreshold_newThreshold_message(thresholdName, Messages.XUnitThreshold_failureNewThreshold_name()));
             return Result.FAILURE;
         }
 
-        if (isValid(getUnstableThreshold())
-                && (convertToInteger(getUnstableThreshold()) < testCount)) {
-            log.info(Messages.XUnitThreshold_thresholdErrorMessage("total", "unstable"));
+        if (isValid(getUnstableThreshold()) && !isValidThreshold(asInteger(getUnstableThreshold()), testCount)) {
+            log.info(Messages.XUnitThreshold_threshold_message(thresholdName, Messages.XUnitThreshold_unstableThreshold_name()));
             return Result.UNSTABLE;
         }
 
-        if (isValid(getUnstableNewThreshold())
-                && (convertToInteger(getUnstableNewThreshold()) < newTestCount)) {
-            log.info(Messages.XUnitThreshold_thresholdErrorMessage("new", "new unstable"));
-            return Result.UNSTABLE;
-        }
-
-        return Result.SUCCESS;
-    }
-
-    public Result getResultThresholdPercent(XUnitLog log,
-                                            double testPercent,
-                                            double newTestPercent) {
-
-        if (isValid(getFailureThreshold())
-                && (convertToInteger(getFailureThreshold()) < testPercent)) {
-            log.info(Messages.XUnitThreshold_percentThresholdErrorMessage("of the total number of", "failure"));
-            return Result.FAILURE;
-        }
-
-        if (isValid(getFailureNewThreshold())
-                && (convertToInteger(getFailureNewThreshold()) < newTestPercent)) {
-            log.info(Messages.XUnitThreshold_percentThresholdErrorMessage("of the new number of", "new failure"));
-            return Result.FAILURE;
-        }
-
-        if (isValid(getUnstableThreshold())
-                && (convertToInteger(getUnstableThreshold()) < testPercent)) {
-            log.info(Messages.XUnitThreshold_percentThresholdErrorMessage("of", "unstable"));
-            return Result.UNSTABLE;
-        }
-
-        if (isValid(getUnstableNewThreshold())
-                && (convertToInteger(getUnstableNewThreshold()) < newTestPercent)) {
-            log.info(Messages.XUnitThreshold_percentThresholdErrorMessage("of the new number of", "new unstable"));
+        if (isValid(getUnstableNewThreshold()) && !isValidThreshold(asInteger(getUnstableNewThreshold()), newTestCount)) {
+            log.info(Messages.XUnitThreshold_newThreshold_message(thresholdName, Messages.XUnitThreshold_unstableNewThreshold_name()));
             return Result.UNSTABLE;
         }
 
         return Result.SUCCESS;
     }
 
-    private int convertToInteger(String threshold) {
+    public Result getResultThresholdPercent(XUnitLog log, double testPercent, double newTestPercent) {
+
+        String thresholdName = this.getDescriptor().getDisplayName();
+
+        if (isValid(getFailureThreshold()) && !isValidThreshold(asInteger(getFailureThreshold()), testPercent)) {
+            log.info(Messages.XUnitThreshold_threshold_message(thresholdName, Messages.XUnitThreshold_failureThreshold_name()));
+            return Result.FAILURE;
+        }
+
+        if (isValid(getFailureNewThreshold()) && !isValidThreshold(asInteger(getFailureNewThreshold()), newTestPercent)) {
+            log.info(Messages.XUnitThreshold_newThreshold_message(thresholdName, Messages.XUnitThreshold_failureNewThreshold_name()));
+            return Result.FAILURE;
+        }
+
+        if (isValid(getUnstableThreshold()) && !isValidThreshold(asInteger(getUnstableThreshold()), testPercent)) {
+            log.info(Messages.XUnitThreshold_threshold_message(thresholdName, Messages.XUnitThreshold_unstableThreshold_name()));
+            return Result.UNSTABLE;
+        }
+
+        if (isValid(getUnstableNewThreshold()) && !isValidThreshold(asInteger(getUnstableNewThreshold()), newTestPercent)) {
+            log.info(Messages.XUnitThreshold_newThreshold_message(thresholdName, Messages.XUnitThreshold_unstableNewThreshold_name()));
+            return Result.UNSTABLE;
+        }
+
+        return Result.SUCCESS;
+    }
+
+    private int asInteger(String threshold) {
         return Integer.parseInt(threshold);
     }
 

@@ -73,4 +73,9 @@ public class FailedThreshold extends XUnitThreshold {
         return getResultThresholdPercent(log, percentFailed, percentNewFailed);
     }
 
+    @Override
+    public boolean isValidThreshold(double threshold, double value) {
+        return value <= threshold;
+    }
+
 }

@@ -34,46 +34,48 @@ import hudson.tasks.junit.TestResult;
 /**
  * @author Gregory Boissinot
  */
-public class SkippedThreshold extends XUnitThreshold {
+public class PassedThreshold extends XUnitThreshold {
 
     @DataBoundConstructor
-    public SkippedThreshold() {
+    public PassedThreshold() {
     }
 
     @Override
     public Result getResultThresholdNumber(XUnitLog log, Run<?, ?> build, TestResult testResultAction, TestResult previousTestResultAction) {
 
-        int skipCount = testResultAction.getSkipCount();
+        int passedCount = testResultAction.getPassCount();
 
-        int previousSkipCount = 0;
+        int previousPassedCount = 0;
         if (previousTestResultAction != null) {
-            previousSkipCount = previousTestResultAction.getSkipCount();
+            previousPassedCount = previousTestResultAction.getPassCount();
         }
-        int newSkipCount = skipCount - previousSkipCount;
+        int newPassedCount = passedCount - previousPassedCount;
 
-        return getResultThresholdNumber(log, skipCount, newSkipCount);
+
+        return getResultThresholdNumber(log, passedCount, newPassedCount);
     }
 
     @Override
     public Result getResultThresholdPercent(XUnitLog log, Run<?, ?> build, TestResult testResultAction, TestResult previousTestResultAction) {
 
-        int count = testResultAction.getTotalCount();
-        int skippedCount = testResultAction.getSkipCount();
-        int percentSkipped = (count == 0) ? 0 : (skippedCount * 100 / count);
+        double count = testResultAction.getTotalCount();
 
-        int previousSkippedCount = 0;
+        double passedCount = testResultAction.getPassCount();
+        double percentPassed = (passedCount / count) * 100;
+
+        double previousPassedCount = 0;
         if (previousTestResultAction != null) {
-            previousSkippedCount = previousTestResultAction.getSkipCount();
+            previousPassedCount = previousTestResultAction.getPassCount();
         }
-        int newSkippedCount = skippedCount - previousSkippedCount;
-        int percentNewSkipped = (count == 0) ? 0 : (newSkippedCount  * 100 / count);
+        double newPassedCount = passedCount - previousPassedCount;
+        double percentNewPassed = (newPassedCount / count) * 100;
 
-        return getResultThresholdPercent(log, percentSkipped, percentNewSkipped);
+        return getResultThresholdPercent(log, percentPassed, percentNewPassed);
     }
 
     @Override
     public boolean isValidThreshold(double threshold, double value) {
-        return value <= threshold;
+        return value >= threshold;
     }
 
 }

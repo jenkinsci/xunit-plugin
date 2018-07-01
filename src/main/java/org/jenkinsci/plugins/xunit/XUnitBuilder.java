@@ -32,6 +32,7 @@ import javax.annotation.CheckForNull;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
+import org.jenkinsci.plugins.xunit.threshold.PassedThreshold;
 import org.jenkinsci.plugins.xunit.threshold.SkippedThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThresholdDescriptor;
@@ -52,7 +53,7 @@ import hudson.tasks.Builder;
 import jenkins.tasks.SimpleBuildStep;
 
 /**
- * Class that converting custom reports to Junit reports and records them.
+ * Class that converting custom reports to JUnit reports and records them.
  *
  * @author Gregory Boissinot
  * @deprecated Use {@link XUnitPublisher} instead of this.
@@ -150,7 +151,8 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
         public XUnitThreshold[] getListXUnitThresholdInstance() {
             return new XUnitThreshold[]{
                     new FailedThreshold(),
-                    new SkippedThreshold()
+                    new SkippedThreshold(),
+                    new PassedThreshold()
             };
         }
     }
