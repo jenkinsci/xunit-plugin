@@ -129,7 +129,6 @@ public class XUnitWorkflowTest {
                 + "  )\n"
                 + "}", true));
         WorkflowRun run = job.scheduleBuild2(0).get();
-        jenkinsRule.getLog(run);
         jenkinsRule.assertBuildStatus(Result.SUCCESS, run);
         jenkinsRule.assertLogNotContains(Messages.xUnitProcessor_emptyReport(), run);
     }
