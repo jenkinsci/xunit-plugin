@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite errors="0" skipped="0" name="/srv/storage/jenkins/workspace/kex-update-unittest/tests/test-manifest_v2" tests="28" time="0.021" failures="0">
+        <testcase classname="manifest_v2.is_type_match" name="invalid_args" time="0.000" />
+        <testcase classname="manifest_v2.is_type_match" name="valid" time="0.000" />
+        <testcase classname="manifest_v2.is_type_match" name="valid_not_found" time="0.000" />
+        <testcase classname="manifest_v2.is_type_match" name="metatype_all" time="0.000" />
+        <testcase classname="manifest_v2.is_type_match" name="metatype_firmware" time="0.000" />
+        <testcase classname="manifest_v2.field_contains_entry" name="invalid" time="0.000" />
+        <testcase classname="manifest_v2.field_contains_entry" name="no_match" time="0.000" />
+        <testcase classname="manifest_v2.field_contains_entry" name="match" time="0.000" />
+        <testcase classname="manifest_v2.split_key_value" name="invalid_args" time="0.000" />
+        <testcase classname="manifest_v2.manifest_get_version_v2" name="valid" time="0.002" />
+        <testcase classname="manifest_v2.manifest_get_version_v2" name="not_present" time="0.000" />
+        <testcase classname="manifest_v2.manifest_get_version_v2" name="invalid" time="0.000" />
+        <testcase classname="manifest_v2.calculate_manifest_checksum_v2" name="invalid_arguments" time="0.000" />
+        <testcase classname="manifest_v2.calculate_manifest_checksum_v2" name="valid" time="0.000" />
+        <testcase classname="manifest_v2.get_manifest_checksum_field_value_v2" name="valid" time="0.000" />
+        <testcase classname="manifest_v2.get_manifest_checksum_field_value_v2" name="not_present" time="0.000" />
+        <testcase classname="manifest_v2.get_manifest_checksum_field_value_v2" name="empty_data" time="0.000" />
+        <testcase classname="manifest_v2.validate_manifest_data_checksum_v2" name="valid" time="0.000" />
+        <testcase classname="manifest_v2.validate_manifest_data_checksum_v2" name="invalid_args" time="0.000" />
+        <testcase classname="manifest_v2.validate_manifest_data_checksum_v2" name="empty_data" time="0.000" />
+        <testcase classname="manifest_v2.validate_manifest_data_checksum_v2" name="multiple_checksum" time="0.000" />
+        <testcase classname="manifest_v2.validate_manifest_data_checksum_v2" name="invalid_checksum" time="0.000" />
+        <testcase classname="manifest_v2.manifest_add_file_parameter" name="valid" time="0.000" />
+        <testcase classname="manifest_v2.manifest_create_component" name="valid" time="0.000" />
+        <testcase classname="manifest_v2.manifest_create_component" name="no_filename" time="0.000" />
+        <testcase classname="manifest.manifest_parse_data" name="valid_file" time="0.001" />
+        <testcase classname="manifest.manifest_parse_data" name="valid_file_two_sections" time="0.000" />
+        <testcase classname="manifest.manifest_get_version" name="valid" time="0.000" />
+    </testsuite>
+</testsuites>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite errors="0" name="binding" tests="4" time="0.104" failures="1" skipped="0">
+        <testcase classname="binding" name="fail" time="0.000">
+            <failure message="exit-status=-256"><![CDATA[error message]]></failure>
+            <system-out><![CDATA[message row 1
+message row 2]]></system-out>
+        </testcase>
+        <testcase classname="binding" name="default" time="0.000" />
+        <testcase classname="binding" name="bidirectional" time="0.000" />
+        <testcase classname="binding" name="binding" time="0.000" />
+    </testsuite>
+</testsuites>
+

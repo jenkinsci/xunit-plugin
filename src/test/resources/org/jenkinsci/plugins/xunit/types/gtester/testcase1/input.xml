@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<gtester>
+    <testbinary path="binding">
+        <binary file="/home/shared/gnome/src/glib/gobject/tests/.libs/lt-binding" />
+        <random-seed>R02S74e68fd98de232755beacd96cfe4f7af</random-seed>
+        <testcase path="/binding/transform-closure">
+            <duration>0.000163</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/binding/chain">
+            <message>Bug Reference: http://bugzilla.gnome.org/621782</message>
+            <duration>0.000213</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/binding/unbind">
+            <message>GLib-GObject-MESSAGE: Random message on stdout</message>
+            <duration>0.000314</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/binding/fail">
+            <error>GLib-GObject-FATAL-WARNING: gbinding.c:273: Unable to convert a value of type gdouble to a value of type gboolean</error>
+            <duration>0.000000</duration>
+            <status exit-status="-256" n-forks="0" result="failed" />
+        </testcase>
+        <duration>0.104294</duration>
+    </testbinary>
+    <testbinary path="binding">
+        <binary file="/home/shared/gnome/src/glib/gobject/tests/.libs/lt-binding" />
+        <random-seed>R02S9d7da7d56b7a76471f2972b1df73a109</random-seed>
+        <testcase path="/binding/default" skipped="1" />
+        <testcase path="/binding/bidirectional" skipped="1" />
+        <testcase path="/binding/transform" skipped="1" />
+        <testcase path="/binding/transform-default" skipped="1" />
+        <testcase path="/binding/transform-closure" skipped="1" />
+        <testcase path="/binding/chain" skipped="1" />
+        <testcase path="/binding/sync-create" skipped="1" />
+        <testcase path="/binding/invert-boolean" skipped="1" />
+        <testcase path="/binding/same-object" skipped="1" />
+        <testcase path="/binding/unbind" skipped="1" />
+        <testcase path="/binding/fail" skipped="1" />
+        <duration>0.016317</duration>
+    </testbinary>
+</gtester>

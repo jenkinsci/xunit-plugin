@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<gtester>
+    <testbinary path="binding">
+        <binary file="/home/shared/gnome/src/glib/gobject/tests/.libs/lt-binding" />
+        <random-seed>R02S74e68fd98de232755beacd96cfe4f7af</random-seed>
+        <testcase path="/binding/fail">
+            <error>error message</error>
+            <message>message row 1</message>
+            <message>message row 2</message>
+            <duration>0.000000</duration>
+            <status exit-status="-256" n-forks="0" result="failed" />
+        </testcase>
+        <testcase path="/binding/default/">
+            <duration>0.000000</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="binding/bidirectional">
+            <duration>0.000000</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="binding">
+            <duration>0.000000</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <duration>0.104294</duration>
+    </testbinary>
+</gtester>
