@@ -26,8 +26,11 @@ package org.jenkinsci.plugins.xunit;
 import java.io.IOException;
 
 import org.jenkinsci.lib.dtkit.type.TestType;
+import org.jenkinsci.plugins.workflow.job.WorkflowJob;
 import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
+import org.jenkinsci.plugins.xunit.types.CppTestJunitHudsonTestType;
+import org.jenkinsci.plugins.xunit.types.GoogleTestType;
 import org.jenkinsci.plugins.xunit.types.JUnitType;
 import org.junit.Assert;
 import org.junit.Rule;
@@ -110,6 +113,27 @@ public class XUnitPublisherTest {
         Assert.assertNotNull(testResultAction);
         Assert.assertEquals(9, testResultAction.getTotalCount());
         Assert.assertEquals(4, testResultAction.getFailCount());
+    }
+
+    @LocalData
+    @Issue("JENKINS-52253")
+    @Test
+    public void process_multiple_tools() throws Exception {
+        FreeStyleProject job = jenkinsRule.jenkins.createProject(FreeStyleProject.class, "JENKINS-52253");
+
+        TestType[] tools = new TestType[] { new GoogleTestType("googletest.xml", false, false, true, true),
+                                            new CppTestJunitHudsonTestType("cpptest.xml", false, false, true, true) };
+
+        job.getPublishersList().add(new XUnitPublisher(tools, new XUnitThreshold[] {}, 1, "3000"));
+
+        FreeStyleBuild build = job.scheduleBuild2(0).get();
+        jenkinsRule.assertBuildStatus(Result.SUCCESS, build);
+
+        TestResultAction testResultAction = build.getAction(TestResultAction.class);
+        Assert.assertNotNull(testResultAction);
+        Assert.assertEquals(5, testResultAction.getTotalCount());
+        Assert.assertEquals(2, testResultAction.getFailCount());
+        Assert.assertEquals(1, testResultAction.getSkipCount());
     }
 
 }
