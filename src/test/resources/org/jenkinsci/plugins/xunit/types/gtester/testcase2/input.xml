@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<gtester>
+    <testbinary path="/srv/storage/jenkins/workspace/kex-update-unittest/tests/test-manifest_v2">
+        <binary file="/srv/storage/jenkins/workspace/kex-update-unittest/tests/test-manifest_v2" />
+        <random-seed>R02S8f9523fcc26c4af3a4f965f396617aea</random-seed>
+        <testcase path="/manifest_v2/is_type_match/invalid_args">
+            <duration>0.000014</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/manifest_v2/is_type_match/valid">
+            <duration>0.000013</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/manifest_v2/is_type_match/valid_not_found">
+            <duration>0.000011</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/manifest_v2/is_type_match/metatype_all">
+            <duration>0.000010</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/manifest_v2/is_type_match/metatype_firmware">
+            <duration>0.000015</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/manifest_v2/field_contains_entry/invalid">
+            <duration>0.000020</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/manifest_v2/field_contains_entry/no_match">
+            <duration>0.000022</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/manifest_v2/field_contains_entry/match">
+            <duration>0.000025</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/manifest_v2/split_key_value/invalid_args">
+            <duration>0.000016</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/manifest_v2/manifest_get_version_v2/valid">
+            <message>kex-update-MESSAGE: detecting manifest version 2</message>
+            <message>kex-update-MESSAGE: detecting manifest version 2</message>
+            <duration>0.002184</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/manifest_v2/manifest_get_version_v2/not_present">
+            <duration>0.000016</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/manifest_v2/manifest_get_version_v2/invalid">
+            <duration>0.000017</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/manifest_v2/calculate_manifest_checksum_v2/invalid_arguments">
+            <duration>0.000016</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/manifest_v2/calculate_manifest_checksum_v2/valid">
+            <duration>0.000040</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/manifest_v2/get_manifest_checksum_field_value_v2/valid">
+            <duration>0.000333</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/manifest_v2/get_manifest_checksum_field_value_v2/not_present">
+            <duration>0.000025</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/manifest_v2/get_manifest_checksum_field_value_v2/empty_data">
+            <duration>0.000012</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/manifest_v2/validate_manifest_data_checksum_v2/valid">
+            <duration>0.000049</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/manifest_v2/validate_manifest_data_checksum_v2/invalid_args">
+            <duration>0.000011</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/manifest_v2/validate_manifest_data_checksum_v2/empty_data">
+            <duration>0.000019</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/manifest_v2/validate_manifest_data_checksum_v2/multiple_checksum">
+            <duration>0.000030</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/manifest_v2/validate_manifest_data_checksum_v2/invalid_checksum">
+            <duration>0.000053</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/manifest_v2/manifest_add_file_parameter/valid">
+            <duration>0.000022</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/manifest_v2/manifest_create_component/valid">
+            <message>kex-update-MESSAGE: Manifest create component: &apos;blubber&apos;.</message>
+            <duration>0.000046</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/manifest_v2/manifest_create_component/no_filename">
+            <duration>0.000018</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/manifest/manifest_parse_data/valid_file">
+            <message>kex-update-MESSAGE: detecting manifest version 2</message>
+            <message>kex-update-MESSAGE: Parsing Manifest version 2.</message>
+            <message>kex-update-DEBUG: MANIFESTVERSION=2</message>
+            <message>kex-update-DEBUG: FILENAME=ipmi.tgz</message>
+            <message>kex-update-DEBUG: CKSUM=4138343587</message>
+            <message>kex-update-DEBUG: TYPE=IPMI</message>
+            <message>kex-update-DEBUG: EXECUTE=GENERIC</message>
+            <message>kex-update-DEBUG: VARIANT=0 1</message>
+            <message>kex-update-DEBUG: PRODUCTID=S1704</message>
+            <message>kex-update-DEBUG: MANUFACTURER=15000</message>
+            <message>kex-update-DEBUG: REL=00.00.0000</message>
+            <message>kex-update-DEBUG: VER=0.00</message>
+            <message>kex-update-DEBUG: RELDATE=20052014</message>
+            <message>kex-update-DEBUG: MANIFESTCKSUM=1626325843</message>
+            <message>kex-update-DEBUG: backend GENERIC</message>
+            <message>kex-update-MESSAGE: Manifest create component: &apos;ipmi.tgz&apos;.</message>
+            <message>kex-update-DEBUG: add component &quot;ipmi.tgz&quot; to manifest</message>
+            <duration>0.000578</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/manifest/manifest_parse_data/valid_file_two_sections">
+            <message>kex-update-MESSAGE: detecting manifest version 2</message>
+            <message>kex-update-MESSAGE: Parsing Manifest version 2.</message>
+            <message>kex-update-DEBUG: MANIFESTVERSION=2</message>
+            <message>kex-update-DEBUG: FILENAME=01bootmon.bin</message>
+            <message>kex-update-DEBUG: CKSUM=2171775559</message>
+            <message>kex-update-DEBUG: TYPE=UBOOT</message>
+            <message>kex-update-DEBUG: EXECUTE=FLASH</message>
+            <message>kex-update-DEBUG: PARAMETERS=mtd0</message>
+            <message>kex-update-DEBUG: VARIANT=0</message>
+            <message>kex-update-DEBUG: PRODUCTID=S1704</message>
+            <message>kex-update-DEBUG: MANUFACTURER=15000</message>
+            <message>kex-update-DEBUG: REL=00.00.0000</message>
+            <message>kex-update-DEBUG: VER=0.00</message>
+            <message>kex-update-DEBUG: RELDATE=20052014</message>
+            <message>kex-update-DEBUG: backend FLASH</message>
+            <message>kex-update-MESSAGE: Manifest create component: &apos;01bootmon.bin&apos;.</message>
+            <message>kex-update-DEBUG: add component &quot;01bootmon.bin&quot; to manifest</message>
+            <message>kex-update-DEBUG: FILENAME=03system.bin</message>
+            <message>kex-update-DEBUG: CKSUM=17254058</message>
+            <message>kex-update-DEBUG: TYPE=SYSTEM</message>
+            <message>kex-update-DEBUG: EXECUTE=FLASH</message>
+            <message>kex-update-DEBUG: PARAMETERS=mtd3</message>
+            <message>kex-update-DEBUG: VARIANT=0</message>
+            <message>kex-update-DEBUG: PRODUCTID=S1704</message>
+            <message>kex-update-DEBUG: MANUFACTURER=15000</message>
+            <message>kex-update-DEBUG: REL=00.00.0000</message>
+            <message>kex-update-DEBUG: VER=0.00</message>
+            <message>kex-update-DEBUG: RELDATE=20052014</message>
+            <message>kex-update-DEBUG: MANIFESTCKSUM=191363723</message>
+            <message>kex-update-DEBUG: backend FLASH</message>
+            <message>kex-update-MESSAGE: Manifest create component: &apos;03system.bin&apos;.</message>
+            <message>kex-update-DEBUG: add component &quot;03system.bin&quot; to manifest</message>
+            <duration>0.000272</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <testcase path="/manifest/manifest_get_version/valid">
+            <message>kex-update-MESSAGE: detecting manifest version 2</message>
+            <duration>0.000027</duration>
+            <status exit-status="0" n-forks="0" result="success" />
+        </testcase>
+        <duration>0.020768</duration>
+    </testbinary>
+</gtester>

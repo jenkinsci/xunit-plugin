@@ -53,7 +53,7 @@ public class GTester extends InputMetricXSL {
 
     @Override
     public String getXslName() {
-        return "gtester-to-junit-4.xsl";
+        return "gtester-to-junit.xsl";
     }
 
     @Override
