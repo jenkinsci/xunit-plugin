@@ -36,7 +36,7 @@ import org.jenkinsci.plugins.xunit.XUnitDefaultValues;
 import hudson.remoting.VirtualChannel;
 import jenkins.MasterToSlaveFileCallable;
 
-public class XUnitTransformerCallable extends MasterToSlaveFileCallable<Void> {
+public class XUnitTransformerCallable extends MasterToSlaveFileCallable<Integer> {
     private static final long serialVersionUID = -8111801428220302087L;
 
     private XUnitReportProcessorService xUnitReportProcessorService;
@@ -71,7 +71,9 @@ public class XUnitTransformerCallable extends MasterToSlaveFileCallable<Void> {
      *         are transformed into JUnit report.
      */
     @Override
-    public Void invoke(File ws, VirtualChannel channel) throws IOException, InterruptedException {
+    public Integer invoke(File ws, VirtualChannel channel) throws IOException, InterruptedException {
+        int processedFiles = 0;
+
         File junitOutputDir = new File(ws, XUnitDefaultValues.GENERATED_JUNIT_DIR);
         if (processorId != null) {
             junitOutputDir = new File(junitOutputDir, processorId);
@@ -127,8 +129,10 @@ public class XUnitTransformerCallable extends MasterToSlaveFileCallable<Void> {
                     throw new TransformerException(msg);
                 }
             }
+
+            processedFiles++;
         }
-        return null;
+        return processedFiles;
     }
 
     public String getProcessorId() {

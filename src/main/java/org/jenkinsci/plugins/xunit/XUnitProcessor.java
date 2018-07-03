@@ -143,9 +143,9 @@ public class XUnitProcessor {
         logger = new XUnitLog(listener);
         logger.info("Starting to record.");
 
-        boolean success = processTestsReport(build, workspace, listener);
+        int processedReports = processTestsReport(build, workspace, listener);
 
-        if (!success) {
+        if (processedReports == 0) {
             logger.info("Skipping tests recording.");
             return;
         }
@@ -153,17 +153,18 @@ public class XUnitProcessor {
         TestResult testResult = recordTestResult(build, workspace, listener);
 
         processDeletion(workspace);
+
         Result result = getBuildStatus(testResult, build);
-        if (result != null) {
-            logger.info("Setting the build status to " + result);
-            build.setResult(result);
-        }
+        logger.info("Setting the build status to " + result);
+        build.setResult(result);
         logger.info("Stopping recording.");
     }
 
-    private boolean processTestsReport(Run<?, ?> build,
+    private int processTestsReport(Run<?, ?> build,
                                        FilePath workspace,
                                        TaskListener listener) throws IOException, InterruptedException {
+        int processedReports = 0;
+
         XUnitReportProcessorService xUnitReportService = new XUnitReportProcessorService(logger);
         for (TestType tool : tools) {
             logger.info("Processing " + tool.getDescriptor().getDisplayName());
@@ -173,8 +174,7 @@ public class XUnitProcessor {
                 XUnitToolInfo xUnitToolInfo = buildXUnitToolInfo(tool, expandedPattern, build, workspace, listener);
                 XUnitTransformerCallable xUnitTransformer = newXUnitTransformer(xUnitToolInfo);
                 try {
-                    workspace.act(xUnitTransformer);
-                    return true;
+                    processedReports += workspace.act(xUnitTransformer);
                 } catch (NoTestFoundException e) {
                     if (xUnitToolInfo.isSkipNoTestFiles()) {
                         logger.info(e.getMessage());
@@ -184,7 +184,8 @@ public class XUnitProcessor {
                 }
             }
         }
-        return false;
+
+        return processedReports;
     }
 
     private boolean isEmptyGivenPattern(XUnitReportProcessorService xUnitReportService, TestType tool) {
