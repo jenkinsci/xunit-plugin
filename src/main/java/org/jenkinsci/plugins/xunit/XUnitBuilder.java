@@ -32,7 +32,6 @@ import javax.annotation.CheckForNull;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
-import org.jenkinsci.plugins.xunit.threshold.PassedThreshold;
 import org.jenkinsci.plugins.xunit.threshold.SkippedThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThresholdDescriptor;
@@ -151,8 +150,8 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
         public XUnitThreshold[] getListXUnitThresholdInstance() {
             return new XUnitThreshold[]{
                     new FailedThreshold(),
-                    new SkippedThreshold(),
-                    new PassedThreshold()
+                    new SkippedThreshold()/*,
+                    new PassedThreshold()*/
             };
         }
     }
