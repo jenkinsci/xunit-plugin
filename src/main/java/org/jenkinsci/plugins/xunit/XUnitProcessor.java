@@ -52,6 +52,7 @@ import org.jenkinsci.plugins.xunit.service.XUnitTransformerCallable;
 import org.jenkinsci.plugins.xunit.service.XUnitValidationService;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
 import org.jenkinsci.plugins.xunit.types.CustomType;
+import org.jenkinsci.plugins.xunit.util.DownloadableResourceUtil;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
@@ -170,8 +171,7 @@ public class XUnitProcessor {
             logger.info("Processing " + tool.getDescriptor().getDisplayName());
 
             if (!isEmptyGivenPattern(xUnitReportService, tool)) {
-                String expandedPattern = getExpandedResolvedPattern(tool, build, listener);
-                XUnitToolInfo xUnitToolInfo = buildXUnitToolInfo(tool, expandedPattern, build, workspace, listener);
+                XUnitToolInfo xUnitToolInfo = buildXUnitToolInfo(tool, build, workspace, listener);
                 XUnitTransformerCallable xUnitTransformer = newXUnitTransformer(xUnitToolInfo);
                 try {
                     processedReports += workspace.act(xUnitTransformer);
@@ -201,7 +201,6 @@ public class XUnitProcessor {
     }
 
     private XUnitToolInfo buildXUnitToolInfo(final TestType tool,
-                                             final String pattern,
                                              final Run<?, ?> build,
                                              final FilePath workspace,
                                              final TaskListener listener) throws IOException, InterruptedException {
@@ -223,20 +222,23 @@ public class XUnitProcessor {
         } else if (inputMetric instanceof InputMetricXSL) {
             xslContent = getUserStylesheet(tool);
         }
-        return new XUnitToolInfo(inputMetric, pattern, tool.isSkipNoTestFiles(), tool.isFailIfNotNew(), tool.isDeleteOutputFiles(), tool.isStopProcessingIfError(), build.getTimeInMillis(), this.extraConfiguration.getTestTimeMargin(), xslContent);
 
+        final String pattern = getExpandedResolvedPattern(tool, build, listener);
+
+        return new XUnitToolInfo(inputMetric, pattern, tool.isSkipNoTestFiles(), tool.isFailIfNotNew(), tool.isDeleteOutputFiles(), tool.isStopProcessingIfError(), build.getTimeInMillis(), this.extraConfiguration.getTestTimeMargin(), xslContent);
     }
 
     private String getUserStylesheet(final TestType tool) throws IOException, InterruptedException {
-        InputMetricXSL inputMetricXSL = (InputMetricXSL) tool.getInputMetric();
         File userContent = new File(Jenkins.getActiveInstance().getRootDir(), "userContent");
-        File userXSLFilePath = new File(userContent, inputMetricXSL.getUserContentXSLDirRelativePath());
+
+        InputMetricXSL inputMetricXSL = (InputMetricXSL) tool.getInputMetric();
+        FilePath userXSLFilePath = new FilePath(new File(userContent, inputMetricXSL.getUserContentXSLDirRelativePath()));
         if (!userXSLFilePath.exists()) {
             return null;
         }
+
         logger.info("Using the custom user stylesheet in JENKINS_HOME.");
-        FilePath xslFile = new FilePath(userXSLFilePath);
-        try (InputStream is = xslFile.read()) {
+        try (InputStream is = userXSLFilePath.read()) {
             return IOUtils.toString(is, "UTF-8");
         }
     }
@@ -247,18 +249,26 @@ public class XUnitProcessor {
                                        final TaskListener listener) throws IOException, InterruptedException {
 
         final String customXSLPath = Util.replaceMacro(((CustomType) tool).getCustomXSL(), build.getEnvironment(listener));
+        
+        // Try URL
+        if (DownloadableResourceUtil.isURL(customXSLPath)) {
+            return DownloadableResourceUtil.download(customXSLPath);
+        }
 
-        // Try full path
+        // Try full path on master
         FilePath customXSLFilePath = new FilePath(new File(customXSLPath));
         if (!customXSLFilePath.exists()) {
-            // Try from workspace
-            customXSLFilePath = workspace.child(customXSLPath);
+            // Try full path on slave
+            customXSLFilePath = new FilePath(workspace.getChannel(), customXSLPath);
+            if (!customXSLFilePath.exists()) {
+                // Try from workspace
+                customXSLFilePath = workspace.child(customXSLPath);
+                if (!customXSLFilePath.exists()) {
+                    throw new FileNotFoundException(Messages.xUnitProcessor_xslFileNotFound(customXSLPath));
+                }
+            }
         }
 
-        if (!customXSLFilePath.exists()) {
-            throw new FileNotFoundException(Messages.xUnitProcessor_xslFileNotFound(customXSLPath));
-        }
-        // FIXME it is on slave
         try (InputStream is = customXSLFilePath.read()) {
             return IOUtils.toString(is, "UTF-8");
         }
