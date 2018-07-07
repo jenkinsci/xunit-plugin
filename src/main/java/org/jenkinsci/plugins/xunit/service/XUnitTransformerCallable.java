@@ -62,8 +62,8 @@ public class XUnitTransformerCallable extends MasterToSlaveFileCallable<Integer>
     /**
      * Invocation
      *
-     * @param ws the Hudson workspace
-     * @param channel the Hudson chanel
+     * @param ws the Jenkins workspace
+     * @param channel the Jenkins channel
      * @return true or false if the conversion fails
      * @throws IOException in case an error occurs during communication with the
      *         Jenkins node where this callable is executed.

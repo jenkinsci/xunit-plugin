@@ -24,10 +24,9 @@
 
 package org.jenkinsci.plugins.xunit.service;
 
-import hudson.FilePath;
-import org.jenkinsci.lib.dtkit.model.InputMetric;
-
 import java.io.Serializable;
+
+import org.jenkinsci.lib.dtkit.model.InputMetric;
 
 public class XUnitToolInfo implements Serializable {
     private static final long serialVersionUID = 8171724502903934676L;

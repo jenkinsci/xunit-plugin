@@ -28,7 +28,7 @@ import com.google.inject.Singleton;
 import hudson.Util;
 import hudson.model.TaskListener;
 
-public class XUnitReportProcessorServiceTest {
+public class XUnitReportProcessorTest {
 
     private XUnitReportProcessorService xUnitReportProcessorService;
     @Rule

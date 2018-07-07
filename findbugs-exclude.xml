@@ -10,4 +10,8 @@
 		<Bug pattern="EI_EXPOSE_REP" />
 		<!-- getter are needed only for Snippet Generator, are not APIs -->
 	</Match>
+	<Match>
+		<Class name="org.jenkinsci.plugins.xunit.util.DownloadableResourceUtil" />
+		<Bug pattern="RCN_REDUNDANT_NULLCHECK_OF_NULL_VALUE" />
+	</Match>
 </FindBugsFilter>
