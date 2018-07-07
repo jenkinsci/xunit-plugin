@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="valgrind-memcheck" tests="1" errors="0" time="1.792" failures="0">
+    <testcase name="memleak-backend" />
+</testsuite>

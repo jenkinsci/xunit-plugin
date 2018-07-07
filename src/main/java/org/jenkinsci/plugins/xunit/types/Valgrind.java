@@ -52,7 +52,7 @@ public class Valgrind extends InputMetricXSL {
 
     @Override
     public String getXslName() {
-        return "valgrind-1.0-to-junit-2.0.xsl";
+        return "valgrind-1.0-to-junit.xsl";
     }
 
     @Override

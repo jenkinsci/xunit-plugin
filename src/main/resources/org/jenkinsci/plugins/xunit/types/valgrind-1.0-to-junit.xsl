@@ -2,7 +2,7 @@
 <!--
 The MIT License (MIT)
 
-Copyright (c) 2014, Gregory Boissinot
+Copyright (c) 2014, Gregory Boissinot, Falco Nikolas
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -22,8 +22,45 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-    <xsl:output method="xml" indent="yes"/>
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xunit="http://www.xunit.org">
+    <xsl:output method="xml" indent="yes" encoding="UTF-8" cdata-section-elements="system-out system-err failure"/>
+    <xsl:decimal-format decimal-separator="." grouping-separator=","/>
+
+    <xsl:function name="xunit:junit-time" as="xs:string">
+        <xsl:param name="value" as="xs:anyAtomicType?" />
+
+        <xsl:variable name="time" as="xs:double">
+            <xsl:choose>
+                <xsl:when test="$value instance of xs:double">
+                    <xsl:value-of select="$value" />
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="translate(string(xunit:if-empty($value, 0)), ',', '.')" />
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <xsl:value-of select="format-number($time, '0.000')" />
+    </xsl:function>
+
+    <xsl:function name="xunit:if-empty" as="xs:string">
+        <xsl:param name="value" as="xs:anyAtomicType?" />
+        <xsl:param name="default" as="xs:anyAtomicType" />
+        <xsl:value-of select="if (string($value) != '') then string($value) else $default" />
+    </xsl:function>
+
+    <xsl:function name="xunit:is-empty" as="xs:boolean">
+        <xsl:param name="value" as="xs:string?" />
+        <xsl:value-of select="string($value) != ''" />
+    </xsl:function>
+
+    <xsl:function name="xunit:millis-from-time" as="xs:double">
+        <xsl:param name="value" as="xs:string?" />
+
+        <xsl:variable name="formattedTime" select="xunit:if-empty(string($value), '00:00:00')" />
+        <xsl:variable name="formattedTime" select="replace(translate($formattedTime,',','.'), '^(\d:.+)', '0$1')" />
+        <xsl:variable name="time" select="xs:time($formattedTime)" />
+        <xsl:value-of select="hours-from-time($time)*3600 + minutes-from-time($time)*60 + seconds-from-time($time)" />
+    </xsl:function>
 
     <xsl:variable name="tool" select="/valgrindoutput/tool"/>
     <xsl:variable name="numerrors" select="count(/valgrindoutput/error)"/>
@@ -51,22 +88,29 @@ THE SOFTWARE.
     </xsl:variable>
 
     <xsl:template match="/valgrindoutput">
-        <xsl:choose>
-            <xsl:when test="$numerrors &gt;= 1">
-                <testsuite name="valgrind-{$tool}" errors="1" tests="1">
+        <xsl:variable name="startTime" select="xunit:millis-from-time(xunit:if-empty(substring(status/state[text() = 'RUNNING']/../time, 4), 0))" />
+        <xsl:variable name="endTime" select="xunit:millis-from-time(xunit:if-empty(substring(status/state[text() = 'FINISHED']/../time, 4), 0))" />
+
+        <xsl:element name="testsuite">
+            <xsl:attribute name="name" select="concat('valgrind-', $tool)" />
+            <xsl:attribute name="tests" select="1" />
+            <xsl:attribute name="errors" select="0" />
+            <xsl:attribute name="time" select="xunit:junit-time($endTime - $startTime)" />
+            <xsl:choose>
+                <xsl:when test="$numerrors &gt;= 1">
+                    <xsl:attribute name="failures" select="1" />
                     <testcase name="{$casename}">
                         <failure>
-                            <xsl:apply-templates select="error"/>
+                            <xsl:apply-templates select="error" />
                         </failure>
                     </testcase>
-                </testsuite>
-            </xsl:when>
-            <xsl:otherwise>
-                <testsuite name="valgrind-{$tool}" errors="0" tests="1">
-                    <testcase name="{$casename}"/>
-                </testsuite>
-            </xsl:otherwise>
-        </xsl:choose>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:attribute name="failures" select="0" />
+                    <testcase name="{$casename}" />
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:element>
     </xsl:template>
 
     <xsl:template match="error">
