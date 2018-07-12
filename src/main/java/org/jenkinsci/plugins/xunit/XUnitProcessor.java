@@ -44,6 +44,7 @@ import org.jenkinsci.lib.dtkit.model.InputMetric;
 import org.jenkinsci.lib.dtkit.model.InputMetricXSL;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.xunit.service.NoTestFoundException;
+import org.jenkinsci.plugins.xunit.service.TransformerException;
 import org.jenkinsci.plugins.xunit.service.XUnitConversionService;
 import org.jenkinsci.plugins.xunit.service.XUnitLog;
 import org.jenkinsci.plugins.xunit.service.XUnitReportProcessorService;
@@ -175,10 +176,17 @@ public class XUnitProcessor {
                 XUnitTransformerCallable xUnitTransformer = newXUnitTransformer(xUnitToolInfo);
                 try {
                     processedReports += workspace.act(xUnitTransformer);
-                } catch (NoTestFoundException e) {
-                    if (xUnitToolInfo.isSkipNoTestFiles()) {
-                        logger.info(e.getMessage());
-                        continue;
+                } catch (IOException e) {
+                    Throwable nested = unwrapSlaveException(e);
+
+                    // here I should get the original TransformerException
+                    if (nested instanceof NoTestFoundException) {
+                        if (xUnitToolInfo.isSkipNoTestFiles()) {
+                            logger.info(e.getMessage());
+                            continue;
+                        } else {
+                            throw (NoTestFoundException) nested;
+                        }
                     }
                     throw e;
                 }
@@ -186,6 +194,19 @@ public class XUnitProcessor {
         }
 
         return processedReports;
+    }
+
+    private Throwable unwrapSlaveException(IOException e) {
+        Throwable nested = e.getCause();
+        while (nested != null && !(nested instanceof TransformerException)) {
+            nested = e.getCause();
+        }
+
+        // there is wrapped exception that arrives from slave nodes
+        if (nested == null) {
+            nested = e;
+        }
+        return nested;
     }
 
     private boolean isEmptyGivenPattern(XUnitReportProcessorService xUnitReportService, TestType tool) {
@@ -249,7 +270,7 @@ public class XUnitProcessor {
                                        final TaskListener listener) throws IOException, InterruptedException {
 
         final String customXSLPath = Util.replaceMacro(((CustomType) tool).getCustomXSL(), build.getEnvironment(listener));
-        
+
         // Try URL
         if (DownloadableResourceUtil.isURL(customXSLPath)) {
             return DownloadableResourceUtil.download(customXSLPath);
