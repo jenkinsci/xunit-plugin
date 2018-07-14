@@ -24,7 +24,13 @@ THE SOFTWARE.
 package org.jenkinsci.plugins.xunit;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.google.common.collect.Lists;
+import hudson.tasks.junit.TestDataPublisher;
+import hudson.tasks.junit.TestResult;
+import hudson.tasks.junit.TestResultAction;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.workflow.job.WorkflowJob;
 import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
@@ -50,6 +56,11 @@ import hudson.model.TaskListener;
 import hudson.tasks.BuildStepDescriptor;
 import hudson.tasks.Publisher;
 import hudson.tasks.junit.TestResultAction;
+
+import javax.annotation.Nonnull;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 public class XUnitPublisherTest {
 
@@ -78,6 +89,21 @@ public class XUnitPublisherTest {
                     return true;
                 }
             };
+        }
+    }
+
+    public static class SpyDataPublisher extends TestDataPublisher
+    {
+        private boolean isCalled;
+
+        public boolean isCalled() {
+            return this.isCalled;
+        }
+
+        @Override
+        public TestResultAction.Data contributeTestData(Run<?, ?> run, @Nonnull FilePath workspace, Launcher launcher, TaskListener listener, TestResult testResult) throws IOException, InterruptedException {
+            this.isCalled = true;
+            return super.contributeTestData(run, workspace, launcher, listener, testResult);
         }
     }
 
@@ -134,6 +160,28 @@ public class XUnitPublisherTest {
         Assert.assertEquals(5, testResultAction.getTotalCount());
         Assert.assertEquals(2, testResultAction.getFailCount());
         Assert.assertEquals(1, testResultAction.getSkipCount());
+    }
+
+    @LocalData
+    @Issue("JENKINS-51645")
+    @Test
+    public void test_publishers_are_run() throws Exception {
+        FreeStyleProject job = jenkinsRule.jenkins.createProject(FreeStyleProject.class, "JENKINS-51645");
+
+        TestType[] tools = new TestType[] { new GoogleTestType("input.xml", false, false, false, true) };
+
+        XUnitPublisher publisher = new XUnitPublisher(tools, new XUnitThreshold[]{}, 1, "3000");
+
+        SpyDataPublisher dataPublisher = new SpyDataPublisher();
+        List<TestDataPublisher> dataPublishers = new ArrayList<>();
+        dataPublishers.add(dataPublisher);
+
+        publisher.setTestDataPublishers(dataPublishers);
+
+        job.getPublishersList().add(publisher);
+
+        job.scheduleBuild2(0).get();
+        assertThat(dataPublisher.isCalled, is(true));
     }
 
 }
