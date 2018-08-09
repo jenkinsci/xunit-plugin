@@ -1,7 +1,7 @@
 <!--
 The MIT License (MIT)
 
-Copyright (c) 2014, Gregory Boissinot
+Copyright (c) 2014, Gregory Boissinot, Nikolas Falco
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -22,64 +22,44 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 <?jelly escape-by-default='true'?>
-<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form" xmlns:u="/util">
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form">
 
     <f:block>
-        <f:hetero-list name="tools" descriptors="${descriptor.listXUnitTypeDescriptors}" items="${instance.tools}"/>
+        <f:entry title="${%reportType.title}">
+            <f:repeatableHeteroProperty field="tools" hasHeader="true" />
+        </f:entry>
     </f:block>
 
     <f:block>
-        <j:set var="listXUnitThresholdInstance" value="${instance.thresholds}"/>
-        <j:if test="${listXUnitThresholdInstance == null || listXUnitThresholdInstance.size() == 0}">
-            <j:set var="listXUnitThresholdInstance" value="${descriptor.listXUnitThresholdInstance}"/>
+        <f:entry title="${%thresholds.title}">
+            <f:repeatableHeteroProperty field="thresholds" hasHeader="true" oneEach="true"/>
+        </f:entry>
+    </f:block>
+
+    <f:block>
+        <!-- publisher are optional, if not extension is installed the empty list is hidden -->
+        <j:set var="testDataPublisherDescriptors" value="${instance.testDataPublishers}" />
+        <j:if test="${testDataPublisherDescriptors.size() > 0}">
+            <f:entry title="${%testDataPublishers.title}">
+                <f:repeatableHeteroProperty field="testDataPublishers" hasHeader="true" oneEach="true"/>
+            </f:entry>
         </j:if>
+    </f:block>
 
-        <u:hetero-list-readonly name="thresholds" descriptors="${descriptor.listXUnitThresholdDescriptors}"
-                                items="${listXUnitThresholdInstance}"/>
-
+    <f:block>
         <f:advanced>
-            <f:entry field="thresholdMode" title="${%Choose your threshold mode}">
-                <f:radio name="thresholdMode"
-                         value="1"
-                         checked="${instance.thresholdMode==1 or h.defaultToTrue(instance.thresholdMode)}"/>
-                <label class="attach-previous">Use a number of tests</label>
+            <f:entry field="thresholdMode" title="${%thresholdMode.title}">
+                <f:radio name="thresholdMode" value="1" checked="${instance.thresholdMode==1 or h.defaultToTrue(instance.thresholdMode)}"/>
+                <label class="attach-previous">${%thresholdMode.count}</label>
                 <br/>
                 <f:radio name="thresholdMode" value="2" checked="${instance.thresholdMode==2}"/>
-                <label class="attach-previous">Use a percent of tests</label>
+                <label class="attach-previous">${%thresholdMode.percentage}</label>
             </f:entry>
-        </f:advanced>
 
-    </f:block>
-
-    <f:block>
-        <br/>
-        <br/>
-    </f:block>
-
-    <!-- Extra Configuration -->
-    <f:block>
-        <f:advanced>
-            <f:entry title="Extra Configuration">
-                <table width="100%" border='0' cellspacing='0' padding="0">
-                    <tr>
-                        <td width="50%" style="${td}">
-                            <label>Give the report time margin value in ms (default to 3000), before to fail if not new
-                                (unless the option 'Fail the build if test results were not updated this run' is
-                                checked).
-                            </label>
-                            <f:number name="testTimeMargin" value="${instance.extraConfiguration.testTimeMargin}" default="3000"/>
-                        </td>
-                        <td width="50%" style="${td}"/>
-                    </tr>
-                </table>
+            <f:entry title="${%extraConfiguration.title}">
+                <label>${%extraConfiguration.description}</label>
+                <f:number name="testTimeMargin" value="${instance.extraConfiguration.testTimeMargin}" default="3000"/>
             </f:entry>
-            <j:invokeStatic var="testDataPublisherDescriptors"
-                            className="hudson.tasks.junit.TestDataPublisher" method="all" />
-            <j:if test="${testDataPublisherDescriptors.size() > 0}">
-                <f:entry title="Additional test report features" field="testDataPublishers">
-                    <f:repeatableHeteroProperty field="testDataPublishers" hasHeader="true" oneEach="true"/>
-                </f:entry>
-            </j:if>
         </f:advanced>
     </f:block>
 
