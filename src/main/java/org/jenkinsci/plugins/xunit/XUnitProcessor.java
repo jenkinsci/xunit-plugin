@@ -28,8 +28,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.UUID;
 
@@ -113,7 +111,7 @@ public class XUnitProcessor {
                 return null;
 
             }
-            return new TestResult(buildTime + (nowSlave - nowMaster), ds, true);
+            return new TestResult(buildTime + (nowSlave - nowMaster), ds, true, null);
         }
     }
 
@@ -250,7 +248,7 @@ public class XUnitProcessor {
     }
 
     private String getUserStylesheet(final TestType tool) throws IOException, InterruptedException {
-        File userContent = new File(Jenkins.getActiveInstance().getRootDir(), "userContent");
+        File userContent = new File(Jenkins.getInstance().getRootDir(), "userContent");
 
         InputMetricXSL inputMetricXSL = (InputMetricXSL) tool.getInputMetric();
         FilePath userXSLFilePath = new FilePath(new File(userContent, inputMetricXSL.getUserContentXSLDirRelativePath()));
@@ -338,9 +336,7 @@ public class XUnitProcessor {
                 action = new TestResultAction(build, result, listener);
             } else {
                 action = existingAction;
-                // TODO remove when move to junit 1.24
-//              action.mergeResult(result, listener);
-                merge(action, result, listener);
+                action.mergeResult(result, listener);
             }
 
             result.tally(); // force re-calculus of counters
@@ -354,17 +350,6 @@ public class XUnitProcessor {
         }
 
         return result;
-    }
-
-    private void merge(TestResultAction action, TestResult result, TaskListener listener) {
-        try {
-            // move to reflection to bypass sandbox
-            Method mergeMethod = TestResultAction.class.getDeclaredMethod("mergeResult", TestResult.class, TaskListener.class);
-            mergeMethod.setAccessible(true);
-            mergeMethod.invoke(action, result, listener);
-        } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
-            throw new IllegalStateException("Impossible to merge JUnit result to previous steps");
-        }
     }
 
     /**

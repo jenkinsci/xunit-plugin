@@ -96,7 +96,7 @@ public class XUnitTransformerCallable extends MasterToSlaveFileCallable<Integer>
 
             if (!xUnitValidationService.checkFileIsNotEmpty(curFile)) {
                 // Ignore the empty result file (some reason)
-                String msg = "The result file '" + curFile.getPath() + "' for the metric '" + metricName + "' is empty. The result file has been skipped.";
+                String msg = Messages.XUnitTransformerCallable_empty(curFile.getPath(), metricName);
                 if (isStopProcessingIfError) {
                     throw new EmptyReportFileException(msg);
                 } else {
@@ -107,7 +107,7 @@ public class XUnitTransformerCallable extends MasterToSlaveFileCallable<Integer>
 
             // Validates Input file
             if (!xUnitValidationService.validateInputFile(xUnitToolInfo, curFile)) {
-                String msg = "The result file '" + curFile + "' for the metric '" + metricName + "' is not valid. The result file has been skipped.";
+                String msg = Messages.XUnitTransformerCallable_invalidInput(curFile, metricName);
                 if (isStopProcessingIfError) {
                     throw new TransformerException(msg);
                 } else {
@@ -125,7 +125,7 @@ public class XUnitTransformerCallable extends MasterToSlaveFileCallable<Integer>
                     xUnitLog.error(validatorError.getMessage());
                 }
                 if (isStopProcessingIfError) {
-                    String msg = "The converted file for the result file '" + curFile + "' (during conversion process for the metric '" + metricName + "') is not valid. The report file has been skipped.";
+                    String msg = Messages.XUnitTransformerCallable_invalidOutput(curFile, metricName);
                     throw new TransformerException(msg);
                 }
             }
