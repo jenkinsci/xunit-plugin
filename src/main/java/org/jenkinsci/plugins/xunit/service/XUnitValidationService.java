@@ -73,7 +73,7 @@ public class XUnitValidationService implements Serializable {
         try {
             if (!inputMetric.validateInputFile(inputFile)) {
                 // ignores invalid files
-                xUnitLog.warn("The file '" + inputFile + "' is an invalid file.");
+                xUnitLog.warn(Messages.XUnitValidationService_invalidInput(inputFile));
                 for (ValidationError validatorError : inputMetric.getInputValidationErrors()) {
                     xUnitLog.warn(validatorError.toString());
                 }
@@ -101,7 +101,7 @@ public class XUnitValidationService implements Serializable {
             // Validates the output
             boolean validateOutput = inputMetric.validateOutputFile(junitTargetFile);
             if (!validateOutput) {
-                xUnitLog.warn("The converted file for the input file '" + inputFile + "' doesn't match the JUnit format");
+                xUnitLog.warn(Messages.XUnitValidationService_invalidOutput(inputFile));
                 for (ValidationError validatorError : inputMetric.getOutputValidationErrors()) {
                     xUnitLog.warn(validatorError.toString());
                 }

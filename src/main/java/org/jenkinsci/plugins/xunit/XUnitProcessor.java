@@ -28,9 +28,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Set;
 import java.util.UUID;
 
 import javax.annotation.CheckForNull;
@@ -60,11 +60,13 @@ import com.google.inject.Guice;
 import com.google.inject.Singleton;
 
 import hudson.FilePath;
+import hudson.Launcher;
 import hudson.Util;
 import hudson.model.Result;
 import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.remoting.VirtualChannel;
+import hudson.tasks.junit.TestDataPublisher;
 import hudson.tasks.junit.TestResult;
 import hudson.tasks.junit.TestResultAction;
 import jenkins.model.Jenkins;
@@ -113,7 +115,7 @@ public class XUnitProcessor {
                 return null;
 
             }
-            return new TestResult(buildTime + (nowSlave - nowMaster), ds, true);
+            return new TestResult(buildTime + (nowSlave - nowMaster), ds, true, null);
         }
     }
 
@@ -141,7 +143,8 @@ public class XUnitProcessor {
         this.processorId = UUID.randomUUID().toString();
     }
 
-    public void process(Run<?, ?> build, FilePath workspace, TaskListener listener) throws IOException, InterruptedException {
+    public void process(Run<?, ?> build, FilePath workspace, TaskListener listener, Launcher launcher, @Nonnull Set<TestDataPublisher> testDataPublishers)
+     throws IOException, InterruptedException {
         logger = new XUnitLog(listener);
         logger.info("Starting to record.");
 
@@ -152,7 +155,7 @@ public class XUnitProcessor {
             return;
         }
 
-        TestResult testResult = recordTestResult(build, workspace, listener);
+        TestResult testResult = recordTestResult(build, workspace, listener, launcher, testDataPublishers);
 
         processDeletion(workspace);
 
@@ -250,7 +253,7 @@ public class XUnitProcessor {
     }
 
     private String getUserStylesheet(final TestType tool) throws IOException, InterruptedException {
-        File userContent = new File(Jenkins.getActiveInstance().getRootDir(), "userContent");
+        File userContent = new File(Jenkins.getInstance().getRootDir(), "userContent");
 
         InputMetricXSL inputMetricXSL = (InputMetricXSL) tool.getInputMetric();
         FilePath userXSLFilePath = new FilePath(new File(userContent, inputMetricXSL.getUserContentXSLDirRelativePath()));
@@ -326,7 +329,9 @@ public class XUnitProcessor {
 
     private TestResult recordTestResult(Run<?, ?> build,
                                         FilePath workspace,
-                                        TaskListener listener) throws IOException, InterruptedException {
+                                        TaskListener listener,
+                                        Launcher launcher,
+                                        Set<TestDataPublisher> testDataPublishers) throws IOException, InterruptedException {
         TestResultAction existingAction = build.getAction(TestResultAction.class);
         final long buildTime = build.getTimestamp().getTimeInMillis();
         final long nowMaster = System.currentTimeMillis();
@@ -338,14 +343,20 @@ public class XUnitProcessor {
                 action = new TestResultAction(build, result, listener);
             } else {
                 action = existingAction;
-                // TODO remove when move to junit 1.24
-//              action.mergeResult(result, listener);
-                merge(action, result, listener);
+                action.mergeResult(result, listener);
             }
 
             result.tally(); // force re-calculus of counters
             if (result.getPassCount() == 0 && result.getFailCount() == 0) {
                 logger.warn(Messages.xUnitProcessor_emptyReport());
+            }
+
+            // decorates reports with extra informations
+            for (TestDataPublisher tdp : testDataPublishers) {
+                TestResultAction.Data d = tdp.contributeTestData(build, workspace, launcher, listener, result);
+                if (d != null) {
+                    action.addData(d);
+                }
             }
 
             if (existingAction == null) {
@@ -354,17 +365,6 @@ public class XUnitProcessor {
         }
 
         return result;
-    }
-
-    private void merge(TestResultAction action, TestResult result, TaskListener listener) {
-        try {
-            // move to reflection to bypass sandbox
-            Method mergeMethod = TestResultAction.class.getDeclaredMethod("mergeResult", TestResult.class, TaskListener.class);
-            mergeMethod.setAccessible(true);
-            mergeMethod.invoke(action, result, listener);
-        } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
-            throw new IllegalStateException("Impossible to merge JUnit result to previous steps");
-        }
     }
 
     /**

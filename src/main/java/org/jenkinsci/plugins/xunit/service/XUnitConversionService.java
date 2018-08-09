@@ -27,7 +27,6 @@ package org.jenkinsci.plugins.xunit.service;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.List;
 import java.util.UUID;
 
 import javax.inject.Inject;
@@ -37,10 +36,6 @@ import org.jenkinsci.lib.dtkit.model.InputMetric;
 import org.jenkinsci.lib.dtkit.model.InputMetricXSL;
 import org.jenkinsci.lib.dtkit.util.converter.ConversionException;
 import org.jenkinsci.plugins.xunit.XUnitDefaultValues;
-import org.jenkinsci.plugins.xunit.exception.XUnitException;
-import org.jenkinsci.plugins.xunit.types.CustomInputMetric;
-
-import hudson.FilePath;
 
 public class XUnitConversionService implements Serializable {
     private static final long serialVersionUID = 6019846684040298718L;

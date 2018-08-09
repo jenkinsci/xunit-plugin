@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>3.9</version>
+        <version>3.19</version>
     </parent>
 
     <artifactId>xunit</artifactId>
@@ -44,7 +44,10 @@
         <saxon.version>9.1.0.8</saxon.version>
         <xmlunit.version>1.6</xmlunit.version>
         <mockito.version>2.17.0</mockito.version>
-        <jenkins.version>1.651.3</jenkins.version>
+<!-- 
+        <jenkins.version>2.60.3</jenkins.version>
+         -->
+        <jenkins.version>2.62</jenkins.version>
         <java.level>7</java.level>
     </properties>
 
@@ -65,19 +68,20 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.jenkins-ci</groupId>
-                <artifactId>annotation-indexer</artifactId>
-                <version>1.12</version>
-            </dependency>
-            <dependency>
                 <groupId>org.jenkins-ci.plugins.workflow</groupId>
                 <artifactId>workflow-api</artifactId>
-                <version>2.19</version>
+                <version>2.26</version>
+                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.jenkins-ci.plugins.workflow</groupId>
                 <artifactId>workflow-step-api</artifactId>
-                <version>2.12</version>
+                <version>2.13</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jenkins-ci.plugins</groupId>
+                <artifactId>script-security</artifactId>
+                <version>1.39</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -132,13 +136,13 @@
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>junit</artifactId>
-            <version>1.20</version>
+            <version>1.24</version>
         </dependency>
 
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>structs</artifactId>
-            <version>1.13</version>
+            <version>1.14</version>
         </dependency>
 
         <dependency>
@@ -154,29 +158,29 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- dependencies to get pipeline work with Jenkins 1.x -->
+        <!-- dependencies to get pipeline work with Jenkins 2.60.3 declared in the latest plugins-pom project -->
         <dependency>
             <groupId>org.jenkins-ci.plugins.workflow</groupId>
             <artifactId>workflow-cps</artifactId>
-            <version>2.32</version>
+            <version>2.45</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.jenkins-ci.plugins.workflow</groupId>
             <artifactId>workflow-job</artifactId>
-            <version>2.11</version>
+            <version>2.12</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.jenkins-ci.plugins.workflow</groupId>
             <artifactId>workflow-durable-task-step</artifactId>
-            <version>2.13</version>
+            <version>2.19</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.jenkins-ci.plugins.workflow</groupId>
             <artifactId>workflow-basic-steps</artifactId>
-            <version>2.6</version>
+            <version>2.8</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
