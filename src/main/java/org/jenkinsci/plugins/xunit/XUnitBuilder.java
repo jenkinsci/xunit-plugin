@@ -26,9 +26,12 @@ package org.jenkinsci.plugins.xunit;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Collections;
 
 import javax.annotation.CheckForNull;
 
+import com.google.common.collect.Lists;
+import hudson.tasks.junit.TestDataPublisher;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
@@ -108,7 +111,7 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
     public void perform(final Run<?, ?> build, FilePath workspace, Launcher launcher, final TaskListener listener)
             throws InterruptedException, IOException {
         XUnitProcessor xUnitProcessor = new XUnitProcessor(getTools(), getThresholds(), getThresholdMode(), getExtraConfiguration());
-        xUnitProcessor.process(build, workspace, listener);
+        xUnitProcessor.process(build, workspace, listener, launcher, Collections.<TestDataPublisher> emptySet());
     }
 
     @Override
