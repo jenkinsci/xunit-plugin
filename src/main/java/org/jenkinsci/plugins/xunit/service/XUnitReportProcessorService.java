@@ -74,14 +74,10 @@ public class XUnitReportProcessorService implements Serializable {
         String[] xunitFiles = ds.getIncludedFiles();
 
         if (xunitFiles.length == 0) {
-            String msg = "[" + toolName + "] - No test report file(s) were found with the pattern '"
-                    + pattern + "' relative to '" + parentPath + "' for the testing framework '" + toolName + "'."
-                    + "  Did you enter a pattern relative to (and within) the workspace directory?"
-                    + "  Did you generate the result report(s) for '" + toolName + "'?";
+            String msg = Messages.XUnitReportProcessorService_reportsNotFound(toolName, pattern, parentPath);
             throw new NoTestFoundException(msg);
         } else {
-            String msg = "[" + toolName + "] - " + xunitFiles.length + " test report file(s) were found with the pattern '"
-                    + pattern + "' relative to '" + parentPath + "' for the testing framework '" + toolName + "'.";
+            String msg = Messages.XUnitReportProcessorService_reportsFound(toolName, xunitFiles.length, pattern, parentPath);
             xUnitLog.info(msg);
         }
         return Arrays.asList(xunitFiles);
@@ -113,10 +109,7 @@ public class XUnitReportProcessorService implements Serializable {
                 if (localTime < xUnitToolInfo.getBuildTime() - 1000) {
                     // build time is in the the future. clock on this slave must
                     // be running behind
-                    String msg = "Clock on this slave is out of sync with the master, and therefore \n" +
-                            "I can't figure out what test results are new and what are old.\n" +
-                            "Please keep the slave clock in sync with the master.";
-                    throw new NoNewTestReportException(msg);
+                    throw new NoNewTestReportException(Messages.XUnitReportProcessorService_clockOutOfSync());
                 }
 
                 StringBuilder stringBuilder = new StringBuilder();
