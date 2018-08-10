@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xunit="http://www.xunit.org">
+    <testsuite name="" tests="1" time="0.000" timestamp="2018-38-06T02:38:04" failures="1" errors="0" skipped="0">
+        <properties>
+            <property name="environment" value="OS: Microsoft Windows NT 6.2.9200.0" />
+            <property name="test-framework" value="Test Framework 0.1" />
+            <property name="config-file" value="" />
+        </properties>
+        <testcase classname="" name="collection1\test.xml" time="36.782">
+            <failure message="OK: TestProcess.Execution.ExitCode == 0&#xD;&#xA;FAIL: Output differs from reference.&#xD;&#xA;  Left:  data\ref&#xD;&#xA;  Right: results\out" />
+        </testcase>
+    </testsuite>
+</testsuites>
