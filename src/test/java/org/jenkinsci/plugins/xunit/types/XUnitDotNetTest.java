@@ -41,7 +41,8 @@ public class XUnitDotNetTest extends AbstractTest {
                                               { "JENKINS-33385 testcase does not have package at name", 2 }, //
                                               { "OS culture aware, use comma instead dot as decimal separator", 3 }, //
                                               { "JENKINS-51797 xUnit.Net v2 parse error when time attribute is missing", 4 }, //
-                                              { "JENKINS-51977 display name appear to be truncated", 5 } //
+                                              { "JENKINS-51977 display name appear to be truncated", 5 }, //
+                                              { "JENKINS-52908 newlines in failure message attribute and XML text are preserved", 6 } //
         });
     }
 
