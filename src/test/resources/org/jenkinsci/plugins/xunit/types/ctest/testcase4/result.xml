@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xunit="http://www.xunit.org">
+   <testsuite name="CTest" tests="18" time="5.000" failures="0" errors="0" skipped="0">
+      <testcase classname="projectroot.tests" name="test_cgreen_c" time="0.463">
+         <system-out><![CDATA[Running "all_c_tests" (136 tests)...
+Completed "highly_nested_test_suite": 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed "highly_nested_test_suite": 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed "highly_nested_test_suite": 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed "highly_nested_test_suite": 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed "highly_nested_test_suite": 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed "highly_nested_test_suite": 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed "highly_nested_test_suite": 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed "highly_nested_test_suite": 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed "highly_nested_test_suite": 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed "highly_nested_test_suite": 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed "highly_nested_test_suite": 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed "highly_nested_test_suite": 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed "highly_nested_test_suite": 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed "highly_nested_test_suite": 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed "highly_nested_test_suite": 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed "highly_nested_test_suite": 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed "highly_nested_test_suite": 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed "highly_nested_test_suite": 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed "highly_nested_test_suite": 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed "highly_nested_test_suite": 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed "highly_nested_test_suite": 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed "highly_nested_test_suite": 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed "highly_nested_test_suite": 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed "highly_nested_test_suite": 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed "highly_nested_test_suite": 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed "highly_nested_test_suite"...
+The rest of the test output was removed since it exceeds the threshold of 2048 bytes.
+]]></system-out>
+      </testcase>
+      <testcase classname="projectroot.tests" name="test_cgreen_run_named_test" time="0.006">
+         <system-out><![CDATA[Running "all_c_tests" (136 tests)...
+Completed "assertion_tests": 1 pass, 0 failures, 0 exceptions in 0ms.
+Completed "all_c_tests": 1 pass, 0 failures, 0 exceptions in 0ms.
+]]></system-out>
+      </testcase>
+      <testcase classname="projectroot.tests" name="runner_test_cgreen_c" time="0.499">
+         <system-out><![CDATA[	CGREEN EXCEPTION: Too many assertions within a single test.
+]]></system-out>
+      </testcase>
+      <testcase classname="projectroot.tests" name="test_cgreen_cpp" time="0.125">
+         <system-out><![CDATA[Running "all_cpp_tests" (27 tests)...
+Completed "cpp_assertion_tests": 22 passes, 0 failures, 0 exceptions in 59ms.
+Completed "highly_nested_test_suite": 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed "highly_nested_test_suite": 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed "highly_nested_test_suite": 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed "highly_nested_test_suite": 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed "highly_nested_test_suite": 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed "highly_nested_test_suite": 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed "highly_nested_test_suite": 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed "highly_nested_test_suite": 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed "highly_nested_test_suite": 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed "highly_nested_test_suite": 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed "highly_nested_test_suite": 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed "highly_nested_test_suite": 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed "highly_nested_test_suite": 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed "highly_nested_test_suite": 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed "highly_nested_test_suite": 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed "highly_nested_test_suite": 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed "highly_nested_test_suite": 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed "highly_nested_test_suite": 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed "highly_nested_test_suite": 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed "highly_nested_test_suite": 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed "highly_nested_test_suite": 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed "highly_nested_test_suite": 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed "highly_nested_test_suite": 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed "highly_nested_test_suite": 23 passe...
+The rest of the test output was removed since it exceeds the threshold of 2048 bytes.
+]]></system-out>
+      </testcase>
+      <testcase classname="projectroot.tests" name="runner_test_cgreen_cpp" time="0.109">
+         <system-out><![CDATA[	CGREEN EXCEPTION: Too many assertions within a single test.
+]]></system-out>
+      </testcase>
+      <testcase classname="projectroot.tests" name="constraint_messsages" time="0.108">
+         <system-out><![CDATA[Comparing output of constraint_messages_tests to expected: Ok
+]]></system-out>
+      </testcase>
+      <testcase classname="projectroot.tests" name="mock_messsages" time="0.017">
+         <system-out><![CDATA[Comparing output of mock_messages_tests to expected: Ok
+]]></system-out>
+      </testcase>
+      <testcase classname="projectroot.tests" name="failure_messages" time="3.031">
+         <system-out><![CDATA[Comparing output of failure_messages_tests to expected with CGREEN_PER_TEST_TIMEOUT=2: Ok
+]]></system-out>
+      </testcase>
+      <testcase classname="projectroot.tests" name="assertion_messages" time="0.024">
+         <system-out><![CDATA[Comparing output of assertion_messages_tests to expected: Ok
+]]></system-out>
+      </testcase>
+      <testcase classname="projectroot.tools.tests" name="cgreen_runner_unit_tests"
+                time="0.051">
+         <system-out><![CDATA[Running "libcgreen_runner_tests" (16 tests)...
+Completed "Runner": 45 passes, 0 failures, 0 exceptions in 40ms.
+Completed "libcgreen_runner_tests": 45 passes, 0 failures, 0 exceptions in 40ms.
+]]></system-out>
+      </testcase>
+      <testcase classname="projectroot.tools.tests" name="cgreen_runner_usage" time="0.005">
+         <system-out><![CDATA[Usage: /var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/cgreen-runner [--xml <prefix>] [--suite <name>] [--verbose] [--no-run] [--help] (<library> [<test>])+
+
+Discover and run all or a single named cgreen test(s) from one or multiple
+dynamically loadable library.
+
+A single test can be run using the form [<context>:]<name> where <context> can
+be omitted if there is no context.
+
+--xml <prefix>	Instead of messages on stdout, write results into one XML-file
+		per suite, compatible with Hudson/Jenkins CI. The filename(s)
+		will be '<prefix>-<suite>.xml'
+--suite <name>	Name the top level suite
+--no-run	Don't run the tests
+--verbose	Show progress information
+--colours/colors	Use colours to emphasis result (requires ANSI-capable terminal)
+]]></system-out>
+      </testcase>
+      <testcase classname="projectroot.tools.tests"
+                name="cgreen_runner_single_explicit_named_test"
+                time="0.011">
+         <system-out><![CDATA[Running "libcgreen_runner_tests" (1 tests)...
+Completed "Runner": 10 passes, 0 failures, 0 exceptions in 0ms.
+Completed "libcgreen_runner_tests": 10 passes, 0 failures, 0 exceptions in 0ms.
+]]></system-out>
+      </testcase>
+      <testcase classname="projectroot.tools.tests"
+                name="cgreen_runner_patternmatched_testnames"
+                time="0.050">
+         <system-out><![CDATA[Running "libcgreen_runner_tests" (16 tests)...
+Completed "Runner": 45 passes, 0 failures, 0 exceptions in 40ms.
+Completed "libcgreen_runner_tests": 45 passes, 0 failures, 0 exceptions in 40ms.
+]]></system-out>
+      </testcase>
+      <testcase classname="projectroot.tools.tests"
+                name="cgreen_runner_patternmatched_testnames_in_patternmatched_context"
+                time="0.050">
+         <system-out><![CDATA[Running "libcgreen_runner_tests" (16 tests)...
+Completed "Runner": 45 passes, 0 failures, 0 exceptions in 40ms.
+Completed "libcgreen_runner_tests": 45 passes, 0 failures, 0 exceptions in 40ms.
+]]></system-out>
+      </testcase>
+      <testcase classname="projectroot.tools.tests"
+                name="cgreen_runner_wildcarded_tests_in_named_context"
+                time="0.051">
+         <system-out><![CDATA[Running "libcgreen_runner_tests" (16 tests)...
+Completed "Runner": 45 passes, 0 failures, 0 exceptions in 40ms.
+Completed "libcgreen_runner_tests": 45 passes, 0 failures, 0 exceptions in 40ms.
+]]></system-out>
+      </testcase>
+      <testcase classname="projectroot.tools.tests"
+                name="cgreen_runner_wildcarded_tests_in_wildcarded_context"
+                time="0.051">
+         <system-out><![CDATA[Running "libcgreen_runner_tests" (16 tests)...
+Completed "Runner": 45 passes, 0 failures, 0 exceptions in 40ms.
+Completed "libcgreen_runner_tests": 45 passes, 0 failures, 0 exceptions in 41ms.
+]]></system-out>
+      </testcase>
+      <testcase classname="projectroot.tools.tests" name="cgreen_runner_with_xml_reporter"
+                time="0.051">
+         <system-out/>
+      </testcase>
+      <testcase classname="projectroot.tools.tests" name="cgreen_runner_multiple_libraries"
+                time="0.142">
+         <system-out><![CDATA[Running "libcgreen_runner_tests" (16 tests)...
+Completed "Runner": 45 passes, 0 failures, 0 exceptions in 40ms.
+Completed "libcgreen_runner_tests": 45 passes, 0 failures, 0 exceptions in 40ms.
+Running "libcgreen_runner_tests" (16 tests)...
+Completed "Runner": 90 passes, 0 failures, 0 exceptions in 40ms.
+Completed "libcgreen_runner_tests": 90 passes, 0 failures, 0 exceptions in 40ms.
+Running "libcgreen_runner_tests" (16 tests)...
+Completed "Runner": 135 passes, 0 failures, 0 exceptions in 40ms.
+Completed "libcgreen_runner_tests": 135 passes, 0 failures, 0 exceptions in 40ms.
+]]></system-out>
+      </testcase>
+   </testsuite>
+</testsuites>

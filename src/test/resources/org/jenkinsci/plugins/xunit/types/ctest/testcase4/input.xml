@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="Linux-c++"
+	BuildStamp="20160501-0801-Experimental"
+	Name="juliet"
+	Generator="ctest-3.2.2"
+	CompilerName="/usr/bin/c++"
+	OSName="Linux"
+	Hostname="juliet"
+	OSRelease="4.2.0-34-generic"
+	OSVersion="#39-Ubuntu SMP Thu Mar 10 22:11:49 UTC 2016"
+	OSPlatform="i686"
+	Is64Bits="0"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="15"
+	ModelID="4"
+	ProcessorCacheSize="1024"
+	NumberOfLogicalCPU="2"
+	NumberOfPhysicalCPU="1"
+	TotalVirtualMemory="2045"
+	TotalPhysicalMemory="2014"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="2800.19"
+>
+<Testing>
+	<StartDateTime>May 01 10:01 CEST</StartDateTime>
+	<StartTestTime>1462089718</StartTestTime>
+	<TestList>
+		<Test>./tests/test_cgreen_c</Test>
+		<Test>./tests/test_cgreen_run_named_test</Test>
+		<Test>./tests/runner_test_cgreen_c</Test>
+		<Test>./tests/test_cgreen_cpp</Test>
+		<Test>./tests/runner_test_cgreen_cpp</Test>
+		<Test>./tests/constraint_messsages</Test>
+		<Test>./tests/mock_messsages</Test>
+		<Test>./tests/failure_messages</Test>
+		<Test>./tests/assertion_messages</Test>
+		<Test>./tools/tests/cgreen_runner_unit_tests</Test>
+		<Test>./tools/tests/cgreen_runner_usage</Test>
+		<Test>./tools/tests/cgreen_runner_single_explicit_named_test</Test>
+		<Test>./tools/tests/cgreen_runner_patternmatched_testnames</Test>
+		<Test>./tools/tests/cgreen_runner_patternmatched_testnames_in_patternmatched_context</Test>
+		<Test>./tools/tests/cgreen_runner_wildcarded_tests_in_named_context</Test>
+		<Test>./tools/tests/cgreen_runner_wildcarded_tests_in_wildcarded_context</Test>
+		<Test>./tools/tests/cgreen_runner_with_xml_reporter</Test>
+		<Test>./tools/tests/cgreen_runner_multiple_libraries</Test>
+	</TestList>
+	<Test Status="passed">
+		<Name>test_cgreen_c</Name>
+		<Path>./tests</Path>
+		<FullName>./tests/test_cgreen_c</FullName>
+		<FullCommandLine>/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tests/test_cgreen_c</FullCommandLine>
+		<Results>
+			<NamedMeasurement type="numeric/double" name="Execution Time"><Value>0.462792</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Completion Status"><Value>Completed</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Command Line"><Value>/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tests/test_cgreen_c</Value></NamedMeasurement>
+			<Measurement>
+				<Value>Running &quot;all_c_tests&quot; (136 tests)...
+Completed &quot;highly_nested_test_suite&quot;: 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed &quot;highly_nested_test_suite&quot;: 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed &quot;highly_nested_test_suite&quot;: 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed &quot;highly_nested_test_suite&quot;: 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed &quot;highly_nested_test_suite&quot;: 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed &quot;highly_nested_test_suite&quot;: 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed &quot;highly_nested_test_suite&quot;: 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed &quot;highly_nested_test_suite&quot;: 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed &quot;highly_nested_test_suite&quot;: 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed &quot;highly_nested_test_suite&quot;: 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed &quot;highly_nested_test_suite&quot;: 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed &quot;highly_nested_test_suite&quot;: 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed &quot;highly_nested_test_suite&quot;: 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed &quot;highly_nested_test_suite&quot;: 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed &quot;highly_nested_test_suite&quot;: 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed &quot;highly_nested_test_suite&quot;: 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed &quot;highly_nested_test_suite&quot;: 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed &quot;highly_nested_test_suite&quot;: 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed &quot;highly_nested_test_suite&quot;: 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed &quot;highly_nested_test_suite&quot;: 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed &quot;highly_nested_test_suite&quot;: 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed &quot;highly_nested_test_suite&quot;: 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed &quot;highly_nested_test_suite&quot;: 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed &quot;highly_nested_test_suite&quot;: 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed &quot;highly_nested_test_suite&quot;: 1 pass, 0 failures, 0 exceptions in 4ms.
+Completed &quot;highly_nested_test_suite&quot;...
+The rest of the test output was removed since it exceeds the threshold of 2048 bytes.
+</Value>
+			</Measurement>
+		</Results>
+	</Test>
+	<Test Status="passed">
+		<Name>test_cgreen_run_named_test</Name>
+		<Path>./tests</Path>
+		<FullName>./tests/test_cgreen_run_named_test</FullName>
+		<FullCommandLine>/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tests/test_cgreen_c &quot;integer_one_should_assert_true&quot;</FullCommandLine>
+		<Results>
+			<NamedMeasurement type="numeric/double" name="Execution Time"><Value>0.00615707</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Completion Status"><Value>Completed</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Command Line"><Value>/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tests/test_cgreen_c &quot;integer_one_should_assert_true&quot;</Value></NamedMeasurement>
+			<Measurement>
+				<Value>Running &quot;all_c_tests&quot; (136 tests)...
+Completed &quot;assertion_tests&quot;: 1 pass, 0 failures, 0 exceptions in 0ms.
+Completed &quot;all_c_tests&quot;: 1 pass, 0 failures, 0 exceptions in 0ms.
+</Value>
+			</Measurement>
+		</Results>
+	</Test>
+	<Test Status="passed">
+		<Name>runner_test_cgreen_c</Name>
+		<Path>./tests</Path>
+		<FullName>./tests/runner_test_cgreen_c</FullName>
+		<FullCommandLine>/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/cgreen-runner &quot;-x&quot; &quot;TEST&quot; &quot;libcgreen_c_tests.so&quot;</FullCommandLine>
+		<Results>
+			<NamedMeasurement type="numeric/double" name="Execution Time"><Value>0.499399</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Completion Status"><Value>Completed</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Command Line"><Value>/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/cgreen-runner &quot;-x&quot; &quot;TEST&quot; &quot;libcgreen_c_tests.so&quot;</Value></NamedMeasurement>
+			<Measurement>
+				<Value>	CGREEN EXCEPTION: Too many assertions within a single test.
+</Value>
+			</Measurement>
+		</Results>
+	</Test>
+	<Test Status="passed">
+		<Name>test_cgreen_cpp</Name>
+		<Path>./tests</Path>
+		<FullName>./tests/test_cgreen_cpp</FullName>
+		<FullCommandLine>/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tests/test_cgreen_cpp</FullCommandLine>
+		<Results>
+			<NamedMeasurement type="numeric/double" name="Execution Time"><Value>0.12489</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Completion Status"><Value>Completed</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Command Line"><Value>/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tests/test_cgreen_cpp</Value></NamedMeasurement>
+			<Measurement>
+				<Value>Running &quot;all_cpp_tests&quot; (27 tests)...
+Completed &quot;cpp_assertion_tests&quot;: 22 passes, 0 failures, 0 exceptions in 59ms.
+Completed &quot;highly_nested_test_suite&quot;: 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed &quot;highly_nested_test_suite&quot;: 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed &quot;highly_nested_test_suite&quot;: 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed &quot;highly_nested_test_suite&quot;: 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed &quot;highly_nested_test_suite&quot;: 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed &quot;highly_nested_test_suite&quot;: 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed &quot;highly_nested_test_suite&quot;: 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed &quot;highly_nested_test_suite&quot;: 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed &quot;highly_nested_test_suite&quot;: 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed &quot;highly_nested_test_suite&quot;: 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed &quot;highly_nested_test_suite&quot;: 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed &quot;highly_nested_test_suite&quot;: 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed &quot;highly_nested_test_suite&quot;: 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed &quot;highly_nested_test_suite&quot;: 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed &quot;highly_nested_test_suite&quot;: 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed &quot;highly_nested_test_suite&quot;: 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed &quot;highly_nested_test_suite&quot;: 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed &quot;highly_nested_test_suite&quot;: 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed &quot;highly_nested_test_suite&quot;: 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed &quot;highly_nested_test_suite&quot;: 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed &quot;highly_nested_test_suite&quot;: 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed &quot;highly_nested_test_suite&quot;: 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed &quot;highly_nested_test_suite&quot;: 23 passes, 0 failures, 0 exceptions in 3ms.
+Completed &quot;highly_nested_test_suite&quot;: 23 passe...
+The rest of the test output was removed since it exceeds the threshold of 2048 bytes.
+</Value>
+			</Measurement>
+		</Results>
+	</Test>
+	<Test Status="passed">
+		<Name>runner_test_cgreen_cpp</Name>
+		<Path>./tests</Path>
+		<FullName>./tests/runner_test_cgreen_cpp</FullName>
+		<FullCommandLine>/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/cgreen-runner &quot;-x&quot; &quot;TEST&quot; &quot;libcgreen_cpp_tests.so&quot;</FullCommandLine>
+		<Results>
+			<NamedMeasurement type="numeric/double" name="Execution Time"><Value>0.109151</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Completion Status"><Value>Completed</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Command Line"><Value>/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/cgreen-runner &quot;-x&quot; &quot;TEST&quot; &quot;libcgreen_cpp_tests.so&quot;</Value></NamedMeasurement>
+			<Measurement>
+				<Value>	CGREEN EXCEPTION: Too many assertions within a single test.
+</Value>
+			</Measurement>
+		</Results>
+	</Test>
+	<Test Status="passed">
+		<Name>constraint_messsages</Name>
+		<Path>./tests</Path>
+		<FullName>./tests/constraint_messsages</FullName>
+		<FullCommandLine>/var/lib/jenkins/workspace/Cgreen-thoni56/tools/cgreen_runner_output_diff &quot;constraint_messages_tests&quot; &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/tests&quot; &quot;constraint_messages_tests..expected&quot;</FullCommandLine>
+		<Results>
+			<NamedMeasurement type="numeric/double" name="Execution Time"><Value>0.107958</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Completion Status"><Value>Completed</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Command Line"><Value>/var/lib/jenkins/workspace/Cgreen-thoni56/tools/cgreen_runner_output_diff &quot;constraint_messages_tests&quot; &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/tests&quot; &quot;constraint_messages_tests..expected&quot;</Value></NamedMeasurement>
+			<Measurement>
+				<Value>Comparing output of constraint_messages_tests to expected: Ok
+</Value>
+			</Measurement>
+		</Results>
+	</Test>
+	<Test Status="passed">
+		<Name>mock_messsages</Name>
+		<Path>./tests</Path>
+		<FullName>./tests/mock_messsages</FullName>
+		<FullCommandLine>/var/lib/jenkins/workspace/Cgreen-thoni56/tools/cgreen_runner_output_diff &quot;mock_messages_tests&quot; &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/tests&quot; &quot;..expected&quot;</FullCommandLine>
+		<Results>
+			<NamedMeasurement type="numeric/double" name="Execution Time"><Value>0.016671</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Completion Status"><Value>Completed</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Command Line"><Value>/var/lib/jenkins/workspace/Cgreen-thoni56/tools/cgreen_runner_output_diff &quot;mock_messages_tests&quot; &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/tests&quot; &quot;..expected&quot;</Value></NamedMeasurement>
+			<Measurement>
+				<Value>Comparing output of mock_messages_tests to expected: Ok
+</Value>
+			</Measurement>
+		</Results>
+	</Test>
+	<Test Status="passed">
+		<Name>failure_messages</Name>
+		<Path>./tests</Path>
+		<FullName>./tests/failure_messages</FullName>
+		<FullCommandLine>/usr/bin/env &quot;CGREEN_PER_TEST_TIMEOUT=2&quot; &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/tests/../tools/cgreen_runner_output_diff&quot; &quot;failure_messages_tests&quot; &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/tests&quot; &quot;failure_messages_tests..expected&quot;</FullCommandLine>
+		<Results>
+			<NamedMeasurement type="numeric/double" name="Execution Time"><Value>3.03137</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Completion Status"><Value>Completed</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Command Line"><Value>/usr/bin/env &quot;CGREEN_PER_TEST_TIMEOUT=2&quot; &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/tests/../tools/cgreen_runner_output_diff&quot; &quot;failure_messages_tests&quot; &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/tests&quot; &quot;failure_messages_tests..expected&quot;</Value></NamedMeasurement>
+			<Measurement>
+				<Value>Comparing output of failure_messages_tests to expected with CGREEN_PER_TEST_TIMEOUT=2: Ok
+</Value>
+			</Measurement>
+		</Results>
+	</Test>
+	<Test Status="passed">
+		<Name>assertion_messages</Name>
+		<Path>./tests</Path>
+		<FullName>./tests/assertion_messages</FullName>
+		<FullCommandLine>/var/lib/jenkins/workspace/Cgreen-thoni56/tools/cgreen_runner_output_diff &quot;assertion_messages_tests&quot; &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/tests&quot; &quot;assertion_messages_tests..expected&quot;</FullCommandLine>
+		<Results>
+			<NamedMeasurement type="numeric/double" name="Execution Time"><Value>0.02418</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Completion Status"><Value>Completed</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Command Line"><Value>/var/lib/jenkins/workspace/Cgreen-thoni56/tools/cgreen_runner_output_diff &quot;assertion_messages_tests&quot; &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/tests&quot; &quot;assertion_messages_tests..expected&quot;</Value></NamedMeasurement>
+			<Measurement>
+				<Value>Comparing output of assertion_messages_tests to expected: Ok
+</Value>
+			</Measurement>
+		</Results>
+	</Test>
+	<Test Status="passed">
+		<Name>cgreen_runner_unit_tests</Name>
+		<Path>./tools/tests</Path>
+		<FullName>./tools/tests/cgreen_runner_unit_tests</FullName>
+		<FullCommandLine>/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/cgreen-runner &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/tests/libcgreen_runner_tests.so&quot;</FullCommandLine>
+		<Results>
+			<NamedMeasurement type="numeric/double" name="Execution Time"><Value>0.0507221</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Completion Status"><Value>Completed</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Command Line"><Value>/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/cgreen-runner &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/tests/libcgreen_runner_tests.so&quot;</Value></NamedMeasurement>
+			<Measurement>
+				<Value>Running &quot;libcgreen_runner_tests&quot; (16 tests)...
+Completed &quot;Runner&quot;: 45 passes, 0 failures, 0 exceptions in 40ms.
+Completed &quot;libcgreen_runner_tests&quot;: 45 passes, 0 failures, 0 exceptions in 40ms.
+</Value>
+			</Measurement>
+		</Results>
+	</Test>
+	<Test Status="passed">
+		<Name>cgreen_runner_usage</Name>
+		<Path>./tools/tests</Path>
+		<FullName>./tools/tests/cgreen_runner_usage</FullName>
+		<FullCommandLine>/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/cgreen-runner &quot;--help&quot;</FullCommandLine>
+		<Results>
+			<NamedMeasurement type="numeric/double" name="Execution Time"><Value>0.0049999</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Completion Status"><Value>Completed</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Command Line"><Value>/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/cgreen-runner &quot;--help&quot;</Value></NamedMeasurement>
+			<Measurement>
+				<Value>Usage: /var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/cgreen-runner [--xml &lt;prefix&gt;] [--suite &lt;name&gt;] [--verbose] [--no-run] [--help] (&lt;library&gt; [&lt;test&gt;])+
+
+Discover and run all or a single named cgreen test(s) from one or multiple
+dynamically loadable library.
+
+A single test can be run using the form [&lt;context&gt;:]&lt;name&gt; where &lt;context&gt; can
+be omitted if there is no context.
+
+--xml &lt;prefix&gt;	Instead of messages on stdout, write results into one XML-file
+		per suite, compatible with Hudson/Jenkins CI. The filename(s)
+		will be &apos;&lt;prefix&gt;-&lt;suite&gt;.xml&apos;
+--suite &lt;name&gt;	Name the top level suite
+--no-run	Don&apos;t run the tests
+--verbose	Show progress information
+--colours/colors	Use colours to emphasis result (requires ANSI-capable terminal)
+</Value>
+			</Measurement>
+		</Results>
+	</Test>
+	<Test Status="passed">
+		<Name>cgreen_runner_single_explicit_named_test</Name>
+		<Path>./tools/tests</Path>
+		<FullName>./tools/tests/cgreen_runner_single_explicit_named_test</FullName>
+		<FullCommandLine>/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/cgreen-runner &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/tests/libcgreen_runner_tests.so&quot; &quot;Runner:can_match_test_name&quot;</FullCommandLine>
+		<Results>
+			<NamedMeasurement type="numeric/double" name="Execution Time"><Value>0.0105961</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Completion Status"><Value>Completed</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Command Line"><Value>/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/cgreen-runner &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/tests/libcgreen_runner_tests.so&quot; &quot;Runner:can_match_test_name&quot;</Value></NamedMeasurement>
+			<Measurement>
+				<Value>Running &quot;libcgreen_runner_tests&quot; (1 tests)...
+Completed &quot;Runner&quot;: 10 passes, 0 failures, 0 exceptions in 0ms.
+Completed &quot;libcgreen_runner_tests&quot;: 10 passes, 0 failures, 0 exceptions in 0ms.
+</Value>
+			</Measurement>
+		</Results>
+	</Test>
+	<Test Status="passed">
+		<Name>cgreen_runner_patternmatched_testnames</Name>
+		<Path>./tools/tests</Path>
+		<FullName>./tools/tests/cgreen_runner_patternmatched_testnames</FullName>
+		<FullCommandLine>/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/cgreen-runner &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/tests/libcgreen_runner_tests.so&quot; &quot;Runner:can*&quot;</FullCommandLine>
+		<Results>
+			<NamedMeasurement type="numeric/double" name="Execution Time"><Value>0.050465</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Completion Status"><Value>Completed</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Command Line"><Value>/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/cgreen-runner &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/tests/libcgreen_runner_tests.so&quot; &quot;Runner:can*&quot;</Value></NamedMeasurement>
+			<Measurement>
+				<Value>Running &quot;libcgreen_runner_tests&quot; (16 tests)...
+Completed &quot;Runner&quot;: 45 passes, 0 failures, 0 exceptions in 40ms.
+Completed &quot;libcgreen_runner_tests&quot;: 45 passes, 0 failures, 0 exceptions in 40ms.
+</Value>
+			</Measurement>
+		</Results>
+	</Test>
+	<Test Status="passed">
+		<Name>cgreen_runner_patternmatched_testnames_in_patternmatched_context</Name>
+		<Path>./tools/tests</Path>
+		<FullName>./tools/tests/cgreen_runner_patternmatched_testnames_in_patternmatched_context</FullName>
+		<FullCommandLine>/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/cgreen-runner &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/tests/libcgreen_runner_tests.so&quot; &quot;Run*:can*&quot;</FullCommandLine>
+		<Results>
+			<NamedMeasurement type="numeric/double" name="Execution Time"><Value>0.049938</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Completion Status"><Value>Completed</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Command Line"><Value>/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/cgreen-runner &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/tests/libcgreen_runner_tests.so&quot; &quot;Run*:can*&quot;</Value></NamedMeasurement>
+			<Measurement>
+				<Value>Running &quot;libcgreen_runner_tests&quot; (16 tests)...
+Completed &quot;Runner&quot;: 45 passes, 0 failures, 0 exceptions in 40ms.
+Completed &quot;libcgreen_runner_tests&quot;: 45 passes, 0 failures, 0 exceptions in 40ms.
+</Value>
+			</Measurement>
+		</Results>
+	</Test>
+	<Test Status="passed">
+		<Name>cgreen_runner_wildcarded_tests_in_named_context</Name>
+		<Path>./tools/tests</Path>
+		<FullName>./tools/tests/cgreen_runner_wildcarded_tests_in_named_context</FullName>
+		<FullCommandLine>/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/cgreen-runner &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/tests/libcgreen_runner_tests.so&quot; &quot;Runner:*&quot;</FullCommandLine>
+		<Results>
+			<NamedMeasurement type="numeric/double" name="Execution Time"><Value>0.050628</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Completion Status"><Value>Completed</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Command Line"><Value>/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/cgreen-runner &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/tests/libcgreen_runner_tests.so&quot; &quot;Runner:*&quot;</Value></NamedMeasurement>
+			<Measurement>
+				<Value>Running &quot;libcgreen_runner_tests&quot; (16 tests)...
+Completed &quot;Runner&quot;: 45 passes, 0 failures, 0 exceptions in 40ms.
+Completed &quot;libcgreen_runner_tests&quot;: 45 passes, 0 failures, 0 exceptions in 40ms.
+</Value>
+			</Measurement>
+		</Results>
+	</Test>
+	<Test Status="passed">
+		<Name>cgreen_runner_wildcarded_tests_in_wildcarded_context</Name>
+		<Path>./tools/tests</Path>
+		<FullName>./tools/tests/cgreen_runner_wildcarded_tests_in_wildcarded_context</FullName>
+		<FullCommandLine>/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/cgreen-runner &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/tests/libcgreen_runner_tests.so&quot; &quot;*:*&quot;</FullCommandLine>
+		<Results>
+			<NamedMeasurement type="numeric/double" name="Execution Time"><Value>0.050886</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Completion Status"><Value>Completed</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Command Line"><Value>/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/cgreen-runner &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/tests/libcgreen_runner_tests.so&quot; &quot;*:*&quot;</Value></NamedMeasurement>
+			<Measurement>
+				<Value>Running &quot;libcgreen_runner_tests&quot; (16 tests)...
+Completed &quot;Runner&quot;: 45 passes, 0 failures, 0 exceptions in 40ms.
+Completed &quot;libcgreen_runner_tests&quot;: 45 passes, 0 failures, 0 exceptions in 41ms.
+</Value>
+			</Measurement>
+		</Results>
+	</Test>
+	<Test Status="passed">
+		<Name>cgreen_runner_with_xml_reporter</Name>
+		<Path>./tools/tests</Path>
+		<FullName>./tools/tests/cgreen_runner_with_xml_reporter</FullName>
+		<FullCommandLine>/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/cgreen-runner &quot;--xml&quot; &quot;TEST&quot; &quot;--suite&quot; &quot;cgreen-runner-tests&quot; &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/tests/libcgreen_runner_tests.so&quot;</FullCommandLine>
+		<Results>
+			<NamedMeasurement type="numeric/double" name="Execution Time"><Value>0.0512309</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Completion Status"><Value>Completed</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Command Line"><Value>/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/cgreen-runner &quot;--xml&quot; &quot;TEST&quot; &quot;--suite&quot; &quot;cgreen-runner-tests&quot; &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/tests/libcgreen_runner_tests.so&quot;</Value></NamedMeasurement>
+			<Measurement>
+				<Value></Value>
+			</Measurement>
+		</Results>
+	</Test>
+	<Test Status="passed">
+		<Name>cgreen_runner_multiple_libraries</Name>
+		<Path>./tools/tests</Path>
+		<FullName>./tools/tests/cgreen_runner_multiple_libraries</FullName>
+		<FullCommandLine>/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/cgreen-runner &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/tests/libcgreen_runner_tests.so&quot; &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/tests/libcgreen_runner_tests.so&quot; &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/tests/libcgreen_runner_tests.so&quot;</FullCommandLine>
+		<Results>
+			<NamedMeasurement type="numeric/double" name="Execution Time"><Value>0.142098</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Completion Status"><Value>Completed</Value></NamedMeasurement>
+			<NamedMeasurement type="text/string" name="Command Line"><Value>/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/cgreen-runner &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/tests/libcgreen_runner_tests.so&quot; &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/tests/libcgreen_runner_tests.so&quot; &quot;/var/lib/jenkins/workspace/Cgreen-thoni56/build/build-c/tools/tests/libcgreen_runner_tests.so&quot;</Value></NamedMeasurement>
+			<Measurement>
+				<Value>Running &quot;libcgreen_runner_tests&quot; (16 tests)...
+Completed &quot;Runner&quot;: 45 passes, 0 failures, 0 exceptions in 40ms.
+Completed &quot;libcgreen_runner_tests&quot;: 45 passes, 0 failures, 0 exceptions in 40ms.
+Running &quot;libcgreen_runner_tests&quot; (16 tests)...
+Completed &quot;Runner&quot;: 90 passes, 0 failures, 0 exceptions in 40ms.
+Completed &quot;libcgreen_runner_tests&quot;: 90 passes, 0 failures, 0 exceptions in 40ms.
+Running &quot;libcgreen_runner_tests&quot; (16 tests)...
+Completed &quot;Runner&quot;: 135 passes, 0 failures, 0 exceptions in 40ms.
+Completed &quot;libcgreen_runner_tests&quot;: 135 passes, 0 failures, 0 exceptions in 40ms.
+</Value>
+			</Measurement>
+		</Results>
+	</Test>
+	<EndDateTime>May 01 10:02 CEST</EndDateTime>
+	<EndTestTime>1462089723</EndTestTime>
+<ElapsedMinutes>0</ElapsedMinutes></Testing>
+</Site>
