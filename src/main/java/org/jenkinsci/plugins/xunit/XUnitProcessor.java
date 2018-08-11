@@ -36,6 +36,7 @@ import java.util.UUID;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 
+import hudson.AbortException;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.tools.ant.DirectoryScanner;
@@ -163,6 +164,11 @@ public class XUnitProcessor {
         logger.info("Setting the build status to " + result);
         build.setResult(result);
         logger.info("Stopping recording.");
+
+        if (result == Result.FAILURE) {
+            // abort the build to prevent the running of any other build steps.
+            throw new AbortException("Tests failed.");
+        }
     }
 
     private int processTestsReport(Run<?, ?> build,
