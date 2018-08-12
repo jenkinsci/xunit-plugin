@@ -30,7 +30,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Set;
 import java.util.UUID;
 
 import javax.annotation.CheckForNull;
@@ -143,7 +142,7 @@ public class XUnitProcessor {
         this.processorId = UUID.randomUUID().toString();
     }
 
-    public void process(Run<?, ?> build, FilePath workspace, TaskListener listener, Launcher launcher, @Nonnull Set<TestDataPublisher> testDataPublishers)
+    public void process(Run<?, ?> build, FilePath workspace, TaskListener listener, Launcher launcher, @Nonnull Collection<TestDataPublisher> testDataPublishers)
      throws IOException, InterruptedException {
         logger = new XUnitLog(listener);
         logger.info("Starting to record.");
@@ -331,7 +330,7 @@ public class XUnitProcessor {
                                         FilePath workspace,
                                         TaskListener listener,
                                         Launcher launcher,
-                                        Set<TestDataPublisher> testDataPublishers) throws IOException, InterruptedException {
+                                        Collection<TestDataPublisher> testDataPublishers) throws IOException, InterruptedException {
         TestResultAction existingAction = build.getAction(TestResultAction.class);
         final long buildTime = build.getTimestamp().getTimeInMillis();
         final long nowMaster = System.currentTimeMillis();
