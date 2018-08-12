@@ -26,9 +26,9 @@ package org.jenkinsci.plugins.xunit;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.LinkedList;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -37,8 +37,6 @@ import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.xunit.service.TransformerException;
-import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
-import org.jenkinsci.plugins.xunit.threshold.SkippedThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThresholdDescriptor;
 import org.kohsuke.stapler.DataBoundConstructor;
@@ -78,7 +76,7 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
     private XUnitThreshold[] thresholds;
     private int thresholdMode;
     private ExtraConfiguration extraConfiguration;
-    private Set<TestDataPublisher> testDataPublishers;
+    private Collection<TestDataPublisher> testDataPublishers;
 
     @DataBoundConstructor
     public XUnitPublisher(@CheckForNull TestType[] tools, @CheckForNull XUnitThreshold[] thresholds, int thresholdMode, @CheckForNull String testTimeMargin) {
@@ -126,7 +124,7 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
         return extraConfiguration;
     }
 
-    public @Nonnull Set<TestDataPublisher> getTestDataPublishers() {
+    public @Nonnull Collection<TestDataPublisher> getTestDataPublishers() {
         return testDataPublishers;
     }
 
@@ -139,10 +137,10 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
      *            publisher
      */
     @DataBoundSetter
-    public void setTestDataPublishers(@CheckForNull Set<TestDataPublisher> testDataPublishers) {
+    public void setTestDataPublishers(@CheckForNull Collection<TestDataPublisher> testDataPublishers) {
         this.testDataPublishers = testDataPublishers != null
-                ? new LinkedHashSet<>(testDataPublishers)
-                : Collections.<TestDataPublisher> emptySet();
+                ? new LinkedList<>(testDataPublishers)
+                : Collections.<TestDataPublisher> emptyList();
     }
 
     @SuppressWarnings("deprecation")
