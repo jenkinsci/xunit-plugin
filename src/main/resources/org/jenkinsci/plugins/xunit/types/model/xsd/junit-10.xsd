@@ -23,6 +23,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:simpleType name="SUREFIRE_TIME">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(([0-9]{0,3},)*[0-9]{3}|[0-9]{0,3})*(\.[0-9]{0,3})?"/>
+        </xs:restriction>
+    </xs:simpleType>
 
     <xs:element name="failure">
         <xs:complexType mixed="true">
@@ -63,7 +68,7 @@ THE SOFTWARE.
     <xs:element name="system-err" type="xs:string"/>
     <xs:element name="system-out" type="xs:string"/>
 
-    <xs:element name="rerunFailure">
+    <xs:element name="rerunFailure" nillable="true">
         <xs:complexType mixed="true">
             <xs:sequence>
                 <xs:choice minOccurs="0" maxOccurs="unbounded">
@@ -73,10 +78,11 @@ THE SOFTWARE.
             </xs:sequence>
             <xs:attribute name="type" type="xs:string"/>
             <xs:attribute name="message" type="xs:string"/>
+            <xs:attribute name="time" type="SUREFIRE_TIME"/>
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="rerunError">
+    <xs:element name="rerunError" nillable="true">
         <xs:complexType mixed="true">
             <xs:sequence>
                 <xs:choice minOccurs="0" maxOccurs="unbounded">
@@ -86,6 +92,35 @@ THE SOFTWARE.
             </xs:sequence>
             <xs:attribute name="type" type="xs:string"/>
             <xs:attribute name="message" type="xs:string"/>
+            <xs:attribute name="time" type="SUREFIRE_TIME"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="flakyFailure" nillable="true">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:element ref="system-out" />
+                    <xs:element ref="system-err" />
+                </xs:choice>
+            </xs:sequence>
+            <xs:attribute name="type" type="xs:string"/>
+            <xs:attribute name="message" type="xs:string"/>
+            <xs:attribute name="time" type="SUREFIRE_TIME"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="flakyError" nillable="true">
+        <xs:complexType mixed="true">
+            <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:element ref="system-out" />
+                    <xs:element ref="system-err" />
+                </xs:choice>
+            </xs:sequence>
+            <xs:attribute name="type" type="xs:string"/>
+            <xs:attribute name="message" type="xs:string"/>
+            <xs:attribute name="time" type="SUREFIRE_TIME"/>
         </xs:complexType>
     </xs:element>
 
@@ -98,6 +133,8 @@ THE SOFTWARE.
                     <xs:element ref="failure"/>
                     <xs:element ref="rerunFailure" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="rerunError" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="flakyFailure" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="flakyError" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="system-out"/>
                     <xs:element ref="system-err"/>
                 </xs:choice>
@@ -123,13 +160,7 @@ THE SOFTWARE.
             <xs:attribute name="failures" type="xs:string" use="required"/>
             <xs:attribute name="errors" type="xs:string" use="required"/>
             <xs:attribute name="group" type="xs:string" />
-            <xs:attribute name="time">
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:pattern value="(([0-9]{0,3},)*[0-9]{3}|[0-9]{0,3})*(\.[0-9]{0,3})?" />
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:attribute>
+            <xs:attribute name="time" type="SUREFIRE_TIME"/>
             <xs:attribute name="skipped" type="xs:string" />
             <xs:attribute name="timestamp" type="xs:string" />
             <xs:attribute name="hostname" type="xs:string" />
@@ -147,13 +178,7 @@ THE SOFTWARE.
                 <xs:element ref="testsuite" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
             <xs:attribute name="name" type="xs:string" />
-            <xs:attribute name="time">
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:pattern value="(([0-9]{0,3},)*[0-9]{3}|[0-9]{0,3})*(\.[0-9]{0,3})?" />
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:attribute>
+            <xs:attribute name="time" type="SUREFIRE_TIME"/>
             <xs:attribute name="tests" type="xs:string" />
             <xs:attribute name="failures" type="xs:string" />
             <xs:attribute name="errors" type="xs:string" />
