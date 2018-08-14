@@ -124,8 +124,9 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
         return extraConfiguration;
     }
 
-    public @Nonnull Collection<TestDataPublisher> getTestDataPublishers() {
-        return testDataPublishers;
+    @Nonnull
+    public Collection<TestDataPublisher> getTestDataPublishers() {
+        return testDataPublishers != null ? testDataPublishers : Collections.<TestDataPublisher> emptyList();
     }
 
     /**
@@ -158,7 +159,7 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
             throws InterruptedException, IOException {
         try {
             XUnitProcessor xUnitProcessor = new XUnitProcessor(getTools(), getThresholds(), getThresholdMode(), getExtraConfiguration());
-            xUnitProcessor.process(build, workspace, listener, launcher, testDataPublishers);
+            xUnitProcessor.process(build, workspace, listener, launcher, getTestDataPublishers());
         } catch(AbortException | TransformerException e) {
             // also if we throws AbortException the all publisher steps are always performed. I prefer hide the stacktrace.
             listener.error("The plugin hasn't been performed correctly: " + e.getMessage());
