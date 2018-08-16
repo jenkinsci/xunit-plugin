@@ -38,7 +38,7 @@ THE SOFTWARE.
 
     <f:block>
         <!-- publisher are optional, if not extension is installed the empty list is hidden -->
-        <j:set var="testDataPublisherDescriptors" value="${instance.testDataPublishers}" />
+        <j:set var="testDataPublisherDescriptors" value="${descriptor.listTestDataPublisherDescriptors}" />
         <j:if test="${testDataPublisherDescriptors.size() > 0}">
             <f:entry title="${%testDataPublishers.title}">
                 <f:repeatableHeteroProperty field="testDataPublishers" hasHeader="true" oneEach="true"/>
