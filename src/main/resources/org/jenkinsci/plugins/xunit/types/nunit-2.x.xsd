@@ -55,7 +55,7 @@
 		<xs:sequence>
 			<xs:element name="environment" type="environmentType" minOccurs="0" maxOccurs="1" /> <!-- NUnit 2.2 -->
 			<xs:element name="culture-info" type="culture-infoType" minOccurs="0" maxOccurs="1" /> <!-- NUnit 2.2 -->
-			<xs:element name="test-suite" type="test-suiteType" />
+			<xs:element name="test-suite" type="test-suiteType" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:attribute name="name" type="xs:string" use="required" />
 		<xs:attribute name="total" type="xs:decimal" use="required" />
