@@ -87,7 +87,7 @@ THE SOFTWARE.
         <xsl:variable name="suiteName">
             <xsl:choose>
                 <xsl:when test="$nunitVersion > 2.2">
-                    <xsl:variable name="suiteNames" select="(./ancestor::test-suite[. != /test-results/test-suite and (not(@type) or (@type!='GenericFixture' and @type!='ParameterizedFixture'))]/@name, @name)" />
+                    <xsl:variable name="suiteNames" select="(./ancestor::test-suite[. != /test-results/test-suite and (not(@type) or (@type!='GenericFixture' and @type!='ParameterizedFixture' and @type!='Assembly'))]/@name, @name)" />
                     <xsl:value-of select="string-join($suiteNames, '.')" />
                 </xsl:when>
                 <xsl:otherwise>
