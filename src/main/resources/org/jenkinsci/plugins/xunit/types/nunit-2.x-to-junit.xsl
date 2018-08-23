@@ -23,7 +23,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xunit="http://www.xunit.org">
-    <xsl:output method="xml" indent="yes" encoding="UTF-8" cdata-section-elements="system-out system-err failure"/>
+    <xsl:output method="xml" indent="yes" encoding="UTF-8" cdata-section-elements="system-out system-err failure error"/>
     <xsl:decimal-format decimal-separator="." grouping-separator=","/>
 
     <xsl:function name="xunit:junit-time" as="xs:string">
@@ -123,7 +123,7 @@ THE SOFTWARE.
         </xsl:variable>
 
         <xsl:variable name="errorCount">
-            <xsl:value-of select="count(*/test-case[@result='NotRunnable'])" />
+            <xsl:value-of select="count(*/test-case[@result='NotRunnable']) + count(*/test-case[@result='Error'])" />
         </xsl:variable>
 
         <testsuite name="{$suiteName}"
@@ -177,10 +177,16 @@ THE SOFTWARE.
                                 <xsl:value-of select="failure/stack-trace"/>
                             </failure>
                         </xsl:when>
-                        <xsl:when test="@result='NotRunnable'">
+                        <xsl:when test="@result='NotRunnable' or @result='Error'">
                             <xsl:element name="error">
                                 <xsl:if test="reason and reason/message/text()">
                                     <xsl:attribute name="message" select="reason/message" />
+                                </xsl:if>
+                                <xsl:if test="failure">
+                                    <xsl:if test="failure/message and failure/message/text()">
+                                        <xsl:attribute name="message" select="failure/message"/>
+                                    </xsl:if>
+                                    <xsl:value-of select="failure/stack-trace"/>
                                 </xsl:if>
                             </xsl:element>
                         </xsl:when>

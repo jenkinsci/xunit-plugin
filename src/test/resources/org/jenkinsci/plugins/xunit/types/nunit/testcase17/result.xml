@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <testsuite name="IoT.CosmosDbMigrator.Tests.MigratorTests" tests="2" failures="0" errors="2" skipped="0" time="6.056" group="CosmosDb">
+        <testcase classname="IoT.CosmosDbMigrator.Tests.MigratorTests" name="GivenNewerMigrationInDatabase_WhenRunMigrations_ThenMigrationFails" time="4.337">
+            <error message="Microsoft.Azure.Documents.DocumentClientException : Sorry, we are currently experiencing high demand in this region, and cannot fulfill your request at this time. We work continuously to bring more and more capacity online, and encourage you to try again. Please do not hesitate to email docdbswat@microsoft.com at any time or for any reason.&#xA;ActivityId: a51abdc3-eb17-43e8-8073-e8dc11eacc7a, Microsoft.Azure.Documents.Common/1.20.108.4, documentdb-dotnet-sdk/1.22.0 Host/64-bit MicrosoftWindowsNT/10.0.17134.0"><![CDATA[   at Microsoft.Azure.Documents.Client.ClientExtensions.<ParseResponseAsync>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Azure.Documents.GatewayStoreModel.<>c__DisplayClass20_0.<<InvokeAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Azure.Documents.BackoffRetryUtility`1.<>c__DisplayClass1_0.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Azure.Documents.BackoffRetryUtility`1.<ExecuteRetry>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.Azure.Documents.BackoffRetryUtility`1.<ExecuteRetry>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Azure.Documents.BackoffRetryUtility`1.<ExecuteAsync>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Azure.Documents.GatewayStoreModel.<InvokeAsync>d__20.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Azure.Documents.GatewayStoreModel.<ProcessMessageAsync>d__12.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Azure.Documents.Client.DocumentClient.<CreateAsync>d__254.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Azure.Documents.Client.DocumentClient.<CreateDocumentCollectionPrivateAsync>d__114.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Azure.Documents.BackoffRetryUtility`1.<>c__DisplayClass1_0.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Azure.Documents.BackoffRetryUtility`1.<ExecuteRetry>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.Azure.Documents.BackoffRetryUtility`1.<ExecuteRetry>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Azure.Documents.BackoffRetryUtility`1.<ExecuteAsync>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Azure.Documents.Client.DocumentClient.<CreateDocumentCollectionIfNotExistsPrivateAsync>d__285.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at IoT.CosmosDbMigrator.Tests.MigratorTests.<GivenNewerMigrationInDatabase>d__13.MoveNext() in C:\jenkins\workspace\r-D5H3OLEAZ4\src\backend\IoT.CosmosDbMigrator.Tests\MigratorTests.cs:line 144
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at IoT.CosmosDbMigrator.Tests.MigratorTests.<GivenNewerMigrationInDatabase_WhenRunMigrations_ThenMigrationFails>d__9.MoveNext() in C:\jenkins\workspace\r-D5H3OLEAZ4\src\backend\IoT.CosmosDbMigrator.Tests\MigratorTests.cs:line 79
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at NUnit.Framework.Internal.AsyncInvocationRegion.AsyncTaskInvocationRegion.WaitForPendingOperationsToComplete(Object invocationResult) in C:\src\nunit\nunit\src\NUnitFramework\framework\Internal\AsyncInvocationRegion.cs:line 113
+   at NUnit.Framework.Internal.Commands.TestMethodCommand.RunAsyncTestMethod(TestExecutionContext context) in C:\src\nunit\nunit\src\NUnitFramework\framework\Internal\Commands\TestMethodCommand.cs:line 96]]></error>
+        </testcase>
+        <testcase classname="IoT.CosmosDbMigrator.Tests.MigratorTests" name="GivenOldVersionInDatabase_WhenRunMigrations_ThenDatabaseIsUpToDate" time="1.611">
+            <error
+                message="Microsoft.Azure.Documents.DocumentClientException : Sorry, we are currently experiencing high demand in this region, and cannot fulfill your request at this time. We work continuously to bring more and more capacity online, and encourage you to try again. Please do not hesitate to email docdbswat@microsoft.com at any time or for any reason.&#xA;ActivityId: 7ec5ccee-5e0a-49c5-b6a3-3171486a6bb9, Microsoft.Azure.Documents.Common/1.20.108.4, documentdb-dotnet-sdk/1.22.0 Host/64-bit MicrosoftWindowsNT/10.0.17134.0"><![CDATA[   at Microsoft.Azure.Documents.Client.ClientExtensions.<ParseResponseAsync>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Azure.Documents.GatewayStoreModel.<>c__DisplayClass20_0.<<InvokeAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Azure.Documents.BackoffRetryUtility`1.<>c__DisplayClass1_0.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Azure.Documents.BackoffRetryUtility`1.<ExecuteRetry>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.Azure.Documents.BackoffRetryUtility`1.<ExecuteRetry>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Azure.Documents.BackoffRetryUtility`1.<ExecuteAsync>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Azure.Documents.GatewayStoreModel.<InvokeAsync>d__20.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Azure.Documents.GatewayStoreModel.<ProcessMessageAsync>d__12.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Azure.Documents.Client.DocumentClient.<CreateAsync>d__254.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Azure.Documents.Client.DocumentClient.<CreateDocumentCollectionPrivateAsync>d__114.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Azure.Documents.BackoffRetryUtility`1.<>c__DisplayClass1_0.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Azure.Documents.BackoffRetryUtility`1.<ExecuteRetry>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.Azure.Documents.BackoffRetryUtility`1.<ExecuteRetry>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Azure.Documents.BackoffRetryUtility`1.<ExecuteAsync>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.Azure.Documents.Client.DocumentClient.<CreateDocumentCollectionIfNotExistsPrivateAsync>d__285.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at IoT.CosmosDbMigrator.Tests.MigratorTests.<GivenOldVersionInDb>d__12.MoveNext() in C:\jenkins\workspace\r-D5H3OLEAZ4\src\backend\IoT.CosmosDbMigrator.Tests\MigratorTests.cs:line 123
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at IoT.CosmosDbMigrator.Tests.MigratorTests.<GivenOldVersionInDatabase_WhenRunMigrations_ThenDatabaseIsUpToDate>d__8.MoveNext() in C:\jenkins\workspace\r-D5H3OLEAZ4\src\backend\IoT.CosmosDbMigrator.Tests\MigratorTests.cs:line 60
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at NUnit.Framework.Internal.AsyncInvocationRegion.AsyncTaskInvocationRegion.WaitForPendingOperationsToComplete(Object invocationResult) in C:\src\nunit\nunit\src\NUnitFramework\framework\Internal\AsyncInvocationRegion.cs:line 113
+   at NUnit.Framework.Internal.Commands.TestMethodCommand.RunAsyncTestMethod(TestExecutionContext context) in C:\src\nunit\nunit\src\NUnitFramework\framework\Internal\Commands\TestMethodCommand.cs:line 96]]></error>
+        </testcase>
+    </testsuite>
+</testsuites>

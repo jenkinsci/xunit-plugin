@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites>
-    <testsuite name="NUnit.Tests.Assemblies.MockTestFixture" tests="10" failures="1" errors="2" skipped="1" time="0.582" group="FixtureCategory">
+<testsuites xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <testsuite name="NUnit.Tests.Assemblies.MockTestFixture" tests="10" failures="1" errors="3" skipped="1" time="0.582" group="FixtureCategory">
         <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="FailingTest" time="0.013">
             <failure message="Intentional failure"><![CDATA[at NUnit.Tests.Assemblies.MockTestFixture.FailingTest () [0x00000] in /home/charlie/Dev/NUnit/nunit-2.5/work/src/tests/mock-assembly/MockAssembly.cs:121
 ]]></failure>
@@ -18,7 +18,10 @@
         <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="NotRunnableTest">
             <error message="No arguments were provided" />
         </testcase>
-        <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="TestWithException" time="0.001" />
+        <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="TestWithException" time="0.001">
+            <error message="System.ApplicationException : Intentional Exception"><![CDATA[at NUnit.Tests.Assemblies.MockTestFixture.TestWithException () [0x00000] in /home/charlie/Dev/NUnit/nunit-2.5/work/src/tests/mock-assembly/MockAssembly.cs:153
+]]></error>
+        </testcase>
         <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="TestWithManyProperties" time="0.000" />
     </testsuite>
     <testsuite name="NUnit.Tests.BadFixture" tests="1" failures="0" errors="1" skipped="0">
