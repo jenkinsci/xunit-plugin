@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <testsuite name="001 Login Logout" time="4.482" tests="0" failures="0" errors="0" skipped="0" />
+    <testsuite name="001 Login Logout.when the user is logged out" time="4.482" tests="1" failures="0" errors="0" skipped="0">
+        <properties>
+            <property name="sun.jnu.encoding" value="Cp1252" />
+        </properties>
+        <testcase name="it should login an existing user and redirect to the dashboard page" time="2.937" classname="001 Login Logout.when the user is logged out" />
+    </testsuite>
+    <testsuite name="001 Login Logout.when the user is logged out.and then signs in " time="0.517" tests="1" failures="0" errors="0" skipped="0">
+        <testcase name="it should logout the user" time="0.514" classname="001 Login Logout.when the user is logged out.and then signs in " />
+    </testsuite>
+    <testsuite name="100 Globale suche" time="0.001" tests="2" failures="0" errors="0" skipped="2">
+        <properties>
+            <property name="org.eclipse.gemini.web.tomcat.config.path" value="configuration/tomcat-server.xml" />
+            <property name="java.specification.name" value="Java Platform API Specification" />
+        </properties>
+        <testcase name="should find a search result and navigate to the entity" time="0.000" classname="100 Globale suche">
+            <skipped />
+        </testcase>
+        <testcase name="should show existing Kita Fisch in &#34;Globale Suche&#34;" classname="100 Globale suche">
+            <skipped message="prerequisite not reached" />
+        </testcase>
+    </testsuite>
+    <testsuite name="NSArrayTDSUtilTest" time="0.000" tests="3" failures="1" errors="1" skipped="0">
+        <testcase name="testArrayByMappingEachItemWithBlock" time="0.028" classname="NSArrayTDSUtilTest">
+            <failure type="assert error" message="expected true but was false">stacktrace</failure>
+            <system-out><![CDATA[this is a test case system out]]></system-out>
+            <system-err><![CDATA[this is a test case system error]]></system-err>
+        </testcase>
+        <testcase name="testDictionaryByMappingEachItemWithKeyBlockValueBlock" time="0.004" classname="NSArrayTDSUtilTest">
+            <error type="exception" message="IndexOutOfBound: -1">stacktrace</error>
+        </testcase>
+        <testcase name="testSubarraysWithSize" time="0.004" classname="NSArrayTDSUtilTest" />
+        <system-out><![CDATA[this is a test suite system out]]></system-out>
+        <system-err><![CDATA[this is a test suite system error]]></system-err>
+    </testsuite>
+</testsuites>

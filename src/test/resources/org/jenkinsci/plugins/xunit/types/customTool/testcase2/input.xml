@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites disabled="127" errors="0" failures="0" tests="129" time="9.783">
+    <properties>
+        <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+    </properties>
+    <testsuite name="001 Login Logout" timestamp="2018-06-12T16:23:22" hostname="localhost" time="4.482" errors="0" tests="0" skips="0" disabled="0" failures="0" />
+    <testsuite name="001 Login Logout.when the user is logged out" timestamp="2018-06-12T16:23:22" hostname="localhost" time="4.482" errors="0" tests="1" skip="0" disabled="0" failures="0">
+        <properties>
+            <property name="sun.jnu.encoding" value="Cp1252" />
+            <property />
+        </properties>
+        <testcase classname="001 Login Logout.when the user is logged out" name="it should login an existing user and redirect to the dashboard page" time="2.937" />
+    </testsuite>
+    <testsuite name="001 Login Logout.when the user is logged out.and then signs in " timestamp="2018-06-12T16:23:26" hostname="localhost" time="0.517" errors="0" tests="1" skipped="0"
+        disabled="0" failures="0">
+        <testcase classname="001 Login Logout.when the user is logged out.and then signs in " name="it should logout the user" time="0.514" />
+    </testsuite>
+    <testsuite name="100 Globale suche" timestamp="2018-06-12T16:23:26" hostname="localhost" time="0.001" errors="0" tests="2" skipped="0" disabled="2" failures="0">
+        <properties>
+            <property name="org.eclipse.gemini.web.tomcat.config.path" value="configuration/tomcat-server.xml" />
+            <property name="java.specification.name" value="Java Platform API Specification" />
+            <property />
+        </properties>
+        <testcase classname="100 Globale suche" name="should find a search result and navigate to the entity" time="0">
+            <skipped />
+        </testcase>
+        <testcase classname="100 Globale suche" name="should show existing Kita Fisch in &quot;Globale Suche&quot;">
+            <skipped message="prerequisite not reached" type="requisite failure"/>
+        </testcase>
+    </testsuite>
+    <testsuite name='NSArrayTDSUtilTest' tests='3' failures='1' errors='1'>
+        <testcase classname='NSArrayTDSUtilTest' name='testArrayByMappingEachItemWithBlock' time='0.028'>
+            <failure type="assert error" message="expected true but was false" line="y">stacktrace</failure>
+            <system-out>this is a test case system out</system-out>
+            <system-err>this is a test case system error</system-err>
+        </testcase>
+        <testcase classname='NSArrayTDSUtilTest' name='testDictionaryByMappingEachItemWithKeyBlockValueBlock' time='0.004'>
+            <error type="exception" message="IndexOutOfBound: -1" line="x">stacktrace</error>
+            <error type="invalid element, only first must be present" />
+        </testcase>
+        <testcase classname='NSArrayTDSUtilTest' name='testSubarraysWithSize' time='0.004' />
+        <system-out>this is a test suite system out</system-out>
+        <system-err>this is a test suite system error</system-err>
+    </testsuite>
+    <system-out>this is an invalid location for system out</system-out>
+    <system-err>this is an invalid location for system error</system-err>
+</testsuites>

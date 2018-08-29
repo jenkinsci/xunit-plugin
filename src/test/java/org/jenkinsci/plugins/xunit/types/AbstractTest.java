@@ -30,6 +30,10 @@ public abstract class AbstractTest {
         return MessageFormat.format("{0}/testcase{1}/input.xml", packageName, testNumber);
     }
 
+    public static String resolveXSL(String packageName, int testNumber) {
+        return MessageFormat.format("{0}/testcase{1}/input.xsl", packageName, testNumber);
+    }
+
     public static String resolveOutput(String packageName, int testNumber) {
         return MessageFormat.format("{0}/testcase{1}/result.xml", packageName, testNumber);
     }
@@ -37,18 +41,25 @@ public abstract class AbstractTest {
     private final String input;
     private final String expectedResult;
     private final Class<? extends InputMetric> metricClass;
+    private final String xslPath;
 
     public AbstractTest() {
         // TODO remove when all test will be adapted
         input = null;
         expectedResult = null;
         metricClass = null;
+        xslPath = null;
     }
 
     protected AbstractTest(Class<? extends InputMetric> metricClass, String input, String expectedResult) {
+        this(metricClass, input, null, expectedResult);
+    }
+
+    protected AbstractTest(Class<? extends InputMetric> metricClass, String input, String xslPath, String expectedResult) {
         this.input = input;
         this.expectedResult = expectedResult;
         this.metricClass = metricClass;
+        this.xslPath = xslPath;
     }
 
     @Before
@@ -60,7 +71,7 @@ public abstract class AbstractTest {
 
 //    @Test
     public void verifyXSLT() throws Exception {
-        convertAndValidate(metricClass, input, expectedResult);
+        convertAndValidate(metricClass, input, xslPath, expectedResult);
     }
 
     private String readXmlAsString(File input)
@@ -86,29 +97,32 @@ public abstract class AbstractTest {
         return xmlString;
     }
 
-    protected void convertAndValidate(Class<? extends InputMetric> metricClass, String inputXMLPath, String expectedResultPath) throws Exception {
+    protected void convertAndValidate(Class<? extends InputMetric> metricClass, String inputXMLPath, String inputXSLPath, String expectedResultPath) throws Exception {
         InputMetric inputMetric = InputMetricFactory.getInstance(metricClass);
-
+        if (inputMetric instanceof CustomInputMetric) {
+            ((CustomInputMetric) inputMetric).setCustomXSLFile(new File(this.getClass().getResource(inputXSLPath).toURI()));
+        }
+        
         File outputXMLFile = file.newFile();
         File inputXMLFile = new File(this.getClass().getResource(inputXMLPath).toURI());
-
+        
         //The input file must be valid
         boolean inputResult = inputMetric.validateInputFile(inputXMLFile);
         for (ValidationError validatorError : inputMetric.getInputValidationErrors()) {
             System.out.println("[ERROR] " + validatorError.toString());
         }
         Assert.assertTrue(inputResult);
-
+        
         inputMetric.convert(inputXMLFile, outputXMLFile);
         XMLUnit.setIgnoreWhitespace(true);
         Diff myDiff = new Diff(readXmlAsString(outputXMLFile), readXmlAsString(new File(this.getClass().getResource(expectedResultPath).toURI())));
         try {
-        Assert.assertTrue("XSL transformation did not work " + myDiff, myDiff.similar());
+            Assert.assertTrue("XSL transformation did not work " + myDiff, myDiff.similar());
         } catch (Error e) {
             System.err.println(readXmlAsString(outputXMLFile));
             throw e;
         }
-
+        
         //The generated output file must be valid
         boolean outputResult = inputMetric.validateOutputFile(outputXMLFile);
         for (ValidationError validatorError : inputMetric.getOutputValidationErrors()) {
@@ -116,35 +130,4 @@ public abstract class AbstractTest {
         }
         Assert.assertTrue(outputResult);
     }
-
-    protected void convertAndValidate(String inputXMLPath, String inputXSLPath, String expectedResultPath) throws Exception {
-
-        CustomInputMetric customInputMetric = CustomInputMetric.class.newInstance();
-        customInputMetric.setCustomXSLFile(new File(this.getClass().getResource(inputXSLPath).toURI()));
-
-        File outputXMLFile = File.createTempFile("result", "xml");
-        File inputXMLFile = new File(this.getClass().getResource(inputXMLPath).toURI());
-
-        //The input file must be valid
-        boolean inputResult = customInputMetric.validateInputFile(inputXMLFile);
-        for (ValidationError validatorError : customInputMetric.getInputValidationErrors()) {
-            System.out.println("[ERROR] " + validatorError.toString());
-        }
-        Assert.assertTrue(inputResult);
-
-        customInputMetric.convert(inputXMLFile, outputXMLFile);
-        Diff myDiff = new Diff(readXmlAsString(new File(this.getClass().getResource(expectedResultPath).toURI())), readXmlAsString(outputXMLFile));
-        Assert.assertTrue("XSL transformation did not work" + myDiff, myDiff.similar());
-
-        //The generated output file must be valid
-        boolean outputResult = customInputMetric.validateOutputFile(outputXMLFile);
-        for (ValidationError validatorError : customInputMetric.getOutputValidationErrors()) {
-            System.out.println(validatorError);
-        }
-        Assert.assertTrue(outputResult);
-
-        outputXMLFile.deleteOnExit();
-    }
-
-
 }
