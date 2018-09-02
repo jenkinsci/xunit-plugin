@@ -36,7 +36,7 @@ public class DownloadableResourceUtil {
             HttpURLConnection httpCon = (HttpURLConnection) con;
             int responseCode = httpCon.getResponseCode();
             if (responseCode == HttpURLConnection.HTTP_NOT_MODIFIED || responseCode != HttpURLConnection.HTTP_OK) {
-                throw new IOException("Impossible to download resource " + archive.toExternalForm() + " due to server error: " + responseCode);
+                throw new IOException("Can not download resource " + archive.toExternalForm() + " due to server error: " + responseCode);
             }
         }
 

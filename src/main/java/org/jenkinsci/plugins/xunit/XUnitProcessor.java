@@ -223,7 +223,7 @@ public class XUnitProcessor {
         return Util.replaceMacro(newExpandedPattern, build.getEnvironment(listener));
     }
 
-    private XUnitToolInfo buildXUnitToolInfo(final TestType tool,
+    protected XUnitToolInfo buildXUnitToolInfo(final TestType tool,
                                              final Run<?, ?> build,
                                              final FilePath workspace,
                                              final TaskListener listener) throws IOException, InterruptedException {
@@ -255,15 +255,23 @@ public class XUnitProcessor {
         File userContent = new File(Jenkins.getInstance().getRootDir(), "userContent");
 
         InputMetricXSL inputMetricXSL = (InputMetricXSL) tool.getInputMetric();
-        FilePath userXSLFilePath = new FilePath(new File(userContent, inputMetricXSL.getUserContentXSLDirRelativePath()));
-        if (!userXSLFilePath.exists()) {
+        FilePath xslUserContent = new FilePath(new File(userContent, inputMetricXSL.getUserContentXSLDirRelativePath()));
+        if (!xslUserContent.exists()) {
             return null;
         }
 
-        logger.info("Using the custom user stylesheet in JENKINS_HOME.");
-        try (InputStream is = userXSLFilePath.read()) {
-            return IOUtils.toString(is, "UTF-8");
+        // get first XSL file under userContent folder
+        for (FilePath stylesheet : xslUserContent.list("*.xsl")) {
+            if (stylesheet.isDirectory()) {
+                continue;
+            }
+
+            logger.info("Using the custom user stylesheet " + stylesheet.getName() + " in JENKINS_HOME.");
+            try (InputStream is = stylesheet.read()) {
+                return IOUtils.toString(is, "UTF-8");
+            }
         }
+        return null;
     }
 
     private String getCustomStylesheet(final TestType tool,
@@ -278,10 +286,10 @@ public class XUnitProcessor {
             return DownloadableResourceUtil.download(customXSLPath);
         }
 
-        // Try full path on master
+        // Try path on master (Path Traversal ??)
         FilePath customXSLFilePath = new FilePath(new File(customXSLPath));
         if (!customXSLFilePath.exists()) {
-            // Try full path on slave
+            // Try full path on slave (Path Traversal ??)
             customXSLFilePath = new FilePath(workspace.getChannel(), customXSLPath);
             if (!customXSLFilePath.exists()) {
                 // Try from workspace
