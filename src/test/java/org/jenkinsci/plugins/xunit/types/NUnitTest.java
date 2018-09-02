@@ -26,7 +26,6 @@ package org.jenkinsci.plugins.xunit.types;
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
@@ -58,12 +57,6 @@ public class NUnitTest extends AbstractTest {
 
     public NUnitTest(String testName, int testNumber) {
         super(NUnit.class, resolveInput("nunit", testNumber), resolveOutput("nunit", testNumber));
-    }
-
-    @Override
-    @Test
-    public void verifyXSLT() throws Exception {
-        super.verifyXSLT();
     }
 
 }

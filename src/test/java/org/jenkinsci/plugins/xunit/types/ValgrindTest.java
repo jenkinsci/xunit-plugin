@@ -26,7 +26,6 @@ package org.jenkinsci.plugins.xunit.types;
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
@@ -43,12 +42,6 @@ public class ValgrindTest extends AbstractTest {
 
     public ValgrindTest(String testName, int testNumber) {
         super(Valgrind.class, resolveInput("valgrind", testNumber), resolveOutput("valgrind", testNumber));
-    }
-
-    @Override
-    @Test
-    public void verifyXSLT() throws Exception {
-        super.verifyXSLT();
     }
 
 }

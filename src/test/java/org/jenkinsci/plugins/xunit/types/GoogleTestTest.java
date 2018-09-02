@@ -26,7 +26,6 @@ package org.jenkinsci.plugins.xunit.types;
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
@@ -44,12 +43,6 @@ public class GoogleTestTest extends AbstractTest {
 
     public GoogleTestTest(String testName, int testNumber) {
         super(GoogleTestInputMetric.class, resolveInput("googletest", testNumber), resolveOutput("googletest", testNumber));
-    }
-
-    @Override
-    @Test
-    public void verifyXSLT() throws Exception {
-        super.verifyXSLT();
     }
 
 }

@@ -26,7 +26,6 @@ package org.jenkinsci.plugins.xunit.types;
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
@@ -43,12 +42,6 @@ public class CustomTypeTest extends AbstractTest {
 
     public CustomTypeTest(String testName, int testNumber) {
         super(CustomInputMetric.class, resolveInput("customTool", testNumber), resolveXSL("customTool", testNumber), resolveOutput("customTool", testNumber));
-    }
-
-    @Override
-    @Test
-    public void verifyXSLT() throws Exception {
-        super.verifyXSLT();
     }
 
 }

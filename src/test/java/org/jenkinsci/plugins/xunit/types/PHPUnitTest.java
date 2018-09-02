@@ -26,7 +26,6 @@ package org.jenkinsci.plugins.xunit.types;
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
@@ -50,12 +49,6 @@ public class PHPUnitTest extends AbstractTest {
 
     public PHPUnitTest(String testName, int testNumber) {
         super(PHPUnit.class, resolveInput("phpunit", testNumber), resolveOutput("phpunit", testNumber));
-    }
-
-    @Override
-    @Test
-    public void verifyXSLT() throws Exception {
-        super.verifyXSLT();
     }
 
 }

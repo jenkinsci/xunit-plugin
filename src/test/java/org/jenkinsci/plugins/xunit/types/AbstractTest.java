@@ -16,6 +16,7 @@ import org.jenkinsci.lib.dtkit.util.validator.ValidationError;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
+import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
 /**
@@ -69,7 +70,7 @@ public abstract class AbstractTest {
         XMLUnit.setIgnoreComments(true);
     }
 
-//    @Test
+    @Test
     public void verifyXSLT() throws Exception {
         convertAndValidate(metricClass, input, xslPath, expectedResult);
     }

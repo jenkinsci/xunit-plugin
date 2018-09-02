@@ -26,7 +26,6 @@ package org.jenkinsci.plugins.xunit.types;
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
@@ -43,12 +42,6 @@ public class FPCUnitTest extends AbstractTest {
 
     public FPCUnitTest(String testName, int testNumber) {
         super(FPCUnit.class, resolveInput("fpcunit", testNumber), resolveOutput("fpcunit", testNumber));
-    }
-
-    @Override
-    @Test
-    public void verifyXSLT() throws Exception {
-        super.verifyXSLT();
     }
 
 }
