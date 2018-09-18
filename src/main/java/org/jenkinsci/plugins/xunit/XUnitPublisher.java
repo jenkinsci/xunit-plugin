@@ -161,9 +161,11 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
             XUnitProcessor xUnitProcessor = new XUnitProcessor(getTools(), getThresholds(), getThresholdMode(), getExtraConfiguration());
             xUnitProcessor.process(build, workspace, listener, launcher, getTestDataPublishers());
         } catch(AbortException | TransformerException e) {
-            // also if we throws AbortException the all publisher steps are always performed. I prefer hide the stacktrace.
-            listener.error("The plugin hasn't been performed correctly: " + e.getMessage());
             build.setResult(Result.FAILURE);
+            if (e instanceof TransformerException) {
+                throw new AbortException(e.getMessage());
+            }
+            throw e;
         }
     }
 
