@@ -45,7 +45,9 @@
         <xmlunit.version>1.6</xmlunit.version>
         <mockito.version>2.17.0</mockito.version>
         <jenkins.version>2.60.3</jenkins.version>
-        <java.level>7</java.level>
+        <junit-plugin.version>1.25</junit-plugin.version>
+        <workflow-cps.version>2.45</workflow-cps.version>
+        <java.level>8</java.level>
     </properties>
 
     <repositories>
@@ -68,7 +70,11 @@
                 <groupId>org.jenkins-ci.plugins.workflow</groupId>
                 <artifactId>workflow-api</artifactId>
                 <version>2.26</version>
-                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jenkins-ci.plugins</groupId>
+                <artifactId>scm-api</artifactId>
+                <version>2.2.7</version>
             </dependency>
             <dependency>
                 <groupId>org.jenkins-ci.plugins.workflow</groupId>
@@ -133,7 +139,7 @@
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>junit</artifactId>
-            <version>1.24</version>
+            <version>${junit-plugin.version}</version>
         </dependency>
 
         <dependency>
@@ -159,7 +165,27 @@
         <dependency>
             <groupId>org.jenkins-ci.plugins.workflow</groupId>
             <artifactId>workflow-cps</artifactId>
-            <version>2.45</version>
+            <version>${workflow-cps.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins.workflow</groupId>
+            <artifactId>workflow-cps</artifactId>
+            <version>${workflow-cps.version}</version>
+            <classifier>tests</classifier>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit-plugin.version}</version>
+            <classifier>tests</classifier>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>pipeline-stage-step</artifactId>
+            <version>2.3</version>
             <scope>test</scope>
         </dependency>
         <dependency>

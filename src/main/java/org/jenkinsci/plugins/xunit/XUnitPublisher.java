@@ -159,7 +159,7 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
             throws InterruptedException, IOException {
         try {
             XUnitProcessor xUnitProcessor = new XUnitProcessor(getTools(), getThresholds(), getThresholdMode(), getExtraConfiguration());
-            xUnitProcessor.process(build, workspace, listener, launcher, getTestDataPublishers());
+            xUnitProcessor.process(build, workspace, listener, launcher, getTestDataPublishers(), null);
         } catch(AbortException | TransformerException e) {
             build.setResult(Result.FAILURE);
             if (e instanceof TransformerException) {
@@ -174,7 +174,6 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
         return BuildStepMonitor.NONE;
     }
 
-    @Symbol("xunit")
     @Extension
     public static final class XUnitDescriptorPublisher extends BuildStepDescriptor<Publisher> {
 

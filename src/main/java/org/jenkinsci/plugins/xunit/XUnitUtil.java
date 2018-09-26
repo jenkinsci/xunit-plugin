@@ -25,7 +25,7 @@ package org.jenkinsci.plugins.xunit;
 
 import hudson.Util;
 
-/* package */ final class XUnitUtil {
+public final class XUnitUtil {
 
     private XUnitUtil() {
     }
