@@ -111,7 +111,7 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
     public void perform(final Run<?, ?> build, FilePath workspace, Launcher launcher, final TaskListener listener)
             throws InterruptedException, IOException {
         XUnitProcessor xUnitProcessor = new XUnitProcessor(getTools(), getThresholds(), getThresholdMode(), getExtraConfiguration());
-        xUnitProcessor.process(build, workspace, listener, launcher, Collections.<TestDataPublisher> emptySet());
+        xUnitProcessor.process(build, workspace, listener, launcher, Collections.<TestDataPublisher> emptySet(), null);
     }
 
     @Override

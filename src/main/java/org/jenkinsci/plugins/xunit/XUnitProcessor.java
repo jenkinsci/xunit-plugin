@@ -30,11 +30,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.UUID;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 
+import hudson.tasks.test.PipelineTestDetails;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.tools.ant.DirectoryScanner;
@@ -42,6 +44,7 @@ import org.apache.tools.ant.types.FileSet;
 import org.jenkinsci.lib.dtkit.model.InputMetric;
 import org.jenkinsci.lib.dtkit.model.InputMetricXSL;
 import org.jenkinsci.lib.dtkit.type.TestType;
+import org.jenkinsci.plugins.xunit.exception.XUnitException;
 import org.jenkinsci.plugins.xunit.service.NoTestFoundException;
 import org.jenkinsci.plugins.xunit.service.TransformerException;
 import org.jenkinsci.plugins.xunit.service.XUnitConversionService;
@@ -69,6 +72,8 @@ import hudson.tasks.junit.TestDataPublisher;
 import hudson.tasks.junit.TestResult;
 import hudson.tasks.junit.TestResultAction;
 import jenkins.model.Jenkins;
+import org.kohsuke.accmod.Restricted;
+import org.kohsuke.accmod.restrictions.NoExternalUse;
 
 /**
  * @author Gregory Boissinot
@@ -88,15 +93,18 @@ public class XUnitProcessor {
         private final long buildTime;
         private final long nowMaster;
         private final String processorId;
+        private final PipelineTestDetails pipelineTestDetails;
 
         public ReportParserCallable(long buildTime,
                                     @Nonnull String junitFilePattern,
                                     long nowMaster,
-                                    String processorId) {
+                                    String processorId,
+                                    PipelineTestDetails pipelineTestDetails) {
             this.buildTime = buildTime;
             this.junitFilePattern = junitFilePattern;
             this.nowMaster = nowMaster;
             this.processorId = processorId;
+            this.pipelineTestDetails = pipelineTestDetails;
         }
 
         @Override
@@ -114,7 +122,7 @@ public class XUnitProcessor {
                 return null;
 
             }
-            return new TestResult(buildTime + (nowSlave - nowMaster), ds, true, null);
+            return new TestResult(buildTime + (nowSlave - nowMaster), ds, true, pipelineTestDetails);
         }
     }
 
@@ -142,8 +150,9 @@ public class XUnitProcessor {
         this.processorId = UUID.randomUUID().toString();
     }
 
-    public void process(Run<?, ?> build, FilePath workspace, TaskListener listener, Launcher launcher, @Nonnull Collection<TestDataPublisher> testDataPublishers)
-     throws IOException, InterruptedException {
+    public void process(Run<?, ?> build, FilePath workspace, TaskListener listener, Launcher launcher,
+                        @Nonnull Collection<TestDataPublisher> testDataPublishers, @CheckForNull PipelineTestDetails pipelineTestDetails)
+            throws IOException, InterruptedException {
         logger = new XUnitLog(listener);
         logger.info("Starting to record.");
 
@@ -154,13 +163,19 @@ public class XUnitProcessor {
             return;
         }
 
-        TestResult testResult = recordTestResult(build, workspace, listener, launcher, testDataPublishers);
+        TestResult testResult = recordTestResult(build, workspace, listener, launcher, testDataPublishers, pipelineTestDetails);
 
-        processDeletion(workspace);
+        if (testResult != null) {
+            processDeletion(workspace);
 
-        Result result = getBuildStatus(testResult, build);
-        logger.info("Setting the build status to " + result);
-        build.setResult(result);
+            // Don't set the build status if this is called from the Pipeline step.
+            if (pipelineTestDetails == null) {
+                Result result = getBuildStatus(testResult, build);
+                logger.info("Setting the build status to " + result);
+                build.setResult(result);
+            }
+        }
+        
         logger.info("Stopping recording.");
     }
 
@@ -338,18 +353,20 @@ public class XUnitProcessor {
                                         FilePath workspace,
                                         TaskListener listener,
                                         Launcher launcher,
-                                        Collection<TestDataPublisher> testDataPublishers) throws IOException, InterruptedException {
+                                        Collection<TestDataPublisher> testDataPublishers,
+                                        PipelineTestDetails pipelineTestDetails) throws IOException, InterruptedException {
         TestResultAction existingAction = build.getAction(TestResultAction.class);
         final long buildTime = build.getTimestamp().getTimeInMillis();
         final long nowMaster = System.currentTimeMillis();
 
-        TestResult result = getTestResult(workspace, "**/TEST-*.xml", buildTime, nowMaster);
+        TestResult result = getTestResult(workspace, "**/TEST-*.xml", buildTime, nowMaster, pipelineTestDetails);
         if (result != null) {
             TestResultAction action;
             if (existingAction == null) {
                 action = new TestResultAction(build, result, listener);
             } else {
                 action = existingAction;
+                result.freeze(action);
                 action.mergeResult(result, listener);
             }
 
@@ -381,6 +398,7 @@ public class XUnitProcessor {
      * @param junitFilePattern the JUnit search pattern
      * @param buildTime the build time
      * @param nowMaster the time on master
+     * @param pipelineTestDetails Pipeline test details, can be null
      * @return the test result object
      * @throws InterruptedException
      * @throws IOException
@@ -388,13 +406,15 @@ public class XUnitProcessor {
     private TestResult getTestResult(final FilePath workspace,
                                      final String junitFilePattern,
                                      final long buildTime,
-                                     final long nowMaster) throws IOException, InterruptedException {
+                                     final long nowMaster,
+                                     final PipelineTestDetails pipelineTestDetails) throws IOException, InterruptedException {
 
-        return workspace.act(new ReportParserCallable(buildTime, junitFilePattern, nowMaster, processorId));
+        return workspace.act(new ReportParserCallable(buildTime, junitFilePattern, nowMaster, processorId, pipelineTestDetails));
     }
 
+    @Restricted(NoExternalUse.class)
     @Nonnull
-    private Result getBuildStatus(TestResult result, Run<?, ?> build) {
+    public Result getBuildStatus(TestResult result, Run<?, ?> build) {
         Result curResult = processResultThreshold(result, build);
         Result previousResultStep = build.getResult();
         if (previousResultStep == null) {
