@@ -30,8 +30,6 @@ import java.util.Collections;
 
 import javax.annotation.CheckForNull;
 
-import com.google.common.collect.Lists;
-import hudson.tasks.junit.TestDataPublisher;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
@@ -52,6 +50,7 @@ import hudson.model.TaskListener;
 import hudson.tasks.BuildStepDescriptor;
 import hudson.tasks.BuildStepMonitor;
 import hudson.tasks.Builder;
+import hudson.tasks.junit.TestDataPublisher;
 import jenkins.tasks.SimpleBuildStep;
 
 /**

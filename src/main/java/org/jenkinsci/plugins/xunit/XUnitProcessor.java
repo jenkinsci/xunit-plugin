@@ -30,13 +30,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.UUID;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 
-import hudson.tasks.test.PipelineTestDetails;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.tools.ant.DirectoryScanner;
@@ -44,7 +42,6 @@ import org.apache.tools.ant.types.FileSet;
 import org.jenkinsci.lib.dtkit.model.InputMetric;
 import org.jenkinsci.lib.dtkit.model.InputMetricXSL;
 import org.jenkinsci.lib.dtkit.type.TestType;
-import org.jenkinsci.plugins.xunit.exception.XUnitException;
 import org.jenkinsci.plugins.xunit.service.NoTestFoundException;
 import org.jenkinsci.plugins.xunit.service.TransformerException;
 import org.jenkinsci.plugins.xunit.service.XUnitConversionService;
@@ -56,6 +53,8 @@ import org.jenkinsci.plugins.xunit.service.XUnitValidationService;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
 import org.jenkinsci.plugins.xunit.types.CustomType;
 import org.jenkinsci.plugins.xunit.util.DownloadableResourceUtil;
+import org.kohsuke.accmod.Restricted;
+import org.kohsuke.accmod.restrictions.NoExternalUse;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
@@ -71,9 +70,8 @@ import hudson.remoting.VirtualChannel;
 import hudson.tasks.junit.TestDataPublisher;
 import hudson.tasks.junit.TestResult;
 import hudson.tasks.junit.TestResultAction;
+import hudson.tasks.test.PipelineTestDetails;
 import jenkins.model.Jenkins;
-import org.kohsuke.accmod.Restricted;
-import org.kohsuke.accmod.restrictions.NoExternalUse;
 
 /**
  * @author Gregory Boissinot
@@ -175,7 +173,7 @@ public class XUnitProcessor {
                 build.setResult(result);
             }
         }
-        
+
         logger.info("Stopping recording.");
     }
 

@@ -33,7 +33,6 @@ import java.util.LinkedList;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 
-import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.xunit.service.TransformerException;

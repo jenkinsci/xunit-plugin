@@ -23,13 +23,15 @@
  */
 package org.jenkinsci.plugins.xunit.pipeline;
 
-import com.google.common.collect.ImmutableSet;
-import hudson.DescriptorExtensionList;
-import hudson.Extension;
-import hudson.FilePath;
-import hudson.model.Descriptor;
-import hudson.model.TaskListener;
-import hudson.tasks.junit.TestDataPublisher;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
+
+import javax.annotation.CheckForNull;
+import javax.annotation.Nonnull;
+
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.workflow.graph.FlowNode;
@@ -40,21 +42,19 @@ import org.jenkinsci.plugins.workflow.steps.StepExecution;
 import org.jenkinsci.plugins.xunit.Messages;
 import org.jenkinsci.plugins.xunit.XUnitDefaultValues;
 import org.jenkinsci.plugins.xunit.XUnitUtil;
-import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
-import org.jenkinsci.plugins.xunit.threshold.SkippedThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThresholdDescriptor;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.DataBoundSetter;
 
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
+import com.google.common.collect.ImmutableSet;
+
+import hudson.DescriptorExtensionList;
+import hudson.Extension;
+import hudson.FilePath;
+import hudson.model.Descriptor;
+import hudson.model.TaskListener;
+import hudson.tasks.junit.TestDataPublisher;
 
 public class XUnitResultsStep extends Step {
     private List<TestType> tools;
@@ -65,11 +65,7 @@ public class XUnitResultsStep extends Step {
 
     @DataBoundConstructor
     public XUnitResultsStep(@CheckForNull List<TestType> tools) {
-        if (tools != null) {
-            this.tools = tools;
-        } else {
-            this.tools = new ArrayList<>();
-        }
+        this.tools = (tools != null) ? tools : Collections.emptyList();
     }
 
     @Nonnull
