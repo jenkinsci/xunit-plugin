@@ -211,10 +211,10 @@ public class XUnitProcessor {
         return processedReports;
     }
 
-    private Throwable unwrapSlaveException(IOException e) {
+    Throwable unwrapSlaveException(IOException e) {
         Throwable nested = e.getCause();
         while (nested != null && !(nested instanceof TransformerException)) {
-            nested = e.getCause();
+            nested = nested.getCause();
         }
 
         // there is wrapped exception that arrives from slave nodes

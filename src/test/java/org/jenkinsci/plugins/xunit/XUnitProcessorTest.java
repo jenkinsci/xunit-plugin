@@ -4,13 +4,16 @@ import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Field;
 
 import org.apache.commons.io.FileUtils;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
+import org.jenkinsci.plugins.xunit.service.TransformerException;
 import org.jenkinsci.plugins.xunit.service.XUnitLog;
 import org.jenkinsci.plugins.xunit.service.XUnitToolInfo;
+import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
 import org.jenkinsci.plugins.xunit.types.AUnitJunitHudsonTestType;
 import org.jenkinsci.plugins.xunit.types.CustomType;
 import org.junit.Assert;
@@ -133,4 +136,28 @@ public class XUnitProcessorTest {
         Assert.assertEquals("test", toolInfo.getXSLFile());
     }
 
+    @Test
+    public void slave_exception_unwraps_to_TransformerException_if_any_is_found_in_chain() {
+        XUnitProcessor xup = new XUnitProcessor(new TestType[0], new XUnitThreshold[0], 0, new ExtraConfiguration(0));
+        TransformerException transformerException = new TransformerException("test");
+        IOException exception = new IOException(new Exception(transformerException));
+        Throwable unwrappedException = xup.unwrapSlaveException(exception);
+        Assert.assertEquals(transformerException, unwrappedException);
+    }
+
+    @Test
+    public void slave_exception_unwraps_to_self_if_no_TransformerException_is_found_in_chain() {
+        XUnitProcessor xup = new XUnitProcessor(new TestType[0], new XUnitThreshold[0], 0, new ExtraConfiguration(0));
+        IOException exception = new IOException(new Exception(new Exception()));
+        Throwable unwrappedException = xup.unwrapSlaveException(exception);
+        Assert.assertEquals(exception, unwrappedException);
+    }
+
+    @Test
+    public void slave_exception_with_no_cause_unwraps_to_self() {
+        XUnitProcessor xup = new XUnitProcessor(new TestType[0], new XUnitThreshold[0], 0, new ExtraConfiguration(0));
+        IOException exception = new IOException();
+        Throwable unwrappedException = xup.unwrapSlaveException(exception);
+        Assert.assertEquals(exception, unwrappedException);
+    }
 }
