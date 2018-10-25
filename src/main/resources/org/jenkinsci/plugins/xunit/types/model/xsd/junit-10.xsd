@@ -29,6 +29,16 @@ THE SOFTWARE.
         </xs:restriction>
     </xs:simpleType>
 
+    <xs:complexType name="rerunType" mixed="true"> <!-- mixed (XML contains text) to be compatible with version previous than 2.22.1 -->
+        <xs:sequence>
+            <xs:element name="stackTrace" type="xs:string" minOccurs="0" /> <!-- optional to be compatible with version previous than 2.22.1 -->
+            <xs:element name="system-out" type="xs:string" minOccurs="0" />
+            <xs:element name="system-err" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+        <xs:attribute name="message" type="xs:string" />
+        <xs:attribute name="type" type="xs:string" use="required" />
+    </xs:complexType>
+
     <xs:element name="failure">
         <xs:complexType mixed="true">
             <xs:attribute name="type" type="xs:string"/>
@@ -67,62 +77,10 @@ THE SOFTWARE.
 
     <xs:element name="system-err" type="xs:string"/>
     <xs:element name="system-out" type="xs:string"/>
-
-    <xs:element name="rerunFailure" nillable="true">
-        <xs:complexType mixed="true">
-            <xs:sequence>
-                <xs:choice minOccurs="0" maxOccurs="unbounded">
-                    <xs:element ref="system-out" />
-                    <xs:element ref="system-err" />
-                </xs:choice>
-            </xs:sequence>
-            <xs:attribute name="type" type="xs:string"/>
-            <xs:attribute name="message" type="xs:string"/>
-            <xs:attribute name="time" type="SUREFIRE_TIME"/>
-        </xs:complexType>
-    </xs:element>
-
-    <xs:element name="rerunError" nillable="true">
-        <xs:complexType mixed="true">
-            <xs:sequence>
-                <xs:choice minOccurs="0" maxOccurs="unbounded">
-                    <xs:element ref="system-out" />
-                    <xs:element ref="system-err" />
-                </xs:choice>
-            </xs:sequence>
-            <xs:attribute name="type" type="xs:string"/>
-            <xs:attribute name="message" type="xs:string"/>
-            <xs:attribute name="time" type="SUREFIRE_TIME"/>
-        </xs:complexType>
-    </xs:element>
-
-    <xs:element name="flakyFailure" nillable="true">
-        <xs:complexType mixed="true">
-            <xs:sequence>
-                <xs:choice minOccurs="0" maxOccurs="unbounded">
-                    <xs:element ref="system-out" />
-                    <xs:element ref="system-err" />
-                </xs:choice>
-            </xs:sequence>
-            <xs:attribute name="type" type="xs:string"/>
-            <xs:attribute name="message" type="xs:string"/>
-            <xs:attribute name="time" type="SUREFIRE_TIME"/>
-        </xs:complexType>
-    </xs:element>
-
-    <xs:element name="flakyError" nillable="true">
-        <xs:complexType mixed="true">
-            <xs:sequence>
-                <xs:choice minOccurs="0" maxOccurs="unbounded">
-                    <xs:element ref="system-out" />
-                    <xs:element ref="system-err" />
-                </xs:choice>
-            </xs:sequence>
-            <xs:attribute name="type" type="xs:string"/>
-            <xs:attribute name="message" type="xs:string"/>
-            <xs:attribute name="time" type="SUREFIRE_TIME"/>
-        </xs:complexType>
-    </xs:element>
+    <xs:element name="rerunFailure" type="rerunType"/>
+    <xs:element name="rerunError" type="rerunType"/>
+    <xs:element name="flakyFailure" type="rerunType"/>
+    <xs:element name="flakyError" type="rerunType"/>
 
     <xs:element name="testcase">
         <xs:complexType>

@@ -42,7 +42,8 @@ public class JUnitTypeTest extends AbstractTest {
                                               { "test case 2", 2 }, //
                                               { "test case 3", 3 }, //
                                               { "test case 4", 4 }, //
-                                              { "test case 5", 5 }
+                                              { "support rerun of maven-surefire-plugin version", 5 }, //
+                                              { "support the new XSD schema for rerun feature of maven-surefire-plugin version greater than 2.22.0", 6 }
         });
     }
 

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.acme.faulttolerance.internal.test.FooTest" time="0" tests="6" errors="0" skipped="0" failures="6">
+  <properties>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="25.101-b13"/>
+    <property name="java.ext.dirs" value="D:\Programs\Java\jdk1.8.0\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="52.0"/>
+  </properties>
+  <testcase name="foo" classname="com.acme.faulttolerance.internal.test.FooTest" time="0">
+    <failure type="java.lang.AssertionError">java.lang.AssertionError
+	at com.acme.faulttolerance.internal.test.FooTest.foo(FooTest.java:10)
+</failure>
+    <rerunFailure type="java.lang.AssertionError">
+      <stackTrace>java.lang.AssertionError
+	at com.acme.faulttolerance.internal.test.FooTest.foo(FooTest.java:10)
+</stackTrace>
+    </rerunFailure>
+    <rerunFailure type="java.lang.AssertionError">
+      <stackTrace>java.lang.AssertionError
+	at com.acme.faulttolerance.internal.test.FooTest.foo(FooTest.java:10)
+</stackTrace>
+    </rerunFailure>
+    <rerunFailure type="java.lang.AssertionError">
+      <stackTrace>java.lang.AssertionError
+	at com.acme.faulttolerance.internal.test.FooTest.foo(FooTest.java:10)
+</stackTrace>
+    </rerunFailure>
+    <rerunFailure type="java.lang.AssertionError">
+      <stackTrace>java.lang.AssertionError
+	at com.acme.faulttolerance.internal.test.FooTest.foo(FooTest.java:10)
+</stackTrace>
+    </rerunFailure>
+    <rerunFailure type="java.lang.AssertionError">
+      <stackTrace>java.lang.AssertionError
+	at com.acme.faulttolerance.internal.test.FooTest.foo(FooTest.java:10)
+</stackTrace>
+    </rerunFailure>
+  </testcase>
+</testsuite>
