@@ -214,7 +214,7 @@ public class XUnitProcessor {
     private Throwable unwrapSlaveException(IOException e) {
         Throwable nested = e.getCause();
         while (nested != null && !(nested instanceof TransformerException)) {
-            nested = e.getCause();
+            nested = nested.getCause();
         }
 
         // there is wrapped exception that arrives from slave nodes
@@ -318,7 +318,7 @@ public class XUnitProcessor {
         }
     }
 
-    private XUnitTransformerCallable newXUnitTransformer(final XUnitToolInfo xUnitToolInfo) {
+    protected XUnitTransformerCallable newXUnitTransformer(final XUnitToolInfo xUnitToolInfo) {
         // TODO why use Guice in this manner it's the quite the same of
         // instantiate classes directly
         XUnitTransformerCallable transformer = Guice.createInjector(new AbstractModule() {
