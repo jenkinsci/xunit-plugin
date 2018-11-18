@@ -6,4 +6,10 @@
         <property name="headerFile" value="license.header" />
         <property name="fileExtensions" value="jelly, properties, java" />
     </module>
+
+    <module name="FileTabCharacter" />
+
+    <module name="TreeWalker">
+        <module name="UnusedImports" />
+    </module>
 </module>

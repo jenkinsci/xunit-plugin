@@ -233,7 +233,7 @@
                 <configuration>
                     <configLocation>${basedir}/checkstyle.xml</configLocation>
                     <includeTestSourceDirectory>true</includeTestSourceDirectory>
-                    <resourceIncludes>**/*</resourceIncludes>
+                    <resourceIncludes>**/*.properties,**/*.jelly</resourceIncludes>
                 </configuration>
                 <executions>
                     <execution>

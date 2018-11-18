@@ -24,38 +24,38 @@ THE SOFTWARE.
 <?jelly escape-by-default='true'?>
 <j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form">
 
-	<f:entry field="pattern" title="${%pattern}" description="See &lt;a href='${rootURL}/env-vars.html' target=_new>the list of available environment variables&lt;/a>">
-		<f:textbox />
-	</f:entry>
+    <f:entry field="pattern" title="${%pattern}" description="See &lt;a href='${rootURL}/env-vars.html' target=_new>the list of available environment variables&lt;/a>">
+        <f:textbox />
+    </f:entry>
 
-	<j:if test="${descriptor.isCustomType()}">
-		<f:entry field="customXSL" title="${%customXSL}" description="See &lt;a href='${rootURL}/env-vars.html' target=_new>the list of available environment variables&lt;/a>">
-			<f:textbox />
-		</f:entry>
-	</j:if>
+    <j:if test="${descriptor.isCustomType()}">
+        <f:entry field="customXSL" title="${%customXSL}" description="See &lt;a href='${rootURL}/env-vars.html' target=_new>the list of available environment variables&lt;/a>">
+            <f:textbox />
+        </f:entry>
+    </j:if>
 
-	<tr>
-		<td colspan="3">
-			<f:checkbox class="block-control" field="skipNoTestFiles" title="${%skipNoTestFiles}" />
-		</td>
-	</tr>
+    <tr>
+        <td colspan="3">
+            <f:checkbox class="block-control" field="skipNoTestFiles" title="${%skipNoTestFiles}" />
+        </td>
+    </tr>
 
-	<tr>
-		<td colspan="3">
-			<f:checkbox class="block-control" field="failIfNotNew" default="true" title="${%failIfNotNew}" />
-		</td>
-	</tr>
+    <tr>
+        <td colspan="3">
+            <f:checkbox class="block-control" field="failIfNotNew" default="true" title="${%failIfNotNew}" />
+        </td>
+    </tr>
 
-	<tr>
-		<td colspan="3">
-			<f:checkbox class="block-control" field="deleteOutputFiles" default="true" title="${%deleteOutputFiles}" />
-		</td>
-	</tr>
+    <tr>
+        <td colspan="3">
+            <f:checkbox class="block-control" field="deleteOutputFiles" default="true" title="${%deleteOutputFiles}" />
+        </td>
+    </tr>
 
-	<tr>
-		<td colspan="3">
-			<f:checkbox class="block-control" field="stopProcessingIfError" default="true" title="${%stopProcessingIfError}" />
-		</td>
-	</tr>
+    <tr>
+        <td colspan="3">
+            <f:checkbox class="block-control" field="stopProcessingIfError" default="true" title="${%stopProcessingIfError}" />
+        </td>
+    </tr>
 
 </j:jelly>
