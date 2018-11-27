@@ -26,6 +26,7 @@ package org.jenkinsci.plugins.xunit.threshold;
 
 import java.io.Serializable;
 
+import hudson.FilePath;
 import org.jenkinsci.plugins.xunit.service.XUnitLog;
 import org.kohsuke.stapler.DataBoundSetter;
 
@@ -105,15 +106,34 @@ public abstract class XUnitThreshold implements ExtensionPoint, Serializable, De
         this.failureNewThreshold = Util.fixEmptyAndTrim(failureNewThreshold);
     }
 
+    public Result getResultThresholdNumber(XUnitLog log,
+                                                    Run<?, ?> build,
+                                                    TestResult testResultAction,
+                                                    TestResult previousTestResultAction)
+    {
+        return  getResultThresholdNumber(log, build, testResultAction, previousTestResultAction, null);
+    }
+
     public abstract Result getResultThresholdNumber(XUnitLog log,
                                                     Run<?, ?> build,
                                                     TestResult testResultAction,
-                                                    TestResult previousTestResultAction);
+                                                    TestResult previousTestResultAction,
+                                                    FilePath workspace);
+
+    public Result getResultThresholdPercent(XUnitLog log,
+                                                     Run<?, ?> build,
+                                                     TestResult testResultAction,
+                                                     TestResult previousTestResultAction)
+    {
+        return  getResultThresholdPercent(log, build, testResultAction, previousTestResultAction, null);
+    }
+
 
     public abstract Result getResultThresholdPercent(XUnitLog log,
                                                      Run<?, ?> build,
                                                      TestResult testResultAction,
-                                                     TestResult previousTestResultAction);
+                                                     TestResult previousTestResultAction,
+                                                     FilePath workspace);
 
     public abstract boolean isValidThreshold(double threshold, double value);
 

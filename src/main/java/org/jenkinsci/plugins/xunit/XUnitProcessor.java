@@ -167,7 +167,7 @@ public class XUnitProcessor {
 
             // Don't set the build status if this is called from the Pipeline step.
             if (pipelineTestDetails == null) {
-                Result result = getBuildStatus(testResult, build);
+                Result result = getBuildStatus(testResult, build, workspace);
                 logger.info("Setting the build status to " + result);
                 build.setResult(result);
             }
@@ -411,8 +411,9 @@ public class XUnitProcessor {
 
     @Restricted(NoExternalUse.class)
     @Nonnull
-    public Result getBuildStatus(TestResult result, Run<?, ?> build) {
-        Result curResult = processResultThreshold(result, build);
+    public Result getBuildStatus(TestResult result, Run<?, ?> build, FilePath workspace) {
+
+        Result curResult = processResultThreshold(result, build, workspace);
         Result previousResultStep = build.getResult();
         if (previousResultStep == null) {
             return curResult;
@@ -424,7 +425,7 @@ public class XUnitProcessor {
     }
 
     @Nonnull
-    private Result processResultThreshold(TestResult testResult, Run<?, ?> build) {
+    private Result processResultThreshold(TestResult testResult, Run<?, ?> build, FilePath workspace) {
         TestResult previousTestResult = getPreviousTestResult(build);
 
         if (thresholds != null) {
@@ -432,9 +433,9 @@ public class XUnitProcessor {
                 logger.info(Messages.xUnitProcessor_checkThreshold(threshold.getDescriptor().getDisplayName()));
                 Result result;
                 if (XUnitDefaultValues.MODE_PERCENT == thresholdMode) {
-                    result = threshold.getResultThresholdPercent(logger, build, testResult, previousTestResult);
+                    result = threshold.getResultThresholdPercent(logger, build, testResult, previousTestResult, workspace);
                 } else {
-                    result = threshold.getResultThresholdNumber(logger, build, testResult, previousTestResult);
+                    result = threshold.getResultThresholdNumber(logger, build, testResult, previousTestResult, workspace);
                 }
                 if (result.isWorseThan(Result.SUCCESS)) {
                     return result;

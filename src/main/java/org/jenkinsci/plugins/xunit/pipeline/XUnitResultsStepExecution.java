@@ -82,7 +82,7 @@ public class XUnitResultsStepExecution extends SynchronousStepExecution<TestResu
         TestResultAction action = run.getAction(TestResultAction.class);
 
         if (action != null) {
-            Result procResult = xUnitProcessor.getBuildStatus(action.getResult().getResultByNode(nodeId), run);
+            Result procResult = xUnitProcessor.getBuildStatus(action.getResult().getResultByNode(nodeId), run, workspace);
             Result runResult = run.getResult();
             if (runResult == null) {
                 runResult = Result.SUCCESS;
