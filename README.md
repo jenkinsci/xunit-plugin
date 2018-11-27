@@ -19,7 +19,7 @@ In this fork I've added code to recursively search the source code for all the o
 The found tests are quarantined and the xunit step won't failed if it encounters them. Some UI changes might be required next.
 
 Example of a pipeline:
-
+```
 node {
    def mvnHome
    stage('Preparation') {
@@ -42,3 +42,4 @@ node {
       }
    }
 }
+```
