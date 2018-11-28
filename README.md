@@ -1,4 +1,4 @@
-# xunit-plugin
+# xunit-plugin - Fork reason and changes
 Jenkins xunit plugin
 
 In this fork I've added code to recursively search the source code for all the occurences of the
