@@ -24,6 +24,7 @@
 
 package org.jenkinsci.plugins.xunit.threshold;
 
+import hudson.FilePath;
 import org.jenkinsci.plugins.xunit.service.XUnitLog;
 import org.kohsuke.stapler.DataBoundConstructor;
 
@@ -41,7 +42,7 @@ public class SkippedThreshold extends XUnitThreshold {
     }
 
     @Override
-    public Result getResultThresholdNumber(XUnitLog log, Run<?, ?> build, TestResult testResultAction, TestResult previousTestResultAction) {
+    public Result getResultThresholdNumber(XUnitLog log, Run<?, ?> build, TestResult testResultAction, TestResult previousTestResultAction, FilePath workspace) {
 
         int skipCount = testResultAction.getSkipCount();
 
@@ -55,7 +56,7 @@ public class SkippedThreshold extends XUnitThreshold {
     }
 
     @Override
-    public Result getResultThresholdPercent(XUnitLog log, Run<?, ?> build, TestResult testResultAction, TestResult previousTestResultAction) {
+    public Result getResultThresholdPercent(XUnitLog log, Run<?, ?> build, TestResult testResultAction, TestResult previousTestResultAction, FilePath workspace) {
 
         int count = testResultAction.getTotalCount();
         int skippedCount = testResultAction.getSkipCount();

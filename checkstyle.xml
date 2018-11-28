@@ -3,7 +3,7 @@
 <module name="Checker">
     <!-- Headers -->
     <module name="RegexpHeader">
-        <property name="headerFile" value="license.header" />
+        <!--<property name="headerFile" value="license.header" />-->
         <property name="fileExtensions" value="jelly, properties, java" />
     </module>
 
