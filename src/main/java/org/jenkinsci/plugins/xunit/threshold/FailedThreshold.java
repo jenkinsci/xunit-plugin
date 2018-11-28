@@ -56,7 +56,7 @@ public class FailedThreshold extends XUnitThreshold {
 
         int failedCount = testResultAction.getFailCount();
 
-        int quarantined = getQuarantined(log, testResultAction, workspace);
+        int quarantined = getQuarantinedFailedTestsCount(log, testResultAction, workspace);
         failedCount = failedCount - quarantined;
 
         int previousFailedCount = 0;
@@ -75,7 +75,7 @@ public class FailedThreshold extends XUnitThreshold {
 
         double failedCount = testResultAction.getFailCount();
 
-        int quarantined = getQuarantined(log, testResultAction, workspace);
+        int quarantined = getQuarantinedFailedTestsCount(log, testResultAction, workspace);
         failedCount = failedCount - quarantined;
 
         double percentFailed = (failedCount / count) * 100;
@@ -95,13 +95,21 @@ public class FailedThreshold extends XUnitThreshold {
         return value <= threshold;
     }
 
-    private int getQuarantined(XUnitLog log, TestResult testResultAction, FilePath workspace) {
+    /**
+     * recursively search the source code for all the occurrences of the quarantined-tests.json files in the jenkins workspace
+     * and the parsed tests (namespace+testname) are compared with the failed ones increasing the quarantined count.
+     * @param log the log so the operation leaves a trail of its action.
+     * @param testResultAction the test result from the run containing the failed tests.
+     * @param workspace the jenkins workspace FilePath.
+     * @return the count of quarantined failed tests*
+     */
+    private int getQuarantinedFailedTestsCount(XUnitLog log, TestResult testResultAction, FilePath workspace) {
 
         if (workspace == null)
             return 0;
 
-        String quarantinedTestsFileName = "quarantined-tests.json";
-        log.info(String.format("Searching workspace `%s` for %s files." , workspace, quarantinedTestsFileName));
+        final String QUARANTINED_TEST_FILE = "quarantined-tests.json";
+        log.info(String.format("Searching workspace `%s` for %s files." , workspace, QUARANTINED_TEST_FILE));
 
         List<TestSetting> listOfQuaratinedTests = new ArrayList<>();
 
@@ -112,7 +120,7 @@ public class FailedThreshold extends XUnitThreshold {
                 Collection<File> files = listFileTree(new File(workspace.getRemote()));
                 boolean userHeader = false;
                 for ( File f: files) {
-                    if (f.getName().equals(quarantinedTestsFileName))
+                    if (f.getName().equals(QUARANTINED_TEST_FILE))
                     {
 
                         InputStream is = new FileInputStream(f.getAbsoluteFile());
@@ -141,7 +149,7 @@ public class FailedThreshold extends XUnitThreshold {
         // catch and bury exceptions while loading the quarantined-tests.json
         catch (Exception ex)
         {
-            log.error(String.format("EXCEPTION while loading the `quarantined-tests.json` files:%s", ex));
+            log.error(String.format("EXCEPTION while loading the `%s` files:%s", QUARANTINED_TEST_FILE, ex));
         }
 
         int quarantined = 0;
@@ -162,6 +170,11 @@ public class FailedThreshold extends XUnitThreshold {
         return quarantined;
     }
 
+    /**
+     * recursively search the a foltder and returs all its files
+     * @param dir the root dir to search
+     * @return returns the collection of the files found*
+     */
     public static Collection<File> listFileTree(File dir) {
         Set<File> fileTree = new HashSet<File>();
         if(dir==null||dir.listFiles()==null){
@@ -180,17 +193,18 @@ public class FailedThreshold extends XUnitThreshold {
         return fileTree;
     }
 
-
-    // JSON file format
-    //    [{
-    //            "name": "FooServiceTests.testFooFooMethod",
-    //                    "reason": "this test fails all the time."
-    //        },
-    //        {
-    //            "name": "FooServiceTests.testFooIntermMethod",
-    //                "reason": "this test fails intermitently."
-    //        }
-    //    ]
+    /**
+     * Poco class for decoding the following JSON file format
+     *    [{
+     *            "name": "FooServiceTests.testFooFooMethod",
+     *                    "reason": "this test fails all the time."
+     *        },
+     *        {
+     *            "name": "FooServiceTests.testFooIntermMethod",
+     *                "reason": "this test fails intermitently."
+     *        }
+     *    ]
+     */
     public static class TestSetting {
         private String name;
         private String reason;
