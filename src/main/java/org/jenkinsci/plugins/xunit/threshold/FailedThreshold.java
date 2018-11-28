@@ -145,7 +145,13 @@ public class FailedThreshold extends XUnitThreshold {
                 if (userHeader) {
                     log.info("------------------------------------------------------------------------");
                 }
-            }}
+            }
+            else
+            {
+                log.warn(String.format("xUnit plugin is not searching remote workspaces for instances of the %s files",QUARANTINED_TEST_FILE));
+            }
+        }
+
         // catch and bury exceptions while loading the quarantined-tests.json
         catch (Exception ex)
         {
