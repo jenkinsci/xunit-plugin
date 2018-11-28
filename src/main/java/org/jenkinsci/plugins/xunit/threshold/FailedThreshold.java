@@ -29,17 +29,12 @@ import hudson.tasks.junit.CaseResult;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.json.JSONSerializer;
-import org.apache.commons.io.IOUtils;
 import org.jenkinsci.plugins.xunit.service.XUnitLog;
 import org.kohsuke.stapler.DataBoundConstructor;
-
 import hudson.model.Result;
 import hudson.model.Run;
 import hudson.tasks.junit.TestResult;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -98,9 +93,10 @@ public class FailedThreshold extends XUnitThreshold {
     /**
      * recursively search the source code for all the occurrences of the quarantined-tests.json files in the jenkins workspace
      * and the parsed tests (namespace+testname) are compared with the failed ones increasing the quarantined count.
-     * @param log the log so the operation leaves a trail of its action.
+     *
+     * @param log              the log so the operation leaves a trail of its action.
      * @param testResultAction the test result from the run containing the failed tests.
-     * @param workspace the jenkins workspace FilePath.
+     * @param workspace        the jenkins workspace FilePath.
      * @return the count of quarantined failed tests*
      */
     private int getQuarantinedFailedTestsCount(XUnitLog log, TestResult testResultAction, FilePath workspace) {
@@ -109,26 +105,23 @@ public class FailedThreshold extends XUnitThreshold {
             return 0;
 
         final String QUARANTINED_TEST_FILE = "quarantined-tests.json";
-        log.info(String.format("Searching workspace `%s` for %s files." , workspace, QUARANTINED_TEST_FILE));
+        log.info(String.format("Searching %s workspace `%s` for %s files.", workspace.isRemote()?"remote":"local", workspace, QUARANTINED_TEST_FILE));
 
         List<TestSetting> listOfQuaratinedTests = new ArrayList<>();
 
-        try
-        {
-            if(!workspace.isRemote())
-            {
-                Collection<File> files = listFileTree(new File(workspace.getRemote()));
-                boolean userHeader = false;
-                for ( File f: files) {
-                    if (f.getName().equals(QUARANTINED_TEST_FILE))
-                    {
+        try {
+                Collection<FilePath> collection = listFilePathTree(workspace);
 
-                        InputStream is = new FileInputStream(f.getAbsoluteFile());
-                        String jsonTxt = IOUtils.toString(is, "UTF-8");
+
+                boolean userHeader = false;
+                for (FilePath f : collection) {
+                    if (!f.isDirectory() && f.getName().equals(QUARANTINED_TEST_FILE)) {
+                        // invoking Jenkins FilePath ability to read files from remote/local workspaces
+                        String jsonTxt = f.readToString();
                         JSONArray testArray = (JSONArray) JSONSerializer.toJSON(jsonTxt);
                         List<TestSetting> listOfTests = TestSetting.fillList(testArray);
 
-                        for (TestSetting testSetting: listOfTests) {
+                        for (TestSetting testSetting : listOfTests) {
 
                             if (!userHeader) {
                                 log.info("------------------------------------------------------------------------");
@@ -145,21 +138,15 @@ public class FailedThreshold extends XUnitThreshold {
                 if (userHeader) {
                     log.info("------------------------------------------------------------------------");
                 }
-            }
-            else
-            {
-                log.warn(String.format("xUnit plugin is not searching remote workspaces for instances of the %s files",QUARANTINED_TEST_FILE));
-            }
         }
 
         // catch and bury exceptions while loading the quarantined-tests.json
-        catch (Exception ex)
-        {
+        catch (Exception ex) {
             log.error(String.format("EXCEPTION while loading the `%s` files:%s", QUARANTINED_TEST_FILE, ex));
         }
 
         int quarantined = 0;
-        for (CaseResult case_result: testResultAction.getFailedTests()) {
+        for (CaseResult case_result : testResultAction.getFailedTests()) {
             // Java 8
             TestSetting matchingTest = listOfQuaratinedTests
                     .stream()
@@ -167,8 +154,7 @@ public class FailedThreshold extends XUnitThreshold {
                     .findFirst()
                     .orElse(null);
 
-            if (matchingTest != null)
-            {
+            if (matchingTest != null) {
                 log.warn(String.format("[Quarantine]: %s failed but it is quarantined.", case_result.getFullName()));
                 quarantined++;
             }
@@ -176,59 +162,76 @@ public class FailedThreshold extends XUnitThreshold {
         return quarantined;
     }
 
-    /**
-     * recursively search the a foltder and returs all its files
-     * @param dir the root dir to search
-     * @return returns the collection of the files found*
-     */
-    public static Collection<File> listFileTree(File dir) {
-        Set<File> fileTree = new HashSet<File>();
-        if(dir==null||dir.listFiles()==null){
-            return fileTree;
+
+    public static Collection<FilePath> listFilePathTree(FilePath dir) {
+
+        Set<FilePath> fileTree = new HashSet<FilePath>();
+
+
+        try {
+            if (dir == null || dir.list() == null) {
+                return fileTree;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-        File[] files = dir.listFiles();
-        if (files != null)
-        {
-            for (File entry : files) {
-                if (entry != null) {
-                    if (entry.isFile()) fileTree.add(entry);
-                    else fileTree.addAll(listFileTree(entry));
+
+        try {
+            List<FilePath> files = dir.list();
+            if (files != null) {
+                for (FilePath entry : files) {
+                    if (entry != null) {
+                        if (entry.isDirectory()) {
+                            fileTree.addAll(listFilePathTree(entry));
+                        } else {
+                            fileTree.add(entry);
+                        }
+                    }
                 }
             }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
         return fileTree;
     }
 
     /**
      * Poco class for decoding the following JSON file format
-     *    [{
-     *            "name": "FooServiceTests.testFooFooMethod",
-     *                    "reason": "this test fails all the time."
-     *        },
-     *        {
-     *            "name": "FooServiceTests.testFooIntermMethod",
-     *                "reason": "this test fails intermitently."
-     *        }
-     *    ]
+     * [{
+     * "name": "FooServiceTests.testFooFooMethod",
+     * "reason": "this test fails all the time."
+     * },
+     * {
+     * "name": "FooServiceTests.testFooIntermMethod",
+     * "reason": "this test fails intermitently."
+     * }
+     * ]
      */
     public static class TestSetting {
         private String name;
         private String reason;
 
-        public void setName(String name){
+        public void setName(String name) {
             this.name = name;
         }
-        public String getName(){
+
+        public String getName() {
             return this.name;
         }
-        public void setReason(String reason){
+
+        public void setReason(String reason) {
             this.reason = reason;
         }
-        public String getReason(){
+
+        public String getReason() {
             return this.reason;
         }
 
-        public static TestSetting fill(JSONObject jo){
+        public static TestSetting fill(JSONObject jo) {
             TestSetting o = new TestSetting();
             if (jo.containsKey("name")) {
                 o.setName(jo.getString("name"));
