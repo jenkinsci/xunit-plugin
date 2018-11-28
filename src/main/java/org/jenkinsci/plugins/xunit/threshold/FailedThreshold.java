@@ -100,7 +100,7 @@ public class FailedThreshold extends XUnitThreshold {
         if (workspace == null)
             return 0;
 
-        String quarantinedTestsFileName = "quarantined-tests.json";
+        private static final String QUARANTINED_TEST_FILE = "quarantined-tests.json";
         log.info(String.format("Searching workspace `%s` for %s files." , workspace, quarantinedTestsFileName));
 
         List<TestSetting> listOfQuaratinedTests = new ArrayList<>();
