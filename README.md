@@ -16,7 +16,7 @@ In this fork I've added code to recursively search the source code for all the o
 ]
 ```
 
-The found tests are quarantined and the xunit step won't failed if it encounters them. Some UI changes might be required next.
+The found tests are quarantined and the xunit step won't faile if it encounters them.
 
 Example of a pipeline:
 ```
@@ -43,3 +43,4 @@ node {
    }
 }
 ```
+*** some UI changes to differentiate the failed qurantined tests from the other failures might be required. Currently that information is only available in the logs.
