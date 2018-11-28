@@ -163,6 +163,11 @@ public class FailedThreshold extends XUnitThreshold {
     }
 
 
+    /**
+     * recursively search the input FilePath folder (remote or local) and returns all its files
+     * @param dir the root dir to search
+     * @return returns the collection of the FilePath's found*
+     */
     public static Collection<FilePath> listFilePathTree(FilePath dir) {
 
         Set<FilePath> fileTree = new HashSet<FilePath>();
