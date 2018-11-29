@@ -25,7 +25,7 @@ THE SOFTWARE.
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:simpleType name="SUREFIRE_TIME">
         <xs:restriction base="xs:string">
-            <xs:pattern value="(([0-9]{0,3},)*[0-9]{3}|[0-9]{0,3})*(\.[0-9]{0,3})?"/>
+            <xs:pattern value="(([0-9]{0,3},)*[0-9]{3}|[0-9]{0,3})*(\.[0-9]{0,18})?"/>
         </xs:restriction>
     </xs:simpleType>
 
@@ -100,6 +100,7 @@ THE SOFTWARE.
             <xs:attribute name="name" type="xs:string" use="required"/>
             <xs:attribute name="time" type="xs:string"/>
             <xs:attribute name="classname" type="xs:string"/>
+            <xs:attribute name="assertions" type="xs:int" />
             <xs:attribute name="group" type="xs:string"/>
         </xs:complexType>
     </xs:element>
@@ -117,6 +118,7 @@ THE SOFTWARE.
             <xs:attribute name="tests" type="xs:string" use="required"/>
             <xs:attribute name="failures" type="xs:string" use="required"/>
             <xs:attribute name="errors" type="xs:string" use="required"/>
+            <xs:attribute name="assertions" type="xs:int" />
             <xs:attribute name="group" type="xs:string" />
             <xs:attribute name="time" type="SUREFIRE_TIME"/>
             <xs:attribute name="skipped" type="xs:string" />
