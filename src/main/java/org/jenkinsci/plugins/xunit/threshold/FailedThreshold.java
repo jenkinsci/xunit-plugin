@@ -174,7 +174,7 @@ public class FailedThreshold extends XUnitThreshold {
 
 
         try {
-            if (dir == null || dir.list() == null) {
+            if (dir == null || dir.list(new QuarantinedFilesFileFilter()) == null) {
                 return fileTree;
             }
         } catch (IOException e) {
@@ -184,7 +184,7 @@ public class FailedThreshold extends XUnitThreshold {
         }
 
         try {
-            List<FilePath> files = dir.list();
+            List<FilePath> files = dir.list(new QuarantinedFilesFileFilter());
             if (files != null) {
                 for (FilePath entry : files) {
                     if (entry != null) {
