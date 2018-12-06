@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class QuarantinedFilesFileFilter extends DirectoryFileFilter implements Serializable {
     public static final IOFileFilter DIRECTORY = new QuarantinedFilesFileFilter();
     public static final IOFileFilter INSTANCE;
-    final String QUARANTINED_TEST_FILE = "quarantined-tests.json";
+    static final String QUARANTINED_TEST_FILE = "quarantined-tests.json";
 
     protected QuarantinedFilesFileFilter() {
     }
