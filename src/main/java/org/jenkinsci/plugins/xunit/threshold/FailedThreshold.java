@@ -110,8 +110,7 @@ public class FailedThreshold extends XUnitThreshold {
         List<TestSetting> listOfQuaratinedTests = new ArrayList<>();
 
         try {
-                Collection<FilePath> collection = listFilePathTree(workspace);
-
+                Collection<FilePath> collection = listFilePathTree(workspace, QUARANTINED_TEST_FILE);
 
                 boolean userHeader = false;
                 for (FilePath f : collection) {
@@ -168,13 +167,12 @@ public class FailedThreshold extends XUnitThreshold {
      * @param dir the root dir to search
      * @return returns the collection of the FilePath's found*
      */
-    public static Collection<FilePath> listFilePathTree(FilePath dir) {
+    public static Collection<FilePath> listFilePathTree(FilePath dir, String fileName) {
 
         Set<FilePath> fileTree = new HashSet<FilePath>();
 
-
         try {
-            if (dir == null || dir.list() == null) {
+            if (dir == null || dir.list(new SpecificFilesFileFilter(fileName)) == null) {
                 return fileTree;
             }
         } catch (IOException e) {
@@ -184,12 +182,12 @@ public class FailedThreshold extends XUnitThreshold {
         }
 
         try {
-            List<FilePath> files = dir.list();
+            List<FilePath> files = dir.list(new SpecificFilesFileFilter(fileName));
             if (files != null) {
                 for (FilePath entry : files) {
                     if (entry != null) {
                         if (entry.isDirectory()) {
-                            fileTree.addAll(listFilePathTree(entry));
+                            fileTree.addAll(listFilePathTree(entry, fileName));
                         } else {
                             fileTree.add(entry);
                         }
