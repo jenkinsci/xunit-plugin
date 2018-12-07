@@ -101,6 +101,7 @@ THE SOFTWARE.
             <xs:attribute name="time" type="xs:string"/>
             <xs:attribute name="classname" type="xs:string"/>
             <xs:attribute name="assertions" type="xs:int" />
+            <xs:attribute name="file" type="xs:string"/>
             <xs:attribute name="group" type="xs:string"/>
         </xs:complexType>
     </xs:element>
