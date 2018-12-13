@@ -25,7 +25,7 @@ THE SOFTWARE.
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:simpleType name="SUREFIRE_TIME">
         <xs:restriction base="xs:string">
-            <xs:pattern value="(([0-9]{0,3},)*[0-9]{3}|[0-9]{0,3})*(\.[0-9]{0,3})?"/>
+            <xs:pattern value="(([0-9]{0,3},)*[0-9]{3}|[0-9]{0,3})*(\.[0-9]*)?"/>
         </xs:restriction>
     </xs:simpleType>
 
