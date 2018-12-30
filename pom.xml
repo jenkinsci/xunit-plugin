@@ -232,6 +232,8 @@
                 <version>3.0.0</version>
                 <configuration>
                     <configLocation>${basedir}/checkstyle.xml</configLocation>
+                    <sourceDirectories>${project.build.sourceDirectory}</sourceDirectories>
+                    <testSourceDirectories>${project.build.testSourceDirectory}</testSourceDirectories>
                     <includeTestSourceDirectory>true</includeTestSourceDirectory>
                     <resourceIncludes>**/*.properties,**/*.jelly</resourceIncludes>
                 </configuration>
