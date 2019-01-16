@@ -34,6 +34,8 @@ public class XUnitDefaultValues {
 
     public static final int TEST_REPORT_TIME_MARGING = 3000; // default to 3000
 
+    public static final boolean JUNIT_FILE_REDUCE_LOG = true;
+
     public static final String JUNIT_FILE_PREFIX = "TEST-";
 
     public static final String JUNIT_FILE_EXTENSION = ".xml";

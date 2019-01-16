@@ -36,6 +36,7 @@ import org.jenkinsci.plugins.xunit.threshold.SkippedThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThresholdDescriptor;
 import org.kohsuke.stapler.DataBoundConstructor;
+import org.kohsuke.stapler.DataBoundSetter;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
@@ -73,7 +74,12 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
         this.thresholds = (thresholds != null ? Arrays.copyOf(thresholds, thresholds.length) : new XUnitThreshold[0]);
         this.thresholdMode = thresholdMode;
         long longTestTimeMargin = XUnitUtil.parsePositiveLong(testTimeMargin, XUnitDefaultValues.TEST_REPORT_TIME_MARGING);
-        this.extraConfiguration = new ExtraConfiguration(longTestTimeMargin);
+        this.extraConfiguration = new ExtraConfiguration(longTestTimeMargin, XUnitDefaultValues.JUNIT_FILE_REDUCE_LOG);
+    }
+
+    @DataBoundSetter
+    public void setReduceLog(boolean reduceLog) {
+        this.extraConfiguration = new ExtraConfiguration(this.extraConfiguration.getTestTimeMargin(), reduceLog);
     }
 
     /*
@@ -100,7 +106,7 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
 
     public ExtraConfiguration getExtraConfiguration() {
         if (extraConfiguration == null) {
-            extraConfiguration = new ExtraConfiguration(XUnitDefaultValues.TEST_REPORT_TIME_MARGING);
+            extraConfiguration = new ExtraConfiguration(XUnitDefaultValues.TEST_REPORT_TIME_MARGING, XUnitDefaultValues.JUNIT_FILE_REDUCE_LOG);
         }
         return extraConfiguration;
     }

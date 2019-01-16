@@ -82,8 +82,12 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
         this.thresholds = (thresholds != null ? Arrays.copyOf(thresholds, thresholds.length) : new XUnitThreshold[0]);
         this.thresholdMode = thresholdMode;
         long longTestTimeMargin = XUnitUtil.parsePositiveLong(testTimeMargin, XUnitDefaultValues.TEST_REPORT_TIME_MARGING);
-        this.extraConfiguration = new ExtraConfiguration(longTestTimeMargin);
+        this.extraConfiguration = new ExtraConfiguration(longTestTimeMargin, XUnitDefaultValues.JUNIT_FILE_REDUCE_LOG);
         this.testDataPublishers = Collections.<TestDataPublisher> emptySet();
+    }
+
+    public void setReduceLog(boolean reduceLog) {
+        this.extraConfiguration = new ExtraConfiguration(this.extraConfiguration.getTestTimeMargin(), reduceLog);
     }
 
     /*
@@ -117,7 +121,7 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
     @Nonnull
     public ExtraConfiguration getExtraConfiguration() {
         if (extraConfiguration == null) {
-            extraConfiguration = new ExtraConfiguration(XUnitDefaultValues.TEST_REPORT_TIME_MARGING);
+            extraConfiguration = new ExtraConfiguration(XUnitDefaultValues.TEST_REPORT_TIME_MARGING, XUnitDefaultValues.JUNIT_FILE_REDUCE_LOG);
         }
         return extraConfiguration;
     }
