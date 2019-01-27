@@ -31,6 +31,7 @@
     <testsuite name='NSArrayTDSUtilTest' tests='3' failures='1' errors='1'>
         <testcase classname='NSArrayTDSUtilTest' name='testArrayByMappingEachItemWithBlock' time='0.028'>
             <failure type="assert error" message="expected true but was false" line="y">stacktrace</failure>
+            <failure type="assert error" message="expected false but was true" line="z">stacktrace #2</failure>
             <system-out>this is a test case system out</system-out>
             <system-err>this is a test case system error</system-err>
         </testcase>
