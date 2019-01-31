@@ -91,6 +91,13 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
     }
 
     /*
+     * Needed to support Snippet Generator and Workflow properly
+     */
+    public boolean getReduceLog() {
+        return extraConfiguration.isReduceLog();
+    }
+
+    /*
      * Needed to support Snippet Generator and Workflow properly.
      */
     @Nonnull

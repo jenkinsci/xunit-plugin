@@ -83,6 +83,13 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
     }
 
     /*
+     * Needed to support Snippet Generator and Workflow properly
+     */
+    public boolean getReduceLog() {
+        return extraConfiguration.isReduceLog();
+    }
+
+    /*
      * Needed to support Snippet Generator and Workflow properly.
      */
     public TestType[] getTools() {
