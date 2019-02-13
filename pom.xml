@@ -42,7 +42,7 @@
     <properties>
         <dtkit.frmk.version>2.0.0</dtkit.frmk.version>
         <saxon.version>9.1.0.8</saxon.version>
-        <xmlunit.version>1.6</xmlunit.version>
+        <xmlunit.version>2.6.2</xmlunit.version>
         <mockito.version>2.17.0</mockito.version>
         <jenkins.version>2.60.3</jenkins.version>
         <junit-plugin.version>1.25</junit-plugin.version>
@@ -149,8 +149,8 @@
         </dependency>
 
         <dependency>
-            <groupId>xmlunit</groupId>
-            <artifactId>xmlunit</artifactId>
+            <groupId>org.xmlunit</groupId>
+            <artifactId>xmlunit-core</artifactId>
             <version>${xmlunit.version}</version>
             <scope>test</scope>
         </dependency>

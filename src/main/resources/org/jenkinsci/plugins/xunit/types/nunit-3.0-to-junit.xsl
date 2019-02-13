@@ -23,7 +23,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xunit="http://www.xunit.org">
-    <xsl:output method="xml" indent="yes" encoding="UTF-8" cdata-section-elements="system-out system-err failure"/>
+    <xsl:output method="xml" indent="yes" encoding="UTF-8" cdata-section-elements="system-out system-err failure error"/>
     <xsl:decimal-format decimal-separator="." grouping-separator=","/>
 
     <xsl:function name="xunit:junit-time" as="xs:string">
@@ -55,74 +55,100 @@ THE SOFTWARE.
 
 
     <xsl:template match="/test-run">
-        <!--<xsl:variable name="hostname" select="./environment/@machine-name"/>-->
         <testsuites>
-            <xsl:for-each select="//test-suite[@type='TestSuite']">
-                <xsl:for-each select="test-suite[@type='TestFixture']">
-                    <xsl:variable name="fixture" select="./@name" />
-                    <xsl:variable name="classname" select="./@classname" />
-                    <testsuite name="{$classname}"
-                               tests="{@total}"
-                               time="{xunit:junit-time(@duration)}"
-                               failures="{@failed}"
-                               errors="0"
-                               skipped="{@skipped}">
-                        <xsl:for-each select=".//test-case">
-                            <xsl:variable name="testcaseName" select="./@name" />
-                            <testcase classname="{$classname}" name="{$testcaseName}">
-                                <xsl:if test="@duration!=''">
-                                    <xsl:attribute name="time">
-                                        <xsl:value-of select="xunit:junit-time(@duration)" />
-                                    </xsl:attribute>
-                                </xsl:if>
-
-                                <xsl:if test="@result='Skipped' or @result='Inconclusive'" >
-                                    <skipped>
-                                        <xsl:if test="xunit:is-empty(./reason/message)">
-                                            <xsl:attribute name="message">
-                                                <xsl:value-of select="./reason/message"/>
-                                            </xsl:attribute>
-                                        </xsl:if>
-                                    </skipped>
-                                    <system-out>
-                                        <xsl:value-of select="./output" />
-                                    </system-out>
-                                </xsl:if>
-
-                                <xsl:variable name="generalfailure" select="./failure" />
-
-                                <xsl:if test="./failure">
-                                    <xsl:variable name="failstack"
-                                                  select="count(./failure/stack-trace/*) + count(./failure/stack-trace/text())" />
-                                    <failure>
-                                        <xsl:choose>
-                                            <xsl:when test="$failstack &gt; 0 or not($generalfailure)">
-MESSAGE:
-<xsl:value-of select="./failure/message" />
-+++++++++++++++++++
-STACK TRACE:
-<xsl:value-of select="./failure/stack-trace" />
-+++++++++++++++++++
-<xsl:value-of select="./output" />
-                                            </xsl:when>
-                                            <xsl:otherwise>
-MESSAGE:
-<xsl:value-of select="$generalfailure/message" />
-+++++++++++++++++++
-STACK TRACE:
-<xsl:value-of select="$generalfailure/stack-trace" />
-+++++++++++++++++++
-OUTPUT:
-<xsl:value-of select="./output" />
-                                            </xsl:otherwise>
-                                        </xsl:choose>
-                                    </failure>
-                                </xsl:if>
-                            </testcase>
-                        </xsl:for-each>
-                    </testsuite>
-                </xsl:for-each>
+            <xsl:for-each select="//test-suite">
+                <xsl:apply-templates select="current()" />
             </xsl:for-each>
         </testsuites>
+    </xsl:template>
+
+    <xsl:template match="test-suite[@type != 'ParameterizedMethod']">
+        <xsl:if test="test-case or count(test-suite[@type = 'ParameterizedMethod']/test-case)">
+            <xsl:variable name="suiteName" select="@fullname" />
+            <testsuite name="{$suiteName}"
+                       tests="{@total}"
+                       failures="{@failed}"
+                       errors="{@inconclusive}"
+                       skipped="{@skipped}">
+    
+                <xsl:if test="@duration">
+                    <xsl:attribute name="time">
+                        <xsl:value-of select="xunit:junit-time(@duration)"/>
+                    </xsl:attribute>
+                </xsl:if>
+                <xsl:if test="properties/property[@name='Category']">
+                    <xsl:attribute name="group">
+                        <xsl:value-of select="properties/property[@name='Category']/@value" />
+                    </xsl:attribute>
+                </xsl:if>
+
+                <xsl:for-each select="test-case">
+                    <xsl:call-template name="test-case">
+                        <xsl:with-param name="suiteName" select="$suiteName" />
+                    </xsl:call-template>
+                </xsl:for-each>
+
+                <xsl:for-each select="test-suite[@type = 'ParameterizedMethod']/test-case">
+                    <xsl:call-template name="test-case">
+                        <xsl:with-param name="suiteName" select="$suiteName" />
+                    </xsl:call-template>
+                </xsl:for-each>
+
+            </testsuite>
+        </xsl:if>
+    </xsl:template>
+
+    <xsl:template name="test-case">
+        <xsl:param name="suiteName" />
+
+        <xsl:variable name="testName">
+            <xsl:value-of select="@name" />
+        </xsl:variable>
+
+        <testcase classname="{$suiteName}" name="{$testName}">
+            <xsl:if test="@duration!=''">
+                <xsl:attribute name="time">
+                    <xsl:value-of select="xunit:junit-time(@duration)" />
+                </xsl:attribute>
+            </xsl:if>
+
+            <xsl:if test="properties/property[@name='Category']">
+                <xsl:attribute name="group">
+                    <xsl:value-of select="properties/property[@name='Category']/@value" />
+                </xsl:attribute>
+            </xsl:if>
+
+            <xsl:choose>
+                <xsl:when test="@result='Failed'">
+                    <failure message="{failure/message}">
+                        <xsl:value-of select="failure/stack-trace"/>
+                    </failure>
+                    <xsl:if test="output/text()">
+                        <system-out>
+                            <xsl:value-of select="output/text()"/>
+                        </system-out>
+                    </xsl:if>
+                </xsl:when>
+                <xsl:when test="@result='Inconclusive' or @result='Error'">
+                    <xsl:element name="error">
+                        <xsl:choose>
+                            <xsl:when test="reason and reason/message/text()">
+                                <xsl:attribute name="message" select="reason/message" />
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:attribute name="message">Inconclusive test</xsl:attribute>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:element>
+                </xsl:when>
+                <xsl:when test="@result='Skipped'">
+                    <xsl:element name="skipped">
+                        <xsl:if test="reason and reason/message/text()">
+                            <xsl:attribute name="message" select="reason/message" />
+                        </xsl:if>
+                    </xsl:element>
+                </xsl:when>
+            </xsl:choose>
+        </testcase>
     </xsl:template>
 </xsl:stylesheet>
