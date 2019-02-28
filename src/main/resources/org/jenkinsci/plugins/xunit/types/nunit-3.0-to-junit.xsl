@@ -62,15 +62,17 @@ THE SOFTWARE.
         </testsuites>
     </xsl:template>
 
+    <xsl:template match="test-suite[@type = 'ParameterizedMethod']" />
+
     <xsl:template match="test-suite[@type != 'ParameterizedMethod']">
-        <xsl:if test="test-case or count(test-suite[@type = 'ParameterizedMethod']/test-case)">
+        <xsl:if test="test-case or count(test-suite[@type = 'ParameterizedMethod']/test-case) > 0">
             <xsl:variable name="suiteName" select="@fullname" />
             <testsuite name="{$suiteName}"
                        tests="{@total}"
                        failures="{@failed}"
                        errors="{@inconclusive}"
                        skipped="{@skipped}">
-    
+
                 <xsl:if test="@duration">
                     <xsl:attribute name="time">
                         <xsl:value-of select="xunit:junit-time(@duration)"/>
@@ -93,7 +95,6 @@ THE SOFTWARE.
                         <xsl:with-param name="suiteName" select="$suiteName" />
                     </xsl:call-template>
                 </xsl:for-each>
-
             </testsuite>
         </xsl:if>
     </xsl:template>

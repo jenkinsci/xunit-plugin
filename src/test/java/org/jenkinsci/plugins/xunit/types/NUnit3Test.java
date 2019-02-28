@@ -39,7 +39,7 @@ public class NUnit3Test extends AbstractTest {
                                               { "test transformed of ignored", 2 }, //
                                               { "categories", 3 }, //
                                               { "support SetupFixture", 4 }, //
-                                              { "other sample", 5 } //
+                                              { "not handled ParameterizedMethod tesuite produce text outside a testsuite element", 5 } //
         });
     }
 
