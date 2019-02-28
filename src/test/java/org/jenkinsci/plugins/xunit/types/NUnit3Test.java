@@ -38,7 +38,8 @@ public class NUnit3Test extends AbstractTest {
         return Arrays.asList(new Object[][] { { "simple transformation", 1 }, //
                                               { "test transformed of ignored", 2 }, //
                                               { "categories", 3 }, //
-                                              { "support SetupFixture", 4 } //
+                                              { "support SetupFixture", 4 }, //
+                                              { "other sample", 5 } //
         });
     }
 
