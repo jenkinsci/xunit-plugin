@@ -60,8 +60,8 @@ THE SOFTWARE.
                 <f:number name="testTimeMargin" value="${instance.extraConfiguration.testTimeMargin}" default="3000"/>
             </f:entry>
 
-            <f:entry title="${%extraConfiguration.reduceLog.title}" description="${%extraConfiguration.reduceLog.description}">
-                <f:checkbox name="reduceLog" checked="${instance.extraConfiguration.reduceLog}" default="true"/>
+            <f:entry description="${%extraConfiguration.reduceLog.description}">
+                <f:checkbox title="${%extraConfiguration.reduceLog.title}" name="reduceLog" checked="${instance.extraConfiguration.reduceLog}" default="true"/>
             </f:entry>
         </f:advanced>
     </f:block>
