@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014, Gregory Boissinot
+ * Copyright (c) 2018, Falco Nikolas
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -32,7 +32,9 @@ import hudson.model.Run;
 import hudson.tasks.junit.TestResult;
 
 /**
- * @author Gregory Boissinot
+ * Set the build status based on the count of passed test.
+ *
+ * @author Falco Nikolas
  */
 public class PassedThreshold extends XUnitThreshold {
 
