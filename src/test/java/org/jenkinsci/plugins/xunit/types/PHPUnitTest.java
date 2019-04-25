@@ -44,6 +44,7 @@ public class PHPUnitTest extends AbstractTest {
                                               { "testcase7", 7 }, //
                                               { "JENKINS-42715 skipped test using PHPUnit 5.4", 8 }, //
                                               { "JENKINS-42715 skipped test using PHPUnit 6+", 9 }, //
+                                              { "JENKINS-27494 feature attribute", 10 }, //
         });
     }
 
