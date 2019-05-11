@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>3.19</version>
+        <version>3.43</version>
     </parent>
 
     <artifactId>xunit</artifactId>
@@ -40,11 +40,9 @@
     </developers>
 
     <properties>
-        <dtkit.frmk.version>2.0.0</dtkit.frmk.version>
-        <saxon.version>9.1.0.8</saxon.version>
+        <dtkit-api.version>2.1.1</dtkit-api.version>
         <xmlunit.version>2.6.2</xmlunit.version>
         <mockito.version>2.17.0</mockito.version>
-        <jenkins.version>2.60.3</jenkins.version>
         <junit-plugin.version>1.25</junit-plugin.version>
         <workflow-cps.version>2.45</workflow-cps.version>
         <java.level>8</java.level>
@@ -91,49 +89,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.jenkins-ci.lib.dtkit</groupId>
-            <artifactId>dtkit-metrics-model</artifactId>
-            <version>${dtkit.frmk.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>net.sourceforge.saxon</groupId>
-                    <artifactId>saxon</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.jenkins-ci.lib.dtkit</groupId>
-            <artifactId>dtkit-metrics-util</artifactId>
-            <version>${dtkit.frmk.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>net.sourceforge.saxon</groupId>
-                    <artifactId>saxon</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.jenkins-ci.lib.dtkit</groupId>
-            <artifactId>dtkit-metrics-hudson-api</artifactId>
-            <version>${dtkit.frmk.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>net.sourceforge.saxon</groupId>
-            <artifactId>saxon</artifactId>
-            <version>${saxon.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>net.sourceforge.saxon</groupId>
-            <artifactId>saxon</artifactId>
-            <version>${saxon.version}</version>
-            <classifier>s9api</classifier>
-        </dependency>
-        <dependency>
-            <groupId>net.sourceforge.saxon</groupId>
-            <artifactId>saxon</artifactId>
-            <version>${saxon.version}</version>
-            <classifier>dom</classifier>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>dtkit-api</artifactId>
+            <version>${dtkit-api.version}</version>
         </dependency>
 
         <dependency>
@@ -157,7 +115,6 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -245,95 +202,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>copy</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>copy</goal>
-                        </goals>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>net.sourceforge.saxon</groupId>
-                                    <artifactId>saxon</artifactId>
-                                    <version>${saxon.version}</version>
-                                    <type>jar</type>
-                                    <outputDirectory>${project.build.directory}/${project.artifactId}/WEB-INF/lib
-                                    </outputDirectory>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>net.sourceforge.saxon</groupId>
-                                    <artifactId>saxon</artifactId>
-                                    <version>${saxon.version}</version>
-                                    <classifier>s9api</classifier>
-                                    <type>jar</type>
-                                    <outputDirectory>${project.build.directory}/${project.artifactId}/WEB-INF/lib
-                                    </outputDirectory>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>net.sourceforge.saxon</groupId>
-                                    <artifactId>saxon</artifactId>
-                                    <version>${saxon.version}</version>
-                                    <classifier>dom</classifier>
-                                    <type>jar</type>
-                                    <outputDirectory>${project.build.directory}/${project.artifactId}/WEB-INF/lib
-                                    </outputDirectory>
-                                </artifactItem>
-                            </artifactItems>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
-
-    <profiles>
-        <profile>
-            <id>coverage</id>
-            <properties>
-                <maven.javadoc.skip>true</maven.javadoc.skip>
-            </properties>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.jenkins-ci.tools</groupId>
-                        <artifactId>maven-hpi-plugin</artifactId>
-                        <configuration>
-                            <compatibleSinceVersion>2.0.0</compatibleSinceVersion>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.jacoco</groupId>
-                        <artifactId>jacoco-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>prepare-agent</id>
-                                <goals>
-                                    <goal>prepare-agent</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.eluder.coveralls</groupId>
-                        <artifactId>coveralls-maven-plugin</artifactId>
-                        <version>4.3.0</version>
-                        <configuration>
-                            <repoToken>${env.COVERALLS_REPO_TOKEN}</repoToken>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>findbugs-maven-plugin</artifactId>
-                        <configuration>
-                            <skip>true</skip>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>
