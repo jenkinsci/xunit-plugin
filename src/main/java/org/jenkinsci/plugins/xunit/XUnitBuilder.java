@@ -121,6 +121,7 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
     @Override
     public void perform(final Run<?, ?> build, FilePath workspace, Launcher launcher, final TaskListener listener)
             throws InterruptedException, IOException {
+        listener.getLogger().println("WARNING: XUnitBuilder step is deprecated since 2.x, it has been replaced by XUnitPublisher. This builer will be remove in version 3.x");
         XUnitProcessor xUnitProcessor = new XUnitProcessor(getTools(), getThresholds(), getThresholdMode(), getExtraConfiguration());
         xUnitProcessor.process(build, workspace, listener, launcher, Collections.<TestDataPublisher> emptySet(), null);
     }
