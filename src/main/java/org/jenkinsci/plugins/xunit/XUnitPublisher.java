@@ -86,6 +86,7 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
         this.testDataPublishers = Collections.<TestDataPublisher> emptySet();
     }
 
+    @DataBoundSetter
     public void setReduceLog(boolean reduceLog) {
         this.extraConfiguration = new ExtraConfiguration(this.extraConfiguration.getTestTimeMargin(), reduceLog);
     }
