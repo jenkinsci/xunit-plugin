@@ -55,7 +55,8 @@ public class BoostTestTest extends AbstractTest {
                                               { "JENKINS-42031", 18 }, //
                                               { "testcase19", 19 }, //
                                               { "autotest", 20 }, //
-                                              { "autotest-multiple", 21 } //
+                                              { "autotest-multiple", 21 }, //
+                                              { "wrong_classname", 22 } //
         });
     }
 

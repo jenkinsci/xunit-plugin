@@ -118,20 +118,20 @@ public abstract class AbstractTest {
         if (inputMetric instanceof CustomInputMetric) {
             ((CustomInputMetric) inputMetric).setCustomXSLFile(new File(this.getClass().getResource(inputXSLPath).toURI()));
         }
-        
+
         File outputXMLFile = file.newFile();
         File inputXMLFile = new File(this.getClass().getResource(inputXMLPath).toURI());
-        
+
         //The input file must be valid
         boolean inputResult = inputMetric.validateInputFile(inputXMLFile);
         for (ValidationError validatorError : inputMetric.getInputValidationErrors()) {
             System.out.println("[ERROR] " + validatorError.toString());
         }
         Assert.assertTrue(inputResult);
-        
+
         inputMetric.convert(inputXMLFile, outputXMLFile);
-        Diff myDiff = DiffBuilder.compare(Input.fromString(readXmlAsString(outputXMLFile))) //
-                .withTest(Input.fromString(readXmlAsString(new File(this.getClass().getResource(expectedResultPath).toURI())))) //
+        Diff myDiff = DiffBuilder.compare(Input.fromString(readXmlAsString(new File(this.getClass().getResource(expectedResultPath).toURI())))) //
+                .withTest(Input.fromString(readXmlAsString(outputXMLFile))) //
                 .ignoreWhitespace() //
                 .ignoreComments() //
                 .normalizeWhitespace() //
@@ -142,7 +142,7 @@ public abstract class AbstractTest {
             System.err.println(readXmlAsString(outputXMLFile));
             throw e;
         }
-        
+
         //The generated output file must be valid
         boolean outputResult = inputMetric.validateOutputFile(outputXMLFile);
         for (ValidationError validatorError : inputMetric.getOutputValidationErrors()) {

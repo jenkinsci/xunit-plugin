@@ -22,9 +22,31 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-        >
-    <xsl:output method="xml" indent="yes" encoding="utf-8" omit-xml-declaration="no"/>
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xunit="http://www.xunit.org">
+    <xsl:output method="xml" indent="yes" encoding="UTF-8" cdata-section-elements="system-out system-err failure error"/>
+    <xsl:decimal-format decimal-separator="." grouping-separator=","/>
+
+    <xsl:function name="xunit:junit-time" as="xs:string">
+        <xsl:param name="value" as="xs:anyAtomicType?" />
+
+        <xsl:variable name="time" as="xs:double">
+            <xsl:choose>
+                <xsl:when test="$value instance of xs:double">
+                    <xsl:value-of select="$value" />
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="translate(string(xunit:if-empty($value, 0)), ',', '.')" />
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <xsl:value-of select="format-number($time, '0.000')" />
+    </xsl:function>
+
+    <xsl:function name="xunit:if-empty" as="xs:string">
+        <xsl:param name="value" as="xs:anyAtomicType?" />
+        <xsl:param name="default" as="xs:anyAtomicType" />
+        <xsl:value-of select="if (string($value) != '') then string($value) else $default" />
+    </xsl:function>
 
     <xsl:param name="apostrophe">&apos;</xsl:param>
     <xsl:template name="processQuote">
@@ -85,11 +107,6 @@ THE SOFTWARE.
                 <xsl:when test="$currEltName='Error'">
                     <xsl:text>&#13;</xsl:text>
                     <xsl:text>[Error] - </xsl:text>
-                    <!--<xsl:call-template name="processQuote">-->
-                    <!--<xsl:with-param name="string">-->
-                    <!--<xsl:value-of select="$currElt/text()"/>-->
-                    <!--</xsl:with-param>-->
-                    <!--</xsl:call-template>-->
                     <xsl:value-of select="$currElt"/>
                     <xsl:text>&#13;</xsl:text>
                     <xsl:text> == [File] - </xsl:text><xsl:value-of select="($currElt)/@file"/>
@@ -168,6 +185,14 @@ THE SOFTWARE.
         </xsl:variable>
         <xsl:variable name="packageName" select="($suiteName)"/>
 
+        <xsl:variable name="asd" select="concat($curElt/ancestor::TestSuite/@name)" />
+
+<xsl:element name="asd">
+    <xsl:attribute name="p">
+        <xsl:value-of select="$asd"></xsl:value-of>
+    </xsl:attribute>
+</xsl:element>
+
         <xsl:element name="testcase">
             <xsl:variable name="elt" select="(child::*[position()=1])"/>
             <xsl:variable name="time" select="TestingTime"/>
@@ -188,12 +213,9 @@ THE SOFTWARE.
             </xsl:attribute>
 
             <!-- When there is only Exception with LastCheckpoint, override classname attribute -->
-
-            <xsl:if
-                    test="((count(child::Exception))=1) and ((count(child::Info)+ count(child::Warning) + count(child::Message))=0)">
+            <xsl:if test="((count(child::Exception))=1) and ((count(child::Info) + count(child::Warning) + count(child::Message))=0)">
                 <xsl:variable name="fileName" select="substring-before((./Exception/LastCheckpoint)/@file, '.')"/>
                 <xsl:attribute name="classname">
-                    <!-- <xsl:value-of select="concat($packageName, $fileName)"/> -->
                     <xsl:variable name="packageStr" select="concat($packageName, $fileName)"/>
                     <xsl:choose>
                         <xsl:when test="ends-with($packageStr, '.')">
@@ -210,14 +232,13 @@ THE SOFTWARE.
                 </xsl:attribute>
             </xsl:if>
 
-
             <xsl:attribute name="name">
                 <xsl:value-of select="@name"/>
             </xsl:attribute>
 
 
             <xsl:attribute name="time">
-                <xsl:value-of select="$time div 1000000"/>
+                <xsl:value-of select="xunit:junit-time($time div 1000000)"/>
             </xsl:attribute>
 
             <xsl:variable name="nbErrors" select="count(Error)"/>

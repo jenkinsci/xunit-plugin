@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <testsuite tests="1" errors="0" failures="0" name="MergedTestSuite" skipped="0">
-    <testcase classname="Master.Test.Suite.testSuite1.foo" name="start_ok" time="0">
+    <testcase classname="Master.Test.Suite.testSuite1.foo" name="start_ok" time="0.000">
         <system-out>&#xD;[Info] - check init() passed&#xD; == [File] - foo.cpp&#xD; == [Line] - 83&#xD;</system-out>
     </testcase>
 </testsuite>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <testsuite tests="1" errors="0" failures="0" name="MergedTestSuite" skipped="0">
-    <testcase classname="Test_Suite./absolute/path/to/source" name="Test_Case" time="0.08">
+    <testcase classname="Test_Suite./absolute/path/to/source" name="Test_Case" time="0.080">
         <system-out>&#xD;[Info] -
             This is also some message
             &#xD; == [File] - /absolute/path/to/source.cpp&#xD; == [Line] - 321&#xD;&#xD;[Message] -
