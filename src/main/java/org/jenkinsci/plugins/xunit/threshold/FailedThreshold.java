@@ -34,6 +34,7 @@ import org.kohsuke.stapler.DataBoundConstructor;
 import hudson.model.Result;
 import hudson.model.Run;
 import hudson.tasks.junit.TestResult;
+
 import java.io.IOException;
 import java.util.*;
 
@@ -51,8 +52,10 @@ public class FailedThreshold extends XUnitThreshold {
 
         int failedCount = testResultAction.getFailCount();
 
-        int quarantined = getQuarantinedFailedTestsCount(log, testResultAction, workspace);
-        failedCount = failedCount - quarantined;
+        if (failedCount > 0) {
+            int quarantined = getQuarantinedFailedTestsCount(log, testResultAction, workspace);
+            failedCount = failedCount - quarantined;
+        }
 
         int previousFailedCount = 0;
         if (previousTestResultAction != null) {
@@ -70,8 +73,10 @@ public class FailedThreshold extends XUnitThreshold {
 
         double failedCount = testResultAction.getFailCount();
 
-        int quarantined = getQuarantinedFailedTestsCount(log, testResultAction, workspace);
-        failedCount = failedCount - quarantined;
+        if (failedCount > 0) {
+            int quarantined = getQuarantinedFailedTestsCount(log, testResultAction, workspace);
+            failedCount = failedCount - quarantined;
+        }
 
         double percentFailed = (failedCount / count) * 100;
 
@@ -105,38 +110,38 @@ public class FailedThreshold extends XUnitThreshold {
             return 0;
 
         final String QUARANTINED_TEST_FILE = "quarantined-tests.json";
-        log.info(String.format("Searching %s workspace `%s` for %s files.", workspace.isRemote()?"remote":"local", workspace, QUARANTINED_TEST_FILE));
+        log.info(String.format("Searching %s workspace `%s` for %s files.", workspace.isRemote() ? "remote" : "local", workspace, QUARANTINED_TEST_FILE));
 
         List<TestSetting> listOfQuaratinedTests = new ArrayList<>();
 
         try {
-                Collection<FilePath> collection = listFilePathTree(workspace, QUARANTINED_TEST_FILE);
+            Collection<FilePath> collection = listFilePathTree(workspace, QUARANTINED_TEST_FILE);
 
-                boolean userHeader = false;
-                for (FilePath f : collection) {
-                    if (!f.isDirectory() && f.getName().equals(QUARANTINED_TEST_FILE)) {
-                        // invoking Jenkins FilePath ability to read files from remote/local workspaces
-                        String jsonTxt = f.readToString();
-                        JSONArray testArray = (JSONArray) JSONSerializer.toJSON(jsonTxt);
-                        List<TestSetting> listOfTests = TestSetting.fillList(testArray);
+            boolean userHeader = false;
+            for (FilePath f : collection) {
+                if (!f.isDirectory() && f.getName().equals(QUARANTINED_TEST_FILE)) {
+                    // invoking Jenkins FilePath ability to read files from remote/local workspaces
+                    String jsonTxt = f.readToString();
+                    JSONArray testArray = (JSONArray) JSONSerializer.toJSON(jsonTxt);
+                    List<TestSetting> listOfTests = TestSetting.fillList(testArray);
 
-                        for (TestSetting testSetting : listOfTests) {
+                    for (TestSetting testSetting : listOfTests) {
 
-                            if (!userHeader) {
-                                log.info("------------------------------------------------------------------------");
-                                log.info("QUARANTINED TESTS");
-                                log.info("------------------------------------------------------------------------");
-                                userHeader = true;
-                            }
-
-                            log.info(String.format("[%s] Reason: %s", testSetting.name, testSetting.reason));
-                            listOfQuaratinedTests.add(testSetting);
+                        if (!userHeader) {
+                            log.info("------------------------------------------------------------------------");
+                            log.info("QUARANTINED TESTS");
+                            log.info("------------------------------------------------------------------------");
+                            userHeader = true;
                         }
+
+                        log.info(String.format("[%s] Reason: %s", testSetting.name, testSetting.reason));
+                        listOfQuaratinedTests.add(testSetting);
                     }
                 }
-                if (userHeader) {
-                    log.info("------------------------------------------------------------------------");
-                }
+            }
+            if (userHeader) {
+                log.info("------------------------------------------------------------------------");
+            }
         }
 
         // catch and bury exceptions while loading the quarantined-tests.json
@@ -164,6 +169,7 @@ public class FailedThreshold extends XUnitThreshold {
 
     /**
      * recursively search the input FilePath folder (remote or local) and returns all its files
+     *
      * @param dir the root dir to search
      * @return returns the collection of the FilePath's found*
      */
