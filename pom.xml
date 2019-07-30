@@ -7,8 +7,8 @@
         <version>3.43</version>
     </parent>
 
-    <artifactId>xunit</artifactId>
-    <version>2.3.6-SNAPSHOT-QUARANTINING-TESTS</version>
+    <artifactId>quarantine-xunit</artifactId>
+    <version>2.3.6</version>
     <packaging>hpi</packaging>
     <name>Quarantine xUnit plugin</name>
     <url>http://wiki.jenkins-ci.org/display/JENKINS/xUnit+Plugin</url>
@@ -44,7 +44,7 @@
         <hpi.compatibleSinceVersion>2.0.0</hpi.compatibleSinceVersion>
 
         <!-- dependencies versions -->
-        <dtkit-api.version>2.1.2-SNAPSHOT</dtkit-api.version>
+        <dtkit-api.version>2.1.1</dtkit-api.version>
         <xmlunit.version>2.6.2</xmlunit.version>
         <mockito.version>2.17.0</mockito.version>
         <junit-plugin.version>1.25</junit-plugin.version>

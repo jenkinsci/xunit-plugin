@@ -159,10 +159,10 @@ public class FailedThreshold extends XUnitThreshold {
                     .orElse(null);
 
             if (matchingTest != null) {
-                log.warn(String.format("[Quarantine]: %s failed but it is quarantined.", case_result.getFullName()));
+                log.warn(String.format("[Quarantined]: %s failed but it is quarantined.", case_result.getFullName()));
                 quarantined++;
             } else {
-                log.error(String.format("[UnQuarantined]: %s failed but it is NOT quarantined.", case_result.getFullName()));
+                log.error(String.format("[Un-Quarantined]: %s failed but it is NOT quarantined.", case_result.getFullName()));
             }
         }
         return quarantined;
