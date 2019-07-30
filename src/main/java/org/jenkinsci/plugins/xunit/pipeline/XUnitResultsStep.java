@@ -60,6 +60,7 @@ public class XUnitResultsStep extends Step {
     private List<XUnitThreshold> thresholds;
     private int thresholdMode = 1;
     private long testTimeMargin = XUnitDefaultValues.TEST_REPORT_TIME_MARGING;
+    private boolean reduceLog = XUnitDefaultValues.JUNIT_FILE_REDUCE_LOG;
     private Collection<TestDataPublisher> testDataPublishers;
 
     @DataBoundConstructor
@@ -117,6 +118,15 @@ public class XUnitResultsStep extends Step {
     @Override
     public StepExecution start(StepContext context) throws Exception {
         return new XUnitResultsStepExecution(this, context);
+    }
+
+    public boolean isReduceLog() {
+        return reduceLog;
+    }
+
+    @DataBoundSetter
+    public void setReduceLog(boolean reduceLog) {
+        this.reduceLog = reduceLog;
     }
 
     @Extension

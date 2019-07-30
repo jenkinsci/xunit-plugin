@@ -33,12 +33,18 @@ public class ExtraConfiguration implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private final long testTimeMargin;
+    private final boolean reduceLog;
 
-    public ExtraConfiguration(long testTimeMargin) {
+    public ExtraConfiguration(long testTimeMargin, boolean reduceLog) {
         this.testTimeMargin = testTimeMargin;
+        this.reduceLog = reduceLog;
     }
 
     public long getTestTimeMargin() {
         return testTimeMargin;
+    }
+
+    public boolean isReduceLog() {
+        return reduceLog;
     }
 }

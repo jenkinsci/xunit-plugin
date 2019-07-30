@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="acceptance (jenkins)" tests="22" failures="0" errors="1" skipped="0" time="1344.142">
+        <testcase classname="CommercialCombinedCest" name="baseFlowTest" time="248.536" />
+        <testcase classname="CommercialCombinedCest" name="baseFlowMTATest" time="92.422" />
+        <testcase classname="CommercialCombinedCest" name="baseFlowSecondMTATest" time="57.400" />
+        <testcase classname="CommercialCombinedCest" name="baseFlowRenewalTest" time="61.748" />
+        <testcase classname="CommercialCombinedCest" name="baseFlowCancellationMTATest" time="72.760" />
+        <testcase classname="CommercialCombinedCest" name="ccSovereignBordereauReport" time="27.256" />
+        <testcase classname="CommercialCombinedCest" name="ccFaradayBordereauReport" time="25.276" />
+        <testcase classname="CommercialGeneralLiabilityCest" name="baseFlowTest" time="96.698" />
+        <testcase classname="CommercialGeneralLiabilityCest" name="baseFlowMTATest" time="59.107" />
+        <testcase classname="CommercialGeneralLiabilityCest" name="baseFlowSecondMtaTest" time="46.405" />
+        <testcase classname="CommercialGeneralLiabilityCest" name="baseFlowNotTakenUpCancellationTest" time="52.692" />
+        <testcase classname="CommercialGeneralLiabilityCest" name="cglSovereignBordereauReport" time="17.601" />
+        <testcase classname="CourseOfConstructionCest" name="baseFlowTest" time="91.188" />
+        <testcase classname="CourseOfConstructionCest" name="baseFlowMTATest" time="64.457" />
+        <testcase classname="CourseOfConstructionCest" name="cocSovereignBordereauReport" time="16.639" />
+        <testcase classname="CourseOfConstructionCest" name="cocFaradayBordereauReport" time="18.845" />
+        <testcase classname="OpenMarketProductCest" name="baseFlowTest" time="94.270" />
+        <testcase classname="OpenMarketProductCest" name="baseFlowMTATest" time="54.827" />
+        <testcase classname="OpenMarketProductCest" name="baseFlowSecondMTATest" time="46.877" />
+        <testcase classname="OpenMarketProductCest" name="baseFlowRenewalTest" time="47.085" />
+        <testcase classname="OpenMarketProductCest" name="baseFlowCancellationMTATest" time="51.943" />
+        <testcase classname="Signup\signupBaseCest" name="baseTestInstanceCreation" time="0.111">
+            <error message="" type="Facebook\WebDriver\Exception\UnknownServerException">signupBaseCest: Base test instance creation
+                Facebook\WebDriver\Exception\UnknownServerException: unknown error: unhandled inspector error: {"code":-32000,"message":"Cannot navigate to invalid URL"}
+                (Session info: chrome=68.0.3440.84)
+                (Driver info: chromedriver=2.41.578700 (2f1ed5f9343c13f73144538f15c00b370eda6706),platform=Linux 4.14.91+ x86_64)
+
+                /var/www/insly/vendor/facebook/webdriver/lib/Exception/WebDriverException.php:114
+                /var/www/insly/vendor/facebook/webdriver/lib/Remote/HttpCommandExecutor.php:326
+                /var/www/insly/vendor/facebook/webdriver/lib/Remote/RemoteWebDriver.php:547
+                /var/www/insly/vendor/facebook/webdriver/lib/Remote/RemoteWebDriver.php:226
+                /var/www/insly/vendor/codeception/codeception/src/Codeception/Module/WebDriver.php:891
+                /var/www/insly/vendor/codeception/codeception/src/Codeception/Step.php:265
+                /var/www/insly/vendor/codeception/codeception/src/Codeception/Scenario.php:72
+                /var/www/insly/tests/_support/_generated/AcceptanceTesterActions.php:283
+                /var/www/insly/tests/_support/Page/Signup/MainPage.php:19
+                /var/www/insly/tests/acceptance/Signup/signupBaseCest.php:25
+                /var/www/insly/vendor/codeception/codeception/src/Codeception/Lib/Di.php:127
+                /var/www/insly/vendor/codeception/codeception/src/Codeception/Test/Cest.php:138
+                /var/www/insly/vendor/codeception/codeception/src/Codeception/Test/Cest.php:150
+                /var/www/insly/vendor/codeception/codeception/src/Codeception/Test/Cest.php:82
+                /var/www/insly/vendor/codeception/codeception/src/Codeception/Test/Test.php:89
+                /var/www/insly/vendor/codeception/phpunit-wrapper/src/Runner.php:110
+                /var/www/insly/vendor/codeception/codeception/src/Codeception/SuiteManager.php:158
+                /var/www/insly/vendor/codeception/codeception/src/Codeception/Codecept.php:192
+                /var/www/insly/vendor/codeception/codeception/src/Codeception/Codecept.php:181
+                /var/www/insly/vendor/codeception/codeception/src/Codeception/Command/Run.php:495
+                /var/www/insly/vendor/codeception/codeception/src/Codeception/Command/Run.php:390
+                /var/www/insly/vendor/symfony/console/Command/Command.php:255
+                /var/www/insly/vendor/symfony/console/Application.php:901
+                /var/www/insly/vendor/symfony/console/Application.php:262
+                /var/www/insly/vendor/symfony/console/Application.php:145
+                /var/www/insly/vendor/codeception/codeception/src/Codeception/Application.php:108
+            </error>
+        </testcase>
+    </testsuite>
+</testsuites>

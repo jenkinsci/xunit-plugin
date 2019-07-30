@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-run id="2" testcasecount="16" result="Failed" total="6" passed="4" failed="2" inconclusive="0" skipped="0" asserts="4" engine-version="3.6.1.0" clr-version="4.0.30319.42000" start-time="2019-02-03 20:09:09Z" end-time="2019-02-03 20:09:20Z" duration="10.186530">
+  <command-line><![CDATA["C:\Program Files (x86)\NUnit.org\nunit-console\nunit3-console.exe" C:\Js\workspace\UPG-Secondary-Pipeline\Build\..\Artifact\Demo.Core.dll --where="cat == Instance-1" --dispose-runners --result=C:\Js\workspace\UPG-Secondary-Pipeline\Build\..\TestResults\AGT-CHC-BLD191-Results.xml --labels=All]]></command-line>
+  <filter>
+    <cat>Instance-1</cat>
+  </filter>
+  <test-suite type="Assembly" id="0-1024" name="Demo.Core.dll" fullname="C:\Js\workspace\UPG-Secondary-Pipeline\Artifact\Demo.Core.dll" runstate="Runnable" testcasecount="16" result="Failed" site="Child" start-time="2019-02-03 20:09:11Z" end-time="2019-02-03 20:09:20Z" duration="8.153915" total="6" passed="4" failed="2" warnings="0" inconclusive="0" skipped="0" asserts="4">
+    <environment framework-version="3.10.1.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 10.0.14393.0" platform="Win32NT" cwd="C:\Js\workspace\UPG-Secondary-Pipeline" machine-name="AGT-CHC-BLD191" user="svc.alm.chc" user-domain="INTERNAL" culture="en-NZ" uiculture="en-US" os-architecture="x64" />
+    <settings>
+      <setting name="DisposeRunners" value="True" />
+      <setting name="WorkDirectory" value="C:\Js\workspace\UPG-Secondary-Pipeline" />
+      <setting name="ImageRuntimeVersion" value="4.0.30319" />
+      <setting name="ImageTargetFrameworkName" value=".NETFramework,Version=v4.6.2" />
+      <setting name="ImageRequiresX86" value="False" />
+      <setting name="ImageRequiresDefaultAppDomainAssemblyResolver" value="False" />
+      <setting name="NumberOfTestWorkers" value="2" />
+    </settings>
+    <properties>
+      <property name="_PID" value="8960" />
+      <property name="_APPDOMAIN" value="domain-" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="TestSuite" id="0-1025" name="Demo" fullname="Demo" runstate="Runnable" testcasecount="16" result="Failed" site="Child" start-time="2019-02-03 20:09:11Z" end-time="2019-02-03 20:09:20Z" duration="8.128912" total="6" passed="4" failed="2" warnings="0" inconclusive="0" skipped="0" asserts="4">
+      <properties />
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="0-1026" name="Core" fullname="Demo.Core" runstate="Runnable" testcasecount="16" result="Failed" site="Child" start-time="2019-02-03 20:09:11Z" end-time="2019-02-03 20:09:20Z" duration="8.128344" total="6" passed="4" failed="2" warnings="0" inconclusive="0" skipped="0" asserts="4">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="SetUpFixture" id="0-1000" name="Tests" fullname="Demo.Core.Tests.AssemblySetUp" classname="Demo.Core.Tests.AssemblySetUp" runstate="Runnable" testcasecount="16" result="Failed" site="Child" start-time="2019-02-03 20:09:11Z" end-time="2019-02-03 20:09:20Z" duration="8.124887" total="6" passed="4" failed="2" warnings="0" inconclusive="0" skipped="0" asserts="4">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestFixture" id="0-1015" name="Garbage" fullname="Demo.Core.Tests.Garbage" classname="Demo.Core.Tests.Garbage" runstate="Runnable" testcasecount="1" result="Failed" site="Child" start-time="2019-02-03 20:09:11Z" end-time="2019-02-03 20:09:12Z" duration="0.069969" total="1" passed="0" failed="1" warnings="0" inconclusive="0" skipped="0" asserts="0">
+            <properties>
+              <property name="Category" value="Instance-1" />
+            </properties>
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-case id="0-1016" name="LiteralNonsense" fullname="Demo.Core.Tests.Garbage.LiteralNonsense" methodname="LiteralNonsense" classname="Demo.Core.Tests.Garbage" runstate="Runnable" seed="929239775" result="Failed" start-time="2019-02-03 20:09:11Z" end-time="2019-02-03 20:09:12Z" duration="0.061010" asserts="0">
+              <properties />
+              <failure>
+                <message><![CDATA[This is an Assembly Level Error message.]]></message>
+                <stack-trace><![CDATA[   at Demo.Core.Tests.Garbage.LiteralNonsense() in C:\Projects\workspace\UPG-Build-Pipeline\Source\Demo.Core\Tests\Garbage.Test.cs:line 25
+]]></stack-trace>
+              </failure>
+              <assertions>
+                <assertion result="Failed">
+                  <message><![CDATA[This is an Assembly Level Error message.]]></message>
+                  <stack-trace><![CDATA[   at Demo.Core.Tests.Garbage.LiteralNonsense() in C:\Projects\workspace\UPG-Build-Pipeline\Source\Demo.Core\Tests\Garbage.Test.cs:line 25
+]]></stack-trace>
+                </assertion>
+              </assertions>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="0-1017" name="Lambchop" fullname="Demo.Core.Tests.Lambchop" classname="Demo.Core.Tests.Lambchop" runstate="Runnable" testcasecount="5" result="Failed" site="Child" start-time="2019-02-03 20:09:12Z" end-time="2019-02-03 20:09:20Z" duration="8.042420" total="5" passed="4" failed="1" warnings="0" inconclusive="0" skipped="0" asserts="4">
+            <properties>
+              <property name="Category" value="Instance-1" />
+            </properties>
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-case id="0-1023" name="ShouldDie" fullname="Demo.Core.Tests.Lambchop.ShouldDie" methodname="ShouldDie" classname="Demo.Core.Tests.Lambchop" runstate="Runnable" seed="1449414304" result="Failed" start-time="2019-02-03 20:09:12Z" end-time="2019-02-03 20:09:12Z" duration="0.001540" asserts="0">
+              <properties />
+              <failure>
+                <message><![CDATA[This is an intentional failure.]]></message>
+                <stack-trace><![CDATA[   at Demo.Core.Tests.Lambchop.ShouldDie() in C:\Projects\workspace\UPG-Build-Pipeline\Source\Demo.Core\Tests\Lambchop.Test.cs:line 47
+]]></stack-trace>
+              </failure>
+              <assertions>
+                <assertion result="Failed">
+                  <message><![CDATA[This is an intentional failure.]]></message>
+                  <stack-trace><![CDATA[   at Demo.Core.Tests.Lambchop.ShouldDie() in C:\Projects\workspace\UPG-Build-Pipeline\Source\Demo.Core\Tests\Lambchop.Test.cs:line 47
+]]></stack-trace>
+                </assertion>
+              </assertions>
+            </test-case>
+            <test-case id="0-1022" name="ShouldSingForever" fullname="Demo.Core.Tests.Lambchop.ShouldSingForever" methodname="ShouldSingForever" classname="Demo.Core.Tests.Lambchop" runstate="Runnable" seed="223051721" result="Passed" start-time="2019-02-03 20:09:12Z" end-time="2019-02-03 20:09:17Z" duration="5.008255" asserts="1">
+              <properties />
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="0-1021" name="ShouldSingOnRepeat" fullname="Demo.Core.Tests.Lambchop.ShouldSingOnRepeat" classname="Demo.Core.Tests.Lambchop" runstate="Runnable" testcasecount="3" result="Passed" start-time="2019-02-03 20:09:17Z" end-time="2019-02-03 20:09:20Z" duration="3.032131" total="3" passed="3" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="3">
+              <properties />
+              <test-case id="0-1018" name="ShouldSingOnRepeat(0)" fullname="Demo.Core.Tests.Lambchop.ShouldSingOnRepeat(0)" methodname="ShouldSingOnRepeat" classname="Demo.Core.Tests.Lambchop" runstate="Runnable" seed="340458557" result="Passed" start-time="2019-02-03 20:09:17Z" end-time="2019-02-03 20:09:17Z" duration="0.028831" asserts="1">
+                <properties />
+              </test-case>
+              <test-case id="0-1019" name="ShouldSingOnRepeat(1)" fullname="Demo.Core.Tests.Lambchop.ShouldSingOnRepeat(1)" methodname="ShouldSingOnRepeat" classname="Demo.Core.Tests.Lambchop" runstate="Runnable" seed="666492993" result="Passed" start-time="2019-02-03 20:09:17Z" end-time="2019-02-03 20:09:18Z" duration="1.001104" asserts="1">
+                <properties />
+              </test-case>
+              <test-case id="0-1020" name="ShouldSingOnRepeat(2)" fullname="Demo.Core.Tests.Lambchop.ShouldSingOnRepeat(2)" methodname="ShouldSingOnRepeat" classname="Demo.Core.Tests.Lambchop" runstate="Runnable" seed="1670972251" result="Passed" start-time="2019-02-03 20:09:18Z" end-time="2019-02-03 20:09:20Z" duration="2.001064" asserts="1">
+                <properties />
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

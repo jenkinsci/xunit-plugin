@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <testsuite name="NUnit.Tests.Assemblies.MockTestFixture" tests="10" failures="2" errors="1" skipped="3" group="FixtureCategory">
+        <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="FailingTest">
+            <failure message="Intentional failure"><![CDATA[   at NUnit.Framework.Assert.Fail(String message, Object[] args) in D:\Dev\NUnit\nunit-3.0\work\NUnitFramework\src\framework\Assert.cs:line 142
+   at NUnit.Framework.Assert.Fail(String message) in D:\Dev\NUnit\nunit-3.0\work\NUnitFramework\src\framework\Assert.cs:line 152
+   at NUnit.Tests.Assemblies.MockTestFixture.FailingTest() in D:\Dev\NUnit\nunit-3.0\work\NUnitFramework\src\mock-assembly\MockAssembly.cs:line 121]]></failure>
+        </testcase>
+        <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="InconclusiveTest">
+            <error message="Inconclusive test" />
+        </testcase>
+        <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="MockTest1" />
+        <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="MockTest2" group="MockCategory" />
+        <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="MockTest3" group="AnotherCategory MockCategory" />
+        <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="MockTest4" group="Foo">
+            <skipped message="ignoring this test method for now" />
+        </testcase>
+        <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="MockTest5">
+            <skipped message="Method is not public" />
+        </testcase>
+        <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="NotRunnableTest">
+            <skipped message="No arguments were provided" />
+        </testcase>
+        <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="TestWithException">
+            <failure message="System.ApplicationException : Intentional Exception"><![CDATA[   at NUnit.Tests.Assemblies.MockTestFixture.MethodThrowsException() in D:\Dev\NUnit\nunit-3.0\work\NUnitFramework\src\mock-assembly\MockAssembly.cs:line 158
+   at NUnit.Tests.Assemblies.MockTestFixture.TestWithException() in D:\Dev\NUnit\nunit-3.0\work\NUnitFramework\src\mock-assembly\MockAssembly.cs:line 153]]></failure>
+        </testcase>
+        <testcase classname="NUnit.Tests.Assemblies.MockTestFixture" name="TestWithManyProperties" />
+    </testsuite>
+    <testsuite name="NUnit.Tests.FixtureWithTestCases" tests="2" failures="0" errors="0" skipped="0">
+        <testcase classname="NUnit.Tests.FixtureWithTestCases" name="MethodWithParameters(2,2)" />
+        <testcase classname="NUnit.Tests.FixtureWithTestCases" name="MethodWithParameters(9,11)" />
+    </testsuite>
+    <testsuite name="NUnit.Tests.ParameterizedFixture(42)" tests="2" failures="0" errors="0" skipped="0">
+        <testcase classname="NUnit.Tests.ParameterizedFixture(42)" name="Test1" />
+        <testcase classname="NUnit.Tests.ParameterizedFixture(42)" name="Test2" />
+    </testsuite>
+    <testsuite name="NUnit.Tests.ParameterizedFixture(5)" tests="2" failures="0" errors="0" skipped="0">
+        <testcase classname="NUnit.Tests.ParameterizedFixture(5)" name="Test1" />
+        <testcase classname="NUnit.Tests.ParameterizedFixture(5)" name="Test2" />
+    </testsuite>
+    <testsuite name="NUnit.Tests.Singletons.OneTestCase" tests="1" failures="0" errors="0" skipped="0">
+        <testcase classname="NUnit.Tests.Singletons.OneTestCase" name="TestCase" />
+    </testsuite>
+    <testsuite name="NUnit.Tests.TestAssembly.MockTestFixture" tests="1" failures="0" errors="0" skipped="0">
+        <testcase classname="NUnit.Tests.TestAssembly.MockTestFixture" name="MyTest" />
+    </testsuite>
+</testsuites>

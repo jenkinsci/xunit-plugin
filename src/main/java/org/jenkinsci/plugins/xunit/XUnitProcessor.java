@@ -90,17 +90,20 @@ public class XUnitProcessor {
         private final long buildTime;
         private final long nowMaster;
         private final String processorId;
+        private final boolean reduceLog;
         private final PipelineTestDetails pipelineTestDetails;
 
         public ReportParserCallable(long buildTime,
                                     @Nonnull String junitFilePattern,
                                     long nowMaster,
                                     String processorId,
+                                    boolean reduceLog,
                                     PipelineTestDetails pipelineTestDetails) {
             this.buildTime = buildTime;
             this.junitFilePattern = junitFilePattern;
             this.nowMaster = nowMaster;
             this.processorId = processorId;
+            this.reduceLog = reduceLog;
             this.pipelineTestDetails = pipelineTestDetails;
         }
 
@@ -119,7 +122,7 @@ public class XUnitProcessor {
                 return null;
 
             }
-            return new TestResult(buildTime + (nowSlave - nowMaster), ds, true, pipelineTestDetails);
+            return new TestResult(buildTime + (nowSlave - nowMaster), ds, !reduceLog, pipelineTestDetails);
         }
     }
 
@@ -406,7 +409,7 @@ public class XUnitProcessor {
                                      final long nowMaster,
                                      final PipelineTestDetails pipelineTestDetails) throws IOException, InterruptedException {
 
-        return workspace.act(new ReportParserCallable(buildTime, junitFilePattern, nowMaster, processorId, pipelineTestDetails));
+        return workspace.act(new ReportParserCallable(buildTime, junitFilePattern, nowMaster, processorId, extraConfiguration.isReduceLog(), pipelineTestDetails));
     }
 
     @Restricted(NoExternalUse.class)

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <testsuite name="Demo.Core.Tests.Garbage" tests="1" failures="1" errors="0" skipped="0" time="0.070" group="Instance-1">
+        <testcase classname="Demo.Core.Tests.Garbage" name="LiteralNonsense" time="0.061">
+            <failure message="This is an Assembly Level Error message."><![CDATA[   at Demo.Core.Tests.Garbage.LiteralNonsense() in C:\Projects\workspace\UPG-Build-Pipeline\Source\Demo.Core\Tests\Garbage.Test.cs:line 25
+]]></failure>
+        </testcase>
+    </testsuite>
+    <testsuite name="Demo.Core.Tests.Lambchop" tests="5" failures="1" errors="0" skipped="0" time="8.042" group="Instance-1">
+        <testcase classname="Demo.Core.Tests.Lambchop" name="ShouldDie" time="0.002">
+            <failure message="This is an intentional failure."><![CDATA[   at Demo.Core.Tests.Lambchop.ShouldDie() in C:\Projects\workspace\UPG-Build-Pipeline\Source\Demo.Core\Tests\Lambchop.Test.cs:line 47
+]]></failure>
+        </testcase>
+        <testcase classname="Demo.Core.Tests.Lambchop" name="ShouldSingForever" time="5.008" />
+        <testcase classname="Demo.Core.Tests.Lambchop" name="ShouldSingOnRepeat(0)" time="0.029" />
+        <testcase classname="Demo.Core.Tests.Lambchop" name="ShouldSingOnRepeat(1)" time="1.001" />
+        <testcase classname="Demo.Core.Tests.Lambchop" name="ShouldSingOnRepeat(2)" time="2.001" />
+    </testsuite>
+</testsuites>

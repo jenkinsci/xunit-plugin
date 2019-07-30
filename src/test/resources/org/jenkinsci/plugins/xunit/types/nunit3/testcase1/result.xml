@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites>
-    <testsuite name="RSelenium.Tests.AfterLiveTestCases" tests="1" time="46.455" failures="0" errors="0" skipped="0">
-        <testcase classname="RSelenium.Tests.AfterLiveTestCases" name="AUT0513TestPrefixedSiteURLRedirect" time="30.061"/>
+<testsuites xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <testsuite name="RSelenium.Tests.AfterLiveTestCases" tests="1" failures="0" errors="0" skipped="0" time="46.455">
+        <testcase classname="RSelenium.Tests.AfterLiveTestCases" name="AUT0513TestPrefixedSiteURLRedirect" time="30.061" group="Desktop AfterLiveTest InDevelopment" />
     </testsuite>
-    <testsuite name="RSelenium.Tests.LoginTestCases" tests="1" time="46.852" failures="0" errors="0" skipped="0">
-        <testcase classname="RSelenium.Tests.LoginTestCases" name="AUT0025TestInvalidEmailInRecoverPasswordPage" time="22.672"/>
+    <testsuite name="RSelenium.Tests.LoginTestCases" tests="1" failures="0" errors="0" skipped="0" time="46.852">
+        <testcase classname="RSelenium.Tests.LoginTestCases" name="AUT0025TestInvalidEmailInRecoverPasswordPage" time="22.672" group="Desktop Mobile InDevelopment" />
     </testsuite>
-    <testsuite name="RSelenium.Tests.RegisterTestCases" tests="1" time="48.466" failures="0" errors="0" skipped="0">
-        <testcase classname="RSelenium.Tests.RegisterTestCases" name="AUT0010TestRegisterationNotAllowedWithEmptyFields" time="16.108"/>
+    <testsuite name="RSelenium.Tests.RegisterTestCases" tests="1" failures="0" errors="0" skipped="0" time="48.466">
+        <testcase classname="RSelenium.Tests.RegisterTestCases" name="AUT0010TestRegisterationNotAllowedWithEmptyFields" time="16.108" group="SmokeTest Desktop Mobile" />
     </testsuite>
 </testsuites>

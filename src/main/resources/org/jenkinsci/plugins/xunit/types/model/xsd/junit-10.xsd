@@ -130,6 +130,7 @@ THE SOFTWARE.
             <xs:attribute name="file" type="xs:string"/>
             <xs:attribute name="log" type="xs:string"/>
             <xs:attribute name="url" type="xs:string"/>
+            <xs:attribute name="version" type="xs:string"/>
         </xs:complexType>
     </xs:element>
 
