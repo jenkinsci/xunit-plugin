@@ -1,0 +1,1007 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <testsuite name="EditTeamCrest" tests="2" failures="2" errors="0" skipped="0" time="95.362">
+        <testcase classname="EditTeamCrest" name="ChangeCrestColors" time="93.964">
+            <failure message="Unhandled log message: '[Error] [LMC] Position is 45, and 1 byte was requested, but length is 45.'. Use UnityEngine.TestTools.LogAssert.Expect"><![CDATA[SimpleFudbal.MasterClasses.Lambda.MasterClient:LogError(String) (at Assets/Scripts/Network/Lambda/MasterClient.cs:2068)
+SimpleFudbal.MasterClasses.Lambda.MasterClient:ParseLoginData(JToken) (at Assets/Scripts/Network/Lambda/MasterClient.cs:858)
+SimpleFudbal.MasterClasses.Lambda.Requests.LogInWithUsername:HandleResponse(MasterClient, ServerStatusCode, String, String, JToken, JToken, DateTime, Int32) (at Assets/Scripts/Network/Lambda/MasterRequests/LogInWithUsername.cs:43)
+SimpleFudbal.MasterClasses.Lambda.LambdaRequest:PutResponse(MasterClient, ServerRequest, ServerResponse) (at Assets/Scripts/Network/Lambda/LambdaRequest.cs:128)
+SimpleFudbal.MasterClasses.Lambda.LambdaRequestManager:responseHandler(ServerRequest, ServerResponse) (at Assets/Scripts/Network/Lambda/LambdaRequestManager.cs:173)
+SimpleFudbal.BaseClasses.NetWrapper:updateUnityRequest(ServerRequest) (at Assets/Scripts/Network/NetWrapper.cs:508)
+SimpleFudbal.BaseClasses.NetWrapper:UpdateHttpRequests(NetworkHelper) (at Assets/Scripts/Network/NetWrapper.cs:262)
+NetworkHelper:Update() (at Assets/Scripts/Utility/NetworkHelper.cs:25)
+
+]]></failure>
+            <system-out><![CDATA[The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'RewardCardTemplate') is missing!
+The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'CrestDisplay') is missing!
+Using MANAGED ZLib
+Build info : ID = 1902011800, Platform = Android, Branch = develop
+Using auto-detected system language: en_US
+Language 'English' (en_US) loaded, with total of 1136 entries.
+Language changed to 'en_US'
+Scene FrontEndScene is loaded
+<E> Front-end started
+Timestamp: 22.02.2019. 16:03:06 UTC+0
+App version: 0.9.166
+Build: 1902011800 / develop / Android
+Build time: 01.02.2019. 18:00 UTC+0
+Device model: PC
+Screen resolution: 640 x 480 (0 dpi)
+Screen safe area: 0, 0 -> 640, 480 (640 x 480)
+Vertical safe ratio: 1
+<E> GUI switch: login
+SKIP_SOCIAL override is set, won't use social plugins for login
+Command line argument count : 12
+[0] /opt/Unity/Editor/Unity
+[1] -accept-apiupdate
+[2] -projectPath
+[3] /arena
+[4] -batchmode
+[5] -nographics
+[6] -logfile
+[7] -runTests
+[8] -testPlatform
+[9] playmode
+[10] -testResults
+[11] /arena/UnityUiResults.xml
+Start booting...
+Canceling all notifications
+Checking for servers...
+Trying to fetch servers...
+List parsed, server count = 4
+Fetched 4 server(s)
+FORGET_USER set, user forgotten, now don't forget to remove the flag!
+<E> Starting login
+SERVER_OVERRIDE_CUSTOM_IP is set.
+Found a custom server : localhost
+Found target server : custom -> localhost
+Creating a new preference 'saved-server-build', should add this to defaults. (empty value)
+Starting username login...
+Registering master client events...
+[LMC] Connecting with username 'testUser1'...
+[LMC] REQ InitialLogin response = Success (1.48 s)
+[LMC] Login response is compressed B64 (54546 -> 12952 bytes, 23% of original)
+[LMC] Push notifications are NOT active
+[LMC] Got FCA context from server...
+[LMC] Position is 45, and 1 byte was requested, but length is 45.
+[LMC]   at ByteBuffer.ReadBool () [0x0003f] in /arena/Assets/Scripts/BaseClasses/Utility/ByteBuffer.cs:475 
+  at SimpleFudbal.Rules.FieldTypes.IntRuleField.DeserializeFromBinary (ByteBuffer bb) [0x00001] in /arena/Assets/Scripts/BaseClasses/GameData/Rules/FieldTypes/IntRuleField.cs:64 
+  at SimpleFudbal.Rules.RuleSet.DeserializeFromBinary (ByteBuffer bb) [0x0000d] in /arena/Assets/Scripts/BaseClasses/GameData/Rules/RuleSet.cs:100 
+  at SimpleFudbal.Rules.GameRules..ctor (ByteBuffer bb, SimpleFudbal.Rules.GameRules parentRules) [0x00009] in /arena/Assets/Scripts/BaseClasses/GameData/Rules/NuGameRules.cs:132 
+  at GameRulesConverterB64.ReadJson (Newtonsoft.Json.JsonReader reader, System.Type objectType, System.Object existingValue, Newtonsoft.Json.JsonSerializer serializer) [0x0004f] in /arena/Assets/Scripts/Network/Lambda/Data/Dummies/GameRulesConverterB64.cs:29 
+  at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.DeserializeConvertable (Newtonsoft.Json.JsonConverter converter, Newtonsoft.Json.JsonReader reader, System.Type objectType, System.Object existingValue) [0x0004a] in C:\Project\Github\Json.Net.Unity3D\src\Newtonsoft.Json\Serialization\JsonSerializerInternalReader.cs:2127 
+  at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.SetPropertyValue (Newtonsoft.Json.Serialization.JsonProperty property, Newtonsoft.Json.JsonConverter propertyConverter, Newtonsoft.Json.Serialization.JsonContainerContract containerContract, Newtonsoft.Json.Serialization.JsonProperty containerProperty, Newtonsoft.Json.JsonReader reader, System.Object target) [0x00044] in C:\Project\Github\Json.Net.Unity3D\src\Newtonsoft.Json\Serialization\JsonSerializerInternalReader.cs:1032 
+  at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject (System.Object newObject, Newtonsoft.Json.JsonReader reader, Newtonsoft.Json.Serialization.JsonObjectContract contract, Newtonsoft.Json.Serialization.JsonProperty member, System.String id) [0x00267] in C:\Project\Github\Json.Net.Unity3D\src\Newtonsoft.Json\Serialization\JsonSerializerInternalReader.cs:2411 
+  at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject (Newtonsoft.Json.JsonReader reader, System.Type objectType, Newtonsoft.Json.Serialization.JsonContract contract, Newtonsoft.Json.Serialization.JsonProperty member, Newtonsoft.Json.Serialization.JsonContainerContract containerContract, Newtonsoft.Json.Serialization.JsonProperty containerMember, System.Object existingValue) [0x0015c] in C:\Project\Github\Json.Net.Unity3D\src\Newtonsoft.Json\Serialization\JsonSerializerInternalReader.cs:497 
+  at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal (Newtonsoft.Json.JsonReader reader, System.Type objectType, Newtonsoft.Json.Serialization.JsonContract contract, Newtonsoft.Json.Serialization.JsonProperty member, Newtonsoft.Json.Serialization.JsonContainerContract containerContract, Newtonsoft.Json.Serialization.JsonProperty containerMember, System.Object existingValue) [0x0006d] in C:\Project\Github\Json.Net.Unity3D\src\Newtonsoft.Json\Serialization\JsonSerializerInternalReader.cs:293 
+  at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize (Newtonsoft.Json.JsonReader reader, System.Type objectType, System.Boolean checkAdditionalContent) [0x000d9] in C:\Project\Github\Json.Net.Unity3D\src\Newtonsoft.Json\Serialization\JsonSerializerInternalReader.cs:193 
+  at Newtonsoft.Json.Serialization.JsonSerializerProxy.DeserializeInternal (Newtonsoft.Json.JsonReader reader, System.Type objectType) [0x00008] in C:\Project\Github\Json.Net.Unity3D\src\Newtonsoft.Json\Serialization\JsonSerializerProxy.cs:246 
+  at Newtonsoft.Json.JsonSerializer.Deserialize (Newtonsoft.Json.JsonReader reader, System.Type objectType) [0x00000] in C:\Project\Github\Json.Net.Unity3D\src\Newtonsoft.Json\JsonSerializer.cs:802 
+  at Newtonsoft.Json.JsonSerializer.Deserialize[T] (Newtonsoft.Json.JsonReader reader) [0x00000] in C:\Project\Github\Json.Net.Unity3D\src\Newtonsoft.Json\JsonSerializer.cs:790 
+  at ConcreteConverter`1[T].ReadJson (Newtonsoft.Json.JsonReader reader, System.Type objectType, System.Object existingValue, Newtonsoft.Json.JsonSerializer serializer) [0x00001] in /arena/Assets/Scripts/Utility/ConcreteConverter.cs:16 
+  at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.DeserializeConvertable (Newtonsoft.Json.JsonConverter converter, Newtonsoft.Json.JsonReader reader, System.Type objectType, System.Object existingValue) [0x0004a] in C:\Project\Github\Json.Net.Unity3D\src\Newtonsoft.Json\Serialization\JsonSerializerInternalReader.cs:2127 
+  at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateList (System.Collections.IList list, Newtonsoft.Json.JsonReader reader, Newtonsoft.Json.Serialization.JsonArrayContract contract, Newtonsoft.Json.Serialization.JsonProperty containerProperty, System.String id) [0x0016f] in C:\Project\Github\Json.Net.Unity3D\src\Newtonsoft.Json\Serialization\JsonSerializerInternalReader.cs:1677 
+  at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateList (Newtonsoft.Json.JsonReader reader, System.Type objectType, Newtonsoft.Json.Serialization.JsonContract contract, Newtonsoft.Json.Serialization.JsonProperty member, System.Object existingValue, System.String id) [0x000dc] in C:\Project\Github\Json.Net.Unity3D\src\Newtonsoft.Json\Serialization\JsonSerializerInternalReader.cs:898 
+  at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal (Newtonsoft.Json.JsonReader reader, System.Type objectType, Newtonsoft.Json.Serialization.JsonContract contract, Newtonsoft.Json.Serialization.JsonProperty member, Newtonsoft.Json.Serialization.JsonContainerContract containerContract, Newtonsoft.Json.Serialization.JsonProperty containerMember, System.Object existingValue) [0x0007f] in C:\Project\Github\Json.Net.Unity3D\src\Newtonsoft.Json\Serialization\JsonSerializerInternalReader.cs:295 
+  at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize (Newtonsoft.Json.JsonReader reader, System.Type objectType, System.Boolean checkAdditionalContent) [0x000d9] in C:\Project\Github\Json.Net.Unity3D\src\Newtonsoft.Json\Serialization\JsonSerializerInternalReader.cs:193 
+  at Newtonsoft.Json.JsonSerializer.DeserializeInternal (Newtonsoft.Json.JsonReader reader, System.Type objectType) [0x00045] in C:\Project\Github\Json.Net.Unity3D\src\Newtonsoft.Json\JsonSerializer.cs:823 
+  at Newtonsoft.Json.JsonSerializer.Deserialize (Newtonsoft.Json.JsonReader reader, System.Type objectType) [0x00000] in C:\Project\Github\Json.Net.Unity3D\src\Newtonsoft.Json\JsonSerializer.cs:802 
+  at Newtonsoft.Json.Linq.JToken.ToObject (System.Type objectType, Newtonsoft.Json.JsonSerializer jsonSerializer) [0x00012] in C:\Project\Github\Json.Net.Unity3D\src\Newtonsoft.Json\Linq\JToken.cs:2077 
+  at Newtonsoft.Json.Linq.JToken.ToObject[T] (Newtonsoft.Json.JsonSerializer jsonSerializer) [0x00000] in C:\Project\Github\Json.Net.Unity3D\src\Newtonsoft.Json\Linq\JToken.cs:2062 
+  at ArenaCore.Pwn.Abstraction.Models.Arena.FcaContext..ctor (Newtonsoft.Json.Linq.JObject jsonJObject, Newtonsoft.Json.JsonSerializer serializer) [0x00055] in /arena/Assets/Scripts/Network/Lambda/Data/Interfaces/Arena/FcaContext.cs:119 
+  at SimpleFudbal.MasterClasses.Lambda.MasterClient.ParseLoginData (Newtonsoft.Json.Linq.JToken data) [0x0011c] in /arena/Assets/Scripts/Network/Lambda/MasterClient.cs:744 
+<E> Login failed
+Clearing cached servers because of failed login
+Login error code = -1, recoverable = False
+Non-mobile platform, skipping analytics init.
+Exception: Operation timed out: UITestBase+PanelShown ''
+  at System.Environment.get_StackTrace () [0x00000] in <ac823e2bb42b41bda67924a45a0173c3>:0 
+  at UITestBase.WaitFor (UITestBase+Condition condition, System.Single timeout) [0x00008] in /arena/Assets/UITestBase/UITestBase.cs:38 
+  at EditTeamCrest+<ChangeCrestColors>d__0.MoveNext () [0x000e6] in /arena/Assets/Scripts/UITest/TeamEdit/EditTeamCrest.cs:25 
+  at UnityEngine.TestTools.TestEnumerator+<Execute>c__Iterator0.MoveNext () [0x00031] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Attributes/TestEnumerator.cs:29 
+  at UnityEngine.TestTools.EnumerableTestMethodCommand+<ExecuteEnumerable>c__Iterator0.MoveNext () [0x000ec] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Commands/EnumerableTestMethodCommand.cs:36 
+  at UnityEngine.TestRunner.NUnitExtensions.Runner.UnityLogCheckDelegatingCommand+<ExecuteEnumerable>c__Iterator0.MoveNext () [0x00153] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Runner/UnityLogCheckDelegatingCommand.cs:67 
+  at UnityEngine.TestTools.SetUpTearDownCommand+<ExecuteEnumerable>c__Iterator0.MoveNext () [0x0017a] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Commands/SetUpTearDownCommand.cs:55 
+  at UnityEngine.TestTools.EnumerableSetUpTearDownCommand+<ExecuteEnumerable>c__Iterator0.MoveNext () [0x00289] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Commands/EnumerableSetUpTearDownCommand.cs:101 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) [0x00028] in /home/builduser/buildslave/unity/build/Runtime/Export/Coroutines.cs:17 
+'tutorial.main-gameplay' set to 'true'
+'tutorial.team-panel' set to 'true'
+'tutorial.formation-panel' set to 'true'
+]]></system-out>
+        </testcase>
+        <testcase classname="EditTeamCrest" name="ChangeCrestPattern" time="1.347">
+            <failure message="Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect"><![CDATA[PlayPanel.SetupArenas () (at Assets/Scripts/FrontEnd/PlayPanel.cs:151)
+PlayPanel.Initialize (System.Boolean initialLogin) (at Assets/Scripts/FrontEnd/PlayPanel.cs:142)
+ManagedPanel.Load (System.Boolean initialLogin) (at Assets/Scripts/UI-Generic/ManagedPanel.cs:51)
+UIManager.ShowNextPanel (System.Boolean instant) (at Assets/Scripts/UI-Generic/UIManager.cs:2276)
+UIManager.SwitchTo (ManagedPanel nextPanel, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2151)
+UIManager.SwitchTo (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2096)
+UIManager.SwitchToPanel (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous) (at Assets/Scripts/UI-Generic/UIManager.cs:1987)
+BootPanel.ReturnToFrontEnd () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:364)
+BootPanel.Start () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:241)
+
+]]></failure>
+            <system-out><![CDATA[The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'RewardCardTemplate') is missing!
+The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'CrestDisplay') is missing!
+tow manager is exists delete the second
+Using MANAGED ZLib
+Scene FrontEndScene is loaded
+<E> Front-end started
+Timestamp: 22.02.2019. 16:04:37 UTC+0
+App version: 0.9.166
+Build: 1902011800 / develop / Android
+Build time: 01.02.2019. 18:00 UTC+0
+Device model: PC
+Screen resolution: 640 x 480 (0 dpi)
+Screen safe area: 0, 0 -> 640, 480 (640 x 480)
+Vertical safe ratio: 1
+<E> GUI switch: login
+SKIP_SOCIAL override is set, won't use social plugins for login
+Command line argument count : 12
+[0] /opt/Unity/Editor/Unity
+[1] -accept-apiupdate
+[2] -projectPath
+[3] /arena
+[4] -batchmode
+[5] -nographics
+[6] -logfile
+[7] -runTests
+[8] -testPlatform
+[9] playmode
+[10] -testResults
+[11] /arena/UnityUiResults.xml
+There are no matches on record!
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+Canceling all notifications
+Fader: loading panel is initally shown
+]]></system-out>
+        </testcase>
+    </testsuite>
+    <testsuite name="EditTeamFormation" tests="2" failures="2" errors="0" skipped="0" time="2.520">
+        <testcase classname="EditTeamFormation" name="ChangePlayerName" time="1.290">
+            <failure message="Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect"><![CDATA[PlayPanel.SetupArenas () (at Assets/Scripts/FrontEnd/PlayPanel.cs:151)
+PlayPanel.Initialize (System.Boolean initialLogin) (at Assets/Scripts/FrontEnd/PlayPanel.cs:142)
+ManagedPanel.Load (System.Boolean initialLogin) (at Assets/Scripts/UI-Generic/ManagedPanel.cs:51)
+UIManager.ShowNextPanel (System.Boolean instant) (at Assets/Scripts/UI-Generic/UIManager.cs:2276)
+UIManager.SwitchTo (ManagedPanel nextPanel, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2151)
+UIManager.SwitchTo (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2096)
+UIManager.SwitchToPanel (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous) (at Assets/Scripts/UI-Generic/UIManager.cs:1987)
+BootPanel.ReturnToFrontEnd () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:364)
+BootPanel.Start () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:241)
+
+]]></failure>
+            <system-out><![CDATA[The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'RewardCardTemplate') is missing!
+The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'CrestDisplay') is missing!
+tow manager is exists delete the second
+Using MANAGED ZLib
+Scene FrontEndScene is loaded
+<E> Front-end started
+Timestamp: 22.02.2019. 16:04:39 UTC+0
+App version: 0.9.166
+Build: 1902011800 / develop / Android
+Build time: 01.02.2019. 18:00 UTC+0
+Device model: PC
+Screen resolution: 640 x 480 (0 dpi)
+Screen safe area: 0, 0 -> 640, 480 (640 x 480)
+Vertical safe ratio: 1
+<E> GUI switch: login
+SKIP_SOCIAL override is set, won't use social plugins for login
+Command line argument count : 12
+[0] /opt/Unity/Editor/Unity
+[1] -accept-apiupdate
+[2] -projectPath
+[3] /arena
+[4] -batchmode
+[5] -nographics
+[6] -logfile
+[7] -runTests
+[8] -testPlatform
+[9] playmode
+[10] -testResults
+[11] /arena/UnityUiResults.xml
+There are no matches on record!
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+Canceling all notifications
+Fader: loading panel is initally shown
+]]></system-out>
+        </testcase>
+        <testcase classname="EditTeamFormation" name="SwapPlayers" time="1.208">
+            <failure message="Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect"><![CDATA[PlayPanel.SetupArenas () (at Assets/Scripts/FrontEnd/PlayPanel.cs:151)
+PlayPanel.Initialize (System.Boolean initialLogin) (at Assets/Scripts/FrontEnd/PlayPanel.cs:142)
+ManagedPanel.Load (System.Boolean initialLogin) (at Assets/Scripts/UI-Generic/ManagedPanel.cs:51)
+UIManager.ShowNextPanel (System.Boolean instant) (at Assets/Scripts/UI-Generic/UIManager.cs:2276)
+UIManager.SwitchTo (ManagedPanel nextPanel, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2151)
+UIManager.SwitchTo (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2096)
+UIManager.SwitchToPanel (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous) (at Assets/Scripts/UI-Generic/UIManager.cs:1987)
+BootPanel.ReturnToFrontEnd () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:364)
+BootPanel.Start () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:241)
+
+]]></failure>
+            <system-out><![CDATA[The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'RewardCardTemplate') is missing!
+The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'CrestDisplay') is missing!
+tow manager is exists delete the second
+Using MANAGED ZLib
+Scene FrontEndScene is loaded
+<E> Front-end started
+Timestamp: 22.02.2019. 16:04:40 UTC+0
+App version: 0.9.166
+Build: 1902011800 / develop / Android
+Build time: 01.02.2019. 18:00 UTC+0
+Device model: PC
+Screen resolution: 640 x 480 (0 dpi)
+Screen safe area: 0, 0 -> 640, 480 (640 x 480)
+Vertical safe ratio: 1
+<E> GUI switch: login
+SKIP_SOCIAL override is set, won't use social plugins for login
+Command line argument count : 12
+[0] /opt/Unity/Editor/Unity
+[1] -accept-apiupdate
+[2] -projectPath
+[3] /arena
+[4] -batchmode
+[5] -nographics
+[6] -logfile
+[7] -runTests
+[8] -testPlatform
+[9] playmode
+[10] -testResults
+[11] /arena/UnityUiResults.xml
+There are no matches on record!
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+Canceling all notifications
+Fader: loading panel is initally shown
+]]></system-out>
+        </testcase>
+    </testsuite>
+    <testsuite name="EditTeamKit" tests="2" failures="2" errors="0" skipped="0" time="2.476">
+        <testcase classname="EditTeamKit" name="ChangeKitColors" time="1.234">
+            <failure message="Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect"><![CDATA[PlayPanel.SetupArenas () (at Assets/Scripts/FrontEnd/PlayPanel.cs:151)
+PlayPanel.Initialize (System.Boolean initialLogin) (at Assets/Scripts/FrontEnd/PlayPanel.cs:142)
+ManagedPanel.Load (System.Boolean initialLogin) (at Assets/Scripts/UI-Generic/ManagedPanel.cs:51)
+UIManager.ShowNextPanel (System.Boolean instant) (at Assets/Scripts/UI-Generic/UIManager.cs:2276)
+UIManager.SwitchTo (ManagedPanel nextPanel, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2151)
+UIManager.SwitchTo (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2096)
+UIManager.SwitchToPanel (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous) (at Assets/Scripts/UI-Generic/UIManager.cs:1987)
+BootPanel.ReturnToFrontEnd () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:364)
+BootPanel.Start () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:241)
+
+]]></failure>
+            <system-out><![CDATA[The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'RewardCardTemplate') is missing!
+The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'CrestDisplay') is missing!
+tow manager is exists delete the second
+Using MANAGED ZLib
+Scene FrontEndScene is loaded
+<E> Front-end started
+Timestamp: 22.02.2019. 16:04:41 UTC+0
+App version: 0.9.166
+Build: 1902011800 / develop / Android
+Build time: 01.02.2019. 18:00 UTC+0
+Device model: PC
+Screen resolution: 640 x 480 (0 dpi)
+Screen safe area: 0, 0 -> 640, 480 (640 x 480)
+Vertical safe ratio: 1
+<E> GUI switch: login
+SKIP_SOCIAL override is set, won't use social plugins for login
+Command line argument count : 12
+[0] /opt/Unity/Editor/Unity
+[1] -accept-apiupdate
+[2] -projectPath
+[3] /arena
+[4] -batchmode
+[5] -nographics
+[6] -logfile
+[7] -runTests
+[8] -testPlatform
+[9] playmode
+[10] -testResults
+[11] /arena/UnityUiResults.xml
+There are no matches on record!
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+Canceling all notifications
+Fader: loading panel is initally shown
+]]></system-out>
+        </testcase>
+        <testcase classname="EditTeamKit" name="ChangeKitPatterns" time="1.222">
+            <failure message="Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect"><![CDATA[PlayPanel.SetupArenas () (at Assets/Scripts/FrontEnd/PlayPanel.cs:151)
+PlayPanel.Initialize (System.Boolean initialLogin) (at Assets/Scripts/FrontEnd/PlayPanel.cs:142)
+ManagedPanel.Load (System.Boolean initialLogin) (at Assets/Scripts/UI-Generic/ManagedPanel.cs:51)
+UIManager.ShowNextPanel (System.Boolean instant) (at Assets/Scripts/UI-Generic/UIManager.cs:2276)
+UIManager.SwitchTo (ManagedPanel nextPanel, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2151)
+UIManager.SwitchTo (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2096)
+UIManager.SwitchToPanel (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous) (at Assets/Scripts/UI-Generic/UIManager.cs:1987)
+BootPanel.ReturnToFrontEnd () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:364)
+BootPanel.Start () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:241)
+
+]]></failure>
+            <system-out><![CDATA[The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'RewardCardTemplate') is missing!
+The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'CrestDisplay') is missing!
+tow manager is exists delete the second
+Using MANAGED ZLib
+Scene FrontEndScene is loaded
+<E> Front-end started
+Timestamp: 22.02.2019. 16:04:42 UTC+0
+App version: 0.9.166
+Build: 1902011800 / develop / Android
+Build time: 01.02.2019. 18:00 UTC+0
+Device model: PC
+Screen resolution: 640 x 480 (0 dpi)
+Screen safe area: 0, 0 -> 640, 480 (640 x 480)
+Vertical safe ratio: 1
+<E> GUI switch: login
+SKIP_SOCIAL override is set, won't use social plugins for login
+Command line argument count : 12
+[0] /opt/Unity/Editor/Unity
+[1] -accept-apiupdate
+[2] -projectPath
+[3] /arena
+[4] -batchmode
+[5] -nographics
+[6] -logfile
+[7] -runTests
+[8] -testPlatform
+[9] playmode
+[10] -testResults
+[11] /arena/UnityUiResults.xml
+There are no matches on record!
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+Canceling all notifications
+Fader: loading panel is initally shown
+]]></system-out>
+        </testcase>
+    </testsuite>
+    <testsuite name="HappyPath" tests="3" failures="3" errors="0" skipped="0" time="3.726">
+        <testcase classname="HappyPath" name="GuestLoginAndTutorial" time="1.235">
+            <failure message="Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect"><![CDATA[PlayPanel.SetupArenas () (at Assets/Scripts/FrontEnd/PlayPanel.cs:151)
+PlayPanel.Initialize (System.Boolean initialLogin) (at Assets/Scripts/FrontEnd/PlayPanel.cs:142)
+ManagedPanel.Load (System.Boolean initialLogin) (at Assets/Scripts/UI-Generic/ManagedPanel.cs:51)
+UIManager.ShowNextPanel (System.Boolean instant) (at Assets/Scripts/UI-Generic/UIManager.cs:2276)
+UIManager.SwitchTo (ManagedPanel nextPanel, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2151)
+UIManager.SwitchTo (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2096)
+UIManager.SwitchToPanel (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous) (at Assets/Scripts/UI-Generic/UIManager.cs:1987)
+BootPanel.ReturnToFrontEnd () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:364)
+BootPanel.Start () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:241)
+
+]]></failure>
+            <system-out><![CDATA[The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'RewardCardTemplate') is missing!
+The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'CrestDisplay') is missing!
+tow manager is exists delete the second
+Using MANAGED ZLib
+Scene FrontEndScene is loaded
+<E> Front-end started
+Timestamp: 22.02.2019. 16:04:44 UTC+0
+App version: 0.9.166
+Build: 1902011800 / develop / Android
+Build time: 01.02.2019. 18:00 UTC+0
+Device model: PC
+Screen resolution: 640 x 480 (0 dpi)
+Screen safe area: 0, 0 -> 640, 480 (640 x 480)
+Vertical safe ratio: 1
+<E> GUI switch: login
+SKIP_SOCIAL override is set, won't use social plugins for login
+Command line argument count : 12
+[0] /opt/Unity/Editor/Unity
+[1] -accept-apiupdate
+[2] -projectPath
+[3] /arena
+[4] -batchmode
+[5] -nographics
+[6] -logfile
+[7] -runTests
+[8] -testPlatform
+[9] playmode
+[10] -testResults
+[11] /arena/UnityUiResults.xml
+There are no matches on record!
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+Canceling all notifications
+Fader: loading panel is initally shown
+]]></system-out>
+        </testcase>
+        <testcase classname="HappyPath" name="PanelsTour" time="1.223">
+            <failure message="Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect"><![CDATA[PlayPanel.SetupArenas () (at Assets/Scripts/FrontEnd/PlayPanel.cs:151)
+PlayPanel.Initialize (System.Boolean initialLogin) (at Assets/Scripts/FrontEnd/PlayPanel.cs:142)
+ManagedPanel.Load (System.Boolean initialLogin) (at Assets/Scripts/UI-Generic/ManagedPanel.cs:51)
+UIManager.ShowNextPanel (System.Boolean instant) (at Assets/Scripts/UI-Generic/UIManager.cs:2276)
+UIManager.SwitchTo (ManagedPanel nextPanel, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2151)
+UIManager.SwitchTo (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2096)
+UIManager.SwitchToPanel (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous) (at Assets/Scripts/UI-Generic/UIManager.cs:1987)
+BootPanel.ReturnToFrontEnd () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:364)
+BootPanel.Start () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:241)
+
+]]></failure>
+            <system-out><![CDATA[The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'RewardCardTemplate') is missing!
+The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'CrestDisplay') is missing!
+tow manager is exists delete the second
+Using MANAGED ZLib
+Scene FrontEndScene is loaded
+<E> Front-end started
+Timestamp: 22.02.2019. 16:04:45 UTC+0
+App version: 0.9.166
+Build: 1902011800 / develop / Android
+Build time: 01.02.2019. 18:00 UTC+0
+Device model: PC
+Screen resolution: 640 x 480 (0 dpi)
+Screen safe area: 0, 0 -> 640, 480 (640 x 480)
+Vertical safe ratio: 1
+<E> GUI switch: login
+SKIP_SOCIAL override is set, won't use social plugins for login
+Command line argument count : 12
+[0] /opt/Unity/Editor/Unity
+[1] -accept-apiupdate
+[2] -projectPath
+[3] /arena
+[4] -batchmode
+[5] -nographics
+[6] -logfile
+[7] -runTests
+[8] -testPlatform
+[9] playmode
+[10] -testResults
+[11] /arena/UnityUiResults.xml
+There are no matches on record!
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+Canceling all notifications
+Fader: loading panel is initally shown
+]]></system-out>
+        </testcase>
+        <testcase classname="HappyPath" name="RookieCrushersTest" time="1.240">
+            <failure message="Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect"><![CDATA[PlayPanel.SetupArenas () (at Assets/Scripts/FrontEnd/PlayPanel.cs:151)
+PlayPanel.Initialize (System.Boolean initialLogin) (at Assets/Scripts/FrontEnd/PlayPanel.cs:142)
+ManagedPanel.Load (System.Boolean initialLogin) (at Assets/Scripts/UI-Generic/ManagedPanel.cs:51)
+UIManager.ShowNextPanel (System.Boolean instant) (at Assets/Scripts/UI-Generic/UIManager.cs:2276)
+UIManager.SwitchTo (ManagedPanel nextPanel, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2151)
+UIManager.SwitchTo (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2096)
+UIManager.SwitchToPanel (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous) (at Assets/Scripts/UI-Generic/UIManager.cs:1987)
+BootPanel.ReturnToFrontEnd () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:364)
+BootPanel.Start () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:241)
+
+]]></failure>
+            <system-out><![CDATA[The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'RewardCardTemplate') is missing!
+The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'CrestDisplay') is missing!
+tow manager is exists delete the second
+Using MANAGED ZLib
+Scene FrontEndScene is loaded
+<E> Front-end started
+Timestamp: 22.02.2019. 16:04:46 UTC+0
+App version: 0.9.166
+Build: 1902011800 / develop / Android
+Build time: 01.02.2019. 18:00 UTC+0
+Device model: PC
+Screen resolution: 640 x 480 (0 dpi)
+Screen safe area: 0, 0 -> 640, 480 (640 x 480)
+Vertical safe ratio: 1
+<E> GUI switch: login
+SKIP_SOCIAL override is set, won't use social plugins for login
+Command line argument count : 12
+[0] /opt/Unity/Editor/Unity
+[1] -accept-apiupdate
+[2] -projectPath
+[3] /arena
+[4] -batchmode
+[5] -nographics
+[6] -logfile
+[7] -runTests
+[8] -testPlatform
+[9] playmode
+[10] -testResults
+[11] /arena/UnityUiResults.xml
+There are no matches on record!
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+Canceling all notifications
+Fader: loading panel is initally shown
+]]></system-out>
+        </testcase>
+    </testsuite>
+    <testsuite name="PlayPanelUITests" tests="5" failures="5" errors="0" skipped="0" time="6.040">
+        <testcase classname="PlayPanelUITests" name="GoToMyProfile" time="0.037">
+            <failure
+                message="Unhandled log message: '[Exception] Exception: Operation timed out: UITestBase+PanelShown ''&#xA;  at System.Environment.get_StackTrace () [0x00000] in &lt;ac823e2bb42b41bda67924a45a0173c3&gt;:0 &#xA;  at UITestBase.WaitFor (UITestBase+Condition condition, System.Single timeout) [0x00008] in /arena/Assets/UITestBase/UITestBase.cs:38 &#xA;  at EditTeamCrest+&lt;ChangeCrestColors&gt;d__0.MoveNext () [0x0011c] in /arena/Assets/Scripts/UITest/TeamEdit/EditTeamCrest.cs:30 &#xA;  at UnityEngine.TestTools.TestEnumerator+&lt;Execute&gt;c__Iterator0.MoveNext () [0x00031] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Attributes/TestEnumerator.cs:29 &#xA;  at UnityEngine.TestTools.EnumerableTestMethodCommand+&lt;ExecuteEnumerable&gt;c__Iterator0.MoveNext () [0x000ec] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Commands/EnumerableTestMethodCommand.cs:36 &#xA;  at UnityEngine.TestRunner.NUnitExtensions.Runner.UnityLogCheckDelegatingCommand+&lt;ExecuteEnumerable&gt;c__Iterator0.MoveNext () [0x00153] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Runner/UnityLogCheckDelegatingCommand.cs:67 &#xA;  at UnityEngine.TestTools.SetUpTearDownCommand+&lt;ExecuteEnumerable&gt;c__Iterator0.MoveNext () [0x0017a] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Commands/SetUpTearDownCommand.cs:55 &#xA;  at UnityEngine.TestTools.EnumerableSetUpTearDownCommand+&lt;ExecuteEnumerable&gt;c__Iterator0.MoveNext () [0x00289] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Commands/EnumerableSetUpTearDownCommand.cs:101 &#xA;  at UnityEngine.TestRunner.NUnitExtensions.Runner.CoroutineTestWorkItem+&lt;PerformWork&gt;c__Iterator0.MoveNext () [0x001b2] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Runner/CoroutineTestWorkItem.cs:67 &#xA;  at UnityEngine.TestRunner.NUnitExtensions.Runner.CompositeWorkItem+&lt;RunChildren&gt;c__Iterator1.MoveNext () [0x000fe] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Runner/CompositeWorkItem.cs:190 &#xA;  at UnityEngine.TestRunner.NUnitExtensions.Runner.CompositeWorkItem+&lt;PerformWork&gt;c__Iterator0.MoveNext () [0x0023b] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Runner/CompositeWorkItem.cs:73 &#xA;  at UnityEngine.TestRunner.NUnitExtensions.Runner.CompositeWorkItem+&lt;RunChildren&gt;c__Iterator1.MoveNext () [0x000fe] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Runner/CompositeWorkItem.cs:190 &#xA;  at UnityEngine.TestRunner.NUnitExtensions.Runner.CompositeWorkItem+&lt;PerformWork&gt;c__Iterator0.MoveNext () [0x0023b] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Runner/CompositeWorkItem.cs:73 &#xA;  at UnityEngine.TestRunner.NUnitExtensions.Runner.CompositeWorkItem+&lt;RunChildren&gt;c__Iterator1.MoveNext () [0x000fe] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Runner/CompositeWorkItem.cs:190 &#xA;  at UnityEngine.TestRunner.NUnitExtensions.Runner.CompositeWorkItem+&lt;PerformWork&gt;c__Iterator0.MoveNext () [0x0023b] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Runner/CompositeWorkItem.cs:73 &#xA;  at UnityEngine.TestTools.TestRunner.PlaymodeTestsController+&lt;TestRunnerCorotine&gt;c__Iterator1.MoveNext () [0x00062] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/TestRunner/PlaymodeTestsController.cs:69 &#xA;  at UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) [0x00028] in /home/builduser/buildslave/unity/build/Runtime/Export/Coroutines.cs:17 '. Use UnityEngine.TestTools.LogAssert.Expect"><![CDATA[UITestBase+<WaitForInternal>d__13.MoveNext () (at Assets/UITestBase/UITestBase.cs:106)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at /home/builduser/buildslave/unity/build/Runtime/Export/Coroutines.cs:17)
+
+]]></failure>
+            <system-out><![CDATA[Exception: Operation timed out: UITestBase+PanelShown ''
+  at System.Environment.get_StackTrace () [0x00000] in <ac823e2bb42b41bda67924a45a0173c3>:0 
+  at UITestBase.WaitFor (UITestBase+Condition condition, System.Single timeout) [0x00008] in /arena/Assets/UITestBase/UITestBase.cs:38 
+  at EditTeamCrest+<ChangeCrestColors>d__0.MoveNext () [0x0011c] in /arena/Assets/Scripts/UITest/TeamEdit/EditTeamCrest.cs:30 
+  at UnityEngine.TestTools.TestEnumerator+<Execute>c__Iterator0.MoveNext () [0x00031] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Attributes/TestEnumerator.cs:29 
+  at UnityEngine.TestTools.EnumerableTestMethodCommand+<ExecuteEnumerable>c__Iterator0.MoveNext () [0x000ec] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Commands/EnumerableTestMethodCommand.cs:36 
+  at UnityEngine.TestRunner.NUnitExtensions.Runner.UnityLogCheckDelegatingCommand+<ExecuteEnumerable>c__Iterator0.MoveNext () [0x00153] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Runner/UnityLogCheckDelegatingCommand.cs:67 
+  at UnityEngine.TestTools.SetUpTearDownCommand+<ExecuteEnumerable>c__Iterator0.MoveNext () [0x0017a] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Commands/SetUpTearDownCommand.cs:55 
+  at UnityEngine.TestTools.EnumerableSetUpTearDownCommand+<ExecuteEnumerable>c__Iterator0.MoveNext () [0x00289] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Commands/EnumerableSetUpTearDownCommand.cs:101 
+  at UnityEngine.TestRunner.NUnitExtensions.Runner.CoroutineTestWorkItem+<PerformWork>c__Iterator0.MoveNext () [0x001b2] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Runner/CoroutineTestWorkItem.cs:67 
+  at UnityEngine.TestRunner.NUnitExtensions.Runner.CompositeWorkItem+<RunChildren>c__Iterator1.MoveNext () [0x000fe] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Runner/CompositeWorkItem.cs:190 
+  at UnityEngine.TestRunner.NUnitExtensions.Runner.CompositeWorkItem+<PerformWork>c__Iterator0.MoveNext () [0x0023b] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Runner/CompositeWorkItem.cs:73 
+  at UnityEngine.TestRunner.NUnitExtensions.Runner.CompositeWorkItem+<RunChildren>c__Iterator1.MoveNext () [0x000fe] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Runner/CompositeWorkItem.cs:190 
+  at UnityEngine.TestRunner.NUnitExtensions.Runner.CompositeWorkItem+<PerformWork>c__Iterator0.MoveNext () [0x0023b] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Runner/CompositeWorkItem.cs:73 
+  at UnityEngine.TestRunner.NUnitExtensions.Runner.CompositeWorkItem+<RunChildren>c__Iterator1.MoveNext () [0x000fe] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Runner/CompositeWorkItem.cs:190 
+  at UnityEngine.TestRunner.NUnitExtensions.Runner.CompositeWorkItem+<PerformWork>c__Iterator0.MoveNext () [0x0023b] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Runner/CompositeWorkItem.cs:73 
+  at UnityEngine.TestTools.TestRunner.PlaymodeTestsController+<TestRunnerCorotine>c__Iterator1.MoveNext () [0x00062] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/TestRunner/PlaymodeTestsController.cs:69 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) [0x00028] in /home/builduser/buildslave/unity/build/Runtime/Export/Coroutines.cs:17 
+]]></system-out>
+        </testcase>
+        <testcase classname="PlayPanelUITests" name="GoToOthersProfile" time="1.197">
+            <failure message="Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect"><![CDATA[PlayPanel.SetupArenas () (at Assets/Scripts/FrontEnd/PlayPanel.cs:151)
+PlayPanel.Initialize (System.Boolean initialLogin) (at Assets/Scripts/FrontEnd/PlayPanel.cs:142)
+ManagedPanel.Load (System.Boolean initialLogin) (at Assets/Scripts/UI-Generic/ManagedPanel.cs:51)
+UIManager.ShowNextPanel (System.Boolean instant) (at Assets/Scripts/UI-Generic/UIManager.cs:2276)
+UIManager.SwitchTo (ManagedPanel nextPanel, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2151)
+UIManager.SwitchTo (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2096)
+UIManager.SwitchToPanel (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous) (at Assets/Scripts/UI-Generic/UIManager.cs:1987)
+BootPanel.ReturnToFrontEnd () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:364)
+BootPanel.Start () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:241)
+
+]]></failure>
+            <system-out><![CDATA[The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'RewardCardTemplate') is missing!
+The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'CrestDisplay') is missing!
+tow manager is exists delete the second
+Using MANAGED ZLib
+Scene FrontEndScene is loaded
+<E> Front-end started
+Timestamp: 22.02.2019. 16:04:48 UTC+0
+App version: 0.9.166
+Build: 1902011800 / develop / Android
+Build time: 01.02.2019. 18:00 UTC+0
+Device model: PC
+Screen resolution: 640 x 480 (0 dpi)
+Screen safe area: 0, 0 -> 640, 480 (640 x 480)
+Vertical safe ratio: 1
+<E> GUI switch: login
+SKIP_SOCIAL override is set, won't use social plugins for login
+Command line argument count : 12
+[0] /opt/Unity/Editor/Unity
+[1] -accept-apiupdate
+[2] -projectPath
+[3] /arena
+[4] -batchmode
+[5] -nographics
+[6] -logfile
+[7] -runTests
+[8] -testPlatform
+[9] playmode
+[10] -testResults
+[11] /arena/UnityUiResults.xml
+There are no matches on record!
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+Canceling all notifications
+Fader: loading panel is initally shown
+]]></system-out>
+        </testcase>
+        <testcase classname="PlayPanelUITests" name="OpenFreePack" time="2.278">
+            <failure message="Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect"><![CDATA[SimpleFudbal.MasterClasses.Lambda.MasterClient.get_MyGroup () (at Assets/Scripts/Network/Lambda/MasterClient.cs:2110)
+SimpleFudbal.MasterClasses.Lambda.MasterClient.get_MyDivision () (at Assets/Scripts/Network/Lambda/MasterClient.cs:2123)
+PlayPanel.PrepareToShow (ManagedPanel+SwitchType stype, System.Collections.Generic.Dictionary`2[TKey,TValue] data) (at Assets/Scripts/FrontEnd/PlayPanel.cs:179)
+UIManager.ShowNextPanel (System.Boolean instant) (at Assets/Scripts/UI-Generic/UIManager.cs:2277)
+UIManager.Update () (at Assets/Scripts/UI-Generic/UIManager.cs:953)
+
+]]></failure>
+            <system-out><![CDATA[<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'RewardCardTemplate') is missing!
+The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'CrestDisplay') is missing!
+tow manager is exists delete the second
+Using MANAGED ZLib
+Scene FrontEndScene is loaded
+<E> Front-end started
+Timestamp: 22.02.2019. 16:04:50 UTC+0
+App version: 0.9.166
+Build: 1902011800 / develop / Android
+Build time: 01.02.2019. 18:00 UTC+0
+Device model: PC
+Screen resolution: 640 x 480 (0 dpi)
+Screen safe area: 0, 0 -> 640, 480 (640 x 480)
+Vertical safe ratio: 1
+<E> GUI switch: login
+SKIP_SOCIAL override is set, won't use social plugins for login
+Command line argument count : 12
+[0] /opt/Unity/Editor/Unity
+[1] -accept-apiupdate
+[2] -projectPath
+[3] /arena
+[4] -batchmode
+[5] -nographics
+[6] -logfile
+[7] -runTests
+[8] -testPlatform
+[9] playmode
+[10] -testResults
+[11] /arena/UnityUiResults.xml
+There are no matches on record!
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+Canceling all notifications
+Fader: loading panel is initally shown
+]]></system-out>
+        </testcase>
+        <testcase classname="PlayPanelUITests" name="StartMatchmakingAndCancel" time="1.223">
+            <failure message="Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect"><![CDATA[PlayPanel.SetupArenas () (at Assets/Scripts/FrontEnd/PlayPanel.cs:151)
+PlayPanel.Initialize (System.Boolean initialLogin) (at Assets/Scripts/FrontEnd/PlayPanel.cs:142)
+ManagedPanel.Load (System.Boolean initialLogin) (at Assets/Scripts/UI-Generic/ManagedPanel.cs:51)
+UIManager.ShowNextPanel (System.Boolean instant) (at Assets/Scripts/UI-Generic/UIManager.cs:2276)
+UIManager.SwitchTo (ManagedPanel nextPanel, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2151)
+UIManager.SwitchTo (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2096)
+UIManager.SwitchToPanel (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous) (at Assets/Scripts/UI-Generic/UIManager.cs:1987)
+BootPanel.ReturnToFrontEnd () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:364)
+BootPanel.Start () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:241)
+
+]]></failure>
+            <system-out><![CDATA[The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'RewardCardTemplate') is missing!
+The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'CrestDisplay') is missing!
+tow manager is exists delete the second
+Using MANAGED ZLib
+Scene FrontEndScene is loaded
+<E> Front-end started
+Timestamp: 22.02.2019. 16:04:52 UTC+0
+App version: 0.9.166
+Build: 1902011800 / develop / Android
+Build time: 01.02.2019. 18:00 UTC+0
+Device model: PC
+Screen resolution: 640 x 480 (0 dpi)
+Screen safe area: 0, 0 -> 640, 480 (640 x 480)
+Vertical safe ratio: 1
+<E> GUI switch: login
+SKIP_SOCIAL override is set, won't use social plugins for login
+Command line argument count : 12
+[0] /opt/Unity/Editor/Unity
+[1] -accept-apiupdate
+[2] -projectPath
+[3] /arena
+[4] -batchmode
+[5] -nographics
+[6] -logfile
+[7] -runTests
+[8] -testPlatform
+[9] playmode
+[10] -testResults
+[11] /arena/UnityUiResults.xml
+There are no matches on record!
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+Canceling all notifications
+Fader: loading panel is initally shown
+]]></system-out>
+        </testcase>
+        <testcase classname="PlayPanelUITests" name="PlayMatch(1)" time="1.224">
+            <failure message="Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect"><![CDATA[PlayPanel.SetupArenas () (at Assets/Scripts/FrontEnd/PlayPanel.cs:151)
+PlayPanel.Initialize (System.Boolean initialLogin) (at Assets/Scripts/FrontEnd/PlayPanel.cs:142)
+ManagedPanel.Load (System.Boolean initialLogin) (at Assets/Scripts/UI-Generic/ManagedPanel.cs:51)
+UIManager.ShowNextPanel (System.Boolean instant) (at Assets/Scripts/UI-Generic/UIManager.cs:2276)
+UIManager.SwitchTo (ManagedPanel nextPanel, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2151)
+UIManager.SwitchTo (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2096)
+UIManager.SwitchToPanel (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous) (at Assets/Scripts/UI-Generic/UIManager.cs:1987)
+BootPanel.ReturnToFrontEnd () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:364)
+BootPanel.Start () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:241)
+
+]]></failure>
+            <system-out><![CDATA[The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'RewardCardTemplate') is missing!
+The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'CrestDisplay') is missing!
+tow manager is exists delete the second
+Using MANAGED ZLib
+Scene FrontEndScene is loaded
+<E> Front-end started
+Timestamp: 22.02.2019. 16:04:51 UTC+0
+App version: 0.9.166
+Build: 1902011800 / develop / Android
+Build time: 01.02.2019. 18:00 UTC+0
+Device model: PC
+Screen resolution: 640 x 480 (0 dpi)
+Screen safe area: 0, 0 -> 640, 480 (640 x 480)
+Vertical safe ratio: 1
+<E> GUI switch: login
+SKIP_SOCIAL override is set, won't use social plugins for login
+Command line argument count : 12
+[0] /opt/Unity/Editor/Unity
+[1] -accept-apiupdate
+[2] -projectPath
+[3] /arena
+[4] -batchmode
+[5] -nographics
+[6] -logfile
+[7] -runTests
+[8] -testPlatform
+[9] playmode
+[10] -testResults
+[11] /arena/UnityUiResults.xml
+There are no matches on record!
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+Canceling all notifications
+Fader: loading panel is initally shown
+]]></system-out>
+        </testcase>
+    </testsuite>
+    <testsuite name="StoreUITests" tests="5" failures="5" errors="0" skipped="0" time="5.433">
+        <testcase classname="StoreUITests" name="BuyCrestsFromStore" time="1.236">
+            <failure message="Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect"><![CDATA[PlayPanel.SetupArenas () (at Assets/Scripts/FrontEnd/PlayPanel.cs:151)
+PlayPanel.Initialize (System.Boolean initialLogin) (at Assets/Scripts/FrontEnd/PlayPanel.cs:142)
+ManagedPanel.Load (System.Boolean initialLogin) (at Assets/Scripts/UI-Generic/ManagedPanel.cs:51)
+UIManager.ShowNextPanel (System.Boolean instant) (at Assets/Scripts/UI-Generic/UIManager.cs:2276)
+UIManager.SwitchTo (ManagedPanel nextPanel, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2151)
+UIManager.SwitchTo (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2096)
+UIManager.SwitchToPanel (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous) (at Assets/Scripts/UI-Generic/UIManager.cs:1987)
+BootPanel.ReturnToFrontEnd () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:364)
+BootPanel.Start () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:241)
+
+]]></failure>
+            <system-out><![CDATA[The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'RewardCardTemplate') is missing!
+The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'CrestDisplay') is missing!
+tow manager is exists delete the second
+Using MANAGED ZLib
+Scene FrontEndScene is loaded
+<E> Front-end started
+Timestamp: 22.02.2019. 16:04:54 UTC+0
+App version: 0.9.166
+Build: 1902011800 / develop / Android
+Build time: 01.02.2019. 18:00 UTC+0
+Device model: PC
+Screen resolution: 640 x 480 (0 dpi)
+Screen safe area: 0, 0 -> 640, 480 (640 x 480)
+Vertical safe ratio: 1
+<E> GUI switch: login
+SKIP_SOCIAL override is set, won't use social plugins for login
+Command line argument count : 12
+[0] /opt/Unity/Editor/Unity
+[1] -accept-apiupdate
+[2] -projectPath
+[3] /arena
+[4] -batchmode
+[5] -nographics
+[6] -logfile
+[7] -runTests
+[8] -testPlatform
+[9] playmode
+[10] -testResults
+[11] /arena/UnityUiResults.xml
+There are no matches on record!
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+Canceling all notifications
+Fader: loading panel is initally shown
+]]></system-out>
+        </testcase>
+        <testcase classname="StoreUITests" name="BuyEmblemsFromStore" time="1.232">
+            <failure message="Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect"><![CDATA[PlayPanel.SetupArenas () (at Assets/Scripts/FrontEnd/PlayPanel.cs:151)
+PlayPanel.Initialize (System.Boolean initialLogin) (at Assets/Scripts/FrontEnd/PlayPanel.cs:142)
+ManagedPanel.Load (System.Boolean initialLogin) (at Assets/Scripts/UI-Generic/ManagedPanel.cs:51)
+UIManager.ShowNextPanel (System.Boolean instant) (at Assets/Scripts/UI-Generic/UIManager.cs:2276)
+UIManager.SwitchTo (ManagedPanel nextPanel, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2151)
+UIManager.SwitchTo (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2096)
+UIManager.SwitchToPanel (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous) (at Assets/Scripts/UI-Generic/UIManager.cs:1987)
+BootPanel.ReturnToFrontEnd () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:364)
+BootPanel.Start () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:241)
+
+]]></failure>
+            <system-out><![CDATA[The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'RewardCardTemplate') is missing!
+The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'CrestDisplay') is missing!
+tow manager is exists delete the second
+Using MANAGED ZLib
+Scene FrontEndScene is loaded
+<E> Front-end started
+Timestamp: 22.02.2019. 16:04:55 UTC+0
+App version: 0.9.166
+Build: 1902011800 / develop / Android
+Build time: 01.02.2019. 18:00 UTC+0
+Device model: PC
+Screen resolution: 640 x 480 (0 dpi)
+Screen safe area: 0, 0 -> 640, 480 (640 x 480)
+Vertical safe ratio: 1
+<E> GUI switch: login
+SKIP_SOCIAL override is set, won't use social plugins for login
+Command line argument count : 12
+[0] /opt/Unity/Editor/Unity
+[1] -accept-apiupdate
+[2] -projectPath
+[3] /arena
+[4] -batchmode
+[5] -nographics
+[6] -logfile
+[7] -runTests
+[8] -testPlatform
+[9] playmode
+[10] -testResults
+[11] /arena/UnityUiResults.xml
+There are no matches on record!
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+Canceling all notifications
+Fader: loading panel is initally shown
+]]></system-out>
+        </testcase>
+        <testcase classname="StoreUITests" name="BuyShirtsFromStore" time="1.620">
+            <failure message="Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect"><![CDATA[PlayPanel.SetupArenas () (at Assets/Scripts/FrontEnd/PlayPanel.cs:151)
+PlayPanel.Initialize (System.Boolean initialLogin) (at Assets/Scripts/FrontEnd/PlayPanel.cs:142)
+ManagedPanel.Load (System.Boolean initialLogin) (at Assets/Scripts/UI-Generic/ManagedPanel.cs:51)
+UIManager.ShowNextPanel (System.Boolean instant) (at Assets/Scripts/UI-Generic/UIManager.cs:2276)
+UIManager.SwitchTo (ManagedPanel nextPanel, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2151)
+UIManager.SwitchTo (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2096)
+UIManager.SwitchToPanel (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous) (at Assets/Scripts/UI-Generic/UIManager.cs:1987)
+BootPanel.ReturnToFrontEnd () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:364)
+BootPanel.Start () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:241)
+
+]]></failure>
+            <system-out><![CDATA[The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'RewardCardTemplate') is missing!
+The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'CrestDisplay') is missing!
+tow manager is exists delete the second
+Using MANAGED ZLib
+Scene FrontEndScene is loaded
+<E> Front-end started
+Timestamp: 22.02.2019. 16:04:56 UTC+0
+App version: 0.9.166
+Build: 1902011800 / develop / Android
+Build time: 01.02.2019. 18:00 UTC+0
+Device model: PC
+Screen resolution: 640 x 480 (0 dpi)
+Screen safe area: 0, 0 -> 640, 480 (640 x 480)
+Vertical safe ratio: 1
+<E> GUI switch: login
+SKIP_SOCIAL override is set, won't use social plugins for login
+Command line argument count : 12
+[0] /opt/Unity/Editor/Unity
+[1] -accept-apiupdate
+[2] -projectPath
+[3] /arena
+[4] -batchmode
+[5] -nographics
+[6] -logfile
+[7] -runTests
+[8] -testPlatform
+[9] playmode
+[10] -testResults
+[11] /arena/UnityUiResults.xml
+There are no matches on record!
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+Canceling all notifications
+Fader: loading panel is initally shown
+]]></system-out>
+        </testcase>
+        <testcase classname="StoreUITests" name="BuyStaminadeFromStore" time="1.265">
+            <failure message="Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect"><![CDATA[PlayPanel.SetupArenas () (at Assets/Scripts/FrontEnd/PlayPanel.cs:151)
+PlayPanel.Initialize (System.Boolean initialLogin) (at Assets/Scripts/FrontEnd/PlayPanel.cs:142)
+ManagedPanel.Load (System.Boolean initialLogin) (at Assets/Scripts/UI-Generic/ManagedPanel.cs:51)
+UIManager.ShowNextPanel (System.Boolean instant) (at Assets/Scripts/UI-Generic/UIManager.cs:2276)
+UIManager.SwitchTo (ManagedPanel nextPanel, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2151)
+UIManager.SwitchTo (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous, ManagedPanel+SwitchType switchType) (at Assets/Scripts/UI-Generic/UIManager.cs:2096)
+UIManager.SwitchToPanel (System.String panelName, System.Collections.Generic.Dictionary`2[TKey,TValue] data, System.Boolean force, System.Boolean simultaneous) (at Assets/Scripts/UI-Generic/UIManager.cs:1987)
+BootPanel.ReturnToFrontEnd () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:364)
+BootPanel.Start () (at Assets/Scripts/FrontEnd/Loading/BootPanel.cs:241)
+
+]]></failure>
+            <system-out><![CDATA[The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'RewardCardTemplate') is missing!
+The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'CrestDisplay') is missing!
+tow manager is exists delete the second
+Using MANAGED ZLib
+Scene FrontEndScene is loaded
+<E> Front-end started
+Timestamp: 22.02.2019. 16:04:58 UTC+0
+App version: 0.9.166
+Build: 1902011800 / develop / Android
+Build time: 01.02.2019. 18:00 UTC+0
+Device model: PC
+Screen resolution: 640 x 480 (0 dpi)
+Screen safe area: 0, 0 -> 640, 480 (640 x 480)
+Vertical safe ratio: 1
+<E> GUI switch: login
+SKIP_SOCIAL override is set, won't use social plugins for login
+Command line argument count : 12
+[0] /opt/Unity/Editor/Unity
+[1] -accept-apiupdate
+[2] -projectPath
+[3] /arena
+[4] -batchmode
+[5] -nographics
+[6] -logfile
+[7] -runTests
+[8] -testPlatform
+[9] playmode
+[10] -testResults
+[11] /arena/UnityUiResults.xml
+There are no matches on record!
+<E> GUI switch: play
+NullReferenceException: Object reference not set to an instance of an object
+Canceling all notifications
+Fader: loading panel is initally shown
+Exception: Operation timed out: UITestBase+PanelShown ''
+  at System.Environment.get_StackTrace () [0x00000] in <ac823e2bb42b41bda67924a45a0173c3>:0 
+  at UITestBase.WaitFor (UITestBase+Condition condition, System.Single timeout) [0x00008] in /arena/Assets/UITestBase/UITestBase.cs:38 
+  at HappyPath+<GuestLoginAndTutorial>d__0.MoveNext () [0x00146] in /arena/Assets/Scripts/UITest/Paths/HappyPath.cs:30 
+  at UnityEngine.TestTools.TestEnumerator+<Execute>c__Iterator0.MoveNext () [0x00031] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Attributes/TestEnumerator.cs:29 
+  at UnityEngine.TestTools.EnumerableTestMethodCommand+<ExecuteEnumerable>c__Iterator0.MoveNext () [0x000ec] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Commands/EnumerableTestMethodCommand.cs:36 
+  at UnityEngine.TestRunner.NUnitExtensions.Runner.UnityLogCheckDelegatingCommand+<ExecuteEnumerable>c__Iterator0.MoveNext () [0x00153] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Runner/UnityLogCheckDelegatingCommand.cs:67 
+  at UnityEngine.TestTools.SetUpTearDownCommand+<ExecuteEnumerable>c__Iterator0.MoveNext () [0x0017a] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Commands/SetUpTearDownCommand.cs:55 
+  at UnityEngine.TestTools.EnumerableSetUpTearDownCommand+<ExecuteEnumerable>c__Iterator0.MoveNext () [0x00289] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Commands/EnumerableSetUpTearDownCommand.cs:101 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) [0x00028] in /home/builduser/buildslave/unity/build/Runtime/Export/Coroutines.cs:17 
+]]></system-out>
+        </testcase>
+        <testcase classname="StoreUITests" name="BuyStickerFromStore" time="0.028">
+            <failure
+                message="Unhandled log message: '[Exception] Exception: Operation timed out: UITestBase+PanelShown ''&#xA;  at System.Environment.get_StackTrace () [0x00000] in &lt;ac823e2bb42b41bda67924a45a0173c3&gt;:0 &#xA;  at UITestBase.WaitFor (UITestBase+Condition condition, System.Single timeout) [0x00008] in /arena/Assets/UITestBase/UITestBase.cs:38 &#xA;  at EditTeamCrest+&lt;ChangeCrestPattern&gt;d__1.MoveNext () [0x00125] in /arena/Assets/Scripts/UITest/TeamEdit/EditTeamCrest.cs:84 &#xA;  at UnityEngine.TestTools.TestEnumerator+&lt;Execute&gt;c__Iterator0.MoveNext () [0x00031] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Attributes/TestEnumerator.cs:29 &#xA;  at UnityEngine.TestTools.EnumerableTestMethodCommand+&lt;ExecuteEnumerable&gt;c__Iterator0.MoveNext () [0x000ec] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Commands/EnumerableTestMethodCommand.cs:36 &#xA;  at UnityEngine.TestRunner.NUnitExtensions.Runner.UnityLogCheckDelegatingCommand+&lt;ExecuteEnumerable&gt;c__Iterator0.MoveNext () [0x00153] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Runner/UnityLogCheckDelegatingCommand.cs:67 &#xA;  at UnityEngine.TestTools.SetUpTearDownCommand+&lt;ExecuteEnumerable&gt;c__Iterator0.MoveNext () [0x0017a] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Commands/SetUpTearDownCommand.cs:55 &#xA;  at UnityEngine.TestTools.EnumerableSetUpTearDownCommand+&lt;ExecuteEnumerable&gt;c__Iterator0.MoveNext () [0x00289] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Commands/EnumerableSetUpTearDownCommand.cs:101 &#xA;  at UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) [0x00028] in /home/builduser/buildslave/unity/build/Runtime/Export/Coroutines.cs:17 '. Use UnityEngine.TestTools.LogAssert.Expect"><![CDATA[UITestBase+<WaitForInternal>d__13.MoveNext () (at Assets/UITestBase/UITestBase.cs:106)
+UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) (at /home/builduser/buildslave/unity/build/Runtime/Export/Coroutines.cs:17)
+
+]]></failure>
+            <system-out><![CDATA[Exception: Operation timed out: UITestBase+PanelShown ''
+  at System.Environment.get_StackTrace () [0x00000] in <ac823e2bb42b41bda67924a45a0173c3>:0 
+  at UITestBase.WaitFor (UITestBase+Condition condition, System.Single timeout) [0x00008] in /arena/Assets/UITestBase/UITestBase.cs:38 
+  at EditTeamCrest+<ChangeCrestPattern>d__1.MoveNext () [0x00125] in /arena/Assets/Scripts/UITest/TeamEdit/EditTeamCrest.cs:84 
+  at UnityEngine.TestTools.TestEnumerator+<Execute>c__Iterator0.MoveNext () [0x00031] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Attributes/TestEnumerator.cs:29 
+  at UnityEngine.TestTools.EnumerableTestMethodCommand+<ExecuteEnumerable>c__Iterator0.MoveNext () [0x000ec] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Commands/EnumerableTestMethodCommand.cs:36 
+  at UnityEngine.TestRunner.NUnitExtensions.Runner.UnityLogCheckDelegatingCommand+<ExecuteEnumerable>c__Iterator0.MoveNext () [0x00153] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Runner/UnityLogCheckDelegatingCommand.cs:67 
+  at UnityEngine.TestTools.SetUpTearDownCommand+<ExecuteEnumerable>c__Iterator0.MoveNext () [0x0017a] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Commands/SetUpTearDownCommand.cs:55 
+  at UnityEngine.TestTools.EnumerableSetUpTearDownCommand+<ExecuteEnumerable>c__Iterator0.MoveNext () [0x00289] in /home/builduser/buildslave/unity/build/Extensions/TestRunner/UnityEngine.TestRunner/NUnitExtensions/Commands/EnumerableSetUpTearDownCommand.cs:101 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) [0x00028] in /home/builduser/buildslave/unity/build/Runtime/Export/Coroutines.cs:17 
+The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'RewardCardTemplate') is missing!
+The referenced script (Unknown) on this Behaviour is missing!
+The referenced script on this Behaviour (Game Object 'CrestDisplay') is missing!
+]]></system-out>
+        </testcase>
+    </testsuite>
+</testsuites>

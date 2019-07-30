@@ -36,7 +36,10 @@ public class NUnit3Test extends AbstractTest {
     @Parameters(name = "testcase{1}: {0}")
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] { { "simple transformation", 1 }, //
-                                              { "test transformed of ignored", 2 } //
+                                              { "test transformed of ignored", 2 }, //
+                                              { "categories", 3 }, //
+                                              { "support SetupFixture", 4 }, //
+                                              { "not handled ParameterizedMethod tesuite produce text outside a testsuite element", 5 } //
         });
     }
 

@@ -30,17 +30,16 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.MessageFormat;
-
-import org.custommonkey.xmlunit.Diff;
-import org.custommonkey.xmlunit.XMLUnit;
 import org.jenkinsci.lib.dtkit.model.InputMetric;
 import org.jenkinsci.lib.dtkit.model.InputMetricFactory;
 import org.jenkinsci.lib.dtkit.util.validator.ValidationError;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
+import org.xmlunit.builder.DiffBuilder;
+import org.xmlunit.builder.Input;
+import org.xmlunit.diff.Diff;
 
 /**
  * @author Gregory Boissinot
@@ -84,13 +83,6 @@ public abstract class AbstractTest {
         this.expectedResult = expectedResult;
         this.metricClass = metricClass;
         this.xslPath = xslPath;
-    }
-
-    @Before
-    public void setUp() {
-        XMLUnit.setIgnoreWhitespace(true);
-        XMLUnit.setNormalizeWhitespace(true);
-        XMLUnit.setIgnoreComments(true);
     }
 
     @Test
@@ -138,10 +130,14 @@ public abstract class AbstractTest {
         Assert.assertTrue(inputResult);
         
         inputMetric.convert(inputXMLFile, outputXMLFile);
-        XMLUnit.setIgnoreWhitespace(true);
-        Diff myDiff = new Diff(readXmlAsString(outputXMLFile), readXmlAsString(new File(this.getClass().getResource(expectedResultPath).toURI())));
+        Diff myDiff = DiffBuilder.compare(Input.fromString(readXmlAsString(outputXMLFile))) //
+                .withTest(Input.fromString(readXmlAsString(new File(this.getClass().getResource(expectedResultPath).toURI())))) //
+                .ignoreWhitespace() //
+                .ignoreComments() //
+                .normalizeWhitespace() //
+                .build();
         try {
-            Assert.assertTrue("XSL transformation did not work " + myDiff, myDiff.similar());
+            Assert.assertFalse(myDiff.toString(), myDiff.hasDifferences());
         } catch (Error e) {
             System.err.println(readXmlAsString(outputXMLFile));
             throw e;
