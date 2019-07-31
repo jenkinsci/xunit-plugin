@@ -70,6 +70,7 @@ public class XUnitReportProcessorService implements Serializable {
         String toolName = xUnitToolInfo.getInputMetric().getLabel();
 
         FileSet fs = Util.createFileSet(parentPath, pattern);
+        fs.setFollowSymlinks(false) // Without this, we could traverse past project boundry if a bad symlink exists
         DirectoryScanner ds = fs.getDirectoryScanner();
         String[] xunitFiles = ds.getIncludedFiles();
 
