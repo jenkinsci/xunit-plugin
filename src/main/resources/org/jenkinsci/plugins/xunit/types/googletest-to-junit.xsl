@@ -107,6 +107,9 @@ THE SOFTWARE.
             <xsl:if test="@status = 'notrun'">
                 <skipped/>
             </xsl:if>
+            <xsl:if test="@result = 'skipped'">
+                <skipped/>
+            </xsl:if>
             <xsl:if test="failure">
                 <failure>
                     <xsl:for-each select="failure">
