@@ -172,8 +172,13 @@
                 <xs:element name="Author">
                     <xs:complexType mixed="true"/>
                 </xs:element>
-                <xs:element name="Project">
+               <xs:element name="Project">
                     <xs:complexType mixed="true"/>
+                    <xs:complexType mixed="true">
+                      <xs:sequence>
+                        <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip" />
+                      </xs:sequence>
+                    </xs:complexType>
                 </xs:element>
                 <xs:element name="Date">
                     <xs:complexType mixed="true"/>
