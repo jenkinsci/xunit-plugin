@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xunit="http://www.xunit.org">
+   <testsuite name="SuccessfulTest"
+              tests="1"
+              failures="0"
+              errors="0"
+              skipped="0"
+              time="0.000">
+      <testcase name="Succeeds" time="0.000" classname="SuccessfulTest"/>
+   </testsuite>
+   <testsuite name="FailedTest"
+              tests="1"
+              failures="1"
+              errors="0"
+              skipped="0"
+              time="0.000">
+      <testcase name="Fails" time="0.000" classname="FailedTest">
+         <failure><![CDATA[gtest_xml_output_unittest_.cc:*
+Expected equality of these values:
+  1
+  2]]></failure>
+         <system-out><![CDATA[gtest_xml_output_unittest_.cc:*
+Expected equality of these values:
+  1
+  2%(stack)s]]></system-out>
+      </testcase>
+   </testsuite>
+   <testsuite name="MixedResultTest"
+              tests="3"
+              failures="1"
+              errors="0"
+              skipped="1"
+              time="0.000">
+      <testcase name="Succeeds" time="0.000" classname="MixedResultTest"/>
+      <testcase name="Fails" time="0.000" classname="MixedResultTest">
+         <failure><![CDATA[gtest_xml_output_unittest_.cc:*
+Expected equality of these values:
+  1
+  2
+
+gtest_xml_output_unittest_.cc:*
+Expected equality of these values:
+  2
+  3]]></failure>
+         <system-out><![CDATA[gtest_xml_output_unittest_.cc:*
+Expected equality of these values:
+  1
+  2%(stack)s
+
+gtest_xml_output_unittest_.cc:*
+Expected equality of these values:
+  2
+  3%(stack)s]]></system-out>
+      </testcase>
+      <testcase name="DISABLED_test" time="0.000" classname="MixedResultTest">
+         <skipped/>
+      </testcase>
+   </testsuite>
+   <testsuite name="XmlQuotingTest"
+              tests="1"
+              failures="1"
+              errors="0"
+              skipped="0"
+              time="0.000">
+      <testcase name="OutputsCData" time="0.000" classname="XmlQuotingTest">
+         <failure><![CDATA[gtest_xml_output_unittest_.cc:*
+Failed
+XML output: <?xml encoding="utf-8"><top><![CDATA[cdata text]]]]><![CDATA[></top>]]></failure>
+         <system-out><![CDATA[gtest_xml_output_unittest_.cc:*
+Failed
+XML output: <?xml encoding="utf-8"><top><![CDATA[cdata text]]]]><![CDATA[></top>%(stack)s]]></system-out>
+      </testcase>
+   </testsuite>
+   <testsuite name="InvalidCharactersTest"
+              tests="1"
+              failures="1"
+              errors="0"
+              skipped="0"
+              time="0.000">
+      <testcase name="InvalidCharactersInMessage"
+                time="0.000"
+                classname="InvalidCharactersTest">
+         <failure><![CDATA[gtest_xml_output_unittest_.cc:*
+Failed
+Invalid characters in brackets []]]></failure>
+         <system-out><![CDATA[gtest_xml_output_unittest_.cc:*
+Failed
+Invalid characters in brackets []%(stack)s]]></system-out>
+      </testcase>
+   </testsuite>
+   <testsuite name="DisabledTest"
+              tests="1"
+              failures="0"
+              errors="0"
+              skipped="1"
+              time="0.000">
+      <testcase name="DISABLED_test_not_run" time="0.000" classname="DisabledTest">
+         <skipped/>
+      </testcase>
+   </testsuite>
+   <testsuite name="SkippedTest"
+              tests="1"
+              failures="0"
+              errors="0"
+              skipped="1"
+              time="0.000">
+      <testcase name="Skipped" time="0.000" classname="SkippedTest">
+         <skipped/>
+      </testcase>
+   </testsuite>
+   <testsuite name="PropertyRecordingTest"
+              tests="4"
+              failures="0"
+              errors="0"
+              skipped="0"
+              time="0.000">
+      <testcase name="OneProperty" time="0.000" classname="PropertyRecordingTest"/>
+      <testcase name="IntValuedProperty"
+                time="0.000"
+                classname="PropertyRecordingTest"/>
+      <testcase name="ThreeProperties"
+                time="0.000"
+                classname="PropertyRecordingTest"/>
+      <testcase name="TwoValuesForOneKeyUsesLastValue"
+                time="0.000"
+                classname="PropertyRecordingTest"/>
+   </testsuite>
+   <testsuite name="NoFixtureTest"
+              tests="3"
+              failures="0"
+              errors="0"
+              skipped="0"
+              time="0.000">
+      <testcase name="RecordProperty" time="0.000" classname="NoFixtureTest"/>
+      <testcase name="ExternalUtilityThatCallsRecordIntValuedProperty"
+                time="0.000"
+                classname="NoFixtureTest"/>
+      <testcase name="ExternalUtilityThatCallsRecordStringValuedProperty"
+                time="0.000"
+                classname="NoFixtureTest"/>
+   </testsuite>
+   <testsuite name="Single/ValueParamTest"
+              tests="4"
+              failures="0"
+              errors="0"
+              skipped="0"
+              time="0.000">
+      <testcase name="HasValueParamAttribute/0 (33)&#xA;                    "
+                time="0.000"
+                classname="Single/ValueParamTest"/>
+      <testcase name="HasValueParamAttribute/1 (42)&#xA;                    "
+                time="0.000"
+                classname="Single/ValueParamTest"/>
+      <testcase name="AnotherTestThatHasValueParamAttribute/0 (33)&#xA;                    "
+                time="0.000"
+                classname="Single/ValueParamTest"/>
+      <testcase name="AnotherTestThatHasValueParamAttribute/1 (42)&#xA;                    "
+                time="0.000"
+                classname="Single/ValueParamTest"/>
+   </testsuite>
+   <testsuite name="TypedTest/0"
+              tests="1"
+              failures="0"
+              errors="0"
+              skipped="0"
+              time="0.000">
+      <testcase name="HasTypeParamAttribute" time="0.000" classname="TypedTest/0"/>
+   </testsuite>
+   <testsuite name="TypedTest/1"
+              tests="1"
+              failures="0"
+              errors="0"
+              skipped="0"
+              time="0.000">
+      <testcase name="HasTypeParamAttribute" time="0.000" classname="TypedTest/1"/>
+   </testsuite>
+   <testsuite name="Single/TypeParameterizedTestSuite/0"
+              tests="1"
+              failures="0"
+              errors="0"
+              skipped="0"
+              time="0.000">
+      <testcase name="HasTypeParamAttribute"
+                time="0.000"
+                classname="Single/TypeParameterizedTestSuite/0"/>
+   </testsuite>
+   <testsuite name="Single/TypeParameterizedTestSuite/1"
+              tests="1"
+              failures="0"
+              errors="0"
+              skipped="0"
+              time="0.000">
+      <testcase name="HasTypeParamAttribute"
+                time="0.000"
+                classname="Single/TypeParameterizedTestSuite/1"/>
+   </testsuite>
+</testsuites>

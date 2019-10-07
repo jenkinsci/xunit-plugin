@@ -76,7 +76,7 @@ THE SOFTWARE.
                 <xsl:value-of select="xunit:if-empty(@errors, 0)"/>
             </xsl:attribute>
             <xsl:attribute name="skipped">
-                <xsl:value-of select="xunit:if-empty(@disabled, 0)"/>
+                <xsl:value-of select="xunit:if-empty(@disabled + count(testcase[@result = 'skipped']), 0)"/>
             </xsl:attribute>
             <xsl:attribute name="time">
                 <xsl:value-of select="xunit:junit-time(@time)"/>
@@ -104,7 +104,7 @@ THE SOFTWARE.
             <xsl:attribute name="classname">
                 <xsl:value-of select="@classname"/>
             </xsl:attribute>
-            <xsl:if test="@status = 'notrun'">
+            <xsl:if test="@status = 'notrun' or @result = 'skipped'">
                 <skipped/>
             </xsl:if>
             <xsl:if test="failure">

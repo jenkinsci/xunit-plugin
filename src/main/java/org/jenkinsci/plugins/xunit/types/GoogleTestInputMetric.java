@@ -41,7 +41,7 @@ public class GoogleTestInputMetric extends InputMetricXSL {
 
     @Override
     public String getToolVersion() {
-        return "1.6";
+        return "1.8";
     }
 
     @Override

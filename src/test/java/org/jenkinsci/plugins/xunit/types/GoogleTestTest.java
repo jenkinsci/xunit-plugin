@@ -37,7 +37,8 @@ public class GoogleTestTest extends AbstractTest {
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] { { "testTestCase1", 1 }, //
                                               { "testTestCase2", 2 }, //
-                                              { "JENKINS-51798 ", 3 }, //
+                                              { "JENKINS-51798", 3 }, //
+                                              { "JENKINS-59608 skip support", 4 }, //
         });
     }
 
