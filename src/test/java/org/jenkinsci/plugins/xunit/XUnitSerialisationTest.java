@@ -67,6 +67,7 @@ public class XUnitSerialisationTest {
         verifyJUnitTool(xunitPublisher.getTools()[0]);
     }
 
+    @SuppressWarnings("deprecation") //Testing for backwards compatibility
     @LocalData("builder_1_103")
     @Test
     public void verify_builder_compatible_before_1_103() throws Exception {

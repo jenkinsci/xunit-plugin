@@ -267,7 +267,7 @@ public class XUnitProcessor {
     }
 
     private String getUserStylesheet(final TestType tool) throws IOException, InterruptedException {
-        File userContent = new File(Jenkins.getInstance().getRootDir(), "userContent");
+        File userContent = new File(Jenkins.get().getRootDir(), "userContent");
 
         InputMetricXSL inputMetricXSL = (InputMetricXSL) tool.getInputMetric();
         FilePath xslUserContent = new FilePath(new File(userContent, inputMetricXSL.getUserContentXSLDirRelativePath()));

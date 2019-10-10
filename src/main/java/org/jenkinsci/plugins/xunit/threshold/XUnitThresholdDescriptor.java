@@ -44,7 +44,7 @@ public abstract class XUnitThresholdDescriptor<T extends XUnitThreshold> extends
     }
 
     public static DescriptorExtensionList<XUnitThreshold, XUnitThresholdDescriptor<?>> all() {
-        return Jenkins.getActiveInstance().getDescriptorList(XUnitThreshold.class);
+        return Jenkins.get().getDescriptorList(XUnitThreshold.class);
     }
 
     public abstract String getUnstableThresholdImgTitle();
