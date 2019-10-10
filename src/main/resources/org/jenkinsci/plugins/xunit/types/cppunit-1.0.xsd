@@ -173,7 +173,6 @@
                     <xs:complexType mixed="true"/>
                 </xs:element>
                <xs:element name="Project">
-                    <xs:complexType mixed="true"/>
                     <xs:complexType mixed="true">
                       <xs:sequence>
                         <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip" />
