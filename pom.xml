@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>3.43</version>
+        <version>3.50</version>
     </parent>
 
     <artifactId>xunit</artifactId>
@@ -68,24 +68,11 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.jenkins-ci.plugins.workflow</groupId>
-                <artifactId>workflow-api</artifactId>
-                <version>2.26</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jenkins-ci.plugins</groupId>
-                <artifactId>scm-api</artifactId>
-                <version>2.2.7</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jenkins-ci.plugins.workflow</groupId>
-                <artifactId>workflow-step-api</artifactId>
-                <version>2.13</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jenkins-ci.plugins</groupId>
-                <artifactId>script-security</artifactId>
-                <version>1.39</version>
+                <groupId>io.jenkins.tools.bom</groupId>
+                <artifactId>bom-2.138.x</artifactId>
+                <version>3</version>
+                <scope>import</scope>
+                <type>pom</type>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -100,13 +87,11 @@
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>junit</artifactId>
-            <version>${junit-plugin.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>structs</artifactId>
-            <version>1.14</version>
         </dependency>
 
         <dependency>
@@ -121,17 +106,14 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- dependencies to get pipeline work with Jenkins 2.60.3 declared in the latest plugins-pom project -->
         <dependency>
             <groupId>org.jenkins-ci.plugins.workflow</groupId>
             <artifactId>workflow-cps</artifactId>
-            <version>${workflow-cps.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.jenkins-ci.plugins.workflow</groupId>
             <artifactId>workflow-cps</artifactId>
-            <version>${workflow-cps.version}</version>
             <classifier>tests</classifier>
             <scope>test</scope>
         </dependency>
@@ -151,19 +133,16 @@
         <dependency>
             <groupId>org.jenkins-ci.plugins.workflow</groupId>
             <artifactId>workflow-job</artifactId>
-            <version>2.12</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.jenkins-ci.plugins.workflow</groupId>
             <artifactId>workflow-durable-task-step</artifactId>
-            <version>2.19</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.jenkins-ci.plugins.workflow</groupId>
             <artifactId>workflow-basic-steps</artifactId>
-            <version>2.8</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
