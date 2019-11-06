@@ -8,7 +8,7 @@
     </parent>
 
     <artifactId>xunit</artifactId>
-    <version>2.3.7-SNAPSHOT</version>
+    <version>${revision}${changelist}</version>
     <packaging>hpi</packaging>
     <name>xUnit plugin</name>
     <url>http://wiki.jenkins-ci.org/display/JENKINS/xUnit+Plugin</url>
@@ -40,6 +40,8 @@
     </developers>
 
     <properties>
+        <revision>2.3.7</revision>
+        <changelist>-SNAPSHOT</changelist>
         <java.level>8</java.level>
         <hpi.compatibleSinceVersion>2.0.0</hpi.compatibleSinceVersion>
 
@@ -150,7 +152,7 @@
     <scm>
         <connection>scm:git:git://github.com/jenkinsci/xunit-plugin.git</connection>
         <developerConnection>scm:git:git@github.com:jenkinsci/xunit-plugin.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>${scmTag}</tag>
     </scm>
 
     <build>
