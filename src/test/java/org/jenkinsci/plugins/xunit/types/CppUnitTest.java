@@ -40,7 +40,8 @@ public class CppUnitTest extends AbstractTest {
                                               { "zero failure and success", 3 }, //
                                               { "zero success", 4 }, //
                                               { "testcase5", 5 }, //
-                                              { "testcase6", 6 } //
+                                              { "testcase6", 6 }, //
+                                              { "allow custom project properties", 7 } //
         });
     }
 

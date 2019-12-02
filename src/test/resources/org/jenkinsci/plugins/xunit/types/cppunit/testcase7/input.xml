@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding='ISO-8859-1' standalone='yes' ?>
+<TestRun>
+    <SuiteInfo>
+        <Author>Christoph Huck</Author>
+        <Project>
+            <Product>HDA_COM_TASK</Product>
+            <Version>1.2.3.-dev.18+dirty.Review2.gd880389</Version>
+            <Compiler>VS15</Compiler>
+            <Company>Hochschule</Company>
+            ssh://hda-bm-gerrit.de.hu.biz:32158/OBV/MLU/CPU/LIB/GEN2/hda_com_task
+        </Project>
+        <Date>10.10.2019</Date>
+    </SuiteInfo>
+    <FailedTests></FailedTests>
+    <SuccessfulTests>
+        <Test id="1">
+            <Name>TestCase::FirmwareupdateResponceTest</Name>
+        </Test>
+        <Test id="2">
+            <Name>TestCase::FirmwareUpdateFailTest</Name>
+        </Test>
+    </SuccessfulTests>
+    <Statistics>
+        <Tests>2</Tests>
+        <FailuresTotal>0</FailuresTotal>
+        <Errors>0</Errors>
+        <Failures>0</Failures>
+    </Statistics>
+</TestRun>

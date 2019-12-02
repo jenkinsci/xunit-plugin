@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite errors="0" failures="0" tests="2" name="cppunit">
+   <testcase classname="TestCase" name="FirmwareupdateResponceTest" time="0"/>
+   <testcase classname="TestCase" name="FirmwareUpdateFailTest" time="0"/>
+</testsuite>
