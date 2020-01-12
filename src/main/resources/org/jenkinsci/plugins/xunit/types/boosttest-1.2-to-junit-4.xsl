@@ -2,7 +2,7 @@
 <!--
 The MIT License (MIT)
 
-Copyright (c) 2014, Gregory Boissinot
+Copyright (c) 2020, Gregory Boissinot, Nikolas Falco
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -22,9 +22,31 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-        >
-    <xsl:output method="xml" indent="yes" encoding="utf-8" omit-xml-declaration="no"/>
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xunit="http://www.xunit.org">
+    <xsl:output method="xml" indent="yes" encoding="UTF-8" cdata-section-elements="system-out system-err failure error"/>
+    <xsl:decimal-format decimal-separator="." grouping-separator=","/>
+
+    <xsl:function name="xunit:junit-time" as="xs:string">
+        <xsl:param name="value" as="xs:anyAtomicType?" />
+
+        <xsl:variable name="time" as="xs:double">
+            <xsl:choose>
+                <xsl:when test="$value instance of xs:double">
+                    <xsl:value-of select="$value" />
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="translate(string(xunit:if-empty($value, 0)), ',', '.')" />
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <xsl:value-of select="format-number($time, '0.000')" />
+    </xsl:function>
+
+    <xsl:function name="xunit:if-empty" as="xs:string">
+        <xsl:param name="value" as="xs:anyAtomicType?" />
+        <xsl:param name="default" as="xs:anyAtomicType" />
+        <xsl:value-of select="if (string($value) != '') then string($value) else $default" />
+    </xsl:function>
 
     <xsl:param name="apostrophe">&apos;</xsl:param>
     <xsl:template name="processQuote">
@@ -50,34 +72,66 @@ THE SOFTWARE.
         </xsl:for-each>
     </xsl:template>
 
-    <xsl:template match="/TestLog">
+    <xsl:template match="/TestLog/TestSuite">
+        <xsl:variable name="tsCount" select="count(./TestSuite)"/>
+        <xsl:variable name="tcCount" select="count(./TestCase)"/>
 
         <xsl:element name="testsuite">
             <xsl:attribute name="tests">
-                <xsl:value-of select="count(//TestCase)"/>
+                <xsl:value-of select="count(.//TestCase[count(descendant::TestSuite) = 0])"/>
             </xsl:attribute>
 
             <xsl:attribute name="errors">
-                <xsl:value-of select="count(//TestCase/FatalError)+count(//TestCase/Exception)"/>
+                <xsl:value-of select="count(.//TestCase/FatalError)+count(.//TestCase/Exception)"/>
             </xsl:attribute>
 
             <xsl:attribute name="failures">
-                <xsl:value-of select="count(//TestCase/Error)"/>
+                <xsl:value-of select="count(.//TestCase/Error)"/>
             </xsl:attribute>
 
-            <xsl:attribute name="name">MergedTestSuite</xsl:attribute>
+            <xsl:attribute name="name">
+                <xsl:value-of select="@name"/>
+            </xsl:attribute>
+
+            <xsl:for-each select="descendant::TestSuite[count(./TestCase) > 0]">
+                <xsl:call-template name="testSuite"/>
+            </xsl:for-each>
+
+            <xsl:for-each select="./TestCase">
+                <xsl:call-template name="testCase"/>
+            </xsl:for-each>
+        </xsl:element>
+    </xsl:template>
+
+    <xsl:template name="testSuite">
+        <xsl:param name="tsName" select="string-join(ancestor-or-self::*[name() = 'TestSuite' or name() = 'TestCase']/@name, '\')"/>
+
+        <xsl:element name="testsuite">
+            <xsl:attribute name="tests">
+                <xsl:value-of select="count(.//TestCase[not(descendant::TestCase)])"/>
+            </xsl:attribute>
+
+            <xsl:attribute name="errors">
+                <xsl:value-of select="count(./TestCase/FatalError)+count(./TestCase/Exception)"/>
+            </xsl:attribute>
+
+            <xsl:attribute name="failures">
+                <xsl:value-of select="count(./TestCase/Error)"/>
+            </xsl:attribute>
+
+            <xsl:attribute name="name">
+                <xsl:value-of select="$tsName"/>
+            </xsl:attribute>
 
             <xsl:attribute name="skipped">
                 <xsl:value-of select="count(//TestCase[@skipped='yes'])"/>
             </xsl:attribute>
 
-            <xsl:for-each select="//TestCase">
+            <xsl:for-each select=".//TestCase">
                 <xsl:call-template name="testCase"/>
             </xsl:for-each>
         </xsl:element>
-
     </xsl:template>
-
 
     <xsl:template name="testCaseContent">
         <xsl:for-each select="child::*">
@@ -87,11 +141,6 @@ THE SOFTWARE.
                 <xsl:when test="$currEltName='Error'">
                     <xsl:text>&#13;</xsl:text>
                     <xsl:text>[Error] - </xsl:text>
-                    <!--<xsl:call-template name="processQuote">-->
-                    <!--<xsl:with-param name="string">-->
-                    <!--<xsl:value-of select="$currElt/text()"/>-->
-                    <!--</xsl:with-param>-->
-                    <!--</xsl:call-template>-->
                     <xsl:value-of select="$currElt"/>
                     <xsl:text>&#13;</xsl:text>
                     <xsl:text> == [File] - </xsl:text><xsl:value-of select="($currElt)/@file"/>
@@ -158,71 +207,20 @@ THE SOFTWARE.
         </xsl:for-each>
     </xsl:template>
 
-
     <xsl:template name="testCase">
-
-        <xsl:variable name="curElt" select="."/>
-        <xsl:variable name="suiteName">
-            <xsl:for-each select="($curElt/ancestor::TestSuite)">
-                <xsl:variable name="nameTrimed" select="replace(./@name,' ','.')"/>
-                <xsl:value-of select="$nameTrimed"/><xsl:text>.</xsl:text>
-            </xsl:for-each>
-        </xsl:variable>
-        <xsl:variable name="packageName" select="($suiteName)"/>
+        <xsl:param name="clsName" select="string-join(ancestor::*[(name() = 'TestSuite' or name() = 'TestCase') and not(ancestor::element()/name() = '/TestLog') ]/@name, '.')"/>
 
         <xsl:element name="testcase">
-            <xsl:variable name="elt" select="(child::*[position()=1])"/>
-            <xsl:variable name="time" select="TestingTime"/>
-
             <xsl:attribute name="classname">
-                <xsl:variable name="packageStr" select="concat($packageName, substring-before(($elt)/@file, '.'))"/>
-                <xsl:choose>
-                    <xsl:when test="ends-with($packageStr, '.')">
-                        <xsl:variable name="packageStr2"
-                                      select="substring($packageStr, 1, string-length($packageStr)-1)"/>
-                        <xsl:value-of select="replace($packageStr2,' ','.')"/>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:variable name="packageStr2" select="($packageStr)"/>
-                        <xsl:value-of select="replace($packageStr2,' ','.')"/>
-                    </xsl:otherwise>
-                </xsl:choose>
+                <xsl:value-of select="$clsName"/>
             </xsl:attribute>
-
-            <!-- When there is only Exception with LastCheckpoint, override classname attribute -->
-
-            <xsl:if
-                    test="((count(child::Exception))=1) and ((count(child::Info)+ count(child::Warning) + count(child::Message))=0)">
-                <xsl:variable name="fileName" select="substring-before((./Exception/LastCheckpoint)/@file, '.')"/>
-                <xsl:attribute name="classname">
-                    <!-- <xsl:value-of select="concat($packageName, $fileName)"/> -->
-                    <xsl:variable name="packageStr" select="concat($packageName, $fileName)"/>
-                    <xsl:choose>
-                        <xsl:when test="ends-with($packageStr, '.')">
-                            <xsl:variable name="packageStr2"
-                                          select="substring($packageStr, 1, string-length($packageStr)-1)"/>
-                            <xsl:value-of select="replace($packageStr2,' ','.')"/>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <xsl:variable name="packageStr2" select="($packageStr)"/>
-                            <xsl:value-of select="replace($packageStr2,' ','.')"/>
-                        </xsl:otherwise>
-                    </xsl:choose>
-
-                </xsl:attribute>
-            </xsl:if>
-
 
             <xsl:attribute name="name">
                 <xsl:value-of select="@name"/>
             </xsl:attribute>
 
-
             <xsl:attribute name="time">
-                <xsl:choose>
-                    <xsl:when test="TestingTime"><xsl:value-of select="$time div 1000000"/></xsl:when>
-                    <xsl:otherwise>0.000</xsl:otherwise>
-                </xsl:choose>
+                <xsl:value-of select="xunit:junit-time(./TestingTime div 1000000)"/>
             </xsl:attribute>
 
             <xsl:variable name="nbErrors" select="count(Error)"/>
@@ -304,7 +302,6 @@ THE SOFTWARE.
                 </xsl:element>
             </xsl:if>
 
-
             <xsl:if test="count(child::Exception)>0">
                 <xsl:element name="system-err">
                     <xsl:for-each select="child::Exception">
@@ -345,10 +342,7 @@ THE SOFTWARE.
 
                 </xsl:element>
             </xsl:if>
-
-
         </xsl:element>
-
     </xsl:template>
 
     <xsl:template match="text()|@*"/>

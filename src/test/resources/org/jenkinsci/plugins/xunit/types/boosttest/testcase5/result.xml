@@ -1,483 +1,653 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite tests="56" errors="0" failures="0" name="MergedTestSuite" skipped="0">
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestShift&lt;double&gt;"
-            time="0.009">
-        <system-out>&#xD;[Info] - check tStart == 10.0 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] - 35&#xD;&#xD;[Info]
-            - check tEnd == 110.0 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            36&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestShift&lt;int&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check tStart == 10.0 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] - 35&#xD;&#xD;[Info]
-            - check tEnd == 110.0 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            36&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestShift&lt;long&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check tStart == 10.0 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] - 35&#xD;&#xD;[Info]
-            - check tEnd == 110.0 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            36&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestShift&lt;__int64&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check tStart == 10.0 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] - 35&#xD;&#xD;[Info]
-            - check tEnd == 110.0 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            36&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestScrollTo&lt;double&gt;"
-            time="0.001">
-        <system-out>&#xD;[Info] - check iPixelsScrolled == 50 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] - 51&#xD;&#xD;[Info]
-            - check tStart == 50 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] - 58&#xD;&#xD;[Info]
-            - check tEnd == 150 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            59&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestScrollTo&lt;int&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check iPixelsScrolled == 50 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] - 51&#xD;&#xD;[Info]
-            - check tStart == 50 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] - 58&#xD;&#xD;[Info]
-            - check tEnd == 150 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            59&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestScrollTo&lt;long&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check iPixelsScrolled == 50 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] - 51&#xD;&#xD;[Info]
-            - check tStart == 50 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] - 58&#xD;&#xD;[Info]
-            - check tEnd == 150 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            59&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestScrollTo&lt;__int64&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check iPixelsScrolled == 50 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] - 51&#xD;&#xD;[Info]
-            - check tStart == 50 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] - 58&#xD;&#xD;[Info]
-            - check tEnd == 150 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            59&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestScroll&lt;double&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check lStart == 10 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] - 78&#xD;&#xD;[Info]
-            - check lEnd == 60 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            79&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestScroll&lt;int&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check lStart == 10 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] - 78&#xD;&#xD;[Info]
-            - check lEnd == 60 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            79&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestScroll&lt;long&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check lStart == 10 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] - 78&#xD;&#xD;[Info]
-            - check lEnd == 60 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            79&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestScroll&lt;__int64&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check lStart == 10 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] - 78&#xD;&#xD;[Info]
-            - check lEnd == 60 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            79&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestUnitToPixel&lt;double&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check iPixel == 25 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            94&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestUnitToPixel&lt;int&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check iPixel == 25 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            94&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestUnitToPixel&lt;long&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check iPixel == 25 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            94&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestUnitToPixel&lt;__int64&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check iPixel == 25 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            94&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestUnitToPixelNegativeRange&lt;double&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check iPixel == 25 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            109&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestUnitToPixelNegativeRange&lt;int&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check iPixel == 25 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            109&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestUnitToPixelNegativeRange&lt;long&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check iPixel == 25 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            109&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestUnitToPixelNegativeRange&lt;__int64&gt;"
-            time="0.001">
-        <system-out>&#xD;[Info] - check iPixel == 25 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            109&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestPixelToUnit&lt;double&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check tValue == 50.0 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            124&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestPixelToUnit&lt;int&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check tValue == 50.0 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            124&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestPixelToUnit&lt;long&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check tValue == 50.0 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            124&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestPixelToUnit&lt;__int64&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check tValue == 50.0 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            124&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestPixelToUnitDifferentSizeSameScale&lt;double&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check tValue1 == tValue2 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            143&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestPixelToUnitDifferentSizeSameScale&lt;int&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check tValue1 == tValue2 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            143&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestPixelToUnitDifferentSizeSameScale&lt;long&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check tValue1 == tValue2 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            143&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestPixelToUnitDifferentSizeSameScale&lt;__int64&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check tValue1 == tValue2 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            143&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestPixelToUnitDifferentSizeDifferentScale&lt;double&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check tValue1 == tValue2 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            164&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestPixelToUnitDifferentSizeDifferentScale&lt;int&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check tValue1 == tValue2 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            164&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestPixelToUnitDifferentSizeDifferentScale&lt;long&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check tValue1 == tValue2 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            164&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestPixelToUnitDifferentSizeDifferentScale&lt;__int64&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check tValue1 == tValue2 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            164&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestUnitToPixelToUnit&lt;double&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check tValue == 50 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            180&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestUnitToPixelToUnit&lt;int&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check tValue == 50 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            180&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestUnitToPixelToUnit&lt;long&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check tValue == 50 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            180&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestUnitToPixelToUnit&lt;__int64&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check tValue == 50 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            180&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestPixelToUnitToPixel&lt;double&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check iPixel == 25 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            196&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestPixelToUnitToPixel&lt;int&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check iPixel == 25 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            196&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestPixelToUnitToPixel&lt;long&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check iPixel == 25 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            196&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestPixelToUnitToPixel&lt;__int64&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check iPixel == 25 passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            196&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestIsValid&lt;double&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check bValid passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            211&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestIsValid&lt;int&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check bValid passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            211&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestIsValid&lt;long&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check bValid passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            211&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestIsValid&lt;__int64&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check bValid passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            211&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestIsValidZeroRange&lt;double&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check !bValid passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            226&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestIsValidZeroRange&lt;int&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check !bValid passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            226&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestIsValidZeroRange&lt;long&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check !bValid passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            226&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestIsValidZeroRange&lt;__int64&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check !bValid passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            226&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestIsValidZeroSize&lt;double&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check !bValid passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            241&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestIsValidZeroSize&lt;int&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check !bValid passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            241&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestIsValidZeroSize&lt;long&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check !bValid passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            241&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestIsValidZeroSize&lt;__int64&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check !bValid passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            241&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestIsValidZeroSizeAndRange&lt;double&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check !bValid passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            256&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestIsValidZeroSizeAndRange&lt;int&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check !bValid passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            256&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestIsValidZeroSizeAndRange&lt;long&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check !bValid passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            256&#xD;</system-out>
-    </testcase>
-    <testcase
-            classname="Master.Test.Suite.TestPlot.NCTstPltScaleBase.d:/develop/test/testcommon/testplot/nctstpltscalebase"
-            name="TestIsValidZeroSizeAndRange&lt;__int64&gt;"
-            time="0">
-        <system-out>&#xD;[Info] - check !bValid passed
-            &#xD; == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp&#xD; == [Line] -
-            256&#xD;</system-out>
-    </testcase>
+<testsuite tests="56" errors="0" failures="0" name="Master Test Suite">
+    <testsuite tests="56" errors="0" failures="0" name="Master Test Suite\TestPlot\NCTstPltScaleBase" skipped="0">
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestShift&lt;double&gt;" time="0.009">
+            <system-out>
+				<![CDATA[
+[Info] - check tStart == 10.0 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 35
+
+[Info] - check tEnd == 110.0 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 36
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestShift&lt;int&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check tStart == 10.0 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 35
+
+[Info] - check tEnd == 110.0 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 36
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestShift&lt;long&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check tStart == 10.0 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 35
+
+[Info] - check tEnd == 110.0 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 36
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestShift&lt;__int64&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check tStart == 10.0 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 35
+
+[Info] - check tEnd == 110.0 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 36
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestScrollTo&lt;double&gt;" time="0.001">
+            <system-out>
+				<![CDATA[
+[Info] - check iPixelsScrolled == 50 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 51
+
+[Info] - check tStart == 50 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 58
+
+[Info] - check tEnd == 150 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 59
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestScrollTo&lt;int&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check iPixelsScrolled == 50 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 51
+
+[Info] - check tStart == 50 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 58
+
+[Info] - check tEnd == 150 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 59
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestScrollTo&lt;long&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check iPixelsScrolled == 50 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 51
+
+[Info] - check tStart == 50 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 58
+
+[Info] - check tEnd == 150 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 59
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestScrollTo&lt;__int64&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check iPixelsScrolled == 50 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 51
+
+[Info] - check tStart == 50 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 58
+
+[Info] - check tEnd == 150 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 59
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestScroll&lt;double&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check lStart == 10 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 78
+
+[Info] - check lEnd == 60 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 79
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestScroll&lt;int&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check lStart == 10 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 78
+
+[Info] - check lEnd == 60 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 79
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestScroll&lt;long&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check lStart == 10 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 78
+
+[Info] - check lEnd == 60 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 79
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestScroll&lt;__int64&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check lStart == 10 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 78
+
+[Info] - check lEnd == 60 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 79
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestUnitToPixel&lt;double&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check iPixel == 25 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 94
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestUnitToPixel&lt;int&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check iPixel == 25 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 94
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestUnitToPixel&lt;long&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check iPixel == 25 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 94
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestUnitToPixel&lt;__int64&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check iPixel == 25 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 94
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestUnitToPixelNegativeRange&lt;double&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check iPixel == 25 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 109
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestUnitToPixelNegativeRange&lt;int&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check iPixel == 25 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 109
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestUnitToPixelNegativeRange&lt;long&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check iPixel == 25 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 109
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestUnitToPixelNegativeRange&lt;__int64&gt;" time="0.001">
+            <system-out>
+				<![CDATA[
+[Info] - check iPixel == 25 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 109
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestPixelToUnit&lt;double&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check tValue == 50.0 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 124
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestPixelToUnit&lt;int&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check tValue == 50.0 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 124
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestPixelToUnit&lt;long&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check tValue == 50.0 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 124
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestPixelToUnit&lt;__int64&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check tValue == 50.0 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 124
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestPixelToUnitDifferentSizeSameScale&lt;double&gt;"
+            time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check tValue1 == tValue2 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 143
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestPixelToUnitDifferentSizeSameScale&lt;int&gt;"
+            time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check tValue1 == tValue2 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 143
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestPixelToUnitDifferentSizeSameScale&lt;long&gt;"
+            time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check tValue1 == tValue2 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 143
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestPixelToUnitDifferentSizeSameScale&lt;__int64&gt;"
+            time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check tValue1 == tValue2 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 143
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestPixelToUnitDifferentSizeDifferentScale&lt;double&gt;"
+            time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check tValue1 == tValue2 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 164
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestPixelToUnitDifferentSizeDifferentScale&lt;int&gt;"
+            time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check tValue1 == tValue2 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 164
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestPixelToUnitDifferentSizeDifferentScale&lt;long&gt;"
+            time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check tValue1 == tValue2 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 164
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestPixelToUnitDifferentSizeDifferentScale&lt;__int64&gt;"
+            time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check tValue1 == tValue2 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 164
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestUnitToPixelToUnit&lt;double&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check tValue == 50 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 180
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestUnitToPixelToUnit&lt;int&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check tValue == 50 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 180
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestUnitToPixelToUnit&lt;long&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check tValue == 50 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 180
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestUnitToPixelToUnit&lt;__int64&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check tValue == 50 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 180
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestPixelToUnitToPixel&lt;double&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check iPixel == 25 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 196
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestPixelToUnitToPixel&lt;int&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check iPixel == 25 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 196
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestPixelToUnitToPixel&lt;long&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check iPixel == 25 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 196
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestPixelToUnitToPixel&lt;__int64&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check iPixel == 25 passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 196
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestIsValid&lt;double&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check bValid passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 211
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestIsValid&lt;int&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check bValid passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 211
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestIsValid&lt;long&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check bValid passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 211
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestIsValid&lt;__int64&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check bValid passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 211
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestIsValidZeroRange&lt;double&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check !bValid passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 226
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestIsValidZeroRange&lt;int&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check !bValid passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 226
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestIsValidZeroRange&lt;long&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check !bValid passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 226
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestIsValidZeroRange&lt;__int64&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check !bValid passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 226
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestIsValidZeroSize&lt;double&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check !bValid passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 241
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestIsValidZeroSize&lt;int&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check !bValid passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 241
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestIsValidZeroSize&lt;long&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check !bValid passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 241
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestIsValidZeroSize&lt;__int64&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check !bValid passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 241
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestIsValidZeroSizeAndRange&lt;double&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check !bValid passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 256
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestIsValidZeroSizeAndRange&lt;int&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check !bValid passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 256
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestIsValidZeroSizeAndRange&lt;long&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check !bValid passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 256
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.TestPlot.NCTstPltScaleBase" name="TestIsValidZeroSizeAndRange&lt;__int64&gt;" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check !bValid passed
+                    
+ == [File] - d:/develop/test/testcommon/testplot/nctstpltscalebase.cpp
+ == [Line] - 256
+]]>
+            </system-out>
+        </testcase>
+    </testsuite>
 </testsuite>

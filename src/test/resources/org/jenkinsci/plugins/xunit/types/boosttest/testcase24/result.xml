@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite tests="2" errors="0" failures="0" name="ExampleTestSuite">
+    <testsuite tests="1" errors="0" failures="0" name="ExampleTestSuite\MyTestSuite_1" skipped="0">
+        <testcase classname="ExampleTestSuite.MyTestSuite_1" name="MyTest_1_1" time="0.010">
+            <system-out>
+				<![CDATA[
+[Message] - 
+          Running MyTest_1_1
+                
+ == [File] - boost_testing.cpp
+ == [Line] - 8
+]]>
+            </system-out>
+        </testcase>
+    </testsuite>
+    <testsuite tests="1" errors="0" failures="0" name="ExampleTestSuite\MyTestSuite_2" skipped="0">
+        <testcase classname="ExampleTestSuite.MyTestSuite_2" name="MyTest_2_1" time="0.000" />
+    </testsuite>
+</testsuite>

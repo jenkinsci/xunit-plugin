@@ -1,21 +1,44 @@
-<?xml version="1.0" encoding="utf-8"?>
-<testsuite tests="2" errors="1" failures="0" name="MergedTestSuite" skipped="0">
-  <testcase classname="MyTest.MyTestCase.test" name="_0" time="0.000099">
-    <system-out>&#xD;[Message] -
-      testing
-
-    &#xD; == [File] - test.cpp&#xD; == [Line] - 14&#xD; == [Context] sample = 1; &#xD;</system-out>
-  </testcase>
-  <testcase classname="MyTest.MyTestCase.test" name="_1" time="0.000225">
-    <error>&#xD;[Exception] -
-      signal: SIGABRT (application abort requested)
-
-
-    "MyTestCase" test entry&#xD; == [File] - test.cpp&#xD; == [Line] - 9&#xD; == [Context] sample = 2; &#xD;</error>
-    <system-err>&#xD;[Exception] -
-      signal: SIGABRT (application abort requested)
-
-
-    "MyTestCase" test entry&#xD; == [File] - test.cpp&#xD; == [Line] - 9&#xD; == [Context] sample = 2; &#xD;</system-err>
-  </testcase>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite tests="2" errors="1" failures="0" name="MyTest">
+    <testsuite tests="2" errors="1" failures="0" name="MyTest\MyTestCase" skipped="0">
+        <testcase classname="MyTest.MyTestCase" name="_0" time="0.000">
+            <system-out>
+				<![CDATA[
+[Message] - 
+          testing
+          
+        
+ == [File] - test.cpp
+ == [Line] - 14
+ == [Context] sample = 1; 
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="MyTest.MyTestCase" name="_1" time="0.000">
+            <error>
+				<![CDATA[
+[Exception] - 
+          signal: SIGABRT (application abort requested)
+          
+          
+        "MyTestCase" test entry
+ == [File] - test.cpp
+ == [Line] - 9
+ == [Context] sample = 2; 
+]]>
+            </error>
+            <system-err>
+				<![CDATA[
+[Exception] - 
+          signal: SIGABRT (application abort requested)
+          
+          
+        "MyTestCase" test entry
+ == [File] - test.cpp
+ == [Line] - 9
+ == [Context] sample = 2; 
+]]>
+            </system-err>
+        </testcase>
+    </testsuite>
 </testsuite>

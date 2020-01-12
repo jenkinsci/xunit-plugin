@@ -1,20 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?>
-<testsuite tests="1" errors="1" failures="0" name="MergedTestSuite" skipped="0">
-    <testcase classname="Master.Test.Suite.TGS_RESOURCE_DTMF_DETECTION"
-              name="RES_DTMF_DETECTION_1"
-              time="2.313">
-        <error>&#xD;[Exception] - memory access violation
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite tests="1" errors="1" failures="0" name="Master Test Suite">
+    <testsuite tests="1" errors="1" failures="0" name="Master Test Suite\TGS_RESOURCE_DTMF_DETECTION" skipped="0">
+        <testcase classname="Master Test Suite.TGS_RESOURCE_DTMF_DETECTION" name="RES_DTMF_DETECTION_1" time="2.313">
+            <error>
+				<![CDATA[
+[Exception] - memory access violation
+                    
+                
+ == [File] - .\res_test_dtmf_detection.cpp
+ == [Line] - 17
+]]>
+            </error>
+            <system-out>
+				<![CDATA[
+[Info] - check !m_acceptor passed
+ == [File] - ./test_sip.cpp
+ == [Line] - 179
 
-            &#xD; == [File] - .\res_test_dtmf_detection.cpp&#xD; == [Line] - 17&#xD;</error>
-        <system-out>&#xD;[Info] - check !m_acceptor passed&#xD; == [File] - ./test_sip.cpp&#xD; == [Line] - 179&#xD;&#xD;[Info]
-            - check !m_acceptorThread passed
-            &#xD; == [File] - ./test_sip.cpp&#xD; == [Line] - 180&#xD;&#xD;[Info] - check ! m_socket.is_open() passed&#xD;
-            == [File] - ./test_sip.cpp&#xD; == [Line] - 187&#xD;&#xD;[Message] -
-            ==== Start test using AudioCodesSimRcs ====&#xD; == [File] - ./res_test_dtmf_detection.cpp&#xD; == [Line] -
-            15&#xD;&#xD;[Message] - Test is aborted&#xD; == [File] - ./boost/test/impl/unit_test_log.ipp&#xD; == [Line]
-            - 161&#xD;</system-out>
-        <system-err>&#xD;[Exception] - memory access violation
+[Info] - check !m_acceptorThread passed
+                
+ == [File] - ./test_sip.cpp
+ == [Line] - 180
 
-            &#xD; == [File] - .\res_test_dtmf_detection.cpp&#xD; == [Line] - 17&#xD;</system-err>
-    </testcase>
+[Info] - check ! m_socket.is_open() passed
+ == [File] - ./test_sip.cpp
+ == [Line] - 187
+
+[Message] - 
+                    ==== Start test using AudioCodesSimRcs ====
+ == [File] - ./res_test_dtmf_detection.cpp
+ == [Line] - 15
+
+[Message] - Test is aborted
+ == [File] - ./boost/test/impl/unit_test_log.ipp
+ == [Line] - 161
+]]>
+            </system-out>
+            <system-err>
+				<![CDATA[
+[Exception] - memory access violation
+                    
+                
+ == [File] - .\res_test_dtmf_detection.cpp
+ == [Line] - 17
+]]>
+            </system-err>
+        </testcase>
+    </testsuite>
 </testsuite>

@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite tests="3" errors="1" failures="1" name="MergedTestSuite" skipped="0">
-    <testcase classname="Master.Test.Suite.array.test.test" name="test1" time="0">
-        <system-out>&#xD;[Info] - check add( 2,2 ) == 4 passed&#xD; == [File] - test.cpp&#xD; == [Line] -
-            8&#xD;</system-out>
-    </testcase>
-    <testcase classname="Master.Test.Suite.array.test.test" name="test2" time="0">
-        <failure>&#xD;[Error] - check add( 2,3 ) == 4 failed&#xD; == [File] - test.cpp&#xD; == [Line] -
-            12&#xD;</failure>
-    </testcase>
-    <testcase classname="Master.Test.Suite.array.test.test" name="test3" time="0">
-        <error>&#xD;[Exception] - un test failed&#xD; == [File] - test.cpp&#xD; == [Line] -16&#xD;</error>
-    </testcase>
+<testsuite tests="3" errors="1" failures="1" name="Master Test Suite">
+    <testsuite tests="3" errors="1" failures="1" name="Master Test Suite\array test" skipped="0">
+        <testcase classname="Master Test Suite.array test" name="test1" time="0.000">
+            <system-out>
+				<![CDATA[
+[Info] - check add( 2,2 ) == 4 passed
+ == [File] - test.cpp
+ == [Line] - 8
+]]>
+            </system-out>
+        </testcase>
+        <testcase classname="Master Test Suite.array test" name="test2" time="0.000">
+            <failure>
+				<![CDATA[
+[Error] - check add( 2,3 ) == 4 failed
+ == [File] - test.cpp
+ == [Line] - 12
+]]>
+            </failure>
+        </testcase>
+        <testcase classname="Master Test Suite.array test" name="test3" time="0.000">
+            <error>
+				<![CDATA[
+[Exception] - un test failed
+ == [File] - test.cpp
+ == [Line] -16
+]]>
+            </error>
+        </testcase>
+    </testsuite>
 </testsuite>

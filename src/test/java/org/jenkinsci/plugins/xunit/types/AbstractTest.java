@@ -24,12 +24,11 @@
 package org.jenkinsci.plugins.xunit.types;
 
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.text.MessageFormat;
+
+import org.apache.commons.io.FileUtils;
 import org.jenkinsci.lib.dtkit.model.InputMetric;
 import org.jenkinsci.lib.dtkit.model.InputMetricFactory;
 import org.jenkinsci.lib.dtkit.util.validator.ValidationError;
@@ -37,6 +36,7 @@ import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
+import org.xmlunit.XMLUnitException;
 import org.xmlunit.builder.DiffBuilder;
 import org.xmlunit.builder.Input;
 import org.xmlunit.diff.Diff;
@@ -90,27 +90,12 @@ public abstract class AbstractTest {
         convertAndValidate(metricClass, input, xslPath, expectedResult);
     }
 
-    private String readXmlAsString(File input)
-            throws IOException {
-        String xmlString = "";
-
+    private String readXmlAsString(File input) throws IOException {
         if (input == null) {
             throw new IOException("The input stream object is null.");
         }
 
-        FileInputStream fileInputStream = new FileInputStream(input);
-        InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
-        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-        String line = bufferedReader.readLine();
-        while (line != null) {
-            xmlString += line + "\n";
-            line = bufferedReader.readLine();
-        }
-        fileInputStream.close();
-        fileInputStream.close();
-        bufferedReader.close();
-
-        return xmlString;
+        return FileUtils.readFileToString(input, "UTF-8");
     }
 
     protected void convertAndValidate(Class<? extends InputMetric> metricClass, String inputXMLPath, String inputXSLPath, String expectedResultPath) throws Exception {
@@ -118,31 +103,31 @@ public abstract class AbstractTest {
         if (inputMetric instanceof CustomInputMetric) {
             ((CustomInputMetric) inputMetric).setCustomXSLFile(new File(this.getClass().getResource(inputXSLPath).toURI()));
         }
-        
+
         File outputXMLFile = file.newFile();
         File inputXMLFile = new File(this.getClass().getResource(inputXMLPath).toURI());
-        
+
         //The input file must be valid
         boolean inputResult = inputMetric.validateInputFile(inputXMLFile);
         for (ValidationError validatorError : inputMetric.getInputValidationErrors()) {
             System.out.println("[ERROR] " + validatorError.toString());
         }
         Assert.assertTrue(inputResult);
-        
+
         inputMetric.convert(inputXMLFile, outputXMLFile);
-        Diff myDiff = DiffBuilder.compare(Input.fromString(readXmlAsString(outputXMLFile))) //
-                .withTest(Input.fromString(readXmlAsString(new File(this.getClass().getResource(expectedResultPath).toURI())))) //
-                .ignoreWhitespace() //
-                .ignoreComments() //
-                .normalizeWhitespace() //
-                .build();
         try {
+            Diff myDiff = DiffBuilder.compare(Input.fromString(readXmlAsString(new File(this.getClass().getResource(expectedResultPath).toURI())))) //
+                    .withTest(Input.fromString(readXmlAsString(outputXMLFile))) //
+                    .ignoreWhitespace() //
+                    .ignoreComments() //
+                    .normalizeWhitespace() //
+                    .build();
             Assert.assertFalse(myDiff.toString(), myDiff.hasDifferences());
-        } catch (Error e) {
+        } catch (Error | XMLUnitException e) {
             System.err.println(readXmlAsString(outputXMLFile));
             throw e;
         }
-        
+
         //The generated output file must be valid
         boolean outputResult = inputMetric.validateOutputFile(outputXMLFile);
         for (ValidationError validatorError : inputMetric.getOutputValidationErrors()) {
