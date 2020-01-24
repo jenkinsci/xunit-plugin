@@ -73,7 +73,14 @@ THE SOFTWARE.
                 </xsl:attribute>
 
                 <xsl:attribute name="errors">
-                    <xsl:value-of select="@errors"/>
+                    <xsl:choose>
+                        <xsl:when test="string(@warnings) != ''">
+                            <xsl:value-of select="@errors + @warnings"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="@errors"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
                 </xsl:attribute>
 
                 <xsl:attribute name="skipped">
@@ -136,6 +143,20 @@ THE SOFTWARE.
                                 </xsl:attribute>
 
                                 <xsl:value-of select="error"/>
+                            </xsl:element>
+                        </xsl:if>
+
+                        <xsl:if test="warning">
+                            <xsl:element name="error">
+                                <xsl:attribute name="message">
+                                    <xsl:value-of select="warning/@message"/>
+                                </xsl:attribute>
+
+                                <xsl:attribute name="type">
+                                    <xsl:value-of select="warning/@type"/>
+                                </xsl:attribute>
+
+                                <xsl:value-of select="warning"/>
                             </xsl:element>
                         </xsl:if>
 
