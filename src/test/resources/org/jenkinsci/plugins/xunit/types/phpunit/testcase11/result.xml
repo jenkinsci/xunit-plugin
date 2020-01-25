@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-    <testsuite name="acceptance (jenkins)" tests="22" failures="0" errors="3" skipped="0" time="1344.142">
+    <testsuite name="acceptance (jenkins)" tests="22" failures="0" errors="1" skipped="0" time="1344.142">
         <testcase classname="CommercialCombinedCest" name="baseFlowTest" time="248.536" />
         <testcase classname="CommercialCombinedCest" name="baseFlowMTATest" time="92.422" />
         <testcase classname="CommercialCombinedCest" name="baseFlowSecondMTATest" time="57.400" />
@@ -56,19 +56,7 @@
                 /var/www/insly/vendor/codeception/codeception/src/Codeception/Application.php:108
             </error>
         </testcase>
-        <testcase name="testWarning" classname="PHPUnit\SelfTest\Basic\StatusTest" time="42.001">
-            <error message="" type="PHPUnit\Framework\Warning">PHPUnit\SelfTest\Basic\StatusTest::testWarning
-
-                %s%eStatusTest.php:%d
-            </error>
-        </testcase>
-        <testcase name="testWarningWithMessage" classname="PHPUnit\SelfTest\Basic\StatusTest" time="42.002">
-            <error message="" type="PHPUnit\Framework\Warning">PHPUnit\SelfTest\Basic\StatusTest::testWarningWithMessage
-                warning with custom message
-
-                %s%eStatusTest.php:%d
-            </error>
-        </testcase>
-
+        <testcase name="testWarning" classname="PHPUnit\SelfTest\Basic\StatusTest" time="42.001" />
+        <testcase name="testWarningWithMessage" classname="PHPUnit\SelfTest\Basic\StatusTest" time="42.002" />
     </testsuite>
 </testsuites>
