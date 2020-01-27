@@ -139,6 +139,12 @@ THE SOFTWARE.
                             </xsl:element>
                         </xsl:if>
 
+                        <xsl:if test="warning">
+                            <xsl:element name="system-err">
+                                <xsl:value-of select="warning"/>
+                            </xsl:element>
+                        </xsl:if>
+
                         <xsl:if test="skipped">
                             <xsl:element name="skipped" />
                         </xsl:if>

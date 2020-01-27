@@ -56,7 +56,19 @@
                 /var/www/insly/vendor/codeception/codeception/src/Codeception/Application.php:108
             </error>
         </testcase>
-        <testcase name="testWarning" classname="PHPUnit\SelfTest\Basic\StatusTest" time="42.001" />
-        <testcase name="testWarningWithMessage" classname="PHPUnit\SelfTest\Basic\StatusTest" time="42.002" />
+        <testcase name="testWarning" classname="PHPUnit\SelfTest\Basic\StatusTest" time="42.001">
+            <system-err>PHPUnit\SelfTest\Basic\StatusTest::testWarning
+
+                %s%eStatusTest.php:%d
+            </system-err>
+        </testcase>
+        <testcase name="testWarningWithMessage" classname="PHPUnit\SelfTest\Basic\StatusTest" time="42.002">
+            <system-err>PHPUnit\SelfTest\Basic\StatusTest::testWarningWithMessage
+                warning with custom message
+
+                %s%eStatusTest.php:%d
+            </system-err>
+        </testcase>
+
     </testsuite>
 </testsuites>
