@@ -45,6 +45,7 @@ public class PHPUnitTest extends AbstractTest {
                                               { "JENKINS-42715 skipped test using PHPUnit 5.4", 8 }, //
                                               { "JENKINS-42715 skipped test using PHPUnit 6+", 9 }, //
                                               { "JENKINS-27494 feature attribute", 10 }, //
+                                              { "PHPUnit 4.8.2 warnings", 11 }, //
         });
     }
 

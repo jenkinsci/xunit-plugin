@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="acceptance (jenkins)" tests="22" assertions="1922" failures="0" errors="1" warnings="2" time="1344.141643">
+    <testcase file="/var/www/insly/tests/acceptance/Ches/CommercialCombinedCest.php" name="baseFlowTest" class="CommercialCombinedCest" feature="Step 1 - Create original quote" assertions="144" time="248.535834"/>
+    <testcase file="/var/www/insly/tests/acceptance/Ches/CommercialCombinedCest.php" name="baseFlowMTATest" class="CommercialCombinedCest" feature="Step 1 - Create MTA quote" assertions="96" time="92.421625"/>
+    <testcase file="/var/www/insly/tests/acceptance/Ches/CommercialCombinedCest.php" name="baseFlowSecondMTATest" class="CommercialCombinedCest" feature="Step 1 - Create second MTA quote" assertions="35" time="57.400482"/>
+    <testcase file="/var/www/insly/tests/acceptance/Ches/CommercialCombinedCest.php" name="baseFlowRenewalTest" class="CommercialCombinedCest" feature="Step 1 - Create Renewal quote" assertions="73" time="61.748391"/>
+    <testcase file="/var/www/insly/tests/acceptance/Ches/CommercialCombinedCest.php" name="baseFlowCancellationMTATest" class="CommercialCombinedCest" feature="Step 1 - Create Cancellation MTA quote" assertions="70" time="72.759595"/>
+    <testcase file="/var/www/insly/tests/acceptance/Ches/CommercialCombinedCest.php" name="ccSovereignBordereauReport" class="CommercialCombinedCest" feature="cc sovereign bordereau report" assertions="202" time="27.255718"/>
+    <testcase file="/var/www/insly/tests/acceptance/Ches/CommercialCombinedCest.php" name="ccFaradayBordereauReport" class="CommercialCombinedCest" feature="cc faraday bordereau report" assertions="172" time="25.275946"/>
+    <testcase file="/var/www/insly/tests/acceptance/Ches/CommercialGeneralLiabilityCest.php" name="baseFlowTest" class="CommercialGeneralLiabilityCest" feature="Step 1 - Create CGL quote" assertions="87" time="96.697882"/>
+    <testcase file="/var/www/insly/tests/acceptance/Ches/CommercialGeneralLiabilityCest.php" name="baseFlowMTATest" class="CommercialGeneralLiabilityCest" feature="Step 1 - Create MTA quote" assertions="72" time="59.107361"/>
+    <testcase file="/var/www/insly/tests/acceptance/Ches/CommercialGeneralLiabilityCest.php" name="baseFlowSecondMtaTest" class="CommercialGeneralLiabilityCest" feature="Step 1 - Create second MTA quote" assertions="35" time="46.404840"/>
+    <testcase file="/var/www/insly/tests/acceptance/Ches/CommercialGeneralLiabilityCest.php" name="baseFlowNotTakenUpCancellationTest" class="CommercialGeneralLiabilityCest" feature="Step 1 - Create Cancellation MTA quote" assertions="69" time="52.691657"/>
+    <testcase file="/var/www/insly/tests/acceptance/Ches/CommercialGeneralLiabilityCest.php" name="cglSovereignBordereauReport" class="CommercialGeneralLiabilityCest" feature="cgl sovereign bordereau report" assertions="112" time="17.600964"/>
+    <testcase file="/var/www/insly/tests/acceptance/Ches/CourseOfConstructionCest.php" name="baseFlowTest" class="CourseOfConstructionCest" feature="Step 1 - Create COC quote" assertions="83" time="91.188082"/>
+    <testcase file="/var/www/insly/tests/acceptance/Ches/CourseOfConstructionCest.php" name="baseFlowMTATest" class="CourseOfConstructionCest" feature="Step 1 - Create MTA quote" assertions="70" time="64.456707"/>
+    <testcase file="/var/www/insly/tests/acceptance/Ches/CourseOfConstructionCest.php" name="cocSovereignBordereauReport" class="CourseOfConstructionCest" feature="coc sovereign bordereau report" assertions="112" time="16.639480"/>
+    <testcase file="/var/www/insly/tests/acceptance/Ches/CourseOfConstructionCest.php" name="cocFaradayBordereauReport" class="CourseOfConstructionCest" feature="coc faraday bordereau report" assertions="124" time="18.844772"/>
+    <testcase file="/var/www/insly/tests/acceptance/Ches/OpenMarketProductCest.php" name="baseFlowTest" class="OpenMarketProductCest" feature="Step 1 - Create original quote" assertions="99" time="94.269593"/>
+    <testcase file="/var/www/insly/tests/acceptance/Ches/OpenMarketProductCest.php" name="baseFlowMTATest" class="OpenMarketProductCest" feature="Step 1 - Create MTA quote" assertions="67" time="54.826547"/>
+    <testcase file="/var/www/insly/tests/acceptance/Ches/OpenMarketProductCest.php" name="baseFlowSecondMTATest" class="OpenMarketProductCest" feature="Step 1 - Create second MTA quote" assertions="59" time="46.877084"/>
+    <testcase file="/var/www/insly/tests/acceptance/Ches/OpenMarketProductCest.php" name="baseFlowRenewalTest" class="OpenMarketProductCest" feature="Step 1 - Create Renewal quote" assertions="71" time="47.085328"/>
+    <testcase file="/var/www/insly/tests/acceptance/Ches/OpenMarketProductCest.php" name="baseFlowCancellationMTATest" class="OpenMarketProductCest" feature="Step 1 - Create Cancellation MTA quote" assertions="70" time="51.942756"/>
+    <testcase file="/var/www/insly/tests/acceptance/Signup/signupBaseCest.php" name="baseTestInstanceCreation" class="Signup\signupBaseCest" feature="base test instance creation" assertions="0" time="0.110998">
+      <error type="Facebook\WebDriver\Exception\UnknownServerException">signupBaseCest: Base test instance creation
+Facebook\WebDriver\Exception\UnknownServerException: unknown error: unhandled inspector error: {"code":-32000,"message":"Cannot navigate to invalid URL"}
+  (Session info: chrome=68.0.3440.84)
+  (Driver info: chromedriver=2.41.578700 (2f1ed5f9343c13f73144538f15c00b370eda6706),platform=Linux 4.14.91+ x86_64)
+
+/var/www/insly/vendor/facebook/webdriver/lib/Exception/WebDriverException.php:114
+/var/www/insly/vendor/facebook/webdriver/lib/Remote/HttpCommandExecutor.php:326
+/var/www/insly/vendor/facebook/webdriver/lib/Remote/RemoteWebDriver.php:547
+/var/www/insly/vendor/facebook/webdriver/lib/Remote/RemoteWebDriver.php:226
+/var/www/insly/vendor/codeception/codeception/src/Codeception/Module/WebDriver.php:891
+/var/www/insly/vendor/codeception/codeception/src/Codeception/Step.php:265
+/var/www/insly/vendor/codeception/codeception/src/Codeception/Scenario.php:72
+/var/www/insly/tests/_support/_generated/AcceptanceTesterActions.php:283
+/var/www/insly/tests/_support/Page/Signup/MainPage.php:19
+/var/www/insly/tests/acceptance/Signup/signupBaseCest.php:25
+/var/www/insly/vendor/codeception/codeception/src/Codeception/Lib/Di.php:127
+/var/www/insly/vendor/codeception/codeception/src/Codeception/Test/Cest.php:138
+/var/www/insly/vendor/codeception/codeception/src/Codeception/Test/Cest.php:150
+/var/www/insly/vendor/codeception/codeception/src/Codeception/Test/Cest.php:82
+/var/www/insly/vendor/codeception/codeception/src/Codeception/Test/Test.php:89
+/var/www/insly/vendor/codeception/phpunit-wrapper/src/Runner.php:110
+/var/www/insly/vendor/codeception/codeception/src/Codeception/SuiteManager.php:158
+/var/www/insly/vendor/codeception/codeception/src/Codeception/Codecept.php:192
+/var/www/insly/vendor/codeception/codeception/src/Codeception/Codecept.php:181
+/var/www/insly/vendor/codeception/codeception/src/Codeception/Command/Run.php:495
+/var/www/insly/vendor/codeception/codeception/src/Codeception/Command/Run.php:390
+/var/www/insly/vendor/symfony/console/Command/Command.php:255
+/var/www/insly/vendor/symfony/console/Application.php:901
+/var/www/insly/vendor/symfony/console/Application.php:262
+/var/www/insly/vendor/symfony/console/Application.php:145
+/var/www/insly/vendor/codeception/codeception/src/Codeception/Application.php:108
+</error>
+    </testcase>
+    <testcase name="testWarning" class="PHPUnit\SelfTest\Basic\StatusTest" classname="PHPUnit.SelfTest.Basic.StatusTest" file="/var/test/StatusTest.php" line="42" assertions="0" time="42.001">
+      <warning type="PHPUnit\Framework\Warning">PHPUnit\SelfTest\Basic\StatusTest::testWarning
+
+        %s%eStatusTest.php:%d
+      </warning>
+    </testcase>
+    <testcase name="testWarningWithMessage" class="PHPUnit\SelfTest\Basic\StatusTest" classname="PHPUnit.SelfTest.Basic.StatusTest" file="/var/test/StatusTest.php" line="42" assertions="0" time="42.002">
+      <warning type="PHPUnit\Framework\Warning">PHPUnit\SelfTest\Basic\StatusTest::testWarningWithMessage
+        warning with custom message
+
+        %s%eStatusTest.php:%d
+      </warning>
+    </testcase>
+  </testsuite>
+</testsuites>
