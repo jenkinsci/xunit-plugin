@@ -60,6 +60,7 @@ public class XUnitResultsStep extends Step {
     private List<XUnitThreshold> thresholds;
     private int thresholdMode = 1;
     private long testTimeMargin = XUnitDefaultValues.TEST_REPORT_TIME_MARGING;
+    private long sleepTime = XUnitDefaultValues.PROCESSING_SLEEP_TIME;
     private boolean reduceLog = XUnitDefaultValues.JUNIT_FILE_REDUCE_LOG;
     private Collection<TestDataPublisher> testDataPublishers;
 
@@ -90,6 +91,15 @@ public class XUnitResultsStep extends Step {
 
     public int getThresholdMode() {
         return thresholdMode;
+    }
+
+    @DataBoundSetter
+    public void setSleepTime(long sleepTime) {
+        this.sleepTime = sleepTime;
+    }
+
+    public long getSleepTime() {
+        return sleepTime;
     }
 
     @DataBoundSetter

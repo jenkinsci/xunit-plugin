@@ -263,7 +263,10 @@ public class XUnitProcessor {
 
         final String pattern = getExpandedResolvedPattern(tool, build, listener);
 
-        return new XUnitToolInfo(inputMetric, pattern, tool.isSkipNoTestFiles(), tool.isFailIfNotNew(), tool.isDeleteOutputFiles(), tool.isStopProcessingIfError(), build.getTimeInMillis(), this.extraConfiguration.getTestTimeMargin(), xslContent);
+        return new XUnitToolInfo(inputMetric, pattern, tool.isSkipNoTestFiles(), //
+                tool.isFailIfNotNew(), tool.isDeleteOutputFiles(), tool.isStopProcessingIfError(), //
+                build.getTimeInMillis(), this.extraConfiguration.getTestTimeMargin(), this.extraConfiguration.getSleepTime(), //
+                xslContent);
     }
 
     private String getUserStylesheet(final TestType tool) throws IOException, InterruptedException {

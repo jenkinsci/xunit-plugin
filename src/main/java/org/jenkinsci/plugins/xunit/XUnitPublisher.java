@@ -23,6 +23,8 @@
  */
 package org.jenkinsci.plugins.xunit;
 
+import static org.jenkinsci.plugins.xunit.XUnitDefaultValues.*;
+
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
@@ -31,7 +33,6 @@ import java.util.LinkedList;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
-
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.xunit.service.TransformerException;
@@ -39,7 +40,7 @@ import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThresholdDescriptor;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.DataBoundSetter;
-
+import org.kohsuke.stapler.QueryParameter;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 import hudson.AbortException;
@@ -60,6 +61,7 @@ import hudson.tasks.Recorder;
 import hudson.tasks.junit.JUnitResultArchiver;
 import hudson.tasks.junit.TestDataPublisher;
 import hudson.tasks.test.TestResultProjectAction;
+import hudson.util.FormValidation;
 import jenkins.tasks.SimpleBuildStep;
 
 /**
@@ -81,20 +83,32 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
         this.tools = (tools != null ? Arrays.copyOf(tools, tools.length) : new TestType[0]);
         this.thresholds = (thresholds != null ? Arrays.copyOf(thresholds, thresholds.length) : new XUnitThreshold[0]);
         this.thresholdMode = thresholdMode;
-        long longTestTimeMargin = XUnitUtil.parsePositiveLong(testTimeMargin, XUnitDefaultValues.TEST_REPORT_TIME_MARGING);
-        this.extraConfiguration = new ExtraConfiguration(longTestTimeMargin, XUnitDefaultValues.JUNIT_FILE_REDUCE_LOG);
+        long longTestTimeMargin = XUnitUtil.parsePositiveLong(testTimeMargin, TEST_REPORT_TIME_MARGING);
+        this.extraConfiguration = new ExtraConfiguration(longTestTimeMargin, JUNIT_FILE_REDUCE_LOG, PROCESSING_SLEEP_TIME);
         this.testDataPublishers = Collections.<TestDataPublisher> emptySet();
     }
 
     @DataBoundSetter
     public void setReduceLog(boolean reduceLog) {
-        this.extraConfiguration = new ExtraConfiguration(this.extraConfiguration.getTestTimeMargin(), reduceLog);
+        this.extraConfiguration = new ExtraConfiguration(this.extraConfiguration.getTestTimeMargin(), reduceLog, this.extraConfiguration.getSleepTime());
     }
 
     /*
      * Needed to support Snippet Generator and Workflow properly
      */
     public boolean getReduceLog() {
+        return extraConfiguration.isReduceLog();
+    }
+
+    @DataBoundSetter
+    public void setSleepTime(long sleepTime) {
+        this.extraConfiguration = new ExtraConfiguration(this.extraConfiguration.getTestTimeMargin(), this.extraConfiguration.isReduceLog(), sleepTime > 0 ? sleepTime : 0);
+    }
+
+    /*
+     * Needed to support Snippet Generator and Workflow properly
+     */
+    public boolean getSleepTime() {
         return extraConfiguration.isReduceLog();
     }
 
@@ -129,7 +143,7 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
     @Nonnull
     public ExtraConfiguration getExtraConfiguration() {
         if (extraConfiguration == null) {
-            extraConfiguration = new ExtraConfiguration(XUnitDefaultValues.TEST_REPORT_TIME_MARGING, XUnitDefaultValues.JUNIT_FILE_REDUCE_LOG);
+            extraConfiguration = new ExtraConfiguration(TEST_REPORT_TIME_MARGING, JUNIT_FILE_REDUCE_LOG, PROCESSING_SLEEP_TIME);
         }
         return extraConfiguration;
     }
@@ -217,6 +231,19 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
 
         public DescriptorExtensionList<XUnitThreshold, XUnitThresholdDescriptor<?>> getListXUnitThresholdDescriptors() {
             return XUnitThresholdDescriptor.all();
+        }
+
+        /**
+         * Verify that the given sleepTime is a positive number value.
+         *
+         * @param sleepTime value
+         * @return an validation form for the given sleep time value.
+         */
+        public FormValidation doCheckSleepTime(@QueryParameter final long sleepTime) {
+            if (sleepTime < 0) {
+                return FormValidation.error(Messages.xUnitProcessor_checkSleepTime());
+            }
+            return FormValidation.ok();
         }
 
     }

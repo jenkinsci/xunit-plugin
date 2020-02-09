@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014, Gregory Boissinot
+ * Copyright (c) 2020, Gregory Boissinot, Nikolas Falco
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -131,6 +131,9 @@ public class XUnitTransformerCallable extends MasterToSlaveFileCallable<Integer>
             }
 
             processedFiles++;
+            if (processedFiles % 10 == 0 && xUnitToolInfo.getSleepTime() > 0) {
+                Thread.sleep(xUnitToolInfo.getSleepTime());
+            }
         }
         return processedFiles;
     }

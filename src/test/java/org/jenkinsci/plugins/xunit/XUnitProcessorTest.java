@@ -110,7 +110,7 @@ public class XUnitProcessorTest {
         FilePath customXSL = userContent.child("customXSL.xsl");
         FileUtils.write(new File(customXSL.getRemote()), "test");
 
-        XUnitProcessor processor = new XUnitProcessor(new TestType[] { tool }, null, 300, new ExtraConfiguration(3000, true));
+        XUnitProcessor processor = new XUnitProcessor(new TestType[] { tool }, null, 300, new ExtraConfiguration(3000, true, 10));
         Field field = ReflectionUtils.findField(XUnitProcessor.class, "logger");
         field.setAccessible(true);
         ReflectionUtils.setField(field, processor, mock(XUnitLog.class));
@@ -136,12 +136,12 @@ public class XUnitProcessorTest {
     public void custom_tools_resolve_against_master() throws Exception {
         final File customXSL = fileRule.newFile("customXSL.xsl");
         FileUtils.write(customXSL, "test");
-        
+
         final TestType[] tools = new TestType[] { new MyCustomType(customXSL.getAbsolutePath()) };
-        
-        XUnitProcessor processor = new XUnitProcessor(tools, null, 300, new ExtraConfiguration(3000, true));
+
+        XUnitProcessor processor = new XUnitProcessor(tools, null, 300, new ExtraConfiguration(3000, true, 10));
         XUnitToolInfo toolInfo = processor.buildXUnitToolInfo(tools[0], build, workspace, listener);
-        
+
         Assert.assertEquals("test", toolInfo.getXSLFile());
     }
 
@@ -157,7 +157,7 @@ public class XUnitProcessorTest {
 
         final TestType[] tools = new TestType[] { new MyCustomType(customXSL.getName()) };
 
-        XUnitProcessor processor = new XUnitProcessor(tools, null, 300, new ExtraConfiguration(3000, true));
+        XUnitProcessor processor = new XUnitProcessor(tools, null, 300, new ExtraConfiguration(3000, true, 10));
         XUnitToolInfo toolInfo = processor.buildXUnitToolInfo(tools[0], build, workspace, listener);
 
         Assert.assertEquals("test", toolInfo.getXSLFile());
@@ -207,7 +207,7 @@ public class XUnitProcessorTest {
     }
 
     private XUnitProcessor buildProcessor(TestType[] tools) {
-        return new XUnitProcessor(tools, null, 0, new ExtraConfiguration(3000, true));
+        return new XUnitProcessor(tools, null, 0, new ExtraConfiguration(3000, true, 10));
     }
 
     private XUnitProcessor buildProcessor() {

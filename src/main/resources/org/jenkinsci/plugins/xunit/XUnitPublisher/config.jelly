@@ -56,12 +56,16 @@ THE SOFTWARE.
                 <label class="attach-previous">${%thresholdMode.percentage}</label>
             </f:entry>
 
-            <f:entry title="${%extraConfiguration.testTimeMargin.title}">
-                <f:number name="testTimeMargin" value="${instance.extraConfiguration.testTimeMargin}" default="3000"/>
+            <f:entry field="testTimeMargin" title="${%extraConfiguration.testTimeMargin.title}" description="${%extraConfiguration.testTimeMargin.description}">
+                <f:number value="${instance.extraConfiguration.testTimeMargin}" default="3000"/>
             </f:entry>
 
-            <f:entry title="${%extraConfiguration.reduceLog.title}" description="${%extraConfiguration.reduceLog.description}">
-                <f:checkbox name="reduceLog" checked="${instance.extraConfiguration.reduceLog}" default="true"/>
+            <f:entry field="sleepTime" title="${%extraConfiguration.sleepTime.title}" description="${%extraConfiguration.sleepTime.description}">
+                <f:number value="${instance.extraConfiguration.sleepTime}" default="10"/>
+            </f:entry>
+
+            <f:entry field="reduceLog" title="${%extraConfiguration.reduceLog.title}" description="${%extraConfiguration.reduceLog.description}">
+                <f:checkbox checked="${instance.extraConfiguration.reduceLog}" default="true"/>
             </f:entry>
         </f:advanced>
     </f:block>

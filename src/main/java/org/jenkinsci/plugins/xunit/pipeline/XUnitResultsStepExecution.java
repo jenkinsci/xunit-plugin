@@ -73,7 +73,7 @@ public class XUnitResultsStepExecution extends SynchronousStepExecution<TestResu
         XUnitProcessor xUnitProcessor = new XUnitProcessor(step.getTools().toArray(new TestType[0]),
                 step.getThresholds().toArray(new XUnitThreshold[0]),
                 step.getThresholdMode(),
-                new ExtraConfiguration(step.getTestTimeMarginAsLong(), step.isReduceLog()));
+                new ExtraConfiguration(step.getTestTimeMarginAsLong(), step.isReduceLog(), step.getSleepTime()));
         List<FlowNode> enclosingBlocks = JUnitResultsStepExecution.getEnclosingStagesAndParallels(node);
 
         PipelineTestDetails pipelineTestDetails = new PipelineTestDetails();

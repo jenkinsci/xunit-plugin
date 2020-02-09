@@ -39,12 +39,17 @@ public class XUnitToolInfo implements Serializable {
     private final boolean stopProcessingIfError;
     private final long buildTime;
     private final long testTimeMargin;
+    private final long sleepTime;
+    public long getSleepTime() {
+        return sleepTime;
+    }
+
     private final String xslContent;
 
     public XUnitToolInfo(InputMetric inputMetric,
                          String pattern, Boolean skipNoTestFiles, Boolean failIfNotNew,
                          Boolean deleteOutputFiles, Boolean stopProcessingIfError,
-                         long buildTime, long testTimeMargin, String xslContent) {
+                         long buildTime, long testTimeMargin, long sleepTime, String xslContent) {
         this.inputMetric = inputMetric;
         this.pattern = pattern;
         this.skipNoTestFiles = skipNoTestFiles;
@@ -53,6 +58,7 @@ public class XUnitToolInfo implements Serializable {
         this.stopProcessingIfError = stopProcessingIfError;
         this.buildTime = buildTime;
         this.testTimeMargin = testTimeMargin;
+        this.sleepTime = sleepTime;
         this.xslContent = xslContent;
     }
 

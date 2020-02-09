@@ -23,6 +23,8 @@
  */
 package org.jenkinsci.plugins.xunit;
 
+import static org.jenkinsci.plugins.xunit.XUnitDefaultValues.*;
+
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
@@ -73,13 +75,13 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
         this.tools = (tools != null ? Arrays.copyOf(tools, tools.length) : new TestType[0]);
         this.thresholds = (thresholds != null ? Arrays.copyOf(thresholds, thresholds.length) : new XUnitThreshold[0]);
         this.thresholdMode = thresholdMode;
-        long longTestTimeMargin = XUnitUtil.parsePositiveLong(testTimeMargin, XUnitDefaultValues.TEST_REPORT_TIME_MARGING);
-        this.extraConfiguration = new ExtraConfiguration(longTestTimeMargin, XUnitDefaultValues.JUNIT_FILE_REDUCE_LOG);
+        long longTestTimeMargin = XUnitUtil.parsePositiveLong(testTimeMargin, TEST_REPORT_TIME_MARGING);
+        this.extraConfiguration = new ExtraConfiguration(longTestTimeMargin, JUNIT_FILE_REDUCE_LOG, PROCESSING_SLEEP_TIME);
     }
 
     @DataBoundSetter
     public void setReduceLog(boolean reduceLog) {
-        this.extraConfiguration = new ExtraConfiguration(this.extraConfiguration.getTestTimeMargin(), reduceLog);
+        this.extraConfiguration = new ExtraConfiguration(this.extraConfiguration.getTestTimeMargin(), reduceLog, PROCESSING_SLEEP_TIME);
     }
 
     /*
@@ -113,7 +115,7 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
 
     public ExtraConfiguration getExtraConfiguration() {
         if (extraConfiguration == null) {
-            extraConfiguration = new ExtraConfiguration(XUnitDefaultValues.TEST_REPORT_TIME_MARGING, XUnitDefaultValues.JUNIT_FILE_REDUCE_LOG);
+            extraConfiguration = new ExtraConfiguration(TEST_REPORT_TIME_MARGING, JUNIT_FILE_REDUCE_LOG, PROCESSING_SLEEP_TIME);
         }
         return extraConfiguration;
     }

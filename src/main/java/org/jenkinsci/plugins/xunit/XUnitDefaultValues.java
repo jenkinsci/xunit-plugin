@@ -12,7 +12,7 @@
  *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -33,6 +33,8 @@ public class XUnitDefaultValues {
     public static final int MODE_PERCENT = 2;
 
     public static final int TEST_REPORT_TIME_MARGING = 3000; // default to 3000
+
+    public static final int PROCESSING_SLEEP_TIME = 10;
 
     public static final boolean JUNIT_FILE_REDUCE_LOG = true;
 
