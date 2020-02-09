@@ -46,7 +46,7 @@
         <hpi.compatibleSinceVersion>2.0.0</hpi.compatibleSinceVersion>
 
         <!-- dependencies versions -->
-        <dtkit-api.version>2.1.1</dtkit-api.version>
+        <dtkit-api.version>2.1.2</dtkit-api.version>
         <xmlunit.version>2.6.2</xmlunit.version>
         <mockito.version>2.17.0</mockito.version>
         <junit-plugin.version>1.25</junit-plugin.version>
