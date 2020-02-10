@@ -97,6 +97,9 @@ THE SOFTWARE.
                     <xs:element ref="system-err"/>
                 </xs:choice>
             </xs:sequence>
+            <xs:attribute name="file" type="xs:string" use="optional"/>
+            <xs:attribute name="line" type="xs:string" use="optional"/>
+            <xs:attribute name="timestamp" type="xs:string" use="optional"/>
             <xs:attribute name="name" type="xs:string" use="required"/>
             <xs:attribute name="time" type="xs:string"/>
             <xs:attribute name="classname" type="xs:string"/>
