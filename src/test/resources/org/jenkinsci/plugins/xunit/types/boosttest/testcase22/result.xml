@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite tests="3" errors="0" failures="0" name="MergedTestSuite" skipped="3">
+    <testcase classname="Master.Test.Suite.root.ts2" name="test4" time="0.000">
+        <skipped/>
+    </testcase>
+    <testcase classname="Master.Test.Suite.root.ts2" name="test5" time="0.000">
+        <skipped/>
+    </testcase>
+    <testcase classname="Master.Test.Suite.root.ts2" name="test6" time="0.000">
+        <skipped/>
+    </testcase>
+</testsuite>
