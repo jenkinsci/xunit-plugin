@@ -1,0 +1,12 @@
+<TestLog>
+    <TestSuite name="Master Test Suite">
+        <TestSuite name="root" file="test.cpp" line="47">
+            <TestSuite name="ts1" skipped="yes" reason="precondition failed"/>
+            <TestSuite name="ts2" file="test.cpp" line="57">
+                <TestCase name="test4" skipped="yes" reason="precondition failed"/>
+                <TestCase name="test5" skipped="yes" reason="precondition failed"/>
+                <TestCase name="test6" skipped="yes" reason="precondition failed"/>
+            </TestSuite>
+        </TestSuite>
+    </TestSuite>
+</TestLog>

@@ -67,7 +67,9 @@ THE SOFTWARE.
 
             <xsl:attribute name="name">MergedTestSuite</xsl:attribute>
 
-            <xsl:attribute name="skipped">0</xsl:attribute>
+            <xsl:attribute name="skipped">
+                <xsl:value-of select="count(//TestCase[@skipped='yes'])"/>
+            </xsl:attribute>
 
             <xsl:for-each select="//TestCase">
                 <xsl:call-template name="testCase"/>
@@ -217,7 +219,10 @@ THE SOFTWARE.
 
 
             <xsl:attribute name="time">
-                <xsl:value-of select="$time div 1000000"/>
+                <xsl:choose>
+                    <xsl:when test="TestingTime"><xsl:value-of select="$time div 1000000"/></xsl:when>
+                    <xsl:otherwise>0.000</xsl:otherwise>
+                </xsl:choose>
             </xsl:attribute>
 
             <xsl:variable name="nbErrors" select="count(Error)"/>
@@ -237,6 +242,9 @@ THE SOFTWARE.
                 </xsl:when>
             </xsl:choose>
 
+            <xsl:if test="@skipped">
+                <skipped />
+            </xsl:if>
 
             <xsl:if test="(count(child::Info)+ count(child::Warning) + count(child::Message))>0">
                 <xsl:element name="system-out">
