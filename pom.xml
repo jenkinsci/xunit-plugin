@@ -40,7 +40,7 @@
     </developers>
 
     <properties>
-        <revision>2.3.10</revision>
+        <revision>2.3.11</revision>
         <changelist>-SNAPSHOT</changelist>
         <java.level>8</java.level>
         <hpi.compatibleSinceVersion>2.0.0</hpi.compatibleSinceVersion>
