@@ -64,8 +64,8 @@ public class DownloadableResourceUtil {
         }
 
         try (InputStream in = archive.getProtocol().startsWith("http") ? ProxyConfiguration.getInputStream(archive) : con.getInputStream()) {
-            return IOUtils.toString(in);
+            return IOUtils.toString(in, "UTF-8");
         }
     }
-    
+
 }

@@ -98,7 +98,7 @@ public class XUnitResultsStepExecution extends SynchronousStepExecution<TestResu
             return new TestResultSummary(action.getResult().getResultByNode(nodeId));
         }
 
-        return new TestResultSummary();
+        return new TestResultSummary(0, 0, 0, 0);
     }
 
     private static final long serialVersionUID = 1L;
