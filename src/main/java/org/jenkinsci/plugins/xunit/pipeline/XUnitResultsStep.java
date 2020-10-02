@@ -62,6 +62,7 @@ public class XUnitResultsStep extends Step {
     private long testTimeMargin = XUnitDefaultValues.TEST_REPORT_TIME_MARGING;
     private long sleepTime = XUnitDefaultValues.PROCESSING_SLEEP_TIME;
     private boolean reduceLog = XUnitDefaultValues.JUNIT_FILE_REDUCE_LOG;
+    private boolean followSymlink = XUnitDefaultValues.FOLLOW_SYMLINK;
     private Collection<TestDataPublisher> testDataPublishers;
 
     @DataBoundConstructor
@@ -137,6 +138,15 @@ public class XUnitResultsStep extends Step {
     @DataBoundSetter
     public void setReduceLog(boolean reduceLog) {
         this.reduceLog = reduceLog;
+    }
+
+    public boolean isFollowSymlink() {
+        return followSymlink;
+    }
+
+    @DataBoundSetter
+    public void setFollowSymlink(boolean followSymlink) {
+        this.followSymlink = followSymlink;
     }
 
     @Extension

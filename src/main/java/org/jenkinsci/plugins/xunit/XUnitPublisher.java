@@ -84,13 +84,13 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
         this.thresholds = (thresholds != null ? Arrays.copyOf(thresholds, thresholds.length) : new XUnitThreshold[0]);
         this.thresholdMode = thresholdMode;
         long longTestTimeMargin = XUnitUtil.parsePositiveLong(testTimeMargin, TEST_REPORT_TIME_MARGING);
-        this.extraConfiguration = new ExtraConfiguration(longTestTimeMargin, JUNIT_FILE_REDUCE_LOG, PROCESSING_SLEEP_TIME);
+        this.extraConfiguration = new ExtraConfiguration(longTestTimeMargin, JUNIT_FILE_REDUCE_LOG, PROCESSING_SLEEP_TIME, FOLLOW_SYMLINK);
         this.testDataPublishers = Collections.<TestDataPublisher> emptySet();
     }
 
     @DataBoundSetter
     public void setReduceLog(boolean reduceLog) {
-        this.extraConfiguration = new ExtraConfiguration(this.extraConfiguration.getTestTimeMargin(), reduceLog, this.extraConfiguration.getSleepTime());
+        extraConfiguration = ExtraConfiguration.withConfiguration(extraConfiguration).reduceLog(reduceLog).build();
     }
 
     /*
@@ -102,7 +102,7 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
 
     @DataBoundSetter
     public void setSleepTime(long sleepTime) {
-        this.extraConfiguration = new ExtraConfiguration(this.extraConfiguration.getTestTimeMargin(), this.extraConfiguration.isReduceLog(), sleepTime > 0 ? sleepTime : 0);
+        extraConfiguration = ExtraConfiguration.withConfiguration(extraConfiguration).sleepTime(sleepTime > 0 ? sleepTime : 0).build();
     }
 
     /*
@@ -110,6 +110,18 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
      */
     public boolean getSleepTime() {
         return extraConfiguration.isReduceLog();
+    }
+
+    @DataBoundSetter
+    public void setFollowSymlink(boolean followSymlink) {
+        extraConfiguration = ExtraConfiguration.withConfiguration(extraConfiguration).followSymlink(followSymlink).build();
+    }
+
+    /*
+     * Needed to support Snippet Generator and Workflow properly
+     */
+    public boolean getFollowSymlink() {
+        return extraConfiguration.isFollowSymlink();
     }
 
     /*
@@ -143,7 +155,7 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
     @Nonnull
     public ExtraConfiguration getExtraConfiguration() {
         if (extraConfiguration == null) {
-            extraConfiguration = new ExtraConfiguration(TEST_REPORT_TIME_MARGING, JUNIT_FILE_REDUCE_LOG, PROCESSING_SLEEP_TIME);
+            extraConfiguration = new ExtraConfiguration(TEST_REPORT_TIME_MARGING, JUNIT_FILE_REDUCE_LOG, PROCESSING_SLEEP_TIME, FOLLOW_SYMLINK);
         }
         return extraConfiguration;
     }

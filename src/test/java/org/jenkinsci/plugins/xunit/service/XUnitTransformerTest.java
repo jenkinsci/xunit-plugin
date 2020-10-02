@@ -138,7 +138,7 @@ public class XUnitTransformerTest {
         // false check
         String fileName = "a.txt";
         List<String> resultFiles = Arrays.asList(fileName);
-        when(xUnitReportProcessorServiceMock.findReports(any(XUnitToolInfo.class), any(File.class), (String) any())).thenReturn(resultFiles);
+        when(xUnitReportProcessorServiceMock.findReports(any(File.class), any(XUnitToolInfo.class))).thenReturn(resultFiles);
 
         File ws = folderRule.newFolder();
         doThrow(NoNewTestReportException.class).when(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), Mockito.<String>anyList(), any(File.class));
@@ -153,7 +153,7 @@ public class XUnitTransformerTest {
             verify(xUnitValidationServiceMock, never()).validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class));
 
             InOrder inOrder = inOrder(xUnitReportProcessorServiceMock);
-            inOrder.verify(xUnitReportProcessorServiceMock).findReports(any(XUnitToolInfo.class), eq(ws), (String) isNull());
+            inOrder.verify(xUnitReportProcessorServiceMock).findReports(eq(ws), any(XUnitToolInfo.class));
             inOrder.verify(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), eq(ws));
             
             throw e;
@@ -164,7 +164,7 @@ public class XUnitTransformerTest {
     public void empty_test_report_throws_exception_when_stop_build_option_is_true() throws Exception {
         // One result file
         List<String> resultFiles = Arrays.asList("a.txt");
-        when(xUnitReportProcessorServiceMock.findReports(eq(xUnitToolInfoMock), any(File.class), (String) any())).thenReturn(resultFiles);
+        when(xUnitReportProcessorServiceMock.findReports(any(File.class), eq(xUnitToolInfoMock))).thenReturn(resultFiles);
 
         // Stop processing when there is an error
         when(xUnitReportProcessorServiceMock.isStopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(true);
@@ -182,7 +182,7 @@ public class XUnitTransformerTest {
         } catch (EmptyReportFileException e) {
             // Verifying mock interactions
             InOrder inOrder = inOrder(xUnitReportProcessorServiceMock);
-            inOrder.verify(xUnitReportProcessorServiceMock).findReports(eq(xUnitToolInfoMock), eq(ws), (String) isNull());
+            inOrder.verify(xUnitReportProcessorServiceMock).findReports(eq(ws), eq(xUnitToolInfoMock));
             inOrder.verify(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), eq(ws));
             inOrder.verify(xUnitReportProcessorServiceMock).getCurrentReport(ws, resultFiles.get(0));
 
@@ -199,7 +199,7 @@ public class XUnitTransformerTest {
     public void empty_test_report_does_not_throws_exception_when_stop_build_option_is_false() throws Exception {
         //One result file
         List<String> resultFiles = Arrays.asList("a.txt");
-        when(xUnitReportProcessorServiceMock.findReports(any(XUnitToolInfo.class), any(File.class), (String) any())).thenReturn(resultFiles);
+        when(xUnitReportProcessorServiceMock.findReports(any(File.class), any(XUnitToolInfo.class))).thenReturn(resultFiles);
 
         //Stop processing when there is an error
         when(xUnitReportProcessorServiceMock.isStopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(false);
@@ -218,7 +218,7 @@ public class XUnitTransformerTest {
 
         //Verifying mock interactions
         InOrder inOrder = inOrder(xUnitReportProcessorServiceMock);
-        inOrder.verify(xUnitReportProcessorServiceMock).findReports(any(XUnitToolInfo.class), eq(ws), (String) isNull());
+        inOrder.verify(xUnitReportProcessorServiceMock).findReports(eq(ws), any(XUnitToolInfo.class));
         inOrder.verify(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), eq(ws));
         inOrder.verify(xUnitReportProcessorServiceMock).getCurrentReport(ws, resultFiles.get(0));
 
@@ -238,7 +238,7 @@ public class XUnitTransformerTest {
         FileUtils.write(myInputFile, "bidon");
 
         List<String> resultFiles = Arrays.asList("a.txt");
-        when(xUnitReportProcessorServiceMock.findReports(any(XUnitToolInfo.class), any(File.class), (String) any())).thenReturn(resultFiles);
+        when(xUnitReportProcessorServiceMock.findReports(any(File.class), any(XUnitToolInfo.class))).thenReturn(resultFiles);
         when(xUnitReportProcessorServiceMock.getCurrentReport(any(File.class), anyString())).thenReturn(myInputFile);
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenCallRealMethod();
         // Mark halt processing when there is an error
@@ -254,7 +254,7 @@ public class XUnitTransformerTest {
 
         //Verifying mock interactions
         InOrder inOrderReport = inOrder(xUnitReportProcessorServiceMock);
-        inOrderReport.verify(xUnitReportProcessorServiceMock).findReports(eq(xUnitToolInfoMock), any(File.class), (String) isNull());
+        inOrderReport.verify(xUnitReportProcessorServiceMock).findReports(any(File.class), eq(xUnitToolInfoMock));
         inOrderReport.verify(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(eq(xUnitToolInfoMock), eq(resultFiles), eq(ws));
         inOrderReport.verify(xUnitReportProcessorServiceMock).getCurrentReport(eq(ws), anyString());
 
@@ -272,7 +272,7 @@ public class XUnitTransformerTest {
         File myInputFileEmpty = new File(ws, "b.txt");
 
         List<String> resultFiles = Arrays.asList("a.txt", "b.txt");
-        when(xUnitReportProcessorServiceMock.findReports(any(XUnitToolInfo.class), any(File.class), (String) any())).thenReturn(resultFiles);
+        when(xUnitReportProcessorServiceMock.findReports(any(File.class), any(XUnitToolInfo.class))).thenReturn(resultFiles);
 
         //Stop processing when there is an error
         when(xUnitReportProcessorServiceMock.isStopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(true);
@@ -292,7 +292,7 @@ public class XUnitTransformerTest {
             xUnitTransformer.invoke(ws, mock(VirtualChannel.class));
         } catch(EmptyReportFileException e) {
             //Verifying mock interactions
-            verify(xUnitReportProcessorServiceMock).findReports(eq(xUnitToolInfoMock), eq(ws), (String) isNull());
+            verify(xUnitReportProcessorServiceMock).findReports(eq(ws), eq(xUnitToolInfoMock));
             verify(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(eq(xUnitToolInfoMock), eq(resultFiles), eq(ws));
             verify(xUnitReportProcessorServiceMock, times(2)).getCurrentReport(eq(ws), anyString());
             
@@ -317,7 +317,7 @@ public class XUnitTransformerTest {
         File myInputFileEmpty = new File(ws, "b.txt");
 
         List<String> resultFiles = Arrays.asList("a.txt", "b.txt");
-        when(xUnitReportProcessorServiceMock.findReports(any(XUnitToolInfo.class), any(File.class), (String) any())).thenReturn(resultFiles);
+        when(xUnitReportProcessorServiceMock.findReports(any(File.class), any(XUnitToolInfo.class))).thenReturn(resultFiles);
 
         //Stop processing when there is an error
         when(xUnitReportProcessorServiceMock.isStopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(false);
@@ -336,7 +336,7 @@ public class XUnitTransformerTest {
         xUnitTransformer.invoke(ws, mock(VirtualChannel.class));
 
         //Verifying mock interactions
-        verify(xUnitReportProcessorServiceMock).findReports(eq(xUnitToolInfoMock), eq(ws), (String) isNull());
+        verify(xUnitReportProcessorServiceMock).findReports(eq(ws), eq(xUnitToolInfoMock));
         verify(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(eq(xUnitToolInfoMock), eq(resultFiles), eq(ws));
         verify(xUnitReportProcessorServiceMock, times(2)).getCurrentReport(eq(ws), anyString());
         
@@ -358,7 +358,7 @@ public class XUnitTransformerTest {
         FileUtils.write(myInputFile2, "bidon");
 
         List<String> resultFiles = Arrays.asList("a.txt", "b.txt");
-        when(xUnitReportProcessorServiceMock.findReports(any(XUnitToolInfo.class), any(File.class), (String) any())).thenReturn(resultFiles);
+        when(xUnitReportProcessorServiceMock.findReports(any(File.class), any(XUnitToolInfo.class))).thenReturn(resultFiles);
 
         //Stop processing when there is an error
         when(xUnitReportProcessorServiceMock.isStopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(true);
@@ -375,7 +375,7 @@ public class XUnitTransformerTest {
             xUnitTransformer.invoke(ws, mock(VirtualChannel.class));
         } catch (TransformerException e) {
             //Verifying mock interactions
-            verify(xUnitReportProcessorServiceMock).findReports(eq(xUnitToolInfoMock), eq(ws), (String) isNull());
+            verify(xUnitReportProcessorServiceMock).findReports(eq(ws), eq(xUnitToolInfoMock));
             verify(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(eq(xUnitToolInfoMock), eq(resultFiles), eq(ws));
             verify(xUnitReportProcessorServiceMock).getCurrentReport(eq(ws), anyString());
             
@@ -400,7 +400,7 @@ public class XUnitTransformerTest {
         FileUtils.write(myInputFile2, "bidon");
 
         List<String> resultFiles = Arrays.asList("a.txt", "b.txt");
-        when(xUnitReportProcessorServiceMock.findReports(any(XUnitToolInfo.class), any(File.class), (String) any())).thenReturn(resultFiles);
+        when(xUnitReportProcessorServiceMock.findReports(any(File.class), any(XUnitToolInfo.class))).thenReturn(resultFiles);
 
         //Stop processing when there is an error
         when(xUnitReportProcessorServiceMock.isStopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(false);
@@ -417,7 +417,7 @@ public class XUnitTransformerTest {
         xUnitTransformer.invoke(ws, mock(VirtualChannel.class));
 
         //Verifying mock interactions
-        verify(xUnitReportProcessorServiceMock).findReports(eq(xUnitToolInfoMock), eq(ws), (String) isNull());
+        verify(xUnitReportProcessorServiceMock).findReports(eq(ws), eq(xUnitToolInfoMock));
         verify(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(eq(xUnitToolInfoMock), eq(resultFiles), eq(ws));
         
         verify(xUnitValidationServiceMock).validateInputFile(eq(xUnitToolInfoMock), eq(myInputFile1));
@@ -438,7 +438,7 @@ public class XUnitTransformerTest {
         FileUtils.write(myInputFile2, "bidon");
         
         List<String> resultFiles = Arrays.asList("a.txt", "b.txt");
-        when(xUnitReportProcessorServiceMock.findReports(any(XUnitToolInfo.class), any(File.class), (String) any())).thenReturn(resultFiles);
+        when(xUnitReportProcessorServiceMock.findReports(any(File.class), any(XUnitToolInfo.class))).thenReturn(resultFiles);
         
         //Stop processing when there is an error
         when(xUnitReportProcessorServiceMock.isStopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(true);
@@ -457,7 +457,7 @@ public class XUnitTransformerTest {
             xUnitTransformer.invoke(ws, mock(VirtualChannel.class));
         } catch (TransformerException e) {
             //Verifying mock interactions
-            verify(xUnitReportProcessorServiceMock).findReports(eq(xUnitToolInfoMock), eq(ws), (String) isNull());
+            verify(xUnitReportProcessorServiceMock).findReports(eq(ws), eq(xUnitToolInfoMock));
             verify(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(eq(xUnitToolInfoMock), eq(resultFiles), eq(ws));
             verify(xUnitReportProcessorServiceMock).getCurrentReport(eq(ws), anyString());
             
@@ -480,7 +480,7 @@ public class XUnitTransformerTest {
         FileUtils.write(myInputFile2, "bidon");
         
         List<String> resultFiles = Arrays.asList("a.txt", "b.txt");
-        when(xUnitReportProcessorServiceMock.findReports(any(XUnitToolInfo.class), any(File.class), (String) any())).thenReturn(resultFiles);
+        when(xUnitReportProcessorServiceMock.findReports(any(File.class), any(XUnitToolInfo.class))).thenReturn(resultFiles);
         
         //Stop processing when there is an error
         when(xUnitReportProcessorServiceMock.isStopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(false);
@@ -499,7 +499,7 @@ public class XUnitTransformerTest {
         xUnitTransformer.invoke(ws, mock(VirtualChannel.class));
         
         //Verifying mock interactions
-        verify(xUnitReportProcessorServiceMock).findReports(eq(xUnitToolInfoMock), eq(ws), (String) isNull());
+        verify(xUnitReportProcessorServiceMock).findReports(eq(ws), eq(xUnitToolInfoMock));
         verify(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(eq(xUnitToolInfoMock), eq(resultFiles), eq(ws));
         
         verify(xUnitValidationServiceMock).validateInputFile(eq(xUnitToolInfoMock), eq(myInputFile1));

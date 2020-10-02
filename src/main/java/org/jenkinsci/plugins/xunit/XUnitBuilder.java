@@ -76,12 +76,12 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
         this.thresholds = (thresholds != null ? Arrays.copyOf(thresholds, thresholds.length) : new XUnitThreshold[0]);
         this.thresholdMode = thresholdMode;
         long longTestTimeMargin = XUnitUtil.parsePositiveLong(testTimeMargin, TEST_REPORT_TIME_MARGING);
-        this.extraConfiguration = new ExtraConfiguration(longTestTimeMargin, JUNIT_FILE_REDUCE_LOG, PROCESSING_SLEEP_TIME);
+        this.extraConfiguration = new ExtraConfiguration(longTestTimeMargin, JUNIT_FILE_REDUCE_LOG, PROCESSING_SLEEP_TIME, FOLLOW_SYMLINK);
     }
 
     @DataBoundSetter
     public void setReduceLog(boolean reduceLog) {
-        this.extraConfiguration = new ExtraConfiguration(this.extraConfiguration.getTestTimeMargin(), reduceLog, PROCESSING_SLEEP_TIME);
+        this.extraConfiguration = new ExtraConfiguration(this.extraConfiguration.getTestTimeMargin(), reduceLog, PROCESSING_SLEEP_TIME, FOLLOW_SYMLINK);
     }
 
     /*
@@ -115,7 +115,7 @@ public class XUnitBuilder extends Builder implements SimpleBuildStep {
 
     public ExtraConfiguration getExtraConfiguration() {
         if (extraConfiguration == null) {
-            extraConfiguration = new ExtraConfiguration(TEST_REPORT_TIME_MARGING, JUNIT_FILE_REDUCE_LOG, PROCESSING_SLEEP_TIME);
+            extraConfiguration = new ExtraConfiguration(TEST_REPORT_TIME_MARGING, JUNIT_FILE_REDUCE_LOG, PROCESSING_SLEEP_TIME, FOLLOW_SYMLINK);
         }
         return extraConfiguration;
     }

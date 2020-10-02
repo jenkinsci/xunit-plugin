@@ -144,8 +144,9 @@ public class XUnitReportProcessorTest {
         File f1 = folderRule.newFile("a.txt");
         XUnitToolInfo xUnitToolInfoMock = mock(XUnitToolInfo.class);
         when(xUnitToolInfoMock.getInputMetric()).thenReturn(new MyInputMetric());
+        when(xUnitToolInfoMock.getPattern()).thenReturn("*.txt");
 
-        List<String> xUnitFiles = xUnitReportProcessorService.findReports(xUnitToolInfoMock, f1.getParentFile(), "*.txt");
+        List<String> xUnitFiles = xUnitReportProcessorService.findReports(f1.getParentFile(), xUnitToolInfoMock);
         Assert.assertFalse(xUnitFiles.isEmpty());
         Assert.assertEquals(1, xUnitFiles.size());
         Assert.assertEquals(f1.getName(), xUnitFiles.get(0));
@@ -155,8 +156,9 @@ public class XUnitReportProcessorTest {
     public void verify_processor_throws_exception_if_no_reports_was_found() throws Exception {
         XUnitToolInfo xUnitToolInfoMock = mock(XUnitToolInfo.class);
         when(xUnitToolInfoMock.getInputMetric()).thenReturn(new MyInputMetric());
+        when(xUnitToolInfoMock.getPattern()).thenReturn("*.xml");
 
-        xUnitReportProcessorService.findReports(xUnitToolInfoMock, folderRule.newFolder(), "*.xml");
+        xUnitReportProcessorService.findReports(folderRule.newFolder(), xUnitToolInfoMock);
     }
 
 }

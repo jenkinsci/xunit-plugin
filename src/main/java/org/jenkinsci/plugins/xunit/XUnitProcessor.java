@@ -265,7 +265,8 @@ public class XUnitProcessor {
 
         return new XUnitToolInfo(inputMetric, pattern, tool.isSkipNoTestFiles(), //
                 tool.isFailIfNotNew(), tool.isDeleteOutputFiles(), tool.isStopProcessingIfError(), //
-                build.getTimeInMillis(), this.extraConfiguration.getTestTimeMargin(), this.extraConfiguration.getSleepTime(), //
+                this.extraConfiguration.isFollowSymlink(), build.getTimeInMillis(), //
+                this.extraConfiguration.getTestTimeMargin(), this.extraConfiguration.getSleepTime(), //
                 xslContent);
     }
 

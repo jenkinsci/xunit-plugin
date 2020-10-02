@@ -60,17 +60,18 @@ public class XUnitReportProcessorService implements Serializable {
     /**
      * Gets all reports from the given parent path and the pattern.
      *
-     * @param xUnitToolInfo the xunit tool wrapper
-     * @param parentPath parent
-     * @param pattern pattern to search files
+     * @param parentPath folder from where start search
+     * @param xUnitToolInfo all XUnit options also advanced  
      * @return an array of strings
      * @throws NoTestFoundException when not report files were founded
      */
-    public List<String> findReports(XUnitToolInfo xUnitToolInfo, File parentPath, String pattern) throws NoTestFoundException {
-        String toolName = xUnitToolInfo.getInputMetric().getLabel();
+    public List<String> findReports(File parentPath, XUnitToolInfo options) throws NoTestFoundException {
+        String toolName = options.getInputMetric().getLabel();
+        String pattern = options.getPattern();
 
         FileSet fs = Util.createFileSet(parentPath, pattern);
         DirectoryScanner ds = fs.getDirectoryScanner();
+        ds.setFollowSymlinks(options.isFollowSymlink());
         String[] xunitFiles = ds.getIncludedFiles();
 
         if (xunitFiles.length == 0) {

@@ -23,23 +23,72 @@
  */
 package org.jenkinsci.plugins.xunit;
 
+import static org.jenkinsci.plugins.xunit.XUnitDefaultValues.FOLLOW_SYMLINK;
+
 import java.io.Serializable;
 
 /**
+ * Lists all advanced configuration for XUnit.
+ * <p>
+ * This class is used only by UI.
+ *
  * @author Gregory Boissinot
+ * @author Nikolas Falco
  */
 public class ExtraConfiguration implements Serializable {
+    
+    static class ExtraConfigurationBuilder {
+        private ExtraConfiguration configuration;
+
+        public ExtraConfigurationBuilder(ExtraConfiguration configuration) {
+            this.configuration = new ExtraConfiguration(configuration.testTimeMargin, configuration.reduceLog, configuration.sleepTime, configuration.followSymlink);
+        }
+
+        public ExtraConfigurationBuilder testTimeMargin(long testTimeMargin) {
+            configuration.testTimeMargin = testTimeMargin;
+            return this;
+        }
+
+        public ExtraConfigurationBuilder sleepTime(long sleepTime) {
+            configuration.sleepTime = sleepTime;
+            return this;
+        }
+
+        public ExtraConfigurationBuilder reduceLog(boolean reduceLog) {
+            configuration.reduceLog = reduceLog;
+            return this;
+        }
+
+        public ExtraConfigurationBuilder followSymlink(boolean followSymlink) {
+            configuration.followSymlink = followSymlink;
+            return this;
+        }
+
+        public ExtraConfiguration build() {
+            return configuration;
+        }
+    }
 
     private static final long serialVersionUID = 1L;
 
-    private final long testTimeMargin;
-    private final long sleepTime;
-    private final boolean reduceLog;
+    private long testTimeMargin;
+    private long sleepTime;
+    private boolean reduceLog;
+    /*
+     * Boolean to be backward compatible when unmarshall by XStream so we can
+     * understand when value is missing in XML file
+     */
+    private Boolean followSymlink;
 
-    public ExtraConfiguration(long testTimeMargin, boolean reduceLog, long sleepTime) {
+    static ExtraConfigurationBuilder withConfiguration(ExtraConfiguration configuration) {
+        return new ExtraConfigurationBuilder(configuration);
+    }
+
+    public ExtraConfiguration(long testTimeMargin, boolean reduceLog, long sleepTime, boolean followSymlink) {
         this.testTimeMargin = testTimeMargin;
         this.sleepTime = sleepTime;
         this.reduceLog = reduceLog;
+        this.followSymlink = followSymlink;
     }
 
     public long getTestTimeMargin() {
@@ -52,5 +101,25 @@ public class ExtraConfiguration implements Serializable {
 
     public boolean isReduceLog() {
         return reduceLog;
+    }
+
+    public boolean isFollowSymlink() {
+        return followSymlink;
+    }
+
+    /**
+     * Migrate old data
+     *
+     * @see <a href=
+     *      "https://wiki.jenkins-ci.org/display/JENKINS/Hint+on+retaining+backward+compatibility">
+     *      Jenkins wiki entry on the subject</a>
+     *
+     * @return must be always 'this'
+     */
+    private Object readResolve() {
+        if (followSymlink == null) {
+            followSymlink = FOLLOW_SYMLINK;
+        }
+        return this;
     }
 }

@@ -67,6 +67,10 @@ THE SOFTWARE.
             <f:entry field="reduceLog" title="${%extraConfiguration.reduceLog.title}" description="${%extraConfiguration.reduceLog.description}">
                 <f:checkbox checked="${instance.extraConfiguration.reduceLog}" default="true"/>
             </f:entry>
+
+            <f:entry field="followSymlink" title="${%extraConfiguration.followSymlink.title}" description="${%extraConfiguration.followSymlink.description}">
+                <f:checkbox checked="${instance.extraConfiguration.followSymlink}" default="true"/>
+            </f:entry>
         </f:advanced>
     </f:block>
 

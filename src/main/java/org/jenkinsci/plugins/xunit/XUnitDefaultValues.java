@@ -35,6 +35,8 @@ public class XUnitDefaultValues {
     public static final int TEST_REPORT_TIME_MARGING = 3000; // default to 3000
 
     public static final int PROCESSING_SLEEP_TIME = 10;
+    
+    public static final boolean FOLLOW_SYMLINK = true;
 
     public static final boolean JUNIT_FILE_REDUCE_LOG = true;
 
