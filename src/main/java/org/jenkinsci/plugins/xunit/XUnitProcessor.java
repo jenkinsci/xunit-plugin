@@ -389,6 +389,8 @@ public class XUnitProcessor {
 
             if (existingAction == null) {
                 build.addAction(action);
+            } else {
+                build.save();
             }
         }
 
