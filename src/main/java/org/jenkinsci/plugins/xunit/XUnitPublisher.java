@@ -196,12 +196,13 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
         try {
             XUnitProcessor xUnitProcessor = new XUnitProcessor(getTools(), getThresholds(), getThresholdMode(), getExtraConfiguration());
             xUnitProcessor.process(build, workspace, listener, launcher, getTestDataPublishers(), null);
-        } catch(AbortException | TransformerException e) {
+        } catch(AbortException e) {
             build.setResult(Result.FAILURE);
-            if (e instanceof TransformerException) {
-                throw new AbortException(e.getMessage());
-            }
             throw e;
+        } catch(TransformerException e) {
+            build.setResult(Result.FAILURE);
+            // extract original message
+            throw new AbortException(e.getMessage());
         }
     }
 
