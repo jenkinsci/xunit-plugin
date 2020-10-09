@@ -61,7 +61,7 @@ public class XUnitReportProcessorService implements Serializable {
      * Gets all reports from the given parent path and the pattern.
      *
      * @param parentPath folder from where start search
-     * @param xUnitToolInfo all XUnit options also advanced  
+     * @param options all XUnit options also advanced  
      * @return an array of strings
      * @throws NoTestFoundException when not report files were founded
      */
