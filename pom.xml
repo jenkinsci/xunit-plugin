@@ -11,7 +11,7 @@
     <version>${revision}${changelist}</version>
     <packaging>hpi</packaging>
     <name>xUnit plugin</name>
-    <url>http://wiki.jenkins-ci.org/display/JENKINS/xUnit+Plugin</url>
+    <url>https://github.com/jenkinsci/xunit-plugin</url>
 
     <licenses>
         <license>
