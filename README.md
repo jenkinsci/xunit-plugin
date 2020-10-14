@@ -77,8 +77,8 @@ For unsupported report type an user could provide an own stylesheet that convert
 When choose the "Custom Tool" as tool type a path to the user XSL must be provided.
 The path is relative and the plugin lookup the provided relative path using the following priority:
 
-1.  on Jenkins master
-2.  on Jenkins slave
+1.  on Jenkins controller
+2.  on Jenkins agent
 3.  relative to workspace
 
 You could also provide an URL to the stylesheet.
@@ -173,7 +173,7 @@ pipeline {
 #### Bugfixes
 
 -   [JENKINS-52512](https://issues.jenkins-ci.org/browse/JENKINS-52512)
-    Builds on slave node fails when there is no report file even if set
+    Builds on agent fails when there is no report file even if set
     to do not fail (nfalco79)
 -   [JENKINS-52400](https://issues.jenkins-ci.org/browse/JENKINS-52400)
     xUnit miss to add required attributes when converts Valgrind reports
