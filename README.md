@@ -1,8 +1,6 @@
-This plugin makes it possible to publish the test results of an
-execution of a testing tool in
-Jenkins.![](docs/images/xunit_features.JPG)
+This plugin publishes test results of an execution of a testing tool in Jenkins.
 
-  
+![](docs/images/xunit_features.JPG)
 
 # Features
 
@@ -13,109 +11,89 @@ Jenkins.![](docs/images/xunit_features.JPG)
 
 ## Embedded tools
 
-\* JUnit (supported schema are [Ant
-junit](https://github.com/windyroad/JUnit-Schema/blob/master/JUnit.xsd)
-and [Maven
-Surefire](http://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd))  
-\* [AUnit](http://libre.adacore.com/libre/tools/aunit/)  
-\* [MSTest](http://en.wikipedia.org/wiki/MSTest) (imported from [MSTest
-Plugin](http://wiki.jenkins-ci.org/display/JENKINS/MSTest+Plugin))  
-\* [NUnit](http://www.nunit.org/index.php) (imported from [NUnit
-Plugin](http://wiki.jenkins-ci.org/display/JENKINS/NUnit+Plugin))  
-\* [UnitTest++](http://unittest-cpp.sourceforge.net/)  
-\* [Boost Test
-Library](http://www.boost.org/doc/libs/1_39_0/libs/test/doc/html/index.html)  
-\* [PHPUnit](http://www.phpunit.de/)  
-\* [Free Pascal Unit](http://www.freepascal.org/units.html)  
-\* [CppUnit](https://sourceforge.net/projects/cppunit/)  
-\* [MbUnit](http://www.mbunit.com/)  
-\* [Googletest](http://code.google.com/p/googletest/)  
-\* [EmbUnit](http://embunit.sourceforge.net/embunit/index.html)  
-\*
-[gtester/glib](https://developer.gnome.org/glib/stable/gtester.html)  
-\* [QTestLib](http://doc.qt.io/qt-5/qtest-overview.html)
+* JUnit (supported schema are [Ant junit](https://github.com/windyroad/JUnit-Schema/blob/master/JUnit.xsd) and [Maven Surefire](http://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd))
+* [AUnit](http://libre.adacore.com/libre/tools/aunit/)
+* [MSTest](http://en.wikipedia.org/wiki/MSTest) (imported from [MSTest Plugin](http://wiki.jenkins-ci.org/display/JENKINS/MSTest+Plugin))
+* [NUnit](http://www.nunit.org/index.php) (imported from [NUnit Plugin](http://wiki.jenkins-ci.org/display/JENKINS/NUnit+Plugin))
+* [UnitTest++](http://unittest-cpp.sourceforge.net/)
+* [Boost Test Library](http://www.boost.org/doc/libs/1_39_0/libs/test/doc/html/index.html)
+* [PHPUnit](http://www.phpunit.de/)
+* [Free Pascal Unit](http://www.freepascal.org/units.html)
+* [CppUnit](https://sourceforge.net/projects/cppunit/)
+* [MbUnit](http://www.mbunit.com/)
+* [Googletest](http://code.google.com/p/googletest/)
+* [EmbUnit](http://embunit.sourceforge.net/embunit/index.html)
+* [gtester/glib](https://developer.gnome.org/glib/stable/gtester.html)
+* [QTestLib](http://doc.qt.io/qt-5/qtest-overview.html)
 
 ## Other plugins as an extension of the xUnit plugin:
 
-\* [Gallio](http://www.gallio.org/) ([Gallio
-plugin](http://wiki.jenkins-ci.org/display/JENKINS/Gallio+Plugin))  
-\* [Parasoft C++Test
-tool](http://www.parasoft.com/jsp/products/cpptest.jsp) ([Cpptest
-Plugin](http://wiki.jenkins-ci.org/display/JENKINS/Cpptest+Plugin))  
-\* [JSUnit](http://www.jsunit.net/) ([JSUnit
-Plugin](http://wiki.jenkins-ci.org/display/JENKINS/JSUnit+plugin))  
-\* [JBehave](http://jbehave.org/reference/stable/hudson-plugin.html)  
-\* [TestComplete](http://smartbear.com/product/testcomplete/overview/)
-([TestComplete xUnit
-Plugin](http://wiki.jenkins-ci.org/display/JENKINS/TestComplete+xUnit+Plugin))
+* [Gallio](http://www.gallio.org/) ([Gallio plugin](http://wiki.jenkins-ci.org/display/JENKINS/Gallio+Plugin))
+* [Parasoft C++Test tool](http://www.parasoft.com/jsp/products/cpptest.jsp) ([Cpptest Plugin](http://wiki.jenkins-ci.org/display/JENKINS/Cpptest+Plugin))
+* [JSUnit](http://www.jsunit.net/) ([JSUnit Plugin](http://wiki.jenkins-ci.org/display/JENKINS/JSUnit+plugin))
+* [JBehave](http://jbehave.org/reference/stable/hudson-plugin.html)
+* [TestComplete](http://smartbear.com/product/testcomplete/overview/) ([TestComplete xUnit Plugin](http://wiki.jenkins-ci.org/display/JENKINS/TestComplete+xUnit+Plugin))
 
 ## External contributions
 
-For each xUnit tool, an embedded style sheet is used. However, the
-plugin also enables you to use a custom style sheet for your own tool
-such as :  
-\* [WebUI](http://github.com/versionone/webui-plugin)  
-\* [Ranorex](http://github.com/ranorex/ranorex-to-xunit)
+For each xUnit tool, an embedded style sheet is used.
+However, the plugin also enables you to use a custom style sheet for your own tool such as :
+
+* [WebUI](http://github.com/versionone/webui-plugin)
+* [Ranorex](http://github.com/ranorex/ranorex-to-xunit)
 
 # Configuration
 
 ## Job Configuration
 
-\* Execute your testing tools manually or as a step of your build
-chain  
-\* Give a pattern that specifies your test results
+* Execute your testing tools manually or as a step of your build chain
+* Give a pattern that specifies your test results
 
 ![](docs/images/xunit-conf-0.2.png)
 
 ##  Provide User XSL
 
-If you want to customise how a input report is transformed to a JUnit
-report, of an existing tool type; xUnit provides a way to use your own
-XSL if placed at specific path. Specify your XSLs in the
-JENKINS\_HOME/userContent directory with the following convention:
+If you want to customise how a input report is transformed to a JUnit report of an existing tool type; xUnit provides a way to use your own XSL if placed at specific path.
+Specify your XSLs in the `JENKINS_HOME/userContent` directory with the following convention:
 
-$JENKINS\_HOME/userContent/xunit/\[toolName\]/\[version\]/\[any\_name\].xsl
+```
+$JENKINS_HOME/userContent/xunit/[toolName]/[version]/[any_name].xsl
+```
 
 For example:
 
-$JENKINS\_HOME/userContent/xunit/AUnit/3.x/aunit-to-junit.xsl
+```
+$JENKINS_HOME/userContent/xunit/AUnit/3.x/aunit-to-junit.xsl
+```
 
-**Note**: The tool name and the version are taken from the label in the
-combo box from the UI. If the tool doesn't have a version (N/A), do not
-create a version directory.
+**Note**: The tool name and the version are taken from the label in the combo box from the UI.
+If the tool doesn't have a version (N/A), do not create a version directory.
 
 ##  Custom Tool for unsupported formats
 
-XUnit supports a large number of report format, but not all. For
-unsupported report type an user could provide an own stylesheet that
-convert the original report into a supported JUnit report.
+XUnit supports a large number of report format, but not all.
+For unsupported report type an user could provide an own stylesheet that convert the original report into a supported JUnit report.
 
-When choose the "Custom Tool" as tool type a path to the user XSL must
-be provided. The path is relative and the plugin lookup the provided
-relative path using the following priority:
+When choose the "Custom Tool" as tool type a path to the user XSL must be provided.
+The path is relative and the plugin lookup the provided relative path using the following priority:
 
 1.  on Jenkins master
 2.  on Jenkins slave
 3.  relative to workspace
 
-You could also provide an URL to the stylesheet. Is possible place the
-XSL file in the $JENKINS\_HOME/userContent folder and automatically the
-file will be available under the URL
-http(s)://$JENKINS\_URL/userContent/\<xsl file\>
+You could also provide an URL to the stylesheet.
+If the XSL file is placed in the `$JENKINS_HOME/userContent` folder, the file will be available under the URL
+`http(s)://$JENKINS_URL/userContent/<xsl file>`
 
 # xUnit Architecture
 
 ## Global Architecture
 
-When this plugin is installed and configured, Jenkins can transform test
-result reports produced by different testing tools into JUnit test
-result format. The JUnit tests can then be recorded by Jenkins.  
-Jenkins can provide useful information about test results, such as the
-historical test result trend, web UI for viewing test reports, tracking
-failures, and so on.
+When this plugin is installed and configured, Jenkins can transform test result reports produced by different testing tools into JUnit test result format.
+The JUnit tests can then be recorded by Jenkins.
+Jenkins can provide useful information about test results, such as the historical test result trend, web UI for viewing test reports, tracking failures, and so on.
 
-Under the hood, xUnit Jenkins plugin delegates processing to
-[DTKit](http://wiki.jenkins-ci.org/display/JENKINS/DTKit).
+Under the hood, xUnit Jenkins plugin delegates processing to [DTKit](https://plugins.jenkins.io/dtkit/).
 
 ![](docs/images/xunit_architecture.JPG)
 
@@ -129,15 +107,14 @@ Under the hood, xUnit Jenkins plugin delegates processing to
 
 ## Working with Pipelines
 
-It is also possible to set an xUnit configuration in a pipeline job, but
-is somewhat more verbose.
+It is also possible to set an xUnit configuration in a pipeline job, but is somewhat more verbose.
 
 For example, creating a boost pipeline (declarative) with the same
 configuration as above would be:
 
 **Example of pipeline**
 
-``` syntaxhighlighter-pre
+```groovy
 pipeline {
     agent any
     stages {
@@ -160,29 +137,29 @@ pipeline {
 
 # Releases
 
-**Moved to github repository page**
+**Moved to [GitHub repository page](https://github.com/jenkinsci/xunit-plugin/releases/)**
 
 ## Version 2.2.5
 
 #### Improvements
 
--   [JENKINS-51645](https://issues.jenkins-ci.org/browse/JENKINS-51645) Add
+-   [JENKINS-51645](https://issues.jenkins-ci.org/browse/JENKINS-51645) Add
     support for claims plugin in xUnit (nfalco79 to Arnaud)
--   [JENKINS-24224](https://issues.jenkins-ci.org/browse/JENKINS-24224) improve
+-   [JENKINS-24224](https://issues.jenkins-ci.org/browse/JENKINS-24224) improve
     xunit plugin with test-stability plugin (nfalco79 to Arnaud)
 
 #### Bugfixes
 
--   [JENKINS-53186](https://issues.jenkins-ci.org/browse/JENKINS-53186) NUnit
+-   [JENKINS-53186](https://issues.jenkins-ci.org/browse/JENKINS-53186) NUnit
     2.x test cases with result Error are reported as Success (nfalco79)
 -   Fix lookup strategy when user provides a custom stylesheets file to
     override the embedded one (nfalco79)
--   [JENKINS-53034](https://issues.jenkins-ci.org/browse/JENKINS-53034) Failure
+-   [JENKINS-53034](https://issues.jenkins-ci.org/browse/JENKINS-53034) Failure
     when validate NUnit 2.x reports generated by NUnit 3.x console
     (nfalco79)
--   [JENKINS-53036](https://issues.jenkins-ci.org/browse/JENKINS-53036) NPE
+-   [JENKINS-53036](https://issues.jenkins-ci.org/browse/JENKINS-53036) NPE
     after upgrade to 2.2.1 when run publisher (nfalco79)
--   [JENKINS-52908](https://issues.jenkins-ci.org/browse/JENKINS-52908) Newlines
+-   [JENKINS-52908](https://issues.jenkins-ci.org/browse/JENKINS-52908) Newlines
     get ignored in failure message and possibly stack trace when
     uploading xUnitDotNet xml results (nfalco79)
 
@@ -211,7 +188,7 @@ pipeline {
 
 #### Bugfixes
 
--   [JENKINS-52327](https://issues.jenkins-ci.org/browse/JENKINS-52327) java.nio.file.AccessDeniedException
+-   [JENKINS-52327](https://issues.jenkins-ci.org/browse/JENKINS-52327) java.nio.file.AccessDeniedException
     on Publish xunit Custom tool test report (nfalco79 to greghoeppner)
 -   [JENKINS-52202](https://issues.jenkins-ci.org/browse/JENKINS-52202)
     xUnit reports "All test reports are empty" in case of parallel steps
@@ -222,15 +199,15 @@ pipeline {
 -   [JENKINS-52173](https://issues.jenkins-ci.org/browse/JENKINS-52173)
     xUnit fails when converting gtester/glib2 input to junit format
     (nfalco79)
--   [JENKINS-51604](https://issues.jenkins-ci.org/browse/JENKINS-51604) XPathExeption
+-   [JENKINS-51604](https://issues.jenkins-ci.org/browse/JENKINS-51604) XPathExeption
     when parsing QtTestLib Reports when a Test contains multiple
     Incidents (nfalco79)
--   [JENKINS-27860](https://issues.jenkins-ci.org/browse/JENKINS-27860) Build
+-   [JENKINS-27860](https://issues.jenkins-ci.org/browse/JENKINS-27860) Build
     does not stop if it is marked as Failure when the opportune option
     is enabled (nfalco79)
--   [JENKINS-47194](https://issues.jenkins-ci.org/browse/JENKINS-47194) xUnit
+-   [JENKINS-47194](https://issues.jenkins-ci.org/browse/JENKINS-47194) xUnit
     should not consider report generated by other xUnit step (nfalco79)
--   [JENKINS-52107](https://issues.jenkins-ci.org/browse/JENKINS-52107) Convertion
+-   [JENKINS-52107](https://issues.jenkins-ci.org/browse/JENKINS-52107) Convertion
     exception for NUnit 2.1 reports because nunit-version attribute not
     contains only digits (nfalco79)
 -   [JENKINS-41093](https://issues.jenkins-ci.org/browse/JENKINS-41093)
@@ -240,7 +217,7 @@ pipeline {
     xUnit 2.x XSD does not validate NUnit 2.x XML report file (nfalco79)
 -   [JENKINS-51797](https://issues.jenkins-ci.org/browse/JENKINS-51797)
     xUnit.Net v2 parse error when time attribute is missing (nfalco79)
--   [JENKINS-51798](https://issues.jenkins-ci.org/browse/JENKINS-51798) GoogleTest
+-   [JENKINS-51798](https://issues.jenkins-ci.org/browse/JENKINS-51798) GoogleTest
     parse error when time attribute is missing (nfalco79)
 -   [JENKINS-51561](https://issues.jenkins-ci.org/browse/JENKINS-51561)
     xUnit plugin fails to parse NUnit 2 report format generated by NUnit
@@ -269,29 +246,27 @@ attributes or XML DOM in the report generated by some user/tools report
 logger also if they declare to produce a valid report file. This cause
 me to spend a lot of time to investigate what is right and what is wrong
 and how to implement the XSL without it goes in error during
-transformation. 
+transformation. 
 
--   **Official supported JUnit schema are [Ant
-    junit](https://github.com/windyroad/JUnit-Schema/blob/master/JUnit.xsd)
-    and [Maven
-    Surefire](http://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd)).**
+-   **Official supported JUnit schema are [Ant junit](https://github.com/windyroad/JUnit-Schema/blob/master/JUnit.xsd)
+    and [Maven Surefire](http://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd)).**
 
 In case you are using a non java tools that declares to produce a JUnit
 compatible report, ensure the report respects one of the widely used
 supported schemas. If not than select as test type the build step
 "Custom Tool" and
-use [this](http://wiki.jenkins-ci.org/download/attachments/38633556/input.xsl?version=1&modificationDate=1548587692000&api=v2)
+use [this](http://wiki.jenkins-ci.org/download/attachments/38633556/input.xsl?version=1&modificationDate=1548587692000&api=v2)
 XSL as
-described [here](http://wiki.jenkins-ci.org/display/JENKINS//xUnit+Plugin#xUnitPlugin-UserXSL).
+described [here](http://wiki.jenkins-ci.org/display/JENKINS//xUnit+Plugin#xUnitPlugin-UserXSL).
 
--   **NUnit 2.x (2.0 \~ 2.6) schema validation from official
+-   **NUnit 2.x (2.0 - 2.6) schema validation from official
     distribution.**
 
 In case you are using a tools that declares to produce a NUnit 2
 compatible report, ensure the report respects the official schemas. If
 not than select as test type the build step "Custom Tool" and provide a
 XSL as
-described [here](http://wiki.jenkins-ci.org/display/JENKINS//xUnit+Plugin#xUnitPlugin-UserXSL).
+described [here](http://wiki.jenkins-ci.org/display/JENKINS//xUnit+Plugin#xUnitPlugin-UserXSL).
 
 #### Improvements
 
@@ -306,7 +281,7 @@ described [here](http://wiki.jenkins-ci.org/display/JENKINS//xUnit+Plugin#xUnit
 #### Bugfixes
 
 -   [JENKINS-42715](https://issues.jenkins-ci.org/browse/JENKINS-42715)
-    xUnit does not support PHPUnit 5.x skipped attribute (nfalco79 to
+    xUnit does not support PHPUnit 5.x skipped attribute (nfalco79 to
     ray)
 -   [JENKINS-47194](https://issues.jenkins-ci.org/browse/JENKINS-47194)
     xUnit should not consider report generated by other xUnit step
@@ -369,5 +344,3 @@ described [here](http://wiki.jenkins-ci.org/display/JENKINS//xUnit+Plugin#xUnit
 -   Fix
     [JENKINS-27240](http://wiki.jenkins-ci.org/display/JENKINS/xUnit+Plugin) -
     Workflow integration XUnit as a SimpleBuildSte
-
-  
