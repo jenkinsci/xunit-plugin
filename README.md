@@ -13,8 +13,8 @@ This plugin publishes test results of an execution of a testing tool in Jenkins.
 
 * JUnit (supported schema are [Ant junit](https://github.com/windyroad/JUnit-Schema/blob/master/JUnit.xsd) and [Maven Surefire](http://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd))
 * [AUnit](http://libre.adacore.com/libre/tools/aunit/)
-* [MSTest](http://en.wikipedia.org/wiki/MSTest) (imported from [MSTest Plugin](http://wiki.jenkins-ci.org/display/JENKINS/MSTest+Plugin))
-* [NUnit](http://www.nunit.org/index.php) (imported from [NUnit Plugin](http://wiki.jenkins-ci.org/display/JENKINS/NUnit+Plugin))
+* [MSTest](http://en.wikipedia.org/wiki/MSTest) (imported from [MSTest Plugin](https://github.com/jenkinsci/mstest-plugin))
+* [NUnit](http://www.nunit.org/index.php) (imported from [NUnit Plugin](https://github.com/jenkinsci/nunit-plugin))
 * [UnitTest++](http://unittest-cpp.sourceforge.net/)
 * [Boost Test Library](http://www.boost.org/doc/libs/1_39_0/libs/test/doc/html/index.html)
 * [PHPUnit](http://www.phpunit.de/)
@@ -28,11 +28,11 @@ This plugin publishes test results of an execution of a testing tool in Jenkins.
 
 ## Other plugins as an extension of the xUnit plugin:
 
-* [Gallio](http://www.gallio.org/) ([Gallio plugin](http://wiki.jenkins-ci.org/display/JENKINS/Gallio+Plugin))
-* [Parasoft C++Test tool](http://www.parasoft.com/jsp/products/cpptest.jsp) ([Cpptest Plugin](http://wiki.jenkins-ci.org/display/JENKINS/Cpptest+Plugin))
-* [JSUnit](http://www.jsunit.net/) ([JSUnit Plugin](http://wiki.jenkins-ci.org/display/JENKINS/JSUnit+plugin))
+* [Gallio](http://www.gallio.org/) ([Gallio plugin](https://github.com/jenkinsci/gallio-plugin))
+* [Parasoft C++Test tool](http://www.parasoft.com/jsp/products/cpptest.jsp) ([Cpptest Plugin](https://github.com/jenkinsci/parasoft-findings-plugin))
+* [JSUnit](http://www.jsunit.net/) ([JSUnit Plugin](https://github.com/jenkinsci/jsunit-plugin))
 * [JBehave](http://jbehave.org/reference/stable/hudson-plugin.html)
-* [TestComplete](http://smartbear.com/product/testcomplete/overview/) ([TestComplete xUnit Plugin](http://wiki.jenkins-ci.org/display/JENKINS/TestComplete+xUnit+Plugin))
+* [TestComplete](http://smartbear.com/product/testcomplete/overview/) ([TestComplete xUnit Plugin](https://github.com/jenkinsci/testcomplete-xunit-plugin))
 
 ## External contributions
 
@@ -255,9 +255,9 @@ In case you are using a non java tools that declares to produce a JUnit
 compatible report, ensure the report respects one of the widely used
 supported schemas. If not than select as test type the build step
 "Custom Tool" and
-use [this](http://wiki.jenkins-ci.org/download/attachments/38633556/input.xsl?version=1&modificationDate=1548587692000&api=v2)
+use [this](https://github.com/jenkinsci/xunit-plugin/blob/master/docs/files/input.xsl)
 XSL as
-described [here](http://wiki.jenkins-ci.org/display/JENKINS//xUnit+Plugin#xUnitPlugin-UserXSL).
+described [here](#provide-user-xsl).
 
 -   **NUnit 2.x (2.0 - 2.6) schema validation from official
     distribution.**
@@ -266,7 +266,7 @@ In case you are using a tools that declares to produce a NUnit 2
 compatible report, ensure the report respects the official schemas. If
 not than select as test type the build step "Custom Tool" and provide a
 XSL as
-described [here](http://wiki.jenkins-ci.org/display/JENKINS//xUnit+Plugin#xUnitPlugin-UserXSL).
+described [here](#provide-user-xsl).
 
 #### Improvements
 
