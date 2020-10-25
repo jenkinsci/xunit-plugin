@@ -31,7 +31,7 @@ import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.workflow.actions.WarningAction;
 import org.jenkinsci.plugins.workflow.graph.FlowNode;
 import org.jenkinsci.plugins.workflow.steps.StepContext;
-import org.jenkinsci.plugins.workflow.steps.SynchronousStepExecution;
+import org.jenkinsci.plugins.workflow.steps.SynchronousNonBlockingStepExecution;
 import org.jenkinsci.plugins.xunit.ExtraConfiguration;
 import org.jenkinsci.plugins.xunit.XUnitProcessor;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
@@ -47,7 +47,7 @@ import hudson.tasks.junit.TestResultSummary;
 import hudson.tasks.junit.pipeline.JUnitResultsStepExecution;
 import hudson.tasks.test.PipelineTestDetails;
 
-public class XUnitResultsStepExecution extends SynchronousStepExecution<TestResultSummary> {
+public class XUnitResultsStepExecution extends SynchronousNonBlockingStepExecution<TestResultSummary> {
     private transient XUnitResultsStep step;
 
     public XUnitResultsStepExecution(@Nonnull XUnitResultsStep step, @Nonnull StepContext context) {

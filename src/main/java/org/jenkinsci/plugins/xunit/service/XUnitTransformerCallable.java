@@ -131,7 +131,8 @@ public class XUnitTransformerCallable extends MasterToSlaveFileCallable<Integer>
             }
 
             processedFiles++;
-            if (processedFiles % 10 == 0 && xUnitToolInfo.getSleepTime() > 0) {
+            // this should not more needed using NonBlocking step
+            if (processedFiles % 50 == 0 && xUnitToolInfo.getSleepTime() > 0) {
                 Thread.sleep(xUnitToolInfo.getSleepTime());
             }
         }
