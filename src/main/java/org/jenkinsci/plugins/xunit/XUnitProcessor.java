@@ -114,9 +114,8 @@ public class XUnitProcessor {
             FileUtils.forceMkdir(generatedJUnitDir);
             FileSet fs = Util.createFileSet(generatedJUnitDir, junitFilePattern);
             DirectoryScanner ds = fs.getDirectoryScanner();
-            String[] files = ds.getIncludedFiles();
 
-            if (files.length == 0) {
+            if (ds.getIncludedFilesCount() == 0) {
                 // no test result. Most likely a configuration error or fatal
                 // problem
                 return null;
