@@ -34,6 +34,7 @@ import java.io.File;
 /**
  * @author Gregory Boissinot
  */
+@SuppressWarnings("serial")
 public class CustomInputMetric extends InputMetricXSL {
 
     private File customXSLFile;

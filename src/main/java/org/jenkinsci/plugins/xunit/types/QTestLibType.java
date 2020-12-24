@@ -26,7 +26,6 @@ package org.jenkinsci.plugins.xunit.types;
 
 import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
-import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 import hudson.Extension;
@@ -40,27 +39,20 @@ import hudson.Extension;
  * 
  * @author Gregory Boissinot
  */
-public class QTestLibType extends TestType {
+@SuppressWarnings("serial")
+public class QTestLibType extends AbstractTestType {
 
     @DataBoundConstructor
-    public QTestLibType(String pattern, boolean skipNoTestFiles, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
-        super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
+    public QTestLibType(String pattern) {
+        super(pattern);
     }
 
     @Symbol("QtTest")
     @Extension
     public static class QTestLibTypeDescriptor extends TestTypeDescriptor<QTestLibType> {
-
         public QTestLibTypeDescriptor() {
             super(QTestLibType.class, QTestLib.class);
         }
-
-    }
-
-    @Override
-    public Object readResolve() {
-        return super.readResolve();
     }
 
 }
-

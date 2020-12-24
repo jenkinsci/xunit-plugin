@@ -27,8 +27,6 @@ package org.jenkinsci.plugins.xunit.service;
 import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
@@ -65,39 +63,41 @@ public class XUnitReportProcessorService implements Serializable {
      * @return an array of strings
      * @throws NoTestFoundException when not report files were founded
      */
-    public List<String> findReports(File parentPath, XUnitToolInfo options) throws NoTestFoundException {
+    public String[] findReports(File parentPath, XUnitToolInfo options) throws NoTestFoundException {
         String toolName = options.getInputMetric().getLabel();
-        String pattern = options.getPattern();
+        String includes = options.getPattern();
+        String excludes = options.getExcludesPattern();
 
-        FileSet fs = Util.createFileSet(parentPath, pattern);
+        FileSet fs = Util.createFileSet(parentPath, includes, excludes);
+        fs.setFollowSymlinks(options.isFollowSymlink());
+
         DirectoryScanner ds = fs.getDirectoryScanner();
-        ds.setFollowSymlinks(options.isFollowSymlink());
-        String[] xunitFiles = ds.getIncludedFiles();
-
-        if (xunitFiles.length == 0) {
-            String msg = Messages.XUnitReportProcessorService_reportsNotFound(toolName, pattern, parentPath);
+        if (ds.getIncludedFilesCount() == 0) {
+            String msg = Messages.XUnitReportProcessorService_reportsNotFound(toolName, includes, parentPath);
             throw new NoTestFoundException(msg);
-        } else {
-            String msg = Messages.XUnitReportProcessorService_reportsFound(toolName, xunitFiles.length, pattern, parentPath);
-            xUnitLog.info(msg);
         }
-        return Arrays.asList(xunitFiles);
+        
+        String msg = Messages.XUnitReportProcessorService_reportsFound(toolName, ds.getIncludedFilesCount(), includes, parentPath);
+        xUnitLog.info(msg);
+
+        // avoid waste memory transforming internally the vector to string[] to list again specially when there are > 16000 test reports
+        return ds.getIncludedFiles(); 
     }
 
     /**
      * Checks if all the finds files are new file.
      *
      * @param xUnitToolInfo the wrapped object
-     * @param files the file list
+     * @param resultFiles the file list
      * @param workspace the root location of the file list
      * @throws NoNewTestReportException when the report file is not updated
      *         during this build is setup to fail
      */
-    public void checkIfFindsFilesNewFiles(XUnitToolInfo xUnitToolInfo, List<String> files, File workspace) throws NoNewTestReportException {
+    public void checkIfFindsFilesNewFiles(XUnitToolInfo xUnitToolInfo, String[] resultFiles, File workspace) throws NoNewTestReportException {
 
         if (xUnitToolInfo.isFailIfNotNew()) {
             ArrayList<File> oldResults = new ArrayList<>();
-            for (String value : files) {
+            for (String value : resultFiles) {
                 File reportFile = new File(workspace, value);
                 // if the file was not updated this build, that is a problem
                 if (xUnitToolInfo.getBuildTime() - xUnitToolInfo.getTestTimeMargin() > reportFile.lastModified()) {

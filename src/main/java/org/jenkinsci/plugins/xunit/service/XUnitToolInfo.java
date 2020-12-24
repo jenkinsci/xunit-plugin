@@ -33,11 +33,12 @@ public class XUnitToolInfo implements Serializable {
 
     private final InputMetric inputMetric;
     private final String pattern;
+    private String excludesPattern;
     private final boolean skipNoTestFiles;
     private final boolean failIfNotNew;
     private final boolean deleteOutputFiles;
     private final boolean stopProcessingIfError;
-    private final boolean followSymlink;
+    private boolean followSymlink;
     private final long buildTime;
     private final long testTimeMargin;
     private final long sleepTime;
@@ -46,6 +47,19 @@ public class XUnitToolInfo implements Serializable {
     }
 
     private final String xslContent;
+
+    public XUnitToolInfo(InputMetric inputMetric,
+                         String pattern,
+                         Boolean skipNoTestFiles,
+                         boolean failIfNotNew,
+                         boolean deleteOutputFiles,
+                         boolean stopProcessingIfError,
+                         long buildTime,
+                         long testTimeMargin,
+                         long sleepTime,
+                         String xslContent) {
+        this(inputMetric, pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError, true, buildTime, testTimeMargin, sleepTime, xslContent);
+    }
 
     public XUnitToolInfo(InputMetric inputMetric,
                          String pattern, Boolean skipNoTestFiles,
@@ -103,5 +117,17 @@ public class XUnitToolInfo implements Serializable {
 
     public boolean isFollowSymlink() {
         return followSymlink;
+    }
+
+    public void setFollowSymlink(boolean followSymlink) {
+        this.followSymlink = followSymlink;
+    }
+
+    public String getExcludesPattern() {
+        return excludesPattern;
+    }
+
+    public void setExcludesPattern(String excludesPattern) {
+        this.excludesPattern = excludesPattern;
     }
 }

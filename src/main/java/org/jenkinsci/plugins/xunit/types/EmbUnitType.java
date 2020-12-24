@@ -26,7 +26,6 @@ package org.jenkinsci.plugins.xunit.types;
 
 import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
-import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 import hudson.Extension;
@@ -41,11 +40,12 @@ import hudson.Extension;
  * 
  * @author Gregory Boissinot
  */
-public class EmbUnitType extends TestType {
+@SuppressWarnings("serial")
+public class EmbUnitType extends AbstractTestType {
 
     @DataBoundConstructor
-    public EmbUnitType(String pattern, boolean skipNoTestFiles, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
-        super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
+    public EmbUnitType(String pattern) {
+        super(pattern);
     }
 
     @Symbol("embUnit")
@@ -56,10 +56,5 @@ public class EmbUnitType extends TestType {
             super(EmbUnitType.class, EmbUnitInputMetric.class);
         }
 
-    }
-
-    @Override
-    public Object readResolve() {
-        return super.readResolve();
     }
 }

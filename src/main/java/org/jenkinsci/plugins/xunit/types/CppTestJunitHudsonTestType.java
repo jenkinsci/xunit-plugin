@@ -26,7 +26,6 @@ package org.jenkinsci.plugins.xunit.types;
 
 import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
-import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 import hudson.Extension;
@@ -36,26 +35,24 @@ import hudson.Extension;
  * powerful, yet simple, unit testing framework for handling automated tests in
  * C++. The focus lies on usability and extendability.
  */
-public class CppTestJunitHudsonTestType extends TestType {
+@SuppressWarnings("serial")
+public class CppTestJunitHudsonTestType extends AbstractTestType {
 
-    @DataBoundConstructor
     public CppTestJunitHudsonTestType(String pattern, boolean skipNoTestFiles, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
         super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
+    }
+
+    @DataBoundConstructor
+    public CppTestJunitHudsonTestType(String pattern) {
+        super(pattern);
     }
 
     @Symbol("CppTest")
     @Extension
     public static class DescriptorImpl extends TestTypeDescriptor<CppTestJunitHudsonTestType> {
-
         public DescriptorImpl() {
             super(CppTestJunitHudsonTestType.class, CppTest.class);
         }
-
-    }
-
-    @Override
-    public Object readResolve() {
-        return super.readResolve();
     }
 
 }

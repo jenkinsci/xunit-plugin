@@ -1,5 +1,5 @@
 /*
- * The MIT License (MIT)
+InterruptedException * The MIT License (MIT)
  *
  * Copyright (c) 2014, Gregory Boissinot
  *
@@ -28,6 +28,7 @@ import org.jenkinsci.lib.dtkit.model.InputType;
 import org.jenkinsci.lib.dtkit.model.OutputMetric;
 import org.jenkinsci.plugins.xunit.types.model.JUnitModel;
 
+@SuppressWarnings("serial")
 public class Valgrind extends InputMetricXSL {
 
     @Override

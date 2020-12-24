@@ -26,7 +26,6 @@ package org.jenkinsci.plugins.xunit.types;
 
 import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
-import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 import hudson.Extension;
@@ -38,26 +37,24 @@ import hudson.Extension;
  * originally developed by Ed Falis and maintained by AdaCore, distributed
  * together with GNAT.
  */
-public class AUnitJunitHudsonTestType extends TestType {
+@SuppressWarnings("serial")
+public class AUnitJunitHudsonTestType extends AbstractTestType {
 
-    @DataBoundConstructor
     public AUnitJunitHudsonTestType(String pattern, boolean skipNoTestFiles, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
         super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
+    }
+
+    @DataBoundConstructor
+    public AUnitJunitHudsonTestType(String pattern) {
+        super(pattern);
     }
 
     @Symbol("AUnit")
     @Extension
     public static class DescriptorImpl extends TestTypeDescriptor<AUnitJunitHudsonTestType> {
-
         public DescriptorImpl() {
             super(AUnitJunitHudsonTestType.class, AUnit.class);
         }
-
-    }
-
-    @Override
-    public Object readResolve() {
-        return super.readResolve();
     }
 
 }

@@ -32,6 +32,7 @@ import org.jenkinsci.plugins.xunit.types.model.JUnitModel;
 /**
  * @author Gregory Boissinot
  */
+@SuppressWarnings("serial")
 public class QTestLib extends InputMetricXSL {
 
     @Override

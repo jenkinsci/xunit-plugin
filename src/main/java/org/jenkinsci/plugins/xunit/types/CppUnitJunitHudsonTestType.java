@@ -26,7 +26,6 @@ package org.jenkinsci.plugins.xunit.types;
 
 import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
-import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 import hudson.Extension;
@@ -40,26 +39,24 @@ import hudson.Extension;
  * Lacoste provided a port to Unix/Solaris. His version can be found on the same
  * page. The CppUnit project has combined and built on this work.
  */
-public class CppUnitJunitHudsonTestType extends TestType {
+@SuppressWarnings("serial")
+public class CppUnitJunitHudsonTestType extends AbstractTestType {
 
-    @DataBoundConstructor
     public CppUnitJunitHudsonTestType(String pattern, boolean skipNoTestFiles, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
         super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
+    }
+
+    @DataBoundConstructor
+    public CppUnitJunitHudsonTestType(String pattern) {
+        super(pattern);
     }
 
     @Symbol("CppUnit")
     @Extension
     public static class DescriptorImpl extends TestTypeDescriptor<CppUnitJunitHudsonTestType> {
-
         public DescriptorImpl() {
             super(CppUnitJunitHudsonTestType.class, CppUnit.class);
         }
-
-    }
-
-    @Override
-    public Object readResolve() {
-        return super.readResolve();
     }
 
 }

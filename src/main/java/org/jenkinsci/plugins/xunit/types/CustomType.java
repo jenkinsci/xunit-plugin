@@ -26,7 +26,6 @@ package org.jenkinsci.plugins.xunit.types;
 
 import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
-import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 import hudson.Extension;
@@ -34,13 +33,19 @@ import hudson.Extension;
 /**
  * @author Gregory Boissinot
  */
-public class CustomType extends TestType {
+@SuppressWarnings("serial")
+public class CustomType extends AbstractTestType {
 
-    private String customXSL;
+    private final String customXSL;
 
-    @DataBoundConstructor
     public CustomType(String pattern, String customXSL, boolean skipNoTestFiles, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
         super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
+        this.customXSL = customXSL;
+    }
+
+    @DataBoundConstructor
+    public CustomType(String pattern, String customXSL) {
+        super(pattern);
         this.customXSL = customXSL;
     }
 
@@ -59,11 +64,6 @@ public class CustomType extends TestType {
         public boolean isCustomType() {
             return true;
         }
-    }
-
-    @Override
-    public Object readResolve() {
-        return super.readResolve();
     }
 
 }

@@ -25,7 +25,6 @@ package org.jenkinsci.plugins.xunit.types;
 
 import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
-import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 import hudson.Extension;
@@ -35,25 +34,20 @@ import hudson.Extension;
  * a utility to run unit tests that have been written using the GLib test
  * framework.
  */
-public class GTesterJunitHudsonTestType extends TestType {
+@SuppressWarnings("serial")
+public class GTesterJunitHudsonTestType extends AbstractTestType {
 
     @DataBoundConstructor
-    public GTesterJunitHudsonTestType(String pattern, boolean skipNoTestFiles, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
-        super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
+    public GTesterJunitHudsonTestType(String pattern) {
+        super(pattern);
     }
 
     @Symbol("gtester")
     @Extension
     public static class DescriptorImpl extends TestTypeDescriptor<GTesterJunitHudsonTestType> {
-
         public DescriptorImpl() {
             super(GTesterJunitHudsonTestType.class, GTester.class);
         }
-    }
-
-    @Override
-    public Object readResolve() {
-        return super.readResolve();
     }
 
 }

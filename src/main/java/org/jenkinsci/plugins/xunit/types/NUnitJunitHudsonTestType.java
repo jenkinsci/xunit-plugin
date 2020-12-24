@@ -26,7 +26,6 @@ package org.jenkinsci.plugins.xunit.types;
 
 import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
-import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 import hudson.Extension;
@@ -35,26 +34,20 @@ import hudson.Extension;
  * <a href="http://nunit.org">NUnit</a> is a unit-testing framework for all .Net
  * languages.
  */
-public class NUnitJunitHudsonTestType extends TestType {
+@SuppressWarnings("serial")
+public class NUnitJunitHudsonTestType extends AbstractTestType {
 
     @DataBoundConstructor
-    public NUnitJunitHudsonTestType(String pattern, boolean skipNoTestFiles, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
-        super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
+    public NUnitJunitHudsonTestType(String pattern) {
+        super(pattern);
     }
 
     @Symbol("NUnit2")
     @Extension
     public static class DescriptorImpl extends TestTypeDescriptor<NUnitJunitHudsonTestType> {
-
         public DescriptorImpl() {
             super(NUnitJunitHudsonTestType.class, NUnit.class);
         }
-
-    }
-
-    @Override
-    public Object readResolve() {
-        return super.readResolve();
     }
 
 }

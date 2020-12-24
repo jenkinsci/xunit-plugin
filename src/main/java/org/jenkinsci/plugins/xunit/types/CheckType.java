@@ -26,7 +26,6 @@ package org.jenkinsci.plugins.xunit.types;
 
 import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
-import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 import hudson.Extension;
@@ -34,26 +33,20 @@ import hudson.Extension;
 /**
  * @author Gregory Boissinot
  */
-public class CheckType extends TestType {
+@SuppressWarnings("serial")
+public class CheckType extends AbstractTestType {
 
     @DataBoundConstructor
-    public CheckType(String pattern, boolean skipNoTestFiles, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
-        super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
+    public CheckType(String pattern) {
+        super(pattern);
     }
 
     @Symbol("Check")
     @Extension
     public static class CheckTypeDescriptor extends TestTypeDescriptor<CheckType> {
-
         public CheckTypeDescriptor() {
             super(CheckType.class, CheckInputMetric.class);
         }
-
-    }
-
-    @Override
-    public Object readResolve() {
-        return super.readResolve();
     }
 
 }

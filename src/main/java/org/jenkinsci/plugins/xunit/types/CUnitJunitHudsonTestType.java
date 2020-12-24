@@ -26,7 +26,6 @@ package org.jenkinsci.plugins.xunit.types;
 
 import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
-import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 import hudson.Extension;
@@ -38,26 +37,20 @@ import hudson.Extension;
  * It provides C programmers a basic testing functionality with a flexible
  * variety of user interfaces.
  */
-public class CUnitJunitHudsonTestType extends TestType {
+@SuppressWarnings("serial")
+public class CUnitJunitHudsonTestType extends AbstractTestType {
 
     @DataBoundConstructor
-    public CUnitJunitHudsonTestType(String pattern, boolean skipNoTestFiles, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
-        super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
+    public CUnitJunitHudsonTestType(String pattern) {
+        super(pattern);
     }
 
     @Symbol("CUnit")
     @Extension
     public static class DescriptorImpl extends TestTypeDescriptor<CUnitJunitHudsonTestType> {
-
         public DescriptorImpl() {
             super(CUnitJunitHudsonTestType.class, CUnit.class);
         }
-
-    }
-
-    @Override
-    public Object readResolve() {
-        return super.readResolve();
     }
 
 }

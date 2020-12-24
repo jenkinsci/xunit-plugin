@@ -32,6 +32,7 @@ import static org.mockito.Mockito.when;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 
 import org.apache.commons.io.FileUtils;
@@ -108,7 +109,7 @@ public class XUnitProcessorTest {
         FilePath userContent = new FilePath(jenkinsRule.jenkins.getRootDir()).child("userContent").child("xunit").child("AUnit").child("3.x");
         userContent.mkdirs();
         FilePath customXSL = userContent.child("customXSL.xsl");
-        FileUtils.write(new File(customXSL.getRemote()), "test");
+        FileUtils.write(new File(customXSL.getRemote()), "test", StandardCharsets.UTF_8);
 
         XUnitProcessor processor = new XUnitProcessor(new TestType[] { tool }, null, 300, new ExtraConfiguration(3000, true, 10, true));
         Field field = ReflectionUtils.findField(XUnitProcessor.class, "logger");
@@ -122,7 +123,7 @@ public class XUnitProcessorTest {
     @Test
     public void custom_tools_as_URL() throws Exception {
         final File customXSL = fileRule.newFile("customXSL.xsl");
-        FileUtils.write(customXSL, "test");
+        FileUtils.write(customXSL, "test", StandardCharsets.UTF_8);
 
         final TestType[] tools = new TestType[] { new MyCustomType(customXSL.toURI().toURL().toExternalForm()) };
 
@@ -135,7 +136,7 @@ public class XUnitProcessorTest {
     @Test
     public void custom_tools_resolve_against_master() throws Exception {
         final File customXSL = fileRule.newFile("customXSL.xsl");
-        FileUtils.write(customXSL, "test");
+        FileUtils.write(customXSL, "test", StandardCharsets.UTF_8);
 
         final TestType[] tools = new TestType[] { new MyCustomType(customXSL.getAbsolutePath()) };
 
@@ -149,7 +150,7 @@ public class XUnitProcessorTest {
     @Test
     public void custom_tools_resolve_against_workspace() throws Throwable {
         final File customXSL = fileRule.newFile("customXSL.xsl");
-        FileUtils.write(customXSL, "test");
+        FileUtils.write(customXSL, "test", StandardCharsets.UTF_8);
 
         VirtualChannel channel = mock(VirtualChannel.class);
         when(channel.call(any(DelegatingCallable.class))).thenReturn(false, true);

@@ -26,7 +26,6 @@ package org.jenkinsci.plugins.xunit.types;
 
 import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
-import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 import hudson.Extension;
@@ -37,26 +36,20 @@ import hudson.Extension;
  * test for a (logical) unit of code (not necessarily the same as a Pascal unit,
  * though often it is).
  */
-public class FPCUnitJunitHudsonTestType extends TestType {
+@SuppressWarnings("serial")
+public class FPCUnitJunitHudsonTestType extends AbstractTestType {
 
     @DataBoundConstructor
-    public FPCUnitJunitHudsonTestType(String pattern, boolean skipNoTestFiles, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
-        super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
+    public FPCUnitJunitHudsonTestType(String pattern) {
+        super(pattern);
     }
 
     @Symbol("FPCUnit")
     @Extension
     public static class DescriptorImpl extends TestTypeDescriptor<FPCUnitJunitHudsonTestType> {
-
         public DescriptorImpl() {
             super(FPCUnitJunitHudsonTestType.class, FPCUnit.class);
         }
-
-    }
-
-    @Override
-    public Object readResolve() {
-        return super.readResolve();
     }
 
 }

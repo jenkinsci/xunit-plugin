@@ -29,8 +29,8 @@ import static org.mockito.Mockito.when;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.PrintStream;
-import java.util.List;
 
+import org.assertj.core.api.Assertions;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.model.InputMetricType;
 import org.jenkinsci.lib.dtkit.model.InputMetricXSL;
@@ -56,6 +56,7 @@ public class XUnitReportProcessorTest {
     @Rule
     public TemporaryFolder folderRule = new TemporaryFolder();
 
+    @SuppressWarnings("serial")
     public static class MyInputMetric extends InputMetricXSL {
         @Override
         public String getToolName() {
@@ -108,7 +109,9 @@ public class XUnitReportProcessorTest {
     public static class MyTestType extends TestType {
 
         public MyTestType(String pattern, boolean faildedIfNotNew, boolean deleteOutputFiles) {
-            super(pattern, faildedIfNotNew, deleteOutputFiles);
+            super(pattern);
+            setFailIfNotNew(faildedIfNotNew);
+            setDeleteOutputFiles(deleteOutputFiles);
         }
 
         @Override
@@ -146,10 +149,8 @@ public class XUnitReportProcessorTest {
         when(xUnitToolInfoMock.getInputMetric()).thenReturn(new MyInputMetric());
         when(xUnitToolInfoMock.getPattern()).thenReturn("*.txt");
 
-        List<String> xUnitFiles = xUnitReportProcessorService.findReports(f1.getParentFile(), xUnitToolInfoMock);
-        Assert.assertFalse(xUnitFiles.isEmpty());
-        Assert.assertEquals(1, xUnitFiles.size());
-        Assert.assertEquals(f1.getName(), xUnitFiles.get(0));
+        String[] xUnitFiles = xUnitReportProcessorService.findReports(f1.getParentFile(), xUnitToolInfoMock);
+        Assertions.assertThat(xUnitFiles).isNotEmpty().hasSize(1).contains(f1.getName());
     }
 
     @Test(expected = NoTestFoundException.class)

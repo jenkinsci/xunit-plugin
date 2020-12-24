@@ -23,13 +23,21 @@
  */
 package org.jenkinsci.plugins.xunit.service;
 
-import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.ArgumentMatchers.startsWith;
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.inOrder;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
+import java.nio.charset.StandardCharsets;
 
 import org.apache.commons.io.FileUtils;
 import org.jenkinsci.lib.dtkit.model.InputMetricType;
@@ -137,11 +145,11 @@ public class XUnitTransformerTest {
         // Recording behaviour : testing not empty result files found and a
         // false check
         String fileName = "a.txt";
-        List<String> resultFiles = Arrays.asList(fileName);
+        String[] resultFiles = new String[] { fileName };
         when(xUnitReportProcessorServiceMock.findReports(any(File.class), any(XUnitToolInfo.class))).thenReturn(resultFiles);
 
         File ws = folderRule.newFolder();
-        doThrow(NoNewTestReportException.class).when(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), Mockito.<String>anyList(), any(File.class));
+        doThrow(NoNewTestReportException.class).when(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), Mockito.any(String[].class), any(File.class));
 
         // Test result
         try {
@@ -163,7 +171,7 @@ public class XUnitTransformerTest {
     @Test(expected = EmptyReportFileException.class)
     public void empty_test_report_throws_exception_when_stop_build_option_is_true() throws Exception {
         // One result file
-        List<String> resultFiles = Arrays.asList("a.txt");
+        String[] resultFiles = new String[] { "a.txt" };
         when(xUnitReportProcessorServiceMock.findReports(any(File.class), eq(xUnitToolInfoMock))).thenReturn(resultFiles);
 
         // Stop processing when there is an error
@@ -184,7 +192,7 @@ public class XUnitTransformerTest {
             InOrder inOrder = inOrder(xUnitReportProcessorServiceMock);
             inOrder.verify(xUnitReportProcessorServiceMock).findReports(eq(ws), eq(xUnitToolInfoMock));
             inOrder.verify(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), eq(ws));
-            inOrder.verify(xUnitReportProcessorServiceMock).getCurrentReport(ws, resultFiles.get(0));
+            inOrder.verify(xUnitReportProcessorServiceMock).getCurrentReport(ws, resultFiles[0]);
 
             // Theses methods are never call
             verify(xUnitValidationServiceMock, never()).validateInputFile(any(XUnitToolInfo.class), any(File.class));
@@ -198,7 +206,7 @@ public class XUnitTransformerTest {
     @Test
     public void empty_test_report_does_not_throws_exception_when_stop_build_option_is_false() throws Exception {
         //One result file
-        List<String> resultFiles = Arrays.asList("a.txt");
+        String[] resultFiles = new String[] { "a.txt" };
         when(xUnitReportProcessorServiceMock.findReports(any(File.class), any(XUnitToolInfo.class))).thenReturn(resultFiles);
 
         //Stop processing when there is an error
@@ -220,7 +228,7 @@ public class XUnitTransformerTest {
         InOrder inOrder = inOrder(xUnitReportProcessorServiceMock);
         inOrder.verify(xUnitReportProcessorServiceMock).findReports(eq(ws), any(XUnitToolInfo.class));
         inOrder.verify(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), eq(ws));
-        inOrder.verify(xUnitReportProcessorServiceMock).getCurrentReport(ws, resultFiles.get(0));
+        inOrder.verify(xUnitReportProcessorServiceMock).getCurrentReport(ws, resultFiles[0]);
 
         verify(xUnitLogMock).warn(startsWith("The result file '" + myInputFile.getAbsolutePath() + "' for the metric 'testTool' is empty. The result file has been skipped."));
 
@@ -237,7 +245,7 @@ public class XUnitTransformerTest {
         File myInputFile = new File(ws, "a.txt");
         FileUtils.write(myInputFile, "bidon");
 
-        List<String> resultFiles = Arrays.asList("a.txt");
+        String[] resultFiles = new String[] { "a.txt" };
         when(xUnitReportProcessorServiceMock.findReports(any(File.class), any(XUnitToolInfo.class))).thenReturn(resultFiles);
         when(xUnitReportProcessorServiceMock.getCurrentReport(any(File.class), anyString())).thenReturn(myInputFile);
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenCallRealMethod();
@@ -271,7 +279,7 @@ public class XUnitTransformerTest {
         FileUtils.write(myInputFileNotEmpty, "bidon");
         File myInputFileEmpty = new File(ws, "b.txt");
 
-        List<String> resultFiles = Arrays.asList("a.txt", "b.txt");
+        String[] resultFiles = new String[] { "a.txt", "b.txt" };
         when(xUnitReportProcessorServiceMock.findReports(any(File.class), any(XUnitToolInfo.class))).thenReturn(resultFiles);
 
         //Stop processing when there is an error
@@ -313,10 +321,10 @@ public class XUnitTransformerTest {
         //Create test reports, a.txt not empty and b.txt empty
         File ws = folderRule.newFolder();
         File myInputFileNotEmpty = new File(ws, "a.txt");
-        FileUtils.write(myInputFileNotEmpty, "bidon");
+        FileUtils.write(myInputFileNotEmpty, "bidon", StandardCharsets.UTF_8);
         File myInputFileEmpty = new File(ws, "b.txt");
 
-        List<String> resultFiles = Arrays.asList("a.txt", "b.txt");
+        String[] resultFiles = new String[] { "a.txt", "b.txt" };
         when(xUnitReportProcessorServiceMock.findReports(any(File.class), any(XUnitToolInfo.class))).thenReturn(resultFiles);
 
         //Stop processing when there is an error
@@ -353,11 +361,11 @@ public class XUnitTransformerTest {
     public void invalid_input_report_throws_exception_when_stop_build_option_is_true() throws Exception {
         File ws = folderRule.newFolder();
         File myInputFile1 = new File(ws, "a.txt");
-        FileUtils.write(myInputFile1, "bidon");
+        FileUtils.write(myInputFile1, "bidon", StandardCharsets.UTF_8);
         File myInputFile2 = new File(ws, "b.txt");
-        FileUtils.write(myInputFile2, "bidon");
+        FileUtils.write(myInputFile2, "bidon", StandardCharsets.UTF_8);
 
-        List<String> resultFiles = Arrays.asList("a.txt", "b.txt");
+        String[] resultFiles = new String[] { "a.txt", "b.txt" };
         when(xUnitReportProcessorServiceMock.findReports(any(File.class), any(XUnitToolInfo.class))).thenReturn(resultFiles);
 
         //Stop processing when there is an error
@@ -395,11 +403,11 @@ public class XUnitTransformerTest {
     public void invalid_input_report_does_not_throws_exception_when_stop_build_option_is_false() throws Exception {
         File ws = folderRule.newFolder();
         File myInputFile1 = new File(ws, "a.txt");
-        FileUtils.write(myInputFile1, "bidon");
+        FileUtils.write(myInputFile1, "bidon", StandardCharsets.UTF_8);
         File myInputFile2 = new File(ws, "b.txt");
-        FileUtils.write(myInputFile2, "bidon");
+        FileUtils.write(myInputFile2, "bidon", StandardCharsets.UTF_8);
 
-        List<String> resultFiles = Arrays.asList("a.txt", "b.txt");
+        String[] resultFiles = new String[] { "a.txt", "b.txt" };
         when(xUnitReportProcessorServiceMock.findReports(any(File.class), any(XUnitToolInfo.class))).thenReturn(resultFiles);
 
         //Stop processing when there is an error
@@ -433,11 +441,11 @@ public class XUnitTransformerTest {
     public void invalid_output_report_throws_exception_when_stop_build_option_is_true() throws Exception {
         File ws = folderRule.newFolder();
         File myInputFile1 = new File(ws, "a.txt");
-        FileUtils.write(myInputFile1, "bidon");
+        FileUtils.write(myInputFile1, "bidon", StandardCharsets.UTF_8);
         File myInputFile2 = new File(ws, "b.txt");
-        FileUtils.write(myInputFile2, "bidon");
+        FileUtils.write(myInputFile2, "bidon", StandardCharsets.UTF_8);
         
-        List<String> resultFiles = Arrays.asList("a.txt", "b.txt");
+        String[] resultFiles = new String[] { "a.txt", "b.txt" };
         when(xUnitReportProcessorServiceMock.findReports(any(File.class), any(XUnitToolInfo.class))).thenReturn(resultFiles);
         
         //Stop processing when there is an error
@@ -475,11 +483,11 @@ public class XUnitTransformerTest {
     public void invalid_output_report_does_not_throws_exception_when_stop_build_option_is_false() throws Exception {
         File ws = folderRule.newFolder();
         File myInputFile1 = new File(ws, "a.txt");
-        FileUtils.write(myInputFile1, "bidon");
+        FileUtils.write(myInputFile1, "bidon", StandardCharsets.UTF_8);
         File myInputFile2 = new File(ws, "b.txt");
-        FileUtils.write(myInputFile2, "bidon");
+        FileUtils.write(myInputFile2, "bidon", StandardCharsets.UTF_8);
         
-        List<String> resultFiles = Arrays.asList("a.txt", "b.txt");
+        String[] resultFiles = new String[] { "a.txt", "b.txt" };
         when(xUnitReportProcessorServiceMock.findReports(any(File.class), any(XUnitToolInfo.class))).thenReturn(resultFiles);
         
         //Stop processing when there is an error

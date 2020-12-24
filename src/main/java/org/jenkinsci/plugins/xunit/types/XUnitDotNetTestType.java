@@ -38,26 +38,20 @@ import hudson.Extension;
  * Written by the original inventor of NUnit v2, xUnit.net is the latest
  * technology for unit testing C#, F#, VB.NET and other .NET languages.
  */
+@SuppressWarnings("serial")
 public class XUnitDotNetTestType extends TestType {
 
     @DataBoundConstructor
-    public XUnitDotNetTestType(String pattern, boolean skipNoTestFiles, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
-        super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
+    public XUnitDotNetTestType(String pattern) {
+        super(pattern);
     }
 
     @Symbol("xUnitDotNet")
     @Extension
     public static class DescriptorImpl extends TestTypeDescriptor<XUnitDotNetTestType> {
-
         public DescriptorImpl() {
             super(XUnitDotNetTestType.class, XUnitDotNet.class);
         }
-
-    }
-
-    @Override
-    public Object readResolve() {
-        return super.readResolve();
     }
 
 }

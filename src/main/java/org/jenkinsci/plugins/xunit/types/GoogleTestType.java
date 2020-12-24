@@ -26,7 +26,6 @@ package org.jenkinsci.plugins.xunit.types;
 
 import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
-import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 import hudson.Extension;
@@ -37,26 +36,24 @@ import hudson.Extension;
  * 
  * @author David Hallas
  */
-public class GoogleTestType extends TestType {
+@SuppressWarnings("serial")
+public class GoogleTestType extends AbstractTestType {
 
-    @DataBoundConstructor
     public GoogleTestType(String pattern, boolean skipNoTestFiles, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
         super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
+    }
+
+    @DataBoundConstructor
+    public GoogleTestType(String pattern) {
+        super(pattern);
     }
 
     @Symbol("GoogleTest")
     @Extension
     public static class GoogleTestTypeDescriptor extends TestTypeDescriptor<GoogleTestType> {
-
         public GoogleTestTypeDescriptor() {
             super(GoogleTestType.class, GoogleTestInputMetric.class);
         }
-
-    }
-
-    @Override
-    public Object readResolve() {
-        return super.readResolve();
     }
 
 }

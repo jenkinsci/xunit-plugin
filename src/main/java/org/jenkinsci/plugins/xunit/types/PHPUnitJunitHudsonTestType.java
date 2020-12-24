@@ -26,7 +26,6 @@ package org.jenkinsci.plugins.xunit.types;
 
 import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
-import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 import hudson.Extension;
@@ -36,26 +35,20 @@ import hudson.Extension;
  * framework for PHP. It is an instance of the xUnit architecture for unit
  * testing frameworks.
  */
-public class PHPUnitJunitHudsonTestType extends TestType {
+@SuppressWarnings("serial")
+public class PHPUnitJunitHudsonTestType extends AbstractTestType {
 
     @DataBoundConstructor
-    public PHPUnitJunitHudsonTestType(String pattern, boolean skipNoTestFiles, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
-        super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
+    public PHPUnitJunitHudsonTestType(String pattern) {
+        super(pattern);
     }
 
     @Symbol("PHPUnit")
     @Extension
     public static class DescriptorImpl extends TestTypeDescriptor<PHPUnitJunitHudsonTestType> {
-
         public DescriptorImpl() {
             super(PHPUnitJunitHudsonTestType.class, PHPUnit.class);
         }
-
-    }
-
-    @Override
-    public Object readResolve() {
-        return super.readResolve();
     }
 
 }

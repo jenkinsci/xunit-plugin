@@ -26,7 +26,6 @@ package org.jenkinsci.plugins.xunit.types;
 
 import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
-import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 import hudson.Extension;
@@ -37,25 +36,20 @@ import hudson.Extension;
  * automatically detect many memory management and threading bugs, and profile
  * your programs in detail.
  */
-public class ValgrindJunitHudsonTestType extends TestType {
+@SuppressWarnings("serial")
+public class ValgrindJunitHudsonTestType extends AbstractTestType {
 
     @DataBoundConstructor
-    public ValgrindJunitHudsonTestType(String pattern, boolean skipNoTestFiles, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
-        super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
+    public ValgrindJunitHudsonTestType(String pattern) {
+        super(pattern);
     }
 
     @Symbol("Valgrind")
     @Extension
     public static class DescriptorImpl extends TestTypeDescriptor<ValgrindJunitHudsonTestType> {
-
         public DescriptorImpl() {
             super(ValgrindJunitHudsonTestType.class, Valgrind.class);
         }
-    }
-
-    @Override
-    public Object readResolve() {
-        return super.readResolve();
     }
 
 }

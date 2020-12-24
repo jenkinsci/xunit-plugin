@@ -25,7 +25,6 @@ package org.jenkinsci.plugins.xunit.service;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -83,7 +82,7 @@ public class XUnitTransformerCallable extends MasterToSlaveFileCallable<Integer>
         String metricName = xUnitToolInfo.getInputMetric().getToolName();
 
         // Gets all input files matching the user pattern
-        List<String> resultFiles = xUnitReportProcessorService.findReports(ws, xUnitToolInfo);
+        String[] resultFiles = xUnitReportProcessorService.findReports(ws, xUnitToolInfo);
 
         // Checks the timestamp for each test file if the UI option is
         // checked (true by default)

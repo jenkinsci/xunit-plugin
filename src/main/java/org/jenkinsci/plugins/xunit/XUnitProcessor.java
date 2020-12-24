@@ -27,6 +27,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.UUID;
@@ -54,10 +55,6 @@ import org.jenkinsci.plugins.xunit.types.CustomType;
 import org.jenkinsci.plugins.xunit.util.DownloadableResourceUtil;
 import org.kohsuke.accmod.Restricted;
 import org.kohsuke.accmod.restrictions.NoExternalUse;
-
-import com.google.inject.AbstractModule;
-import com.google.inject.Guice;
-import com.google.inject.Singleton;
 
 import hudson.FilePath;
 import hudson.Launcher;
@@ -229,29 +226,19 @@ public class XUnitProcessor {
         return xUnitReportService.isEmptyPattern(tool.getPattern());
     }
 
-    private String getExpandedResolvedPattern(TestType tool,
-                                              Run<?, ?> build,
-                                              TaskListener listener) throws IOException, InterruptedException {
-        String newExpandedPattern = tool.getPattern();
-        newExpandedPattern = newExpandedPattern.replaceAll("[\t\r\n]+", " ");
-        return Util.replaceMacro(newExpandedPattern, build.getEnvironment(listener));
+    private String getExpandedResolvedPattern(String pattern, Run<?, ?> build, TaskListener listener) throws IOException, InterruptedException {
+        if (pattern == null) {
+            return pattern;
+        }
+        return Util.replaceMacro(pattern.replaceAll("[\t\r\n]+", " "), build.getEnvironment(listener));
     }
 
     protected XUnitToolInfo buildXUnitToolInfo(final TestType tool,
-                                             final Run<?, ?> build,
-                                             final FilePath workspace,
-                                             final TaskListener listener) throws IOException, InterruptedException {
+                                               final Run<?, ?> build,
+                                               final FilePath workspace,
+                                               final TaskListener listener) throws IOException, InterruptedException {
 
         InputMetric inputMetric = tool.getInputMetric();
-        inputMetric = Guice.createInjector(new AbstractModule() {
-            @Override
-            protected void configure() {
-                bind(TaskListener.class).toInstance(listener);
-                bind(XUnitLog.class).in(Singleton.class);
-                bind(XUnitValidationService.class).in(Singleton.class);
-                bind(XUnitConversionService.class).in(Singleton.class);
-            }
-        }).getInstance(inputMetric.getClass());
 
         String xslContent = null;
         if (tool instanceof CustomType) {
@@ -260,13 +247,17 @@ public class XUnitProcessor {
             xslContent = getUserStylesheet(tool);
         }
 
-        final String pattern = getExpandedResolvedPattern(tool, build, listener);
+        String includesPattern = getExpandedResolvedPattern(tool.getPattern(), build, listener);
+        String excludesPattern = getExpandedResolvedPattern(tool.getExcludesPattern(), build, listener);
 
-        return new XUnitToolInfo(inputMetric, pattern, tool.isSkipNoTestFiles(), //
-                tool.isFailIfNotNew(), tool.isDeleteOutputFiles(), tool.isStopProcessingIfError(), //
-                this.extraConfiguration.isFollowSymlink(), build.getTimeInMillis(), //
-                this.extraConfiguration.getTestTimeMargin(), this.extraConfiguration.getSleepTime(), //
-                xslContent);
+        XUnitToolInfo toolInfo = new XUnitToolInfo(inputMetric, includesPattern, tool.isSkipNoTestFiles(), //
+            tool.isFailIfNotNew(), tool.isDeleteOutputFiles(), tool.isStopProcessingIfError(), //
+            build.getTimeInMillis(), this.extraConfiguration.getTestTimeMargin(), //
+            this.extraConfiguration.getSleepTime(), xslContent);
+        toolInfo.setExcludesPattern(excludesPattern);
+        toolInfo.setFollowSymlink(this.extraConfiguration.isFollowSymlink());
+        
+        return toolInfo;
     }
 
     private String getUserStylesheet(final TestType tool) throws IOException, InterruptedException {
@@ -319,23 +310,16 @@ public class XUnitProcessor {
         }
 
         try (InputStream is = customXSLFilePath.read()) {
-            return IOUtils.toString(is, "UTF-8");
+            return IOUtils.toString(is, StandardCharsets.UTF_8);
         }
     }
 
     protected XUnitTransformerCallable newXUnitTransformer(final XUnitToolInfo xUnitToolInfo) {
-        // TODO why use Guice in this manner it's the quite the same of
-        // instantiate classes directly
-        XUnitTransformerCallable transformer = Guice.createInjector(new AbstractModule() {
-            @Override
-            protected void configure() {
-                bind(XUnitToolInfo.class).toInstance(xUnitToolInfo);
-                bind(XUnitValidationService.class).in(Singleton.class);
-                bind(XUnitConversionService.class).in(Singleton.class);
-                bind(XUnitLog.class).toInstance(logger);
-                bind(XUnitReportProcessorService.class).in(Singleton.class);
-            }
-        }).getInstance(XUnitTransformerCallable.class);
+        XUnitTransformerCallable transformer = new XUnitTransformerCallable( //
+                new XUnitReportProcessorService(logger), //
+                new XUnitConversionService(logger), //
+                new XUnitValidationService(logger), //
+                xUnitToolInfo, logger);
         transformer.setProcessorId(processorId);
         return transformer;
     }

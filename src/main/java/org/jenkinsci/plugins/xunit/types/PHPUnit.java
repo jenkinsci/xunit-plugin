@@ -28,6 +28,7 @@ import org.jenkinsci.lib.dtkit.model.InputType;
 import org.jenkinsci.lib.dtkit.model.OutputMetric;
 import org.jenkinsci.plugins.xunit.types.model.JUnitModel;
 
+@SuppressWarnings("serial")
 public class PHPUnit extends InputMetricXSL {
 
     @Override

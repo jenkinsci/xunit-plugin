@@ -26,7 +26,6 @@ package org.jenkinsci.plugins.xunit.types;
 
 import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
-import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 import hudson.Extension;
@@ -40,27 +39,20 @@ import hudson.Extension;
  * 
  * @author Gregory Boissinot
  */
-public class CTestType extends TestType {
+@SuppressWarnings("serial")
+public class CTestType extends AbstractTestType {
 
     @DataBoundConstructor
-    public CTestType(String pattern, boolean skipNoTestFiles, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
-        super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
+    public CTestType(String pattern) {
+        super(pattern);
     }
 
     @Symbol("CTest")
     @Extension
     public static class CTestTypeDescriptor extends TestTypeDescriptor<CTestType> {
-
         public CTestTypeDescriptor() {
             super(CTestType.class, CTest.class);
         }
-
-    }
-
-    @Override
-    public Object readResolve() {
-        return super.readResolve();
     }
 
 }
-

@@ -26,7 +26,6 @@ package org.jenkinsci.plugins.xunit.types;
 
 import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
-import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 import hudson.Extension;
@@ -38,26 +37,20 @@ import hudson.Extension;
  * 
  * @author Gregory Boissinot
  */
-public class MbUnitType extends TestType {
+@SuppressWarnings("serial")
+public class MbUnitType extends AbstractTestType {
 
     @DataBoundConstructor
-    public MbUnitType(String pattern, boolean skipNoTestFiles, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
-        super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
+    public MbUnitType(String pattern) {
+        super(pattern);
     }
 
     @Symbol("MbUnit")
     @Extension
     public static class MbUnitTypeDescriptor extends TestTypeDescriptor<MbUnitType> {
-
         public MbUnitTypeDescriptor() {
             super(MbUnitType.class, MbUnitInputMetric.class);
         }
-
     }
 
-    @Override
-    public Object readResolve() {
-        return super.readResolve();
-    }
 }
-

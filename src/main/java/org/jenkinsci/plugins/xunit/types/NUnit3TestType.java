@@ -26,31 +26,24 @@ package org.jenkinsci.plugins.xunit.types;
 
 import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
-import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 import hudson.Extension;
 
-public class NUnit3TestType extends TestType {
+@SuppressWarnings("serial")
+public class NUnit3TestType extends AbstractTestType {
 
     @DataBoundConstructor
-    public NUnit3TestType(String pattern, boolean skipNoTestFiles, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
-        super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
+    public NUnit3TestType(String pattern) {
+        super(pattern);
     }
 
     @Symbol("NUnit3")
     @Extension
     public static class DescriptorImpl extends TestTypeDescriptor<NUnit3TestType> {
-
         public DescriptorImpl() {
             super(NUnit3TestType.class, NUnit3.class);
         }
-
-    }
-
-    @Override
-    public Object readResolve() {
-        return super.readResolve();
     }
 
 }

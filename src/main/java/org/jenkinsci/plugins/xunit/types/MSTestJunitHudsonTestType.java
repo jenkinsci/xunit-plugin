@@ -26,7 +26,6 @@ package org.jenkinsci.plugins.xunit.types;
 
 import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
-import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 import hudson.Extension;
@@ -35,26 +34,20 @@ import hudson.Extension;
  * <a href= "https://github.com/Microsoft/testfx">Microsoft Test Framework and
  * Adapter</a> it's the testing framework embedded in .NET Core.
  */
-public class MSTestJunitHudsonTestType extends TestType {
+@SuppressWarnings("serial")
+public class MSTestJunitHudsonTestType extends AbstractTestType {
 
     @DataBoundConstructor
-    public MSTestJunitHudsonTestType(String pattern, boolean skipNoTestFiles, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
-        super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
+    public MSTestJunitHudsonTestType(String pattern) {
+        super(pattern);
     }
 
     @Symbol("MSTest")
     @Extension
     public static class DescriptorImpl extends TestTypeDescriptor<MSTestJunitHudsonTestType> {
-
         public DescriptorImpl() {
             super(MSTestJunitHudsonTestType.class, MSTest.class);
         }
-
-    }
-
-    @Override
-    public Object readResolve() {
-        return super.readResolve();
     }
 
 }

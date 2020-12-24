@@ -32,6 +32,7 @@ import org.jenkinsci.plugins.xunit.types.model.JUnitModel;
 /**
  * @author David Hallas
  */
+@SuppressWarnings("serial")
 public class GoogleTestInputMetric extends InputMetricXSL {
 
     @Override

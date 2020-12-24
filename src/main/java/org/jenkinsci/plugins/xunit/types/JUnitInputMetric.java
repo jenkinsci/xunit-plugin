@@ -41,6 +41,7 @@ import hudson.FilePath;
 /**
  * @author Gregory Boissinot
  */
+@SuppressWarnings("serial")
 public class JUnitInputMetric extends InputMetricOther {
 
     @Override
@@ -53,10 +54,8 @@ public class JUnitInputMetric extends InputMetricOther {
         try {
             FileUtils.copyFile(inputFile, outFile);
             new FilePath(outFile).touch(System.currentTimeMillis());
-        } catch (IOException ioe) {
-            throw new ConversionException(ioe);
-        } catch (InterruptedException ie) {
-            throw new ConversionException(ie);
+        } catch (IOException | InterruptedException e) {
+            throw new ConversionException(e);
         }
     }
 

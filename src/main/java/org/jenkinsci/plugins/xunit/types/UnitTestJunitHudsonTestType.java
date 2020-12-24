@@ -26,31 +26,24 @@ package org.jenkinsci.plugins.xunit.types;
 
 import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
-import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 import hudson.Extension;
 
-public class UnitTestJunitHudsonTestType extends TestType {
+@SuppressWarnings("serial")
+public class UnitTestJunitHudsonTestType extends AbstractTestType {
 
     @DataBoundConstructor
-    public UnitTestJunitHudsonTestType(String pattern, boolean skipNoTestFiles, boolean failIfNotNew, boolean deleteOutputFiles, boolean stopProcessingIfError) {
-        super(pattern, skipNoTestFiles, failIfNotNew, deleteOutputFiles, stopProcessingIfError);
+    public UnitTestJunitHudsonTestType(String pattern) {
+        super(pattern);
     }
 
     @Symbol("UnitTest")
     @Extension
     public static class DescriptorImpl extends TestTypeDescriptor<UnitTestJunitHudsonTestType> {
-
         public DescriptorImpl() {
             super(UnitTestJunitHudsonTestType.class, UnitTest.class);
         }
-
-    }
-
-    @Override
-    public Object readResolve() {
-        return super.readResolve();
     }
 
 }
