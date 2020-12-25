@@ -97,7 +97,7 @@ public class XUnitResultsStepTest {
                 Collections.<TestType>singletonList(new GoogleTestType("input.xml", false, false, false, true)));
         step.setThresholds(Arrays.asList(failedThreshold, new SkippedThreshold()));
 
-        st.assertRoundTrip(step, "xunit thresholds: [failed(unstableThreshold: '1'), skipped()], tools: [GoogleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml', skipNoTestFiles: false, stopProcessingIfError: true)]");
+        st.assertRoundTrip(step, "xunit thresholds: [failed(unstableThreshold: '1'), skipped()], tools: [GoogleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml', stopProcessingIfError: true)]");
 
     }
 

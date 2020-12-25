@@ -23,7 +23,10 @@
  */
 package org.jenkinsci.plugins.xunit;
 
-import static org.jenkinsci.plugins.xunit.XUnitDefaultValues.*;
+import static org.jenkinsci.plugins.xunit.XUnitDefaultValues.FOLLOW_SYMLINK;
+import static org.jenkinsci.plugins.xunit.XUnitDefaultValues.JUNIT_FILE_REDUCE_LOG;
+import static org.jenkinsci.plugins.xunit.XUnitDefaultValues.PROCESSING_SLEEP_TIME;
+import static org.jenkinsci.plugins.xunit.XUnitDefaultValues.TEST_REPORT_TIME_MARGING;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -33,14 +36,17 @@ import java.util.LinkedList;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
+
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.xunit.service.TransformerException;
+import org.jenkinsci.plugins.xunit.service.XUnitLog;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThresholdDescriptor;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.DataBoundSetter;
 import org.kohsuke.stapler.QueryParameter;
+
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 import hudson.AbortException;
@@ -60,6 +66,7 @@ import hudson.tasks.Publisher;
 import hudson.tasks.Recorder;
 import hudson.tasks.junit.JUnitResultArchiver;
 import hudson.tasks.junit.TestDataPublisher;
+import hudson.tasks.junit.TestResultSummary;
 import hudson.tasks.test.TestResultProjectAction;
 import hudson.util.FormValidation;
 import jenkins.tasks.SimpleBuildStep;
@@ -195,7 +202,17 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
             throws InterruptedException, IOException {
         try {
             XUnitProcessor xUnitProcessor = new XUnitProcessor(getTools(), getThresholds(), getThresholdMode(), getExtraConfiguration());
-            xUnitProcessor.process(build, workspace, listener, launcher, getTestDataPublishers(), null);
+            TestResultSummary testResult = xUnitProcessor.process(build, workspace, listener, launcher, getTestDataPublishers(), null);
+
+            XUnitLog logger = new XUnitLog(listener);
+            if (testResult.getPassCount() == 0 && testResult.getFailCount() == 0) {
+                logger.warn(Messages.xUnitProcessor_emptyReport());
+            }
+
+            Result result = xUnitProcessor.getBuildStatus(testResult, build);
+            logger.info("Setting the build status to " + result);
+            build.setResult(result);
+
         } catch(AbortException e) {
             build.setResult(Result.FAILURE);
             throw e;

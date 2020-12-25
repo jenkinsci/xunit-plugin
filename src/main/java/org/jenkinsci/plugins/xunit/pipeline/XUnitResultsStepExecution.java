@@ -42,7 +42,6 @@ import hudson.Launcher;
 import hudson.model.Result;
 import hudson.model.Run;
 import hudson.model.TaskListener;
-import hudson.tasks.junit.TestResultAction;
 import hudson.tasks.junit.TestResultSummary;
 import hudson.tasks.junit.pipeline.JUnitResultsStepExecution;
 import hudson.tasks.test.PipelineTestDetails;
@@ -80,25 +79,20 @@ public class XUnitResultsStepExecution extends SynchronousNonBlockingStepExecuti
         pipelineTestDetails.setNodeId(nodeId);
         pipelineTestDetails.setEnclosingBlocks(JUnitResultsStepExecution.getEnclosingBlockIds(enclosingBlocks));
         pipelineTestDetails.setEnclosingBlockNames(JUnitResultsStepExecution.getEnclosingBlockNames(enclosingBlocks));
-        xUnitProcessor.process(run, workspace, listener, launcher, step.getTestDataPublishers(), pipelineTestDetails);
 
-        TestResultAction action = run.getAction(TestResultAction.class);
-
-        if (action != null) {
-            Result procResult = xUnitProcessor.getBuildStatus(action.getResult().getResultByNode(nodeId), run);
-            Result runResult = run.getResult();
-            if (runResult == null) {
-                runResult = Result.SUCCESS;
-            }
-            if (procResult.isWorseThan(runResult)) {
-                run.setResult(procResult);
-                node.addOrReplaceAction(new WarningAction(procResult).withMessage("Some thresholds has been violated"));
-            }
-
-            return new TestResultSummary(action.getResult().getResultByNode(nodeId));
+        TestResultSummary testSummary = xUnitProcessor.process(run, workspace, listener, launcher, step.getTestDataPublishers(), pipelineTestDetails);
+        
+        Result procResult = xUnitProcessor.getBuildStatus(testSummary, run);
+        Result runResult = run.getResult();
+        if (runResult == null) {
+            runResult = Result.SUCCESS;
+        }
+        if (procResult.isWorseThan(runResult)) {
+            node.addOrReplaceAction(new WarningAction(procResult).withMessage("Some thresholds has been violated"));
+            run.setResult(procResult);
         }
 
-        return new TestResultSummary(0, 0, 0, 0);
+        return testSummary;
     }
 
     private static final long serialVersionUID = 1L;

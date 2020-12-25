@@ -29,11 +29,12 @@ import org.kohsuke.stapler.DataBoundConstructor;
 
 import hudson.model.Result;
 import hudson.model.Run;
-import hudson.tasks.junit.TestResult;
+import hudson.tasks.junit.TestResultSummary;
 
 /**
  * @author Gregory Boissinot
  */
+@SuppressWarnings("serial")
 public class FailedThreshold extends XUnitThreshold {
 
     @DataBoundConstructor
@@ -41,9 +42,9 @@ public class FailedThreshold extends XUnitThreshold {
     }
 
     @Override
-    public Result getResultThresholdNumber(XUnitLog log, Run<?, ?> build, TestResult testResultAction, TestResult previousTestResultAction) {
+    public Result getResultThresholdNumber(XUnitLog log, Run<?, ?> build, TestResultSummary testResult, TestResultSummary previousTestResultAction) {
 
-        int failedCount = testResultAction.getFailCount();
+        int failedCount = testResult.getFailCount();
 
         int previousFailedCount = 0;
         if (previousTestResultAction != null) {
@@ -56,11 +57,11 @@ public class FailedThreshold extends XUnitThreshold {
     }
 
     @Override
-    public Result getResultThresholdPercent(XUnitLog log, Run<?, ?> build, TestResult testResultAction, TestResult previousTestResultAction) {
+    public Result getResultThresholdPercent(XUnitLog log, Run<?, ?> build, TestResultSummary testResult, TestResultSummary previousTestResultAction) {
 
-        double count = testResultAction.getTotalCount();
+        double count = testResult.getTotalCount();
 
-        double failedCount = testResultAction.getFailCount();
+        double failedCount = testResult.getFailCount();
         double percentFailed = (failedCount / count) * 100;
 
         double previousFailedCount = 0;

@@ -23,9 +23,6 @@
  */
 package org.jenkinsci.plugins.xunit;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
-
 import org.assertj.core.api.Assertions;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.xunit.types.JUnitType;
@@ -35,12 +32,9 @@ import org.junit.Test;
 import org.jvnet.hudson.test.JenkinsRule;
 import org.jvnet.hudson.test.recipes.LocalData;
 
-import hudson.model.Descriptor;
 import hudson.model.FreeStyleProject;
 import hudson.model.Items;
-import hudson.tasks.Builder;
 import hudson.tasks.Publisher;
-import hudson.util.DescribableList;
 
 public class XUnitSerialisationTest {
 
@@ -68,21 +62,6 @@ public class XUnitSerialisationTest {
         Assertions.assertThat(xunitPublisher.getTools()).hasSize(1);
 
         verifyJUnitTool(xunitPublisher.getTools()[0]);
-    }
-
-    @SuppressWarnings("deprecation") //Testing for backwards compatibility
-    @LocalData("builder_1_103")
-    @Test
-    public void verify_builder_compatible_before_1_103() throws Exception {
-        FreeStyleProject project = (FreeStyleProject) r.jenkins.getItem("foo");
-
-        DescribableList<Builder, Descriptor<Builder>> builders = project.getBuildersList();
-        Assertions.assertThat(builders).hasSize(1).element(0).isInstanceOf(XUnitBuilder.class);
-
-        XUnitBuilder xunitBuilder = (XUnitBuilder) builders.get(0);
-        Assertions.assertThat(xunitBuilder.getTools()).hasSize(1);
-
-        verifyJUnitTool(xunitBuilder.getTools()[0]);
     }
 
     private void verifyJUnitTool(TestType tool) {

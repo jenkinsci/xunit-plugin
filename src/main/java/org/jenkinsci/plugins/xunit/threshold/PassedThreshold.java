@@ -29,13 +29,14 @@ import org.kohsuke.stapler.DataBoundConstructor;
 
 import hudson.model.Result;
 import hudson.model.Run;
-import hudson.tasks.junit.TestResult;
+import hudson.tasks.junit.TestResultSummary;
 
 /**
  * Set the build status based on the count of passed test.
  *
  * @author Falco Nikolas
  */
+@SuppressWarnings("serial")
 public class PassedThreshold extends XUnitThreshold {
 
     @DataBoundConstructor
@@ -43,9 +44,9 @@ public class PassedThreshold extends XUnitThreshold {
     }
 
     @Override
-    public Result getResultThresholdNumber(XUnitLog log, Run<?, ?> build, TestResult testResultAction, TestResult previousTestResultAction) {
+    public Result getResultThresholdNumber(XUnitLog log, Run<?, ?> build, TestResultSummary testResult, TestResultSummary previousTestResultAction) {
 
-        int passedCount = testResultAction.getPassCount();
+        int passedCount = testResult.getPassCount();
 
         int previousPassedCount = 0;
         if (previousTestResultAction != null) {
@@ -58,11 +59,11 @@ public class PassedThreshold extends XUnitThreshold {
     }
 
     @Override
-    public Result getResultThresholdPercent(XUnitLog log, Run<?, ?> build, TestResult testResultAction, TestResult previousTestResultAction) {
+    public Result getResultThresholdPercent(XUnitLog log, Run<?, ?> build, TestResultSummary testResult, TestResultSummary previousTestResultAction) {
 
-        double count = testResultAction.getTotalCount();
+        double count = testResult.getTotalCount();
 
-        double passedCount = testResultAction.getPassCount();
+        double passedCount = testResult.getPassCount();
         double percentPassed = (passedCount / count) * 100;
 
         double previousPassedCount = 0;

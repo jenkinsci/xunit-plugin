@@ -66,6 +66,7 @@ import hudson.remoting.VirtualChannel;
 import hudson.tasks.junit.TestDataPublisher;
 import hudson.tasks.junit.TestResult;
 import hudson.tasks.junit.TestResultAction;
+import hudson.tasks.junit.TestResultSummary;
 import hudson.tasks.test.PipelineTestDetails;
 import jenkins.model.Jenkins;
 
@@ -122,6 +123,7 @@ public class XUnitProcessor {
         }
     }
 
+    private final TestResultSummary emptySummary = new TestResultSummary(0, 0, 0, 0);
     private final TestType[] tools;
     private final XUnitThreshold[] thresholds;
     private final int thresholdMode;
@@ -146,33 +148,23 @@ public class XUnitProcessor {
         this.processorId = UUID.randomUUID().toString();
     }
 
-    public void process(Run<?, ?> build, FilePath workspace, TaskListener listener, Launcher launcher,
+    public TestResultSummary process(Run<?, ?> build, FilePath workspace, TaskListener listener, Launcher launcher,
                         @Nonnull Collection<TestDataPublisher> testDataPublishers, @CheckForNull PipelineTestDetails pipelineTestDetails)
             throws IOException, InterruptedException {
+
         logger = new XUnitLog(listener);
-        logger.info("Starting to record.");
 
         int processedReports = processTestsReport(build, workspace, listener);
-
         if (processedReports == 0) {
-            logger.info("Skipping tests recording.");
-            return;
+            return emptySummary;
         }
 
-        TestResult testResult = recordTestResult(build, workspace, listener, launcher, testDataPublishers, pipelineTestDetails);
-
+        TestResultSummary testResult = recordTestResult(build, workspace, listener, launcher, testDataPublishers, pipelineTestDetails);
         if (testResult != null) {
             processDeletion(workspace);
-
-            // Don't set the build status if this is called from the Pipeline step.
-            if (pipelineTestDetails == null) {
-                Result result = getBuildStatus(testResult, build);
-                logger.info("Setting the build status to " + result);
-                build.setResult(result);
-            }
         }
 
-        logger.info("Stopping recording.");
+        return testResult;
     }
 
     private int processTestsReport(Run<?, ?> build,
@@ -324,7 +316,7 @@ public class XUnitProcessor {
         return transformer;
     }
 
-    private TestResult getPreviousTestResult(Run<?, ?> build) {
+    private TestResultSummary getPreviousTestResult(Run<?, ?> build) {
         Run<?, ?> previousBuild = build.getPreviousCompletedBuild();
         if (previousBuild == null) {
             return null;
@@ -333,51 +325,56 @@ public class XUnitProcessor {
         if (previousAction == null) {
             return null;
         }
-        return previousAction.getResult();
+        return new TestResultSummary(previousAction.getResult());
     }
 
-    private TestResult recordTestResult(Run<?, ?> build,
+    private TestResultSummary recordTestResult(Run<?, ?> build,
                                         FilePath workspace,
                                         TaskListener listener,
                                         Launcher launcher,
                                         Collection<TestDataPublisher> testDataPublishers,
                                         PipelineTestDetails pipelineTestDetails) throws IOException, InterruptedException {
-        TestResultAction existingAction = build.getAction(TestResultAction.class);
         final long buildTime = build.getTimestamp().getTimeInMillis();
         final long nowMaster = System.currentTimeMillis();
 
+        TestResultSummary summary = emptySummary;
+
         TestResult result = getTestResult(workspace, "**/TEST-*.xml", buildTime, nowMaster, pipelineTestDetails);
         if (result != null) {
-            TestResultAction action;
-            if (existingAction == null) {
-                action = new TestResultAction(build, result, listener);
-            } else {
-                action = existingAction;
-                result.freeze(action);
-                action.mergeResult(result, listener);
-            }
+            result.tally(); // force re-index of counts that has been lost when result is build on a remote callable
 
-            result.tally(); // force re-calculus of counters
-            if (result.getPassCount() == 0 && result.getFailCount() == 0) {
-                logger.warn(Messages.xUnitProcessor_emptyReport());
-            }
+            // get the result summary before merge that change the internal structure and it's count
+            summary = new TestResultSummary(result);
 
-            // decorates reports with extra informations
-            for (TestDataPublisher tdp : testDataPublishers) {
-                TestResultAction.Data d = tdp.contributeTestData(build, workspace, launcher, listener, result);
-                if (d != null) {
-                    action.addData(d);
+            synchronized (build) { // NOSONAR
+                TestResultAction action = build.getAction(TestResultAction.class);
+                boolean appending;
+                if (action == null) {
+                    appending = false;
+                    action = new TestResultAction(build, result, listener);
+                } else {
+                    appending = true;
+                    result.freeze(action);
+                    action.mergeResult(result, listener);
                 }
-            }
 
-            if (existingAction == null) {
-                build.addAction(action);
-            } else {
-                build.save();
+                // decorates reports with extra informations
+                for (TestDataPublisher tdp : testDataPublishers) {
+                    TestResultAction.Data d = tdp.contributeTestData(build, workspace, launcher, listener, result);
+                    if (d != null) {
+                        action.addData(d);
+                    }
+                }
+
+                if (appending) {
+                    build.save();
+                } else {
+                    build.addAction(action);
+                }
             }
         }
 
-        return result;
+        return summary;
     }
 
     /**
@@ -403,8 +400,8 @@ public class XUnitProcessor {
 
     @Restricted(NoExternalUse.class)
     @Nonnull
-    public Result getBuildStatus(TestResult result, Run<?, ?> build) {
-        Result curResult = processResultThreshold(result, build);
+    public Result getBuildStatus(TestResultSummary testResult, Run<?, ?> build) {
+        Result curResult = processResultThreshold(testResult, build);
         Result previousResultStep = build.getResult();
         if (previousResultStep == null) {
             return curResult;
@@ -416,8 +413,8 @@ public class XUnitProcessor {
     }
 
     @Nonnull
-    private Result processResultThreshold(TestResult testResult, Run<?, ?> build) {
-        TestResult previousTestResult = getPreviousTestResult(build);
+    private Result processResultThreshold(TestResultSummary testResult, Run<?, ?> build) {
+        TestResultSummary previousTestResult = getPreviousTestResult(build);
 
         if (thresholds != null) {
             for (XUnitThreshold threshold : thresholds) {

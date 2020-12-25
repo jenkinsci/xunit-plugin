@@ -29,11 +29,12 @@ import org.kohsuke.stapler.DataBoundConstructor;
 
 import hudson.model.Result;
 import hudson.model.Run;
-import hudson.tasks.junit.TestResult;
+import hudson.tasks.junit.TestResultSummary;
 
 /**
  * @author Gregory Boissinot
  */
+@SuppressWarnings("serial")
 public class SkippedThreshold extends XUnitThreshold {
 
     @DataBoundConstructor
@@ -41,9 +42,9 @@ public class SkippedThreshold extends XUnitThreshold {
     }
 
     @Override
-    public Result getResultThresholdNumber(XUnitLog log, Run<?, ?> build, TestResult testResultAction, TestResult previousTestResultAction) {
+    public Result getResultThresholdNumber(XUnitLog log, Run<?, ?> build, TestResultSummary testResult, TestResultSummary previousTestResultAction) {
 
-        int skipCount = testResultAction.getSkipCount();
+        int skipCount = testResult.getSkipCount();
 
         int previousSkipCount = 0;
         if (previousTestResultAction != null) {
@@ -55,10 +56,10 @@ public class SkippedThreshold extends XUnitThreshold {
     }
 
     @Override
-    public Result getResultThresholdPercent(XUnitLog log, Run<?, ?> build, TestResult testResultAction, TestResult previousTestResultAction) {
+    public Result getResultThresholdPercent(XUnitLog log, Run<?, ?> build, TestResultSummary testResult, TestResultSummary previousTestResultAction) {
 
-        int count = testResultAction.getTotalCount();
-        int skippedCount = testResultAction.getSkipCount();
+        int count = testResult.getTotalCount();
+        int skippedCount = testResult.getSkipCount();
         int percentSkipped = (count == 0) ? 0 : (skippedCount * 100 / count);
 
         int previousSkippedCount = 0;

@@ -23,9 +23,9 @@
  */
 package org.jenkinsci.plugins.xunit.threshold;
 
-import static org.mockito.Mockito.*;
-
-import java.lang.reflect.Field;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.spy;
 
 import org.jenkinsci.plugins.xunit.service.XUnitLog;
 import org.junit.Assert;
@@ -33,8 +33,7 @@ import org.junit.Test;
 
 import hudson.model.Result;
 import hudson.model.Run;
-import hudson.tasks.junit.TestResult;
-import hudson.util.ReflectionUtils;
+import hudson.tasks.junit.TestResultSummary;
 
 public class PassedThresholdTest {
 
@@ -44,10 +43,8 @@ public class PassedThresholdTest {
         passedThreshold.setFailureThreshold("1");
         doReturn(new PassedThresholdDescriptor()).when(passedThreshold).getDescriptor();
 
-        TestResult actualResult = new TestResult();
+        TestResultSummary actualResult = new TestResultSummary(0, 0, 1, 1);
 
-        setTotalCount(actualResult, 1);
-        
         Result result = passedThreshold.getResultThresholdNumber(mock(XUnitLog.class), mock(Run.class), actualResult, null);
         
         Assert.assertEquals(Result.SUCCESS, result);
@@ -59,10 +56,7 @@ public class PassedThresholdTest {
         passedThreshold.setFailureThreshold("1");
         doReturn(new PassedThresholdDescriptor()).when(passedThreshold).getDescriptor();
         
-        TestResult actualResult = new TestResult();
-        
-        setTotalCount(actualResult, 1);
-        setSkippedCount(actualResult, 1);
+        TestResultSummary actualResult = new TestResultSummary(0, 1, 0, 1);
         
         Result result = passedThreshold.getResultThresholdNumber(mock(XUnitLog.class), mock(Run.class), actualResult, null);
         
@@ -75,11 +69,8 @@ public class PassedThresholdTest {
         passedThreshold.setUnstableThreshold("1");
         doReturn(new PassedThresholdDescriptor()).when(passedThreshold).getDescriptor();
         
-        TestResult actualResult = new TestResult();
-        
-        setTotalCount(actualResult, 1);
-        setSkippedCount(actualResult, 1);
-        
+        TestResultSummary actualResult = new TestResultSummary(0, 1, 0, 1);
+
         Result result = passedThreshold.getResultThresholdNumber(mock(XUnitLog.class), mock(Run.class), actualResult, null);
         
         Assert.assertEquals(Result.UNSTABLE, result);
@@ -92,10 +83,7 @@ public class PassedThresholdTest {
         doReturn(new PassedThresholdDescriptor()).when(passedThreshold).getDescriptor();
         
         int totalTests = 100;
-        
-        TestResult actualResult = new TestResult();
-        setTotalCount(actualResult, totalTests);
-        setSkippedCount(actualResult, 10);
+        TestResultSummary actualResult = new TestResultSummary(0, 10, 90, totalTests);
         
         Result result = passedThreshold.getResultThresholdPercent(mock(XUnitLog.class), mock(Run.class), actualResult, null);
         
@@ -108,11 +96,8 @@ public class PassedThresholdTest {
         passedThreshold.setFailureThreshold("1");
         doReturn(new PassedThresholdDescriptor()).when(passedThreshold).getDescriptor();
         
-        TestResult actualResult = new TestResult();
-        setTotalCount(actualResult, 100);
-        
-        TestResult previousResult = new TestResult();
-        setTotalCount(previousResult, 99);
+        TestResultSummary actualResult = new TestResultSummary(0, 0, 100, 100);
+        TestResultSummary previousResult = new TestResultSummary(0, 0, 99, 99);
         
         Result result = passedThreshold.getResultThresholdNumber(mock(XUnitLog.class), mock(Run.class), actualResult, previousResult);
         
@@ -124,13 +109,9 @@ public class PassedThresholdTest {
         XUnitThreshold passedThreshold = spy(new PassedThreshold());
         passedThreshold.setUnstableNewThreshold("1");
         doReturn(new PassedThresholdDescriptor()).when(passedThreshold).getDescriptor();
-        
-        TestResult actualResult = new TestResult();
-        setTotalCount(actualResult, 100);
-        setSkippedCount(actualResult, 1);
-        
-        TestResult previousResult = new TestResult();
-        setTotalCount(previousResult, 99);
+
+        TestResultSummary actualResult = new TestResultSummary(0, 1, 99, 100);
+        TestResultSummary previousResult = new TestResultSummary(0, 0, 99, 99);
         
         Result result = passedThreshold.getResultThresholdNumber(mock(XUnitLog.class), mock(Run.class), actualResult, previousResult);
         
@@ -144,30 +125,29 @@ public class PassedThresholdTest {
         doReturn(new PassedThresholdDescriptor()).when(passedThreshold).getDescriptor();
         
         int totalTests = 100;
-        
-        TestResult actualResult = new TestResult();
-        setTotalCount(actualResult, totalTests);
-        setSkippedCount(actualResult, 5);
-        
-        TestResult previousResult = new TestResult();
-        setTotalCount(previousResult, totalTests);
-        setSkippedCount(previousResult, 10);
-        
-        Result result = passedThreshold.getResultThresholdPercent(mock(XUnitLog.class), mock(Run.class), actualResult, null);
+
+        TestResultSummary actualResult = new TestResultSummary(0, 0, 99, totalTests);
+        TestResultSummary previousResult = new TestResultSummary(0, 10, 90, totalTests);
+
+        Result result = passedThreshold.getResultThresholdPercent(mock(XUnitLog.class), mock(Run.class), actualResult, previousResult);
         
         Assert.assertEquals(Result.SUCCESS, result);
     }
 
-    private void setTotalCount(TestResult result, Object value) {
-        Field field = ReflectionUtils.findField(TestResult.class, "totalTests");
-        field.setAccessible(true);
-        ReflectionUtils.setField(field, result, value);
-    }
-
-    private void setSkippedCount(TestResult result, Object value) {
-        Field field = ReflectionUtils.findField(TestResult.class, "skippedTestsCounter");
-        field.setAccessible(true);
-        ReflectionUtils.setField(field, result, value);
+    @Test
+    public void the_new_percent_of_test_passed_less_than_expected() {
+        XUnitThreshold passedThreshold = spy(new PassedThreshold());
+        passedThreshold.setUnstableNewThreshold("5");
+        doReturn(new PassedThresholdDescriptor()).when(passedThreshold).getDescriptor();
+        
+        int totalTests = 100;
+        
+        TestResultSummary actualResult = new TestResultSummary(0, 5, 95, totalTests);
+        TestResultSummary previousResult = new TestResultSummary(0, 0, 99, 99);
+        
+        Result result = passedThreshold.getResultThresholdPercent(mock(XUnitLog.class), mock(Run.class), actualResult, previousResult);
+        
+        Assert.assertEquals(Result.UNSTABLE, result);
     }
 
 }

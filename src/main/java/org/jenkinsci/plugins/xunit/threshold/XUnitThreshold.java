@@ -36,12 +36,13 @@ import hudson.model.Describable;
 import hudson.model.Descriptor;
 import hudson.model.Result;
 import hudson.model.Run;
-import hudson.tasks.junit.TestResult;
+import hudson.tasks.junit.TestResultSummary;
 import jenkins.model.Jenkins;
 
 /**
  * @author Gregory Boissinot
  */
+@SuppressWarnings("serial")
 public abstract class XUnitThreshold implements ExtensionPoint, Serializable, Describable<XUnitThreshold> {
 
     private String unstableThreshold;
@@ -107,13 +108,13 @@ public abstract class XUnitThreshold implements ExtensionPoint, Serializable, De
 
     public abstract Result getResultThresholdNumber(XUnitLog log,
                                                     Run<?, ?> build,
-                                                    TestResult testResultAction,
-                                                    TestResult previousTestResultAction);
+                                                    TestResultSummary testResult,
+                                                    TestResultSummary previousResult);
 
     public abstract Result getResultThresholdPercent(XUnitLog log,
                                                      Run<?, ?> build,
-                                                     TestResult testResultAction,
-                                                     TestResult previousTestResultAction);
+                                                     TestResultSummary testResult,
+                                                     TestResultSummary previousTestResultAction);
 
     public abstract boolean isValidThreshold(double threshold, double value);
 
