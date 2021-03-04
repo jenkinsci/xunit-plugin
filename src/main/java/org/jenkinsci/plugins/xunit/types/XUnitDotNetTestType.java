@@ -26,7 +26,6 @@ package org.jenkinsci.plugins.xunit.types;
 
 import org.jenkinsci.Symbol;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
-import org.jenkinsci.lib.dtkit.type.TestType;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 import hudson.Extension;
@@ -39,7 +38,7 @@ import hudson.Extension;
  * technology for unit testing C#, F#, VB.NET and other .NET languages.
  */
 @SuppressWarnings("serial")
-public class XUnitDotNetTestType extends TestType {
+public class XUnitDotNetTestType extends AbstractTestType {
 
     @DataBoundConstructor
     public XUnitDotNetTestType(String pattern) {
