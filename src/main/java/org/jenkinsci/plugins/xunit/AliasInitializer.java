@@ -48,6 +48,7 @@ public class AliasInitializer {
             String className = getClassName(classType);
             Items.XSTREAM.alias(className, classType);
         }
+        Items.XSTREAM.processAnnotations(XUnitPublisher.class);
     }
 
     private static String getClassName(Class<? extends TestType> classType) {
