@@ -88,6 +88,11 @@
                 <artifactId>checks-api</artifactId>
                 <version>1.2.0</version>
             </dependency>
+            <dependency>
+                <groupId>io.jenkins.plugins</groupId>
+                <artifactId>jaxb</artifactId>
+                <version>jaxb-2.3.0.1</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
