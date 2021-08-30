@@ -205,7 +205,7 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
             TestResultSummary testResult = xUnitProcessor.process(build, workspace, listener, launcher, getTestDataPublishers(), null);
 
             XUnitLog logger = new XUnitLog(listener);
-            if (testResult.getPassCount() == 0 && testResult.getFailCount() == 0) {
+            if (testResult.getTotalCount() == 0) {
                 logger.warn(Messages.xUnitProcessor_emptyReport());
             }
 
