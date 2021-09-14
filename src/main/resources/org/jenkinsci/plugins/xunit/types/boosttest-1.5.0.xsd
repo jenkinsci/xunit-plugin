@@ -74,6 +74,7 @@ THE SOFTWARE.
         <xs:complexType mixed="true">
             <xs:sequence>
                 <xs:element ref="LastCheckpoint" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="Context" minOccurs="0" maxOccurs="1"/>
             </xs:sequence>
             <xs:attribute name="line" type="xs:integer" use="optional"/>
             <xs:attribute name="file" type="xs:string" use="optional"/>
