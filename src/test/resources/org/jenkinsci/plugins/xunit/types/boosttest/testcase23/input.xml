@@ -1,0 +1,21 @@
+<TestLog>
+  <TestSuite name="MyTest">
+    <TestSuite name="MyTestCase" file="test.cpp" line="9">
+      <TestCase name="_0" file="test.cpp" line="9">
+        <Message file="test.cpp" line="14">
+          <![CDATA[testing]]>
+          <Context><Frame><![CDATA[sample = 1; ]]></Frame></Context>
+        </Message>
+        <TestingTime>99</TestingTime>
+      </TestCase>
+      <TestCase name="_1" file="test.cpp" line="9">
+        <Exception file="unknown location" line="0">
+          <![CDATA[signal: SIGABRT (application abort requested)]]>
+          <LastCheckpoint file="test.cpp" line="9"><![CDATA["MyTestCase" test entry]]></LastCheckpoint>
+          <Context><Frame><![CDATA[sample = 2; ]]></Frame></Context>
+        </Exception>
+        <TestingTime>225</TestingTime>
+      </TestCase>
+    </TestSuite>
+  </TestSuite>
+</TestLog>
