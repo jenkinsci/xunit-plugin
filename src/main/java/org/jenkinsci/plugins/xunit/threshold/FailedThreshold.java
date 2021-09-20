@@ -62,14 +62,14 @@ public class FailedThreshold extends XUnitThreshold {
         double count = testResult.getTotalCount();
 
         double failedCount = testResult.getFailCount();
-        double percentFailed = (failedCount / count) * 100;
+        double percentFailed = failedCount == 0d ? 0d : (failedCount / count) * 100;
 
         double previousFailedCount = 0;
         if (previousTestResultAction != null) {
             previousFailedCount = previousTestResultAction.getFailCount();
         }
         double newFailedCount = failedCount - previousFailedCount;
-        double percentNewFailed = (newFailedCount / count) * 100;
+        double percentNewFailed = newFailedCount == 0d ? 0d : (newFailedCount / count) * 100;
 
         return getResultThresholdPercent(log, percentFailed, percentNewFailed);
     }

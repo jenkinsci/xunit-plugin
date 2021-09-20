@@ -64,14 +64,14 @@ public class PassedThreshold extends XUnitThreshold {
         double count = testResult.getTotalCount();
 
         double passedCount = testResult.getPassCount();
-        double percentPassed = (passedCount / count) * 100;
+        double percentPassed = passedCount == 0d ? 0d : (passedCount / count) * 100;
 
         double previousPassedCount = 0;
         if (previousTestResultAction != null) {
             previousPassedCount = previousTestResultAction.getPassCount();
         }
         double newPassedCount = passedCount - previousPassedCount;
-        double percentNewPassed = (newPassedCount / count) * 100;
+        double percentNewPassed = newPassedCount == 0d ? 0d : (newPassedCount / count) * 100;
 
         return getResultThresholdPercent(log, percentPassed, percentNewPassed);
     }

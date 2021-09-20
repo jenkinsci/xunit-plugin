@@ -33,6 +33,7 @@ import static org.mockito.Mockito.verify;
 import org.jenkinsci.plugins.xunit.service.XUnitLog;
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import hudson.model.Result;
 import hudson.model.Run;
@@ -141,6 +142,30 @@ public class SkippedThresholdTest {
 
         Assert.assertEquals(Result.SUCCESS, result);
         verify(skippedThreshold).getResultThresholdPercent(any(XUnitLog.class), eq(9d), eq(4d));
+    }
+
+    @Test
+    public void test_build_status_as_success_on_percent_mode_when_there_are_no_tests() {
+        TestResultSummary actualResult = new TestResultSummary(0, 0, 0, 0);
+        TestResultSummary previousResult = new TestResultSummary(0, 0, 0, 0);
+
+        XUnitThreshold threshold = spy(new FailedThreshold());
+        threshold.setFailureNewThreshold("100");
+        threshold.setFailureThreshold("100");
+        threshold.setUnstableThreshold("100");
+        threshold.setUnstableNewThreshold("100");
+        doReturn(new FailedThresholdDescriptor()).when(threshold).getDescriptor();
+        Result result = threshold.getResultThresholdPercent(mock(XUnitLog.class), mock(Run.class), actualResult, previousResult);
+        
+        threshold = spy(new SkippedThreshold());
+        threshold.setFailureNewThreshold("100");
+        threshold.setFailureThreshold("100");
+        threshold.setUnstableThreshold("100");
+        threshold.setUnstableNewThreshold("100");
+        doReturn(new SkippedThresholdDescriptor()).when(threshold).getDescriptor();
+        result = threshold.getResultThresholdPercent(mock(XUnitLog.class), mock(Run.class), actualResult, previousResult);
+        
+        Assert.assertEquals(Result.SUCCESS, result);
     }
 
 }
