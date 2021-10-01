@@ -38,7 +38,8 @@ public class CTestTest extends AbstractTest {
         return Arrays.asList(new Object[][] { { "testcase1", 1 }, //
                                               { "testcase2", 2 }, //
                                               { "skipped test are counted as failures", 3 }, //
-                                              { "JENKINS-34518 parse error", 4 } //
+                                              { "JENKINS-34518 parse error", 4 }, //
+                                              { "show Exit Code", 5 }, //
         });
     }
 

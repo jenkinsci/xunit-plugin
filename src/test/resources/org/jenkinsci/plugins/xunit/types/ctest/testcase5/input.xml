@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="Linux-c++"
+	BuildStamp="20210921-1420-Experimental"
+	Name="unknown"
+	Generator="ctest-3.17.5"
+	CompilerName="/opt/rh/devtoolset-8/root/usr/bin/c++"
+	CompilerVersion="8.3.1"
+	OSName="Linux"
+	Hostname="86f25193feb0"
+	OSRelease="3.10.0-1160.25.1.el7.x86_64"
+	OSVersion="#1 SMP Tue Apr 13 18:55:45 EDT 2021"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="58"
+	ProcessorCacheSize="25344"
+	NumberOfLogicalCPU="4"
+	NumberOfPhysicalCPU="4"
+	TotalVirtualMemory="16383"
+	TotalPhysicalMemory="15881"
+	LogicalProcessorsPerPhysical="1"
+	ProcessorClockFrequency="2693.67"
+	>
+	<Testing>
+		<StartDateTime>Sep 21 14:20 UTC</StartDateTime>
+		<StartTestTime>1632234026</StartTestTime>
+		<TestList>
+			<Test>./tests/test1.realStdin</Test>
+		</TestList>
+		<Test Status="failed">
+			<Name>test1.realStdin</Name>
+			<Path>./tests</Path>
+			<FullName>./test1.realStdin</FullName>
+			<FullCommandLine>/var/jenkins_home/workspace/xUnitTest/build_release/bin/test_stdIn-0.1.0 "--gtest_filter=test1.realStdin" "--gtest_also_run_disabled_tests"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="text/string" name="Exit Code">
+					<Value>SEGFAULT</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Exit Value">
+					<Value>0</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.0248858</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/var/jenkins_home/workspace/xUnitTest/build_release/bin/test_stdIn-0.1.0 "--gtest_filter=test1.realStdin" "--gtest_also_run_disabled_tests"</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value>Running main() from /home/user/googletest-release-1.10.0/googletest/src/gtest_main.cc
+Note: Google Test filter = test1.realStdin
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from StdinComponent
+[ RUN      ] test1.realStdin
+[       OK ] test1.realStdin (1 ms)
+[----------] 1 test from StdinComponent (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (1 ms total)
+[  PASSED  ] 1 test.
+</Value>
+				</Measurement>
+			</Results>
+		</Test>
+
+		<EndDateTime>Sep 21 14:21 UTC</EndDateTime>
+		<EndTestTime>1632234114</EndTestTime>
+		<ElapsedMinutes>1</ElapsedMinutes>
+	</Testing>
+</Site>

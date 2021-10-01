@@ -29,11 +29,7 @@
             <system-out/>
         </testcase>
         <testcase classname="projectrootE_.foo.sources" name="ScriptWriter_testU" time="0.092">
-            <failure>CMake Error at modules/testU/ScriptWriter-testU.cmake:28 (BAR_script_write_add_to_path):
-                Unknown CMake command "BAR_script_write_add_to_path".
-
-
-            </failure>
+            <failure>Failed</failure>
             <system-out>CMake Error at modules/testU/ScriptWriter-testU.cmake:28 (BAR_script_write_add_to_path):
                 Unknown CMake command "BAR_script_write_add_to_path".
 
@@ -44,27 +40,13 @@
             <system-out/>
         </testcase>
         <testcase classname="projectrootE_.foo.sources" name="WGET_testU_MD5_fail" time="0.076">
-            <failure>-- Download of file://\\wsrvmov003\Softs\packages/BuildSystemTests/WGET-test-wrong-md5.txt failed
-                with message: [37]"couldn't read a file:// file"
-            </failure>
+            <failure>Failed</failure>
             <system-out>-- Download of file://\\wsrvmov003\Softs\packages/BuildSystemTests/WGET-test-wrong-md5.txt
                 failed with message: [37]"couldn't read a file:// file"
             </system-out>
         </testcase>
         <testcase classname="projectrootE_.foo.sources" name="WGET_testU_noMD5" time="0.082">
-            <failure>-- Download of file://\\wsrvmov003\Softs\packages/BuildSystemTests/WGET-test-wrong-md5.txt failed
-                with message: [37]"couldn't read a file:// file"
-                CMake Error at modules/Logging.cmake:121 (message):
-
-
-                test BAR_wget_file succeed: result is "OFF" instead of "ON"
-
-                Call Stack (most recent call first):
-                modules/Test.cmake:74 (BAR_msg_fatal)
-                modules/testU/WGET-testU-noMD5.cmake:14 (BAR_check_equal)
-
-
-            </failure>
+            <failure>Failed</failure>
             <system-out>-- Download of file://\\wsrvmov003\Softs\packages/BuildSystemTests/WGET-test-wrong-md5.txt
                 failed with message: [37]"couldn't read a file:// file"
                 CMake Error at modules/Logging.cmake:121 (message):
@@ -80,19 +62,7 @@
             </system-out>
         </testcase>
         <testcase classname="projectrootE_.foo.sources" name="WGET_testU" time="0.115">
-            <failure>-- Download of file://\\wsrvmov003\Softs\packages/BuildSystemTests/WGET-test-md5.txt failed with
-                message: [37]"couldn't read a file:// file"
-                CMake Error at modules/Logging.cmake:121 (message):
-
-
-                Test BAR_wget_file succeed: result is "OFF" instead of "ON"
-
-                Call Stack (most recent call first):
-                modules/Test.cmake:74 (BAR_msg_fatal)
-                modules/testU/WGET-testU.cmake:14 (BAR_check_equal)
-
-
-            </failure>
+            <failure>Failed</failure>
             <system-out>-- Download of file://\\wsrvmov003\Softs\packages/BuildSystemTests/WGET-test-md5.txt failed with
                 message: [37]"couldn't read a file:// file"
                 CMake Error at modules/Logging.cmake:121 (message):

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xunit="http://www.xunit.org">
+   <testsuite name="CTest"
+              tests="1"
+              time="88.000"
+              failures="1"
+              errors="0"
+              skipped="0">
+      <testcase classname="projectroot.tests" name="test1.realStdin" time="0.025">
+         <failure>SEGFAULT</failure>
+         <system-out><![CDATA[Running main() from /home/user/googletest-release-1.10.0/googletest/src/gtest_main.cc
+Note: Google Test filter = test1.realStdin
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from StdinComponent
+[ RUN      ] test1.realStdin
+[       OK ] test1.realStdin (1 ms)
+[----------] 1 test from StdinComponent (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (1 ms total)
+[  PASSED  ] 1 test.
+]]></system-out>
+      </testcase>
+   </testsuite>
+</testsuites>

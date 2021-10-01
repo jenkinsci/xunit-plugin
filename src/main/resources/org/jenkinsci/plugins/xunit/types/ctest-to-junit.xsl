@@ -48,9 +48,9 @@ THE SOFTWARE.
         <xsl:value-of select="if (string($value) != '') then string($value) else $default" />
     </xsl:function>
 
-    <xsl:function name="xunit:is-empty" as="xs:boolean">
+    <xsl:function name="xunit:is-empty">
         <xsl:param name="value" as="xs:string?" />
-        <xsl:value-of select="string($value) != ''" />
+        <xsl:sequence select="xs:boolean(string($value) != '')" />
     </xsl:function>
 
     <xsl:template match="/">
@@ -70,6 +70,7 @@ THE SOFTWARE.
                     <xsl:variable name="testName" select="translate(Name, '-', '_')"/>
                     <xsl:variable name="duration" select="number(xunit:if-empty(Results/NamedMeasurement[@name='Execution Time']/Value, 0))"/>
                     <xsl:variable name="status" select="@Status"/>
+                    <xsl:variable name="failure" select="Results/NamedMeasurement[@name='Exit Code']/Value"/>
                     <xsl:variable name="output" select="Results/Measurement/Value"/>
                     <xsl:variable name="className" select="translate(Path, '/.', '.')"/>
                     <testcase classname="projectroot{$className}"
@@ -82,7 +83,7 @@ THE SOFTWARE.
                             </xsl:when>
                             <xsl:otherwise>
                                 <failure>
-                                    <xsl:value-of select="$output"/>
+                                    <xsl:value-of select="$failure"/>
                                 </failure>
                             </xsl:otherwise>
                         </xsl:choose>
