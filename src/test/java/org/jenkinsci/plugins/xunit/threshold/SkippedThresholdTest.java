@@ -33,7 +33,6 @@ import static org.mockito.Mockito.verify;
 import org.jenkinsci.plugins.xunit.service.XUnitLog;
 import org.junit.Assert;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 import hudson.model.Result;
 import hudson.model.Run;
