@@ -51,7 +51,6 @@
         <dtkit-api.version>3.0.0</dtkit-api.version>
         <xmlunit.version>2.7.0</xmlunit.version>
         <mockito.version>2.17.0</mockito.version>
-        <junit-plugin.version>1.48</junit-plugin.version>
         <workflow-cps.version>2.45</workflow-cps.version>
     </properties>
 
@@ -88,15 +87,15 @@
                 <artifactId>checks-api</artifactId>
                 <version>1.2.0</version>
             </dependency>
-            <dependency>
-                <groupId>io.jenkins.plugins</groupId>
-                <artifactId>jaxb</artifactId>
-                <version>jaxb-2.3.0.1</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <dependencies>
+        <dependency>
+            <groupId>io.jenkins.plugins</groupId>
+            <artifactId>jaxb</artifactId>
+            <version>2.3.0.1</version>
+        </dependency>
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>dtkit-api</artifactId>
@@ -106,7 +105,6 @@
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>junit</artifactId>
-            <version>${junit-plugin.version}</version>
         </dependency>
 
         <dependency>
