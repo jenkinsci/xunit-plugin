@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites id="" name="" tests="32" failures="0" skipped="29" errors="0" time="13.353">
+    <testsuite name="autocomplete.gui.spec.ts" timestamp="1645616455044" hostname="" tests="3" failures="0" skipped="0" time="7.259" errors="0">
+        <testcase name="some description" classname="[chromium] › autocomplete.gui.spec.ts:61:3" time="2.882">
+            <system-out>
+                ...
+            </system-out>
+        </testcase>
+    </testsuite>
+</testsuites>

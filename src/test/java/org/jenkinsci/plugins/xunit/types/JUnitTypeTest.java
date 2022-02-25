@@ -43,7 +43,9 @@ public class JUnitTypeTest extends AbstractTest {
                                               { "test case 3", 3 }, //
                                               { "test case 4", 4 }, //
                                               { "support rerun of maven-surefire-plugin version", 5 }, //
-                                              { "support maven surefure report schema version 3", 6 }
+                                              { "support maven surefure report schema version 3", 6 },//
+                                              { "support playwright junit report", 7 }, //
+
         });
     }
 
