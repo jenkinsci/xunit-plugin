@@ -141,6 +141,8 @@ THE SOFTWARE.
             <xs:attribute name="tests" type="xs:string" />
             <xs:attribute name="failures" type="xs:string" />
             <xs:attribute name="errors" type="xs:string" />
+            <xs:attribute name="id" type="xs:string" />
+            <xs:attribute name="skipped" type="xs:string" />
         </xs:complexType>
     </xs:element>
 
