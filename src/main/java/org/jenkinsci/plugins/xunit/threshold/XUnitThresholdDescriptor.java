@@ -24,10 +24,9 @@
 
 package org.jenkinsci.plugins.xunit.threshold;
 
-import javax.annotation.CheckForNull;
-
 import org.kohsuke.stapler.QueryParameter;
 
+import edu.umd.cs.findbugs.annotations.CheckForNull;
 import hudson.DescriptorExtensionList;
 import hudson.Util;
 import hudson.model.Descriptor;

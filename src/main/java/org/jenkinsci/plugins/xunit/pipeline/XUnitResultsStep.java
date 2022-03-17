@@ -28,9 +28,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
-
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.workflow.graph.FlowNode;
@@ -48,6 +45,8 @@ import org.kohsuke.stapler.DataBoundSetter;
 
 import com.google.common.collect.ImmutableSet;
 
+import edu.umd.cs.findbugs.annotations.CheckForNull;
+import edu.umd.cs.findbugs.annotations.NonNull;
 import hudson.DescriptorExtensionList;
 import hudson.Extension;
 import hudson.FilePath;
@@ -70,18 +69,18 @@ public class XUnitResultsStep extends Step {
         this.tools = (tools != null) ? tools : Collections.emptyList();
     }
 
-    @Nonnull
+    @NonNull
     public List<TestType> getTools() {
         return tools;
     }
 
-    @Nonnull
+    @NonNull
     public List<XUnitThreshold> getThresholds() {
         return thresholds != null ? thresholds : Collections.emptyList();
     }
 
     @DataBoundSetter
-    public void setThresholds(@Nonnull List<XUnitThreshold> thresholds) {
+    public void setThresholds(@NonNull List<XUnitThreshold> thresholds) {
         this.thresholds = thresholds;
     }
 
@@ -116,13 +115,13 @@ public class XUnitResultsStep extends Step {
         return testTimeMargin;
     }
 
-    @Nonnull
+    @NonNull
     public Collection<TestDataPublisher> getTestDataPublishers() {
         return testDataPublishers != null ? testDataPublishers : Collections.emptyList();
     }
 
     @DataBoundSetter
-    public void setTestDataPublishers(@Nonnull Collection<TestDataPublisher> testDataPublishers) {
+    public void setTestDataPublishers(@NonNull Collection<TestDataPublisher> testDataPublishers) {
         this.testDataPublishers = testDataPublishers;
     }
 
@@ -157,7 +156,7 @@ public class XUnitResultsStep extends Step {
         }
 
         @Override
-        @Nonnull
+        @NonNull
         public String getDisplayName() {
             return Messages.xUnit_PublisherName();
         }

@@ -32,9 +32,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.UUID;
 
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
-
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.tools.ant.DirectoryScanner;
@@ -56,6 +53,8 @@ import org.jenkinsci.plugins.xunit.util.DownloadableResourceUtil;
 import org.kohsuke.accmod.Restricted;
 import org.kohsuke.accmod.restrictions.NoExternalUse;
 
+import edu.umd.cs.findbugs.annotations.CheckForNull;
+import edu.umd.cs.findbugs.annotations.NonNull;
 import hudson.FilePath;
 import hudson.Launcher;
 import hudson.Util;
@@ -92,7 +91,7 @@ public class XUnitProcessor {
         private final PipelineTestDetails pipelineTestDetails;
 
         public ReportParserCallable(long buildTime,
-                                    @Nonnull String junitFilePattern,
+                                    @NonNull String junitFilePattern,
                                     long nowMaster,
                                     String processorId,
                                     boolean reduceLog,
@@ -131,10 +130,10 @@ public class XUnitProcessor {
     private final String processorId;
     private XUnitLog logger;
 
-    public XUnitProcessor(@Nonnull TestType[] tools,
+    public XUnitProcessor(@NonNull TestType[] tools,
                           @CheckForNull XUnitThreshold[] thresholds,
                           int thresholdMode,
-                          @Nonnull ExtraConfiguration extraConfiguration) {
+                          @NonNull ExtraConfiguration extraConfiguration) {
         if (tools == null) {
             throw new IllegalArgumentException("The tools section is required.");
         }
@@ -149,7 +148,7 @@ public class XUnitProcessor {
     }
 
     public TestResultSummary process(Run<?, ?> build, FilePath workspace, TaskListener listener, Launcher launcher,
-                        @Nonnull Collection<TestDataPublisher> testDataPublishers, @CheckForNull PipelineTestDetails pipelineTestDetails)
+                        @NonNull Collection<TestDataPublisher> testDataPublishers, @CheckForNull PipelineTestDetails pipelineTestDetails)
             throws IOException, InterruptedException {
 
         logger = new XUnitLog(listener);
@@ -398,22 +397,22 @@ public class XUnitProcessor {
         return workspace.act(new ReportParserCallable(buildTime, junitFilePattern, nowMaster, processorId, extraConfiguration.isReduceLog(), pipelineTestDetails));
     }
 
-    @Restricted(NoExternalUse.class)
-    @Nonnull
-    public Result getBuildStatus(TestResultSummary testResult, Run<?, ?> build) {
+    @NonNull
+    private Result getBuildStatus(TestResultSummary testResult, Run<?, ?> build) {
         Result curResult = processResultThreshold(testResult, build);
         Result previousResultStep = build.getResult();
         if (previousResultStep == null) {
             return curResult;
+        } else if (previousResultStep != Result.NOT_BUILT && previousResultStep.isWorseOrEqualTo(curResult)) {
+            return previousResultStep;
+        } else {
+            return curResult;
         }
-        if (previousResultStep != Result.NOT_BUILT && previousResultStep.isWorseOrEqualTo(curResult)) {
-            curResult = previousResultStep;
-        }
-        return curResult;
     }
 
-    @Nonnull
-    private Result processResultThreshold(TestResultSummary testResult, Run<?, ?> build) {
+    @NonNull
+    @Restricted(NoExternalUse.class)
+    public Result processResultThreshold(TestResultSummary testResult, Run<?, ?> build) {
         TestResultSummary previousTestResult = getPreviousTestResult(build);
 
         if (thresholds != null) {

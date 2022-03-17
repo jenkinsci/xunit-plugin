@@ -31,8 +31,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import javax.annotation.Nullable;
-
 import org.hamcrest.BaseMatcher;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.Description;
@@ -59,10 +57,12 @@ import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
 import org.jvnet.hudson.test.BuildWatcher;
+import org.jvnet.hudson.test.Issue;
 import org.jvnet.hudson.test.JenkinsRule;
 
 import com.google.common.base.Predicate;
 
+import edu.umd.cs.findbugs.annotations.Nullable;
 import hudson.FilePath;
 import hudson.model.Result;
 import hudson.tasks.junit.CaseResult;
@@ -227,6 +227,35 @@ public class XUnitResultsStepTest {
         assertStageResults(r, 2, 5, 2, "first");
     }
 
+    @Test
+    @Issue("JENKINS-68061")
+    public void parallelStages() throws Exception {
+        WorkflowJob job = getBaseJob("parallelStages");
+        job.setDefinition(new CpsFlowDefinition(""
+                + "node {\n"
+                + "  parallel(one: {\n"
+                + "    stage('stage1') {\n"
+                + "      xunit(tools: [GoogleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml',\n"
+                + "                               skipNoTestFiles: false, stopProcessingIfError: true)],\n"
+                + "            thresholds: [failed(unstableThreshold: '1'), skipped()])\n"
+                + "    }\n"
+                + "  },\n"
+                + "  two: {\n"
+                + "    stage('stage2') {\n"
+                + "      xunit(tools: [GoogleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml',\n"
+                + "                               skipNoTestFiles: false, stopProcessingIfError: true)],\n"
+                + "            thresholds: [failed(unstableThreshold: '1'), skipped()])\n"
+                + "    }\n"
+                + "  })\n"
+                + "}\n", true));
+        
+        WorkflowRun r = job.scheduleBuild2(0).waitForStart();
+        j.assertBuildStatus(Result.UNSTABLE, j.waitForCompletion(r));
+
+        assertStageWarningAction(r, "stage1");
+        assertStageWarningAction(r, "stage2");
+    }
+
     public static void assertBranchResults(WorkflowRun run, int suiteCount, int testCount, int failCount,
             String branchName, String stageName, String innerStageName) {
         FlowExecution execution = run.getExecution();
@@ -249,6 +278,14 @@ public class XUnitResultsStepTest {
         BlockStartNode aStage = (BlockStartNode)scanner.findFirstMatch(execution, stageForName(stageName));
         assertNotNull(aStage);
         assertBlockResults(run, suiteCount, testCount, failCount, aStage);
+    }
+
+    public static void assertStageWarningAction(WorkflowRun run, String stageName) {
+        FlowExecution execution = run.getExecution();
+        DepthFirstScanner scanner = new DepthFirstScanner();
+        BlockStartNode aStage = (BlockStartNode)scanner.findFirstMatch(execution, stageForName(stageName));
+        assertNotNull(aStage);
+        MatcherAssert.assertThat(findXUnitSteps(aStage), CoreMatchers.hasItem(hasWarningAction()));
     }
 
     private static Predicate<FlowNode> stageForName(final String name) {

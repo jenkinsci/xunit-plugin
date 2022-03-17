@@ -34,9 +34,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
 
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
-
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.xunit.service.TransformerException;
@@ -49,6 +46,8 @@ import org.kohsuke.stapler.QueryParameter;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
+import edu.umd.cs.findbugs.annotations.CheckForNull;
+import edu.umd.cs.findbugs.annotations.NonNull;
 import hudson.AbortException;
 import hudson.DescriptorExtensionList;
 import hudson.Extension;
@@ -134,7 +133,7 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
     /*
      * Needed to support Snippet Generator and Workflow properly.
      */
-    @Nonnull
+    @NonNull
     public TestType[] getTools() {
         return tools;
     }
@@ -142,7 +141,7 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
     /*
      * Needed to support Snippet Generator and Workflow properly
      */
-    @Nonnull
+    @NonNull
     public String getTestTimeMargin() {
         return String.valueOf(getExtraConfiguration().getTestTimeMargin());
     }
@@ -150,7 +149,7 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
     /*
      * Needed to support Snippet Generator and Workflow properly
      */
-    @Nonnull
+    @NonNull
     public XUnitThreshold[] getThresholds() {
         return thresholds;
     }
@@ -159,7 +158,7 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
         return thresholdMode;
     }
 
-    @Nonnull
+    @NonNull
     public ExtraConfiguration getExtraConfiguration() {
         if (extraConfiguration == null) {
             extraConfiguration = new ExtraConfiguration(TEST_REPORT_TIME_MARGING, JUNIT_FILE_REDUCE_LOG, PROCESSING_SLEEP_TIME, FOLLOW_SYMLINK);
@@ -167,7 +166,7 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
         return extraConfiguration;
     }
 
-    @Nonnull
+    @NonNull
     public Collection<TestDataPublisher> getTestDataPublishers() {
         return testDataPublishers != null ? testDataPublishers : Collections.<TestDataPublisher> emptyList();
     }
@@ -209,7 +208,7 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
                 logger.warn(Messages.xUnitProcessor_emptyReport());
             }
 
-            Result result = xUnitProcessor.getBuildStatus(testResult, build);
+            Result result = xUnitProcessor.processResultThreshold(testResult, build);
             logger.info("Setting the build status to " + result);
             build.setResult(result);
 

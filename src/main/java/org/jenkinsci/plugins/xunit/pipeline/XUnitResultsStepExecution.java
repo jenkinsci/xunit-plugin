@@ -25,8 +25,6 @@ package org.jenkinsci.plugins.xunit.pipeline;
 
 import java.util.List;
 
-import javax.annotation.Nonnull;
-
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.workflow.actions.WarningAction;
 import org.jenkinsci.plugins.workflow.graph.FlowNode;
@@ -36,6 +34,7 @@ import org.jenkinsci.plugins.xunit.ExtraConfiguration;
 import org.jenkinsci.plugins.xunit.XUnitProcessor;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
 
+import edu.umd.cs.findbugs.annotations.NonNull;
 import hudson.AbortException;
 import hudson.FilePath;
 import hudson.Launcher;
@@ -49,7 +48,7 @@ import hudson.tasks.test.PipelineTestDetails;
 public class XUnitResultsStepExecution extends SynchronousNonBlockingStepExecution<TestResultSummary> {
     private transient XUnitResultsStep step;
 
-    public XUnitResultsStepExecution(@Nonnull XUnitResultsStep step, @Nonnull StepContext context) {
+    public XUnitResultsStepExecution(@NonNull XUnitResultsStep step, @NonNull StepContext context) {
         super(context);
         this.step = step;
     }
@@ -81,16 +80,15 @@ public class XUnitResultsStepExecution extends SynchronousNonBlockingStepExecuti
         pipelineTestDetails.setEnclosingBlockNames(JUnitResultsStepExecution.getEnclosingBlockNames(enclosingBlocks));
 
         TestResultSummary testSummary = xUnitProcessor.process(run, workspace, listener, launcher, step.getTestDataPublishers(), pipelineTestDetails);
-        
-        Result procResult = xUnitProcessor.getBuildStatus(testSummary, run);
-        Result runResult = run.getResult();
-        if (runResult == null) {
-            runResult = Result.SUCCESS;
-        }
-        if (procResult.isWorseThan(runResult)) {
+
+        Result procResult = xUnitProcessor.processResultThreshold(testSummary, run);
+        if (procResult.isWorseThan(Result.SUCCESS)) {
+            // JENKINS-68061 always mark stage
+            System.err.println("--------> " + procResult + " node id: " + node.getId());
             node.addOrReplaceAction(new WarningAction(procResult).withMessage("Some thresholds has been violated"));
-            run.setResult(procResult);
         }
+
+        run.setResult(procResult);
 
         return testSummary;
     }
