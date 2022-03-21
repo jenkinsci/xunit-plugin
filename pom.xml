@@ -8,7 +8,7 @@
     </parent>
 
     <artifactId>xunit</artifactId>
-    <version>${revision}${changelist}</version>
+    <version>3.0.6</version>
     <packaging>hpi</packaging>
     <name>xUnit plugin</name>
     <url>https://github.com/jenkinsci/xunit-plugin</url>
@@ -167,7 +167,7 @@
     <scm>
         <connection>scm:git:git://github.com/jenkinsci/xunit-plugin.git</connection>
         <developerConnection>scm:git:git@github.com:jenkinsci/xunit-plugin.git</developerConnection>
-        <tag>${scmTag}</tag>
+        <tag>xunit-3.0.6</tag>
     </scm>
 
     <build>
