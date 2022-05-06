@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="valgrind-memcheck"
+           tests="1"
+           errors="0"
+           time="45.808"
+           failures="0">
+   <testcase xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             xmlns:xunit="http://www.xunit.org"
+             name="%p"/>
+</testsuite>

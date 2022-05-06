@@ -48,11 +48,6 @@ THE SOFTWARE.
         <xsl:value-of select="if (string($value) != '') then string($value) else $default" />
     </xsl:function>
 
-    <xsl:function name="xunit:is-empty" as="xs:boolean">
-        <xsl:param name="value" as="xs:string?" />
-        <xsl:value-of select="string($value) != ''" />
-    </xsl:function>
-
     <xsl:function name="xunit:millis-from-time" as="xs:double">
         <xsl:param name="value" as="xs:string?" />
 
@@ -88,8 +83,8 @@ THE SOFTWARE.
     </xsl:variable>
 
     <xsl:template match="/valgrindoutput">
-        <xsl:variable name="startTime" select="xunit:millis-from-time(xunit:if-empty(substring(status/state[text() = 'RUNNING']/../time, 4), 0))" />
-        <xsl:variable name="endTime" select="xunit:millis-from-time(xunit:if-empty(substring(status/state[text() = 'FINISHED']/../time, 4), 0))" />
+        <xsl:variable name="startTime" select="xunit:millis-from-time(substring(status/state[text() = 'RUNNING']/../time, 4))" />
+        <xsl:variable name="endTime" select="xunit:millis-from-time(substring(status/state[text() = 'FINISHED']/../time, 4))" />
 
         <xsl:element name="testsuite">
             <xsl:attribute name="name" select="concat('valgrind-', $tool)" />
