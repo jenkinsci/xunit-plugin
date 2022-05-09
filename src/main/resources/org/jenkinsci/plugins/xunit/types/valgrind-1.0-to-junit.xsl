@@ -48,11 +48,6 @@ THE SOFTWARE.
         <xsl:value-of select="if (string($value) != '') then string($value) else $default" />
     </xsl:function>
 
-    <xsl:function name="xunit:is-empty" as="xs:boolean">
-        <xsl:param name="value" as="xs:string?" />
-        <xsl:value-of select="string($value) != ''" />
-    </xsl:function>
-
     <xsl:function name="xunit:millis-from-time" as="xs:double">
         <xsl:param name="value" as="xs:string?" />
 
