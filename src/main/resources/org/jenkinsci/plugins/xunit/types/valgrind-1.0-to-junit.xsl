@@ -88,8 +88,8 @@ THE SOFTWARE.
     </xsl:variable>
 
     <xsl:template match="/valgrindoutput">
-        <xsl:variable name="startTime" select="xunit:millis-from-time(xunit:if-empty(substring(status/state[text() = 'RUNNING']/../time, 4), 0))" />
-        <xsl:variable name="endTime" select="xunit:millis-from-time(xunit:if-empty(substring(status/state[text() = 'FINISHED']/../time, 4), 0))" />
+        <xsl:variable name="startTime" select="xunit:millis-from-time(xunit:if-empty(substring(status/state[text() = 'RUNNING']/../time, 4), '00:00:00'))" />
+        <xsl:variable name="endTime" select="xunit:millis-from-time(xunit:if-empty(substring(status/state[text() = 'FINISHED']/../time, 4), '00:00:00'))" />
 
         <xsl:element name="testsuite">
             <xsl:attribute name="name" select="concat('valgrind-', $tool)" />
