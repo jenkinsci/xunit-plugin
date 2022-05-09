@@ -36,7 +36,8 @@ public class ValgrindTest extends AbstractTest {
     @Parameters(name = "testcase{1}: {0}")
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] { { "testcase1", 1 }, //
-                                              { "testcase2", 2 } //
+                                              { "testcase2", 2 }, //
+                                              { "testcase3", 3 } //
         });
     }
 
