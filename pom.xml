@@ -48,7 +48,7 @@
 
         <!-- dependencies versions -->
         <assertj.version>3.15.0</assertj.version>
-        <dtkit-api.version>3.0.0</dtkit-api.version>
+        <dtkit-api.version>3.0.1</dtkit-api.version>
         <xmlunit.version>2.7.0</xmlunit.version>
         <mockito.version>2.17.0</mockito.version>
         <workflow-cps.version>2.45</workflow-cps.version>
