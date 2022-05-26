@@ -28,12 +28,16 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
+import org.apache.commons.collections.iterators.ReverseListIterator;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
 import org.jenkinsci.lib.dtkit.model.InputMetric;
@@ -56,6 +60,7 @@ import org.kohsuke.accmod.restrictions.NoExternalUse;
 import edu.umd.cs.findbugs.annotations.CheckForNull;
 import edu.umd.cs.findbugs.annotations.NonNull;
 import hudson.FilePath;
+import hudson.Functions;
 import hudson.Launcher;
 import hudson.Util;
 import hudson.model.Result;
@@ -147,7 +152,7 @@ public class XUnitProcessor {
         this.processorId = UUID.randomUUID().toString();
     }
 
-    public TestResultSummary process(Run<?, ?> build, FilePath workspace, TaskListener listener, Launcher launcher,
+    public XUnitProcessorResult process(Run<?, ?> build, FilePath workspace, TaskListener listener, Launcher launcher,
                         @NonNull Collection<TestDataPublisher> testDataPublishers, @CheckForNull PipelineTestDetails pipelineTestDetails)
             throws IOException, InterruptedException {
 
@@ -155,15 +160,40 @@ public class XUnitProcessor {
 
         int processedReports = processTestsReport(build, workspace, listener);
         if (processedReports == 0) {
-            return emptySummary;
+            return new XUnitProcessorResult(emptySummary, new TestResult());
         }
 
-        TestResultSummary testResult = recordTestResult(build, workspace, listener, launcher, testDataPublishers, pipelineTestDetails);
-        if (testResult != null) {
-            processDeletion(workspace);
+        XUnitProcessorResult result = recordTestResult(build, workspace, listener, launcher, testDataPublishers, pipelineTestDetails);
+        processDeletion(workspace);
+
+        return result;
+    }
+
+    public void publishChecks(Run<?, ?> build, @NonNull final XUnitProcessorResult result, @NonNull final Result buildResult, 
+                TaskListener listener, @CheckForNull PipelineTestDetails pipelineTestDetails) {
+        if (extraConfiguration.isSkipPublishingChecks()) {
+            return;
         }
 
-        return testResult;
+        // If we haven't been provided with a checks name, and we have pipeline test details, set the checks name
+        // to be a ' / '-joined string of the enclosing blocks names, plus 'Tests' at the start. If there are no
+        // enclosing blocks, you'll end up with just 'Tests'.
+        String checksName = extraConfiguration.getChecksName();
+        if (checksName == null && pipelineTestDetails != null) {
+            List<String> checksComponents = new ArrayList<>(pipelineTestDetails.getEnclosingBlockNames());
+            checksComponents.add(XUnitDefaultValues.DEFAULT_CHECKS_NAME);
+            checksName = StringUtils.join(new ReverseListIterator(checksComponents), " / ");
+        }
+
+        if (Util.fixEmpty(checksName) == null) {
+            checksName = XUnitDefaultValues.DEFAULT_CHECKS_NAME;
+        }
+
+        try {
+            new XUnitChecksPublisher(build, checksName, result, buildResult).publishChecks(listener);
+        } catch (Exception x) {
+            Functions.printStackTrace(x, listener.error("Publishing XUnit checks failed:"));
+        }
     }
 
     private int processTestsReport(Run<?, ?> build,
@@ -247,7 +277,7 @@ public class XUnitProcessor {
             this.extraConfiguration.getSleepTime(), xslContent);
         toolInfo.setExcludesPattern(excludesPattern);
         toolInfo.setFollowSymlink(this.extraConfiguration.isFollowSymlink());
-        
+
         return toolInfo;
     }
 
@@ -327,7 +357,7 @@ public class XUnitProcessor {
         return new TestResultSummary(previousAction.getResult());
     }
 
-    private TestResultSummary recordTestResult(Run<?, ?> build,
+    private XUnitProcessorResult recordTestResult(Run<?, ?> build,
                                         FilePath workspace,
                                         TaskListener listener,
                                         Launcher launcher,
@@ -371,9 +401,11 @@ public class XUnitProcessor {
                     build.addAction(action);
                 }
             }
+        } else {
+            result = new TestResult();
         }
 
-        return summary;
+        return new XUnitProcessorResult(summary, result);
     }
 
     /**
@@ -395,19 +427,6 @@ public class XUnitProcessor {
                                      final PipelineTestDetails pipelineTestDetails) throws IOException, InterruptedException {
 
         return workspace.act(new ReportParserCallable(buildTime, junitFilePattern, nowMaster, processorId, extraConfiguration.isReduceLog(), pipelineTestDetails));
-    }
-
-    @NonNull
-    private Result getBuildStatus(TestResultSummary testResult, Run<?, ?> build) {
-        Result curResult = processResultThreshold(testResult, build);
-        Result previousResultStep = build.getResult();
-        if (previousResultStep == null) {
-            return curResult;
-        } else if (previousResultStep != Result.NOT_BUILT && previousResultStep.isWorseOrEqualTo(curResult)) {
-            return previousResultStep;
-        } else {
-            return curResult;
-        }
     }
 
     @NonNull

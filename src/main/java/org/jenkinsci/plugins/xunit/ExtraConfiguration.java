@@ -27,6 +27,9 @@ import static org.jenkinsci.plugins.xunit.XUnitDefaultValues.FOLLOW_SYMLINK;
 
 import java.io.Serializable;
 
+import edu.umd.cs.findbugs.annotations.CheckForNull;
+import edu.umd.cs.findbugs.annotations.Nullable;
+
 /**
  * Lists all advanced configuration for XUnit.
  * <p>
@@ -41,7 +44,7 @@ public class ExtraConfiguration implements Serializable {
         private ExtraConfiguration configuration;
 
         public ExtraConfigurationBuilder(ExtraConfiguration configuration) {
-            this.configuration = new ExtraConfiguration(configuration.testTimeMargin, configuration.reduceLog, configuration.sleepTime, configuration.followSymlink);
+            this.configuration = new ExtraConfiguration(configuration.testTimeMargin, configuration.reduceLog, configuration.sleepTime, configuration.followSymlink, configuration.skipPublishingChecks, configuration.checksName);
         }
 
         public ExtraConfigurationBuilder testTimeMargin(long testTimeMargin) {
@@ -62,6 +65,16 @@ public class ExtraConfiguration implements Serializable {
         public ExtraConfigurationBuilder followSymlink(boolean followSymlink) {
             configuration.followSymlink = followSymlink;
             return this;
+        }    
+        
+        public ExtraConfigurationBuilder skipPublishingChecks(boolean skipPublishingChecks) {
+            configuration.skipPublishingChecks = skipPublishingChecks;
+            return this;
+        }
+
+        public ExtraConfigurationBuilder checksName(String checksName) {
+            configuration.checksName = checksName;
+            return this;
         }
 
         public ExtraConfiguration build() {
@@ -79,16 +92,22 @@ public class ExtraConfiguration implements Serializable {
      * understand when value is missing in XML file
      */
     private Boolean followSymlink;
+    private boolean skipPublishingChecks;
+
+    @Nullable
+    private String checksName;
 
     static ExtraConfigurationBuilder withConfiguration(ExtraConfiguration configuration) {
         return new ExtraConfigurationBuilder(configuration);
     }
 
-    public ExtraConfiguration(long testTimeMargin, boolean reduceLog, long sleepTime, boolean followSymlink) {
+    public ExtraConfiguration(long testTimeMargin, boolean reduceLog, long sleepTime, boolean followSymlink, boolean skipPublishingChecks, @CheckForNull final String checksName) {
         this.testTimeMargin = testTimeMargin;
         this.sleepTime = sleepTime;
         this.reduceLog = reduceLog;
         this.followSymlink = followSymlink;
+        this.skipPublishingChecks = skipPublishingChecks;
+        this.checksName = checksName;
     }
 
     public long getTestTimeMargin() {
@@ -105,6 +124,20 @@ public class ExtraConfiguration implements Serializable {
 
     public boolean isFollowSymlink() {
         return followSymlink;
+    }     
+
+    /**
+    * Should we skip publishing checks to the checks API plugin.
+    * 
+    * @return if publishing checks should be skipped, {@code false} otherwise 
+    */
+    public boolean isSkipPublishingChecks() {
+        return skipPublishingChecks;
+    }
+
+    @Nullable
+    public String getChecksName() {
+        return checksName;
     }
 
     /**

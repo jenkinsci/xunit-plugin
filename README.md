@@ -7,6 +7,44 @@ This plugin publishes test results of an execution of a testing tool in Jenkins.
 -   Records xUnit tests
 -   Mark the build unstable or fail according to threshold values
 
+### Test result checks (for GitHub projects)
+
+:warning: This feature requires:
+* the installation of an additional plugin: [GitHub Checks Plugin](https://github.com/jenkinsci/github-checks-plugin)
+* the configuration of GitHub App credentails, see [this guide](https://docs.cloudbees.com/docs/cloudbees-ci/latest/cloud-admin-guide/github-app-auth) for more details.
+
+If not disabled in the job configuration, this plugin will publish test results to GitHub through [GitHub checks API](https://docs.github.com/en/rest/reference/checks).
+
+In the *Details* view of each check, test results will be displayed.
+
+In order to disable the checks feature, set the property `skipPublishingChecks` to `true`:
+```groovy
+xunit (
+    skipPublishingChecks: true, 
+    thresholds: [ skipped(failureThreshold: '0'), failed(failureThreshold: '0') ],
+    tools: [ BoostTest(pattern: 'boost/*.xml') ]
+)
+```
+
+The plugin will default to using the stage name or branch of a parallel step prepended by `Tests` for the checks name.
+If there are no enclosing stages or branches, `Tests` will be used. The name can also be overridden by a `withChecks` step.
+
+The following snippet would publish three checks with the names `Tests / Integration`, `Tests` and `Integration Tests`, respectively.
+
+```groovy
+stage('Integration') {
+  xunit (tools: [ BoostTest(pattern: 'integration/*.xml') ])
+}
+
+xunit (tools: [ BoostTest(pattern: 'boost/*.xml') ])
+
+stage('Ignored') {
+  withChecks('Integration Tests') {
+    xunit (tools: [ MSTest(pattern: '**/*.trx') ])
+  }
+}
+```
+
 # Supported tools
 
 ## Embedded tools

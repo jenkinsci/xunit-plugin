@@ -52,6 +52,7 @@
         <xmlunit.version>2.7.0</xmlunit.version>
         <mockito.version>2.17.0</mockito.version>
         <workflow-cps.version>2.45</workflow-cps.version>
+        <checks-api.version>1.2.0</checks-api.version>
     </properties>
 
     <repositories>
@@ -85,7 +86,7 @@
             <dependency>
                 <groupId>io.jenkins.plugins</groupId>
                 <artifactId>checks-api</artifactId>
-                <version>1.2.0</version>
+                <version>${checks-api.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -110,6 +111,26 @@
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>structs</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.jenkins.plugins</groupId>
+            <artifactId>checks-api</artifactId>
+            <version>${checks-api.version}</version>
+            <scope>test</scope>
+            <classifier>tests</classifier> 
+        </dependency>
+
+        <dependency>
+            <groupId>org.jenkinsci.plugins</groupId>
+            <artifactId>pipeline-model-definition</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>joda-time</groupId>
+                    <artifactId>joda-time</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
