@@ -71,6 +71,14 @@ THE SOFTWARE.
             <f:entry field="followSymlink" title="${%extraConfiguration.followSymlink.title}" description="${%extraConfiguration.followSymlink.description}">
                 <f:checkbox checked="${instance.extraConfiguration.followSymlink}" default="true"/>
             </f:entry>
+            
+            <f:entry field="skipPublishingChecks" title="${%extraConfiguration.skipPublishingChecks.title}" description="${%extraConfiguration.skipPublishingChecks.description}">
+                <f:checkbox checked="${instance.extraConfiguration.skipPublishingChecks}" default="true" />
+            </f:entry>
+
+            <f:entry field="checksName" title="${%extraConfiguration.checksName.title}" description="${%extraConfiguration.checksName.description}">
+                <f:textbox />
+            </f:entry>
         </f:advanced>
     </f:block>
 

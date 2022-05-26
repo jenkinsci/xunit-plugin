@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014, Gregory Boissinot
+ * Copyright (c) 2022, JoC0de
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,29 +23,26 @@
  */
 package org.jenkinsci.plugins.xunit;
 
-/**
- * @author Gregory Boissinot
- */
-public class XUnitDefaultValues {
+import edu.umd.cs.findbugs.annotations.NonNull;
+import hudson.tasks.junit.TestResult;
+import hudson.tasks.junit.TestResultSummary;
 
-    public static final String GENERATED_JUNIT_DIR = "generatedJUnitFiles";
+public class XUnitProcessorResult {
+    private final TestResultSummary testResultSummary;
+    private final TestResult testResult;
 
-    public static final int MODE_PERCENT = 2;
+    public XUnitProcessorResult(@NonNull final TestResultSummary testResultSummary, @NonNull final TestResult testResult) {
+        this.testResultSummary = testResultSummary;
+        this.testResult = testResult;
+    }
 
-    public static final int TEST_REPORT_TIME_MARGING = 3000; // default to 3000
+    @NonNull
+    public TestResultSummary getTestResultSummary() {
+        return testResultSummary;
+    }
 
-    public static final int PROCESSING_SLEEP_TIME = 10;
-    
-    public static final boolean FOLLOW_SYMLINK = true;
-
-    public static final boolean JUNIT_FILE_REDUCE_LOG = true;
-
-    public static final String JUNIT_FILE_PREFIX = "TEST-";
-
-    public static final String JUNIT_FILE_EXTENSION = ".xml";    
-
-    public static final String DEFAULT_CHECKS_NAME = "Tests";
-
-    public static final boolean SKIP_PUBLISHING_CHECKS = true;
-
+    @NonNull
+    public TestResult getTestResult() {
+        return testResult;
+    }
 }

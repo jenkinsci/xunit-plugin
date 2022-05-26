@@ -85,6 +85,44 @@ You could also provide an URL to the stylesheet.
 If the XSL file is placed in the `$JENKINS_HOME/userContent` folder, the file will be available under the URL
 `http(s)://$JENKINS_URL/userContent/<xsl file>`
 
+### Publish test result checks
+
+This feature requires:
+* the installation of an additional plugin: [GitHub Checks Plugin](https://github.com/jenkinsci/github-checks-plugin)
+* the configuration of GitHub App credentails, see [this guide](https://docs.cloudbees.com/docs/cloudbees-ci/latest/cloud-admin-guide/github-app-auth) for more details.
+
+When enabled in the job configuration, this plugin will publish test results to GitHub through [GitHub checks API](https://docs.github.com/en/rest/reference/checks).
+
+In the *Details* view of each check, test results will be displayed.
+
+In order to disable the checks feature, set the property `skipPublishingChecks` to `true`:
+```groovy
+xunit (
+    skipPublishingChecks: true, 
+    thresholds: [ skipped(failureThreshold: '0'), failed(failureThreshold: '0') ],
+    tools: [ BoostTest(pattern: 'boost/*.xml') ]
+)
+```
+
+The plugin will default to using the stage name or branch of a parallel step prepended by `Tests` for the checks name.
+If there are no enclosing stages or branches, `Tests` will be used. The name can also be overridden by a `withChecks` step.
+
+The following snippet would publish three checks with the names `Tests / Integration`, `Tests` and `Integration Tests`, respectively.
+
+```groovy
+stage('Integration') {
+  xunit (tools: [ BoostTest(pattern: 'integration/*.xml') ])
+}
+
+xunit (tools: [ BoostTest(pattern: 'boost/*.xml') ])
+
+stage('Ignored') {
+  withChecks('Integration Tests') {
+    xunit (tools: [ MSTest(pattern: '**/*.trx') ])
+  }
+}
+```
+
 # xUnit Architecture
 
 ## Global Architecture

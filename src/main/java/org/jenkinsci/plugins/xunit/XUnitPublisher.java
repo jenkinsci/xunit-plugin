@@ -27,6 +27,7 @@ import static org.jenkinsci.plugins.xunit.XUnitDefaultValues.FOLLOW_SYMLINK;
 import static org.jenkinsci.plugins.xunit.XUnitDefaultValues.JUNIT_FILE_REDUCE_LOG;
 import static org.jenkinsci.plugins.xunit.XUnitDefaultValues.PROCESSING_SLEEP_TIME;
 import static org.jenkinsci.plugins.xunit.XUnitDefaultValues.TEST_REPORT_TIME_MARGING;
+import static org.jenkinsci.plugins.xunit.XUnitDefaultValues.SKIP_PUBLISHING_CHECKS;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -48,6 +49,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 import edu.umd.cs.findbugs.annotations.CheckForNull;
 import edu.umd.cs.findbugs.annotations.NonNull;
+import edu.umd.cs.findbugs.annotations.Nullable;
 import hudson.AbortException;
 import hudson.DescriptorExtensionList;
 import hudson.Extension;
@@ -65,7 +67,6 @@ import hudson.tasks.Publisher;
 import hudson.tasks.Recorder;
 import hudson.tasks.junit.JUnitResultArchiver;
 import hudson.tasks.junit.TestDataPublisher;
-import hudson.tasks.junit.TestResultSummary;
 import hudson.tasks.test.TestResultProjectAction;
 import hudson.util.FormValidation;
 import jenkins.tasks.SimpleBuildStep;
@@ -90,7 +91,7 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
         this.thresholds = (thresholds != null ? Arrays.copyOf(thresholds, thresholds.length) : new XUnitThreshold[0]);
         this.thresholdMode = thresholdMode;
         long longTestTimeMargin = XUnitUtil.parsePositiveLong(testTimeMargin, TEST_REPORT_TIME_MARGING);
-        this.extraConfiguration = new ExtraConfiguration(longTestTimeMargin, JUNIT_FILE_REDUCE_LOG, PROCESSING_SLEEP_TIME, FOLLOW_SYMLINK);
+        this.extraConfiguration = new ExtraConfiguration(longTestTimeMargin, JUNIT_FILE_REDUCE_LOG, PROCESSING_SLEEP_TIME, FOLLOW_SYMLINK, SKIP_PUBLISHING_CHECKS, null);
         this.testDataPublishers = Collections.<TestDataPublisher> emptySet();
     }
 
@@ -130,6 +131,31 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
         return extraConfiguration.isFollowSymlink();
     }
 
+    @DataBoundSetter
+    public void setSkipPublishingChecks(boolean skipPublishingChecks) {
+        extraConfiguration = ExtraConfiguration.withConfiguration(extraConfiguration).skipPublishingChecks(skipPublishingChecks).build();
+    }
+
+    /*
+     * Needed to support Snippet Generator and Workflow properly
+     */
+    public boolean getSkipPublishingChecks() {
+        return extraConfiguration.isSkipPublishingChecks();
+    }
+
+    @DataBoundSetter
+    public void setChecksName(String checksName) {
+        extraConfiguration = ExtraConfiguration.withConfiguration(extraConfiguration).checksName(checksName).build();
+    }
+
+    /*
+     * Needed to support Snippet Generator and Workflow properly
+     */
+    @Nullable
+    public String getChecksName() {
+        return extraConfiguration.getChecksName();
+    }
+
     /*
      * Needed to support Snippet Generator and Workflow properly.
      */
@@ -161,7 +187,7 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
     @NonNull
     public ExtraConfiguration getExtraConfiguration() {
         if (extraConfiguration == null) {
-            extraConfiguration = new ExtraConfiguration(TEST_REPORT_TIME_MARGING, JUNIT_FILE_REDUCE_LOG, PROCESSING_SLEEP_TIME, FOLLOW_SYMLINK);
+            extraConfiguration = new ExtraConfiguration(TEST_REPORT_TIME_MARGING, JUNIT_FILE_REDUCE_LOG, PROCESSING_SLEEP_TIME, FOLLOW_SYMLINK, SKIP_PUBLISHING_CHECKS, null);
         }
         return extraConfiguration;
     }
@@ -201,16 +227,17 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
             throws InterruptedException, IOException {
         try {
             XUnitProcessor xUnitProcessor = new XUnitProcessor(getTools(), getThresholds(), getThresholdMode(), getExtraConfiguration());
-            TestResultSummary testResult = xUnitProcessor.process(build, workspace, listener, launcher, getTestDataPublishers(), null);
+            XUnitProcessorResult result = xUnitProcessor.process(build, workspace, listener, launcher, getTestDataPublishers(), null);
 
             XUnitLog logger = new XUnitLog(listener);
-            if (testResult.getTotalCount() == 0) {
+            if (result.getTestResultSummary().getTotalCount() == 0) {
                 logger.warn(Messages.xUnitProcessor_emptyReport());
             }
 
-            Result result = xUnitProcessor.processResultThreshold(testResult, build);
+            Result procResult = xUnitProcessor.processResultThreshold(result.getTestResultSummary(), build);
+            xUnitProcessor.publishChecks(build, result, procResult, listener, null);
             logger.info("Setting the build status to " + result);
-            build.setResult(result);
+            build.setResult(procResult);
 
         } catch(AbortException e) {
             build.setResult(Result.FAILURE);

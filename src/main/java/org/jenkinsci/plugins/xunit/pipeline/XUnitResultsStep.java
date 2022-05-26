@@ -47,6 +47,7 @@ import com.google.common.collect.ImmutableSet;
 
 import edu.umd.cs.findbugs.annotations.CheckForNull;
 import edu.umd.cs.findbugs.annotations.NonNull;
+import edu.umd.cs.findbugs.annotations.Nullable;
 import hudson.DescriptorExtensionList;
 import hudson.Extension;
 import hudson.FilePath;
@@ -63,6 +64,8 @@ public class XUnitResultsStep extends Step {
     private boolean reduceLog = XUnitDefaultValues.JUNIT_FILE_REDUCE_LOG;
     private boolean followSymlink = XUnitDefaultValues.FOLLOW_SYMLINK;
     private Collection<TestDataPublisher> testDataPublishers;
+    private boolean skipPublishingChecks = XUnitDefaultValues.SKIP_PUBLISHING_CHECKS;
+    private String checksName = null;
 
     @DataBoundConstructor
     public XUnitResultsStep(@CheckForNull List<TestType> tools) {
@@ -146,6 +149,30 @@ public class XUnitResultsStep extends Step {
     @DataBoundSetter
     public void setFollowSymlink(boolean followSymlink) {
         this.followSymlink = followSymlink;
+    }
+
+    /**
+     * Should we skip publishing checks to the checks API plugin.
+     * 
+     * @return if publishing checks should be skipped, {@code false} otherwise 
+     */
+    public boolean isSkipPublishingChecks() {
+        return skipPublishingChecks;
+    }
+
+    @DataBoundSetter
+    public void setSkipPublishingChecks(boolean skipPublishingChecks) {
+        this.skipPublishingChecks = skipPublishingChecks;
+    }
+
+    @Nullable
+    public String getChecksName() {
+        return checksName;
+    }
+
+    @DataBoundSetter
+    public void setChecksName(String checksName) {
+        this.checksName = checksName;
     }
 
     @Extension

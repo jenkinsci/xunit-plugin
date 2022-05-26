@@ -24,6 +24,7 @@
 package org.jenkinsci.plugins.xunit.pipeline;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.workflow.actions.WarningAction;
@@ -32,18 +33,21 @@ import org.jenkinsci.plugins.workflow.steps.StepContext;
 import org.jenkinsci.plugins.workflow.steps.SynchronousNonBlockingStepExecution;
 import org.jenkinsci.plugins.xunit.ExtraConfiguration;
 import org.jenkinsci.plugins.xunit.XUnitProcessor;
+import org.jenkinsci.plugins.xunit.XUnitProcessorResult;
 import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
 
 import edu.umd.cs.findbugs.annotations.NonNull;
 import hudson.AbortException;
 import hudson.FilePath;
 import hudson.Launcher;
+import hudson.Util;
 import hudson.model.Result;
 import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.tasks.junit.TestResultSummary;
 import hudson.tasks.junit.pipeline.JUnitResultsStepExecution;
 import hudson.tasks.test.PipelineTestDetails;
+import io.jenkins.plugins.checks.steps.ChecksInfo;
 
 public class XUnitResultsStepExecution extends SynchronousNonBlockingStepExecution<TestResultSummary> {
     private transient XUnitResultsStep step;
@@ -67,11 +71,18 @@ public class XUnitResultsStepExecution extends SynchronousNonBlockingStepExecuti
         if (step.getTools().isEmpty()) {
             throw new AbortException(Messages.XUnitResultsStepExecution_noTool());
         }
+        
+        // If we are within a withChecks context, and have not provided a name override in the step, apply the withChecks name
+        if (Util.fixEmpty(step.getChecksName()) == null) {
+            Optional.ofNullable(getContext().get(ChecksInfo.class))
+                    .map(ChecksInfo::getName)
+                    .ifPresent(step::setChecksName);
+        }
 
         XUnitProcessor xUnitProcessor = new XUnitProcessor(step.getTools().toArray(new TestType[0]),
                 step.getThresholds().toArray(new XUnitThreshold[0]),
                 step.getThresholdMode(),
-                new ExtraConfiguration(step.getTestTimeMarginAsLong(), step.isReduceLog(), step.getSleepTime(), step.isFollowSymlink()));
+                new ExtraConfiguration(step.getTestTimeMarginAsLong(), step.isReduceLog(), step.getSleepTime(), step.isFollowSymlink(), step.isSkipPublishingChecks(), step.getChecksName()));
         List<FlowNode> enclosingBlocks = JUnitResultsStepExecution.getEnclosingStagesAndParallels(node);
 
         PipelineTestDetails pipelineTestDetails = new PipelineTestDetails();
@@ -79,18 +90,20 @@ public class XUnitResultsStepExecution extends SynchronousNonBlockingStepExecuti
         pipelineTestDetails.setEnclosingBlocks(JUnitResultsStepExecution.getEnclosingBlockIds(enclosingBlocks));
         pipelineTestDetails.setEnclosingBlockNames(JUnitResultsStepExecution.getEnclosingBlockNames(enclosingBlocks));
 
-        TestResultSummary testSummary = xUnitProcessor.process(run, workspace, listener, launcher, step.getTestDataPublishers(), pipelineTestDetails);
+        XUnitProcessorResult result = xUnitProcessor.process(run, workspace, listener, launcher, step.getTestDataPublishers(), pipelineTestDetails);
 
-        Result procResult = xUnitProcessor.processResultThreshold(testSummary, run);
+        Result procResult = xUnitProcessor.processResultThreshold(result.getTestResultSummary(), run);
         if (procResult.isWorseThan(Result.SUCCESS)) {
             // JENKINS-68061 always mark stage
             System.err.println("--------> " + procResult + " node id: " + node.getId());
             node.addOrReplaceAction(new WarningAction(procResult).withMessage("Some thresholds has been violated"));
         }
 
+        xUnitProcessor.publishChecks(run, result, procResult, listener, pipelineTestDetails);
+
         run.setResult(procResult);
 
-        return testSummary;
+        return result.getTestResultSummary();
     }
 
     private static final long serialVersionUID = 1L;
