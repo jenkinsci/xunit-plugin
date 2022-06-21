@@ -92,18 +92,9 @@ This feature requires:
 * the configuration of GitHub App credentails, see [this guide](https://docs.cloudbees.com/docs/cloudbees-ci/latest/cloud-admin-guide/github-app-auth) for more details.
 
 When enabled in the job configuration, this plugin will publish test results to GitHub through [GitHub checks API](https://docs.github.com/en/rest/reference/checks).
-
 In the *Details* view of each check, test results will be displayed.
 
-In order to enable the checks feature, set the property `skipPublishingChecks` to `false`:
-```groovy
-xunit (
-    skipPublishingChecks: false, 
-    thresholds: [ skipped(failureThreshold: '0'), failed(failureThreshold: '0') ],
-    tools: [ BoostTest(pattern: 'boost/*.xml') ]
-)
-```
-
+In order to enable the checks feature, set the property `skipPublishingChecks` to `false`
 The plugin will default to using the stage name or branch of a parallel step prepended by `Tests` for the checks name.
 If there are no enclosing stages or branches, `Tests` will be used. The name can also be overridden by a `withChecks` step.
 
@@ -111,14 +102,14 @@ The following snippet would publish three checks with the names `Tests / Integra
 
 ```groovy
 stage('Integration') {
-  xunit (tools: [ BoostTest(pattern: 'integration/*.xml') ])
+  xunit (tools: [ BoostTest(pattern: 'integration/*.xml') ], skipPublishingChecks: false)
 }
-
-xunit (tools: [ BoostTest(pattern: 'boost/*.xml') ])
+// no stage at all
+xunit (tools: [ BoostTest(pattern: 'boost/*.xml') ], skipPublishingChecks: false)
 
 stage('Ignored') {
   withChecks('Integration Tests') {
-    xunit (tools: [ MSTest(pattern: '**/*.trx') ])
+    xunit (tools: [ MSTest(pattern: '**/*.trx') ], skipPublishingChecks: false)
   }
 }
 ```
