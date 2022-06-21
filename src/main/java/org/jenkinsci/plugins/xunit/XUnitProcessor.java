@@ -85,7 +85,7 @@ public class XUnitProcessor {
      * This class is external to ensure serialisation is not broken as anonymous
      * class requires that whole outer class was serialisable too.
      **/
-    private static final class ReportParserCallable extends jenkins.SlaveToMasterFileCallable<TestResult> {
+    private static final class ReportParserCallable extends jenkins.MasterToSlaveFileCallable<TestResult> {
         private static final long serialVersionUID = 1L;
 
         private final String junitFilePattern;

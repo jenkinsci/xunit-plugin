@@ -27,7 +27,6 @@ import static org.jenkinsci.plugins.xunit.XUnitDefaultValues.FOLLOW_SYMLINK;
 
 import java.io.Serializable;
 
-import edu.umd.cs.findbugs.annotations.CheckForNull;
 import edu.umd.cs.findbugs.annotations.Nullable;
 
 /**
@@ -101,7 +100,7 @@ public class ExtraConfiguration implements Serializable {
         return new ExtraConfigurationBuilder(configuration);
     }
 
-    public ExtraConfiguration(long testTimeMargin, boolean reduceLog, long sleepTime, boolean followSymlink, boolean skipPublishingChecks, @CheckForNull final String checksName) {
+    public ExtraConfiguration(long testTimeMargin, boolean reduceLog, long sleepTime, boolean followSymlink, boolean skipPublishingChecks, @Nullable final String checksName) {
         this.testTimeMargin = testTimeMargin;
         this.sleepTime = sleepTime;
         this.reduceLog = reduceLog;
