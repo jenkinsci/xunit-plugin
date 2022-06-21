@@ -95,10 +95,10 @@ When enabled in the job configuration, this plugin will publish test results to 
 
 In the *Details* view of each check, test results will be displayed.
 
-In order to disable the checks feature, set the property `skipPublishingChecks` to `true`:
+In order to enable the checks feature, set the property `skipPublishingChecks` to `false`:
 ```groovy
 xunit (
-    skipPublishingChecks: true, 
+    skipPublishingChecks: false, 
     thresholds: [ skipped(failureThreshold: '0'), failed(failureThreshold: '0') ],
     tools: [ BoostTest(pattern: 'boost/*.xml') ]
 )
