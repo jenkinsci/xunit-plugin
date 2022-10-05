@@ -94,7 +94,7 @@ public class XUnitChecksPublisherTest {
 
         ChecksOutput output = checksDetails.getOutput().get();
 
-        assertThat(output.getTitle().get(), is("failed: 2, passed: 2"));
+        assertThat(output.getTitle().get(), is("total: 4, failed: 2, passed: 2"));
         assertThat(output.getText().get(), is("## `modules1.MyTest.test1`\n\n```text\nfailure for test1\n```\n\n\n## `modules1.MyTest.test2`\n\n```text\nerror for test2\n```\n\n\n"));
 
     }
@@ -125,7 +125,7 @@ public class XUnitChecksPublisherTest {
 
         ChecksOutput output = checksDetails.getOutput().get();
 
-        assertThat(output.getTitle().get(), is("failed: 2, passed: 2"));
+        assertThat(output.getTitle().get(), is("total: 4, failed: 2, passed: 2"));
         assertThat(output.getText().get(), is("## `modules1.MyTest.test1`\n\n```text\nfailure for test1\n```\n\n\n## `modules1.MyTest.test2`\n\n```text\nerror for test2\n```\n\n\n"));
 
     }
@@ -153,7 +153,7 @@ public class XUnitChecksPublisherTest {
 
         ChecksOutput output = checksDetails.getOutput().get();
 
-        assertThat(output.getTitle().get(), is("passed: 4"));
+        assertThat(output.getTitle().get(), is("total: 4, passed: 4"));
         assertThat(output.getText().get(), is(""));
 
     }
@@ -182,7 +182,7 @@ public class XUnitChecksPublisherTest {
 
         ChecksOutput output = checksDetails.getOutput().get();
 
-        assertThat(output.getTitle().get(), is("passed: 4"));
+        assertThat(output.getTitle().get(), is("total: 4, passed: 4"));
         assertThat(output.getText().get(), is(""));
     }
 
@@ -210,7 +210,7 @@ public class XUnitChecksPublisherTest {
 
         ChecksOutput output = checksDetails.getOutput().get();
 
-        assertThat(output.getTitle().get(), is("passed: 4"));
+        assertThat(output.getTitle().get(), is("total: 4, passed: 4"));
         assertThat(output.getText().get(), is(""));
     }
 
