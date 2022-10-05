@@ -81,7 +81,6 @@ class XUnitChecksPublisher {
 
     ChecksDetails extractChecksDetails() {
         String testsURL = DisplayURLProvider.get().getTestsURL(run);
-        summary.getFailCount
         ChecksOutput output = new ChecksOutput.ChecksOutputBuilder()
                 .withTitle(extractChecksTitle())
                 .withSummary(extractChecksTitle())
