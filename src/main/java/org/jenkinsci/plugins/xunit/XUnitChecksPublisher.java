@@ -81,9 +81,10 @@ class XUnitChecksPublisher {
 
     ChecksDetails extractChecksDetails() {
         String testsURL = DisplayURLProvider.get().getTestsURL(run);
+        summary.getFailCount
         ChecksOutput output = new ChecksOutput.ChecksOutputBuilder()
                 .withTitle(extractChecksTitle())
-                .withSummary("<sub>Send us [feedback](https://github.com/jenkinsci/xunit-plugin/issues)")
+                .withSummary(extractChecksTitle())
                 .withText(extractChecksText(testsURL))
                 .build();
 
@@ -165,26 +166,24 @@ class XUnitChecksPublisher {
             builder.append(failedTest.getTransformedFullDisplayName()).append(" failed");
             return builder.toString();
         }
-
+        
+        // Total count
+        builder.append("total: ").append(summary.getTotalCount());
+        // Failed count
         if (summary.getFailCount() > 0) {
+            builder.append(SEPARATOR);
             builder.append("failed: ").append(summary.getFailCount());
-            if (summary.getSkipCount() > 0 || summary.getPassCount() > 0) {
-                builder.append(SEPARATOR);
-            }
         }
-
+        // Skipped count
         if (summary.getSkipCount() > 0) {
+            builder.append(SEPARATOR);
             builder.append("skipped: ").append(summary.getSkipCount());
-
-            if (summary.getPassCount() > 0) {
-                builder.append(SEPARATOR);
-            }
         }
-
+        // Passed count
         if (summary.getPassCount() > 0) {
+            builder.append(SEPARATOR);
             builder.append("passed: ").append(summary.getPassCount());
         }
-
 
         return builder.toString();
     }
