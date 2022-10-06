@@ -94,7 +94,8 @@ public class XUnitChecksPublisherTest {
 
         ChecksOutput output = checksDetails.getOutput().get();
 
-        assertThat(output.getTitle().get(), is("total: 4, failed: 2, passed: 2"));
+        assertThat(output.getTitle().get(), is("There were test failures"));
+        assertThat(output.getSummary().get(), is("total: 4, failed: 2, passed: 2"));
         assertThat(output.getText().get(), is("## `modules1.MyTest.test1`\n\n```text\nfailure for test1\n```\n\n\n## `modules1.MyTest.test2`\n\n```text\nerror for test2\n```\n\n\n"));
 
     }
@@ -125,7 +126,8 @@ public class XUnitChecksPublisherTest {
 
         ChecksOutput output = checksDetails.getOutput().get();
 
-        assertThat(output.getTitle().get(), is("total: 4, failed: 2, passed: 2"));
+        assertThat(output.getTitle().get(), is("There were test failures"));
+        assertThat(output.getSummary().get(), is("total: 4, failed: 2, passed: 2"));
         assertThat(output.getText().get(), is("## `modules1.MyTest.test1`\n\n```text\nfailure for test1\n```\n\n\n## `modules1.MyTest.test2`\n\n```text\nerror for test2\n```\n\n\n"));
 
     }
@@ -153,7 +155,8 @@ public class XUnitChecksPublisherTest {
 
         ChecksOutput output = checksDetails.getOutput().get();
 
-        assertThat(output.getTitle().get(), is("total: 4, passed: 4"));
+        assertThat(output.getTitle().get(), is("All tests passed"));
+        assertThat(output.getSummary().get(), is("total: 4, passed: 4"));
         assertThat(output.getText().get(), is(""));
 
     }
@@ -182,7 +185,8 @@ public class XUnitChecksPublisherTest {
 
         ChecksOutput output = checksDetails.getOutput().get();
 
-        assertThat(output.getTitle().get(), is("total: 4, passed: 4"));
+        assertThat(output.getTitle().get(), is("All tests passed"));
+        assertThat(output.getSummary().get(), is("total: 4, passed: 4"));
         assertThat(output.getText().get(), is(""));
     }
 
@@ -210,7 +214,8 @@ public class XUnitChecksPublisherTest {
 
         ChecksOutput output = checksDetails.getOutput().get();
 
-        assertThat(output.getTitle().get(), is("total: 4, passed: 4"));
+        assertThat(output.getTitle().get(), is("All tests passed"));
+        assertThat(output.getSummary().get(), is("total: 4, passed: 4"));
         assertThat(output.getText().get(), is(""));
     }
 
@@ -238,6 +243,35 @@ public class XUnitChecksPublisherTest {
         ChecksOutput output = checksDetails.getOutput().get();
 
         assertThat(output.getTitle().get(), is("No test results found"));
+        assertThat(output.getText().get(), is(""));
+    }
+
+    @LocalData
+    @Test
+    public void extractChecksDetailsAllSkipped() throws Exception {
+        WorkflowJob job = rule.jenkins.createProject(WorkflowJob.class, "allSkipped");
+
+        job.setDefinition(new CpsFlowDefinition("stage('all skipped') {\n"
+                + "  node {\n"
+                + "    xunit(testTimeMargin: '3000',\n"
+                + "          skipPublishingChecks: false,\n"
+                + "          tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: '*.xml', skipNoTestFiles: false, stopProcessingIfError: true)]\n"
+                + "    )\n"
+                + "  }\n"
+                + "}\n", true));
+        WorkflowRun run = job.scheduleBuild2(0).get();
+
+        rule.assertBuildStatus(Result.SUCCESS, run);
+
+        ChecksDetails checksDetails = getDetail();
+
+        assertThat(checksDetails.getConclusion(), is(ChecksConclusion.SUCCESS));
+        assertThat(checksDetails.getName().get(), is("Tests / all skipped"));
+
+        ChecksOutput output = checksDetails.getOutput().get();
+
+        assertThat(output.getTitle().get(), is("There were no test executions"));
+        assertThat(output.getSummary().get(), is("total: 4, skipped: 4"));
         assertThat(output.getText().get(), is(""));
     }
 
