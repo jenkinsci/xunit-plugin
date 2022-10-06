@@ -83,7 +83,7 @@ class XUnitChecksPublisher {
         String testsURL = DisplayURLProvider.get().getTestsURL(run);
         ChecksOutput output = new ChecksOutput.ChecksOutputBuilder()
                 .withTitle(extractChecksTitle())
-                .withSummary("<sub>Send us [feedback](https://github.com/jenkinsci/xunit-plugin/issues)")
+                .withSummary(extractChecksSummary())
                 .withText(extractChecksText(testsURL))
                 .build();
 
@@ -158,33 +158,45 @@ class XUnitChecksPublisher {
             return "No test results found";
         }
 
-        StringBuilder builder = new StringBuilder();
+        if (summary.getPassCount() == 0) {
+            return "There were no test executions";
+        }
 
         if (summary.getFailCount() == 1) {
             CaseResult failedTest = result.getFailedTests().get(0);
+            StringBuilder builder = new StringBuilder();
             builder.append(failedTest.getTransformedFullDisplayName()).append(" failed");
             return builder.toString();
         }
 
+        if (summary.getFailCount() > 1) {
+            return "There were test failures";
+        }
+
+        return "All tests passed";
+    }
+
+    private String extractChecksSummary() {
+
+        StringBuilder builder = new StringBuilder();
+
+        // Total count
+        builder.append("total: ").append(summary.getTotalCount());
+        // Failed count
         if (summary.getFailCount() > 0) {
+            builder.append(SEPARATOR);
             builder.append("failed: ").append(summary.getFailCount());
-            if (summary.getSkipCount() > 0 || summary.getPassCount() > 0) {
-                builder.append(SEPARATOR);
-            }
         }
-
+        // Skipped count
         if (summary.getSkipCount() > 0) {
+            builder.append(SEPARATOR);
             builder.append("skipped: ").append(summary.getSkipCount());
-
-            if (summary.getPassCount() > 0) {
-                builder.append(SEPARATOR);
-            }
         }
-
+        // Passed count
         if (summary.getPassCount() > 0) {
+            builder.append(SEPARATOR);
             builder.append("passed: ").append(summary.getPassCount());
         }
-
 
         return builder.toString();
     }

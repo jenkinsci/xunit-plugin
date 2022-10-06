@@ -1,0 +1,16 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<testsuite name="allSkipped" tests="4" failures="0" errors="0" skipped="4" time="0.000">
+    <properties />
+    <testcase name="test1" classname="modules1.MyTest" time="0.000">
+        <skipped message="This test was skipped" />
+    </testcase>
+    <testcase name="test2" classname="modules1.MyTest" time="0.000">
+        <skipped message="This test was skipped" />
+    </testcase>
+    <testcase name="test3" classname="modules1.MyTest" time="0.000">
+        <skipped message="This test was skipped" />
+    </testcase>
+    <testcase name="test4" classname="modules1.MyTest" time="0.000">
+        <skipped message="This test was skipped" />
+    </testcase>
+</testsuite>
