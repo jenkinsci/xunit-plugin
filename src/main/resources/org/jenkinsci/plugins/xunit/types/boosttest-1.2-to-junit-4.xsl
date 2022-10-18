@@ -72,35 +72,65 @@ THE SOFTWARE.
         </xsl:for-each>
     </xsl:template>
 
-    <xsl:template match="/TestLog/TestSuite">
+    <xsl:template match="/TestLog">
         <xsl:variable name="tsCount" select="count(./TestSuite)"/>
         <xsl:variable name="tcCount" select="count(./TestCase)"/>
+        <xsl:variable name="tests" select="count(.//TestCase[count(descendant::TestSuite) = 0])"/>
+        <xsl:variable name="errors" select="count(.//TestCase/FatalError)+count(.//TestCase/Exception)"/>
+        <xsl:variable name="failures" select="count(.//TestCase/Error)"/>
 
-        <xsl:element name="testsuite">
-            <xsl:attribute name="tests">
-                <xsl:value-of select="count(.//TestCase[count(descendant::TestSuite) = 0])"/>
-            </xsl:attribute>
+        <xsl:choose>
+            <xsl:when test="$tsCount > 1 and $tcCount = 0">
+                <xsl:element name="testsuites">
+                    <xsl:attribute name="tests">
+                        <xsl:value-of select="$tests" />
+                    </xsl:attribute>
+        
+                    <xsl:attribute name="errors">
+                        <xsl:value-of select="$errors"/>
+                    </xsl:attribute>
+        
+                    <xsl:attribute name="failures">
+                        <xsl:value-of select="$failures"/>
+                    </xsl:attribute>
+        
+                    <xsl:attribute name="name">
+                        <xsl:value-of>Test Suite Collection</xsl:value-of>
+                    </xsl:attribute>
+        
+                    <xsl:for-each select="descendant::TestSuite[count(./TestCase) > 0]">
+                        <xsl:call-template name="testSuite"/>
+                    </xsl:for-each>
+                </xsl:element>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:element name="testsuite">
+                    <xsl:attribute name="tests">
+                        <xsl:value-of select="$tests"/>
+                    </xsl:attribute>
+        
+                    <xsl:attribute name="errors">
+                        <xsl:value-of select="$errors"/>
+                    </xsl:attribute>
+        
+                    <xsl:attribute name="failures">
+                        <xsl:value-of select="$failures"/>
+                    </xsl:attribute>
+        
+                    <xsl:attribute name="name">
+                        <xsl:value-of select="./TestSuite/@name"/>
+                    </xsl:attribute>
+        
+                    <xsl:for-each select="./TestSuite//descendant::TestSuite[count(./TestCase) > 0]">
+                        <xsl:call-template name="testSuite"/>
+                    </xsl:for-each>
 
-            <xsl:attribute name="errors">
-                <xsl:value-of select="count(.//TestCase/FatalError)+count(.//TestCase/Exception)"/>
-            </xsl:attribute>
-
-            <xsl:attribute name="failures">
-                <xsl:value-of select="count(.//TestCase/Error)"/>
-            </xsl:attribute>
-
-            <xsl:attribute name="name">
-                <xsl:value-of select="@name"/>
-            </xsl:attribute>
-
-            <xsl:for-each select="descendant::TestSuite[count(./TestCase) > 0]">
-                <xsl:call-template name="testSuite"/>
-            </xsl:for-each>
-
-            <xsl:for-each select="./TestCase">
-                <xsl:call-template name="testCase"/>
-            </xsl:for-each>
-        </xsl:element>
+                    <xsl:for-each select="./TestSuite/TestCase">
+                        <xsl:call-template name="testCase"/>
+                    </xsl:for-each>
+                </xsl:element>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <xsl:template name="testSuite">

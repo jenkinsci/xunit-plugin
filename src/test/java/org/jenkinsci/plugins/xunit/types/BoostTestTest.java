@@ -58,7 +58,8 @@ public class BoostTestTest extends AbstractTest {
                                               { "autotest-multiple", 21 }, //
                                               { "skipped", 22 }, //
                                               { "exception-context", 23 }, //
-                                              { "wrong_classname", 24 } //
+                                              { "wrong_classname", 24 }, //
+                                              { "parse_error", 25 } //
         });
     }
 

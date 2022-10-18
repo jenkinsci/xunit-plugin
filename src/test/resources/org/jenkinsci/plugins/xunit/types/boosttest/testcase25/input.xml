@@ -1,0 +1,1202 @@
+<TestLog>
+ <TestSuite name="archive/compression">
+  <TestCase name="Test_ArchiveController::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_ArchiveController::tst_case1()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_ArchiveController::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+ </TestSuite>
+ <TestSuite name="benderconnect/app">
+  <TestCase name="main::NotificationPopup::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::NotificationPopup::test_caseCheckCancelButton()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::NotificationPopup::test_caseCheckNotificationSignal()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::NotificationPopup::test_caseInjectNotificationModel()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::NotificationPopup::test_caseListViewScrolling()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::NotificationPopup::test_openNotificationWhenOtherPopupRunning()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::NotificationPopup::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::test_checkToggle()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::test_defaultProperties()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+ </TestSuite>
+ <TestSuite name="benderconnect/app">
+  <TestCase name="Test_ComtraxxBackend::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+ </TestSuite>
+ <TestSuite name="comtraxx">
+  <TestCase name="Test_BackResFolderSearch::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_BackResFolderSearch::test_case1()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_BackResFolderSearch::test_mainDeviceNames()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_BackResFolderSearch::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_ComtraxxHttpServer::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_ComtraxxHttpServer::tst_routingDefaultComtraxx()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_ComtraxxHttpServer::tst_routingCheckAll()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_ComtraxxHttpServer::tst_routingServerEventsLP()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_ComtraxxHttpServer::tst_postDataRoute()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_ComtraxxHttpServer::tst_deviceServerEventCreate()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_ComtraxxHttpServer::tst_routingFileCheck()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_ComtraxxHttpServer::tst_routingFileGet()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_ComtraxxHttpServer::tst_topicModbus()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_ComtraxxHttpServer::tst_topicModbus_concurrent()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_ComtraxxHttpServer::tst_topicModbus_unpoweredSystem_poweredPivot()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_ComtraxxHttpServer::tst_shortcutUrl()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_ComtraxxHttpServer::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_ComtraxxRefreshController::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_ComtraxxRefreshController::tst_PerformRefresh()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_ComtraxxRefreshController::tst_HintState()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_ComtraxxRefreshController::tst_RefreshStates()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_ComtraxxRefreshController::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceInfo::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceInfo::tst_deviceInfo()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceInfo::tst_deviceInfoInvalidTag()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceInfo::tst_softwareVersion()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceInfo::tst_validBenderTag()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceInfo::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_FeatureCheck::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_FeatureCheck::test_case1()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_FeatureCheck::test_mockImage()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_FeatureCheck::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_FeatureInfo::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_FeatureInfo::test_case1()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_FeatureInfo::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_FileChunkCollector::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_FileChunkCollector::test_dryRunWithCache()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_FileChunkCollector::test_decompressLz4()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_FileChunkCollector::test_decompressLz4Real()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_FileChunkCollector::test_decompressLz4RealMd5Error()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_FileChunkCollector::test_decompressLz4RealInvalidateCache()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_FileChunkCollector::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_MailboxParser::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_MailboxParser::test_readWithFC3()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_MailboxParser::test_writeWithFC16()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_MailboxParser::test_readFileRecord()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_MailboxParser::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_ParameterParser::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_ParameterParser::test_licenseKey()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_ParameterParser::test_licenseKey_mock()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_ParameterParser::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_TextResources::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_TextResources::test_case_res()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_TextResources::test_case_lang()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_TextResources::test_case_de_de()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_TextResources::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+ </TestSuite>
+ <TestSuite name="core/ui">
+  <TestCase name="main::Action::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::Action::test_case1()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::Action::test_defaultProperties()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::Action::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::AsyncLoader::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::AsyncLoader::test_defaultProperties()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::AsyncLoader::test_doAsyncStuff()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::AsyncLoader::test_doSyncStuff()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::AsyncLoader::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::CheckBox::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::CheckBox::test_click()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::CheckBox::test_defaultProperties()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::CheckBox::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::Icon::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::Icon::test_case1()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::Icon::test_defaultProperties()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::Icon::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::IconButton::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::IconButton::test_centering()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::IconButton::test_defaultProperties()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::IconButton::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::Ink::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::Ink::test_case1()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::Ink::test_defaultProperties()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::Ink::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::Label::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::Label::test_case1()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::Label::test_defaultProperties()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::Label::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::PopupBackground::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::PopupBackground::test_background()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::PopupBackground::test_defaultProperties()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::PopupBackground::test_popup()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::PopupBackground::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::PopupManager::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::PopupManager::test_case1()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::PopupManager::test_case2()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::PopupManager::test_defaultProperties()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::PopupManager::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::RadioButton::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::RadioButton::test_clicked()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::RadioButton::test_defaultProperties()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::RadioButton::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::Snackbar::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::Snackbar::test_defaultProperties()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::Snackbar::test_longText()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::Snackbar::test_longWithButton()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::Snackbar::test_shortText()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::Snackbar::test_shortWithButton()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::Snackbar::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::StackView::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::StackView::test_defaultProperties()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::StackView::test_push_pop()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::StackView::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::StateSlider::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::StateSlider::test_case1()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::StateSlider::test_defaultProperties()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::StateSlider::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::Switch::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::Switch::test_case1()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::Switch::test_defaultProperties()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::Switch::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::TextField::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::TextField::test_defaultProperties()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::TextField::test_focus()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::TextField::test_textinput()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::TextField::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::Tutorial::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::Tutorial::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::TouchArea::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::TouchArea::test_defaultProperties()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::TouchArea::test_signal_definitions()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::TouchArea::test_touch_signals()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::TouchArea::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+ </TestSuite>
+ <TestSuite name="core/ui">
+  <TestCase name="Test_PopupManager::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_PopupManager::test_case1()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_PopupManager::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+ </TestSuite>
+ <TestSuite name="devices/bender">
+  <TestCase name="Test_DeviceConfig::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfig::test_case_16bitEnum_parity()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfig::test_case_16bitEnum_operatingMode()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfig::test_case_32bitInt_baudrate()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfig::test_case_changing_valueTypes_stopBits()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfig::test_badCrc()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfig::test_rcm410r1()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfig::test_iso415()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfig::test_rcms()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfig::test_allItems()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfig::test_serialNr()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfig::addresses_lengths()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfig::addresses_lengths_rcms()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfig::parameterPivotAddress()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfig::test_mailboxData()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfig::test_transformations()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfig::test_dontWorkWithEmptyConstructor()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfig::test_allNonEepromItems()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfig::test_cp305()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfig::test_poweredPivot()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfig::test_samePivots()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfig::test_time()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfig::test_deviceInfo()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfig::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfigPivot::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfigPivot::test_optimizeReadRequests()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfigPivot::specialPoweredItem()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfigPivot::test_fileNumberPivot()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfigPivot::test_signalSlotPivotCopy()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfigPivot::test_valid()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_DeviceConfigPivot::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_SctParameter::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_SctParameter::test_noCache()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_SctParameter::test_case1()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_SctParameter::test_modbusFromNfc()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_SctParameter::test_nfcFromModbus()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_SctParameter::test_eepromType()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_SctParameter::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+ </TestSuite>
+ <TestSuite name="devNfc/debug">
+  <TestCase name="main::DevNfcPage::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::DevNfcPage::test_case1()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::DevNfcPage::test_defaultProperties()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::DevNfcPage::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+ </TestSuite>
+ <TestSuite name="http/communication">
+  <TestCase name="Test_HttpRequest::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_HttpRequest::test_object()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_HttpRequest::test_get()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_HttpRequest::test_post()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_HttpRequest::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+ </TestSuite>
+ <TestSuite name="httpserver/communication">
+  <TestCase name="Test_HttpServerController::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_HttpServerController::tst_startRequestResponse()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_HttpServerController::tst_postRequest()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_HttpServerController::tst_getRoutes()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_HttpServerController::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+ </TestSuite>
+ <TestSuite name="io/system">
+  <TestCase name="Test_CachedConnector::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_CachedConnector::test_readWithEmptyCache()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_CachedConnector::test_readWithValidCache()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_CachedConnector::test_writeWithEmptyCache()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_CachedConnector::test_writeWithValidCache()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_CachedConnector::test_readLargeByteBlocks()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_CachedConnector::test_readWithValidCacheAndSave()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_CachedConnector::test_updateCacheForSpecificPivot()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_CachedConnector::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_CrcCalculator::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_CrcCalculator::test_case1()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_CrcCalculator::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_Duplicator::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_Duplicator::test_simpleDuplicate()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_Duplicator::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_FileController::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_FileController::test_readWriteDeleteFile()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_FileController::test_JsonFile()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_FileController::test_readUri()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_FileController::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_IOHandler::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_IOHandler::test_requestOrder()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_IOHandler::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_Pivot::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_Pivot::test_valid()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_Pivot::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+ </TestSuite>
+ <TestSuite name="jni">
+  <TestCase name="Test_Android::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_Android::test_string()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_Android::test_fields()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_Android::test_constructor()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_Android::test_primitive_method()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_Android::test_object_method()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_Android::test_object_array()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_Android::test_cast()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_Android::test_null()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_Android::test_enums()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_Android::test_interface_cast()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_Android::test_bundle_map_conversion()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_Android::test_exception_handling()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_Android::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+ </TestSuite>
+ <TestSuite name="log/debug">
+  <TestCase name="Test_Log::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_Log::test_stringOutput()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_Log::test_specialStringOutput()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_Log::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_LogFunnel::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_LogFunnel::test_simpleStep()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_LogFunnel::test_step()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_LogFunnel::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+ </TestSuite>
+ <TestSuite name="measurement/bender">
+  <TestCase name="Test_GenericModbusMaster::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_GenericModbusMaster::test_case1()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_GenericModbusMaster::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_Measurement::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_Measurement::test_case1()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_Measurement::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+ </TestSuite>
+ <TestSuite name="mock/io/system">
+  <TestCase name="main::MockConnector::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::MockConnector::test_defaultProperties()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::MockConnector::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+ </TestSuite>
+ <TestSuite name="mock/io/system">
+  <TestCase name="Test_MockConnector::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_MockConnector::test_read_write()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_MockConnector::test_read_write_offset_length()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_MockConnector::test_variant_string_to_from_file()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_MockConnector::test_variant_variantList_to_from_file()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_MockConnector::test_filesize()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_MockConnector::test_filesize2()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_MockConnector::test_areas()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_MockConnector::test_deleteFiles()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_MockConnector::test_subfolder()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_MockConnector::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_MockFileWatcher::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_MockFileWatcher::test_case1()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_MockFileWatcher::test_case2()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_MockFileWatcher::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+ </TestSuite>
+ <TestSuite name="nfc/system">
+  <TestCase name="main::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::NFCTutorial::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::NFCTutorial::test_case1()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::NFCTutorial::test_defaultProperties()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="main::NFCTutorial::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+ </TestSuite>
+ <TestSuite name="nfc/system">
+  <TestCase name="Test_NFCController::initTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_NFCController::test_case1()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+  <TestCase name="Test_NFCController::cleanupTestCase()">
+   <Info file="" line="0">PASS</Info>
+   <TestingTime>0</TestingTime>
+  </TestCase>
+ </TestSuite>
+</TestLog>
