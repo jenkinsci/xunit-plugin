@@ -1,0 +1,2076 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="291" errors="0" failures="0" name="Test Suite Collection">
+    <testsuite tests="3" errors="0" failures="0" name="archive/compression" skipped="0">
+        <testcase classname="archive/compression" name="Test_ArchiveController::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="archive/compression" name="Test_ArchiveController::tst_case1()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="archive/compression" name="Test_ArchiveController::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+    </testsuite>
+    <testsuite tests="11" errors="0" failures="0" name="benderconnect/app" skipped="0">
+        <testcase classname="benderconnect/app" name="main::NotificationPopup::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="benderconnect/app" name="main::NotificationPopup::test_caseCheckCancelButton()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="benderconnect/app" name="main::NotificationPopup::test_caseCheckNotificationSignal()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="benderconnect/app" name="main::NotificationPopup::test_caseInjectNotificationModel()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="benderconnect/app" name="main::NotificationPopup::test_caseListViewScrolling()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="benderconnect/app" name="main::NotificationPopup::test_openNotificationWhenOtherPopupRunning()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="benderconnect/app" name="main::NotificationPopup::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="benderconnect/app" name="main::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="benderconnect/app" name="main::test_checkToggle()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="benderconnect/app" name="main::test_defaultProperties()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="benderconnect/app" name="main::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+    </testsuite>
+    <testsuite tests="1" errors="0" failures="0" name="benderconnect/app" skipped="0">
+        <testcase classname="benderconnect/app" name="Test_ComtraxxBackend::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+    </testsuite>
+    <testsuite tests="56" errors="0" failures="0" name="comtraxx" skipped="0">
+        <testcase classname="comtraxx" name="Test_BackResFolderSearch::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_BackResFolderSearch::test_case1()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_BackResFolderSearch::test_mainDeviceNames()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_BackResFolderSearch::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_ComtraxxHttpServer::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_ComtraxxHttpServer::tst_routingDefaultComtraxx()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_ComtraxxHttpServer::tst_routingCheckAll()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_ComtraxxHttpServer::tst_routingServerEventsLP()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_ComtraxxHttpServer::tst_postDataRoute()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_ComtraxxHttpServer::tst_deviceServerEventCreate()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_ComtraxxHttpServer::tst_routingFileCheck()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_ComtraxxHttpServer::tst_routingFileGet()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_ComtraxxHttpServer::tst_topicModbus()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_ComtraxxHttpServer::tst_topicModbus_concurrent()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_ComtraxxHttpServer::tst_topicModbus_unpoweredSystem_poweredPivot()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_ComtraxxHttpServer::tst_shortcutUrl()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_ComtraxxHttpServer::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_ComtraxxRefreshController::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_ComtraxxRefreshController::tst_PerformRefresh()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_ComtraxxRefreshController::tst_HintState()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_ComtraxxRefreshController::tst_RefreshStates()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_ComtraxxRefreshController::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_DeviceInfo::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_DeviceInfo::tst_deviceInfo()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_DeviceInfo::tst_deviceInfoInvalidTag()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_DeviceInfo::tst_softwareVersion()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_DeviceInfo::tst_validBenderTag()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_DeviceInfo::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_FeatureCheck::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_FeatureCheck::test_case1()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_FeatureCheck::test_mockImage()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_FeatureCheck::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_FeatureInfo::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_FeatureInfo::test_case1()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_FeatureInfo::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_FileChunkCollector::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_FileChunkCollector::test_dryRunWithCache()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_FileChunkCollector::test_decompressLz4()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_FileChunkCollector::test_decompressLz4Real()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_FileChunkCollector::test_decompressLz4RealMd5Error()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_FileChunkCollector::test_decompressLz4RealInvalidateCache()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_FileChunkCollector::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_MailboxParser::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_MailboxParser::test_readWithFC3()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_MailboxParser::test_writeWithFC16()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_MailboxParser::test_readFileRecord()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_MailboxParser::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_ParameterParser::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_ParameterParser::test_licenseKey()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_ParameterParser::test_licenseKey_mock()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_ParameterParser::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_TextResources::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_TextResources::test_case_res()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_TextResources::test_case_lang()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_TextResources::test_case_de_de()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="comtraxx" name="Test_TextResources::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+    </testsuite>
+    <testsuite tests="84" errors="0" failures="0" name="core/ui" skipped="0">
+        <testcase classname="core/ui" name="main::Action::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::Action::test_case1()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::Action::test_defaultProperties()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::Action::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::AsyncLoader::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::AsyncLoader::test_defaultProperties()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::AsyncLoader::test_doAsyncStuff()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::AsyncLoader::test_doSyncStuff()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::AsyncLoader::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::CheckBox::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::CheckBox::test_click()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::CheckBox::test_defaultProperties()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::CheckBox::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::Icon::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::Icon::test_case1()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::Icon::test_defaultProperties()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::Icon::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::IconButton::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::IconButton::test_centering()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::IconButton::test_defaultProperties()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::IconButton::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::Ink::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::Ink::test_case1()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::Ink::test_defaultProperties()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::Ink::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::Label::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::Label::test_case1()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::Label::test_defaultProperties()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::Label::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::PopupBackground::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::PopupBackground::test_background()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::PopupBackground::test_defaultProperties()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::PopupBackground::test_popup()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::PopupBackground::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::PopupManager::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::PopupManager::test_case1()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::PopupManager::test_case2()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::PopupManager::test_defaultProperties()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::PopupManager::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::RadioButton::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::RadioButton::test_clicked()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::RadioButton::test_defaultProperties()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::RadioButton::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::Snackbar::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::Snackbar::test_defaultProperties()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::Snackbar::test_longText()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::Snackbar::test_longWithButton()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::Snackbar::test_shortText()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::Snackbar::test_shortWithButton()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::Snackbar::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::StackView::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::StackView::test_defaultProperties()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::StackView::test_push_pop()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::StackView::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::StateSlider::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::StateSlider::test_case1()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::StateSlider::test_defaultProperties()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::StateSlider::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::Switch::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::Switch::test_case1()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::Switch::test_defaultProperties()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::Switch::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::TextField::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::TextField::test_defaultProperties()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::TextField::test_focus()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::TextField::test_textinput()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::TextField::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::Tutorial::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::Tutorial::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::TouchArea::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::TouchArea::test_defaultProperties()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::TouchArea::test_signal_definitions()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::TouchArea::test_touch_signals()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="main::TouchArea::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+    </testsuite>
+    <testsuite tests="3" errors="0" failures="0" name="core/ui" skipped="0">
+        <testcase classname="core/ui" name="Test_PopupManager::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="Test_PopupManager::test_case1()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="core/ui" name="Test_PopupManager::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+    </testsuite>
+    <testsuite tests="38" errors="0" failures="0" name="devices/bender" skipped="0">
+        <testcase classname="devices/bender" name="Test_DeviceConfig::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfig::test_case_16bitEnum_parity()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfig::test_case_16bitEnum_operatingMode()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfig::test_case_32bitInt_baudrate()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfig::test_case_changing_valueTypes_stopBits()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfig::test_badCrc()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfig::test_rcm410r1()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfig::test_iso415()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfig::test_rcms()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfig::test_allItems()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfig::test_serialNr()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfig::addresses_lengths()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfig::addresses_lengths_rcms()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfig::parameterPivotAddress()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfig::test_mailboxData()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfig::test_transformations()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfig::test_dontWorkWithEmptyConstructor()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfig::test_allNonEepromItems()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfig::test_cp305()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfig::test_poweredPivot()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfig::test_samePivots()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfig::test_time()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfig::test_deviceInfo()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfig::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfigPivot::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfigPivot::test_optimizeReadRequests()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfigPivot::specialPoweredItem()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfigPivot::test_fileNumberPivot()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfigPivot::test_signalSlotPivotCopy()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfigPivot::test_valid()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_DeviceConfigPivot::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_SctParameter::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_SctParameter::test_noCache()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_SctParameter::test_case1()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_SctParameter::test_modbusFromNfc()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_SctParameter::test_nfcFromModbus()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_SctParameter::test_eepromType()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devices/bender" name="Test_SctParameter::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+    </testsuite>
+    <testsuite tests="4" errors="0" failures="0" name="devNfc/debug" skipped="0">
+        <testcase classname="devNfc/debug" name="main::DevNfcPage::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devNfc/debug" name="main::DevNfcPage::test_case1()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devNfc/debug" name="main::DevNfcPage::test_defaultProperties()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="devNfc/debug" name="main::DevNfcPage::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+    </testsuite>
+    <testsuite tests="5" errors="0" failures="0" name="http/communication" skipped="0">
+        <testcase classname="http/communication" name="Test_HttpRequest::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="http/communication" name="Test_HttpRequest::test_object()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="http/communication" name="Test_HttpRequest::test_get()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="http/communication" name="Test_HttpRequest::test_post()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="http/communication" name="Test_HttpRequest::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+    </testsuite>
+    <testsuite tests="5" errors="0" failures="0" name="httpserver/communication" skipped="0">
+        <testcase classname="httpserver/communication" name="Test_HttpServerController::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="httpserver/communication" name="Test_HttpServerController::tst_startRequestResponse()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="httpserver/communication" name="Test_HttpServerController::tst_postRequest()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="httpserver/communication" name="Test_HttpServerController::tst_getRoutes()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="httpserver/communication" name="Test_HttpServerController::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+    </testsuite>
+    <testsuite tests="26" errors="0" failures="0" name="io/system" skipped="0">
+        <testcase classname="io/system" name="Test_CachedConnector::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="io/system" name="Test_CachedConnector::test_readWithEmptyCache()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="io/system" name="Test_CachedConnector::test_readWithValidCache()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="io/system" name="Test_CachedConnector::test_writeWithEmptyCache()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="io/system" name="Test_CachedConnector::test_writeWithValidCache()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="io/system" name="Test_CachedConnector::test_readLargeByteBlocks()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="io/system" name="Test_CachedConnector::test_readWithValidCacheAndSave()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="io/system" name="Test_CachedConnector::test_updateCacheForSpecificPivot()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="io/system" name="Test_CachedConnector::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="io/system" name="Test_CrcCalculator::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="io/system" name="Test_CrcCalculator::test_case1()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="io/system" name="Test_CrcCalculator::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="io/system" name="Test_Duplicator::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="io/system" name="Test_Duplicator::test_simpleDuplicate()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="io/system" name="Test_Duplicator::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="io/system" name="Test_FileController::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="io/system" name="Test_FileController::test_readWriteDeleteFile()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="io/system" name="Test_FileController::test_JsonFile()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="io/system" name="Test_FileController::test_readUri()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="io/system" name="Test_FileController::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="io/system" name="Test_IOHandler::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="io/system" name="Test_IOHandler::test_requestOrder()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="io/system" name="Test_IOHandler::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="io/system" name="Test_Pivot::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="io/system" name="Test_Pivot::test_valid()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="io/system" name="Test_Pivot::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+    </testsuite>
+    <testsuite tests="14" errors="0" failures="0" name="jni" skipped="0">
+        <testcase classname="jni" name="Test_Android::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="jni" name="Test_Android::test_string()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="jni" name="Test_Android::test_fields()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="jni" name="Test_Android::test_constructor()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="jni" name="Test_Android::test_primitive_method()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="jni" name="Test_Android::test_object_method()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="jni" name="Test_Android::test_object_array()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="jni" name="Test_Android::test_cast()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="jni" name="Test_Android::test_null()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="jni" name="Test_Android::test_enums()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="jni" name="Test_Android::test_interface_cast()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="jni" name="Test_Android::test_bundle_map_conversion()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="jni" name="Test_Android::test_exception_handling()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="jni" name="Test_Android::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+    </testsuite>
+    <testsuite tests="8" errors="0" failures="0" name="log/debug" skipped="0">
+        <testcase classname="log/debug" name="Test_Log::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="log/debug" name="Test_Log::test_stringOutput()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="log/debug" name="Test_Log::test_specialStringOutput()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="log/debug" name="Test_Log::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="log/debug" name="Test_LogFunnel::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="log/debug" name="Test_LogFunnel::test_simpleStep()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="log/debug" name="Test_LogFunnel::test_step()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="log/debug" name="Test_LogFunnel::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+    </testsuite>
+    <testsuite tests="6" errors="0" failures="0" name="measurement/bender" skipped="0">
+        <testcase classname="measurement/bender" name="Test_GenericModbusMaster::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="measurement/bender" name="Test_GenericModbusMaster::test_case1()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="measurement/bender" name="Test_GenericModbusMaster::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="measurement/bender" name="Test_Measurement::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="measurement/bender" name="Test_Measurement::test_case1()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="measurement/bender" name="Test_Measurement::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+    </testsuite>
+    <testsuite tests="3" errors="0" failures="0" name="mock/io/system" skipped="0">
+        <testcase classname="mock/io/system" name="main::MockConnector::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="mock/io/system" name="main::MockConnector::test_defaultProperties()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="mock/io/system" name="main::MockConnector::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+    </testsuite>
+    <testsuite tests="15" errors="0" failures="0" name="mock/io/system" skipped="0">
+        <testcase classname="mock/io/system" name="Test_MockConnector::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="mock/io/system" name="Test_MockConnector::test_read_write()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="mock/io/system" name="Test_MockConnector::test_read_write_offset_length()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="mock/io/system" name="Test_MockConnector::test_variant_string_to_from_file()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="mock/io/system" name="Test_MockConnector::test_variant_variantList_to_from_file()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="mock/io/system" name="Test_MockConnector::test_filesize()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="mock/io/system" name="Test_MockConnector::test_filesize2()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="mock/io/system" name="Test_MockConnector::test_areas()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="mock/io/system" name="Test_MockConnector::test_deleteFiles()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="mock/io/system" name="Test_MockConnector::test_subfolder()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="mock/io/system" name="Test_MockConnector::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="mock/io/system" name="Test_MockFileWatcher::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="mock/io/system" name="Test_MockFileWatcher::test_case1()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="mock/io/system" name="Test_MockFileWatcher::test_case2()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="mock/io/system" name="Test_MockFileWatcher::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+    </testsuite>
+    <testsuite tests="6" errors="0" failures="0" name="nfc/system" skipped="0">
+        <testcase classname="nfc/system" name="main::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="nfc/system" name="main::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="nfc/system" name="main::NFCTutorial::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="nfc/system" name="main::NFCTutorial::test_case1()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="nfc/system" name="main::NFCTutorial::test_defaultProperties()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="nfc/system" name="main::NFCTutorial::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+    </testsuite>
+    <testsuite tests="3" errors="0" failures="0" name="nfc/system" skipped="0">
+        <testcase classname="nfc/system" name="Test_NFCController::initTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="nfc/system" name="Test_NFCController::test_case1()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+        <testcase classname="nfc/system" name="Test_NFCController::cleanupTestCase()" time="0.000">
+            <system-out><![CDATA[
+[Info] - PASS
+ == [File] - 
+ == [Line] - 0
+]]></system-out>
+        </testcase>
+    </testsuite>
+</testsuites>
