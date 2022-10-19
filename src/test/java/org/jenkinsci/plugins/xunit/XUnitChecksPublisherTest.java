@@ -277,6 +277,35 @@ public class XUnitChecksPublisherTest {
 
     @LocalData
     @Test
+    public void extractChecksDetailsNonePassed() throws Exception {
+        WorkflowJob job = rule.jenkins.createProject(WorkflowJob.class, "nonePassed");
+
+        job.setDefinition(new CpsFlowDefinition("stage('none passed') {\n"
+                + "  node {\n"
+                + "    xunit(testTimeMargin: '3000',\n"
+                + "          skipPublishingChecks: false,\n"
+                + "          tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: '*.xml', skipNoTestFiles: false, stopProcessingIfError: true)]\n"
+                + "    )\n"
+                + "  }\n"
+                + "}\n", true));
+        WorkflowRun run = job.scheduleBuild2(0).get();
+
+        rule.assertBuildStatus(Result.SUCCESS, run);
+
+        ChecksDetails checksDetails = getDetail();
+
+        assertThat(checksDetails.getConclusion(), is(ChecksConclusion.SUCCESS));
+        assertThat(checksDetails.getName().get(), is("Tests / none passed"));
+
+        ChecksOutput output = checksDetails.getOutput().get();
+
+        assertThat(output.getTitle().get(), is("There were test failures"));
+        assertThat(output.getSummary().get(), is("total: 3, failed: 2, skipped: 1"));
+        assertThat(output.getText().get(), is("## `modules1.MyTest.test1`\n\n```text\nfailure for test1\n```\n\n\n## `modules1.MyTest.test2`\n\n```text\nerror for test2\n```\n\n\n"));
+    }
+
+    @LocalData
+    @Test
     public void withChecksContext() throws Exception {
         WorkflowJob job = rule.jenkins.createProject(WorkflowJob.class, "allPassing");
 

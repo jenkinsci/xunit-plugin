@@ -158,10 +158,6 @@ class XUnitChecksPublisher {
             return "No test results found";
         }
 
-        if (summary.getPassCount() == 0) {
-            return "There were no test executions";
-        }
-
         if (summary.getFailCount() == 1) {
             CaseResult failedTest = result.getFailedTests().get(0);
             StringBuilder builder = new StringBuilder();
@@ -171,6 +167,10 @@ class XUnitChecksPublisher {
 
         if (summary.getFailCount() > 1) {
             return "There were test failures";
+        }
+
+        if (summary.getTotalCount() == summary.getSkipCount()) {
+            return "There were no test executions";
         }
 
         return "All tests passed";
