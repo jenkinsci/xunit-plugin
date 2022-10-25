@@ -158,19 +158,17 @@ class XUnitChecksPublisher {
             return "No test results found";
         }
 
-        if (summary.getPassCount() == 0) {
-            return "There were no test executions";
-        }
-
         if (summary.getFailCount() == 1) {
             CaseResult failedTest = result.getFailedTests().get(0);
-            StringBuilder builder = new StringBuilder();
-            builder.append(failedTest.getTransformedFullDisplayName()).append(" failed");
-            return builder.toString();
+            return failedTest.getTransformedFullDisplayName() + " failed";
         }
 
         if (summary.getFailCount() > 1) {
             return "There were test failures";
+        }
+
+        if (summary.getTotalCount() == summary.getSkipCount()) {
+            return "All tests were skipped";
         }
 
         return "All tests passed";

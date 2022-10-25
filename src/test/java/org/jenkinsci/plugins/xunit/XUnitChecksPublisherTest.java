@@ -270,7 +270,7 @@ public class XUnitChecksPublisherTest {
 
         ChecksOutput output = checksDetails.getOutput().get();
 
-        assertThat(output.getTitle().get(), is("There were no test executions"));
+        assertThat(output.getTitle().get(), is("All tests were skipped"));
         assertThat(output.getSummary().get(), is("total: 4, skipped: 4"));
         assertThat(output.getText().get(), is(""));
     }
