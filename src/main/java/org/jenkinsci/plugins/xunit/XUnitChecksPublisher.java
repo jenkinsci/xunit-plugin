@@ -170,7 +170,7 @@ class XUnitChecksPublisher {
         }
 
         if (summary.getTotalCount() == summary.getSkipCount()) {
-            return "There were no test executions";
+            return "All tests were skipped";
         }
 
         return "All tests passed";
