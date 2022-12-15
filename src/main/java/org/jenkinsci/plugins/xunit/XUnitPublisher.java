@@ -236,7 +236,7 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
 
             Result procResult = xUnitProcessor.processResultThreshold(result.getTestResultSummary(), build);
             xUnitProcessor.publishChecks(build, result, procResult, listener, null);
-            logger.info("Setting the build status to " + result);
+            logger.info("Setting the build status to " + procResult);
             build.setResult(procResult);
 
         } catch(AbortException e) {
