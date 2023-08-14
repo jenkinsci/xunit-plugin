@@ -286,7 +286,7 @@ supported schemas. If not than select as test type the build step
 "Custom Tool" and
 use [this](https://github.com/jenkinsci/xunit-plugin/blob/master/docs/files/input.xsl)
 XSL as
-described [here](#provide-user-xsl).
+described [here](#provide-user-xsl). The XSL is provided AS IS without any support.
 
 -   **NUnit 2.x (2.0 - 2.6) schema validation from official
     distribution.**
