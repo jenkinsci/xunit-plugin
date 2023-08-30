@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>4.50</version>
+        <version>4.73</version>
         <relativePath />
     </parent>
 
@@ -46,7 +46,7 @@
         <revision>3.1.4</revision>
         <changelist>-SNAPSHOT</changelist>
         <hpi.compatibleSinceVersion>3.0.0</hpi.compatibleSinceVersion>
-        <jenkins.version>2.319.3</jenkins.version>
+        <jenkins.version>2.401.3</jenkins.version>
         <gitHubRepo>jenkinsci/${project.artifactId}-plugin</gitHubRepo>
 
         <!-- dependencies versions -->
@@ -73,8 +73,8 @@
         <dependencies>
             <dependency>
                 <groupId>io.jenkins.tools.bom</groupId>
-                <artifactId>bom-2.319.x</artifactId>
-                <version>1654.vcb_69d035fa_20</version>
+                <artifactId>bom-2.401.x</artifactId>
+                <version>2378.v3e03930028f2</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -176,7 +176,6 @@
         <plugins>
             <plugin>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.1.1</version>
                 <configuration>
                     <configLocation>${basedir}/checkstyle.xml</configLocation>
                     <sourceDirectories>${project.build.sourceDirectory}</sourceDirectories>
