@@ -50,7 +50,7 @@ import com.google.inject.Singleton;
 
 import hudson.model.TaskListener;
 
-public class XUnitReportProcessorTest {
+public class SecondXUnitReportProcessorTest {
 
     private XUnitReportProcessorService xUnitReportProcessorService;
     @Rule
@@ -124,7 +124,6 @@ public class XUnitReportProcessorTest {
     @Before
     public void setup() {
         final TaskListener listenerMock = mock(TaskListener.class);
-        when(listenerMock.getLogger()).thenReturn(new PrintStream(new ByteArrayOutputStream()));
         xUnitReportProcessorService = Guice.createInjector(new AbstractModule() {
             @Override
             protected void configure() {
@@ -136,13 +135,19 @@ public class XUnitReportProcessorTest {
     }
 
     @Test
-    public void findReportsOneFile() throws Exception {
-        File f1 = folderRule.newFile("a.txt");
+    public void isEmptyPattern() {
+        Assert.assertTrue(xUnitReportProcessorService.isEmptyPattern(null));
+        Assert.assertTrue(xUnitReportProcessorService.isEmptyPattern(""));
+        Assert.assertFalse(xUnitReportProcessorService.isEmptyPattern("abc"));
+    }
+
+    @Test(expected = NoTestFoundException.class)
+    public void verify_processor_throws_exception_if_no_reports_was_found() throws Exception {
         XUnitToolInfo xUnitToolInfoMock = mock(XUnitToolInfo.class);
         when(xUnitToolInfoMock.getInputMetric()).thenReturn(new MyInputMetric());
-        when(xUnitToolInfoMock.getPattern()).thenReturn("*.txt");
+        when(xUnitToolInfoMock.getPattern()).thenReturn("*.xml");
 
-        String[] xUnitFiles = xUnitReportProcessorService.findReports(f1.getParentFile(), xUnitToolInfoMock);
-        Assertions.assertThat(xUnitFiles).isNotEmpty().hasSize(1).contains(f1.getName());
+        xUnitReportProcessorService.findReports(folderRule.newFolder(), xUnitToolInfoMock);
     }
+
 }
