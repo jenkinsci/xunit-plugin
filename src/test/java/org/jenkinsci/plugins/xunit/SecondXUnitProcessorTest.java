@@ -67,7 +67,7 @@ import hudson.tasks.junit.TestDataPublisher;
 import hudson.util.ReflectionUtils;
 
 @RunWith(org.mockito.junit.MockitoJUnitRunner.class)
-public class XUnitProcessorTest {
+public class SecondXUnitProcessorTest {
 
     @SuppressWarnings("serial")
     private static class MyCustomType extends CustomType {
@@ -98,69 +98,51 @@ public class XUnitProcessorTest {
     @Before
     public void setup() throws Exception {
         workspace = new FilePath(fileRule.newFolder());
-        when(listener.getLogger()).thenReturn(System.out);
         when(build.getEnvironment(listener)).thenReturn(new EnvVars());
     }
 
-    @Ignore
     @Test
-    public void custom_tools_resolve_against_workspace() throws Throwable {
+    public void user_XSL_override_embedded() throws Exception {
+        TestType tool = new AUnitJunitHudsonTestType("**/TEST-*.xml", false, false, true, true);
+
+        FilePath userContent = new FilePath(jenkinsRule.jenkins.getRootDir()).child("userContent").child("xunit").child("AUnit").child("3.x");
+        userContent.mkdirs();
+        FilePath customXSL = userContent.child("customXSL.xsl");
+        FileUtils.write(new File(customXSL.getRemote()), "test", StandardCharsets.UTF_8);
+
+        XUnitProcessor processor = new XUnitProcessor(new TestType[] { tool }, null, 300, new ExtraConfiguration(3000, true, 10, true, true, null));
+        Field field = ReflectionUtils.findField(XUnitProcessor.class, "logger");
+        field.setAccessible(true);
+        ReflectionUtils.setField(field, processor, mock(XUnitLog.class));
+        XUnitToolInfo toolInfo = processor.buildXUnitToolInfo(tool, build, workspace, listener);
+
+        Assert.assertEquals("test", toolInfo.getXSLFile());
+    }
+
+    @Test
+    public void custom_tools_as_URL() throws Exception {
         final File customXSL = fileRule.newFile("customXSL.xsl");
         FileUtils.write(customXSL, "test", StandardCharsets.UTF_8);
 
-        VirtualChannel channel = mock(VirtualChannel.class);
-        when(channel.call(any(DelegatingCallable.class))).thenReturn(false, true);
-        workspace = new FilePath(channel, workspace.getName());
+        final TestType[] tools = new TestType[] { new MyCustomType(customXSL.toURI().toURL().toExternalForm()) };
 
-        final TestType[] tools = new TestType[] { new MyCustomType(customXSL.getName()) };
-
-        XUnitProcessor processor = new XUnitProcessor(tools, null, 300, new ExtraConfiguration(3000, true, 10, true, true, null));
+        XUnitProcessor processor = buildProcessor(tools);
         XUnitToolInfo toolInfo = processor.buildXUnitToolInfo(tools[0], build, workspace, listener);
 
         Assert.assertEquals("test", toolInfo.getXSLFile());
     }
 
     @Test
-    public void slave_exception_unwraps_to_TransformerException_if_any_is_found_in_chain() throws Exception {
-        NoTestFoundException noTestFoundException = new NoTestFoundException("test");
-        exceptionRule.expect(CoreMatchers.sameInstance(noTestFoundException));
+    public void custom_tools_resolve_against_master() throws Exception {
+        final File customXSL = fileRule.newFile("customXSL.xsl");
+        FileUtils.write(customXSL, "test", StandardCharsets.UTF_8);
 
-        XUnitProcessor processor = spy(buildProcessor());
+        final TestType[] tools = new TestType[] { new MyCustomType(customXSL.getAbsolutePath()) };
 
-        XUnitTransformerCallable callable = mock(XUnitTransformerCallable.class);
-        doReturn(callable).when(processor).newXUnitTransformer(any(XUnitToolInfo.class));
-        IOException callableException = new IOException(new Exception(noTestFoundException));
-        when(callable.invoke(any(File.class), any(VirtualChannel.class))).thenThrow(callableException);
+        XUnitProcessor processor = new XUnitProcessor(tools, null, 300, new ExtraConfiguration(3000, true, 10, true, true, null));
+        XUnitToolInfo toolInfo = processor.buildXUnitToolInfo(tools[0], build, workspace, listener);
 
-        processor.process(build, workspace, listener, null, Collections.<TestDataPublisher>emptyList(), null);
-    }
-
-    @Test
-    public void slave_exception_unwraps_to_self_if_no_TransformerException_is_found_in_chain() throws Exception {
-        IOException callableException = new IOException(new Exception(new Exception()));
-        exceptionRule.expect(CoreMatchers.sameInstance(callableException));
-
-        XUnitProcessor processor = spy(buildProcessor());
-
-        XUnitTransformerCallable callable = mock(XUnitTransformerCallable.class);
-        doReturn(callable).when(processor).newXUnitTransformer(any(XUnitToolInfo.class));
-        when(callable.invoke(any(File.class), any(VirtualChannel.class))).thenThrow(callableException);
-
-        processor.process(build, workspace, listener, null, Collections.<TestDataPublisher>emptyList(), null);
-    }
-
-    @Test
-    public void slave_exception_with_no_cause_unwraps_to_self() throws Exception {
-        IOException callableException = new IOException();
-        exceptionRule.expect(CoreMatchers.sameInstance(callableException));
-
-        XUnitProcessor processor = spy(buildProcessor());
-
-        XUnitTransformerCallable callable = mock(XUnitTransformerCallable.class);
-        doReturn(callable).when(processor).newXUnitTransformer(any(XUnitToolInfo.class));
-        when(callable.invoke(any(File.class), any(VirtualChannel.class))).thenThrow(callableException);
-
-        processor.process(build, workspace, listener, null, Collections.<TestDataPublisher>emptyList(), null);
+        Assert.assertEquals("test", toolInfo.getXSLFile());
     }
 
     private XUnitProcessor buildProcessor(TestType[] tools) {
