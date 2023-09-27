@@ -23,32 +23,23 @@
  */
 package org.jenkinsci.plugins.xunit;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.when;
 
 import java.io.File;
-import java.io.IOException;
 import java.lang.reflect.Field;
 import java.nio.charset.StandardCharsets;
-import java.util.Collections;
 
 import org.apache.commons.io.FileUtils;
-import org.hamcrest.CoreMatchers;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
-import org.jenkinsci.plugins.xunit.service.NoTestFoundException;
 import org.jenkinsci.plugins.xunit.service.XUnitLog;
 import org.jenkinsci.plugins.xunit.service.XUnitToolInfo;
-import org.jenkinsci.plugins.xunit.service.XUnitTransformerCallable;
 import org.jenkinsci.plugins.xunit.types.AUnitJunitHudsonTestType;
 import org.jenkinsci.plugins.xunit.types.CppUnitJunitHudsonTestType;
 import org.jenkinsci.plugins.xunit.types.CustomType;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -61,9 +52,6 @@ import hudson.EnvVars;
 import hudson.FilePath;
 import hudson.model.Run;
 import hudson.model.TaskListener;
-import hudson.remoting.DelegatingCallable;
-import hudson.remoting.VirtualChannel;
-import hudson.tasks.junit.TestDataPublisher;
 import hudson.util.ReflectionUtils;
 
 @RunWith(org.mockito.junit.MockitoJUnitRunner.class)
