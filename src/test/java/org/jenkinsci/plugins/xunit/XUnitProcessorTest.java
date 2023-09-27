@@ -31,7 +31,6 @@ import static org.mockito.Mockito.when;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 
@@ -40,10 +39,8 @@ import org.hamcrest.CoreMatchers;
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.xunit.service.NoTestFoundException;
-import org.jenkinsci.plugins.xunit.service.XUnitLog;
 import org.jenkinsci.plugins.xunit.service.XUnitToolInfo;
 import org.jenkinsci.plugins.xunit.service.XUnitTransformerCallable;
-import org.jenkinsci.plugins.xunit.types.AUnitJunitHudsonTestType;
 import org.jenkinsci.plugins.xunit.types.CppUnitJunitHudsonTestType;
 import org.jenkinsci.plugins.xunit.types.CustomType;
 import org.junit.Assert;
@@ -64,7 +61,6 @@ import hudson.model.TaskListener;
 import hudson.remoting.DelegatingCallable;
 import hudson.remoting.VirtualChannel;
 import hudson.tasks.junit.TestDataPublisher;
-import hudson.util.ReflectionUtils;
 
 @RunWith(org.mockito.junit.MockitoJUnitRunner.class)
 public class XUnitProcessorTest {
