@@ -29,7 +29,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.UUID;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 import org.apache.commons.io.FileUtils;
 import org.jenkinsci.lib.dtkit.model.InputMetric;

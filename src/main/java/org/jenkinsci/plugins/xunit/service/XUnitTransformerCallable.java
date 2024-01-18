@@ -26,7 +26,7 @@ package org.jenkinsci.plugins.xunit.service;
 import java.io.File;
 import java.io.IOException;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 import org.apache.commons.io.FileUtils;
 import org.jenkinsci.lib.dtkit.util.validator.ValidationError;

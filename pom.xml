@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>4.51</version>
+        <version>4.77</version>
         <relativePath />
     </parent>
 
@@ -46,13 +46,13 @@
         <revision>3.1.4</revision>
         <changelist>-SNAPSHOT</changelist>
         <hpi.compatibleSinceVersion>3.0.0</hpi.compatibleSinceVersion>
-        <jenkins.version>2.346.3</jenkins.version>
+        <jenkins.version>2.414.3</jenkins.version>
         <gitHubRepo>jenkinsci/${project.artifactId}-plugin</gitHubRepo>
 
         <!-- dependencies versions -->
         <assertj.version>3.15.0</assertj.version>
         <dtkit-api.version>3.0.2</dtkit-api.version>
-        <xmlunit.version>2.7.0</xmlunit.version>
+        <xmlunit.version>2.9.1</xmlunit.version>
     </properties>
 
     <repositories>
@@ -73,8 +73,8 @@
         <dependencies>
             <dependency>
                 <groupId>io.jenkins.tools.bom</groupId>
-                <artifactId>bom-2.346.x</artifactId>
-                <version>1763.v092b_8980a_f5e</version>
+                <artifactId>bom-2.414.x</artifactId>
+                <version>2718.v7e8a_d43b_3f0b_</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -176,7 +176,7 @@
         <plugins>
             <plugin>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.1.1</version>
+                <version>3.3.1</version>
                 <configuration>
                     <configLocation>${basedir}/checkstyle.xml</configLocation>
                     <sourceDirectories>${project.build.sourceDirectory}</sourceDirectories>

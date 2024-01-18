@@ -28,7 +28,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 import org.jenkinsci.lib.dtkit.model.InputMetric;
 import org.jenkinsci.lib.dtkit.util.validator.ValidationError;
