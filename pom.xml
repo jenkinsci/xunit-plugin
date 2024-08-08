@@ -176,7 +176,7 @@
         <plugins>
             <plugin>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.3.1</version>
+                <version>3.4.0</version>
                 <configuration>
                     <configLocation>${basedir}/checkstyle.xml</configLocation>
                     <sourceDirectories>${project.build.sourceDirectory}</sourceDirectories>
