@@ -46,7 +46,9 @@
         <revision>3.1.6</revision>
         <changelist>-SNAPSHOT</changelist>
         <hpi.compatibleSinceVersion>3.0.0</hpi.compatibleSinceVersion>
-        <jenkins.version>2.440.3</jenkins.version>
+        <!-- https://www.jenkins.io/doc/developer/plugin-development/choosing-jenkins-baseline/ -->
+        <jenkins.baseline>2.440</jenkins.baseline>
+        <jenkins.version>${jenkins.baseline}.3</jenkins.version>
         <gitHubRepo>jenkinsci/${project.artifactId}-plugin</gitHubRepo>
 
         <!-- dependencies versions -->
@@ -73,7 +75,7 @@
         <dependencies>
             <dependency>
                 <groupId>io.jenkins.tools.bom</groupId>
-                <artifactId>bom-2.440.x</artifactId>
+                <artifactId>bom-${jenkins.baseline}.x</artifactId>
                 <version>3435.v238d66a_043fb_</version>
                 <scope>import</scope>
                 <type>pom</type>
