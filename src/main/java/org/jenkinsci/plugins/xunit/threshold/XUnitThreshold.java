@@ -67,7 +67,7 @@ public abstract class XUnitThreshold implements ExtensionPoint, Serializable, De
     }
 
     public static DescriptorExtensionList<XUnitThreshold, XUnitThresholdDescriptor<?>> all() {
-        return Jenkins.get().<XUnitThreshold, XUnitThresholdDescriptor<?>> getDescriptorList(XUnitThreshold.class);
+        return Jenkins.get().getDescriptorList(XUnitThreshold.class);
     }
 
     public String getUnstableThreshold() {

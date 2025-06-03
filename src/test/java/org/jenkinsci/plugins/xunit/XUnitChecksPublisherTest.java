@@ -72,16 +72,18 @@ public class XUnitChecksPublisherTest {
     public void extractChecksDetailsFailingMultipleTestResults() throws Exception {
         WorkflowJob job = rule.jenkins.createProject(WorkflowJob.class, "someFailed");
 
-        job.setDefinition(new CpsFlowDefinition("stage('first') {\n"
-                + "  node {\n"
-                + "    xunit(testTimeMargin: '3000',\n"
-                + "          thresholdMode: 1,\n"
-                + "          thresholds: [ failed(failureThreshold: '2') ],\n"
-                + "          skipPublishingChecks: false,\n"
-                + "          tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: '*.xml', skipNoTestFiles: false, stopProcessingIfError: true)]\n"
-                + "    )\n"
-                + "  }\n"
-                + "}\n", true));
+        job.setDefinition(new CpsFlowDefinition("""
+                stage('first') {
+                  node {
+                    xunit(testTimeMargin: '3000',
+                          thresholdMode: 1,
+                          thresholds: [ failed(failureThreshold: '2') ],
+                          skipPublishingChecks: false,
+                          tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: '*.xml', skipNoTestFiles: false, stopProcessingIfError: true)]
+                    )
+                  }
+                }
+                """, true));
         WorkflowRun run = job.scheduleBuild2(0).get();
 
         rule.assertBuildStatus(Result.SUCCESS, run);
@@ -105,16 +107,18 @@ public class XUnitChecksPublisherTest {
     public void extractChecksDetailsExceedThresholdTestResults() throws Exception {
         WorkflowJob job = rule.jenkins.createProject(WorkflowJob.class, "someFailed");
 
-        job.setDefinition(new CpsFlowDefinition("stage('first') {\n"
-                + "  node {\n"
-                + "    xunit(testTimeMargin: '3000',\n"
-                + "          thresholdMode: 1,\n"
-                + "          thresholds: [ failed(failureThreshold: '0') ],\n"
-                + "          skipPublishingChecks: false,\n"
-                + "          tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: '*.xml', skipNoTestFiles: false, stopProcessingIfError: true)]\n"
-                + "    )\n"
-                + "  }\n"
-                + "}\n", true));
+        job.setDefinition(new CpsFlowDefinition("""
+                stage('first') {
+                  node {
+                    xunit(testTimeMargin: '3000',
+                          thresholdMode: 1,
+                          thresholds: [ failed(failureThreshold: '0') ],
+                          skipPublishingChecks: false,
+                          tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: '*.xml', skipNoTestFiles: false, stopProcessingIfError: true)]
+                    )
+                  }
+                }
+                """, true));
         WorkflowRun run = job.scheduleBuild2(0).get();
 
         rule.assertBuildStatus(Result.FAILURE, run);
@@ -137,13 +141,15 @@ public class XUnitChecksPublisherTest {
     public void extractChecksDetailsPassingTestResults() throws Exception {
         WorkflowJob job = rule.jenkins.createProject(WorkflowJob.class, "allPassing");
 
-        job.setDefinition(new CpsFlowDefinition(""
-                + "node {\n"
-                + "  xunit(testTimeMargin: '3000',\n"
-                + "        skipPublishingChecks: false,\n"
-                + "        tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: '*.xml', skipNoTestFiles: false, stopProcessingIfError: true)]\n"
-                + "  )\n"
-                + "}\n", true));
+        job.setDefinition(new CpsFlowDefinition("""
+                \
+                node {
+                  xunit(testTimeMargin: '3000',
+                        skipPublishingChecks: false,
+                        tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: '*.xml', skipNoTestFiles: false, stopProcessingIfError: true)]
+                  )
+                }
+                """, true));
         WorkflowRun run = job.scheduleBuild2(0).get();
 
         rule.assertBuildStatus(Result.SUCCESS, run);
@@ -166,14 +172,16 @@ public class XUnitChecksPublisherTest {
     public void extractChecksDetailsCustomCheckName() throws Exception {
         WorkflowJob job = rule.jenkins.createProject(WorkflowJob.class, "allPassing");
 
-        job.setDefinition(new CpsFlowDefinition(""
-                + "node {\n"
-                + "  xunit(testTimeMargin: '3000',\n"
-                + "        tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: '*.xml', skipNoTestFiles: false, stopProcessingIfError: true)],\n"
-                + "        skipPublishingChecks: false,\n"
-                + "        checksName: 'Custom Checks Name'\n"
-                + "  )\n"
-                + "}\n", true));
+        job.setDefinition(new CpsFlowDefinition("""
+                \
+                node {
+                  xunit(testTimeMargin: '3000',
+                        tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: '*.xml', skipNoTestFiles: false, stopProcessingIfError: true)],
+                        skipPublishingChecks: false,
+                        checksName: 'Custom Checks Name'
+                  )
+                }
+                """, true));
         WorkflowRun run = job.scheduleBuild2(0).get();
 
         rule.assertBuildStatus(Result.SUCCESS, run);
@@ -195,14 +203,16 @@ public class XUnitChecksPublisherTest {
     public void extractChecksDetailsNestedStages() throws Exception {
         WorkflowJob job = rule.jenkins.createProject(WorkflowJob.class, "allPassing");
 
-        job.setDefinition(new CpsFlowDefinition("stage('first') { stage('second') {\n"
-                + "  node {\n"
-                + "    xunit(testTimeMargin: '3000',\n"
-                + "          skipPublishingChecks: false,\n"
-                + "          tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: '*.xml', skipNoTestFiles: false, stopProcessingIfError: true)]\n"
-                + "    )\n"
-                + "  }\n"
-                + "}}\n", true));
+        job.setDefinition(new CpsFlowDefinition("""
+                stage('first') { stage('second') {
+                  node {
+                    xunit(testTimeMargin: '3000',
+                          skipPublishingChecks: false,
+                          tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: '*.xml', skipNoTestFiles: false, stopProcessingIfError: true)]
+                    )
+                  }
+                }}
+                """, true));
         WorkflowRun run = job.scheduleBuild2(0).get();
 
         rule.assertBuildStatus(Result.SUCCESS, run);
@@ -223,14 +233,16 @@ public class XUnitChecksPublisherTest {
     public void extractChecksDetailsEmptySuite() throws Exception {
         WorkflowJob job = rule.jenkins.createProject(WorkflowJob.class, "empty");
 
-        job.setDefinition(new CpsFlowDefinition("stage('first') {\n"
-                + "  node {\n"
-                + "    xunit(testTimeMargin: '3000',\n"
-                + "          skipPublishingChecks: false,\n"
-                + "          tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: '*.xml', skipNoTestFiles: true, stopProcessingIfError: true)]\n"
-                + "    )\n"
-                + "  }\n"
-                + "}\n", true));
+        job.setDefinition(new CpsFlowDefinition("""
+                stage('first') {
+                  node {
+                    xunit(testTimeMargin: '3000',
+                          skipPublishingChecks: false,
+                          tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: '*.xml', skipNoTestFiles: true, stopProcessingIfError: true)]
+                    )
+                  }
+                }
+                """, true));
         WorkflowRun run = job.scheduleBuild2(0).get();
 
         rule.assertBuildStatus(Result.SUCCESS, run);
@@ -251,14 +263,16 @@ public class XUnitChecksPublisherTest {
     public void extractChecksDetailsAllSkipped() throws Exception {
         WorkflowJob job = rule.jenkins.createProject(WorkflowJob.class, "allSkipped");
 
-        job.setDefinition(new CpsFlowDefinition("stage('all skipped') {\n"
-                + "  node {\n"
-                + "    xunit(testTimeMargin: '3000',\n"
-                + "          skipPublishingChecks: false,\n"
-                + "          tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: '*.xml', skipNoTestFiles: false, stopProcessingIfError: true)]\n"
-                + "    )\n"
-                + "  }\n"
-                + "}\n", true));
+        job.setDefinition(new CpsFlowDefinition("""
+                stage('all skipped') {
+                  node {
+                    xunit(testTimeMargin: '3000',
+                          skipPublishingChecks: false,
+                          tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: '*.xml', skipNoTestFiles: false, stopProcessingIfError: true)]
+                    )
+                  }
+                }
+                """, true));
         WorkflowRun run = job.scheduleBuild2(0).get();
 
         rule.assertBuildStatus(Result.SUCCESS, run);
@@ -280,15 +294,17 @@ public class XUnitChecksPublisherTest {
     public void withChecksContext() throws Exception {
         WorkflowJob job = rule.jenkins.createProject(WorkflowJob.class, "allPassing");
 
-        job.setDefinition(new CpsFlowDefinition(""
-                + "node {\n"
-                + "  withChecks('With Checks') {\n"
-                + "    xunit(testTimeMargin: '3000',\n"
-                + "          skipPublishingChecks: false,\n"
-                + "          tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: '*.xml', skipNoTestFiles: false, stopProcessingIfError: true)]\n"
-                + "    )\n"
-                + "  }\n"
-                + "}\n", true));
+        job.setDefinition(new CpsFlowDefinition("""
+                \
+                node {
+                  withChecks('With Checks') {
+                    xunit(testTimeMargin: '3000',
+                          skipPublishingChecks: false,
+                          tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: '*.xml', skipNoTestFiles: false, stopProcessingIfError: true)]
+                    )
+                  }
+                }
+                """, true));
         WorkflowRun run = job.scheduleBuild2(0).get();
 
         rule.assertBuildStatus(Result.SUCCESS, run);
@@ -311,21 +327,22 @@ public class XUnitChecksPublisherTest {
     @Test
     public void withChecksContextDeclarative() throws Exception {
         WorkflowJob job = rule.jenkins.createProject(WorkflowJob.class, "allPassing");
-        job.setDefinition(new CpsFlowDefinition("pipeline {\n"
-                + "  agent any\n"
-                + "  stages {\n"
-                + "    stage('first') {\n"
-                + "      steps {\n"
-                + "        withChecks('With Checks') {\n"
-                + "          xunit(testTimeMargin: '3000',\n"
-                + "                skipPublishingChecks: false,\n"
-                + "                tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: '*.xml', skipNoTestFiles: false, stopProcessingIfError: true)]\n"
-                + "          )\n"
-                + "        }\n"
-                + "      }\n"
-                + "    }\n"
-                + "  }\n"
-                + "}", true));
+        job.setDefinition(new CpsFlowDefinition("""
+                pipeline {
+                  agent any
+                  stages {
+                    stage('first') {
+                      steps {
+                        withChecks('With Checks') {
+                          xunit(testTimeMargin: '3000',
+                                skipPublishingChecks: false,
+                                tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: '*.xml', skipNoTestFiles: false, stopProcessingIfError: true)]
+                          )
+                        }
+                      }
+                    }
+                  }
+                }""", true));
         rule.buildAndAssertSuccess(job);
 
         List<ChecksDetails> checksDetails = getDetails();
@@ -346,17 +363,19 @@ public class XUnitChecksPublisherTest {
     @Test
     public void withChecksContextWithCustomName() throws Exception {
         WorkflowJob job = rule.jenkins.createProject(WorkflowJob.class, "allPassing");
-        job.setDefinition(new CpsFlowDefinition("stage('first') {\n"
-                + "  node {\n"
-                + "    withChecks('With Checks') {\n"
-                + "      xunit(testTimeMargin: '3000',\n"
-                + "            tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: '*.xml', skipNoTestFiles: false, stopProcessingIfError: true)],\n"
-                + "            skipPublishingChecks: false,\n"
-                + "            checksName: 'Custom Checks Name'\n"
-                + "      )\n"
-                + "    }\n"
-                + "  }\n"
-                + "}\n", true));
+        job.setDefinition(new CpsFlowDefinition("""
+                stage('first') {
+                  node {
+                    withChecks('With Checks') {
+                      xunit(testTimeMargin: '3000',
+                            tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: '*.xml', skipNoTestFiles: false, stopProcessingIfError: true)],
+                            skipPublishingChecks: false,
+                            checksName: 'Custom Checks Name'
+                      )
+                    }
+                  }
+                }
+                """, true));
         WorkflowRun run = job.scheduleBuild2(0).get();
 
         rule.assertBuildStatus(Result.SUCCESS, run);

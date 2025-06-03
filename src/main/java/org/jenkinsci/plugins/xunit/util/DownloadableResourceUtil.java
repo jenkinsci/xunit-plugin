@@ -29,6 +29,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.charset.StandardCharsets;
 
 import org.apache.commons.io.IOUtils;
 
@@ -50,13 +51,12 @@ public class DownloadableResourceUtil {
     }
 
     public static String download(String url) throws IOException {
-        URL archive = new URL(url);;
+        URL archive = new URL(url);
 
         URLConnection con = ProxyConfiguration.open(archive);
         con.connect();
 
-        if (con instanceof HttpURLConnection) {
-            HttpURLConnection httpCon = (HttpURLConnection) con;
+        if (con instanceof HttpURLConnection httpCon) {
             int responseCode = httpCon.getResponseCode();
             if (responseCode == HttpURLConnection.HTTP_NOT_MODIFIED || responseCode != HttpURLConnection.HTTP_OK) {
                 throw new IOException("Can not download resource " + archive.toExternalForm() + " due to server error: " + responseCode);
@@ -64,7 +64,7 @@ public class DownloadableResourceUtil {
         }
 
         try (InputStream in = archive.getProtocol().startsWith("http") ? ProxyConfiguration.getInputStream(archive) : con.getInputStream()) {
-            return IOUtils.toString(in, "UTF-8");
+            return IOUtils.toString(in, StandardCharsets.UTF_8);
         }
     }
 

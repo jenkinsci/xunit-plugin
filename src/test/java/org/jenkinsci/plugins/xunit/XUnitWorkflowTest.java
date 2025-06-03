@@ -52,10 +52,11 @@ public class XUnitWorkflowTest {
     @Test
     public void xunitPublisherWorkflowStepTest() throws Exception {
         WorkflowJob job = getBaseJob("publisher");
-        job.setDefinition(new CpsFlowDefinition(""
-                + "node {\n"
-                + "  step([$class: 'XUnitPublisher', testTimeMargin: '3000', thresholdMode: 1, thresholds: [[$class: 'FailedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '1'], [$class: 'SkippedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '']], tools: [[$class: 'GoogleTestType', deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml', skipNoTestFiles: false, stopProcessingIfError: true]]])\n"
-                + "}", true));
+        job.setDefinition(new CpsFlowDefinition("""
+                \
+                node {
+                  step([$class: 'XUnitPublisher', testTimeMargin: '3000', thresholdMode: 1, thresholds: [[$class: 'FailedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '1'], [$class: 'SkippedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '']], tools: [[$class: 'GoogleTestType', deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml', skipNoTestFiles: false, stopProcessingIfError: true]]])
+                }""", true));
 
         jenkinsRule.assertBuildStatus(Result.UNSTABLE, job.scheduleBuild2(0).get());
     }
@@ -64,16 +65,17 @@ public class XUnitWorkflowTest {
     @Test
     public void xunitPipelineStepDefinition() throws Exception {
         WorkflowJob job = getBaseJob("readablePublisherPipeline");
-        job.setDefinition(new CpsFlowDefinition(""
-                + "node {\n"
-                + "  xunit(testTimeMargin: '3000',"
-                + "        thresholdMode: 1,"
-                + "        thresholds: [ failed(unstableThreshold: '1'), skipped() ],"
-                + "        tools: [ GoogleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml', skipNoTestFiles: false, stopProcessingIfError: true) ],"
-                + "        skipPublishingChecks: true,"
-                + "        checksName: 'check'"
-                + "  )\n"
-                + "}", true));
+        job.setDefinition(new CpsFlowDefinition("""
+                \
+                node {
+                  xunit(testTimeMargin: '3000',\
+                        thresholdMode: 1,\
+                        thresholds: [ failed(unstableThreshold: '1'), skipped() ],\
+                        tools: [ GoogleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml', skipNoTestFiles: false, stopProcessingIfError: true) ],\
+                        skipPublishingChecks: true,\
+                        checksName: 'check'\
+                  )
+                }""", true));
 
         jenkinsRule.assertBuildStatus(Result.UNSTABLE, job.scheduleBuild2(0).get());
     }
@@ -84,31 +86,32 @@ public class XUnitWorkflowTest {
     public void xunitParallelStep() throws Exception {
         WorkflowJob job = jenkinsRule.jenkins.createProject(WorkflowJob.class, "JENKINS-52202");
 
-        job.setDefinition(new CpsFlowDefinition(""
-                + "node {\n"
-                + "  parallel(\n"
-                + "    dateiEins: {\n"
-                + "        dir('file1') {\n"
-                + "          xunit(testTimeMargin: '3000',\n"
-                + "                thresholdMode: 1,\n"
-                + "                thresholds: [ failed(failureThreshold: '1') ],\n"
-                + "                tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: 'TEST-*.xml', skipNoTestFiles: false, stopProcessingIfError: true)],\n"
-                + "                skipPublishingChecks: true\n"
-                + "          )\n"
-                + "        }\n"
-                + "    },\n"
-                + "    dateiZwei: {\n"
-                + "        dir('file2') {\n"
-                + "          xunit(testTimeMargin: '3000',\n"
-                + "                thresholdMode: 1,\n"
-                + "                thresholds: [ failed(failureThreshold: '1') ],\n"
-                + "                tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: 'TEST-*.xml', skipNoTestFiles: false, stopProcessingIfError: true)],\n"
-                + "                skipPublishingChecks: true\n"
-                + "          )\n"
-                + "        }\n"
-                + "    }\n"
-                + "  )\n"
-                + "}", true));
+        job.setDefinition(new CpsFlowDefinition("""
+                \
+                node {
+                  parallel(
+                    dateiEins: {
+                        dir('file1') {
+                          xunit(testTimeMargin: '3000',
+                                thresholdMode: 1,
+                                thresholds: [ failed(failureThreshold: '1') ],
+                                tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: 'TEST-*.xml', skipNoTestFiles: false, stopProcessingIfError: true)],
+                                skipPublishingChecks: true
+                          )
+                        }
+                    },
+                    dateiZwei: {
+                        dir('file2') {
+                          xunit(testTimeMargin: '3000',
+                                thresholdMode: 1,
+                                thresholds: [ failed(failureThreshold: '1') ],
+                                tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: 'TEST-*.xml', skipNoTestFiles: false, stopProcessingIfError: true)],
+                                skipPublishingChecks: true
+                          )
+                        }
+                    }
+                  )
+                }""", true));
         WorkflowRun run = job.scheduleBuild2(0).get();
         jenkinsRule.assertBuildStatus(Result.SUCCESS, run);
         jenkinsRule.assertLogNotContains(Messages.xUnitProcessor_emptyReport(), run);

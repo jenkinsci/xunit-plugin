@@ -24,11 +24,13 @@
 
 package org.jenkinsci.plugins.xunit.service;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import org.jenkinsci.lib.dtkit.model.InputMetric;
 
 public class XUnitToolInfo implements Serializable {
+    @Serial
     private static final long serialVersionUID = 8171724502903934676L;
 
     private final InputMetric inputMetric;

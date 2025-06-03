@@ -36,7 +36,7 @@ import java.util.List;
 
 public class ValidInputMetricXSLTest {
 
-    private static List<Class<? extends InputMetricXSL>> listInputMetric = new ArrayList<Class<? extends InputMetricXSL>>();
+    private static List<Class<? extends InputMetricXSL>> listInputMetric = new ArrayList<>();
 
     @BeforeClass
     public static void loadList() {
@@ -54,7 +54,7 @@ public class ValidInputMetricXSLTest {
     @Test
     public void testAllTypes() throws Exception {
         for (Class<? extends InputMetricXSL> inputMetricXSLClass : listInputMetric) {
-            InputMetricXSL inputMetricXSL = inputMetricXSLClass.newInstance();
+            InputMetricXSL inputMetricXSL = inputMetricXSLClass.getDeclaredConstructor().newInstance();
 
             //The following elements must be set
             Assert.assertNotNull(inputMetricXSL.getOutputFormatType());
@@ -68,7 +68,7 @@ public class ValidInputMetricXSLTest {
                 new File(inputMetricXSL.getClass().getResource(inputMetricXSL.getXslName()).toURI());
                 Assert.assertTrue(true);
             } catch (NullPointerException npe) {
-                Assert.assertTrue(inputMetricXSL.getXslName() + " doesn't exist.", false);
+                Assert.fail(inputMetricXSL.getXslName() + " doesn't exist.");
             }
 
             //The xsd must exist if it sets
@@ -80,7 +80,7 @@ public class ValidInputMetricXSLTest {
 
                     Assert.assertTrue(true);
                 } catch (NullPointerException npe) {
-                    Assert.assertTrue("one of" + Arrays.toString(inputMetricXSL.getInputXsdNameList()) + " doesn't exist.", false);
+                    Assert.fail("one of" + Arrays.toString(inputMetricXSL.getInputXsdNameList()) + " doesn't exist.");
                 }
             }
 

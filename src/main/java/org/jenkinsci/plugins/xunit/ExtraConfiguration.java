@@ -25,6 +25,7 @@ package org.jenkinsci.plugins.xunit;
 
 import static org.jenkinsci.plugins.xunit.XUnitDefaultValues.FOLLOW_SYMLINK;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import edu.umd.cs.findbugs.annotations.Nullable;
@@ -38,7 +39,7 @@ import edu.umd.cs.findbugs.annotations.Nullable;
  * @author Nikolas Falco
  */
 public class ExtraConfiguration implements Serializable {
-    
+
     static class ExtraConfigurationBuilder {
         private ExtraConfiguration configuration;
 
@@ -64,8 +65,8 @@ public class ExtraConfiguration implements Serializable {
         public ExtraConfigurationBuilder followSymlink(boolean followSymlink) {
             configuration.followSymlink = followSymlink;
             return this;
-        }    
-        
+        }
+
         public ExtraConfigurationBuilder skipPublishingChecks(boolean skipPublishingChecks) {
             configuration.skipPublishingChecks = skipPublishingChecks;
             return this;
@@ -81,6 +82,7 @@ public class ExtraConfiguration implements Serializable {
         }
     }
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private long testTimeMargin;
@@ -123,12 +125,12 @@ public class ExtraConfiguration implements Serializable {
 
     public boolean isFollowSymlink() {
         return followSymlink;
-    }     
+    }
 
     /**
     * Should we skip publishing checks to the checks API plugin.
-    * 
-    * @return if publishing checks should be skipped, {@code false} otherwise 
+    *
+    * @return if publishing checks should be skipped, {@code false} otherwise
     */
     public boolean isSkipPublishingChecks() {
         return skipPublishingChecks;
@@ -148,6 +150,7 @@ public class ExtraConfiguration implements Serializable {
      *
      * @return must be always 'this'
      */
+    @Serial
     private Object readResolve() {
         if (followSymlink == null) {
             followSymlink = FOLLOW_SYMLINK;

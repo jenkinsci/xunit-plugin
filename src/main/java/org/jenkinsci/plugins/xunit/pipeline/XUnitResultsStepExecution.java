@@ -23,6 +23,7 @@
  */
 package org.jenkinsci.plugins.xunit.pipeline;
 
+import java.io.Serial;
 import java.util.List;
 import java.util.Optional;
 
@@ -71,7 +72,7 @@ public class XUnitResultsStepExecution extends SynchronousNonBlockingStepExecuti
         if (step.getTools().isEmpty()) {
             throw new AbortException(Messages.XUnitResultsStepExecution_noTool());
         }
-        
+
         // If we are within a withChecks context, and have not provided a name override in the step, apply the withChecks name
         if (Util.fixEmpty(step.getChecksName()) == null) {
             Optional.ofNullable(getContext().get(ChecksInfo.class))
@@ -106,6 +107,7 @@ public class XUnitResultsStepExecution extends SynchronousNonBlockingStepExecuti
         return result.getTestResultSummary();
     }
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
 }

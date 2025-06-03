@@ -26,6 +26,7 @@ package org.jenkinsci.plugins.xunit.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.UUID;
 
@@ -38,6 +39,7 @@ import org.jenkinsci.lib.dtkit.util.converter.ConversionException;
 import org.jenkinsci.plugins.xunit.XUnitDefaultValues;
 
 public class XUnitConversionService implements Serializable {
+    @Serial
     private static final long serialVersionUID = 6019846684040298718L;
 
     private XUnitLog xUnitLog;

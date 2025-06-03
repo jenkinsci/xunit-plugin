@@ -27,6 +27,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Serial;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -86,6 +87,7 @@ public class XUnitProcessor {
      * class requires that whole outer class was serialisable too.
      **/
     private static final class ReportParserCallable extends jenkins.MasterToSlaveFileCallable<TestResult> {
+        @Serial
         private static final long serialVersionUID = 1L;
 
         private final String junitFilePattern;
@@ -169,7 +171,7 @@ public class XUnitProcessor {
         return result;
     }
 
-    public void publishChecks(Run<?, ?> build, @NonNull final XUnitProcessorResult result, @NonNull final Result buildResult, 
+    public void publishChecks(Run<?, ?> build, @NonNull final XUnitProcessorResult result, @NonNull final Result buildResult,
                 TaskListener listener, @CheckForNull PipelineTestDetails pipelineTestDetails) {
         if (extraConfiguration.isSkipPublishingChecks()) {
             return;
@@ -298,7 +300,7 @@ public class XUnitProcessor {
 
             logger.info("Using the custom user stylesheet " + stylesheet.getName() + " in JENKINS_HOME.");
             try (InputStream is = stylesheet.read()) {
-                return IOUtils.toString(is, "UTF-8");
+                return IOUtils.toString(is, StandardCharsets.UTF_8);
             }
         }
         return null;

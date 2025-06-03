@@ -23,8 +23,6 @@
  */
 package org.jenkinsci.plugins.xunit;
 
-import java.util.Iterator;
-
 import org.jenkinsci.lib.dtkit.descriptor.TestTypeDescriptor;
 import org.jenkinsci.lib.dtkit.type.TestType;
 
@@ -43,8 +41,8 @@ public class AliasInitializer {
     public static void init(Jenkins jenkins) {
         Items.XSTREAM.alias("xunit", XUnitPublisher.class);
         DescriptorExtensionList<TestType, TestTypeDescriptor<TestType>> extensionList = jenkins.getDescriptorList(TestType.class);
-        for (Iterator<TestTypeDescriptor<TestType>> it = extensionList.iterator(); it.hasNext(); ) {
-            Class<? extends TestType> classType = it.next().clazz;
+        for (TestTypeDescriptor<TestType> testTypeTestTypeDescriptor : extensionList) {
+            Class<? extends TestType> classType = testTypeTestTypeDescriptor.clazz;
             String className = getClassName(classType);
             Items.XSTREAM.alias(className, classType);
         }
