@@ -35,7 +35,6 @@ import org.hamcrest.BaseMatcher;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.Description;
 import org.hamcrest.MatcherAssert;
-import org.jenkinsci.lib.dtkit.type.TestType;
 import org.jenkinsci.plugins.workflow.actions.LabelAction;
 import org.jenkinsci.plugins.workflow.actions.ThreadNameAction;
 import org.jenkinsci.plugins.workflow.actions.WarningAction;
@@ -62,7 +61,6 @@ import org.jvnet.hudson.test.JenkinsRule;
 
 import com.google.common.base.Predicate;
 
-import edu.umd.cs.findbugs.annotations.Nullable;
 import hudson.FilePath;
 import hudson.model.Result;
 import hudson.tasks.junit.CaseResult;
@@ -94,7 +92,7 @@ public class XUnitResultsStepTest {
         FailedThreshold failedThreshold = new FailedThreshold();
         failedThreshold.setUnstableThreshold("1");
         XUnitResultsStep step = new XUnitResultsStep(
-                Collections.<TestType>singletonList(new GoogleTestType("input.xml", false, false, false, true)));
+                Collections.singletonList(new GoogleTestType("input.xml", false, false, false, true)));
         step.setThresholds(Arrays.asList(failedThreshold, new SkippedThreshold()));
 
         st.assertRoundTrip(step, "xunit thresholds: [failed(unstableThreshold: '1'), skipped()], tools: [GoogleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml', stopProcessingIfError: true)]");
@@ -104,16 +102,18 @@ public class XUnitResultsStepTest {
     @Test
     public void singleStep() throws Exception {
         WorkflowJob job = getBaseJob("singleStep");
-        job.setDefinition(new CpsFlowDefinition(""
-                + "stage('first') {\n"
-                + "  node {\n"
-                + "    def result = xunit(tools: [GoogleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml',\n"
-                + "                                          skipNoTestFiles: false, stopProcessingIfError: true)],\n"
-                + "                       thresholds: [failed(unstableThreshold: '1'), skipped()])\n"
-                + "echo \"total: ${result.totalCount}\"\n"
-                + "    assert result.totalCount == 4\n"
-                + "  }\n"
-                + "}\n", true));
+        job.setDefinition(new CpsFlowDefinition("""
+                \
+                stage('first') {
+                  node {
+                    def result = xunit(tools: [GoogleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml',
+                                                          skipNoTestFiles: false, stopProcessingIfError: true)],
+                                       thresholds: [failed(unstableThreshold: '1'), skipped()])
+                echo "total: ${result.totalCount}"
+                    assert result.totalCount == 4
+                  }
+                }
+                """, true));
 
         WorkflowRun r = job.scheduleBuild2(0).waitForStart();
         j.assertBuildStatus(Result.UNSTABLE, j.waitForCompletion(r));
@@ -140,19 +140,21 @@ public class XUnitResultsStepTest {
     @Test
     public void twoSteps() throws Exception {
         WorkflowJob job = getBaseJob("twoSteps");
-        job.setDefinition(new CpsFlowDefinition(""
-                + "stage('first') {\n"
-                + "  node {\n"
-                + "    def first = xunit(tools: [GoogleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml',\n"
-                + "                                         skipNoTestFiles: false, stopProcessingIfError: true)],\n"
-                + "                      thresholds: [failed(unstableThreshold: '1'), skipped()])\n"
-                + "    def second = xunit(tools: [CUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: 'cunit.xml',\n"
-                + "                                     skipNoTestFiles: false, stopProcessingIfError: true)],\n"
-                + "                       thresholds: [failed(unstableThreshold: '1'), skipped()])\n"
-                + "    assert first.totalCount == 4\n"
-                + "    assert second.totalCount == 1\n"
-                + "  }\n"
-                + "}\n", true));
+        job.setDefinition(new CpsFlowDefinition("""
+                \
+                stage('first') {
+                  node {
+                    def first = xunit(tools: [GoogleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml',
+                                                         skipNoTestFiles: false, stopProcessingIfError: true)],
+                                      thresholds: [failed(unstableThreshold: '1'), skipped()])
+                    def second = xunit(tools: [CUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: 'cunit.xml',
+                                                     skipNoTestFiles: false, stopProcessingIfError: true)],
+                                       thresholds: [failed(unstableThreshold: '1'), skipped()])
+                    assert first.totalCount == 4
+                    assert second.totalCount == 1
+                  }
+                }
+                """, true));
 
         WorkflowRun r = job.scheduleBuild2(0).waitForStart();
         j.assertBuildStatus(Result.UNSTABLE, j.waitForCompletion(r));
@@ -193,23 +195,25 @@ public class XUnitResultsStepTest {
     @Test
     public void parallelBranches() throws Exception {
         WorkflowJob job = getBaseJob("parallelBranches");
-        job.setDefinition(new CpsFlowDefinition(""
-                + "stage('first') {\n"
-                + "  node {\n"
-                + "    parallel(a: {\n"
-                + "      def first = xunit(tools: [GoogleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml',\n"
-                + "                                           skipNoTestFiles: false, stopProcessingIfError: true)],\n"
-                + "                        thresholds: [failed(unstableThreshold: '1'), skipped()])\n"
-                + "      assert first.totalCount == 4\n"
-                + "    },\n"
-                + "    b: {\n"
-                + "      def second = xunit(tools: [CUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: 'cunit.xml',\n"
-                + "                                       skipNoTestFiles: false, stopProcessingIfError: true)],\n"
-                + "                         thresholds: [failed(unstableThreshold: '1'), skipped()])\n"
-                + "      assert second.totalCount == 1\n"
-                + "    })\n"
-                + "  }\n"
-                + "}\n", true));
+        job.setDefinition(new CpsFlowDefinition("""
+                \
+                stage('first') {
+                  node {
+                    parallel(a: {
+                      def first = xunit(tools: [GoogleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml',
+                                                           skipNoTestFiles: false, stopProcessingIfError: true)],
+                                        thresholds: [failed(unstableThreshold: '1'), skipped()])
+                      assert first.totalCount == 4
+                    },
+                    b: {
+                      def second = xunit(tools: [CUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: 'cunit.xml',
+                                                       skipNoTestFiles: false, stopProcessingIfError: true)],
+                                         thresholds: [failed(unstableThreshold: '1'), skipped()])
+                      assert second.totalCount == 1
+                    })
+                  }
+                }
+                """, true));
 
         WorkflowRun r = job.scheduleBuild2(0).waitForStart();
         j.assertBuildStatus(Result.UNSTABLE, j.waitForCompletion(r));
@@ -231,24 +235,26 @@ public class XUnitResultsStepTest {
     @Issue("JENKINS-68061")
     public void parallelStages() throws Exception {
         WorkflowJob job = getBaseJob("parallelStages");
-        job.setDefinition(new CpsFlowDefinition(""
-                + "node {\n"
-                + "  parallel(one: {\n"
-                + "    stage('stage1') {\n"
-                + "      xunit(tools: [GoogleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml',\n"
-                + "                               skipNoTestFiles: false, stopProcessingIfError: true)],\n"
-                + "            thresholds: [failed(unstableThreshold: '1'), skipped()])\n"
-                + "    }\n"
-                + "  },\n"
-                + "  two: {\n"
-                + "    stage('stage2') {\n"
-                + "      xunit(tools: [GoogleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml',\n"
-                + "                               skipNoTestFiles: false, stopProcessingIfError: true)],\n"
-                + "            thresholds: [failed(unstableThreshold: '1'), skipped()])\n"
-                + "    }\n"
-                + "  })\n"
-                + "}\n", true));
-        
+        job.setDefinition(new CpsFlowDefinition("""
+                \
+                node {
+                  parallel(one: {
+                    stage('stage1') {
+                      xunit(tools: [GoogleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml',
+                                               skipNoTestFiles: false, stopProcessingIfError: true)],
+                            thresholds: [failed(unstableThreshold: '1'), skipped()])
+                    }
+                  },
+                  two: {
+                    stage('stage2') {
+                      xunit(tools: [GoogleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml',
+                                               skipNoTestFiles: false, stopProcessingIfError: true)],
+                            thresholds: [failed(unstableThreshold: '1'), skipped()])
+                    }
+                  })
+                }
+                """, true));
+
         WorkflowRun r = job.scheduleBuild2(0).waitForStart();
         j.assertBuildStatus(Result.UNSTABLE, j.waitForCompletion(r));
 
@@ -289,14 +295,9 @@ public class XUnitResultsStepTest {
     }
 
     private static Predicate<FlowNode> stageForName(final String name) {
-        return new Predicate<FlowNode>() {
-            @Override
-            public boolean apply(@Nullable FlowNode input) {
-                return input instanceof StepStartNode &&
-                        ((StepStartNode) input).getDescriptor() instanceof StageStep.DescriptorImpl &&
-                        input.getDisplayName().equals(name);
-            }
-        };
+        return input -> input instanceof StepStartNode &&
+                ((StepStartNode) input).getDescriptor() instanceof StageStep.DescriptorImpl &&
+                input.getDisplayName().equals(name);
     }
 
     private static TestResult assertBlockResults(WorkflowRun run, int suiteCount, int testCount, int failCount, BlockStartNode blockNode) {
@@ -341,11 +342,12 @@ public class XUnitResultsStepTest {
     }
 
     private static BaseMatcher<FlowNode> hasWarningAction() {
-        return new BaseMatcher<FlowNode>() {
+        return new BaseMatcher<>() {
             @Override
             public boolean matches(Object item) {
                 return item instanceof FlowNode && ((FlowNode) item).getPersistentAction(WarningAction.class) != null;
             }
+
             @Override
             public void describeTo(Description description) {
                 description.appendText("a FlowNode with a WarningAction");
@@ -354,15 +356,10 @@ public class XUnitResultsStepTest {
     }
 
     private static Predicate<FlowNode> branchForName(final String name) {
-        return new Predicate<FlowNode>() {
-            @Override
-            public boolean apply(@Nullable FlowNode input) {
-                return input != null &&
-                        input.getAction(LabelAction.class) != null &&
-                        input.getAction(ThreadNameAction.class) != null &&
-                        name.equals(input.getAction(ThreadNameAction.class).getThreadName());
-            }
-        };
+        return input -> input != null &&
+                input.getAction(LabelAction.class) != null &&
+                input.getAction(ThreadNameAction.class) != null &&
+                name.equals(input.getAction(ThreadNameAction.class).getThreadName());
     }
 
 }

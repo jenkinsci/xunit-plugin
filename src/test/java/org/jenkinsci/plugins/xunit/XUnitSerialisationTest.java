@@ -50,7 +50,7 @@ public class XUnitSerialisationTest {
 
     @LocalData("publisher_1_103")
     @Test
-    public void verify_publisher_compatible_before_1_103() throws Exception {
+    public void verify_publisher_compatible_before_1_103() {
         FreeStyleProject project = (FreeStyleProject) r.jenkins.getItem("foo");
 
         Assertions.assertThat(project.getPublishersList()).hasSize(1);

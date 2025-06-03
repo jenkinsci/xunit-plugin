@@ -36,7 +36,6 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.io.File;
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 import org.apache.commons.io.FileUtils;
@@ -84,7 +83,7 @@ public class XUnitTransformerTest {
 
 
     @Before
-    public void beforeTest() throws IOException {
+    public void beforeTest() {
         when(xUnitToolInfoMock.getInputMetric()).thenReturn(new MyInputMetric());
 
         xUnitTransformer = Guice.createInjector(Stage.DEVELOPMENT, new AbstractModule() {
@@ -163,7 +162,7 @@ public class XUnitTransformerTest {
             InOrder inOrder = inOrder(xUnitReportProcessorServiceMock);
             inOrder.verify(xUnitReportProcessorServiceMock).findReports(eq(ws), any(XUnitToolInfo.class));
             inOrder.verify(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(any(XUnitToolInfo.class), eq(resultFiles), eq(ws));
-            
+
             throw e;
         }
     }
@@ -183,7 +182,7 @@ public class XUnitTransformerTest {
         // Create a empty file
         File ws = folderRule.newFolder();
         File myInputFile = new File(ws, "a.txt");
-        when(xUnitReportProcessorServiceMock.getCurrentReport(any(File.class), (String) any())).thenReturn(myInputFile);
+        when(xUnitReportProcessorServiceMock.getCurrentReport(any(File.class), any())).thenReturn(myInputFile);
 
         try {
             xUnitTransformer.invoke(ws, mock(VirtualChannel.class));
@@ -243,7 +242,7 @@ public class XUnitTransformerTest {
         // create a not empty report file
         File ws = folderRule.newFolder();
         File myInputFile = new File(ws, "a.txt");
-        FileUtils.write(myInputFile, "bidon");
+        FileUtils.write(myInputFile, "bidon", StandardCharsets.UTF_8);
 
         String[] resultFiles = new String[] { "a.txt" };
         when(xUnitReportProcessorServiceMock.findReports(any(File.class), any(XUnitToolInfo.class))).thenReturn(resultFiles);
@@ -276,7 +275,7 @@ public class XUnitTransformerTest {
         //Create test reports, a.txt not empty and b.txt empty
         File ws = folderRule.newFolder();
         File myInputFileNotEmpty = new File(ws, "a.txt");
-        FileUtils.write(myInputFileNotEmpty, "bidon");
+        FileUtils.write(myInputFileNotEmpty, "bidon", StandardCharsets.UTF_8);
         File myInputFileEmpty = new File(ws, "b.txt");
 
         String[] resultFiles = new String[] { "a.txt", "b.txt" };
@@ -303,7 +302,7 @@ public class XUnitTransformerTest {
             verify(xUnitReportProcessorServiceMock).findReports(eq(ws), eq(xUnitToolInfoMock));
             verify(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(eq(xUnitToolInfoMock), eq(resultFiles), eq(ws));
             verify(xUnitReportProcessorServiceMock, times(2)).getCurrentReport(eq(ws), anyString());
-            
+
             verify(xUnitValidationServiceMock).validateInputFile(eq(xUnitToolInfoMock), eq(myInputFileNotEmpty));
             verify(xUnitConversionServiceMock).convert(eq(xUnitToolInfoMock), eq(myInputFileNotEmpty), any(File.class));
             verify(xUnitValidationServiceMock).validateOutputFile(eq(xUnitToolInfoMock), eq(myInputFileNotEmpty), any(File.class));
@@ -311,7 +310,7 @@ public class XUnitTransformerTest {
             verify(xUnitValidationServiceMock, never()).validateInputFile(eq(xUnitToolInfoMock), eq(myInputFileEmpty));
             verify(xUnitConversionServiceMock, never()).convert(eq(xUnitToolInfoMock), eq(myInputFileEmpty), any(File.class));
             verify(xUnitValidationServiceMock, never()).validateOutputFile(eq(xUnitToolInfoMock), eq(myInputFileEmpty), any(File.class));
-            
+
             throw e;
         }
     }
@@ -347,11 +346,11 @@ public class XUnitTransformerTest {
         verify(xUnitReportProcessorServiceMock).findReports(eq(ws), eq(xUnitToolInfoMock));
         verify(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(eq(xUnitToolInfoMock), eq(resultFiles), eq(ws));
         verify(xUnitReportProcessorServiceMock, times(2)).getCurrentReport(eq(ws), anyString());
-        
+
         verify(xUnitValidationServiceMock).validateInputFile(eq(xUnitToolInfoMock), eq(myInputFileNotEmpty));
         verify(xUnitConversionServiceMock).convert(eq(xUnitToolInfoMock), eq(myInputFileNotEmpty), any(File.class));
         verify(xUnitValidationServiceMock).validateOutputFile(eq(xUnitToolInfoMock), eq(myInputFileNotEmpty), any(File.class));
-        
+
         verify(xUnitValidationServiceMock, never()).validateInputFile(eq(xUnitToolInfoMock), eq(myInputFileEmpty));
         verify(xUnitConversionServiceMock, never()).convert(eq(xUnitToolInfoMock), eq(myInputFileEmpty), any(File.class));
         verify(xUnitValidationServiceMock, never()).validateOutputFile(eq(xUnitToolInfoMock), eq(myInputFileEmpty), any(File.class));
@@ -386,7 +385,7 @@ public class XUnitTransformerTest {
             verify(xUnitReportProcessorServiceMock).findReports(eq(ws), eq(xUnitToolInfoMock));
             verify(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(eq(xUnitToolInfoMock), eq(resultFiles), eq(ws));
             verify(xUnitReportProcessorServiceMock).getCurrentReport(eq(ws), anyString());
-            
+
             verify(xUnitValidationServiceMock).validateInputFile(eq(xUnitToolInfoMock), eq(myInputFile1));
             verify(xUnitConversionServiceMock, never()).convert(eq(xUnitToolInfoMock), eq(myInputFile1), any(File.class));
             verify(xUnitValidationServiceMock, never()).validateOutputFile(eq(xUnitToolInfoMock), eq(myInputFile1), any(File.class));
@@ -394,7 +393,7 @@ public class XUnitTransformerTest {
             verify(xUnitValidationServiceMock, never()).validateInputFile(eq(xUnitToolInfoMock), eq(myInputFile2));
             verify(xUnitConversionServiceMock, never()).convert(eq(xUnitToolInfoMock), eq(myInputFile2), any(File.class));
             verify(xUnitValidationServiceMock, never()).validateOutputFile(eq(xUnitToolInfoMock), eq(myInputFile2), any(File.class));
-            
+
             throw e;
         }
     }
@@ -427,11 +426,11 @@ public class XUnitTransformerTest {
         //Verifying mock interactions
         verify(xUnitReportProcessorServiceMock).findReports(eq(ws), eq(xUnitToolInfoMock));
         verify(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(eq(xUnitToolInfoMock), eq(resultFiles), eq(ws));
-        
+
         verify(xUnitValidationServiceMock).validateInputFile(eq(xUnitToolInfoMock), eq(myInputFile1));
         verify(xUnitConversionServiceMock, never()).convert(eq(xUnitToolInfoMock), eq(myInputFile1), any(File.class));
         verify(xUnitValidationServiceMock, never()).validateOutputFile(eq(xUnitToolInfoMock), eq(myInputFile1), any(File.class));
-        
+
         verify(xUnitValidationServiceMock).validateInputFile(eq(xUnitToolInfoMock), eq(myInputFile2));
         verify(xUnitConversionServiceMock, never()).convert(eq(xUnitToolInfoMock), eq(myInputFile2), any(File.class));
         verify(xUnitValidationServiceMock, never()).validateOutputFile(eq(xUnitToolInfoMock), eq(myInputFile2), any(File.class));
@@ -444,23 +443,23 @@ public class XUnitTransformerTest {
         FileUtils.write(myInputFile1, "bidon", StandardCharsets.UTF_8);
         File myInputFile2 = new File(ws, "b.txt");
         FileUtils.write(myInputFile2, "bidon", StandardCharsets.UTF_8);
-        
+
         String[] resultFiles = new String[] { "a.txt", "b.txt" };
         when(xUnitReportProcessorServiceMock.findReports(any(File.class), any(XUnitToolInfo.class))).thenReturn(resultFiles);
-        
+
         //Stop processing when there is an error
         when(xUnitReportProcessorServiceMock.isStopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(true);
-        
+
         //Wants to call the real method checkFileIsNotEmpty
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
-        
+
         when(xUnitReportProcessorServiceMock.getCurrentReport(any(File.class), eq("a.txt"))).thenReturn(myInputFile1);
-        
+
         //Case: Right input validation, conversion and right output validation
         when(xUnitValidationServiceMock.validateInputFile(any(XUnitToolInfo.class), any(File.class))).thenReturn(true);
         when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(new File(ws, "output"));
         when(xUnitValidationServiceMock.validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(false);
-        
+
         try {
             xUnitTransformer.invoke(ws, mock(VirtualChannel.class));
         } catch (TransformerException e) {
@@ -468,17 +467,17 @@ public class XUnitTransformerTest {
             verify(xUnitReportProcessorServiceMock).findReports(eq(ws), eq(xUnitToolInfoMock));
             verify(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(eq(xUnitToolInfoMock), eq(resultFiles), eq(ws));
             verify(xUnitReportProcessorServiceMock).getCurrentReport(eq(ws), anyString());
-            
+
             verify(xUnitValidationServiceMock).validateInputFile(eq(xUnitToolInfoMock), eq(myInputFile1));
             verify(xUnitConversionServiceMock).convert(eq(xUnitToolInfoMock), eq(myInputFile1), any(File.class));
             verify(xUnitValidationServiceMock).validateOutputFile(eq(xUnitToolInfoMock), eq(myInputFile1), any(File.class));
-            
+
             verify(xUnitValidationServiceMock, never()).validateInputFile(eq(xUnitToolInfoMock), eq(myInputFile2));
-            
+
             throw e;
         }
     }
-    
+
     @Test
     public void invalid_output_report_does_not_throws_exception_when_stop_build_option_is_false() throws Exception {
         File ws = folderRule.newFolder();
@@ -486,34 +485,34 @@ public class XUnitTransformerTest {
         FileUtils.write(myInputFile1, "bidon", StandardCharsets.UTF_8);
         File myInputFile2 = new File(ws, "b.txt");
         FileUtils.write(myInputFile2, "bidon", StandardCharsets.UTF_8);
-        
+
         String[] resultFiles = new String[] { "a.txt", "b.txt" };
         when(xUnitReportProcessorServiceMock.findReports(any(File.class), any(XUnitToolInfo.class))).thenReturn(resultFiles);
-        
+
         //Stop processing when there is an error
         when(xUnitReportProcessorServiceMock.isStopProcessingIfError(any(XUnitToolInfo.class))).thenReturn(false);
-        
+
         //Wants to call the real method checkFileIsNotEmpty
         when(xUnitValidationServiceMock.checkFileIsNotEmpty(any(File.class))).thenReturn(true);
-        
+
         when(xUnitReportProcessorServiceMock.getCurrentReport(any(File.class), eq("a.txt"))).thenReturn(myInputFile1);
         when(xUnitReportProcessorServiceMock.getCurrentReport(any(File.class), eq("b.txt"))).thenReturn(myInputFile2);
-        
+
         //Case: Right input validation, conversion and right output validation
         when(xUnitValidationServiceMock.validateInputFile(any(XUnitToolInfo.class), any(File.class))).thenReturn(true);
         when(xUnitConversionServiceMock.convert(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(new File(ws, "output"));
         when(xUnitValidationServiceMock.validateOutputFile(any(XUnitToolInfo.class), any(File.class), any(File.class))).thenReturn(false);
-        
+
         xUnitTransformer.invoke(ws, mock(VirtualChannel.class));
-        
+
         //Verifying mock interactions
         verify(xUnitReportProcessorServiceMock).findReports(eq(ws), eq(xUnitToolInfoMock));
         verify(xUnitReportProcessorServiceMock).checkIfFindsFilesNewFiles(eq(xUnitToolInfoMock), eq(resultFiles), eq(ws));
-        
+
         verify(xUnitValidationServiceMock).validateInputFile(eq(xUnitToolInfoMock), eq(myInputFile1));
         verify(xUnitConversionServiceMock).convert(eq(xUnitToolInfoMock), eq(myInputFile1), any(File.class));
         verify(xUnitValidationServiceMock).validateOutputFile(eq(xUnitToolInfoMock), eq(myInputFile1), any(File.class));
-        
+
         verify(xUnitValidationServiceMock).validateInputFile(eq(xUnitToolInfoMock), eq(myInputFile2));
         verify(xUnitConversionServiceMock).convert(eq(xUnitToolInfoMock), eq(myInputFile2), any(File.class));
         verify(xUnitValidationServiceMock).validateOutputFile(eq(xUnitToolInfoMock), eq(myInputFile2), any(File.class));

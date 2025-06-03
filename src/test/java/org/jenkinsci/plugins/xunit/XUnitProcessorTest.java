@@ -63,7 +63,6 @@ import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.remoting.DelegatingCallable;
 import hudson.remoting.VirtualChannel;
-import hudson.tasks.junit.TestDataPublisher;
 import hudson.util.ReflectionUtils;
 
 @RunWith(org.mockito.junit.MockitoJUnitRunner.class)
@@ -176,7 +175,7 @@ public class XUnitProcessorTest {
         IOException callableException = new IOException(new Exception(noTestFoundException));
         when(callable.invoke(any(File.class), any(VirtualChannel.class))).thenThrow(callableException);
 
-        processor.process(build, workspace, listener, null, Collections.<TestDataPublisher>emptyList(), null);
+        processor.process(build, workspace, listener, null, Collections.emptyList(), null);
     }
 
     @Test
@@ -190,7 +189,7 @@ public class XUnitProcessorTest {
         doReturn(callable).when(processor).newXUnitTransformer(any(XUnitToolInfo.class));
         when(callable.invoke(any(File.class), any(VirtualChannel.class))).thenThrow(callableException);
 
-        processor.process(build, workspace, listener, null, Collections.<TestDataPublisher>emptyList(), null);
+        processor.process(build, workspace, listener, null, Collections.emptyList(), null);
     }
 
     @Test
@@ -204,7 +203,7 @@ public class XUnitProcessorTest {
         doReturn(callable).when(processor).newXUnitTransformer(any(XUnitToolInfo.class));
         when(callable.invoke(any(File.class), any(VirtualChannel.class))).thenThrow(callableException);
 
-        processor.process(build, workspace, listener, null, Collections.<TestDataPublisher>emptyList(), null);
+        processor.process(build, workspace, listener, null, Collections.emptyList(), null);
     }
 
     private XUnitProcessor buildProcessor(TestType[] tools) {

@@ -24,6 +24,7 @@
 
 package org.jenkinsci.plugins.xunit.service;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import com.google.inject.Inject;
@@ -31,6 +32,7 @@ import com.google.inject.Inject;
 import hudson.model.TaskListener;
 
 public class XUnitLog implements Serializable {
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private TaskListener buildListener;

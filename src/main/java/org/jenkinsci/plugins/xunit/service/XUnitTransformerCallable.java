@@ -25,6 +25,7 @@ package org.jenkinsci.plugins.xunit.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.Serial;
 
 import jakarta.inject.Inject;
 
@@ -36,6 +37,7 @@ import hudson.remoting.VirtualChannel;
 import jenkins.MasterToSlaveFileCallable;
 
 public class XUnitTransformerCallable extends MasterToSlaveFileCallable<Integer> {
+    @Serial
     private static final long serialVersionUID = -8111801428220302087L;
 
     private XUnitReportProcessorService xUnitReportProcessorService;

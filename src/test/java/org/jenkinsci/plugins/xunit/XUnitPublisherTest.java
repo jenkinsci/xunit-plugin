@@ -53,7 +53,6 @@ import hudson.model.Result;
 import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.tasks.BuildStepDescriptor;
-import hudson.tasks.Publisher;
 import hudson.tasks.junit.TestDataPublisher;
 import hudson.tasks.junit.TestResult;
 import hudson.tasks.junit.TestResultAction;
@@ -72,13 +71,13 @@ public class XUnitPublisherTest {
                             Launcher launcher,
                             TaskListener listener) throws InterruptedException, IOException {
             super.perform(build, workspace, launcher, listener);
-            Assert.assertEquals("Unexpected build FAILURE setup by the first publisher", build.getResult(), Result.SUCCESS);
+            Assert.assertEquals("Unexpected build FAILURE setup by the first publisher", Result.SUCCESS, build.getResult());
         }
 
-        @SuppressWarnings({ "rawtypes", "unchecked" })
+        @SuppressWarnings({ "rawtypes"})
         @Override
         public BuildStepDescriptor getDescriptor() {
-            return new BuildStepDescriptor<Publisher>(SpyXUnitPublisher.class) {
+            return new BuildStepDescriptor<>(SpyXUnitPublisher.class) {
 
                 @Override
                 public boolean isApplicable(Class<? extends AbstractProject> jobType) {

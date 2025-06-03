@@ -92,7 +92,7 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
         this.thresholdMode = thresholdMode;
         long longTestTimeMargin = XUnitUtil.parsePositiveLong(testTimeMargin, TEST_REPORT_TIME_MARGING);
         this.extraConfiguration = new ExtraConfiguration(longTestTimeMargin, JUNIT_FILE_REDUCE_LOG, PROCESSING_SLEEP_TIME, FOLLOW_SYMLINK, SKIP_PUBLISHING_CHECKS, null);
-        this.testDataPublishers = Collections.<TestDataPublisher> emptySet();
+        this.testDataPublishers = Collections.emptySet();
     }
 
     @DataBoundSetter
@@ -194,7 +194,7 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
 
     @NonNull
     public Collection<TestDataPublisher> getTestDataPublishers() {
-        return testDataPublishers != null ? testDataPublishers : Collections.<TestDataPublisher> emptyList();
+        return testDataPublishers != null ? testDataPublishers : Collections.emptyList();
     }
 
     /**
@@ -209,7 +209,7 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
     public void setTestDataPublishers(@CheckForNull Collection<TestDataPublisher> testDataPublishers) {
         this.testDataPublishers = testDataPublishers != null
                 ? new LinkedList<>(testDataPublishers)
-                : Collections.<TestDataPublisher> emptyList();
+                : Collections.emptyList();
     }
 
     @SuppressWarnings("deprecation")
@@ -268,7 +268,7 @@ public class XUnitPublisher extends Recorder implements SimpleBuildStep {
         }
 
         @Override
-        public boolean isApplicable(@SuppressWarnings("rawtypes") Class<? extends AbstractProject> jobType) {
+        public boolean isApplicable(Class<? extends AbstractProject> jobType) {
             return true;
         }
 

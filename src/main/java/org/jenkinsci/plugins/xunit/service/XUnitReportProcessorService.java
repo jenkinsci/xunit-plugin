@@ -25,6 +25,7 @@
 package org.jenkinsci.plugins.xunit.service;
 
 import java.io.File;
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -36,6 +37,7 @@ import com.google.inject.Inject;
 import hudson.Util;
 
 public class XUnitReportProcessorService implements Serializable {
+    @Serial
     private static final long serialVersionUID = 2640258179567685368L;
 
     private XUnitLog xUnitLog;
@@ -59,7 +61,7 @@ public class XUnitReportProcessorService implements Serializable {
      * Gets all reports from the given parent path and the pattern.
      *
      * @param parentPath folder from where start search
-     * @param options all XUnit options also advanced  
+     * @param options all XUnit options also advanced
      * @return an array of strings
      * @throws NoTestFoundException when not report files were founded
      */
@@ -76,12 +78,12 @@ public class XUnitReportProcessorService implements Serializable {
             String msg = Messages.XUnitReportProcessorService_reportsNotFound(toolName, includes, parentPath);
             throw new NoTestFoundException(msg);
         }
-        
+
         String msg = Messages.XUnitReportProcessorService_reportsFound(toolName, ds.getIncludedFilesCount(), includes, parentPath);
         xUnitLog.info(msg);
 
         // avoid waste memory transforming internally the vector to string[] to list again specially when there are > 16000 test reports
-        return ds.getIncludedFiles(); 
+        return ds.getIncludedFiles();
     }
 
     /**

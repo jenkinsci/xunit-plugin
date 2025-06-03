@@ -26,6 +26,7 @@ package org.jenkinsci.plugins.xunit.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.Serial;
 import java.io.Serializable;
 
 import jakarta.inject.Inject;
@@ -35,6 +36,7 @@ import org.jenkinsci.lib.dtkit.util.validator.ValidationError;
 import org.jenkinsci.lib.dtkit.util.validator.ValidationException;
 
 public class XUnitValidationService implements Serializable {
+    @Serial
     private static final long serialVersionUID = -5322330246285295896L;
 
     private XUnitLog xUnitLog;

@@ -24,6 +24,7 @@
 package org.jenkinsci.plugins.xunit.util;
 
 import java.io.File;
+import java.nio.charset.StandardCharsets;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
@@ -37,7 +38,7 @@ public class DownloadableResourceUtilTest {
     public TemporaryFolder fileRule = new TemporaryFolder();
 
     @Test
-    public void test_if_is_url() throws Exception {
+    public void test_if_is_url() {
         Assert.assertFalse(DownloadableResourceUtil.isURL("file"));
         Assert.assertFalse(DownloadableResourceUtil.isURL("/foo.xml"));
         Assert.assertTrue(DownloadableResourceUtil.isURL("file:///foo.xml"));
@@ -48,7 +49,7 @@ public class DownloadableResourceUtilTest {
     @Test
     public void test_download() throws Exception {
         File file = fileRule.newFile();
-        FileUtils.writeStringToFile(file, "test");
+        FileUtils.writeStringToFile(file, "test", StandardCharsets.UTF_8);
         String fileURL = file.toURI().toURL().toExternalForm();
         Assert.assertEquals("test", DownloadableResourceUtil.download(fileURL));
     }
