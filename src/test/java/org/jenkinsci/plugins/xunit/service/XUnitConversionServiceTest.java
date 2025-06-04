@@ -23,27 +23,28 @@
  */
 package org.jenkinsci.plugins.xunit.service;
 
-import static org.mockito.Mockito.*;
-
-import java.io.File;
-
 import org.jenkinsci.plugins.xunit.types.JUnitInputMetric;
-import org.junit.Assert;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 import org.jvnet.hudson.test.Issue;
 
-public class XUnitConversionServiceTest {
+import java.io.File;
+import java.io.IOException;
 
-    @Rule
-    public TemporaryFolder folder = new TemporaryFolder();
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+class XUnitConversionServiceTest {
+
+    @TempDir
+    private File folder;
 
     @Issue("JENKINS-48945")
     @Test
-    public void verify_that_report_file_name_does_clashes() throws Exception {
-        File destFolder = folder.newFolder();
-        File inputFile = folder.newFile("com.acme.EKOM02XTest");
+    void verify_that_report_file_name_does_clashes() throws Exception {
+        File destFolder = newFolder(folder, "junit");
+        File inputFile = newFile(folder, "com.acme.EKOM02XTest");
 
         XUnitToolInfo toolInfo = mock(XUnitToolInfo.class);
         when(toolInfo.getInputMetric()).thenReturn(new JUnitInputMetric());
@@ -51,6 +52,23 @@ public class XUnitConversionServiceTest {
         XUnitConversionService service = new XUnitConversionService(mock(XUnitLog.class));
         File reportFile = service.convert(toolInfo, inputFile, destFolder);
         File reportFile2 = service.convert(toolInfo, inputFile, destFolder);
-        Assert.assertNotEquals(reportFile.getAbsolutePath(), reportFile2.getAbsolutePath());
+        assertNotEquals(reportFile.getAbsolutePath(), reportFile2.getAbsolutePath());
+    }
+
+    private static File newFolder(File root, String... subDirs) throws IOException {
+        String subFolder = String.join("/", subDirs);
+        File result = new File(root, subFolder);
+        if (!result.mkdirs()) {
+            throw new IOException("Couldn't create folders " + root);
+        }
+        return result;
+    }
+
+    private static File newFile(File parent, String child) throws IOException {
+        File result = new File(parent, child);
+        if (!result.createNewFile()) {
+            throw new IOException("Couldn't create file " + result);
+        }
+        return result;
     }
 }

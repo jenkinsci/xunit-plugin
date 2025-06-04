@@ -23,18 +23,15 @@
  */
 package org.jenkinsci.plugins.xunit.pipeline;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
+import com.google.common.base.Predicate;
+import hudson.FilePath;
+import hudson.model.Result;
+import hudson.tasks.junit.CaseResult;
+import hudson.tasks.junit.TestResult;
+import hudson.tasks.junit.TestResultAction;
+import hudson.tasks.test.PipelineBlockWithTests;
 import org.hamcrest.BaseMatcher;
-import org.hamcrest.CoreMatchers;
 import org.hamcrest.Description;
-import org.hamcrest.MatcherAssert;
 import org.jenkinsci.plugins.workflow.actions.LabelAction;
 import org.jenkinsci.plugins.workflow.actions.ThreadNameAction;
 import org.jenkinsci.plugins.workflow.actions.WarningAction;
@@ -52,42 +49,48 @@ import org.jenkinsci.plugins.workflow.support.steps.StageStep;
 import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
 import org.jenkinsci.plugins.xunit.threshold.SkippedThreshold;
 import org.jenkinsci.plugins.xunit.types.GoogleTestType;
-import org.junit.ClassRule;
-import org.junit.Rule;
-import org.junit.Test;
-import org.jvnet.hudson.test.BuildWatcher;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.jvnet.hudson.test.Issue;
 import org.jvnet.hudson.test.JenkinsRule;
+import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
 
-import com.google.common.base.Predicate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
-import hudson.FilePath;
-import hudson.model.Result;
-import hudson.tasks.junit.CaseResult;
-import hudson.tasks.junit.TestResult;
-import hudson.tasks.junit.TestResultAction;
-import hudson.tasks.test.PipelineBlockWithTests;
+import static org.hamcrest.CoreMatchers.hasItem;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class XUnitResultsStepTest {
-    @Rule
-    public JenkinsRule j = new JenkinsRule();
+@WithJenkins
+class XUnitResultsStepTest {
 
-    @ClassRule
-    public static final BuildWatcher buildWatcher = new BuildWatcher();
+    private JenkinsRule j;
+
+    @BeforeEach
+    void setUp(JenkinsRule rule) {
+        j = rule;
+    }
 
     private WorkflowJob getBaseJob(String jobName) throws Exception {
         WorkflowJob job = j.jenkins.createProject(WorkflowJob.class, jobName);
         FilePath workspace = j.jenkins.getWorkspaceFor(job);
         FilePath input = workspace.child("input.xml");
-        input.copyFrom(XUnitResultsStepTest.class.getResourceAsStream("/org/jenkinsci/plugins/xunit/types/googletest/testcase2/input.xml"));
+        input.copyFrom(XUnitResultsStepTest.class.getResourceAsStream(
+                "/org/jenkinsci/plugins/xunit/types/googletest/testcase2/input.xml"));
         FilePath cunit = workspace.child("cunit.xml");
-        cunit.copyFrom(XUnitResultsStepTest.class.getResourceAsStream("/org/jenkinsci/plugins/xunit/types/cunit/testcase2/input.xml"));
+        cunit.copyFrom(XUnitResultsStepTest.class.getResourceAsStream(
+                "/org/jenkinsci/plugins/xunit/types/cunit/testcase2/input.xml"));
 
         return job;
     }
 
     @Test
-    public void configRoundTrip() throws Exception {
+    void configRoundTrip() throws Exception {
         SnippetizerTester st = new SnippetizerTester(j);
         FailedThreshold failedThreshold = new FailedThreshold();
         failedThreshold.setUnstableThreshold("1");
@@ -95,15 +98,14 @@ public class XUnitResultsStepTest {
                 Collections.singletonList(new GoogleTestType("input.xml", false, false, false, true)));
         step.setThresholds(Arrays.asList(failedThreshold, new SkippedThreshold()));
 
-        st.assertRoundTrip(step, "xunit thresholds: [failed(unstableThreshold: '1'), skipped()], tools: [GoogleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml', stopProcessingIfError: true)]");
-
+        st.assertRoundTrip(step,
+                "xunit thresholds: [failed(unstableThreshold: '1'), skipped()], tools: [GoogleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml', stopProcessingIfError: true)]");
     }
 
     @Test
-    public void singleStep() throws Exception {
+    void singleStep() throws Exception {
         WorkflowJob job = getBaseJob("singleStep");
         job.setDefinition(new CpsFlowDefinition("""
-                \
                 stage('first') {
                   node {
                     def result = xunit(tools: [GoogleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml',
@@ -138,10 +140,9 @@ public class XUnitResultsStepTest {
     }
 
     @Test
-    public void twoSteps() throws Exception {
+    void twoSteps() throws Exception {
         WorkflowJob job = getBaseJob("twoSteps");
         job.setDefinition(new CpsFlowDefinition("""
-                \
                 stage('first') {
                   node {
                     def first = xunit(tools: [GoogleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml',
@@ -185,18 +186,18 @@ public class XUnitResultsStepTest {
         assertEquals(1, cunitNodeTests.getSuites().size());
         assertEquals(1, cunitNodeTests.getTotalCount());
 
-        TestResult combinedTests = action.getResult().getResultByNodes(Arrays.asList(googleTestNode.getId(),
-                cunitTestNode.getId()));
+        TestResult combinedTests = action.getResult()
+                .getResultByNodes(Arrays.asList(googleTestNode.getId(),
+                        cunitTestNode.getId()));
         assertNotNull(combinedTests);
         assertEquals(2, combinedTests.getSuites().size());
         assertEquals(5, combinedTests.getTotalCount());
     }
 
     @Test
-    public void parallelBranches() throws Exception {
+    void parallelBranches() throws Exception {
         WorkflowJob job = getBaseJob("parallelBranches");
         job.setDefinition(new CpsFlowDefinition("""
-                \
                 stage('first') {
                   node {
                     parallel(a: {
@@ -233,10 +234,9 @@ public class XUnitResultsStepTest {
 
     @Test
     @Issue("JENKINS-68061")
-    public void parallelStages() throws Exception {
+    void parallelStages() throws Exception {
         WorkflowJob job = getBaseJob("parallelStages");
         job.setDefinition(new CpsFlowDefinition("""
-                \
                 node {
                   parallel(one: {
                     stage('stage1') {
@@ -262,13 +262,16 @@ public class XUnitResultsStepTest {
         assertStageWarningAction(r, "stage2");
     }
 
-    public static void assertBranchResults(WorkflowRun run, int suiteCount, int testCount, int failCount,
-            String branchName, String stageName, String innerStageName) {
+    public static void assertBranchResults(WorkflowRun run, int suiteCount, int testCount,
+                                           int failCount,
+                                           String branchName, String stageName, String innerStageName) {
         FlowExecution execution = run.getExecution();
         DepthFirstScanner scanner = new DepthFirstScanner();
-        BlockStartNode aBranch = (BlockStartNode) scanner.findFirstMatch(execution, branchForName(branchName));
+        BlockStartNode aBranch = (BlockStartNode) scanner.findFirstMatch(execution,
+                branchForName(branchName));
         assertNotNull(aBranch);
-        TestResult branchResult = assertBlockResults(run, suiteCount, testCount, failCount, aBranch);
+        TestResult branchResult = assertBlockResults(run, suiteCount, testCount, failCount,
+                aBranch);
         String namePrefix = stageName + " / " + branchName;
         if (innerStageName != null) {
             namePrefix += " / " + innerStageName;
@@ -278,10 +281,12 @@ public class XUnitResultsStepTest {
         }
     }
 
-    public static void assertStageResults(WorkflowRun run, int suiteCount, int testCount, int failCount, String stageName) {
+    public static void assertStageResults(WorkflowRun run, int suiteCount, int testCount,
+                                          int failCount, String stageName) {
         FlowExecution execution = run.getExecution();
         DepthFirstScanner scanner = new DepthFirstScanner();
-        BlockStartNode aStage = (BlockStartNode)scanner.findFirstMatch(execution, stageForName(stageName));
+        BlockStartNode aStage = (BlockStartNode) scanner.findFirstMatch(execution,
+                stageForName(stageName));
         assertNotNull(aStage);
         assertBlockResults(run, suiteCount, testCount, failCount, aStage);
     }
@@ -289,9 +294,10 @@ public class XUnitResultsStepTest {
     public static void assertStageWarningAction(WorkflowRun run, String stageName) {
         FlowExecution execution = run.getExecution();
         DepthFirstScanner scanner = new DepthFirstScanner();
-        BlockStartNode aStage = (BlockStartNode)scanner.findFirstMatch(execution, stageForName(stageName));
+        BlockStartNode aStage = (BlockStartNode) scanner.findFirstMatch(execution,
+                stageForName(stageName));
         assertNotNull(aStage);
-        MatcherAssert.assertThat(findXUnitSteps(aStage), CoreMatchers.hasItem(hasWarningAction()));
+        assertThat(findXUnitSteps(aStage), hasItem(hasWarningAction()));
     }
 
     private static Predicate<FlowNode> stageForName(final String name) {
@@ -300,7 +306,8 @@ public class XUnitResultsStepTest {
                 input.getDisplayName().equals(name);
     }
 
-    private static TestResult assertBlockResults(WorkflowRun run, int suiteCount, int testCount, int failCount, BlockStartNode blockNode) {
+    private static TestResult assertBlockResults(WorkflowRun run, int suiteCount, int testCount,
+                                                 int failCount, BlockStartNode blockNode) {
         assertNotNull(blockNode);
 
         TestResultAction action = run.getAction(TestResultAction.class);
@@ -313,12 +320,14 @@ public class XUnitResultsStepTest {
         assertEquals(testCount, aResult.getTotalCount());
         assertEquals(failCount, aResult.getFailCount());
         if (failCount > 0) {
-            MatcherAssert.assertThat(findXUnitSteps(blockNode), CoreMatchers.hasItem(hasWarningAction()));
+            assertThat(findXUnitSteps(blockNode), hasItem(hasWarningAction()));
         } else {
-            MatcherAssert.assertThat(findXUnitSteps(blockNode), CoreMatchers.not(CoreMatchers.hasItem(hasWarningAction())));
+            assertThat(findXUnitSteps(blockNode),
+                    not(hasItem(hasWarningAction())));
         }
 
-        PipelineBlockWithTests aBlock = action.getResult().getPipelineBlockWithTests(blockNode.getId());
+        PipelineBlockWithTests aBlock = action.getResult()
+                .getPipelineBlockWithTests(blockNode.getId());
 
         assertNotNull(aBlock);
         List<String> aTestNodes = new ArrayList<>(aBlock.nodesWithTests());
@@ -345,7 +354,8 @@ public class XUnitResultsStepTest {
         return new BaseMatcher<>() {
             @Override
             public boolean matches(Object item) {
-                return item instanceof FlowNode && ((FlowNode) item).getPersistentAction(WarningAction.class) != null;
+                return item instanceof FlowNode
+                        && ((FlowNode) item).getPersistentAction(WarningAction.class) != null;
             }
 
             @Override

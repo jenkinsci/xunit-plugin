@@ -23,6 +23,13 @@
  */
 package org.jenkinsci.plugins.xunit.threshold;
 
+import hudson.model.Result;
+import hudson.model.Run;
+import hudson.tasks.junit.TestResultSummary;
+import org.jenkinsci.plugins.xunit.service.XUnitLog;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.doReturn;
@@ -30,106 +37,105 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 
-import org.jenkinsci.plugins.xunit.service.XUnitLog;
-import org.junit.Assert;
-import org.junit.Test;
-
-import hudson.model.Result;
-import hudson.model.Run;
-import hudson.tasks.junit.TestResultSummary;
-
-public class SkippedThresholdTest {
+class SkippedThresholdTest {
 
     @Test
-    public void mark_build_as_success_when_skipped_tests_not_exceed_skipped_threshold() {
+    void mark_build_as_success_when_skipped_tests_not_exceed_skipped_threshold() {
         XUnitThreshold skippedThreshold = spy(new SkippedThreshold());
         skippedThreshold.setFailureThreshold("1");
         doReturn(new SkippedThresholdDescriptor()).when(skippedThreshold).getDescriptor();
 
         TestResultSummary actualResult = new TestResultSummary(0, 1, 1, 2);
-        
-        Result result = skippedThreshold.getResultThresholdNumber(mock(XUnitLog.class), mock(Run.class), actualResult, null);
-        Assert.assertEquals(Result.SUCCESS, result);
+
+        Result result = skippedThreshold.getResultThresholdNumber(mock(XUnitLog.class),
+                mock(Run.class), actualResult, null);
+        assertEquals(Result.SUCCESS, result);
     }
 
     @Test
-    public void mark_build_as_failed_when_skipped_tests_exceeds_skipped_threshold() {
+    void mark_build_as_failed_when_skipped_tests_exceeds_skipped_threshold() {
         XUnitThreshold skippedThreshold = spy(new SkippedThreshold());
         skippedThreshold.setFailureThreshold("1");
         doReturn(new SkippedThresholdDescriptor()).when(skippedThreshold).getDescriptor();
-        
+
         TestResultSummary actualResult = new TestResultSummary(0, 2, 0, 2);
-        
-        Result result = skippedThreshold.getResultThresholdNumber(mock(XUnitLog.class), mock(Run.class), actualResult, null);
-        Assert.assertEquals(Result.FAILURE, result);
+
+        Result result = skippedThreshold.getResultThresholdNumber(mock(XUnitLog.class),
+                mock(Run.class), actualResult, null);
+        assertEquals(Result.FAILURE, result);
     }
 
     @Test
-    public void mark_build_as_unstable_when_skipped_tests_exceeds_skipped_threshold() {
+    void mark_build_as_unstable_when_skipped_tests_exceeds_skipped_threshold() {
         XUnitThreshold skippedThreshold = spy(new SkippedThreshold());
         skippedThreshold.setUnstableThreshold("1");
         doReturn(new SkippedThresholdDescriptor()).when(skippedThreshold).getDescriptor();
-        
+
         TestResultSummary actualResult = new TestResultSummary(0, 5, 5, 10);
-        
-        Result result = skippedThreshold.getResultThresholdNumber(mock(XUnitLog.class), mock(Run.class), actualResult, null);
-        Assert.assertEquals(Result.UNSTABLE, result);
+
+        Result result = skippedThreshold.getResultThresholdNumber(mock(XUnitLog.class),
+                mock(Run.class), actualResult, null);
+        assertEquals(Result.UNSTABLE, result);
     }
 
     @Test
-    public void mark_build_as_failed_when_skipped_tests_exceeds_skipped_percent_threshold() {
+    void mark_build_as_failed_when_skipped_tests_exceeds_skipped_percent_threshold() {
         XUnitThreshold skippedThreshold = spy(new SkippedThreshold());
         skippedThreshold.setFailureThreshold("49");
         doReturn(new SkippedThresholdDescriptor()).when(skippedThreshold).getDescriptor();
-        
+
         TestResultSummary actualResult = new TestResultSummary(0, 5, 5, 10);
-        
-        Result result = skippedThreshold.getResultThresholdPercent(mock(XUnitLog.class), mock(Run.class), actualResult, null);
-        Assert.assertEquals(Result.FAILURE, result);
+
+        Result result = skippedThreshold.getResultThresholdPercent(mock(XUnitLog.class),
+                mock(Run.class), actualResult, null);
+        assertEquals(Result.FAILURE, result);
     }
 
     @Test
-    public void mark_build_as_unstable_when_skipped_tests_exceeds_skipped_percent_threshold() {
+    void mark_build_as_unstable_when_skipped_tests_exceeds_skipped_percent_threshold() {
         XUnitThreshold skippedThreshold = spy(new SkippedThreshold());
         skippedThreshold.setUnstableThreshold("49");
         doReturn(new SkippedThresholdDescriptor()).when(skippedThreshold).getDescriptor();
-        
+
         TestResultSummary actualResult = new TestResultSummary(0, 5, 5, 10);
-        
-        Result result = skippedThreshold.getResultThresholdPercent(mock(XUnitLog.class), mock(Run.class), actualResult, null);
-        Assert.assertEquals(Result.UNSTABLE, result);
+
+        Result result = skippedThreshold.getResultThresholdPercent(mock(XUnitLog.class),
+                mock(Run.class), actualResult, null);
+        assertEquals(Result.UNSTABLE, result);
     }
 
     @Test
-    public void mark_build_as_success_when_new_tests_not_exceed_skipped_percent_threshold() {
+    void mark_build_as_success_when_new_tests_not_exceed_skipped_percent_threshold() {
         XUnitThreshold skippedThreshold = spy(new SkippedThreshold());
         skippedThreshold.setUnstableNewThreshold("10");
         doReturn(new SkippedThresholdDescriptor()).when(skippedThreshold).getDescriptor();
-        
+
         int totalTests = 100;
         TestResultSummary actualResult = new TestResultSummary(0, 10, 90, totalTests);
         TestResultSummary previousResult = new TestResultSummary(0, 0, totalTests, totalTests);
 
-        Result result = skippedThreshold.getResultThresholdPercent(mock(XUnitLog.class), mock(Run.class), actualResult, previousResult);
-        Assert.assertEquals(Result.SUCCESS, result);
+        Result result = skippedThreshold.getResultThresholdPercent(mock(XUnitLog.class),
+                mock(Run.class), actualResult, previousResult);
+        assertEquals(Result.SUCCESS, result);
     }
 
     @Test
-    public void mark_build_as_unstable_when_new_tests_exceeds_skipped_percent_threshold() {
+    void mark_build_as_unstable_when_new_tests_exceeds_skipped_percent_threshold() {
         XUnitThreshold skippedThreshold = spy(new SkippedThreshold());
         skippedThreshold.setUnstableNewThreshold("9");
         doReturn(new SkippedThresholdDescriptor()).when(skippedThreshold).getDescriptor();
-        
+
         int totalTests = 100;
         TestResultSummary actualResult = new TestResultSummary(0, 10, 90, totalTests);
         TestResultSummary previousResult = new TestResultSummary(0, 0, totalTests, totalTests);
-        
-        Result result = skippedThreshold.getResultThresholdPercent(mock(XUnitLog.class), mock(Run.class), actualResult, previousResult);
-        Assert.assertEquals(Result.UNSTABLE, result);
+
+        Result result = skippedThreshold.getResultThresholdPercent(mock(XUnitLog.class),
+                mock(Run.class), actualResult, previousResult);
+        assertEquals(Result.UNSTABLE, result);
     }
 
     @Test
-    public void verify_skipped_percent_on_new_test_is_calculated_correctly() {
+    void verify_skipped_percent_on_new_test_is_calculated_correctly() {
         XUnitThreshold skippedThreshold = spy(new SkippedThreshold());
         doReturn(new SkippedThresholdDescriptor()).when(skippedThreshold).getDescriptor();
 
@@ -137,14 +143,15 @@ public class SkippedThresholdTest {
         TestResultSummary actualResult = new TestResultSummary(0, 9, 91, totalTests);
         TestResultSummary previousResult = new TestResultSummary(0, 5, 95, totalTests);
 
-        Result result = skippedThreshold.getResultThresholdPercent(mock(XUnitLog.class), mock(Run.class), actualResult, previousResult);
+        Result result = skippedThreshold.getResultThresholdPercent(mock(XUnitLog.class),
+                mock(Run.class), actualResult, previousResult);
 
-        Assert.assertEquals(Result.SUCCESS, result);
+        assertEquals(Result.SUCCESS, result);
         verify(skippedThreshold).getResultThresholdPercent(any(XUnitLog.class), eq(9d), eq(4d));
     }
 
     @Test
-    public void test_build_status_as_success_on_percent_mode_when_there_are_no_tests() {
+    void test_build_status_as_success_on_percent_mode_when_there_are_no_tests() {
         TestResultSummary actualResult = new TestResultSummary(0, 0, 0, 0);
         TestResultSummary previousResult = new TestResultSummary(0, 0, 0, 0);
 
@@ -154,17 +161,20 @@ public class SkippedThresholdTest {
         threshold.setUnstableThreshold("100");
         threshold.setUnstableNewThreshold("100");
         doReturn(new FailedThresholdDescriptor()).when(threshold).getDescriptor();
-        Result result = threshold.getResultThresholdPercent(mock(XUnitLog.class), mock(Run.class), actualResult, previousResult);
-        
+        Result result = threshold.getResultThresholdPercent(mock(XUnitLog.class), mock(Run.class),
+                actualResult, previousResult);
+        assertEquals(Result.SUCCESS, result);
+
         threshold = spy(new SkippedThreshold());
         threshold.setFailureNewThreshold("100");
         threshold.setFailureThreshold("100");
         threshold.setUnstableThreshold("100");
         threshold.setUnstableNewThreshold("100");
         doReturn(new SkippedThresholdDescriptor()).when(threshold).getDescriptor();
-        result = threshold.getResultThresholdPercent(mock(XUnitLog.class), mock(Run.class), actualResult, previousResult);
-        
-        Assert.assertEquals(Result.SUCCESS, result);
+        result = threshold.getResultThresholdPercent(mock(XUnitLog.class), mock(Run.class),
+                actualResult, previousResult);
+
+        assertEquals(Result.SUCCESS, result);
     }
 
 }

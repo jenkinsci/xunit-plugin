@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite errors="0" failures="0" name="User sessions" tests="12" time="66.865">
+    <testcase classname="User sessions" name="Login" time="40.857683" />
+    <testcase classname="User sessions" name="Logout" time="25.896327" />
+</testsuite>

@@ -23,30 +23,22 @@
  */
 package org.jenkinsci.plugins.xunit.types;
 
-import java.util.Arrays;
-import java.util.Collection;
+import org.junit.jupiter.params.provider.Arguments;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import java.util.stream.Stream;
 
-@RunWith(Parameterized.class)
-public class MSTestTest extends AbstractTest {
+class MSTestTest extends AbstractTest {
 
-    @Parameters(name = "testcase{1}: {0}")
-    public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][] { { "mstest_2_tests_1_class", 1 }, //
-                                              { "mstest_2_tests_from_different_assemblies", 2 }, //
-                                              { "mstest_4_tests_2_classes", 3 }, //
-                                              { "mstest_vs_2010", 4 }, //
-                                              { "mstest_more_than_one_minute_test", 5 }, //
-                                              { "JENKINS-10911", 6 }, //
-                                              { "JENKINS-13113 tests with outcome NotExecuted are counted as skipped", 7 } //
-        });
-    }
-
-    public MSTestTest(String testName, int testNumber) {
-        super(MSTest.class, resolveInput("mstest", testNumber), resolveOutput("mstest", testNumber));
+    protected Stream<Arguments> data() {
+        return Stream.of(
+                Arguments.of("mstest_2_tests_1_class", MSTest.class, "mstest", 1),
+                Arguments.of("mstest_2_tests_from_different_assemblies", MSTest.class, "mstest", 2),
+                Arguments.of("mstest_4_tests_2_classes", MSTest.class, "mstest", 3),
+                Arguments.of("mstest_vs_2010", MSTest.class, "mstest", 4),
+                Arguments.of("mstest_more_than_one_minute_test", MSTest.class, "mstest", 5),
+                Arguments.of("JENKINS-10911", MSTest.class, "mstest", 6),
+                Arguments.of("JENKINS-13113 tests with outcome NotExecuted are counted as skipped", MSTest.class, "mstest", 7)
+        );
     }
 
 }

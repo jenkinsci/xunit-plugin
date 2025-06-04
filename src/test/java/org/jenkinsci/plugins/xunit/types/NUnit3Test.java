@@ -23,28 +23,20 @@
  */
 package org.jenkinsci.plugins.xunit.types;
 
-import java.util.Arrays;
-import java.util.Collection;
+import org.junit.jupiter.params.provider.Arguments;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import java.util.stream.Stream;
 
-@RunWith(Parameterized.class)
-public class NUnit3Test extends AbstractTest {
+class NUnit3Test extends AbstractTest {
 
-    @Parameters(name = "testcase{1}: {0}")
-    public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][] { { "simple transformation", 1 }, //
-                                              { "test transformed of ignored", 2 }, //
-                                              { "categories", 3 }, //
-                                              { "support SetupFixture", 4 }, //
-                                              { "not handled ParameterizedMethod tesuite produce text outside a testsuite element", 5 } //
-        });
-    }
-
-    public NUnit3Test(String testName, int testNumber) {
-        super(NUnit3.class, resolveInput("nunit3", testNumber), resolveOutput("nunit3", testNumber));
+    protected Stream<Arguments> data() {
+        return Stream.of(
+                Arguments.of("simple transformation", NUnit3.class, "nunit3", 1),
+                Arguments.of("test transformed of ignored", NUnit3.class, "nunit3", 2),
+                Arguments.of("categories", NUnit3.class, "nunit3", 3),
+                Arguments.of("support SetupFixture", NUnit3.class, "nunit3", 4),
+                Arguments.of("not handled ParameterizedMethod testsuite produce text outside a testsuite element", NUnit3.class, "nunit3", 5)
+        );
     }
 
 }

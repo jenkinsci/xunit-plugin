@@ -23,26 +23,6 @@
  */
 package org.jenkinsci.plugins.xunit;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-
-import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
-
-import org.jenkinsci.lib.dtkit.type.TestType;
-import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
-import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
-import org.jenkinsci.plugins.xunit.types.CppTestJunitHudsonTestType;
-import org.jenkinsci.plugins.xunit.types.GoogleTestType;
-import org.jenkinsci.plugins.xunit.types.JUnitType;
-import org.junit.Assert;
-import org.junit.Rule;
-import org.junit.Test;
-import org.jvnet.hudson.test.Issue;
-import org.jvnet.hudson.test.JenkinsRule;
-import org.jvnet.hudson.test.recipes.LocalData;
-
 import edu.umd.cs.findbugs.annotations.NonNull;
 import hudson.FilePath;
 import hudson.Launcher;
@@ -56,12 +36,35 @@ import hudson.tasks.BuildStepDescriptor;
 import hudson.tasks.junit.TestDataPublisher;
 import hudson.tasks.junit.TestResult;
 import hudson.tasks.junit.TestResultAction;
+import org.jenkinsci.lib.dtkit.type.TestType;
+import org.jenkinsci.plugins.xunit.threshold.FailedThreshold;
+import org.jenkinsci.plugins.xunit.threshold.XUnitThreshold;
+import org.jenkinsci.plugins.xunit.types.CppTestJunitHudsonTestType;
+import org.jenkinsci.plugins.xunit.types.GoogleTestType;
+import org.jenkinsci.plugins.xunit.types.JUnitType;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.jvnet.hudson.test.Issue;
+import org.jvnet.hudson.test.JenkinsRule;
+import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
+import org.jvnet.hudson.test.recipes.LocalData;
 
-public class XUnitPublisherTest {
+import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+@WithJenkins
+class XUnitPublisherTest {
 
     public static class SpyXUnitPublisher extends XUnitPublisher {
 
-        public SpyXUnitPublisher(TestType[] tools, XUnitThreshold[] thresholds, int thresholdMode, String testTimeMargin) {
+        public SpyXUnitPublisher(TestType[] tools, XUnitThreshold[] thresholds, int thresholdMode,
+                                 String testTimeMargin) {
             super(tools, thresholds, thresholdMode, testTimeMargin);
         }
 
@@ -71,10 +74,11 @@ public class XUnitPublisherTest {
                             Launcher launcher,
                             TaskListener listener) throws InterruptedException, IOException {
             super.perform(build, workspace, launcher, listener);
-            Assert.assertEquals("Unexpected build FAILURE setup by the first publisher", Result.SUCCESS, build.getResult());
+            assertEquals(Result.SUCCESS, build.getResult(),
+                    "Unexpected build FAILURE setup by the first publisher");
         }
 
-        @SuppressWarnings({ "rawtypes"})
+        @SuppressWarnings("rawtypes")
         @Override
         public BuildStepDescriptor getDescriptor() {
             return new BuildStepDescriptor<>(SpyXUnitPublisher.class) {
@@ -87,8 +91,8 @@ public class XUnitPublisherTest {
         }
     }
 
-    public static class SpyDataPublisher extends TestDataPublisher
-    {
+    public static class SpyDataPublisher extends TestDataPublisher {
+
         private boolean isCalled;
 
         public boolean isCalled() {
@@ -96,74 +100,90 @@ public class XUnitPublisherTest {
         }
 
         @Override
-        public TestResultAction.Data contributeTestData(Run<?, ?> run, @NonNull FilePath workspace, Launcher launcher, TaskListener listener, TestResult testResult) throws IOException, InterruptedException {
+        public TestResultAction.Data contributeTestData(Run<?, ?> run, @NonNull FilePath workspace,
+                                                        Launcher launcher, TaskListener listener, TestResult testResult)
+                throws IOException, InterruptedException {
             this.isCalled = true;
             return super.contributeTestData(run, workspace, launcher, listener, testResult);
         }
     }
 
-    @Rule
-    public JenkinsRule jenkinsRule = new JenkinsRule();
+    private JenkinsRule jenkinsRule;
+
+    @BeforeEach
+    void setUp(JenkinsRule rule) {
+        jenkinsRule = rule;
+    }
 
     @LocalData
     @Issue("JENKINS-47194")
     @Test
-    public void different_build_steps_use_separate_output_folders_and_use_new_instance_of_TestResult_against_validate_thresholds() throws Exception {
-        FreeStyleProject job = jenkinsRule.jenkins.createProject(FreeStyleProject.class, "JENKINS-47194");
+    void different_build_steps_use_separate_output_folders_and_use_new_instance_of_TestResult_against_validate_thresholds()
+            throws Exception {
+        FreeStyleProject job = jenkinsRule.jenkins.createProject(FreeStyleProject.class,
+                "JENKINS-47194");
 
-        TestType[] tools1 = new TestType[] { new JUnitType("module1/*.xml", false, false, false, true) };
+        TestType[] tools1 = new TestType[]{
+                new JUnitType("module1/*.xml", false, false, false, true)};
 
         XUnitThreshold threshold1 = new FailedThreshold();
         threshold1.setFailureThreshold("2");
         // this publisher should not fails since the failure threshold is equals
         // to that of the failed counter of the test result
-        job.getPublishersList().add(new SpyXUnitPublisher(tools1, new XUnitThreshold[] { threshold1 }, 1, "3000"));
+        job.getPublishersList()
+                .add(new SpyXUnitPublisher(tools1, new XUnitThreshold[]{threshold1}, 1, "3000"));
 
-        TestType[] tools2 = new TestType[] { new JUnitType("module2/*.xml", false, false, false, true) };
+        TestType[] tools2 = new TestType[]{
+                new JUnitType("module2/*.xml", false, false, false, true)};
         XUnitThreshold threshold2 = new FailedThreshold();
         threshold2.setFailureThreshold("2");
         // this publisher should not fails since the failure threshold is equals
         // to that of the failed counter of the test result. The failed count
         // should not takes in account any results from previous publishers
-        job.getPublishersList().add(new XUnitPublisher(tools2, new XUnitThreshold[] { threshold2 }, 1, "3000"));
+        job.getPublishersList()
+                .add(new XUnitPublisher(tools2, new XUnitThreshold[]{threshold2}, 1, "3000"));
 
         FreeStyleBuild build = job.scheduleBuild2(0).get();
         jenkinsRule.assertBuildStatus(Result.SUCCESS, build);
 
         TestResultAction testResultAction = build.getAction(TestResultAction.class);
-        Assert.assertNotNull(testResultAction);
-        Assert.assertEquals(9, testResultAction.getTotalCount());
-        Assert.assertEquals(4, testResultAction.getFailCount());
+        assertNotNull(testResultAction);
+        assertEquals(9, testResultAction.getTotalCount());
+        assertEquals(4, testResultAction.getFailCount());
     }
 
     @LocalData
     @Issue("JENKINS-52253")
     @Test
-    public void process_multiple_tools() throws Exception {
-        FreeStyleProject job = jenkinsRule.jenkins.createProject(FreeStyleProject.class, "JENKINS-52253");
+    void process_multiple_tools() throws Exception {
+        FreeStyleProject job = jenkinsRule.jenkins.createProject(FreeStyleProject.class,
+                "JENKINS-52253");
 
-        TestType[] tools = new TestType[] { new GoogleTestType("googletest.xml", false, false, true, true),
-                                            new CppTestJunitHudsonTestType("cpptest.xml", false, false, true, true) };
+        TestType[] tools = new TestType[]{
+                new GoogleTestType("googletest.xml", false, false, true, true),
+                new CppTestJunitHudsonTestType("cpptest.xml", false, false, true, true)};
 
-        job.getPublishersList().add(new XUnitPublisher(tools, new XUnitThreshold[] {}, 1, "3000"));
+        job.getPublishersList().add(new XUnitPublisher(tools, new XUnitThreshold[]{}, 1, "3000"));
 
         FreeStyleBuild build = job.scheduleBuild2(0).get();
         jenkinsRule.assertBuildStatus(Result.SUCCESS, build);
 
         TestResultAction testResultAction = build.getAction(TestResultAction.class);
-        Assert.assertNotNull(testResultAction);
-        Assert.assertEquals(5, testResultAction.getTotalCount());
-        Assert.assertEquals(2, testResultAction.getFailCount());
-        Assert.assertEquals(1, testResultAction.getSkipCount());
+        assertNotNull(testResultAction);
+        assertEquals(5, testResultAction.getTotalCount());
+        assertEquals(2, testResultAction.getFailCount());
+        assertEquals(1, testResultAction.getSkipCount());
     }
 
     @LocalData
     @Issue("JENKINS-51645")
     @Test
-    public void test_publishers_are_run() throws Exception {
-        FreeStyleProject job = jenkinsRule.jenkins.createProject(FreeStyleProject.class, "JENKINS-51645");
+    void test_publishers_are_run() throws Exception {
+        FreeStyleProject job = jenkinsRule.jenkins.createProject(FreeStyleProject.class,
+                "JENKINS-51645");
 
-        TestType[] tools = new TestType[] { new GoogleTestType("input.xml", false, false, false, true) };
+        TestType[] tools = new TestType[]{
+                new GoogleTestType("input.xml", false, false, false, true)};
 
         XUnitPublisher publisher = new XUnitPublisher(tools, new XUnitThreshold[]{}, 1, "3000");
 

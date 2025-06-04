@@ -23,30 +23,22 @@
  */
 package org.jenkinsci.plugins.xunit.types;
 
-import java.util.Arrays;
-import java.util.Collection;
+import org.junit.jupiter.params.provider.Arguments;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import java.util.stream.Stream;
 
-@RunWith(Parameterized.class)
-public class CppTestTest extends AbstractTest {
+class CppTestTest extends AbstractTest {
 
-    @Parameters(name = "testcase{1}: {0}")
-    public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][] { { "testcase1", 1 }, //
-                                              { "mix execution of pass and fail tests", 2 }, //
-                                              { "testcase3", 3 }, //
-                                              { "7.x all test successed", 4 }, //
-                                              { "7.x all test succeed, no CLI options", 5 }, //
-                                              { "7.x one test fails with 2 assertions", 6 }, //
-                                              { "7.x one test fails with 1 assertion", 7 }, //
-        });
-    }
-
-    public CppTestTest(String testName, int testNumber) {
-        super(CppTest.class, resolveInput("cpptest", testNumber), resolveOutput("cpptest", testNumber));
+    protected Stream<Arguments> data() {
+        return Stream.of(
+                Arguments.of("testcase1", CppTest.class, "cpptest", 1),
+                Arguments.of("mix execution of pass and fail tests", CppTest.class, "cpptest", 2),
+                Arguments.of("testcase3", CppTest.class, "cpptest", 3),
+                Arguments.of("7.x all test succeed", CppTest.class, "cpptest", 4),
+                Arguments.of("7.x all test succeed, no CLI options", CppTest.class, "cpptest", 5),
+                Arguments.of("7.x one test fails with 2 assertions", CppTest.class, "cpptest", 6),
+                Arguments.of("7.x one test fails with 1 assertion", CppTest.class, "cpptest", 7)
+        );
     }
 
 }

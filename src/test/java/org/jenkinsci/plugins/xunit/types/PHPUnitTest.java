@@ -23,34 +23,26 @@
  */
 package org.jenkinsci.plugins.xunit.types;
 
-import java.util.Arrays;
-import java.util.Collection;
+import org.junit.jupiter.params.provider.Arguments;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import java.util.stream.Stream;
 
-@RunWith(Parameterized.class)
-public class PHPUnitTest extends AbstractTest {
+class PHPUnitTest extends AbstractTest {
 
-    @Parameters(name = "{0}")
-    public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][] { { "testcase1", 1 }, //
-                                              { "testcase2", 2 }, //
-                                              { "testcase3", 3 }, //
-                                              { "testcase4", 4 }, //
-                                              { "testcase5", 5 }, //
-                                              { "testcase6", 6 }, //
-                                              { "testcase7", 7 }, //
-                                              { "JENKINS-42715 skipped test using PHPUnit 5.4", 8 }, //
-                                              { "JENKINS-42715 skipped test using PHPUnit 6+", 9 }, //
-                                              { "JENKINS-27494 feature attribute", 10 }, //
-                                              { "PHPUnit 4.8.2 warnings", 11 }, //
-        });
-    }
-
-    public PHPUnitTest(String testName, int testNumber) {
-        super(PHPUnit.class, resolveInput("phpunit", testNumber), resolveOutput("phpunit", testNumber));
+    protected Stream<Arguments> data() {
+        return Stream.of(
+                Arguments.of("testcase1", PHPUnit.class, "phpunit", 1),
+                Arguments.of("testcase2", PHPUnit.class, "phpunit", 2),
+                Arguments.of("testcase3", PHPUnit.class, "phpunit", 3),
+                Arguments.of("testcase4", PHPUnit.class, "phpunit", 4),
+                Arguments.of("testcase5", PHPUnit.class, "phpunit", 5),
+                Arguments.of("testcase6", PHPUnit.class, "phpunit", 6),
+                Arguments.of("testcase7", PHPUnit.class, "phpunit", 7),
+                Arguments.of("JENKINS-42715 skipped test using PHPUnit 5.4", PHPUnit.class, "phpunit", 8),
+                Arguments.of("JENKINS-42715 skipped test using PHPUnit 6+", PHPUnit.class, "phpunit", 9),
+                Arguments.of("JENKINS-27494 feature attribute", PHPUnit.class, "phpunit", 10),
+                Arguments.of("PHPUnit 4.8.2 warnings", PHPUnit.class, "phpunit", 11)
+        );
     }
 
 }

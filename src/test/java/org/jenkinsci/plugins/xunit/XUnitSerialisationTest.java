@@ -23,34 +23,39 @@
  */
 package org.jenkinsci.plugins.xunit;
 
-import org.assertj.core.api.Assertions;
-import org.jenkinsci.lib.dtkit.type.TestType;
-import org.jenkinsci.plugins.xunit.types.JUnitType;
-import org.junit.BeforeClass;
-import org.junit.Rule;
-import org.junit.Test;
-import org.jvnet.hudson.test.JenkinsRule;
-import org.jvnet.hudson.test.recipes.LocalData;
-
 import hudson.model.FreeStyleProject;
 import hudson.model.Items;
 import hudson.tasks.Publisher;
+import org.assertj.core.api.Assertions;
+import org.jenkinsci.lib.dtkit.type.TestType;
+import org.jenkinsci.plugins.xunit.types.JUnitType;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.jvnet.hudson.test.JenkinsRule;
+import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
+import org.jvnet.hudson.test.recipes.LocalData;
 
-public class XUnitSerialisationTest {
+@WithJenkins
+class XUnitSerialisationTest {
 
-    @Rule
-    public JenkinsRule r = new JenkinsRule();
+    private JenkinsRule r;
 
-    @BeforeClass
-    public static void dirtyXStreamSetup() {
+    @BeforeAll
+    static void setUp() {
         // used to simulate the AliasInitializer that is not triggered by the JenkinsRule
         Items.XSTREAM.alias("xunit", XUnitPublisher.class);
         Items.XSTREAM.alias(JUnitType.class.getSimpleName(), JUnitType.class);
     }
 
+    @BeforeEach
+    void setUp(JenkinsRule rule) {
+        r = rule;
+    }
+
     @LocalData("publisher_1_103")
     @Test
-    public void verify_publisher_compatible_before_1_103() {
+    void verify_publisher_compatible_before_1_103() {
         FreeStyleProject project = (FreeStyleProject) r.jenkins.getItem("foo");
 
         Assertions.assertThat(project.getPublishersList()).hasSize(1);

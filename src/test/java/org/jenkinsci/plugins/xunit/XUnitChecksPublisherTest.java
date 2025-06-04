@@ -32,11 +32,12 @@ import io.jenkins.plugins.checks.util.CapturingChecksPublisher;
 import org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition;
 import org.jenkinsci.plugins.workflow.job.WorkflowJob;
 import org.jenkinsci.plugins.workflow.job.WorkflowRun;
-import org.junit.After;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.jvnet.hudson.test.JenkinsRule;
 import org.jvnet.hudson.test.TestExtension;
+import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
 import org.jvnet.hudson.test.recipes.LocalData;
 
 import java.util.List;
@@ -44,16 +45,21 @@ import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
+@WithJenkins
 public class XUnitChecksPublisherTest {
 
-    @Rule
-    public final JenkinsRule rule = new JenkinsRule();
-
     @TestExtension
-    public final static CapturingChecksPublisher.Factory PUBLISHER_FACTORY = new CapturingChecksPublisher.Factory();
+    public static final CapturingChecksPublisher.Factory PUBLISHER_FACTORY = new CapturingChecksPublisher.Factory();
 
-    @After
-    public void clearPublishedChecks() {
+    private JenkinsRule rule;
+
+    @BeforeEach
+    void setUp(JenkinsRule rule) {
+        this.rule = rule;
+    }
+
+    @AfterEach
+    void tearDown() {
         PUBLISHER_FACTORY.getPublishedChecks().clear();
     }
 
@@ -69,7 +75,7 @@ public class XUnitChecksPublisherTest {
 
     @LocalData
     @Test
-    public void extractChecksDetailsFailingMultipleTestResults() throws Exception {
+    void extractChecksDetailsFailingMultipleTestResults() throws Exception {
         WorkflowJob job = rule.jenkins.createProject(WorkflowJob.class, "someFailed");
 
         job.setDefinition(new CpsFlowDefinition("""
@@ -92,19 +98,19 @@ public class XUnitChecksPublisherTest {
 
         // thresholds are considered for checks
         assertThat(checksDetails.getConclusion(), is(ChecksConclusion.SUCCESS));
-        assertThat(checksDetails.getName().get(), is("Tests / first"));
+        assertThat(checksDetails.getName().orElseThrow(), is("Tests / first"));
 
-        ChecksOutput output = checksDetails.getOutput().get();
+        ChecksOutput output = checksDetails.getOutput().orElseThrow();
 
-        assertThat(output.getTitle().get(), is("There were test failures"));
-        assertThat(output.getSummary().get(), is("total: 4, failed: 2, passed: 2"));
-        assertThat(output.getText().get(), is("## `modules1.MyTest.test1`\n\n```text\nfailure for test1\n```\n\n\n## `modules1.MyTest.test2`\n\n```text\nerror for test2\n```\n\n\n"));
-
+        assertThat(output.getTitle().orElseThrow(), is("There were test failures"));
+        assertThat(output.getSummary().orElseThrow(), is("total: 4, failed: 2, passed: 2"));
+        assertThat(output.getText().orElseThrow(),
+                is("## `modules1.MyTest.test1`\n\n```text\nfailure for test1\n```\n\n\n## `modules1.MyTest.test2`\n\n```text\nerror for test2\n```\n\n\n"));
     }
 
     @LocalData
     @Test
-    public void extractChecksDetailsExceedThresholdTestResults() throws Exception {
+    void extractChecksDetailsExceedThresholdTestResults() throws Exception {
         WorkflowJob job = rule.jenkins.createProject(WorkflowJob.class, "someFailed");
 
         job.setDefinition(new CpsFlowDefinition("""
@@ -126,19 +132,19 @@ public class XUnitChecksPublisherTest {
         ChecksDetails checksDetails = getDetail();
 
         assertThat(checksDetails.getConclusion(), is(ChecksConclusion.FAILURE));
-        assertThat(checksDetails.getName().get(), is("Tests / first"));
+        assertThat(checksDetails.getName().orElseThrow(), is("Tests / first"));
 
-        ChecksOutput output = checksDetails.getOutput().get();
+        ChecksOutput output = checksDetails.getOutput().orElseThrow();
 
-        assertThat(output.getTitle().get(), is("There were test failures"));
-        assertThat(output.getSummary().get(), is("total: 4, failed: 2, passed: 2"));
-        assertThat(output.getText().get(), is("## `modules1.MyTest.test1`\n\n```text\nfailure for test1\n```\n\n\n## `modules1.MyTest.test2`\n\n```text\nerror for test2\n```\n\n\n"));
-
+        assertThat(output.getTitle().orElseThrow(), is("There were test failures"));
+        assertThat(output.getSummary().orElseThrow(), is("total: 4, failed: 2, passed: 2"));
+        assertThat(output.getText().orElseThrow(),
+                is("## `modules1.MyTest.test1`\n\n```text\nfailure for test1\n```\n\n\n## `modules1.MyTest.test2`\n\n```text\nerror for test2\n```\n\n\n"));
     }
 
     @LocalData
     @Test
-    public void extractChecksDetailsPassingTestResults() throws Exception {
+    void extractChecksDetailsPassingTestResults() throws Exception {
         WorkflowJob job = rule.jenkins.createProject(WorkflowJob.class, "allPassing");
 
         job.setDefinition(new CpsFlowDefinition("""
@@ -157,23 +163,21 @@ public class XUnitChecksPublisherTest {
         ChecksDetails checksDetails = getDetail();
 
         assertThat(checksDetails.getConclusion(), is(ChecksConclusion.SUCCESS));
-        assertThat(checksDetails.getName().get(), is("Tests"));
+        assertThat(checksDetails.getName().orElseThrow(), is("Tests"));
 
-        ChecksOutput output = checksDetails.getOutput().get();
+        ChecksOutput output = checksDetails.getOutput().orElseThrow();
 
-        assertThat(output.getTitle().get(), is("All tests passed"));
-        assertThat(output.getSummary().get(), is("total: 4, passed: 4"));
-        assertThat(output.getText().get(), is(""));
-
+        assertThat(output.getTitle().orElseThrow(), is("All tests passed"));
+        assertThat(output.getSummary().orElseThrow(), is("total: 4, passed: 4"));
+        assertThat(output.getText().orElseThrow(), is(""));
     }
 
     @LocalData
     @Test
-    public void extractChecksDetailsCustomCheckName() throws Exception {
+    void extractChecksDetailsCustomCheckName() throws Exception {
         WorkflowJob job = rule.jenkins.createProject(WorkflowJob.class, "allPassing");
 
         job.setDefinition(new CpsFlowDefinition("""
-                \
                 node {
                   xunit(testTimeMargin: '3000',
                         tools: [JUnit(deleteOutputFiles: false, failIfNotNew: false, pattern: '*.xml', skipNoTestFiles: false, stopProcessingIfError: true)],
@@ -189,18 +193,18 @@ public class XUnitChecksPublisherTest {
         ChecksDetails checksDetails = getDetail();
 
         assertThat(checksDetails.getConclusion(), is(ChecksConclusion.SUCCESS));
-        assertThat(checksDetails.getName().get(), is("Custom Checks Name"));
+        assertThat(checksDetails.getName().orElseThrow(), is("Custom Checks Name"));
 
-        ChecksOutput output = checksDetails.getOutput().get();
+        ChecksOutput output = checksDetails.getOutput().orElseThrow();
 
-        assertThat(output.getTitle().get(), is("All tests passed"));
-        assertThat(output.getSummary().get(), is("total: 4, passed: 4"));
-        assertThat(output.getText().get(), is(""));
+        assertThat(output.getTitle().orElseThrow(), is("All tests passed"));
+        assertThat(output.getSummary().orElseThrow(), is("total: 4, passed: 4"));
+        assertThat(output.getText().orElseThrow(), is(""));
     }
 
     @LocalData
     @Test
-    public void extractChecksDetailsNestedStages() throws Exception {
+    void extractChecksDetailsNestedStages() throws Exception {
         WorkflowJob job = rule.jenkins.createProject(WorkflowJob.class, "allPassing");
 
         job.setDefinition(new CpsFlowDefinition("""
@@ -220,17 +224,17 @@ public class XUnitChecksPublisherTest {
         ChecksDetails checksDetails = getDetail();
 
         assertThat(checksDetails.getConclusion(), is(ChecksConclusion.SUCCESS));
-        assertThat(checksDetails.getName().get(), is("Tests / first / second"));
+        assertThat(checksDetails.getName().orElseThrow(), is("Tests / first / second"));
 
-        ChecksOutput output = checksDetails.getOutput().get();
+        ChecksOutput output = checksDetails.getOutput().orElseThrow();
 
-        assertThat(output.getTitle().get(), is("All tests passed"));
-        assertThat(output.getSummary().get(), is("total: 4, passed: 4"));
-        assertThat(output.getText().get(), is(""));
+        assertThat(output.getTitle().orElseThrow(), is("All tests passed"));
+        assertThat(output.getSummary().orElseThrow(), is("total: 4, passed: 4"));
+        assertThat(output.getText().orElseThrow(), is(""));
     }
 
     @Test
-    public void extractChecksDetailsEmptySuite() throws Exception {
+    void extractChecksDetailsEmptySuite() throws Exception {
         WorkflowJob job = rule.jenkins.createProject(WorkflowJob.class, "empty");
 
         job.setDefinition(new CpsFlowDefinition("""
@@ -250,17 +254,17 @@ public class XUnitChecksPublisherTest {
         ChecksDetails checksDetails = getDetail();
 
         assertThat(checksDetails.getConclusion(), is(ChecksConclusion.SUCCESS));
-        assertThat(checksDetails.getName().get(), is("Tests / first"));
+        assertThat(checksDetails.getName().orElseThrow(), is("Tests / first"));
 
-        ChecksOutput output = checksDetails.getOutput().get();
+        ChecksOutput output = checksDetails.getOutput().orElseThrow();
 
-        assertThat(output.getTitle().get(), is("No test results found"));
-        assertThat(output.getText().get(), is(""));
+        assertThat(output.getTitle().orElseThrow(), is("No test results found"));
+        assertThat(output.getText().orElseThrow(), is(""));
     }
 
     @LocalData
     @Test
-    public void extractChecksDetailsAllSkipped() throws Exception {
+    void extractChecksDetailsAllSkipped() throws Exception {
         WorkflowJob job = rule.jenkins.createProject(WorkflowJob.class, "allSkipped");
 
         job.setDefinition(new CpsFlowDefinition("""
@@ -280,22 +284,21 @@ public class XUnitChecksPublisherTest {
         ChecksDetails checksDetails = getDetail();
 
         assertThat(checksDetails.getConclusion(), is(ChecksConclusion.SUCCESS));
-        assertThat(checksDetails.getName().get(), is("Tests / all skipped"));
+        assertThat(checksDetails.getName().orElseThrow(), is("Tests / all skipped"));
 
-        ChecksOutput output = checksDetails.getOutput().get();
+        ChecksOutput output = checksDetails.getOutput().orElseThrow();
 
-        assertThat(output.getTitle().get(), is("All tests were skipped"));
-        assertThat(output.getSummary().get(), is("total: 4, skipped: 4"));
-        assertThat(output.getText().get(), is(""));
+        assertThat(output.getTitle().orElseThrow(), is("All tests were skipped"));
+        assertThat(output.getSummary().orElseThrow(), is("total: 4, skipped: 4"));
+        assertThat(output.getText().orElseThrow(), is(""));
     }
 
     @LocalData
     @Test
-    public void withChecksContext() throws Exception {
+    void withChecksContext() throws Exception {
         WorkflowJob job = rule.jenkins.createProject(WorkflowJob.class, "allPassing");
 
         job.setDefinition(new CpsFlowDefinition("""
-                \
                 node {
                   withChecks('With Checks') {
                     xunit(testTimeMargin: '3000',
@@ -313,19 +316,18 @@ public class XUnitChecksPublisherTest {
 
         assertThat(checksDetails.size(), is(2));
 
-        assertThat(checksDetails.get(0).getName().get(), is("With Checks"));
+        assertThat(checksDetails.get(0).getName().orElseThrow(), is("With Checks"));
         assertThat(checksDetails.get(0).getStatus(), is(ChecksStatus.IN_PROGRESS));
         assertThat(checksDetails.get(0).getConclusion(), is(ChecksConclusion.NONE));
 
-        assertThat(checksDetails.get(1).getName().get(), is("With Checks"));
+        assertThat(checksDetails.get(1).getName().orElseThrow(), is("With Checks"));
         assertThat(checksDetails.get(1).getStatus(), is(ChecksStatus.COMPLETED));
         assertThat(checksDetails.get(1).getConclusion(), is(ChecksConclusion.SUCCESS));
-
     }
 
     @LocalData
     @Test
-    public void withChecksContextDeclarative() throws Exception {
+    void withChecksContextDeclarative() throws Exception {
         WorkflowJob job = rule.jenkins.createProject(WorkflowJob.class, "allPassing");
         job.setDefinition(new CpsFlowDefinition("""
                 pipeline {
@@ -349,19 +351,18 @@ public class XUnitChecksPublisherTest {
 
         assertThat(checksDetails.size(), is(2));
 
-        assertThat(checksDetails.get(0).getName().get(), is("With Checks"));
+        assertThat(checksDetails.get(0).getName().orElseThrow(), is("With Checks"));
         assertThat(checksDetails.get(0).getStatus(), is(ChecksStatus.IN_PROGRESS));
         assertThat(checksDetails.get(0).getConclusion(), is(ChecksConclusion.NONE));
 
-        assertThat(checksDetails.get(1).getName().get(), is("With Checks"));
+        assertThat(checksDetails.get(1).getName().orElseThrow(), is("With Checks"));
         assertThat(checksDetails.get(1).getStatus(), is(ChecksStatus.COMPLETED));
         assertThat(checksDetails.get(1).getConclusion(), is(ChecksConclusion.SUCCESS));
-
     }
 
     @LocalData
     @Test
-    public void withChecksContextWithCustomName() throws Exception {
+    void withChecksContextWithCustomName() throws Exception {
         WorkflowJob job = rule.jenkins.createProject(WorkflowJob.class, "allPassing");
         job.setDefinition(new CpsFlowDefinition("""
                 stage('first') {
@@ -384,14 +385,13 @@ public class XUnitChecksPublisherTest {
 
         assertThat(checksDetails.size(), is(2));
 
-        assertThat(checksDetails.get(0).getName().get(), is("With Checks"));
+        assertThat(checksDetails.get(0).getName().orElseThrow(), is("With Checks"));
         assertThat(checksDetails.get(0).getStatus(), is(ChecksStatus.IN_PROGRESS));
         assertThat(checksDetails.get(0).getConclusion(), is(ChecksConclusion.NONE));
 
-        assertThat(checksDetails.get(1).getName().get(), is("Custom Checks Name"));
+        assertThat(checksDetails.get(1).getName().orElseThrow(), is("Custom Checks Name"));
         assertThat(checksDetails.get(1).getStatus(), is(ChecksStatus.COMPLETED));
         assertThat(checksDetails.get(1).getConclusion(), is(ChecksConclusion.SUCCESS));
-
     }
 
 }

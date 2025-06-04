@@ -23,26 +23,18 @@
  */
 package org.jenkinsci.plugins.xunit.types;
 
-import java.util.Arrays;
-import java.util.Collection;
+import org.junit.jupiter.params.provider.Arguments;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import java.util.stream.Stream;
 
-@RunWith(Parameterized.class)
-public class ValgrindTest extends AbstractTest {
+class ValgrindTest extends AbstractTest {
 
-    @Parameters(name = "testcase{1}: {0}")
-    public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][] { { "testcase1", 1 }, //
-                                              { "testcase2", 2 }, //
-                                              { "testcase3", 3 } //
-        });
-    }
-
-    public ValgrindTest(String testName, int testNumber) {
-        super(Valgrind.class, resolveInput("valgrind", testNumber), resolveOutput("valgrind", testNumber));
+    protected Stream<Arguments> data() {
+        return Stream.of(
+                Arguments.of("testcase1", Valgrind.class, "valgrind", 1),
+                Arguments.of("testcase2", Valgrind.class, "valgrind", 2),
+                Arguments.of("testcase3", Valgrind.class, "valgrind", 3)
+        );
     }
 
 }

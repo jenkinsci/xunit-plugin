@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="FiltersTest" tests="32" failures="0" errors="1" time="452.706">
+    <testsuite name="FiltersTest: chrome" tests="16" failures="0" errors="0" time="208.783">
+        <testcase name="testOnFilterByDateBehavesLikeOr" time="20.951" />
+        <testcase name="testFilterByTimestampsDoesntTakeIntoAccountTime" classname="FiltersTest" time="16.042" />
+        <testsuite name="FiltersTest::testFilterByNull" tests="5" failures="0" errors="0" time="61.921">
+            <testcase name="testFilterByNull with data set #0" time="11.880" />
+            <testcase name="testFilterByNull with data set #1" time="13.163" />
+            <testcase name="testFilterByNull with data set #2" time="12.258" />
+            <testcase name="testFilterByNull with data set #3" time="12.098" />
+            <testcase name="testFilterByNull with data set #4" time="12.520" />
+        </testsuite>
+        <testsuite name="FiltersTest::testFilterByNotNull" tests="4" failures="0" errors="0" time="50.564">
+            <testcase name="testFilterByNotNull with data set #0" time="12.819" />
+            <testcase name="testFilterByNotNull with data set #1" time="12.440" />
+            <testcase name="testFilterByNotNull with data set #2" time="12.710" />
+            <testcase name="testFilterByNotNull with data set #3" time="12.594" />
+        </testsuite>
+        <testsuite name="FiltersTest::testNotEmptyDisablesOtherItems" tests="4" failures="0" errors="0" time="47.358">
+            <testcase name="testNotEmptyDisablesOtherItems with data set #0" time="11.748" />
+            <testcase name="testNotEmptyDisablesOtherItems with data set #1" time="11.702" />
+            <testcase name="testNotEmptyDisablesOtherItems with data set #2" time="11.997" />
+            <testcase name="testNotEmptyDisablesOtherItems with data set #3" time="11.909" />
+        </testsuite>
+        <testcase name="testMutuallyExclusiveBooleans" classname="FiltersTest" time="11.944" />
+    </testsuite>
+    <testsuite name="FiltersTest: internet explorer" tests="16" failures="0" errors="1" time="243.923">
+        <testcase name="testOnFilterByDateBehavesLikeOr" classname="FiltersTest" time="34.795" />
+        <testcase name="testFilterByTimestampsDoesntTakeIntoAccountTime" classname="FiltersTest" time="22.823" />
+        <testsuite name="FiltersTest::testFilterByNull" tests="5" failures="0" errors="1" time="79.679">
+            <testcase name="testFilterByNull with data set #0" time="12.300" />
+            <testcase name="testFilterByNull with data set #1" time="33.122">
+                <error type="PHPUnit_Extensions_Selenium2TestCase_WebDriverException">
+                    FiltersTest::testFilterByNull with data set #1 ('publish_date', 1)
+                    PHPUnit_Extensions_Selenium2TestCase_WebDriverException: Unable to find element with xpath ==
+                    //label[contains(@class, "x-toolbar-item")][starts-with(., "1 of")] (WARNING: The server did not
+                    provide any stacktrace information) Command duration or timeout: 20.36 seconds For
+                    documentation on
+                    this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html Build info: version:
+                    '2.33.0', revision: '4e90c97', time: '2013-05-22 15:32:38'
+                    System info: os.name: 'Windows 7',
+                    os.arch: 'amd64', os.version: '6.1', java.version: '1.7.0_11' Session ID:
+                    17481983-5933-4d37-ba07-17096efdc573 Driver info:
+                    org.openqa.selenium.ie.InternetExplorerDriver
+                    Capabilities [{platform=WINDOWS, elementScrollBehavior=0, javascriptEnabled=true,
+                    enablePersistentHover=true, ignoreZoomSetting=false,
+                    browserName=internet explorer,
+                    enableElementCacheCleanup=true, unexpectedAlertBehaviour=dismiss, version=9,
+                    cssSelectorsEnabled=true, ignoreProtectedModeSettings=false,
+                    requireWindowFocus=false,
+                    handlesAlerts=true, initialBrowserUrl=, nativeEvents=true, browserAttachTimeout=0,
+                    takesScreenshot=true}]
+                    /usr/share/php/PHPUnit/Extensions/Selenium2TestCase/Driver.php:143
+                    /usr/share/php/PHPUnit/Extensions/Selenium2TestCase/CommandsHolder.php:108
+                    /usr/share/php/PHPUnit/Extensions/Selenium2TestCase/Element/Accessor.php:125
+                    /usr/share/php/PHPUnit/Extensions/Selenium2TestCase/Element/Accessor.php:166
+                    /usr/share/php/PHPUnit/Extensions/Selenium2TestCase/Element/Accessor.php:117
+                    /usr/share/php/PHPUnit/Extensions/Selenium2TestCase.php:335
+                    /var/lib/jenkins/jobs/zend-grid-module/workspace/test-application/tests/FiltersTest.php:96
+                    /var/lib/jenkins/jobs/zend-grid-module/workspace/test-application/tests/FiltersTest.php:96
+                    /usr/share/php/PHPUnit/Extensions/Selenium2TestCase.php:292
+                    /usr/share/php/PHPUnit/Extensions/Selenium2TestCase.php:258 /usr/bin/phpunit:46
+                </error>
+            </testcase>
+            <testcase name="testFilterByNull with data set #2" time="11.452" />
+            <testcase name="testFilterByNull with data set #3" time="10.645" />
+            <testcase name="testFilterByNull with data set #4" time="12.159" />
+        </testsuite>
+        <testsuite name="FiltersTest::testFilterByNotNull" tests="4" failures="0" errors="0" time="47.550">
+            <testcase name="testFilterByNotNull with data set #0" time="12.138" />
+            <testcase name="testFilterByNotNull with data set #1" time="11.949" />
+            <testcase name="testFilterByNotNull with data set #2" time="12.296" />
+            <testcase name="testFilterByNotNull with data set #3" time="11.166" />
+        </testsuite>
+        <testsuite name="FiltersTest::testNotEmptyDisablesOtherItems" tests="4" failures="0" errors="0" time="44.270">
+            <testcase name="testNotEmptyDisablesOtherItems with data set #0" time="10.235" />
+            <testcase name="testNotEmptyDisablesOtherItems with data set #1" time="10.975" />
+            <testcase name="testNotEmptyDisablesOtherItems with data set #2" time="11.049" />
+            <testcase name="testNotEmptyDisablesOtherItems with data set #3" time="12.010" />
+        </testsuite>
+        <testcase name="testMutuallyExclusiveBooleans" classname="FiltersTest" time="14.804" />
+    </testsuite>
+</testsuite>

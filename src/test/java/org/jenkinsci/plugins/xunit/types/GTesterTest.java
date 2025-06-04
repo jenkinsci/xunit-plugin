@@ -23,27 +23,18 @@
  */
 package org.jenkinsci.plugins.xunit.types;
 
-import java.util.Arrays;
-import java.util.Collection;
+import org.junit.jupiter.params.provider.Arguments;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import java.util.stream.Stream;
 
-@RunWith(Parameterized.class)
-public class GTesterTest extends AbstractTest {
+class GTesterTest extends AbstractTest {
 
-    @Parameters(name = "testcase{1}: {0}")
-    public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][] {
-            { "official report example from https://wiki.gnome.org/Projects/GLib/GTester", 1 }, //
-            { "JENKINS-52173 handle time correctly", 2 }, //
-            { "test classname and name patterns", 3 } //
-        });
-    }
-
-    public GTesterTest(String testName, int testNumber) {
-        super(GTester.class, resolveInput("gtester", testNumber), resolveOutput("gtester", testNumber));
+    protected Stream<Arguments> data() {
+        return Stream.of(
+                Arguments.of("official report example from https://wiki.gnome.org/Projects/GLib/GTester", GTester.class, "gtester", 1),
+                Arguments.of("JENKINS-52173 handle time correctly", GTester.class, "gtester", 2),
+                Arguments.of("test classname and name patterns", GTester.class, "gtester", 3)
+        );
     }
 
 }

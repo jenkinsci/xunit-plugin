@@ -23,48 +23,40 @@
  */
 package org.jenkinsci.plugins.xunit.types;
 
-import java.util.Arrays;
-import java.util.Collection;
+import org.junit.jupiter.params.provider.Arguments;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import java.util.stream.Stream;
 
-@RunWith(Parameterized.class)
-public class BoostTestTest extends AbstractTest {
+class BoostTestTest extends AbstractTest {
 
-    @Parameters(name = "testcase{1}: {0}")
-    public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][] { { "testcase1", 1 }, //
-                                              { "testcase2", 2 }, //
-                                              { "testcase3", 3 }, //
-                                              { "testcase4", 4 }, //
-                                              { "testcase5", 5 }, //
-                                              { "testcase6", 6 }, //
-                                              { "testcase7", 7 }, //
-                                              { "testcase8", 8 }, //
-                                              { "testcase9", 9 }, //
-                                              { "testcase10", 10 }, //
-                                              { "testcase11", 11 }, //
-                                              { "testcase12", 12 }, //
-                                              { "testcase13", 13 }, //
-                                              { "testcase14", 14 }, //
-                                              { "testcase15", 15 }, //
-                                              { "testcase16", 16 }, //
-                                              { "testcase17", 17 }, //
-                                              { "JENKINS-42031", 18 }, //
-                                              { "testcase19", 19 }, //
-                                              { "autotest", 20 }, //
-                                              { "autotest-multiple", 21 }, //
-                                              { "skipped", 22 }, //
-                                              { "exception-context", 23 }, //
-                                              { "wrong_classname", 24 }, //
-                                              { "parse_error", 25 } //
-        });
-    }
-
-    public BoostTestTest(String testName, int testNumber) {
-        super(BoostTest.class, resolveInput("boosttest", testNumber), resolveOutput("boosttest", testNumber));
+    protected Stream<Arguments> data() {
+        return Stream.of(
+                Arguments.of("testcase1", BoostTest.class, "boosttest", 1),
+                Arguments.of("testcase2", BoostTest.class, "boosttest", 2),
+                Arguments.of("testcase3", BoostTest.class, "boosttest", 3),
+                Arguments.of("testcase4", BoostTest.class, "boosttest", 4),
+                Arguments.of("testcase5", BoostTest.class, "boosttest", 5),
+                Arguments.of("testcase6", BoostTest.class, "boosttest", 6),
+                Arguments.of("testcase7", BoostTest.class, "boosttest", 7),
+                Arguments.of("testcase8", BoostTest.class, "boosttest", 8),
+                Arguments.of("testcase9", BoostTest.class, "boosttest", 9),
+                Arguments.of("testcase10", BoostTest.class, "boosttest", 10),
+                Arguments.of("testcase11", BoostTest.class, "boosttest", 11),
+                Arguments.of("testcase12", BoostTest.class, "boosttest", 12),
+                Arguments.of("testcase13", BoostTest.class, "boosttest", 13),
+                Arguments.of("testcase14", BoostTest.class, "boosttest", 14),
+                Arguments.of("testcase15", BoostTest.class, "boosttest", 15),
+                Arguments.of("testcase16", BoostTest.class, "boosttest", 16),
+                Arguments.of("testcase17", BoostTest.class, "boosttest", 17),
+                Arguments.of("JENKINS-42031", BoostTest.class, "boosttest", 18),
+                Arguments.of("testcase19", BoostTest.class, "boosttest", 19),
+                Arguments.of("autotest", BoostTest.class, "boosttest", 20),
+                Arguments.of("autotest-multiple", BoostTest.class, "boosttest", 21),
+                Arguments.of("skipped", BoostTest.class, "boosttest", 22),
+                Arguments.of("exception-context", BoostTest.class, "boosttest", 23),
+                Arguments.of("wrong_classname", BoostTest.class, "boosttest", 24),
+                Arguments.of("parse_error", BoostTest.class, "boosttest", 25)
+        );
     }
 
 }

@@ -23,37 +23,42 @@
  */
 package org.jenkinsci.plugins.xunit;
 
+import hudson.FilePath;
+import hudson.model.Result;
 import org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition;
 import org.jenkinsci.plugins.workflow.job.WorkflowJob;
 import org.jenkinsci.plugins.workflow.job.WorkflowRun;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.jvnet.hudson.test.Issue;
 import org.jvnet.hudson.test.JenkinsRule;
+import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
 import org.jvnet.hudson.test.recipes.LocalData;
 
-import hudson.FilePath;
-import hudson.model.Result;
+@WithJenkins
+class XUnitWorkflowTest {
 
-public class XUnitWorkflowTest {
+    private JenkinsRule jenkinsRule;
 
-    @Rule
-    public JenkinsRule jenkinsRule = new JenkinsRule();
+    @BeforeEach
+    void setUp(JenkinsRule rule) {
+        jenkinsRule = rule;
+    }
 
     private WorkflowJob getBaseJob(String jobName) throws Exception {
         WorkflowJob job = jenkinsRule.jenkins.createProject(WorkflowJob.class, jobName);
         FilePath workspace = jenkinsRule.jenkins.getWorkspaceFor(job);
         FilePath input = workspace.child("input.xml");
-        input.copyFrom(XUnitWorkflowTest.class.getResourceAsStream("/org/jenkinsci/plugins/xunit/types/googletest/testcase2/input.xml"));
+        input.copyFrom(XUnitWorkflowTest.class.getResourceAsStream(
+                "/org/jenkinsci/plugins/xunit/types/googletest/testcase2/input.xml"));
 
         return job;
     }
 
     @Test
-    public void xunitPublisherWorkflowStepTest() throws Exception {
+    void xunitPublisherWorkflowStepTest() throws Exception {
         WorkflowJob job = getBaseJob("publisher");
         job.setDefinition(new CpsFlowDefinition("""
-                \
                 node {
                   step([$class: 'XUnitPublisher', testTimeMargin: '3000', thresholdMode: 1, thresholds: [[$class: 'FailedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '1'], [$class: 'SkippedThreshold', failureNewThreshold: '', failureThreshold: '', unstableNewThreshold: '', unstableThreshold: '']], tools: [[$class: 'GoogleTestType', deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml', skipNoTestFiles: false, stopProcessingIfError: true]]])
                 }""", true));
@@ -63,17 +68,16 @@ public class XUnitWorkflowTest {
 
     @Issue("JENKINS-37611")
     @Test
-    public void xunitPipelineStepDefinition() throws Exception {
+    void xunitPipelineStepDefinition() throws Exception {
         WorkflowJob job = getBaseJob("readablePublisherPipeline");
         job.setDefinition(new CpsFlowDefinition("""
-                \
                 node {
-                  xunit(testTimeMargin: '3000',\
-                        thresholdMode: 1,\
-                        thresholds: [ failed(unstableThreshold: '1'), skipped() ],\
-                        tools: [ GoogleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml', skipNoTestFiles: false, stopProcessingIfError: true) ],\
-                        skipPublishingChecks: true,\
-                        checksName: 'check'\
+                  xunit(testTimeMargin: '3000',
+                        thresholdMode: 1,
+                        thresholds: [ failed(unstableThreshold: '1'), skipped() ],
+                        tools: [ GoogleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'input.xml', skipNoTestFiles: false, stopProcessingIfError: true) ],
+                        skipPublishingChecks: true,
+                        checksName: 'check'
                   )
                 }""", true));
 
@@ -83,11 +87,10 @@ public class XUnitWorkflowTest {
     @LocalData
     @Issue("JENKINS-52202")
     @Test
-    public void xunitParallelStep() throws Exception {
+    void xunitParallelStep() throws Exception {
         WorkflowJob job = jenkinsRule.jenkins.createProject(WorkflowJob.class, "JENKINS-52202");
 
         job.setDefinition(new CpsFlowDefinition("""
-                \
                 node {
                   parallel(
                     dateiEins: {
