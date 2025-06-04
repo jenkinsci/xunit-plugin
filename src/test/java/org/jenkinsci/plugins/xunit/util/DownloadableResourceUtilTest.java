@@ -23,35 +23,37 @@
  */
 package org.jenkinsci.plugins.xunit.util;
 
+import org.apache.commons.io.FileUtils;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
+
 import java.io.File;
 import java.nio.charset.StandardCharsets;
 
-import org.apache.commons.io.FileUtils;
-import org.junit.Assert;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class DownloadableResourceUtilTest {
+class DownloadableResourceUtilTest {
 
-    @Rule
-    public TemporaryFolder fileRule = new TemporaryFolder();
+    @TempDir
+    private File fileRule;
 
     @Test
-    public void test_if_is_url() {
-        Assert.assertFalse(DownloadableResourceUtil.isURL("file"));
-        Assert.assertFalse(DownloadableResourceUtil.isURL("/foo.xml"));
-        Assert.assertTrue(DownloadableResourceUtil.isURL("file:///foo.xml"));
-        Assert.assertTrue(DownloadableResourceUtil.isURL("http://www.acme.com/foo.xml"));
-        Assert.assertTrue(DownloadableResourceUtil.isURL("ftp://ftp.acme.com/foo.xml"));
+    void test_if_is_url() {
+        assertFalse(DownloadableResourceUtil.isURL("file"));
+        assertFalse(DownloadableResourceUtil.isURL("/foo.xml"));
+        assertTrue(DownloadableResourceUtil.isURL("file:///foo.xml"));
+        assertTrue(DownloadableResourceUtil.isURL("http://www.acme.com/foo.xml"));
+        assertTrue(DownloadableResourceUtil.isURL("ftp://ftp.acme.com/foo.xml"));
     }
 
     @Test
-    public void test_download() throws Exception {
-        File file = fileRule.newFile();
+    void test_download() throws Exception {
+        File file = File.createTempFile("junit", null, fileRule);
         FileUtils.writeStringToFile(file, "test", StandardCharsets.UTF_8);
         String fileURL = file.toURI().toURL().toExternalForm();
-        Assert.assertEquals("test", DownloadableResourceUtil.download(fileURL));
+        assertEquals("test", DownloadableResourceUtil.download(fileURL));
     }
 
 

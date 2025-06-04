@@ -23,31 +23,22 @@
  */
 package org.jenkinsci.plugins.xunit.types;
 
-import java.util.Arrays;
-import java.util.Collection;
+import org.junit.jupiter.params.provider.Arguments;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import java.util.stream.Stream;
 
 /**
  * @author Gregory Boissinot
  */
-@RunWith(Parameterized.class)
-public class QTestLibTest extends AbstractTest {
+class QTestLibTest extends AbstractTest {
 
-    @Parameters(name = "{0}")
-    public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][] { { "testcase1", 1 }, //
-                                              { "testcase2", 2 }, //
-                                              { "JENKINS-35660 verify_that_duration_converted_correctly", 3 }, //
-                                              { "boh", 4 }, //
-                                              { "JENKINS-51604 support for multiple Incident", 5 } //
-        });
-    }
-
-    public QTestLibTest(String testName, int testNumber) {
-        super(QTestLib.class, resolveInput("qtestlib", testNumber), resolveOutput("qtestlib", testNumber));
+    protected Stream<Arguments> data() {
+        return Stream.of(
+                Arguments.of("testcase1", QTestLib.class, "qtestlib", 1),
+                Arguments.of("testcase2", QTestLib.class, "qtestlib", 2),
+                Arguments.of("JENKINS-35660 verify_that_duration_converted_correctly", QTestLib.class, "qtestlib", 3),
+                Arguments.of("boh", QTestLib.class, "qtestlib", 4),
+                Arguments.of("JENKINS-51604 support for multiple Incident", QTestLib.class, "qtestlib", 5));
     }
 
 }

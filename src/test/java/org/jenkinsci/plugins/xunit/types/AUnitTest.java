@@ -23,28 +23,19 @@
  */
 package org.jenkinsci.plugins.xunit.types;
 
-import java.util.Arrays;
-import java.util.Collection;
+import org.junit.jupiter.params.provider.Arguments;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import java.util.stream.Stream;
 
 /**
  * @author Gregory Boissinot
  */
-@RunWith(Parameterized.class)
-public class AUnitTest extends AbstractTest {
+class AUnitTest extends AbstractTest {
 
-    @Parameters(name = "{0}")
-    public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][] { { "testcase1", 1 }, //
-                                              { "testcase2", 2 } //
-        });
+    protected Stream<Arguments> data() {
+        return Stream.of(
+                Arguments.of("testcase1", AUnit.class, "aunit", 1),
+                Arguments.of("testcase2", AUnit.class, "aunit", 2)
+        );
     }
-
-    public AUnitTest(String testName, int testNumber) {
-        super(AUnit.class, resolveInput("aunit", testNumber), resolveOutput("aunit", testNumber));
-    }
-
 }

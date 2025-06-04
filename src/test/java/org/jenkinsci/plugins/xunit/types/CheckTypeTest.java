@@ -23,26 +23,18 @@
  */
 package org.jenkinsci.plugins.xunit.types;
 
-import java.util.Arrays;
-import java.util.Collection;
+import org.junit.jupiter.params.provider.Arguments;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import java.util.stream.Stream;
 
-@RunWith(Parameterized.class)
-public class CheckTypeTest extends AbstractTest {
+class CheckTypeTest extends AbstractTest {
 
-    @Parameters(name = "testcase{1}: {0}")
-    public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][] { { "testcase1", 1 }, //
-                                              { "testcase2", 2 }, //
-                                              { "testcase3", 3 } //
-        });
-    }
-
-    public CheckTypeTest(String testName, int testNumber) {
-        super(CheckInputMetric.class, resolveInput("check", testNumber), resolveOutput("check", testNumber));
+    protected Stream<Arguments> data() {
+        return Stream.of(
+                Arguments.of("testcase1", CheckInputMetric.class, "check", 1),
+                Arguments.of("testcase2", CheckInputMetric.class, "check", 2),
+                Arguments.of("testcase3", CheckInputMetric.class, "check", 3)
+        );
     }
 
 }

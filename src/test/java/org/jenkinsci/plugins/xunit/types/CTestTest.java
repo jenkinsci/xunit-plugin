@@ -23,27 +23,19 @@
  */
 package org.jenkinsci.plugins.xunit.types;
 
-import java.util.Arrays;
-import java.util.Collection;
+import org.junit.jupiter.params.provider.Arguments;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import java.util.stream.Stream;
 
-@RunWith(Parameterized.class)
-public class CTestTest extends AbstractTest {
+class CTestTest extends AbstractTest {
 
-    @Parameters(name = "testcase{1}: {0}")
-    public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][] { { "testcase1", 1 }, //
-                                              { "testcase2", 2 }, //
-                                              { "skipped test are counted as failures", 3 }, //
-                                              { "JENKINS-34518 parse error", 4 } //
-        });
-    }
-
-    public CTestTest(String testName, int testNumber) {
-        super(CTest.class, resolveInput("ctest", testNumber), resolveOutput("ctest", testNumber));
+    protected Stream<Arguments> data() {
+        return Stream.of(
+                Arguments.of("testcase1", CTest.class, "ctest", 1),
+                Arguments.of("testcase2", CTest.class, "ctest", 2),
+                Arguments.of("skipped test are counted as failures", CTest.class, "ctest", 3),
+                Arguments.of("JENKINS-34518 parse error", CTest.class, "ctest", 4)
+        );
     }
 
 }

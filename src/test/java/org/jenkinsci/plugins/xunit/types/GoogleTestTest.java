@@ -23,27 +23,18 @@
  */
 package org.jenkinsci.plugins.xunit.types;
 
-import java.util.Arrays;
-import java.util.Collection;
+import org.junit.jupiter.params.provider.Arguments;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import java.util.stream.Stream;
 
-@RunWith(Parameterized.class)
-public class GoogleTestTest extends AbstractTest {
+class GoogleTestTest extends AbstractTest {
 
-    @Parameters(name = "testcase{1}: {0}")
-    public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][] { { "testTestCase1", 1 }, //
-                                              { "testTestCase2", 2 }, //
-                                              { "JENKINS-51798", 3 }, //
-                                              { "JENKINS-59608 skip support", 4 }, //
-        });
+    protected Stream<Arguments> data() {
+        return Stream.of(
+                Arguments.of("testTestCase1", GoogleTestInputMetric.class, "googletest", 1),
+                Arguments.of("testTestCase2", GoogleTestInputMetric.class, "googletest", 2),
+                Arguments.of("JENKINS-51798", GoogleTestInputMetric.class, "googletest", 3),
+                Arguments.of("JENKINS-59608 skip support", GoogleTestInputMetric.class, "googletest", 4)
+        );
     }
-
-    public GoogleTestTest(String testName, int testNumber) {
-        super(GoogleTestInputMetric.class, resolveInput("googletest", testNumber), resolveOutput("googletest", testNumber));
-    }
-
 }

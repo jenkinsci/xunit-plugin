@@ -23,53 +23,57 @@
  */
 package org.jenkinsci.plugins.xunit.service;
 
-import static org.mockito.Mockito.mock;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
 
 /**
  * Unit tests for XUnitValidationService class.
  *
  * @author Maciek Siemczyk
  */
-public class XUnitValidationServiceTest {
+class XUnitValidationServiceTest {
+
     /**
      * Helper class for creating temporary workspace.
      */
-    @Rule
-    public TemporaryFolder folderRule = new TemporaryFolder();
+    @TempDir
+    private File folderRule;
 
     /**
      * System Under Test (SUT).
      */
     private XUnitValidationService xUnitValidationService;
 
-    @Before
-    public void setup() {
+    @BeforeEach
+    void setUp() {
         xUnitValidationService = new XUnitValidationService(mock(XUnitLog.class));
     }
 
     @Test
-    public void CheckFileIsNotEmpty_GivenEmptyFile_ReturnsFalse() throws Exception {
-        File testFile = new File(folderRule.newFolder(), "empty.txt");
+    void CheckFileIsNotEmpty_GivenEmptyFile_ReturnsFalse() throws Exception {
+        File testFile = new File(newFolder(folderRule, "junit"), "empty.txt");
         boolean created = testFile.createNewFile();
-        Assert.assertTrue(created);
+        assertTrue(created);
 
-        Assert.assertFalse("CheckFileIsNotEmpty returned true.", xUnitValidationService.checkFileIsNotEmpty(testFile));
+        assertFalse(xUnitValidationService.checkFileIsNotEmpty(testFile),
+                "CheckFileIsNotEmpty returned true.");
     }
 
     @Test
-    public void CheckFileIsNotEmpty_GivenNotEmptyFile_ReturnsTrue() throws Exception {
-        File testFile = CreateNotEmtyFile();
+    void CheckFileIsNotEmpty_GivenNotEmptyFile_ReturnsTrue() throws Exception {
+        File testFile = createNotEmtyFile();
 
-        Assert.assertTrue("CheckFileIsNotEmpty returned false.", xUnitValidationService.checkFileIsNotEmpty(testFile));
+        assertTrue(xUnitValidationService.checkFileIsNotEmpty(testFile),
+                "CheckFileIsNotEmpty returned false.");
     }
 
     /**
@@ -78,13 +82,22 @@ public class XUnitValidationServiceTest {
      * @return Created file.
      * @throws Exception when there is a problem with writing to the file.
      */
-    private File CreateNotEmtyFile() throws Exception {
-        File testFile = new File(folderRule.newFolder(), "notempty.txt");
+    private File createNotEmtyFile() throws Exception {
+        File testFile = new File(newFolder(folderRule, "junit"), "notempty.txt");
 
         FileOutputStream stream = new FileOutputStream(testFile);
         stream.write("This is just not empty test file!".getBytes());
         stream.close();
 
         return testFile;
+    }
+
+    private static File newFolder(File root, String... subDirs) throws IOException {
+        String subFolder = String.join("/", subDirs);
+        File result = new File(root, subFolder);
+        if (!result.mkdirs()) {
+            throw new IOException("Couldn't create folders " + root);
+        }
+        return result;
     }
 }

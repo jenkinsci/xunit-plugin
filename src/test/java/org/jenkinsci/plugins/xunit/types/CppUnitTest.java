@@ -23,29 +23,22 @@
  */
 package org.jenkinsci.plugins.xunit.types;
 
-import java.util.Arrays;
-import java.util.Collection;
+import org.junit.jupiter.params.provider.Arguments;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import java.util.stream.Stream;
 
-@RunWith(Parameterized.class)
-public class CppUnitTest extends AbstractTest {
+class CppUnitTest extends AbstractTest {
 
-    @Parameters(name = "testcase{1}: {0}")
-    public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][] { { "success and failure", 1 }, //
-                                              { "zero failure", 2 }, //
-                                              { "zero failure and success", 3 }, //
-                                              { "zero success", 4 }, //
-                                              { "testcase5", 5 }, //
-                                              { "testcase6", 6 }, //
-                                              { "allow custom project properties", 7 } //
-        });
+    protected Stream<Arguments> data() {
+        return Stream.of(
+                Arguments.of("success and failure", CppUnit.class, "cppunit", 1),
+                Arguments.of("zero failure", CppUnit.class, "cppunit", 2),
+                Arguments.of("zero failure and success", CppUnit.class, "cppunit", 3),
+                Arguments.of("zero success", CppUnit.class, "cppunit", 4),
+                Arguments.of("testcase5", CppUnit.class, "cppunit", 5),
+                Arguments.of("testcase6", CppUnit.class, "cppunit", 6),
+                Arguments.of("allow custom project properties", CppUnit.class, "cppunit", 7)
+        );
     }
 
-    public CppUnitTest(String testName, int testNumber) {
-        super(CppUnit.class, resolveInput("cppunit", testNumber), resolveOutput("cppunit", testNumber));
-    }
 }
