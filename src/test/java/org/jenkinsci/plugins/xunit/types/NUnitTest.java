@@ -23,40 +23,32 @@
  */
 package org.jenkinsci.plugins.xunit.types;
 
-import java.util.Arrays;
-import java.util.Collection;
+import org.junit.jupiter.params.provider.Arguments;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import java.util.stream.Stream;
 
-@RunWith(Parameterized.class)
-public class NUnitTest extends AbstractTest {
+class NUnitTest extends AbstractTest {
 
-    @Parameters(name = "testcase{1}: {0}")
-    public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][] { { "simple transformation", 1 }, //
-                                              { "failures transformation", 2 }, //
-                                              { "MultiNamespace transformation", 3 }, //
-                                              { "test transformed of ignored", 4 }, //
-                                              { "JENKINS-1077", 5 }, //
-                                              { "JENKINS-8492", 6 }, //
-                                              { "JENKINS-10911 skipped are ignored when failure is present before", 7 }, //
-                                              { "Sample provided by http://nunit.org/files/testresult_25.txt", 8 }, //
-                                              { "Sample provided by the 2.4.8 distribution", 9 }, //
-                                              { "JENKINS-51481 report produced by DUnit to NUnit logger", 10 }, //
-                                              { "JENKINS-51556 works", 11 }, //
-                                              { "JENKINS-51556 cause JEP-200 issue", 12 }, //
-                                              { "JENKINS-51561 NUnit 3.x produce report in NUnit 2.x format", 13 }, //
-                                              { "JENKINS-51767", 14 }, //
-                                              { "JENKINS-52107", 15 }, //
-                                              { "JENKINS-53034", 16 }, //
-                                              { "JENKINS-53186 result of kind Error is reported as Success", 17 } //
-        });
-    }
-
-    public NUnitTest(String testName, int testNumber) {
-        super(NUnit.class, resolveInput("nunit", testNumber), resolveOutput("nunit", testNumber));
+    protected Stream<Arguments> data() {
+        return Stream.of(
+                Arguments.of("simple transformation", NUnit.class, "nunit", 1),
+                Arguments.of("failures transformation", NUnit.class, "nunit", 2),
+                Arguments.of("MultiNamespace transformation", NUnit.class, "nunit", 3),
+                Arguments.of("test transformed of ignored", NUnit.class, "nunit", 4),
+                Arguments.of("JENKINS-1077", NUnit.class, "nunit", 5),
+                Arguments.of("JENKINS-8492", NUnit.class, "nunit", 6),
+                Arguments.of("JENKINS-10911 skipped are ignored when failure is present before", NUnit.class, "nunit", 7),
+                Arguments.of("Sample provided by http://nunit.org/files/testresult_25.txt", NUnit.class, "nunit", 8),
+                Arguments.of("Sample provided by the 2.4.8 distribution", NUnit.class, "nunit", 9),
+                Arguments.of("JENKINS-51481 report produced by DUnit to NUnit logger", NUnit.class, "nunit", 10),
+                Arguments.of("JENKINS-51556 works", NUnit.class, "nunit", 11),
+                Arguments.of("JENKINS-51556 cause JEP-200 issue", NUnit.class, "nunit", 12),
+                Arguments.of("JENKINS-51561 NUnit 3.x produce report in NUnit 2.x format", NUnit.class, "nunit", 13),
+                Arguments.of("JENKINS-51767", NUnit.class, "nunit", 14),
+                Arguments.of("JENKINS-52107", NUnit.class, "nunit", 15),
+                Arguments.of("JENKINS-53034", NUnit.class, "nunit", 16),
+                Arguments.of("JENKINS-53186 result of kind Error is reported as Success", NUnit.class, "nunit", 17)
+        );
     }
 
 }

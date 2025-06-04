@@ -24,69 +24,59 @@
 package org.jenkinsci.plugins.xunit.types;
 
 
-import java.io.File;
-import java.io.IOException;
-import java.text.MessageFormat;
-
 import org.apache.commons.io.FileUtils;
 import org.jenkinsci.lib.dtkit.model.InputMetric;
 import org.jenkinsci.lib.dtkit.model.InputMetricFactory;
 import org.jenkinsci.lib.dtkit.util.validator.ValidationError;
-import org.junit.Assert;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.io.TempDir;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.xmlunit.XMLUnitException;
 import org.xmlunit.builder.DiffBuilder;
 import org.xmlunit.builder.Input;
 import org.xmlunit.diff.Diff;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.text.MessageFormat;
+import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 /**
  * @author Gregory Boissinot
  */
-public abstract class AbstractTest {
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+abstract class AbstractTest {
 
-    @Rule
-    public TemporaryFolder file = new TemporaryFolder();
+    @TempDir
+    protected File file;
 
-    public static String resolveInput(String packageName, int testNumber) {
+    private static String resolveInput(String packageName, int testNumber) {
         return MessageFormat.format("{0}/testcase{1}/input.xml", packageName, testNumber);
     }
 
-    public static String resolveXSL(String packageName, int testNumber) {
+    private static String resolveXSL(String packageName, int testNumber) {
         return MessageFormat.format("{0}/testcase{1}/input.xsl", packageName, testNumber);
     }
 
-    public static String resolveOutput(String packageName, int testNumber) {
+    private static String resolveOutput(String packageName, int testNumber) {
         return MessageFormat.format("{0}/testcase{1}/result.xml", packageName, testNumber);
     }
 
-    private final String input;
-    private final String expectedResult;
-    private final Class<? extends InputMetric> metricClass;
-    private final String xslPath;
+    protected abstract Stream<Arguments> data();
 
-    public AbstractTest() {
-        // TODO remove when all test will be adapted
-        input = null;
-        expectedResult = null;
-        metricClass = null;
-        xslPath = null;
-    }
+    @ParameterizedTest(name = "{0}")
+    @MethodSource("data")
+    void verifyXSLT(String testName, Class<? extends InputMetric> metricClass, String packageName, int testNumber) throws Exception {
+        String input = resolveInput(packageName, testNumber);
+        String xslPath = resolveXSL(packageName, testNumber);
+        String expectedResult = resolveOutput(packageName, testNumber);
 
-    protected AbstractTest(Class<? extends InputMetric> metricClass, String input, String expectedResult) {
-        this(metricClass, input, null, expectedResult);
-    }
-
-    protected AbstractTest(Class<? extends InputMetric> metricClass, String input, String xslPath, String expectedResult) {
-        this.input = input;
-        this.expectedResult = expectedResult;
-        this.metricClass = metricClass;
-        this.xslPath = xslPath;
-    }
-
-    @Test
-    public void verifyXSLT() throws Exception {
         convertAndValidate(metricClass, input, xslPath, expectedResult);
     }
 
@@ -95,16 +85,18 @@ public abstract class AbstractTest {
             throw new IOException("The input stream object is null.");
         }
 
-        return FileUtils.readFileToString(input, "UTF-8");
+        return FileUtils.readFileToString(input, StandardCharsets.UTF_8);
     }
 
-    protected void convertAndValidate(Class<? extends InputMetric> metricClass, String inputXMLPath, String inputXSLPath, String expectedResultPath) throws Exception {
+    private void convertAndValidate(Class<? extends InputMetric> metricClass, String inputXMLPath,
+                                    String inputXSLPath, String expectedResultPath) throws Exception {
         InputMetric inputMetric = InputMetricFactory.getInstance(metricClass);
         if (inputMetric instanceof CustomInputMetric) {
-            ((CustomInputMetric) inputMetric).setCustomXSLFile(new File(this.getClass().getResource(inputXSLPath).toURI()));
+            ((CustomInputMetric) inputMetric).setCustomXSLFile(
+                    new File(this.getClass().getResource(inputXSLPath).toURI()));
         }
 
-        File outputXMLFile = file.newFile();
+        File outputXMLFile = File.createTempFile("junit", null, file);
         File inputXMLFile = new File(this.getClass().getResource(inputXMLPath).toURI());
 
         //The input file must be valid
@@ -112,17 +104,18 @@ public abstract class AbstractTest {
         for (ValidationError validatorError : inputMetric.getInputValidationErrors()) {
             System.out.println("[ERROR] " + validatorError.toString());
         }
-        Assert.assertTrue(inputResult);
+        assertTrue(inputResult);
 
         inputMetric.convert(inputXMLFile, outputXMLFile);
         try {
-            Diff myDiff = DiffBuilder.compare(Input.fromString(readXmlAsString(new File(this.getClass().getResource(expectedResultPath).toURI())))) //
+            Diff myDiff = DiffBuilder.compare(Input.fromString(readXmlAsString(
+                            new File(this.getClass().getResource(expectedResultPath).toURI())))) //
                     .withTest(Input.fromString(readXmlAsString(outputXMLFile))) //
                     .ignoreWhitespace() //
                     .ignoreComments() //
                     .normalizeWhitespace() //
                     .build();
-            Assert.assertFalse(myDiff.toString(), myDiff.hasDifferences());
+            assertFalse(myDiff.hasDifferences(), myDiff.toString());
         } catch (Error | XMLUnitException e) {
             System.err.println(readXmlAsString(outputXMLFile));
             throw e;
@@ -133,6 +126,6 @@ public abstract class AbstractTest {
         for (ValidationError validatorError : inputMetric.getOutputValidationErrors()) {
             System.out.println(validatorError);
         }
-        Assert.assertTrue(outputResult);
+        assertTrue(outputResult);
     }
 }

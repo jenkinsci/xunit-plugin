@@ -23,32 +23,24 @@
  */
 package org.jenkinsci.plugins.xunit.types;
 
-import java.util.Arrays;
-import java.util.Collection;
+import org.junit.jupiter.params.provider.Arguments;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import java.util.stream.Stream;
 
 /**
  * @author Gregory Boissinot
  */
-@RunWith(Parameterized.class)
-public class JUnitTypeTest extends AbstractTest {
+class JUnitTypeTest extends AbstractTest {
 
-    @Parameters(name = "{0}")
-    public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][] { { "test case 1", 1 }, //
-                                              { "test case 2", 2 }, //
-                                              { "test case 3", 3 }, //
-                                              { "test case 4", 4 }, //
-                                              { "support rerun of maven-surefire-plugin version", 5 }, //
-                                              { "support maven surefure report schema version 3", 6 }
-        });
-    }
-
-    public JUnitTypeTest(String testName, int testNumber) {
-        super(JUnitInputMetric.class, resolveInput("junit", testNumber), resolveInput("junit", testNumber));
+    protected Stream<Arguments> data() {
+        return Stream.of(
+                Arguments.of("test case 1", JUnitInputMetric.class, "junit", 1),
+                Arguments.of("test case 2", JUnitInputMetric.class, "junit", 2),
+                Arguments.of("test case 3", JUnitInputMetric.class, "junit", 3),
+                Arguments.of("test case 4", JUnitInputMetric.class, "junit", 4),
+                Arguments.of("support rerun of maven-surefire-plugin version", JUnitInputMetric.class, "junit", 5),
+                Arguments.of("support maven surefire report schema version 3", JUnitInputMetric.class, "junit", 6)
+        );
     }
 
 }

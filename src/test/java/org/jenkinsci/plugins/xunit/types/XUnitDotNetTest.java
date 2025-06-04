@@ -23,30 +23,22 @@
  */
 package org.jenkinsci.plugins.xunit.types;
 
-import java.util.Arrays;
-import java.util.Collection;
+import org.junit.jupiter.params.provider.Arguments;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import java.util.stream.Stream;
 
 
-@RunWith(Parameterized.class)
-public class XUnitDotNetTest extends AbstractTest {
+class XUnitDotNetTest extends AbstractTest {
 
-    @Parameters(name = "{0}")
-    public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][] { { "simple transformation", 1 }, //
-                                              { "JENKINS-33385 testcase does not have package at name", 2 }, //
-                                              { "OS culture aware, use comma instead dot as decimal separator", 3 }, //
-                                              { "JENKINS-51797 xUnit.Net v2 parse error when time attribute is missing", 4 }, //
-                                              { "JENKINS-51977 display name appear to be truncated", 5 }, //
-                                              { "JENKINS-52908 newlines in failure message attribute and XML text are preserved", 6 } //
-        });
-    }
-
-    public XUnitDotNetTest(String testName, int testNumber) {
-        super(XUnitDotNet.class, resolveInput("xunitdotnet", testNumber), resolveOutput("xunitdotnet", testNumber));
+    protected Stream<Arguments> data() {
+        return Stream.of(
+                Arguments.of("simple transformation", XUnitDotNet.class, "xunitdotnet", 1),
+                Arguments.of("JENKINS-33385 testcase does not have package at name", XUnitDotNet.class, "xunitdotnet", 2),
+                Arguments.of("OS culture aware, use comma instead dot as decimal separator", XUnitDotNet.class, "xunitdotnet", 3),
+                Arguments.of("JENKINS-51797 xUnit.Net v2 parse error when time attribute is missing", XUnitDotNet.class, "xunitdotnet", 4),
+                Arguments.of("JENKINS-51977 display name appear to be truncated", XUnitDotNet.class, "xunitdotnet", 5),
+                Arguments.of("JENKINS-52908 newlines in failure message attribute and XML text are preserved", XUnitDotNet.class, "xunitdotnet", 6)
+        );
     }
 
 }

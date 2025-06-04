@@ -23,27 +23,29 @@
  */
 package org.jenkinsci.plugins.xunit.types;
 
-import java.util.Arrays;
-import java.util.Collection;
+import org.junit.jupiter.params.provider.Arguments;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import java.util.stream.Stream;
 
-@RunWith(Parameterized.class)
-public class CUnitTest extends AbstractTest{
 
-    @Parameters(name = "testcase{1}: {0}")
-    public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][] { { "Empty CUNIT_RESULT_LISTING", 1 }, //
-                                              { "1 CUNIT_RUN_SUITE / CUNIT_RUN_SUITE_SUCCESS / 1 CUNIT_TEST_RECORD / CUNIT_RUN_TEST_SUCCESS", 2 }, //
-                                              { "1 CUNIT_RUN_SUITE / CUNIT_RUN_SUITE_SUCCESS / 1 CUNIT_TEST_RECORD / CUNIT_RUN_TEST_FAILURE", 3 }, //
-                                              { "1 CUNIT_RUN_SUITE / CUNIT_RUN_SUITE_SUCCESS / * CUNIT_TEST_RECORD / CUNIT_RUN_TEST_SUCCESS | CUNIT_RUN_TEST_FAILURE", 4 }, //
-                                              { "* CUNIT_RUN_SUITE / CUNIT_RUN_SUITE_SUCCESS / * CUNIT_TEST_RECORD / CUNIT_RUN_TEST_SUCCESS | CUNIT_RUN_TEST_FAILURE", 5 } //
-        });
-    }
+class CUnitTest extends AbstractTest {
 
-    public CUnitTest(String testName, int testNumber) {
-        super(CUnit.class, resolveInput("cunit", testNumber), resolveOutput("cunit", testNumber));
+    protected Stream<Arguments> data() {
+        return Stream.of(
+                Arguments.of("Empty CUNIT_RESULT_LISTING",
+                        CUnit.class, "cunit", 1),
+                Arguments.of(
+                        "1 CUNIT_RUN_SUITE / CUNIT_RUN_SUITE_SUCCESS / 1 CUNIT_TEST_RECORD / CUNIT_RUN_TEST_SUCCESS",
+                        CUnit.class, "cunit", 2),
+                Arguments.of(
+                        "1 CUNIT_RUN_SUITE / CUNIT_RUN_SUITE_SUCCESS / 1 CUNIT_TEST_RECORD / CUNIT_RUN_TEST_FAILURE",
+                        CUnit.class, "cunit", 3),
+                Arguments.of(
+                        "1 CUNIT_RUN_SUITE / CUNIT_RUN_SUITE_SUCCESS / * CUNIT_TEST_RECORD / CUNIT_RUN_TEST_SUCCESS | CUNIT_RUN_TEST_FAILURE",
+                        CUnit.class, "cunit", 4),
+                Arguments.of(
+                        "* CUNIT_RUN_SUITE / CUNIT_RUN_SUITE_SUCCESS / * CUNIT_TEST_RECORD / CUNIT_RUN_TEST_SUCCESS | CUNIT_RUN_TEST_FAILURE",
+                        CUnit.class, "cunit", 5)
+        );
     }
 }

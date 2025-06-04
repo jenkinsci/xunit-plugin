@@ -25,66 +25,47 @@ package org.jenkinsci.plugins.xunit.types;
 
 
 import org.jenkinsci.lib.dtkit.model.InputMetricXSL;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-public class ValidInputMetricXSLTest {
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-    private static List<Class<? extends InputMetricXSL>> listInputMetric = new ArrayList<>();
+class ValidInputMetricXSLTest {
 
-    @BeforeClass
-    public static void loadList() {
-        listInputMetric.add(AUnit.class);
-        listInputMetric.add(BoostTest.class);
-        listInputMetric.add(CppTest.class);
-        listInputMetric.add(CppUnit.class);
-        listInputMetric.add(FPCUnit.class);
-        listInputMetric.add(MSTest.class);
-        listInputMetric.add(NUnit.class);
-        listInputMetric.add(PHPUnit.class);
-        listInputMetric.add(UnitTest.class);
-    }
+    private static final List<Class<? extends InputMetricXSL>> LIST_INPUT_METRIC = List.of(
+            AUnit.class, BoostTest.class, CppTest.class, CppUnit.class, FPCUnit.class, MSTest.class,
+            NUnit.class, PHPUnit.class, UnitTest.class);
 
     @Test
-    public void testAllTypes() throws Exception {
-        for (Class<? extends InputMetricXSL> inputMetricXSLClass : listInputMetric) {
-            InputMetricXSL inputMetricXSL = inputMetricXSLClass.getDeclaredConstructor().newInstance();
+    void testAllTypes() throws Exception {
+        for (Class<? extends InputMetricXSL> inputMetricXSLClass : LIST_INPUT_METRIC) {
+            InputMetricXSL inputMetricXSL = inputMetricXSLClass.getDeclaredConstructor()
+                    .newInstance();
 
             //The following elements must be set
-            Assert.assertNotNull(inputMetricXSL.getOutputFormatType());
-            Assert.assertNotNull(inputMetricXSL.getXslName());
-            Assert.assertNotNull(inputMetricXSL.getToolName());
-            Assert.assertNotNull(inputMetricXSL.getToolVersion());
-            Assert.assertNotNull(inputMetricXSL.getToolType());
+            assertNotNull(inputMetricXSL.getOutputFormatType());
+            assertNotNull(inputMetricXSL.getXslName());
+            assertNotNull(inputMetricXSL.getToolName());
+            assertNotNull(inputMetricXSL.getToolVersion());
+            assertNotNull(inputMetricXSL.getToolType());
 
             //The xsl must exist
-            try {
-                new File(inputMetricXSL.getClass().getResource(inputMetricXSL.getXslName()).toURI());
-                Assert.assertTrue(true);
-            } catch (NullPointerException npe) {
-                Assert.fail(inputMetricXSL.getXslName() + " doesn't exist.");
-            }
+            assertDoesNotThrow(() -> new File(
+                            inputMetricXSL.getClass().getResource(inputMetricXSL.getXslName()).toURI()),
+                    inputMetricXSL.getXslName() + " doesn't exist.");
 
             //The xsd must exist if it sets
             if (inputMetricXSL.getInputXsdNameList() != null) {
-                try {
-                    for (int i = 0; i < inputMetricXSL.getInputXsdNameList().length; i++) {
-                        new File(inputMetricXSL.getClass().getResource(inputMetricXSL.getInputXsdNameList()[i]).toURI());
-                    }
-
-                    Assert.assertTrue(true);
-                } catch (NullPointerException npe) {
-                    Assert.fail("one of" + Arrays.toString(inputMetricXSL.getInputXsdNameList()) + " doesn't exist.");
+                for (int i = 0; i < inputMetricXSL.getInputXsdNameList().length; i++) {
+                    String name = inputMetricXSL.getInputXsdNameList()[i];
+                    assertDoesNotThrow(
+                            () -> new File(inputMetricXSL.getClass().getResource(name).toURI()),
+                            name + " doesn't exist.");
                 }
             }
-
-
         }
     }
 }

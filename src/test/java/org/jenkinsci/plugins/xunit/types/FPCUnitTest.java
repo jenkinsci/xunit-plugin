@@ -23,25 +23,17 @@
  */
 package org.jenkinsci.plugins.xunit.types;
 
-import java.util.Arrays;
-import java.util.Collection;
+import org.junit.jupiter.params.provider.Arguments;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import java.util.stream.Stream;
 
-@RunWith(Parameterized.class)
-public class FPCUnitTest extends AbstractTest {
+class FPCUnitTest extends AbstractTest {
 
-    @Parameters(name = "testcase{1}: {0}")
-    public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][] { { "success", 1 }, //
-                                              { "failure", 2 } //
-        });
-    }
-
-    public FPCUnitTest(String testName, int testNumber) {
-        super(FPCUnit.class, resolveInput("fpcunit", testNumber), resolveOutput("fpcunit", testNumber));
+    protected Stream<Arguments> data() {
+        return Stream.of(
+                Arguments.of("success", FPCUnit.class, "fpcunit", 1),
+                Arguments.of("failure", FPCUnit.class, "fpcunit", 2)
+        );
     }
 
 }
