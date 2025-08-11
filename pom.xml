@@ -52,7 +52,7 @@
         <gitHubRepo>jenkinsci/${project.artifactId}-plugin</gitHubRepo>
 
         <!-- dependencies versions -->
-        <assertj.version>3.27.3</assertj.version>
+        <assertj.version>3.27.4</assertj.version>
         <dtkit-api.version>3.0.3</dtkit-api.version>
         <xmlunit.version>2.10.2</xmlunit.version>
     </properties>
