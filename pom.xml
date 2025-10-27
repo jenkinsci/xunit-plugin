@@ -54,7 +54,7 @@
         <!-- dependencies versions -->
         <assertj.version>3.27.3</assertj.version>
         <dtkit-api.version>3.0.3</dtkit-api.version>
-        <xmlunit.version>2.10.2</xmlunit.version>
+        <xmlunit.version>2.11.0</xmlunit.version>
     </properties>
 
     <repositories>
