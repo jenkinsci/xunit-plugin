@@ -1,0 +1,14 @@
+<TestLog>
+    <TestSuite name="MyModule">
+        <TestSuite name="GroupA">
+            <TestCase name="direct_case_in_A">
+                <TestingTime>1000</TestingTime>
+            </TestCase>
+            <TestSuite name="SubGroup">
+                <TestCase name="case_in_subgroup">
+                    <TestingTime>1000</TestingTime>
+                </TestCase>
+            </TestSuite>
+        </TestSuite>
+    </TestSuite>
+</TestLog>

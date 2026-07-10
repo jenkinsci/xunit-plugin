@@ -23,9 +23,9 @@
  */
 package org.jenkinsci.plugins.xunit.types;
 
-import org.junit.jupiter.params.provider.Arguments;
-
 import java.util.stream.Stream;
+
+import org.junit.jupiter.params.provider.Arguments;
 
 class BoostTestTest extends AbstractTest {
 
@@ -55,7 +55,8 @@ class BoostTestTest extends AbstractTest {
                 Arguments.of("skipped", BoostTest.class, "boosttest", 22),
                 Arguments.of("exception-context", BoostTest.class, "boosttest", 23),
                 Arguments.of("wrong_classname", BoostTest.class, "boosttest", 24),
-                Arguments.of("parse_error", BoostTest.class, "boosttest", 25)
+                Arguments.of("parse_error", BoostTest.class, "boosttest", 25),
+                Arguments.of("JENKINS-76500", BoostTest.class, "boosttest", 26)
         );
     }
 

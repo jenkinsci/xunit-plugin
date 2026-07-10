@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite tests="2" errors="0" failures="0" name="MyModule">
+   <testsuite tests="2"
+              errors="0"
+              failures="0"
+              name="MyModule\GroupA"
+              skipped="0">
+      <testcase classname="MyModule.GroupA" name="direct_case_in_A" time="0.001"/>
+   </testsuite>
+   <testsuite tests="1"
+              errors="0"
+              failures="0"
+              name="MyModule\GroupA\SubGroup"
+              skipped="0">
+      <testcase classname="MyModule.GroupA.SubGroup"
+                name="case_in_subgroup"
+                time="0.001"/>
+   </testsuite>
+</testsuite>

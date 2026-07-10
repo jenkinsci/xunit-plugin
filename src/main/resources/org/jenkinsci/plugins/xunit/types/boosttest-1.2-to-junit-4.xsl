@@ -157,7 +157,7 @@ THE SOFTWARE.
                 <xsl:value-of select="count(//TestCase[@skipped='yes'])"/>
             </xsl:attribute>
 
-            <xsl:for-each select=".//TestCase">
+            <xsl:for-each select="TestCase">
                 <xsl:call-template name="testCase"/>
             </xsl:for-each>
         </xsl:element>
